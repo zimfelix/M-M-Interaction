@@ -37,8 +37,8 @@ Hardware-Optionen für Steuerung + Display:
 
 ## Offen – vor der Umsetzung klären
 
-1. **Arbeitsmodus:** Shipping, Learning oder Kombination? Welche Teile will Felix selbst bauen/programmieren? Autonomiespielraum des Agenten?
-2. **Harness:** Agentic Harness aus `~/Code/leadfinder` per `agentic-harness/tools/export-harness.sh` übernehmen (dann diesen Brief nach `agentic-harness/project/brief.md` verschieben) oder schlank bleiben?
+1. ✅ **Arbeitsmodus** – entschieden, siehe unten.
+2. ✅ **Harness** – entschieden, siehe unten.
 3. **Wer ist „wir“?** Team, Rollen, Zuständigkeiten (Hardware/Software), Name „M-M“ – Bedeutung?
 4. **Zweck und Umfang:** Hobby, Schul-/Uniprojekt, Prototyp für ein Produkt? Termin? Budget?
 5. **Kulturen:** nur Pilze (welche Sorten?) oder auch Pflanzen? Daraus folgen Zielwerte (Feuchte, Temperatur, CO₂, Licht, Frischluft).
@@ -48,3 +48,14 @@ Hardware-Optionen für Steuerung + Display:
 9. **App:** Was heißt „App“ – Web-App im Browser (am einfachsten), native Handy-App oder z. B. Home Assistant? Nur im Heim-WLAN oder auch unterwegs? Wer darf zugreifen?
 10. **Funktionen:** nur Anzeigen + manuell schalten oder automatische Regelung mit Zielwerten, Zeitplänen, Verlauf/Diagrammen, Alarmen?
 11. **Technologie-Stack Software:** Sprache (vermutlich Python auf dem Pi), lokale UI-Technik, Kommunikation (HTTP/WebSocket, MQTT).
+
+## Entscheidungen im Project Init
+
+Von Felix bestätigt. Am Ende des Init werden sie nach `agentic-harness/harness/project.md` bzw. `agentic-harness/docs/` übertragen.
+
+| # | Thema | Entscheidung |
+|---|---|---|
+| 1 | Arbeitsmodus | **Shipping**: zügig eine nutzbare Box; Erklärungen kurz und entscheidungsorientiert. |
+| 1 | Selbst bauen | **Felix (bzw. das Team) baut Hardware und Verkabelung selbst**, nach Anleitung des Agenten; die Software schreibt der Agent. |
+| 1 | Autonomie | Innerhalb eines freigegebenen Schritts schreibt, testet und committet der Agent lokal selbst. **Rückfrage vor:** Push, neuen Dependencies, Architekturänderungen, Einkäufen. |
+| 2 | Harness | **Agentic Harness aus `~/Code/leadfinder` übernommen** (Export unverändert, Commit `30d74e2`); dieser Brief liegt jetzt unter `agentic-harness/project/brief.md`. |
