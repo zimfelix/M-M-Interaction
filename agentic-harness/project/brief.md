@@ -39,10 +39,10 @@ Hardware-Optionen für Steuerung + Display:
 
 1. ✅ **Arbeitsmodus** – entschieden, siehe unten.
 2. ✅ **Harness** – entschieden, siehe unten.
-3. **Wer ist „wir“?** Team, Rollen, Zuständigkeiten (Hardware/Software), Name „M-M“ – Bedeutung?
-4. **Zweck und Umfang:** Hobby, Schul-/Uniprojekt, Prototyp für ein Produkt? Termin? Budget?
-5. **Kulturen:** nur Pilze (welche Sorten?) oder auch Pflanzen? Daraus folgen Zielwerte (Feuchte, Temperatur, CO₂, Licht, Frischluft).
-6. **Box:** Größe, Material, selbst gebaut oder umgebauter Schrank/Zelt? Wasserversorgung, Strom, Sicherheit (Netzspannung, Feuchtigkeit!).
+3. ✅ **Wer ist „wir“?** – entschieden, siehe unten (Teamgröße nicht relevant). Team, Rollen, Zuständigkeiten (Hardware/Software), Name „M-M“ – Bedeutung?
+4. ✅ **Zweck und Umfang** – entschieden, siehe unten. Ursprüngliche Frage: Hobby, Schul-/Uniprojekt, Prototyp für ein Produkt? Termin? Budget?
+5. ✅ **Kulturen** – entschieden, siehe unten. Ursprüngliche Frage: nur Pilze (welche Sorten?) oder auch Pflanzen? Daraus folgen Zielwerte (Feuchte, Temperatur, CO₂, Licht, Frischluft).
+6. ✅ **Box** – entschieden, siehe unten. Ursprüngliche Frage: Größe, Material, selbst gebaut oder umgebauter Schrank/Zelt? Wasserversorgung, Strom, Sicherheit (Netzspannung, Feuchtigkeit!).
 7. **Steuerrechner + Display:** Pi + Display, Komplettgerät oder ESP32? Bereits vorhandene Hardware?
 8. **Sensoren/Aktoren:** konkrete Auswahl (z. B. SCD41 für CO₂/Temp/Feuchte; Ultraschallvernebler, Lüfter, LED, ggf. Heizung).
 9. **App:** Was heißt „App“ – Web-App im Browser (am einfachsten), native Handy-App oder z. B. Home Assistant? Nur im Heim-WLAN oder auch unterwegs? Wer darf zugreifen?
@@ -59,3 +59,12 @@ Von Felix bestätigt. Am Ende des Init werden sie nach `agentic-harness/harness/
 | 1 | Selbst bauen | **Felix (bzw. das Team) baut Hardware und Verkabelung selbst**, nach Anleitung des Agenten; die Software schreibt der Agent. |
 | 1 | Autonomie | Innerhalb eines freigegebenen Schritts schreibt, testet und committet der Agent lokal selbst. **Rückfrage vor:** Push, neuen Dependencies, Architekturänderungen, Einkäufen. |
 | 2 | Harness | **Agentic Harness aus `~/Code/leadfinder` übernommen** (Export unverändert, Commit `30d74e2`); dieser Brief liegt jetzt unter `agentic-harness/project/brief.md`. |
+| 3 | Team und Rollen | Uni-Projektgruppe. **Felix:** baut die Growbox physisch und das Mini-Display an der Box (Mechatronik ist neu für ihn). **Die App baut ein anderes Teammitglied.** Unser Teil muss so laufen, dass Box, Display und App synchron sind. |
+| 4 | Zweck | **Uni-Projekt mit Schwerpunkt Mensch-Maschine-Interaktion (HMI).** Die Bedienung am Gerät muss sehr einfach sein und möglichst alle Altersgruppen abdecken. Die Kultur ist zweitrangig. |
+| 4 | Bedienidee | Wenige große Funktionen, z. B. **Alarm**, **Licht**, **Temperatur**; der genaue Inhalt ist noch offen. |
+| 4 | Budget | **150–300 €** für die gesamte Hardware. |
+| 4 | Termin | **Abgabe/Präsentation in ca. 2 Wochen** (Stand 2026-10-26, also etwa 2026-11-09). Folge: Teile fertig kaufen, Funktionsumfang minimal. |
+| 3 | Name | **„M-M“ = Mensch-Maschine** → M-M Interaction = Mensch-Maschine-Interaktion (HMI). |
+| 6 | Box | **Plexiglas-Kasten wie ein Aquarium**, ca. **20 cm** groß. |
+| 5 | Kultur | **Pilze** (z. B. ein fertig durchwachsenes Austernpilz-Zuchtset, damit innerhalb von 2 Wochen etwas sichtbar ist). |
+| 6 | Lage der Elektronik | **Pi und Display außen in einem eigenen Bedienteil-Gehäuse**; im Plexi-Kasten nur Sensor und Aktoren, per Kabel verbunden. |
