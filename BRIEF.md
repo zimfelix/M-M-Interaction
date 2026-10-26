@@ -43,11 +43,11 @@ Hardware-Optionen für Steuerung + Display:
 4. ✅ **Zweck und Umfang** – entschieden, siehe unten. Ursprüngliche Frage: Hobby, Schul-/Uniprojekt, Prototyp für ein Produkt? Termin? Budget?
 5. ✅ **Kulturen** – entschieden, siehe unten. Ursprüngliche Frage: nur Pilze (welche Sorten?) oder auch Pflanzen? Daraus folgen Zielwerte (Feuchte, Temperatur, CO₂, Licht, Frischluft).
 6. ✅ **Box** – entschieden, siehe unten. Ursprüngliche Frage: Größe, Material, selbst gebaut oder umgebauter Schrank/Zelt? Wasserversorgung, Strom, Sicherheit (Netzspannung, Feuchtigkeit!).
-7. **Steuerrechner + Display:** Pi + Display, Komplettgerät oder ESP32? Bereits vorhandene Hardware?
-8. **Sensoren/Aktoren:** konkrete Auswahl (z. B. SCD41 für CO₂/Temp/Feuchte; Ultraschallvernebler, Lüfter, LED, ggf. Heizung).
-9. **App:** Was heißt „App“ – Web-App im Browser (am einfachsten), native Handy-App oder z. B. Home Assistant? Nur im Heim-WLAN oder auch unterwegs? Wer darf zugreifen?
-10. **Funktionen:** nur Anzeigen + manuell schalten oder automatische Regelung mit Zielwerten, Zeitplänen, Verlauf/Diagrammen, Alarmen?
-11. **Technologie-Stack Software:** Sprache (vermutlich Python auf dem Pi), lokale UI-Technik, Kommunikation (HTTP/WebSocket, MQTT).
+7. ✅ **Steuerrechner + Display:** Pi + Display, Komplettgerät oder ESP32? Bereits vorhandene Hardware?
+8. ✅ **Sensoren/Aktoren:** konkrete Auswahl (z. B. SCD41 für CO₂/Temp/Feuchte; Ultraschallvernebler, Lüfter, LED, ggf. Heizung).
+9. ✅ **App:** Was heißt „App“ – Web-App im Browser (am einfachsten), native Handy-App oder z. B. Home Assistant? Nur im Heim-WLAN oder auch unterwegs? Wer darf zugreifen?
+10. ✅ **Funktionen:** nur Anzeigen + manuell schalten oder automatische Regelung mit Zielwerten, Zeitplänen, Verlauf/Diagrammen, Alarmen?
+11. ✅ **Technologie-Stack Software:** Sprache (vermutlich Python auf dem Pi), lokale UI-Technik, Kommunikation (HTTP/WebSocket, MQTT).
 
 ## Entscheidungen im Project Init
 
@@ -63,7 +63,7 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | 4 | Zweck | **Uni-Projekt mit Schwerpunkt Mensch-Maschine-Interaktion (HMI).** Die Bedienung am Gerät muss sehr einfach sein und möglichst alle Altersgruppen abdecken. Die Kultur ist zweitrangig. |
 | 4 | Bedienidee | Wenige große Funktionen, z. B. **Alarm**, **Licht**, **Temperatur**; der genaue Inhalt ist noch offen. |
 | 4 | Budget | **150–300 €** für die gesamte Hardware. |
-| 4 | Termin | **Abgabe/Präsentation in ca. 2 Wochen** (Stand 2026-10-26, also etwa 2026-11-09). Folge: Teile fertig kaufen, Funktionsumfang minimal. |
+| 4 | Termin | **Präsentation 05.11.2026, 10:00 · Abgabe 08.11.2026, 23:59** (Folie 5, von Felix bestätigt). |
 | 3 | Name | **„M-M“ = Mensch-Maschine** → M-M Interaction = Mensch-Maschine-Interaktion (HMI). |
 | 6 | Box | **Plexiglas-Kasten wie ein Aquarium**, ca. **20 cm** groß. |
 | 5 | Kultur | **Pilze** (z. B. ein fertig durchwachsenes Austernpilz-Zuchtset, damit innerhalb von 2 Wochen etwas sichtbar ist). |
@@ -71,9 +71,10 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | 7 | Bedienkonzept | **Touch-Display + ein physischer Taster** mit fester Bedeutung **Licht an/aus** (kein Modus; Ergebnis direkt durchs Plexiglas sichtbar). |
 | 8 | Aktoren | **LED-Licht** gesetzt; Lüfter und Vernebler empfohlen, Bestätigung offen. |
 | 4 | **Schwerpunkt** | **Interaktionskonzept vor Technik.** HCI-Prüfungsleistung (Prof. Zagel), Option B: Booklet je 5 Seiten pro Person (50 %) + Prototyp (50 %), bewertet nach Bezug zu Vorlesungstheorien, HCI-Grundprinzipien und beschriebener Technik. Funktionen sind zweitrangig; die Uni hat fast alle Bauteile. Ein Prototyp darf auch Papier- oder Klick-Prototyp sein. |
-| 4 | Termin (prüfen) | Folie 5 nennt Präsentation 05.11. 10:00 und Abgabe 08.11. 23:59 – mit Jahr 2025; für 2026 bestätigen. |
-| 7–8 | Hardware-Details | **Zurückgestellt**, bis das Konzept steht. Bisheriger Vorschlag: Pi 5 + Touch Display 2 (5″), SHT41, LED/Lüfter/Vernebler mit 5 V. |
+| 7–8 | Hardware | **Raspberry Pi + Touch Display 2 (5″)** an der Box. **Echt:** Taster und LED. **Simuliert:** Feuchte und Temperatur (für die Vorführung umschaltbar). Lüfter, Vernebler und Sensor sind nicht Teil des Prototyps. |
 | – | **Leitidee** | **B „Radikal einfach“:** ein großer Zustand (Farbe + Symbol + ein Satz), darunter drei große Kacheln. Verworfen: A „Pilz-Begleiter“ (Charakter, Gamification), C „Physisch zuerst“ (Taster/Drehknopf/LED-Ring). |
 | 10 | Startbild | Große **Zustandsanzeige mit 3 Stufen** – „Alles gut“ / „Bald kümmern“ / „Jetzt handeln“ – jeweils Farbe + Symbol + ein Satz. |
 | 10 | Kacheln | **Licht · Klima · Hinweise.** Klima = Feuchte + Temperatur; Hinweise = Alarme mit Handlungsanweisung. |
 | – | Prototyp | **Papierprototyp → Klick-Prototyp auf dem echten 5″-Display an der Box**, Messwerte simuliert und für die Vorführung umschaltbar. |
+| 9 | App-Anbindung | **Live-Synchronität im Prototyp:** Der Pi hält den einzigen Zustand und bietet eine Schnittstelle (HTTP + Live-Updates) an; Display und App des Teammitglieds sind zwei Ansichten davon (MVC). |
+| 11 | Display-Technik | **Web-Oberfläche im Vollbild-Browser (Kiosk)** auf dem Pi; am Laptop ohne Hardware testbar. |
