@@ -51,14 +51,14 @@ Hardware-Optionen für Steuerung + Display:
 
 ## Entscheidungen im Project Init
 
-Von Felix bestätigt. Am Ende des Init werden sie nach `agentic-harness/harness/project.md` bzw. `agentic-harness/docs/` übertragen.
+Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird ersetzt.
 
 | # | Thema | Entscheidung |
 |---|---|---|
 | 1 | Arbeitsmodus | **Shipping**: zügig eine nutzbare Box; Erklärungen kurz und entscheidungsorientiert. |
 | 1 | Selbst bauen | **Felix (bzw. das Team) baut Hardware und Verkabelung selbst**, nach Anleitung des Agenten; die Software schreibt der Agent. |
 | 1 | Autonomie | Innerhalb eines freigegebenen Schritts schreibt, testet und committet der Agent lokal selbst. **Rückfrage vor:** Push, neuen Dependencies, Architekturänderungen, Einkäufen. |
-| 2 | Harness | **Agentic Harness aus `~/Code/leadfinder` übernommen** (Export unverändert, Commit `30d74e2`); dieser Brief liegt jetzt unter `agentic-harness/project/brief.md`. |
+| 2 | Harness | **Schlank, ohne Agentic Harness** (am 2026-10-26 übernommen und wieder entfernt). Projektregeln: `AGENTS.md`; Entscheidungen: diese Datei; Vorlesungsbezug: `HCI-KONZEPTE.md`. |
 | 3 | Team und Rollen | Uni-Projektgruppe. **Felix:** baut die Growbox physisch und das Mini-Display an der Box (Mechatronik ist neu für ihn). **Die App baut ein anderes Teammitglied.** Unser Teil muss so laufen, dass Box, Display und App synchron sind. |
 | 4 | Zweck | **Uni-Projekt mit Schwerpunkt Mensch-Maschine-Interaktion (HMI).** Die Bedienung am Gerät muss sehr einfach sein und möglichst alle Altersgruppen abdecken. Die Kultur ist zweitrangig. |
 | 4 | Bedienidee | Wenige große Funktionen, z. B. **Alarm**, **Licht**, **Temperatur**; der genaue Inhalt ist noch offen. |
@@ -70,3 +70,7 @@ Von Felix bestätigt. Am Ende des Init werden sie nach `agentic-harness/harness/
 | 6 | Lage der Elektronik | **Pi und Display außen in einem eigenen Bedienteil-Gehäuse**; im Plexi-Kasten nur Sensor und Aktoren, per Kabel verbunden. |
 | 7 | Bedienkonzept | **Touch-Display mit großen Kacheln + ein physischer Taster** (Alarm/Quittieren), damit die Box auch ohne Touch bedienbar ist. |
 | 8 | Aktoren | **LED-Licht** gesetzt; Lüfter und Vernebler empfohlen, Bestätigung offen. |
+| 4 | **Schwerpunkt** | **Interaktionskonzept vor Technik.** HCI-Prüfungsleistung (Prof. Zagel), Option B: Booklet je 5 Seiten pro Person (50 %) + Prototyp (50 %), bewertet nach Bezug zu Vorlesungstheorien, HCI-Grundprinzipien und beschriebener Technik. Funktionen sind zweitrangig; die Uni hat fast alle Bauteile. Ein Prototyp darf auch Papier- oder Klick-Prototyp sein. |
+| 4 | Termin (prüfen) | Folie 5 nennt Präsentation 05.11. 10:00 und Abgabe 08.11. 23:59 – mit Jahr 2025; für 2026 bestätigen. |
+| 7–8 | Hardware-Details | **Zurückgestellt**, bis das Konzept steht. Bisheriger Vorschlag: Pi 5 + Touch Display 2 (5″), SHT41, LED/Lüfter/Vernebler mit 5 V. |
+| – | **Leitidee** | **B „Radikal einfach“:** ein großer Zustand (Farbe + Symbol + ein Satz), darunter drei große Kacheln. Verworfen: A „Pilz-Begleiter“ (Charakter, Gamification), C „Physisch zuerst“ (Taster/Drehknopf/LED-Ring). |
