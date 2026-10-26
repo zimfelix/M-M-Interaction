@@ -68,9 +68,12 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | 6 | Box | **Plexiglas-Kasten wie ein Aquarium**, ca. **20 cm** groß. |
 | 5 | Kultur | **Pilze** (z. B. ein fertig durchwachsenes Austernpilz-Zuchtset, damit innerhalb von 2 Wochen etwas sichtbar ist). |
 | 6 | Lage der Elektronik | **Pi und Display außen in einem eigenen Bedienteil-Gehäuse**; im Plexi-Kasten nur Sensor und Aktoren, per Kabel verbunden. |
-| 7 | Bedienkonzept | **Touch-Display mit großen Kacheln + ein physischer Taster** (Alarm/Quittieren), damit die Box auch ohne Touch bedienbar ist. |
+| 7 | Bedienkonzept | **Touch-Display + ein physischer Taster** mit fester Bedeutung **Licht an/aus** (kein Modus; Ergebnis direkt durchs Plexiglas sichtbar). |
 | 8 | Aktoren | **LED-Licht** gesetzt; Lüfter und Vernebler empfohlen, Bestätigung offen. |
 | 4 | **Schwerpunkt** | **Interaktionskonzept vor Technik.** HCI-Prüfungsleistung (Prof. Zagel), Option B: Booklet je 5 Seiten pro Person (50 %) + Prototyp (50 %), bewertet nach Bezug zu Vorlesungstheorien, HCI-Grundprinzipien und beschriebener Technik. Funktionen sind zweitrangig; die Uni hat fast alle Bauteile. Ein Prototyp darf auch Papier- oder Klick-Prototyp sein. |
 | 4 | Termin (prüfen) | Folie 5 nennt Präsentation 05.11. 10:00 und Abgabe 08.11. 23:59 – mit Jahr 2025; für 2026 bestätigen. |
 | 7–8 | Hardware-Details | **Zurückgestellt**, bis das Konzept steht. Bisheriger Vorschlag: Pi 5 + Touch Display 2 (5″), SHT41, LED/Lüfter/Vernebler mit 5 V. |
 | – | **Leitidee** | **B „Radikal einfach“:** ein großer Zustand (Farbe + Symbol + ein Satz), darunter drei große Kacheln. Verworfen: A „Pilz-Begleiter“ (Charakter, Gamification), C „Physisch zuerst“ (Taster/Drehknopf/LED-Ring). |
+| 10 | Startbild | Große **Zustandsanzeige mit 3 Stufen** – „Alles gut“ / „Bald kümmern“ / „Jetzt handeln“ – jeweils Farbe + Symbol + ein Satz. |
+| 10 | Kacheln | **Licht · Klima · Hinweise.** Klima = Feuchte + Temperatur; Hinweise = Alarme mit Handlungsanweisung. |
+| – | Prototyp | **Papierprototyp → Klick-Prototyp auf dem echten 5″-Display an der Box**, Messwerte simuliert und für die Vorführung umschaltbar. |
