@@ -68,3 +68,5 @@ Von Felix bestätigt. Am Ende des Init werden sie nach `agentic-harness/harness/
 | 6 | Box | **Plexiglas-Kasten wie ein Aquarium**, ca. **20 cm** groß. |
 | 5 | Kultur | **Pilze** (z. B. ein fertig durchwachsenes Austernpilz-Zuchtset, damit innerhalb von 2 Wochen etwas sichtbar ist). |
 | 6 | Lage der Elektronik | **Pi und Display außen in einem eigenen Bedienteil-Gehäuse**; im Plexi-Kasten nur Sensor und Aktoren, per Kabel verbunden. |
+| 7 | Bedienkonzept | **Touch-Display mit großen Kacheln + ein physischer Taster** (Alarm/Quittieren), damit die Box auch ohne Touch bedienbar ist. |
+| 8 | Aktoren | **LED-Licht** gesetzt; Lüfter und Vernebler empfohlen, Bestätigung offen. |
