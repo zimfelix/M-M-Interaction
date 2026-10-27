@@ -23,7 +23,7 @@ Zeichnungen der Box: `konzept/index.html` (Front-Skizze, Sockel, technische Zeic
 ## Offen
 
 - **Türschalter** (Magnetschalter, meldet „Tür offen“ ans Display): echt, simuliert oder weglassen?
-- **Bedienfeld/Technikraum:** Holz oder gedruckt?
+- **LED-Streifen:** Spannung (5 V oder 12 V) und Ansteuerung über MOSFET am Pi festlegen; der Code steuert bisher eine einzelne LED.
 
 ## Entscheidungen
 
@@ -45,7 +45,7 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | 5 | Kultur | **Pilze** (z. B. ein fertig durchwachsenes Austernpilz-Zuchtset, damit innerhalb von 2 Wochen etwas sichtbar ist). |
 | 6 | Lage der Elektronik | **Im Technikraum hinter dem Bedienfeld:** Pi, Kabel, später Wassertank (Vernebler) und Lüfter mit Schlitzen zur Pilzkammer. In der Pilzkammer nur LED und ggf. Sensor. |
 | 7 | Bedienkonzept | **Touch-Display (iPhone) + ein physischer Taster** mit fester Bedeutung **Licht an/aus** (kein Modus; Ergebnis direkt durchs Plexiglas sichtbar). |
-| 8 | Aktoren | **LED-Licht** im Deckel (echt). Lüfter und Vernebler sind im Technikraum vorgesehen, aber nicht Teil des Prototyps. |
+| 8 | Aktoren | **Licht: 4 LED-Streifen rundum im oberen Rahmen**, verdeckt im LED-Kanal der oberen Profile (Schürze außen, Blende innen); Deckel bleibt kabelfrei. Lüfter und Vernebler sind im Technikraum vorgesehen, aber nicht Teil des Prototyps. |
 | 4 | **Schwerpunkt** | **Interaktionskonzept vor Technik.** HCI-Prüfungsleistung (Prof. Zagel), Option B: Booklet je 5 Seiten pro Person (50 %) + Prototyp (50 %), bewertet nach Bezug zu Vorlesungstheorien, HCI-Grundprinzipien und beschriebener Technik. Funktionen sind zweitrangig; die Uni hat fast alle Bauteile. Ein Prototyp darf auch Papier- oder Klick-Prototyp sein. |
 | 7–8 | Hardware | **Raspberry Pi bleibt Steuerrechner; als Display dient ein fest eingebautes iPhone 13 mini** (statt Touch Display 2), das die Web-Oberfläche des Pi über WLAN zeigt; Dauerstrom per Kabel. **Echt:** Taster und LED. **Simuliert:** Feuchte und Temperatur (für die Vorführung umschaltbar). Lüfter, Vernebler und Sensor sind nicht Teil des Prototyps. |
 | – | **Leitidee** | **B „Radikal einfach“:** ein großer Zustand (Farbe + Symbol + ein Satz), darunter drei große Kacheln. Verworfen: A „Pilz-Begleiter“ (Charakter, Gamification), C „Physisch zuerst“ (Taster/Drehknopf/LED-Ring). |
