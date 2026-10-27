@@ -40,7 +40,7 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | 4 | Budget | **150–300 €** für die gesamte Hardware. |
 | 4 | Termin | **Präsentation 05.11.2026, 10:00 · Abgabe 08.11.2026, 23:59** (Folie 5, von Felix bestätigt). |
 | 3 | Name | **„M-M“ = Mensch-Maschine** → M-M Interaction = Mensch-Maschine-Interaktion (HMI). |
-| 6 | Box | **Aufbau wie eine Mikrowelle:** links die Pilzkammer (ca. 20 × 20 × 20 cm) aus Plexi mit LED im Deckel und blickdichtem Sockelrand (ca. 5 cm, Erde verdeckt); rechts ein blickdichter **Technikraum** (7,5 cm breit, volle Tiefe, Holz oder gedruckt) mit Bedienfeld vorn. Skizze: `konzept/skizze-box.html`; Druckteil Bedienfeld-Front 75 × 200 × 10 mm: `konzept/zeichnung-bedienfeld.html`. |
+| 6 | Box | **Aufbau wie eine Mikrowelle, außen 335 × 250 × 200 mm:** links die Pilzkammer (250 breit) aus 3-mm-Plexi, rechts der blickdichte **Technikraum** (85 breit, volle Tiefe) mit Bedienfeld vorn. **Gestell aus dem 3D-Drucker** wie beim Creality K2 Plus: schwarze Profile 15 × 15 mit Eck- und T-Stücken, Scheiben in Nuten, senkrechtes Profil zwischen Tür und Bedienfeld; Sockel 30 mm dunkelbraun gedruckt; Deckel abnehmbar mit Griff. Alle Teile ≤ 250 mm für das 255er-Druckbett. Zeichnungen: `konzept/index.html`. |
 | 6 | Tür und Griff | **Fronttür aus Plexi, Scharniere links**, langer **senkrechter Stangengriff** (wie IKEA) zwischen Tür und Bedienfeld. |
 | 5 | Kultur | **Pilze** (z. B. ein fertig durchwachsenes Austernpilz-Zuchtset, damit innerhalb von 2 Wochen etwas sichtbar ist). |
 | 6 | Lage der Elektronik | **Im Technikraum hinter dem Bedienfeld:** Pi, Kabel, später Wassertank (Vernebler) und Lüfter mit Schlitzen zur Pilzkammer. In der Pilzkammer nur LED und ggf. Sensor. |
