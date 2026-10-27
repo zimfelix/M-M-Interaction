@@ -22,7 +22,7 @@ Aktueller Stand der Box als Bilder (direkt auf GitHub sichtbar). Lokal gibt es d
 
 Ergänzt die Zeichnungen oben, ersetzt sie nicht. Die älteren Stände bleiben als Dokumentation unverändert.
 
-### 5 · Gestell V2: dickere obere Verbindungsstücke
+### 5 · Gestell V2: verdeckte LED-Streifen oben
 
 ![Gestell V2](bilder/skizze-gestell-v2.svg)
 
