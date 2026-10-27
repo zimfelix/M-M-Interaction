@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Bedienfeld-Front Zeichnung</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600&display=swap">
+<style>
+html,body{margin:0;background:#ffffff}
+svg{display:block;width:100%;max-width:1400px;height:auto;margin:0 auto}
+text{font-family:'IBM Plex Sans Condensed',Arial Narrow,sans-serif;fill:#111}
+.ln{fill:none;stroke:#111;stroke-width:2}
+.thin{fill:none;stroke:#111;stroke-width:1}
+.hid{fill:none;stroke:#111;stroke-width:1.2;stroke-dasharray:7 4}
+.ctr{fill:none;stroke:#111;stroke-width:0.8;stroke-dasharray:14 3 2 3}
+.dim{fill:none;stroke:#111;stroke-width:0.9}
+.d{font-size:15px}
+.lbl{font-size:14px}
+.h{font-size:17px;font-weight:600}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1120 840" role="img" aria-label="Technische Zeichnung der 3D-gedruckten Bedienfeld-Front: Vorderansicht 75 mal 200 Millimeter mit Tasche für das iPhone 13 mini, Sichtöffnung, Kerbe für den Lightning-Stecker und Loch für den Taster; Schnitt A-A mit 2 Millimeter Lippe und 8 Millimeter Taschentiefe; Maßtabellen">
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 2 L10 5 L0 8 Z" fill="#111"></path></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#111" stroke-width="0.8"></line></pattern>
+</defs>
+
+<!-- Rahmen der Zeichnung -->
+<rect x="10" y="10" width="1100" height="820" class="thin"></rect>
+
+<!-- ========== VORDERANSICHT (1 mm = 3 px) ========== -->
+<text x="120" y="38" class="h">Vorderansicht</text>
+<!-- Außenkontur 75 × 200 -->
+<rect x="120" y="110" width="225" height="600" rx="6" class="ln"></rect>
+<!-- Tasche (verdeckt hinter der Lippe) 64,6 × 131,9, R10 -->
+<rect x="135.6" y="140" width="193.8" height="395.7" rx="30" class="hid"></rect>
+<!-- Sichtöffnung 60,6 × 127,9, R8 -->
+<rect x="141.6" y="146" width="181.8" height="383.7" rx="24" class="ln"></rect>
+<!-- Lightning-Kerbe 14 × 8 (verdeckt) -->
+<path d="M211.5 535.7 L211.5 559.7 L253.5 559.7 L253.5 535.7" class="hid"></path>
+<!-- Taster-Loch Ø30 -->
+<circle cx="232.5" cy="626" r="45" class="ln"></circle>
+<path d="M222.5 626 L242.5 626 M232.5 616 L232.5 636" class="thin"></path>
+<!-- Mittellinie / Schnittlinie A–A -->
+<path d="M232.5 92 L232.5 728" class="ctr"></path>
+<path d="M232.5 92 L262.5 92 M232.5 728 L262.5 728" class="ln" marker-end="url(#ar)"></path>
+<text x="268" y="97" class="h">A</text>
+<text x="268" y="733" class="h">A</text>
+
+<!-- Maße oben -->
+<path d="M120 106 L120 48 M345 106 L345 48" class="thin"></path>
+<path d="M120 56 L345 56" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="232.5" y="51" class="d" text-anchor="middle">75</text>
+<path d="M135.6 136 L135.6 70 M329.4 136 L329.4 70" class="thin"></path>
+<path d="M135.6 78 L329.4 78" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="196" y="73" class="d" text-anchor="middle">64,6 Tasche</text>
+<!-- Sichtöffnung -->
+<path d="M141.6 338 L323.4 338" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="232.5" y="331" class="d" text-anchor="middle">60,6 Sichtöffnung</text>
+<!-- Rahmen links -->
+<path d="M120 300 L135.6 300" class="dim"></path>
+<text x="114" y="296" class="d" text-anchor="end">5,2</text>
+<path d="M60 300 L110 300" class="thin"></path>
+
+<!-- Maße rechts: Kette 10 / 131,9 / 58,1 und gesamt 200 -->
+<path d="M349 110 L432 110 M333 140 L392 140 M333 535.7 L392 535.7 M349 710 L432 710" class="thin"></path>
+<path d="M384 110 L384 140" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="392" y="130" class="d">10</text>
+<path d="M384 140 L384 535.7" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="392" y="342" class="d">131,9 Tasche</text>
+<path d="M384 535.7 L384 710" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="392" y="628" class="d">58,1</text>
+<path d="M426 110 L426 710" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="432" y="415" class="d">200</text>
+<!-- Taster-Höhe links -->
+<path d="M190 626 L70 626 M116 710 L70 710" class="thin"></path>
+<path d="M78 626 L78 710" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="72" y="672" class="d" text-anchor="end">28</text>
+<!-- Hinweise in der Ansicht -->
+<path d="M264 594 L300 600 L360 600" class="thin"></path>
+<text x="304" y="595" class="lbl">Ø 30 Taster</text>
+<path d="M253.5 552 L300 552" class="thin"></path>
+<text x="304" y="556" class="lbl">Kerbe 14 × 8</text>
+<path d="M160 160 L120 210 L22 210" class="thin"></path>
+<text x="22" y="205" class="lbl">R 8 Öffnung</text>
+<path d="M146 152 L112 178 L22 178" class="thin"></path>
+<text x="22" y="173" class="lbl">R 10 Tasche</text>
+
+<!-- ========== SCHNITT A–A (1 mm = 3 px) ========== -->
+<text x="520" y="38" class="h">Schnitt A–A</text>
+<!-- Material -->
+<g fill="url(#hatch)" stroke="#111" stroke-width="2">
+<rect x="520" y="110" width="30" height="30"></rect>
+<rect x="520" y="140" width="6" height="6"></rect>
+<rect x="520" y="529.7" width="6" height="6"></rect>
+<rect x="520" y="559.7" width="30" height="21.3"></rect>
+<rect x="520" y="671" width="30" height="39"></rect>
+</g>
+<!-- iPhone in der Tasche -->
+<rect x="526.6" y="140.6" width="22.9" height="394.5" rx="4" fill="#d9d9d9" stroke="#111" stroke-width="1.2"></rect>
+<text x="538" y="340" class="lbl" text-anchor="middle" transform="rotate(-90 538 340)">iPhone 13 mini</text>
+<!-- Kerbe und Taster offen -->
+<path d="M520 535.7 L520 559.7 M550 535.7 L550 559.7" class="hid"></path>
+<path d="M520 581 L520 671 M550 581 L550 671" class="hid"></path>
+<!-- Maße oben -->
+<path d="M520 106 L520 48 M526 106 L526 70 M550 106 L550 48" class="thin"></path>
+<path d="M520 56 L550 56" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="560" y="61" class="d">10</text>
+<path d="M500 78 L520 78" class="dim" marker-end="url(#ar)"></path>
+<path d="M546 78 L526 78" class="dim" marker-end="url(#ar)"></path>
+<text x="470" y="83" class="d">2</text>
+<path d="M526 78 L550 78" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="560" y="83" class="d">8 Tasche</text>
+<!-- Beschriftung -->
+<text x="508" y="134" class="lbl" text-anchor="end">vorn</text>
+<path d="M600 150 L560 150 L524 143" class="thin"></path>
+<text x="604" y="154" class="lbl">Lippe 2 mm hält das Handy vorn</text>
+<path d="M600 230 L560 230 L551 230" class="thin"></path>
+<text x="604" y="234" class="lbl">hinten offen: Handy von hinten einsetzen,</text>
+<text x="604" y="252" class="lbl">2 Klammern oder Rückwand halten es</text>
+<path d="M600 548 L552 548" class="thin"></path>
+<text x="604" y="552" class="lbl">Kerbe für Lightning-Winkelstecker</text>
+<path d="M600 626 L552 626" class="thin"></path>
+<text x="604" y="630" class="lbl">Loch für Taster, durchgehend</text>
+
+<!-- ========== TABELLEN ========== -->
+<g transform="translate(600 300)">
+<text x="0" y="0" class="h">iPhone 13 mini, ohne Hülle (Apple-Zeichnung)</text>
+<text x="0" y="24" class="d">Höhe</text><text x="250" y="24" class="d" text-anchor="end">131,50</text>
+<text x="0" y="44" class="d">Breite</text><text x="250" y="44" class="d" text-anchor="end">64,21</text>
+<text x="0" y="64" class="d">Dicke (ohne Kamerabuckel)</text><text x="250" y="64" class="d" text-anchor="end">7,65</text>
+<text x="0" y="84" class="d">Sichtbarer Bildschirm</text><text x="250" y="84" class="d" text-anchor="end">57,67 × 124,96</text>
+<text x="0" y="122" class="h">Daraus fürs Druckteil</text>
+<text x="0" y="146" class="d">Tasche: +0,2 je Seite → 64,6 × 131,9 × 8 (Handy klemmt leicht)</text>
+<text x="0" y="166" class="d">Rahmen seitlich: 5,2 → außen 75 breit</text>
+<text x="0" y="186" class="d">Lippe vorn: 2 je Seite → Öffnung 60,6 × 127,9 (größer als Bildschirm)</text>
+<text x="0" y="206" class="d">Seitentaste wird abgedeckt (kein versehentliches Ausschalten)</text>
+</g>
+
+<!-- Schriftfeld -->
+<g transform="translate(600 690)">
+<rect x="0" y="0" width="500" height="130" class="thin"></rect>
+<path d="M0 44 L500 44 M0 88 L500 88 M250 44 L250 130" class="thin"></path>
+<text x="14" y="30" class="h">Growbox · Bedienfeld-Front (3D-Druck)</text>
+<text x="14" y="72" class="d">Außen 75 × 200 × 10 mm</text>
+<text x="264" y="72" class="d">Maße in mm · Toleranz ±0,2</text>
+<text x="14" y="116" class="d">Material: PETG empfohlen</text>
+<text x="264" y="116" class="d">Erst Probedruck der oberen 30 mm</text>
+</g>
+</svg>
+</body>
+</html>
