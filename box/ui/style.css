@@ -13,113 +13,123 @@
   --light-on: #f3c552;
   --water: #5b8db8;
   --night: #121210;
-  --radius: 2cqw;
-  --border: 0.35cqw;
+  --radius: 4cqw;
+  --border: 0.8cqw;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #2b2a27; color: var(--ink); }
+body { margin: 0; min-height: 100dvh; display: grid; place-items: center; background: #2b2a27; color: var(--ink); }
 body[data-level="ok"]   { --state: var(--ok);   --state-soft: var(--ok-soft); }
 body[data-level="soon"] { --state: var(--soon); --state-soft: var(--soon-soft); }
 body[data-level="now"]  { --state: var(--now);  --state-soft: var(--now-soft); }
 
-/* Bildschirm im Format des 5″-Displays (quer, 16:9); alle Maße relativ zur Breite */
+/* Bildschirm im Hochformat des eingebauten iPhone 13 mini (375 × 812 pt).
+   Auf dem iPhone füllt er den ganzen Bildschirm, am Laptop erscheint er als Handy-Rahmen.
+   Alle Maße relativ zur Breite (cqw). */
 .screen {
   position: relative;
-  width: min(100vw, calc(100vh * 16 / 9));
-  aspect-ratio: 16 / 9;
+  width: min(100vw, calc(100dvh * 375 / 812));
+  height: min(100dvh, calc(100vw * 812 / 375));
   container-type: inline-size;
   background: var(--paper);
   overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
-.view { position: absolute; inset: 0; box-sizing: border-box; padding: 3cqw 3.5cqw; display: none; }
+.view {
+  position: absolute; inset: 0; box-sizing: border-box; display: none;
+  padding: max(6cqw, env(safe-area-inset-top)) 6cqw max(6cqw, env(safe-area-inset-bottom));
+}
 body[data-view="home"] .view-home,
 body[data-view="climate"] .view-climate,
 body[data-view="hints"] .view-hints { display: flex; flex-direction: column; }
 
 button { font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-button:focus-visible { outline: 0.5cqw solid var(--water); outline-offset: 0.4cqw; }
+button:focus-visible { outline: 1cqw solid var(--water); outline-offset: 0.8cqw; }
 .pressed { transform: scale(0.97); filter: brightness(0.93); }
 
-/* Zustand */
-.status { display: flex; align-items: center; gap: 3cqw; flex: 1; }
-.status-symbol { width: 17cqw; height: 17cqw; flex: none; }
-.status-text h1 { margin: 0; font-size: 7cqw; line-height: 1; letter-spacing: -0.02em; }
-.status-text p { margin: 1cqw 0 0; font-size: 3.2cqw; color: var(--muted); }
+/* Zustand: oben groß und mittig – 1 Blick = 1 Aussage */
+.status { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5cqw; text-align: center; }
+.status-symbol { width: 44cqw; height: 44cqw; flex: none; }
+.status-text h1 { margin: 0; font-size: 12cqw; line-height: 1; letter-spacing: -0.02em; }
+.status-text p { margin: 2.5cqw 0 0; font-size: 5.6cqw; line-height: 1.25; color: var(--muted); }
 
-/* Kacheln: groß genug für alle (Fitts, Folie 50) */
-.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.2cqw; }
+/* Kacheln untereinander, volle Breite: große Ziele für alle (Fitts, Folie 50).
+   Reihenfolge Licht oben → entspricht der LED oben in der Box (Mapping). */
+.tiles { order: 2; display: grid; grid-template-columns: minmax(0, 1fr); gap: 3.5cqw; }
 .tile {
-  position: relative; height: 18cqw; border: var(--border) solid var(--ink); border-radius: var(--radius);
-  background: var(--paper); display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 0.6cqw; transition: background 80ms, transform 60ms;
+  position: relative; height: 22cqw; border: var(--border) solid var(--ink); border-radius: var(--radius);
+  background: var(--paper); display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto;
+  column-gap: 5cqw; align-content: center; justify-items: start; padding: 0 6cqw; text-align: left;
+  transition: background 80ms, transform 60ms;
 }
-.tile-icon { width: 6.5cqw; height: 6.5cqw; }
-.tile-label { font-size: 3.2cqw; font-weight: 700; }
-.tile-sub { font-size: 2.2cqw; color: var(--muted); }
+.tile-icon { grid-row: 1 / span 2; width: 12cqw; height: 12cqw; align-self: center; }
+.tile-label { font-size: 6.6cqw; font-weight: 700; line-height: 1.1; }
+.tile-sub { font-size: 4.6cqw; color: var(--muted); }
+.tile { padding-right: 16cqw; }
+.tile-badge[hidden] { display: none; }
 .tile[aria-pressed="true"] { background: var(--light-on); }
 .tile[aria-pressed="true"] .tile-sub { color: var(--ink); font-weight: 600; }
-.tile-dot { position: absolute; top: 1.6cqw; right: 1.6cqw; width: 2cqw; height: 2cqw; border-radius: 50%; border: 0.3cqw solid var(--ink); background: var(--ok-soft); }
+.tile-dot { position: absolute; top: 50%; right: 6cqw; margin-top: -2.6cqw; width: 5.2cqw; height: 5.2cqw; border-radius: 50%; border: 0.7cqw solid var(--ink); box-sizing: border-box; background: var(--ok-soft); }
 .tile[data-level="soon"] .tile-dot { background: var(--soon); }
-.tile[data-level="now"] .tile-dot { background: var(--now); border-radius: 0.3cqw; }
+.tile[data-level="now"] .tile-dot { background: var(--now); border-radius: 0.8cqw; }
 .tile-badge {
-  position: absolute; top: 1.2cqw; right: 1.2cqw; min-width: 3.6cqw; height: 3.6cqw; border-radius: 1.8cqw;
-  display: grid; place-items: center; font-size: 2.2cqw; font-weight: 700; background: var(--state); color: #fff;
+  position: absolute; top: 50%; right: 5cqw; margin-top: -4cqw; min-width: 8cqw; height: 8cqw; border-radius: 4cqw;
+  display: grid; place-items: center; font-size: 4.6cqw; font-weight: 700; background: var(--state); color: #fff;
 }
 
-/* Wachstum */
-.growth { display: flex; align-items: center; gap: 2cqw; margin-top: 2.4cqw; }
-.growth-bar { flex: 1; height: 1.8cqw; border: 0.3cqw solid var(--ink); border-radius: 1cqw; overflow: hidden; }
-.growth-fill { height: 100%; width: 0; background: repeating-linear-gradient(45deg, var(--ink) 0 0.25cqw, transparent 0.25cqw 0.8cqw); transition: width 400ms; }
-.growth-text { font-size: 2.4cqw; font-weight: 600; min-width: 22cqw; text-align: right; }
+/* Wachstum: zwischen Zustand und Kacheln */
+.growth { display: flex; flex-direction: column; gap: 2cqw; margin: 2cqw 0 5cqw; }
+.growth-bar { height: 4cqw; border: 0.7cqw solid var(--ink); border-radius: 2cqw; overflow: hidden; }
+.growth-fill { height: 100%; width: 0; background: repeating-linear-gradient(45deg, var(--ink) 0 0.6cqw, transparent 0.6cqw 1.8cqw); transition: width 400ms; }
+.growth-text { font-size: 4.6cqw; font-weight: 600; text-align: center; }
 
 /* Zurück – immer an derselben Stelle (Konsistenz) */
 .back {
-  align-self: flex-start; display: flex; align-items: center; gap: 0.8cqw; font-size: 2.8cqw; font-weight: 600;
-  padding: 1.2cqw 2.4cqw 1.2cqw 1.4cqw; border: var(--border) solid var(--ink); border-radius: var(--radius); background: var(--paper);
+  align-self: flex-start; display: flex; align-items: center; gap: 2cqw; font-size: 5.6cqw; font-weight: 600;
+  padding: 3cqw 5cqw 3cqw 3.5cqw; border: var(--border) solid var(--ink); border-radius: var(--radius); background: var(--paper);
 }
-.back svg { width: 3.2cqw; height: 3.2cqw; }
+.back svg { width: 6.5cqw; height: 6.5cqw; }
 
 /* Klima-Detail */
-.gauges { flex: 1; display: flex; justify-content: center; align-items: center; gap: 12cqw; }
-.gauge { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 1.4cqw; }
-.glass { height: 24cqw; }
-.thermo { height: 24cqw; }
+.gauges { flex: 1; display: flex; justify-content: center; align-items: center; gap: 14cqw; }
+.gauge { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 3cqw; }
+.glass { height: 62cqw; }
+.thermo { height: 62cqw; }
 .glass-outline, .thermo-outline { fill: none; stroke: var(--ink); stroke-width: 3.5; stroke-linejoin: round; }
 .water { fill: var(--water); fill-opacity: 0.55; transition: y 600ms, height 600ms; }
 .target-line { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 4; }
 .mercury, .bulb { fill: var(--now); fill-opacity: 0.7; }
 .bulb { stroke: var(--ink); stroke-width: 3.5; }
-.gauge figcaption { display: flex; flex-direction: column; align-items: center; }
-.gauge strong { font-size: 3.4cqw; }
-.gauge span { font-size: 2.2cqw; color: var(--muted); }
-.trend { margin: 0; text-align: center; font-size: 2.8cqw; font-weight: 600; min-height: 3.4cqw; }
+.gauge figcaption { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.gauge strong { font-size: 6.6cqw; }
+.gauge span { font-size: 4.6cqw; color: var(--muted); }
+.trend { margin: 0 0 4cqw; text-align: center; font-size: 5.6cqw; font-weight: 600; min-height: 7cqw; }
 
-/* Hinweise */
-.hint-list { flex: 1; display: flex; flex-direction: column; gap: 2cqw; margin-top: 2.4cqw; overflow: auto; }
-.hint { display: flex; align-items: center; gap: 2.4cqw; padding: 2cqw 2.4cqw; border: var(--border) solid var(--ink); border-radius: var(--radius); }
-.hint svg.hint-symbol { width: 9cqw; height: 9cqw; flex: none; }
-.hint-text { flex: 1; }
-.hint-text h2 { margin: 0; font-size: 3.6cqw; }
-.hint-text p { margin: 0.6cqw 0 0; font-size: 2.6cqw; }
+/* Hinweise: Text oben, „Erledigt“ darunter über die volle Breite */
+.hint-list { flex: 1; display: flex; flex-direction: column; gap: 4cqw; margin-top: 5cqw; overflow: auto; }
+.hint { display: flex; flex-wrap: wrap; align-items: center; gap: 4cqw; padding: 5cqw; border: var(--border) solid var(--ink); border-radius: var(--radius); }
+.hint svg.hint-symbol { width: 16cqw; height: 16cqw; flex: none; }
+.hint-text { flex: 1; min-width: 0; }
+.hint-text h2 { margin: 0; font-size: 6.6cqw; line-height: 1.1; }
+.hint-text p { margin: 1.5cqw 0 0; font-size: 5cqw; line-height: 1.3; }
 .done {
-  display: flex; align-items: center; gap: 1cqw; font-size: 3cqw; font-weight: 700; padding: 2cqw 3cqw;
+  flex: 1 0 100%; display: flex; justify-content: center; align-items: center; gap: 2cqw; font-size: 6cqw; font-weight: 700; padding: 4cqw;
   border: var(--border) solid var(--ink); border-radius: var(--radius); background: var(--paper);
 }
-.done svg { width: 3.4cqw; height: 3.4cqw; }
+.done svg { width: 7cqw; height: 7cqw; }
 .done:disabled { border-style: dashed; color: var(--muted); cursor: default; font-weight: 600; }
-.empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6cqw; font-size: 3.4cqw; font-weight: 600; }
-.empty svg { width: 14cqw; height: 14cqw; }
+.empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4cqw; font-size: 6.6cqw; font-weight: 600; text-align: center; }
+.empty svg { width: 30cqw; height: 30cqw; }
 
 /* Ruhezustand */
 .sleep { position: absolute; inset: 0; display: none; place-items: center; border: 0; background: var(--night); }
 body.asleep .sleep { display: grid; }
-.sleep-symbol { width: 34cqw; height: 34cqw; opacity: 0.9; }
+.sleep-symbol { width: 70cqw; height: 70cqw; opacity: 0.9; }
 
 .offline {
-  position: absolute; left: 0; right: 0; top: 0; padding: 1.2cqw; text-align: center; font-size: 2.4cqw; font-weight: 600;
+  position: absolute; left: 0; right: 0; top: 0; padding: max(3cqw, env(safe-area-inset-top)) 3cqw 3cqw; text-align: center; font-size: 4.6cqw; font-weight: 600;
   background: var(--ink); color: var(--paper);
 }
 .offline[hidden] { display: none; }
