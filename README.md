@@ -6,14 +6,14 @@
 - Bedienung **am Gerät** über ein eingebautes iPhone 13 mini (Display) und einen physischen Taster, **aus der Ferne** über eine App (eigenes Teammitglied)
 - Leitidee: **radikal einfach** – ein großer Zustand auf einen Blick, drei große Bedienkacheln, für alle Altersgruppen
 
-Status: Konzeptphase. Ausgangslage und Entscheidungen: [BRIEF.md](BRIEF.md) · Vorlesungsbezug: [HCI-KONZEPTE.md](HCI-KONZEPTE.md)
+Status: Konzept und Klick-Prototyp stehen, Box wird gebaut. Zeichnungen: [konzept/index.html](konzept/index.html). Ausgangslage und Entscheidungen: [BRIEF.md](BRIEF.md) · Vorlesungsbezug: [HCI-KONZEPTE.md](HCI-KONZEPTE.md)
 
 ## Projektaufbau
 
 ```text
 box/            Software auf dem Pi (Server, Display, Vorführ-Panel, Tests)
 docs/api.md     Schnittstelle für die App
-konzept/        Skizzen-Link und Material für Booklet und Präsentation
+konzept/        Zeichnungen der Box (index.html), Personas, Material fürs Booklet
 ```
 
 ## Lokal starten (Laptop, ohne Hardware)

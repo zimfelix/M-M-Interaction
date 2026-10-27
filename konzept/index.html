@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growbox Zeichnungen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+:root{--paper:#fbfaf6;--ink:#22211f;--muted:#6b665d;--line:#d9d4c7;--wood:#c99a62}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif}
+header{padding:24px max(16px,4vw) 8px}
+h1{margin:0;font-family:Caveat,cursive;font-size:44px;line-height:1}
+header p{margin:6px 0 0;color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:10px;padding:16px max(16px,4vw)}
+nav button{font:inherit;font-weight:600;padding:10px 16px;border:2px solid var(--ink);border-radius:10px;background:var(--paper);cursor:pointer;text-align:left}
+nav button small{display:block;font-weight:400;color:var(--muted)}
+nav button[aria-selected="true"]{background:var(--wood)}
+nav button:focus-visible{outline:3px solid #5b8db5;outline-offset:2px}
+.frame{padding:0 max(16px,4vw) 24px}
+.bar{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 8px;color:var(--muted);font-size:14px}
+.bar a{color:var(--ink)}
+iframe{display:block;width:100%;height:78vh;border:2px solid var(--line);border-radius:10px;background:#fff}
+</style>
+</head>
+<body>
+<header>
+<h1>Growbox · Zeichnungen</h1>
+<p>Aktueller Stand der Box. Ältere Skizzen sind überholt.</p>
+</header>
+<nav role="tablist" aria-label="Zeichnungen">
+<button role="tab" type="button" data-src="skizze-box.html" aria-selected="true">1 · Front-Skizze<small>Aufbau wie eine Mikrowelle, Technikraum, Maße</small></button>
+<button role="tab" type="button" data-src="skizze-sockel.html" aria-selected="false">2 · Sockel<small>Holzrand, Holzboden, Plexi-Wanne</small></button>
+<button role="tab" type="button" data-src="zeichnung-bedienfeld.html" aria-selected="false">3 · Technische Zeichnung<small>Bedienfeld-Front (3D-Druck) mit iPhone-Tasche</small></button>
+</nav>
+<div class="frame">
+<div class="bar"><span id="file">skizze-box.html</span><a id="open" href="skizze-box.html" target="_blank" rel="noopener">einzeln öffnen ↗</a></div>
+<iframe id="view" src="skizze-box.html" title="Zeichnung"></iframe>
+</div>
+<script>
+const tabs=[...document.querySelectorAll('[role=tab]')];
+const view=document.getElementById('view'),open=document.getElementById('open'),file=document.getElementById('file');
+function show(btn){
+  tabs.forEach(t=>t.setAttribute('aria-selected',t===btn));
+  const src=btn.dataset.src; view.src=src; open.href=src; file.textContent=src;
+  history.replaceState(null,'','#'+src.replace('.html',''));
+}
+tabs.forEach(t=>t.addEventListener('click',()=>show(t)));
+const start=tabs.find(t=>'#'+t.dataset.src.replace('.html','')===location.hash);
+if(start) show(start);
+</script>
+</body>
+</html>

@@ -20,7 +20,7 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 | Konzept | Folien | Anwendung an der Growbox |
 |---|---|---|
 | Model Human Processor (Card, Moran, Newell 1983): Wahrnehmen → Denken → Handeln | 16–17 | Jeder Bildschirm hat genau eine Hauptaussage („Alles gut“ / „Braucht Wasser“) und eine Hauptaktion. |
-| Präattentive Wahrnehmung: Farbe **oder** Form allein wird sofort erkannt, Kombination nicht | 26–27 | Zustand auf einen Blick durch **eine** Dimension (Farbe des Hintergrunds/LED-Rings); Details erst beim Hinsehen. |
+| Präattentive Wahrnehmung: Farbe **oder** Form allein wird sofort erkannt, Kombination nicht | 26–27 | Zustand auf einen Blick durch **eine** Dimension (Farbe und Form des Zustandssymbols); Details erst beim Hinsehen. |
 | Farbenblindheit (Rot-Grün, ca. 8 % der Männer) | 23 | Zustand nie nur über Rot/Grün: zusätzlich Symbol und Text (redundante Codierung). |
 | Auditory Icons vs. Earcons | 31 | Alarm als Auditory Icon (z. B. Tropfgeräusch bei „zu trocken“), statt abstraktem Piepen, dessen Bedeutung man lernen muss. |
 | Begrenztes Kurzzeitgedächtnis, recognize-act-Zyklus | 37–38 | Höchstens 3–4 Kacheln pro Bildschirm; nichts muss man sich merken. |
@@ -31,10 +31,10 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 
 | Konzept | Folien | Anwendung |
 |---|---|---|
-| Fitts' Law (Zeit hängt von Zielgröße und Abstand ab) | 50 | Große Touch-Kacheln, physischer Taster groß und am Gehäuserand; wichtig für ältere Nutzer und Kinder. |
+| Fitts' Law (Zeit hängt von Zielgröße und Abstand ab) | 50 | Große Touch-Kacheln, physischer Taster groß, direkt unter dem Display; wichtig für ältere Nutzer und Kinder. |
 | Steering Law (enge Pfade sind langsam/fehleranfällig) | 51 | Keine schmalen Schieberegler; lieber +/– Tasten oder feste Stufen. |
 | Zeitliche Auflösung: < 100 ms direkt, < 1 s kausal, darüber andere Rückmeldung nötig | 64–65 | Tippen gibt sofort Rückmeldung. Weil Vernebler/Lüfter erst nach Minuten wirken, zeigt das Display „Feuchte steigt …“ als Fortschritt. |
-| Sichtabstand / Auflösung | 63 | Schriftgröße für ca. 50–70 cm Abstand und 5″-Display auslegen. |
+| Sichtabstand / Auflösung | 63 | Schriftgröße für ca. 50–70 cm Abstand und das iPhone-Display (5,4″, Hochformat) auslegen. |
 
 ## 3. Mentale Modelle und Fehler
 
@@ -76,7 +76,7 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 | UX: vor / während / nach der Nutzung; Usability vs. Freude | 108 | Auch das Erleben „nach der Nutzung“ einplanen (Erntemoment, Rückblick). |
 | Anforderungen: Interviews, Fragebögen, Fokusgruppen, Beobachtung | 110–117 | Kurze Interviews mit 3–5 Personen verschiedenen Alters. |
 | **Personas** | 118 | 3 Personas über Altersgruppen hinweg (z. B. Kind, Studentin, Senior). |
-| Skizzen & Prototypen (Buxton); Auflösung vs. Detailgenauigkeit (Houde & Hill 1997); Papierprototyp; Wireframes | 119–125 | Prototyp-Strategie: Papier → Klick-Prototyp auf dem echten 5″-Display → Box. |
+| Skizzen & Prototypen (Buxton); Auflösung vs. Detailgenauigkeit (Houde & Hill 1997); Papierprototyp; Wireframes | 119–125 | Prototyp-Strategie: Papier → Klick-Prototyp auf dem eingebauten iPhone → Box. |
 
 ## 7. Evaluation
 

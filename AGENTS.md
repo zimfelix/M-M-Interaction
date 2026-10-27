@@ -1,6 +1,6 @@
 # M-M Interaction – Projektregeln für Agenten
 
-Uni-Projekt (HCI, Prof. Zagel, Option B): Interaktionskonzept und Prototyp für eine Growbox mit Touch-Display, physischem Taster und App. Schwerpunkt ist die **Mensch-Maschine-Interaktion**, nicht die Technik.
+Uni-Projekt (HCI, Prof. Zagel, Option B): Interaktionskonzept und Prototyp für eine Growbox mit eingebautem iPhone als Touch-Display, physischem Taster und App. Schwerpunkt ist die **Mensch-Maschine-Interaktion**, nicht die Technik.
 
 ## Dateien
 
