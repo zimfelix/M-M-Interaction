@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Growbox Front</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap">
+<style>
+html,body{margin:0;background:#fbfaf6}
+svg{display:block;width:100%;max-width:1300px;height:auto;margin:0 auto}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1100 740" role="img" aria-label="Growbox wie eine Mikrowelle: links Pilzkammer mit Plexi-Tür, Scharnieren links und Stangengriff; rechts ein blickdichter Technikraum über die volle Tiefe, vorn das Bedienfeld mit iPhone 13 mini und Taster; die rechte Seitenwand ist aufgeschnitten und zeigt Lüfter mit Schlitzen zur Pilzkammer, Wassertank und Raspberry Pi">
+<defs>
+<filter id="w" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="5"></feTurbulence><feDisplacementMap in="SourceGraphic" scale="2.4"></feDisplacementMap></filter>
+<marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9" fill="none" stroke="#22211f" stroke-width="1.6"></path></marker>
+</defs>
+
+<!-- Pilzkammer: Plexi -->
+<rect x="200" y="250" width="300" height="225" fill="#8fb3cf" fill-opacity="0.18"></rect>
+<path d="M200 250 L290 180 L590 180 L500 250 Z" fill="#8fb3cf" fill-opacity="0.25"></path>
+<rect x="200" y="475" width="300" height="75" fill="#3a3d40" fill-opacity="0.85"></rect>
+<path d="M245 215 L545 215" stroke="#e8a33d" stroke-width="7" stroke-linecap="round" stroke-opacity="0.8"></path>
+<path d="M270 460 Q295 420 322 460 Z M315 460 Q345 408 378 460 Z M370 460 Q392 430 416 460 Z" fill="#e9dcc3"></path>
+<rect x="476" y="300" width="12" height="165" rx="6" fill="#e8a33d" fill-opacity="0.75"></rect>
+
+<!-- Technikraum: Holz, volle Tiefe -->
+<rect x="500" y="250" width="120" height="300" fill="#c99a62" fill-opacity="0.75"></rect>
+<path d="M500 250 L590 180 L710 180 L620 250 Z" fill="#c99a62" fill-opacity="0.6"></path>
+<path d="M620 250 L710 180 L710 480 L620 550 Z" fill="#a87b48" fill-opacity="0.7"></path>
+<!-- Aufschnitt der rechten Seitenwand -->
+<path d="M630 262 L642 250 L652 244 L664 232 L676 226 L688 214 L700 206 L702 230 L699 260 L703 300 L700 340 L703 380 L700 420 L703 460 L700 480 L688 488 L676 500 L664 506 L652 516 L640 522 L630 532 L633 500 L629 460 L632 420 L629 380 L632 340 L629 300 Z" fill="#f3ecdd"></path>
+<path d="M665 515 L705 484 L705 349 L665 380 Z" fill="#8fb3cf" fill-opacity="0.35"></path>
+<path d="M665 515 L705 484 L705 420 L665 451 Z" fill="#5b8db5" fill-opacity="0.45"></path>
+<path d="M638 506 L660 489 L660 399 L638 416 Z" fill="#6aa57a" fill-opacity="0.55"></path>
+
+<!-- iPhone und Taster -->
+<rect x="512" y="266" width="96" height="197" rx="15" fill="#1d1e21"></rect>
+<rect x="518" y="272" width="84" height="185" rx="11" fill="#ffffff"></rect>
+<circle cx="560" cy="326" r="18" fill="#6aa57a" fill-opacity="0.45"></circle>
+<circle cx="560" cy="508" r="21" fill="#e8a33d" fill-opacity="0.8"></circle>
+
+<!-- Linien -->
+<g filter="url(#w)" fill="none" stroke="#22211f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<!-- Korpus -->
+<rect x="200" y="250" width="420" height="300"></rect>
+<path d="M500 250 L500 550"></path>
+<path d="M200 475 L500 475"></path>
+<path d="M200 250 L290 180 L710 180 L620 250"></path>
+<path d="M500 250 L590 180"></path>
+<path d="M620 550 L710 480 L710 180"></path>
+<path d="M290 180 L290 405 L590 405 L590 180" stroke-dasharray="5 7" stroke-width="1.4"></path>
+<!-- Aufschnitt -->
+<path d="M630 262 L642 250 L652 244 L664 232 L676 226 L688 214 L700 206 L702 230 L699 260 L703 300 L700 340 L703 380 L700 420 L703 460 L700 480 L688 488 L676 500 L664 506 L652 516 L640 522 L630 532 L633 500 L629 460 L632 420 L629 380 L632 340 L629 300 Z" stroke-width="1.6"></path>
+<!-- Lüftungsschlitze in der Trennwand + Lüfter -->
+<path d="M642 262 L642 284 M650 256 L650 278 M658 250 L658 272" stroke-width="1.6"></path>
+<ellipse cx="684" cy="270" rx="15" ry="22"></ellipse>
+<circle cx="684" cy="270" r="3"></circle>
+<path d="M684 267 Q676 256 680 250 M687 271 Q697 276 694 286 M681 273 Q674 284 678 290" stroke-width="1.4"></path>
+<path d="M664 262 L646 266" stroke-width="1.6" marker-end="url(#a)"></path>
+<!-- Wassertank -->
+<path d="M665 515 L705 484 L705 349 L665 380 Z"></path>
+<path d="M665 451 L705 420" stroke-dasharray="3 3" stroke-width="1.4"></path>
+<!-- Raspberry Pi -->
+<path d="M638 506 L660 489 L660 399 L638 416 Z"></path>
+<path d="M642 425 L656 414 M642 440 L656 429 M642 470 L656 459" stroke-width="1.2"></path>
+<path d="M649 497 C 645 520, 600 520, 590 510" stroke-dasharray="3 4" stroke-width="1.4"></path>
+<!-- Holzmaserung -->
+<path d="M506 262 Q508 400 505 540 M614 262 Q612 400 615 540" stroke-width="1" stroke="#7a5530"></path>
+<!-- LED-Licht -->
+<path d="M275 228 L270 252 M335 228 L333 256 M395 228 L395 256 M455 228 L457 256" stroke-width="1.4"></path>
+<!-- Pilze -->
+<path d="M270 460 Q295 420 322 460 Z M315 460 Q345 408 378 460 Z M370 460 Q392 430 416 460 Z"></path>
+<path d="M292 475 L292 460 M346 475 L346 460 M393 475 L393 460"></path>
+<!-- Scharniere -->
+<rect x="192" y="275" width="10" height="26" rx="3"></rect>
+<rect x="192" y="430" width="10" height="26" rx="3"></rect>
+<!-- Griff -->
+<path d="M496 312 L482 322 M496 444 L482 454" stroke-width="3"></path>
+<rect x="476" y="300" width="12" height="165" rx="6"></rect>
+<!-- iPhone 13 mini -->
+<rect x="512" y="266" width="96" height="197" rx="15"></rect>
+<rect x="518" y="272" width="84" height="185" rx="11" stroke-width="1.4"></rect>
+<path d="M545 273 L575 273 L573 279 L547 279 Z" stroke-width="1.4"></path>
+<circle cx="560" cy="326" r="18"></circle>
+<path d="M552 326 L558 332 L569 318" stroke-width="2.6"></path>
+<path d="M538 360 L582 360 M544 370 L576 370" stroke-width="1.4"></path>
+<rect x="523" y="392" width="23" height="30" rx="4" stroke-width="1.4"></rect>
+<rect x="549" y="392" width="23" height="30" rx="4" stroke-width="1.4"></rect>
+<rect x="575" y="392" width="23" height="30" rx="4" stroke-width="1.4"></rect>
+<!-- Taster -->
+<circle cx="560" cy="508" r="21"></circle>
+<circle cx="560" cy="508" r="12"></circle>
+<!-- Maße -->
+<path d="M200 590 L500 590" stroke-width="1.6" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M500 590 L620 590" stroke-width="1.6" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M630 575 L715 509" stroke-width="1.6" marker-start="url(#a)" marker-end="url(#a)"></path>
+<!-- Beschriftungspfeile -->
+<path d="M180 202 L238 213" stroke-width="1.6" marker-end="url(#a)"></path>
+<path d="M140 288 L186 288" stroke-width="1.6" marker-end="url(#a)"></path>
+<path d="M150 380 Q200 390 240 372" stroke-width="1.6" marker-end="url(#a)"></path>
+<path d="M150 520 Q190 515 236 510" stroke-width="1.6" marker-end="url(#a)"></path>
+<path d="M440 120 Q470 200 480 292" stroke-width="1.6" marker-end="url(#a)"></path>
+<path d="M765 150 Q680 170 606 290" stroke-width="1.6" marker-end="url(#a)"></path>
+<path d="M765 262 L704 268" stroke-width="1.6" marker-end="url(#a)"></path>
+<path d="M765 380 L710 405" stroke-width="1.6" marker-end="url(#a)"></path>
+<path d="M765 480 L664 462" stroke-width="1.6" marker-end="url(#a)"></path>
+<path d="M520 668 Q545 620 556 534" stroke-width="1.6" marker-end="url(#a)"></path>
+</g>
+
+<!-- Text -->
+<g font-family="Caveat, cursive" fill="#22211f">
+<text x="40" y="58" font-size="46" font-weight="700">Growbox · Front wie eine Mikrowelle</text>
+<text x="40" y="90" font-size="23" fill="#6b665d">links Pilzkammer aus Plexi · rechts blickdichter Technikraum mit Bedienfeld</text>
+<text x="40" y="196" font-size="25">LED im Deckel</text>
+<text x="330" y="114" font-size="25">Griff: senkrechte Stange</text>
+<text x="330" y="138" font-size="21" fill="#6b665d">zwischen Tür und Bedienfeld</text>
+<text x="40" y="294" font-size="25">Scharniere</text>
+<text x="40" y="318" font-size="25">links</text>
+<text x="40" y="376" font-size="25">Plexi-Tür:</text>
+<text x="40" y="400" font-size="25">Pilze sichtbar</text>
+<text x="40" y="516" font-size="25">Sockelrand</text>
+<text x="40" y="540" font-size="21">blickdicht, Erde</text>
+<text x="40" y="562" font-size="21">fällt nicht raus</text>
+<text x="772" y="148" font-size="25">iPhone 13 mini als Display</text>
+<text x="772" y="172" font-size="21" fill="#6b665d">fest eingebaut, Kabel nach hinten</text>
+<text x="772" y="258" font-size="25">Lüfter</text>
+<text x="772" y="282" font-size="21" fill="#6b665d">bläst durch Schlitze in die Pilzkammer</text>
+<text x="772" y="378" font-size="25">Wassertank</text>
+<text x="772" y="402" font-size="21" fill="#6b665d">mit Vernebler, von oben nachfüllbar</text>
+<text x="772" y="478" font-size="25">Raspberry Pi + Elektronik</text>
+<text x="772" y="502" font-size="21" fill="#6b665d">steuert LED und Taster</text>
+<text x="772" y="606" font-size="27" font-weight="700">Technikraum hinter dem Bedienfeld</text>
+<text x="772" y="632" font-size="21">Holz, blickdicht, volle Tiefe</text>
+<text x="772" y="656" font-size="21">Seitenwand hier aufgeschnitten gezeichnet</text>
+<text x="772" y="680" font-size="21">hier wachsen keine Pilze</text>
+<text x="350" y="622" font-size="24" text-anchor="middle">≈ 20 cm</text>
+<text x="560" y="622" font-size="24" text-anchor="middle">≈ 8 cm</text>
+<text x="690" y="568" font-size="22">≈ 20 cm tief</text>
+<text x="430" y="692" font-size="25">Taster: Licht an / aus</text>
+</g>
+</svg>
+</body>
+</html>
