@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Growbox Gestell</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap">
+<style>
+html,body{margin:0;background:#fbfaf6}
+svg{display:block;width:100%;max-width:1400px;height:auto;margin:0 auto}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1320 860" role="img" aria-label="Growbox mit gedrucktem Gestell nach dem Prinzip des Creality K2 Plus: dunkle Profile mit runden Eckstücken, Plexischeiben in Nuten, Tür mit eigenem Rahmen, Sockelprofil vorn, Technikraum mit blickdichten Platten und Bedienfeld; rechts Profil-Querschnitt, Eckstück und Teileliste">
+<defs>
+<filter id="w" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="5"></feTurbulence><feDisplacementMap in="SourceGraphic" scale="2.2"></feDisplacementMap></filter>
+<marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9" fill="none" stroke="#22211f" stroke-width="1.6"></path></marker>
+<pattern id="h" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#22211f" stroke-width="0.8"></line></pattern>
+</defs>
+
+<!-- ================= Ansicht schräg von vorn (1 mm = 1,5 px) ================= -->
+<!-- Scheiben -->
+<path d="M200 250 L290 180 L590 180 L500 250 Z" fill="#8fb3cf" fill-opacity="0.28"></path>
+<path d="M500 250 L590 180 L702.5 180 L612.5 250 Z" fill="#c99a62" fill-opacity="0.6"></path>
+<path d="M612.5 250 L702.5 180 L702.5 480 L612.5 550 Z" fill="#a87b48" fill-opacity="0.7"></path>
+<rect x="200" y="250" width="300" height="225" fill="#8fb3cf" fill-opacity="0.16"></rect>
+<!-- LED unter dem Deckel -->
+<path d="M305 194 L575 194" stroke="#e8a33d" stroke-width="6" stroke-linecap="round" stroke-opacity="0.85"></path>
+<!-- Pilze -->
+<path d="M270 470 Q295 430 322 470 Z M315 470 Q345 418 378 470 Z M370 470 Q392 440 416 470 Z" fill="#e9dcc3"></path>
+<!-- Sockelprofil vorn (gedruckt, blickdicht) -->
+<rect x="200" y="475" width="300" height="75" fill="#3a3d40"></rect>
+<!-- Tür: Plexi im eigenen Rahmen -->
+<rect x="216" y="266" width="268" height="200" rx="5" fill="#8fb3cf" fill-opacity="0.22"></rect>
+<!-- Bedienfeld-Front -->
+<rect x="500" y="250" width="112.5" height="300" fill="#c99a62" fill-opacity="0.85"></rect>
+<rect x="510.8" y="268" width="90.9" height="191.85" rx="12" fill="#1d1e21"></rect>
+<rect x="513" y="270.2" width="86.5" height="187.44" rx="9" fill="#ffffff"></rect>
+<circle cx="556.25" cy="326" r="18" fill="#6aa57a" fill-opacity="0.45"></circle>
+<circle cx="556.25" cy="508" r="22.5" fill="#e8a33d" fill-opacity="0.8"></circle>
+<rect x="468" y="300" width="12" height="150" rx="6" fill="#e8a33d" fill-opacity="0.8"></rect>
+
+<!-- Gestell: Profile (dunkel, wie beim K2) -->
+<g fill="none" stroke="#3a3d40" stroke-linecap="round" stroke-linejoin="round">
+<path d="M290 180 L290 480 L590 480 M290 480 L200 550" stroke-width="8" stroke-opacity="0.35" stroke-dasharray="10 8"></path>
+<path d="M590 180 L590 480" stroke-width="8" stroke-opacity="0.35" stroke-dasharray="10 8"></path>
+<path d="M200 250 L200 550 M200 250 L612.5 250 M200 550 L612.5 550 M612.5 250 L612.5 550 M200 250 L290 180 L702.5 180 M612.5 250 L702.5 180 L702.5 480 L612.5 550 M500 250 L590 180" stroke-width="14"></path>
+<path d="M216 266 L484 266 L484 466 L216 466 Z" stroke-width="7" stroke="#5c6166"></path>
+<path d="M222 241 L296 188 L568 188 L494 241 Z" stroke-width="5" stroke="#5c6166"></path>
+<path d="M372 216 L452 216" stroke-width="10" stroke="#9aa0a6"></path>
+</g>
+<!-- Eckstücke (rund) und T-Stücke -->
+<g fill="#55595e" stroke="#22211f" stroke-width="1.6">
+<circle cx="200" cy="250" r="12"></circle>
+<circle cx="612.5" cy="250" r="12"></circle>
+<circle cx="200" cy="550" r="12"></circle>
+<circle cx="612.5" cy="550" r="12"></circle>
+<circle cx="290" cy="180" r="12"></circle>
+<circle cx="702.5" cy="180" r="12"></circle>
+<circle cx="702.5" cy="480" r="12"></circle>
+<rect x="490" y="240" width="20" height="20" rx="4"></rect>
+<rect x="580" y="170" width="20" height="20" rx="4"></rect>
+<rect x="490" y="540" width="20" height="20" rx="4"></rect>
+</g>
+
+<g filter="url(#w)" fill="none" stroke="#22211f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<!-- Pilze -->
+<path d="M270 470 Q295 430 322 470 Z M315 470 Q345 418 378 470 Z M370 470 Q392 440 416 470 Z"></path>
+<!-- LED-Licht -->
+<path d="M330 204 L326 226 M400 204 L398 228 M470 204 L470 228 M540 204 L542 226" stroke-width="1.3"></path>
+<!-- Scharniere am linken Profil -->
+<rect x="204" y="290" width="10" height="24" rx="3"></rect>
+<rect x="204" y="420" width="10" height="24" rx="3"></rect>
+<!-- Griff -->
+<path d="M486 312 L474 320 M486 438 L474 446" stroke-width="3"></path>
+<rect x="468" y="300" width="12" height="150" rx="6"></rect>
+<!-- iPhone und Taster -->
+<rect x="510.8" y="268" width="90.9" height="191.85" rx="12"></rect>
+<rect x="513" y="270.2" width="86.5" height="187.44" rx="9" stroke-width="1.2"></rect>
+<path d="M536.2 270.2 L576.3 270.2 L573.5 274.5 L539 274.5 Z" stroke-width="1.2" fill="#1d1e21"></path>
+<circle cx="556.25" cy="326" r="18"></circle>
+<path d="M548.25 326 L554.25 332 L565.25 318" stroke-width="2.6"></path>
+<rect x="519.25" y="392" width="23" height="30" rx="4" stroke-width="1.4"></rect>
+<rect x="545.25" y="392" width="23" height="30" rx="4" stroke-width="1.4"></rect>
+<rect x="571.25" y="392" width="23" height="30" rx="4" stroke-width="1.4"></rect>
+<circle cx="556.25" cy="508" r="22.5"></circle>
+<circle cx="556.25" cy="508" r="13"></circle>
+<!-- Maße -->
+<path d="M200 600 L500 600" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M500 600 L612.5 600" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M150 252 L150 548" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M175 477 L175 548" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M630 590 L712 526" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<!-- Beschriftungspfeile -->
+<path d="M150 140 Q240 150 284 172" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M196 172 Q300 180 366 212" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M330 120 Q420 140 494 236" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M120 330 Q170 320 198 304" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M96 408 Q170 400 222 392" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M140 690 Q240 650 300 552" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M640 176 Q610 186 578 192" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M640 682 Q700 560 676 420" stroke-width="1.5" marker-end="url(#a)"></path>
+</g>
+
+<g font-family="Caveat, cursive" fill="#22211f">
+<text x="40" y="58" font-size="44" font-weight="700">Growbox · Gestell aus dem 3D-Drucker</text>
+<text x="40" y="90" font-size="23" fill="#6b665d">Prinzip wie beim Creality K2 Plus: Profile + Eckstücke, Scheiben stecken in Nuten · Profile vereinfacht gezeichnet</text>
+<text x="40" y="138" font-size="24">Eckstück, rund</text>
+<text x="40" y="176" font-size="24">Deckel abnehmbar</text>
+<text x="40" y="198" font-size="19" fill="#6b665d">Griff oben, wie K2</text>
+<text x="230" y="116" font-size="24">T-Stück: hier stoßen Pilzkammer und Technikraum zusammen</text>
+<text x="40" y="326" font-size="24">Scharniere</text>
+<text x="40" y="350" font-size="19" fill="#6b665d">gedruckte Laschen,</text>
+<text x="40" y="370" font-size="19" fill="#6b665d">Achse: M3-Schraube</text>
+<text x="40" y="414" font-size="24">Tür:</text>
+<text x="40" y="436" font-size="19" fill="#6b665d">Plexi im Türrahmen</text>
+<text x="40" y="700" font-size="24">Sockelprofil vorn 50 mm, blickdicht</text>
+<text x="40" y="724" font-size="21" fill="#6b665d">an den Seiten: blickdichte Streifen unten in der Nut</text>
+<text x="606" y="150" font-size="21">LED am hinteren Profil:</text>
+<text x="606" y="170" font-size="19" fill="#6b665d">Deckel bleibt kabelfrei</text>
+<text x="350" y="632" font-size="22" text-anchor="middle">200</text>
+<text x="556" y="632" font-size="22" text-anchor="middle">75</text>
+<text x="140" y="404" font-size="22" text-anchor="end"></text>
+<text x="142" y="470" font-size="22" text-anchor="end">200</text>
+<text x="170" y="520" font-size="18" text-anchor="end">50</text>
+<text x="688" y="590" font-size="22">200 tief</text>
+<text x="360" y="666" font-size="20" fill="#6b665d" text-anchor="middle">Maße in mm, außen</text>
+<text x="520" y="700" font-size="22">Technikraum-Platten</text>
+<text x="520" y="722" font-size="19" fill="#6b665d">blickdicht, in denselben Nuten</text>
+</g>
+
+<!-- ================= Detail A: Profil 15 × 15 (1 mm = 6 px) ================= -->
+<g transform="translate(800 120)">
+<text x="0" y="0" font-family="Caveat, cursive" font-size="28" font-weight="700" fill="#22211f">A · Profil im Schnitt</text>
+<g transform="translate(70 40)">
+<!-- Plexischeiben in den Nuten -->
+<rect x="35.4" y="60" width="18" height="90" fill="#8fb3cf" fill-opacity="0.55" stroke="#22211f" stroke-width="1"></rect>
+<rect x="-80" y="35.4" width="110" height="18" fill="#8fb3cf" fill-opacity="0.55" stroke="#22211f" stroke-width="1"></rect>
+<!-- Profil mit runder Außenkante und zwei Nuten -->
+<path d="M0 0 L66 0 Q90 0 90 24 L90 90 L54.2 90 L54.2 60 L34.2 60 L34.2 90 L0 90 L0 54.2 L30 54.2 L30 34.2 L0 34.2 Z" fill="url(#h)" stroke="#22211f" stroke-width="2"></path>
+<!-- Maße -->
+<path d="M0 -14 L90 -14" stroke="#22211f" stroke-width="1" marker-start="url(#a)" marker-end="url(#a)"></path>
+<text x="45" y="-20" font-family="Caveat, cursive" font-size="20" text-anchor="middle" fill="#22211f">15</text>
+<path d="M104 0 L104 90" stroke="#22211f" stroke-width="1" marker-start="url(#a)" marker-end="url(#a)"></path>
+<text x="110" y="50" font-family="Caveat, cursive" font-size="20" fill="#22211f">15</text>
+<path d="M34.2 160 L54.2 160" stroke="#22211f" stroke-width="1"></path>
+<text x="-80" y="180" font-family="Caveat, cursive" font-size="20" fill="#22211f">Nut 3,4 breit, 5 tief</text>
+<text x="-80" y="202" font-family="Caveat, cursive" font-size="20" fill="#6b665d">für 3-mm-Plexi (+0,4 Spiel)</text>
+<text x="-80" y="24" font-family="Caveat, cursive" font-size="20" fill="#6b665d">Plexi 3</text>
+<text x="96" y="-2" font-family="Caveat, cursive" font-size="18" fill="#6b665d">R 4 außen</text>
+</g>
+</g>
+
+<!-- ================= Detail B: Eckstück ================= -->
+<g transform="translate(1080 120)">
+<text x="0" y="0" font-family="Caveat, cursive" font-size="28" font-weight="700" fill="#22211f">B · Eckstück</text>
+<g transform="translate(30 40)" fill="none" stroke="#22211f" stroke-width="2" stroke-linejoin="round">
+<path d="M0 30 L0 120 L60 120 L60 60 L120 60 L120 30 Q120 0 90 0 L30 0 Q0 0 0 30 Z" fill="#55595e" fill-opacity="0.85"></path>
+<rect x="15" y="120" width="30" height="40" fill="#3a3d40" fill-opacity="0.5" stroke-dasharray="4 3"></rect>
+<rect x="120" y="15" width="40" height="30" fill="#3a3d40" fill-opacity="0.5" stroke-dasharray="4 3"></rect>
+<rect x="18" y="18" width="24" height="24" stroke-dasharray="4 3"></rect>
+</g>
+<g font-family="Caveat, cursive" fill="#22211f">
+<text x="0" y="230" font-size="20">30 × 30 × 30, außen rund</text>
+<text x="0" y="252" font-size="20" fill="#6b665d">3 Hülsen 15 × 15 × 15</text>
+<text x="0" y="274" font-size="20" fill="#6b665d">Profil rein + Schraube M3</text>
+<text x="0" y="296" font-size="20" fill="#6b665d">T-Stück: 4 Hülsen</text>
+</g>
+</g>
+
+<!-- ================= C: Teileliste mit Druckbett-Check ================= -->
+<g transform="translate(800 470)" font-family="Caveat, cursive" fill="#22211f">
+<text x="0" y="0" font-size="28" font-weight="700">C · Teile (Druckbett 255 × 255)</text>
+<g font-size="20">
+<text x="0" y="34" font-weight="700">Teil</text><text x="250" y="34" font-weight="700">Anzahl</text><text x="320" y="34" font-weight="700">Maß</text><text x="455" y="34" font-weight="700">passt</text>
+<path d="M0 42 L480 42" stroke="#22211f" stroke-width="1.2"></path>
+<text x="0" y="66">Eckstücke</text><text x="250" y="66">8</text><text x="320" y="66">30 × 30 × 30</text><text x="455" y="66">✓</text>
+<text x="0" y="90">T-Stücke (Trennwand)</text><text x="250" y="90">4</text><text x="320" y="90">30 × 30 × 30</text><text x="455" y="90">✓</text>
+<text x="0" y="114">Profile Pilzkammer</text><text x="250" y="114">15</text><text x="320" y="114">170 lang</text><text x="455" y="114">✓</text>
+<text x="0" y="138">Sockelprofil vorn</text><text x="250" y="138">1</text><text x="320" y="138">170 × 50 × 15</text><text x="455" y="138">✓</text>
+<text x="0" y="162">Profile Technikraum</text><text x="250" y="162">4</text><text x="320" y="162">45 lang</text><text x="455" y="162">✓</text>
+<text x="0" y="186">Türrahmen (Plexi innen)</text><text x="250" y="186">1</text><text x="320" y="186">168 × 133</text><text x="455" y="186">✓</text>
+<text x="0" y="210">Bedienfeld-Front</text><text x="250" y="210">1</text><text x="320" y="210">75 × 200 × 10</text><text x="455" y="210">✓</text>
+<text x="0" y="234">Trennwand mit Schlitzen</text><text x="250" y="234">1</text><text x="320" y="234">180 × 180 × 3</text><text x="455" y="234">✓</text>
+<text x="0" y="258">Platten Technikraum</text><text x="250" y="258">4</text><text x="320" y="258">bis 180 × 180 × 3</text><text x="455" y="258">✓</text>
+<text x="0" y="282">Deckelrahmen mit Griff</text><text x="250" y="282">1</text><text x="320" y="282">200 × 200</text><text x="455" y="282">✓</text>
+<text x="0" y="306">Scharnierlaschen</text><text x="250" y="306">4</text><text x="320" y="306">klein</text><text x="455" y="306">✓</text>
+<path d="M0 318 L480 318" stroke="#22211f" stroke-width="1.2"></path>
+<text x="0" y="342" fill="#6b665d">Plexi 3 mm (zuschneiden): Deckel, Boden, Seite, Rückwand je 180 breit</text>
+<text x="0" y="366" fill="#6b665d">Längstes Teil 200 → nichts muss geteilt werden</text>
+</g>
+</g>
+</svg>
+</body>
+</html>

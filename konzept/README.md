@@ -11,6 +11,7 @@ Material für Booklet, Reflexion und Präsentation.
 | [`skizze-box.html`](skizze-box.html) | Front-Skizze: Aufbau wie eine Mikrowelle, Pilzkammer, Technikraum, Maße |
 | [`skizze-sockel.html`](skizze-sockel.html) | Sockel: Holzrand, Holzboden, Plexi-Wanne |
 | [`zeichnung-bedienfeld.html`](zeichnung-bedienfeld.html) | Technische Zeichnung der Bedienfeld-Front (3D-Druck) mit iPhone-Tasche |
+| [`skizze-gestell.html`](skizze-gestell.html) | Entwurf: gedrucktes Gestell wie K2 Plus, Profil, Eckstück, Teileliste |
 | [`masse-iphone-13-mini.md`](masse-iphone-13-mini.md) | iPhone-Maße aus Apples Zeichnung mit Hinweisen fürs Druckteil |
 
 ## Oberfläche und Nutzer
