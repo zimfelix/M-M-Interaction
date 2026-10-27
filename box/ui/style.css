@@ -1,0 +1,125 @@
+/* Gestaltungswerte – an einer Stelle (gleiche Farben/Begriffe auch für die App, Folie 80) */
+:root {
+  --paper: #fbfaf6;
+  --ink: #22211f;
+  --muted: #5f5a52;
+  --line: #d9d4c7;
+  --ok: #3f8a57;
+  --ok-soft: #d6ead9;
+  --soon: #b97b12;
+  --soon-soft: #f6e3bd;
+  --now: #c4482f;
+  --now-soft: #f5d2c9;
+  --light-on: #f3c552;
+  --water: #5b8db8;
+  --night: #121210;
+  --radius: 2cqw;
+  --border: 0.35cqw;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #2b2a27; color: var(--ink); }
+body[data-level="ok"]   { --state: var(--ok);   --state-soft: var(--ok-soft); }
+body[data-level="soon"] { --state: var(--soon); --state-soft: var(--soon-soft); }
+body[data-level="now"]  { --state: var(--now);  --state-soft: var(--now-soft); }
+
+/* Bildschirm im Format des 5″-Displays (quer, 16:9); alle Maße relativ zur Breite */
+.screen {
+  position: relative;
+  width: min(100vw, calc(100vh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  container-type: inline-size;
+  background: var(--paper);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.view { position: absolute; inset: 0; box-sizing: border-box; padding: 3cqw 3.5cqw; display: none; }
+body[data-view="home"] .view-home,
+body[data-view="climate"] .view-climate,
+body[data-view="hints"] .view-hints { display: flex; flex-direction: column; }
+
+button { font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+button:focus-visible { outline: 0.5cqw solid var(--water); outline-offset: 0.4cqw; }
+.pressed { transform: scale(0.97); filter: brightness(0.93); }
+
+/* Zustand */
+.status { display: flex; align-items: center; gap: 3cqw; flex: 1; }
+.status-symbol { width: 17cqw; height: 17cqw; flex: none; }
+.status-text h1 { margin: 0; font-size: 7cqw; line-height: 1; letter-spacing: -0.02em; }
+.status-text p { margin: 1cqw 0 0; font-size: 3.2cqw; color: var(--muted); }
+
+/* Kacheln: groß genug für alle (Fitts, Folie 50) */
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.2cqw; }
+.tile {
+  position: relative; height: 18cqw; border: var(--border) solid var(--ink); border-radius: var(--radius);
+  background: var(--paper); display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.6cqw; transition: background 80ms, transform 60ms;
+}
+.tile-icon { width: 6.5cqw; height: 6.5cqw; }
+.tile-label { font-size: 3.2cqw; font-weight: 700; }
+.tile-sub { font-size: 2.2cqw; color: var(--muted); }
+.tile[aria-pressed="true"] { background: var(--light-on); }
+.tile[aria-pressed="true"] .tile-sub { color: var(--ink); font-weight: 600; }
+.tile-dot { position: absolute; top: 1.6cqw; right: 1.6cqw; width: 2cqw; height: 2cqw; border-radius: 50%; border: 0.3cqw solid var(--ink); background: var(--ok-soft); }
+.tile[data-level="soon"] .tile-dot { background: var(--soon); }
+.tile[data-level="now"] .tile-dot { background: var(--now); border-radius: 0.3cqw; }
+.tile-badge {
+  position: absolute; top: 1.2cqw; right: 1.2cqw; min-width: 3.6cqw; height: 3.6cqw; border-radius: 1.8cqw;
+  display: grid; place-items: center; font-size: 2.2cqw; font-weight: 700; background: var(--state); color: #fff;
+}
+
+/* Wachstum */
+.growth { display: flex; align-items: center; gap: 2cqw; margin-top: 2.4cqw; }
+.growth-bar { flex: 1; height: 1.8cqw; border: 0.3cqw solid var(--ink); border-radius: 1cqw; overflow: hidden; }
+.growth-fill { height: 100%; width: 0; background: repeating-linear-gradient(45deg, var(--ink) 0 0.25cqw, transparent 0.25cqw 0.8cqw); transition: width 400ms; }
+.growth-text { font-size: 2.4cqw; font-weight: 600; min-width: 22cqw; text-align: right; }
+
+/* Zurück – immer an derselben Stelle (Konsistenz) */
+.back {
+  align-self: flex-start; display: flex; align-items: center; gap: 0.8cqw; font-size: 2.8cqw; font-weight: 600;
+  padding: 1.2cqw 2.4cqw 1.2cqw 1.4cqw; border: var(--border) solid var(--ink); border-radius: var(--radius); background: var(--paper);
+}
+.back svg { width: 3.2cqw; height: 3.2cqw; }
+
+/* Klima-Detail */
+.gauges { flex: 1; display: flex; justify-content: center; align-items: center; gap: 12cqw; }
+.gauge { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 1.4cqw; }
+.glass { height: 24cqw; }
+.thermo { height: 24cqw; }
+.glass-outline, .thermo-outline { fill: none; stroke: var(--ink); stroke-width: 3.5; stroke-linejoin: round; }
+.water { fill: var(--water); fill-opacity: 0.55; transition: y 600ms, height 600ms; }
+.target-line { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.mercury, .bulb { fill: var(--now); fill-opacity: 0.7; }
+.bulb { stroke: var(--ink); stroke-width: 3.5; }
+.gauge figcaption { display: flex; flex-direction: column; align-items: center; }
+.gauge strong { font-size: 3.4cqw; }
+.gauge span { font-size: 2.2cqw; color: var(--muted); }
+.trend { margin: 0; text-align: center; font-size: 2.8cqw; font-weight: 600; min-height: 3.4cqw; }
+
+/* Hinweise */
+.hint-list { flex: 1; display: flex; flex-direction: column; gap: 2cqw; margin-top: 2.4cqw; overflow: auto; }
+.hint { display: flex; align-items: center; gap: 2.4cqw; padding: 2cqw 2.4cqw; border: var(--border) solid var(--ink); border-radius: var(--radius); }
+.hint svg.hint-symbol { width: 9cqw; height: 9cqw; flex: none; }
+.hint-text { flex: 1; }
+.hint-text h2 { margin: 0; font-size: 3.6cqw; }
+.hint-text p { margin: 0.6cqw 0 0; font-size: 2.6cqw; }
+.done {
+  display: flex; align-items: center; gap: 1cqw; font-size: 3cqw; font-weight: 700; padding: 2cqw 3cqw;
+  border: var(--border) solid var(--ink); border-radius: var(--radius); background: var(--paper);
+}
+.done svg { width: 3.4cqw; height: 3.4cqw; }
+.done:disabled { border-style: dashed; color: var(--muted); cursor: default; font-weight: 600; }
+.empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6cqw; font-size: 3.4cqw; font-weight: 600; }
+.empty svg { width: 14cqw; height: 14cqw; }
+
+/* Ruhezustand */
+.sleep { position: absolute; inset: 0; display: none; place-items: center; border: 0; background: var(--night); }
+body.asleep .sleep { display: grid; }
+.sleep-symbol { width: 34cqw; height: 34cqw; opacity: 0.9; }
+
+.offline {
+  position: absolute; left: 0; right: 0; top: 0; padding: 1.2cqw; text-align: center; font-size: 2.4cqw; font-weight: 600;
+  background: var(--ink); color: var(--paper);
+}
+.offline[hidden] { display: none; }

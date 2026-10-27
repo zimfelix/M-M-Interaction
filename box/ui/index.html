@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growbox</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-level="ok" data-view="home">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- Zustände: Farbe + Form + Text (Folien 23, 26) -->
+  <symbol id="sym-ok" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="44" fill="var(--state-soft)" stroke="var(--state)" stroke-width="6"/>
+    <path d="M29 51 L44 66 L72 35" fill="none" stroke="var(--ink)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="sym-soon" viewBox="0 0 100 100">
+    <path d="M50 8 L95 88 L5 88 Z" fill="var(--state-soft)" stroke="var(--state)" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M50 36 L50 62" stroke="var(--ink)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="50" cy="75" r="5" fill="var(--ink)"/>
+  </symbol>
+  <symbol id="sym-now" viewBox="0 0 100 100">
+    <path d="M32 6 L68 6 L94 32 L94 68 L68 94 L32 94 L6 68 L6 32 Z" fill="var(--state-soft)" stroke="var(--state)" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M40 28 L40 58 M60 28 L60 58" stroke="var(--ink)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="40" cy="72" r="5" fill="var(--ink)"/>
+    <circle cx="60" cy="72" r="5" fill="var(--ink)"/>
+  </symbol>
+  <symbol id="sym-harvest" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="44" fill="var(--state-soft)" stroke="var(--state)" stroke-width="6"/>
+    <path d="M22 58 Q36 28 50 58 Z M44 54 Q62 20 80 54 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M36 58 L35 74 M62 54 L63 74 M28 74 L72 74" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/>
+  </symbol>
+  <!-- Kachel-Icons (Physikanalogie, Folien 86–87) -->
+  <symbol id="icon-light" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="3.5"/>
+    <path d="M24 4v6M24 38v6M4 24h6M38 24h6M10 10l4 4M34 34l4 4M38 10l-4 4M14 34l-4 4" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-climate" viewBox="0 0 48 48">
+    <path d="M18 6C13 14 8 21 8 27a10 10 0 0 0 20 0c0-6-5-13-10-21Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+    <rect x="33" y="6" width="8" height="26" rx="4" fill="none" stroke="currentColor" stroke-width="3.5"/>
+    <circle cx="37" cy="37" r="6" fill="none" stroke="currentColor" stroke-width="3.5"/>
+  </symbol>
+  <symbol id="icon-hints" viewBox="0 0 48 48">
+    <path d="M24 6c-8 0-11 7-11 14v9l-5 7h32l-5-7v-9c0-7-3-14-11-14Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M19 40a5 5 0 0 0 10 0" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-back" viewBox="0 0 48 48">
+    <path d="M30 8 L14 24 L30 40" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-check" viewBox="0 0 48 48">
+    <path d="M10 25 L20 35 L38 14" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<main class="screen">
+
+  <!-- Startbild: 1 Blick = 1 Aussage, darunter 3 Kacheln (Skizze 02) -->
+  <section class="view view-home" aria-label="Übersicht">
+    <div class="status" role="status" aria-live="polite">
+      <svg class="status-symbol" aria-hidden="true"><use id="status-use" href="#sym-ok"/></svg>
+      <div class="status-text">
+        <h1 id="status-title">Verbinde …</h1>
+        <p id="status-message">Die Box wird gesucht.</p>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <button class="tile" id="tile-light" type="button" aria-pressed="false">
+        <svg class="tile-icon" aria-hidden="true"><use href="#icon-light"/></svg>
+        <span class="tile-label">Licht</span>
+        <span class="tile-sub" id="light-sub">aus</span>
+      </button>
+      <button class="tile" id="tile-climate" type="button" data-level="ok">
+        <svg class="tile-icon" aria-hidden="true"><use href="#icon-climate"/></svg>
+        <span class="tile-label">Klima</span>
+        <span class="tile-sub" id="climate-sub">–</span>
+        <span class="tile-dot" aria-hidden="true"></span>
+      </button>
+      <button class="tile" id="tile-hints" type="button" data-level="ok">
+        <svg class="tile-icon" aria-hidden="true"><use href="#icon-hints"/></svg>
+        <span class="tile-label">Hinweise</span>
+        <span class="tile-sub" id="hints-sub">keine</span>
+        <span class="tile-badge" id="hints-badge" hidden>0</span>
+      </button>
+    </div>
+
+    <!-- Leichte Gamification: Fortschritt bis zur Ernte (Skizze 10) -->
+    <div class="growth">
+      <div class="growth-bar" role="progressbar" aria-label="Wachstum bis zur Ernte" aria-valuemin="0" aria-valuemax="100" id="growth-bar">
+        <div class="growth-fill" id="growth-fill"></div>
+      </div>
+      <span class="growth-text" id="growth-text">–</span>
+    </div>
+  </section>
+
+  <!-- Detail Klima: Glas und Thermometer statt Zahlen (Skizze 09) -->
+  <section class="view view-climate" aria-label="Klima">
+    <button class="back" type="button" data-goto="home"><svg aria-hidden="true"><use href="#icon-back"/></svg>zurück</button>
+    <div class="gauges">
+      <figure class="gauge">
+        <svg viewBox="0 0 120 160" class="glass" role="img" aria-labelledby="hum-label">
+          <defs><clipPath id="glass-clip"><polygon points="21,10 33,149 87,149 99,10"/></clipPath></defs>
+          <rect id="water" x="0" y="150" width="120" height="0" clip-path="url(#glass-clip)" class="water"/>
+          <line x1="22" y1="62" x2="98" y2="62" class="target-line"/>
+          <path d="M20 8 L32 150 L88 150 L100 8" class="glass-outline"/>
+        </svg>
+        <figcaption><strong id="hum-label">–</strong><span id="hum-value">–</span></figcaption>
+      </figure>
+      <figure class="gauge">
+        <svg viewBox="0 0 60 160" class="thermo" role="img" aria-labelledby="temp-label">
+          <rect x="22" y="10" width="16" height="112" rx="8" class="thermo-outline"/>
+          <rect id="mercury" x="26" y="115" width="8" height="10" class="mercury"/>
+          <circle cx="30" cy="135" r="17" class="bulb"/>
+        </svg>
+        <figcaption><strong id="temp-label">–</strong><span id="temp-value">–</span></figcaption>
+      </figure>
+    </div>
+    <p class="trend" id="climate-trend" aria-live="polite"></p>
+  </section>
+
+  <!-- Hinweise mit Lösung (Skizze 08) -->
+  <section class="view view-hints" aria-label="Hinweise">
+    <button class="back" type="button" data-goto="home"><svg aria-hidden="true"><use href="#icon-back"/></svg>zurück</button>
+    <div class="hint-list" id="hint-list"></div>
+  </section>
+
+  <!-- Ruhezustand: nur der Zustand leuchtet (Skizze 13) -->
+  <button class="sleep" type="button" id="sleep" aria-label="Display wecken">
+    <svg class="sleep-symbol" aria-hidden="true"><use id="sleep-use" href="#sym-ok"/></svg>
+  </button>
+
+  <div class="offline" id="offline" role="alert" hidden>Verbindung zur Box wird gesucht …</div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

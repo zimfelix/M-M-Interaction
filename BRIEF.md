@@ -78,3 +78,6 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | – | Prototyp | **Papierprototyp → Klick-Prototyp auf dem echten 5″-Display an der Box**, Messwerte simuliert und für die Vorführung umschaltbar. |
 | 9 | App-Anbindung | **Live-Synchronität im Prototyp:** Der Pi hält den einzigen Zustand und bietet eine Schnittstelle (HTTP + Live-Updates) an; Display und App des Teammitglieds sind zwei Ansichten davon (MVC). |
 | 11 | Display-Technik | **Web-Oberfläche im Vollbild-Browser (Kiosk)** auf dem Pi; am Laptop ohne Hardware testbar. |
+| – | Gamification | **Leicht, ohne Spielfigur:** Wachstumsbalken bis zur Ernte (Progression, Flow) und ein Ernte-Moment mit Teilen über die App (Achievement, Socialiser). Vorschlag aus den Konzept-Skizzen 10–11. |
+| – | Konzept-Skizzen | 14 Skizzen mit Vorlesungsbezug: https://claude.ai/artifact/7MF2tG589SHFE4ghP35TE9 (privat). |
+| – | Architektur | **Freigegeben 2026-10-27:** Python + FastAPI auf dem Pi (HTTP + WebSocket), Web-Oberfläche ohne Framework, gpiozero für Taster/LED, simulierte Messwerte. Struktur: `box/`, `docs/api.md`, `konzept/`. |

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growbox – Vorführ-Panel</title>
+<style>
+  :root { --paper: #fbfaf6; --ink: #22211f; --muted: #5f5a52; --line: #d9d4c7; font-family: system-ui, sans-serif; }
+  body { margin: 0; background: var(--paper); color: var(--ink); }
+  main { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; display: flex; flex-direction: column; gap: 20px; }
+  h1 { margin: 0; font-size: 28px; }
+  p { margin: 0; color: var(--muted); }
+  h2 { margin: 0 0 8px; font-size: 18px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; }
+  button { font: inherit; font-size: 17px; padding: 12px 16px; min-height: 48px; border: 2px solid var(--ink); border-radius: 10px; background: #fff; cursor: pointer; }
+  button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .state { border: 2px solid var(--line); border-radius: 10px; padding: 12px 16px; display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; font-size: 16px; }
+  .state dt { color: var(--muted); }
+  .state dd { margin: 0; font-weight: 600; }
+  a { color: var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <div>
+    <h1>Vorführ-Panel</h1>
+    <p>Nur für die Präsentation: Zustände der Box gezielt einstellen. Display und App zeigen jede Änderung sofort.</p>
+  </div>
+  <section>
+    <h2>Szenario</h2>
+    <div class="row" id="scenarios"></div>
+  </section>
+  <section>
+    <h2>Physischer Taster</h2>
+    <div class="row"><button type="button" id="press">Taster drücken (Licht an/aus)</button></div>
+  </section>
+  <section>
+    <h2>Live-Zustand</h2>
+    <dl class="state">
+      <dt>Zustand</dt><dd id="s-status">–</dd>
+      <dt>Licht</dt><dd id="s-light">–</dd>
+      <dt>Klima</dt><dd id="s-climate">–</dd>
+      <dt>Hinweise</dt><dd id="s-hints">–</dd>
+      <dt>Wachstum</dt><dd id="s-growth">–</dd>
+      <dt>Hardware</dt><dd id="s-hw">–</dd>
+    </dl>
+  </section>
+  <p><a href="/">Display öffnen</a> · <a href="/docs">API-Doku für die App</a></p>
+</main>
+<script>
+  const $ = (id) => document.getElementById(id);
+  let current = null;
+
+  async function post(path, payload) {
+    const res = await fetch(path, { method: "POST", headers: { "Content-Type": "application/json" },
+      body: payload ? JSON.stringify(payload) : undefined });
+    if (res.ok) render(await res.json());
+  }
+
+  function render(s) {
+    current = s;
+    $("s-status").textContent = `${s.status.title} – ${s.status.message}`;
+    $("s-light").textContent = `${s.light.on ? "an" : "aus"}${s.light.source ? ` (zuletzt: ${s.light.source})` : ""}`;
+    const c = s.climate;
+    $("s-climate").textContent = `${c.humidity} % (${c.humidity_label}) · ${c.temperature} °C (${c.temperature_label})${c.humidity_trend ? " · " + c.humidity_trend : ""}`;
+    $("s-hints").textContent = s.hints.length ? s.hints.map((h) => h.title + (h.resolving ? " (wird erledigt)" : "")).join(" · ") : "keine";
+    $("s-growth").textContent = `Tag ${s.growth.day} von ${s.growth.harvest_day}`;
+    $("s-hw").textContent = s.hardware;
+    for (const b of document.querySelectorAll("[data-scenario]")) {
+      b.setAttribute("aria-pressed", String(b.dataset.scenario === s.scenario));
+    }
+  }
+
+  async function init() {
+    const list = await (await fetch("/api/demo/scenarios")).json();
+    for (const sc of list) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = sc.label;
+      b.dataset.scenario = sc.name;
+      b.addEventListener("click", () => post("/api/demo/scenario", { name: sc.name }));
+      $("scenarios").append(b);
+    }
+    $("press").addEventListener("click", () => post("/api/demo/button"));
+    connect();
+  }
+
+  function connect() {
+    const proto = location.protocol === "https:" ? "wss" : "ws";
+    const ws = new WebSocket(`${proto}://${location.host}/ws`);
+    ws.onmessage = (e) => render(JSON.parse(e.data));
+    ws.onclose = () => setTimeout(connect, 1500);
+  }
+
+  init();
+</script>
+</body>
+</html>
