@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Growbox Gestell V2</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap">
+<style>
+html,body{margin:0;background:#fbfaf6}
+svg{display:block;width:100%;max-width:1400px;height:auto;margin:0 auto}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1320 1240" role="img" aria-label="Growbox mit gedrucktem Gestell nach dem Prinzip des Creality K2 Plus: dunkle Profile mit runden Eckstücken, Plexischeiben in Nuten, Tür mit eigenem Rahmen, Sockelprofil vorn, Technikraum mit blickdichten Platten und Bedienfeld; rechts Profil-Querschnitt, Eckstück und Teileliste">
+<defs>
+<filter id="w" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="5"></feTurbulence><feDisplacementMap in="SourceGraphic" scale="2.2"></feDisplacementMap></filter>
+<marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9" fill="none" stroke="#22211f" stroke-width="1.6"></path></marker>
+<pattern id="h" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#22211f" stroke-width="0.8"></line></pattern>
+</defs>
+
+<!-- ================= Ansicht schräg von vorn (1 mm = 1,2 px) ================= -->
+<!-- Flächen -->
+<path d="M190 260 L262 204 L562 204 L490 260 Z" fill="#8fb3cf" fill-opacity="0.28"></path>
+<path d="M490 260 L562 204 L664 204 L592 260 Z" fill="#c99a62" fill-opacity="0.6"></path>
+<path d="M592 260 L664 204 L664 504 L592 560 Z" fill="#a87b48" fill-opacity="0.7"></path>
+<rect x="190" y="260" width="300" height="264" fill="#8fb3cf" fill-opacity="0.16"></rect>
+<path d="M206 266 L476 266 M276 213 L548 213 M206 256 L266 211 M480 256 L548 211" stroke="#e8a33d" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="9 5" fill="none"></path>
+<path d="M255 520 Q282 478 312 520 Z M305 520 Q338 464 374 520 Z M366 520 Q390 488 416 520 Z" fill="#e9dcc3"></path>
+<!-- Holzsockel 30 mm -->
+<rect x="190" y="524" width="300" height="36" fill="#7a5230"></rect>
+<!-- Tür -->
+<rect x="204" y="274" width="272" height="244" rx="5" fill="#8fb3cf" fill-opacity="0.22"></rect>
+<!-- Bedienfeld-Front 85 × 250 -->
+<rect x="490" y="260" width="102" height="300" fill="#c99a62" fill-opacity="0.85"></rect>
+<rect x="504.6" y="274.4" width="72.7" height="153.5" rx="10" fill="#1d1e21"></rect>
+<rect x="506.4" y="276.2" width="69.2" height="149.95" rx="8" fill="#ffffff"></rect>
+<circle cx="541" cy="318" r="14" fill="#6aa57a" fill-opacity="0.45"></circle>
+<circle cx="541" cy="495.2" r="18" fill="#e8a33d" fill-opacity="0.8"></circle>
+<!-- Griff -->
+<rect x="446" y="320" width="11" height="160" rx="5.5" fill="#e8a33d" fill-opacity="0.85"></rect>
+
+<!-- Gestell -->
+<g fill="none" stroke="#3a3d40" stroke-linecap="round" stroke-linejoin="round">
+<path d="M262 204 L262 504 L562 504 M262 504 L190 560 M562 204 L562 504" stroke-width="7" stroke="#1f2124" stroke-opacity="0.3" stroke-dasharray="10 8"></path>
+<path d="M190 260 L190 560 M190 260 L592 260 M190 560 L592 560 M592 260 L592 560 M490 260 L490 560 M190 260 L262 204 L664 204 M592 260 L664 204 L664 504 L592 560 M490 260 L562 204" stroke-width="12" stroke="#1f2124"></path>
+<path d="M204 274 L476 274 L476 518 L204 518 Z" stroke-width="6" stroke="#5c6166"></path>
+<path d="M210 252 L268 212 L546 212 L486 252 Z" stroke-width="4" stroke="#5c6166"></path>
+<path d="M305 245 L385 245" stroke-width="8" stroke="#9aa0a6"></path>
+<path d="M305 245 L305 253 M385 245 L385 253" stroke-width="4" stroke="#6b7076"></path>
+</g>
+<!-- Griffhalter (gedruckt): verbinden Griff und Türrahmen -->
+<g fill="#3a3d40" stroke="#22211f" stroke-width="1.4">
+<path d="M455 334 L470 328 L472 340 L457 346 Z"></path>
+<path d="M455 454 L470 448 L472 460 L457 466 Z"></path>
+</g>
+<!-- Obere Verbindungsstücke dicker: tragen den LED-Kanal -->
+<path d="M190 260 L592 260 M190 260 L262 204 L664 204 M592 260 L664 204 M490 260 L562 204" fill="none" stroke="#1f2124" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M200 270 L480 270" fill="none" stroke="#e8a33d" stroke-width="3" stroke-dasharray="2 6" stroke-opacity="0.9"></path>
+<!-- Eck- und T-Stücke -->
+<g fill="#3a3d40" stroke="#22211f" stroke-width="1.6">
+<circle cx="190" cy="260" r="15"></circle>
+<circle cx="592" cy="260" r="15"></circle>
+<circle cx="190" cy="560" r="10"></circle>
+<circle cx="592" cy="560" r="10"></circle>
+<circle cx="262" cy="204" r="15"></circle>
+<circle cx="664" cy="204" r="15"></circle>
+<circle cx="664" cy="504" r="10"></circle>
+<rect x="477" y="247" width="26" height="26" rx="5"></rect>
+<rect x="549" y="191" width="26" height="26" rx="5"></rect>
+<rect x="481" y="551" width="18" height="18" rx="4"></rect>
+</g>
+
+<g filter="url(#w)" fill="none" stroke="#22211f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M255 520 Q282 478 312 520 Z M305 520 Q338 464 374 520 Z M366 520 Q390 488 416 520 Z"></path>
+<path d="M300 222 L296 244 M370 222 L368 246 M440 222 L440 246 M510 222 L512 244" stroke-width="1.3"></path>
+<rect x="194" y="300" width="9" height="22" rx="3"></rect>
+<rect x="194" y="470" width="9" height="22" rx="3"></rect>
+<rect x="446" y="320" width="11" height="160" rx="5.5"></rect>
+<rect x="504.6" y="274.4" width="72.7" height="153.5" rx="10"></rect>
+<rect x="506.4" y="276.2" width="69.2" height="149.95" rx="8" stroke-width="1.2"></rect>
+<path d="M525 276.2 L557 276.2 L555 279.8 L527 279.8 Z" stroke-width="1.2" fill="#1d1e21"></path>
+<circle cx="541" cy="318" r="14"></circle>
+<path d="M535 318 L539.5 322.5 L548 312" stroke-width="2.4"></path>
+<rect x="510" y="380" width="19" height="25" rx="3" stroke-width="1.3"></rect>
+<rect x="531.5" y="380" width="19" height="25" rx="3" stroke-width="1.3"></rect>
+<rect x="553" y="380" width="19" height="25" rx="3" stroke-width="1.3"></rect>
+<rect x="532.6" y="430" width="16.8" height="9.6" rx="2" stroke-width="1" stroke-dasharray="3 2"></rect>
+<circle cx="541" cy="495.2" r="18"></circle>
+<circle cx="541" cy="495.2" r="10.5"></circle>
+<path d="M200 530 Q340 526 482 531 M200 550 Q340 554 482 549" stroke-width="0.9" stroke="#a8784c"></path>
+<!-- Maße -->
+<path d="M190 600 L490 600" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M490 600 L592 600" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M140 262 L140 558" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M165 526 L165 558" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M606 588 L676 534" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<!-- Beschriftungspfeile -->
+<path d="M150 140 Q230 155 255 196" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M196 182 Q270 200 300 240" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M330 120 Q420 150 485 244" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M640 176 Q600 190 550 210" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M120 320 Q165 314 192 310" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M96 418 Q170 410 212 400" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M420 748 Q480 660 488 470" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M140 690 Q230 640 280 562" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M640 682 Q690 560 650 420" stroke-width="1.5" marker-end="url(#a)"></path>
+</g>
+
+<g font-family="Caveat, cursive" fill="#22211f">
+<text x="40" y="58" font-size="44" font-weight="700">Growbox · Gestell V2: LED verdeckt im oberen Rahmen</text>
+<text x="40" y="90" font-size="23" fill="#6b665d">Prinzip wie beim K2 Plus · schwarz = Rahmen · hellbraun = Technikraum · dunkelbraun = Sockel · hell = Plexi · alles gedruckt außer Plexi</text>
+<text x="40" y="138" font-size="24">Eckstück, rund</text>
+<text x="40" y="178" font-size="24">Deckel abnehmbar</text>
+<text x="40" y="200" font-size="19" fill="#6b665d">Griff vorn am Deckel</text>
+<text x="230" y="116" font-size="24">T-Stück: hier stoßen Pilzkammer und Technikraum zusammen</text>
+<text x="590" y="150" font-size="21">Oben dicker: 21 × 27</text>
+<text x="590" y="170" font-size="19" fill="#6b665d">verdeckt 4 LEDs (D)</text>
+<text x="40" y="318" font-size="24">Scharniere</text>
+<text x="40" y="340" font-size="19" fill="#6b665d">gedruckte Laschen,</text>
+<text x="40" y="360" font-size="19" fill="#6b665d">Achse: M3-Schraube</text>
+<text x="40" y="420" font-size="24">Tür:</text>
+<text x="40" y="442" font-size="19" fill="#6b665d">Plexi im Türrahmen</text>
+<text x="300" y="766" font-size="22">Senkrechtes Profil links vom Handy</text>
+<text x="300" y="788" font-size="19" fill="#6b665d">250 hoch, wie rechts · trennt Tür und Bedienfeld</text>
+<text x="40" y="704" font-size="22">Sockel 30 mm, Holzoptik</text>
+<text x="40" y="726" font-size="19" fill="#6b665d">dunkelbraun, gedruckt · verdeckt die Erde</text>
+<text x="580" y="700" font-size="22">Technikraum-Platten</text>
+<text x="580" y="722" font-size="19" fill="#6b665d">gedruckt, in denselben Nuten</text>
+<text x="340" y="632" font-size="22" text-anchor="middle">250</text>
+<text x="541" y="632" font-size="22" text-anchor="middle">85</text>
+<text x="132" y="486" font-size="22" text-anchor="end">250</text>
+<text x="160" y="548" font-size="18" text-anchor="end">30</text>
+<text x="670" y="590" font-size="22">200 tief</text>
+<text x="340" y="656" font-size="18" fill="#6b665d" text-anchor="middle">Maße in mm, außen · gesamt 335 × 250 × 200</text>
+</g>
+
+<!-- ================= Detail A: Profil 15 × 15 (1 mm = 6 px) ================= -->
+<g transform="translate(800 120)">
+<text x="0" y="0" font-family="Caveat, cursive" font-size="28" font-weight="700" fill="#22211f">A · Profil im Schnitt</text>
+<g transform="translate(70 40)">
+<!-- Plexischeiben in den Nuten -->
+<rect x="35.4" y="60" width="18" height="90" fill="#8fb3cf" fill-opacity="0.55" stroke="#22211f" stroke-width="1"></rect>
+<rect x="-80" y="35.4" width="110" height="18" fill="#8fb3cf" fill-opacity="0.55" stroke="#22211f" stroke-width="1"></rect>
+<!-- Profil mit runder Außenkante und zwei Nuten -->
+<path d="M0 0 L66 0 Q90 0 90 24 L90 90 L54.2 90 L54.2 60 L34.2 60 L34.2 90 L0 90 L0 54.2 L30 54.2 L30 34.2 L0 34.2 Z" fill="url(#h)" stroke="#22211f" stroke-width="2"></path>
+<!-- Maße -->
+<path d="M0 -14 L90 -14" stroke="#22211f" stroke-width="1" marker-start="url(#a)" marker-end="url(#a)"></path>
+<text x="45" y="-20" font-family="Caveat, cursive" font-size="20" text-anchor="middle" fill="#22211f">15</text>
+<path d="M104 0 L104 90" stroke="#22211f" stroke-width="1" marker-start="url(#a)" marker-end="url(#a)"></path>
+<text x="110" y="50" font-family="Caveat, cursive" font-size="20" fill="#22211f">15</text>
+<path d="M34.2 160 L54.2 160" stroke="#22211f" stroke-width="1"></path>
+<text x="-80" y="180" font-family="Caveat, cursive" font-size="20" fill="#22211f">Nut 3,4 breit, 5 tief</text>
+<text x="-80" y="202" font-family="Caveat, cursive" font-size="20" fill="#6b665d">für 3-mm-Plexi (+0,4 Spiel)</text>
+<text x="-80" y="24" font-family="Caveat, cursive" font-size="20" fill="#6b665d">Plexi 3</text>
+<text x="96" y="-2" font-family="Caveat, cursive" font-size="18" fill="#6b665d">R 4 außen</text>
+</g>
+</g>
+
+<!-- ================= Detail B: Eckstück ================= -->
+<g transform="translate(1080 120)">
+<text x="0" y="0" font-family="Caveat, cursive" font-size="28" font-weight="700" fill="#22211f">B · Eckstück</text>
+<g transform="translate(30 40)" fill="none" stroke="#22211f" stroke-width="2" stroke-linejoin="round">
+<path d="M0 30 L0 120 L60 120 L60 60 L120 60 L120 30 Q120 0 90 0 L30 0 Q0 0 0 30 Z" fill="#3a3d40" fill-opacity="0.9"></path>
+<rect x="15" y="120" width="30" height="40" fill="#1f2124" fill-opacity="0.5" stroke-dasharray="4 3"></rect>
+<rect x="120" y="15" width="40" height="30" fill="#1f2124" fill-opacity="0.5" stroke-dasharray="4 3"></rect>
+<rect x="18" y="18" width="24" height="24" stroke-dasharray="4 3"></rect>
+</g>
+<g font-family="Caveat, cursive" fill="#22211f">
+<text x="0" y="230" font-size="20">30 × 30 × 30, außen rund</text>
+<text x="0" y="252" font-size="20" fill="#6b665d">3 Hülsen 15 × 15 × 15</text>
+<text x="0" y="274" font-size="20" fill="#6b665d">Profil rein + Schraube M3</text>
+<text x="0" y="296" font-size="20" fill="#6b665d">T-Stück: 4 Hülsen</text>
+</g>
+</g>
+
+<!-- ================= C: Teileliste mit Druckbett-Check ================= -->
+<g transform="translate(800 470)" font-family="Caveat, cursive" fill="#22211f">
+<text x="0" y="0" font-size="28" font-weight="700">C · Teile (Druckbett 255 × 255)</text>
+<g font-size="20">
+<text x="0" y="34" font-weight="700">Teil</text><text x="250" y="34" font-weight="700">Anzahl</text><text x="320" y="34" font-weight="700">Maß</text><text x="455" y="34" font-weight="700">passt</text>
+<path d="M0 42 L480 42" stroke="#22211f" stroke-width="1.2"></path>
+<text x="0" y="66">Eck-/T-Stücke unten · oben</text><text x="250" y="66">je 4 / 2</text><text x="320" y="66">30³ · 36 × 36 × 27</text><text x="455" y="66">✓</text>
+<text x="0" y="90">Profile oben mit LED-Kanal</text><text x="250" y="90">4</text><text x="320" y="90">21 × 27, 178 / 128</text><text x="455" y="90">✓</text>
+<text x="0" y="114">Profile Breite + Höhe</text><text x="250" y="114">8</text><text x="320" y="114">220 lang</text><text x="455" y="114">✓</text>
+<text x="0" y="138">Profile Tiefe</text><text x="250" y="138">4</text><text x="320" y="138">170 lang</text><text x="455" y="138">✓</text>
+<text x="0" y="162">Profile Technikraum</text><text x="250" y="162">4</text><text x="320" y="162">55 lang</text><text x="455" y="162">✓</text>
+<text x="0" y="186">Türrahmen + Griffhalter</text><text x="250" y="186">1 + 2</text><text x="320" y="186">218 × 203</text><text x="455" y="186">✓</text>
+<text x="0" y="210">Deckelrahmen mit Griff</text><text x="250" y="210">1</text><text x="320" y="210">250 × 200</text><text x="455" y="210">knapp</text>
+<text x="0" y="234">Bedienfeld-Front</text><text x="250" y="234">1</text><text x="320" y="234">85 × 250 × 10</text><text x="455" y="234">knapp</text>
+<text x="0" y="258">Trennwand mit Schlitzen</text><text x="250" y="258">1</text><text x="320" y="258">180 × 230 × 3</text><text x="455" y="258">✓</text>
+<text x="0" y="282">Platten Technikraum</text><text x="250" y="282">4</text><text x="320" y="282">bis 180 × 230 × 3</text><text x="455" y="282">✓</text>
+<text x="0" y="306">Scharnierlaschen</text><text x="250" y="306">4</text><text x="320" y="306">klein</text><text x="455" y="306">✓</text>
+<path d="M0 318 L480 318" stroke="#22211f" stroke-width="1.2"></path>
+<text x="0" y="342" fill="#6b665d">Sockelleiste vorn 250 × 30, gedruckt in Holzoptik</text>
+<text x="0" y="364" fill="#6b665d">Plexi 3 mm: Rückwand 230 × 230, Seite 180 × 230, Boden 230 × 180</text>
+<text x="0" y="386" fill="#6b665d">LED 5 V, 10 mm: 2 × 167 + 2 × 117 mm (Schnittmarken)</text>
+<text x="0" y="408" fill="#6b665d">„knapp“: 250 von 255 mm, nur 5 mm Rand auf dem Druckbett</text>
+</g>
+</g>
+<!-- ================= Detail D: oberes Profil mit LED (1 mm = 6 px) ================= -->
+<g transform="translate(120 880)">
+<text x="-80" y="0" font-family="Caveat, cursive" font-size="28" font-weight="700" fill="#22211f">D · Oberes Profil mit LED-Kanal (Schnitt) · Maße: zeichnung-oberer-rahmen</text>
+<g transform="translate(160 74)">
+<!-- Deckel liegt auf -->
+<rect x="-10" y="-16" width="260" height="12" fill="#8fb3cf" fill-opacity="0.55" stroke="#22211f" stroke-width="1"></rect>
+<!-- Scheibe steckt in der Nut der Schürze -->
+<rect x="12.6" y="132" width="18" height="150" fill="#8fb3cf" fill-opacity="0.55" stroke="#22211f" stroke-width="1"></rect>
+<!-- Profil 20 × 27: Schürze außen, Blende innen, LED-Kanal dazwischen -->
+<path d="M24 0 L126 0 L126 162 L114 162 L114 78 L40 78 L40 162 L31 162 L31 132 L11 132 L11 162 L0 162 L0 24 Q0 0 24 0 Z" fill="url(#h)" stroke="#22211f" stroke-width="2"></path>
+<rect x="47" y="78" width="60" height="15" fill="#e8a33d" stroke="#22211f" stroke-width="1"></rect>
+<circle cx="62" cy="94" r="2.5" fill="#fff3c4" stroke="#22211f" stroke-width="0.8"></circle>
+<circle cx="77" cy="94" r="2.5" fill="#fff3c4" stroke="#22211f" stroke-width="0.8"></circle>
+<circle cx="92" cy="94" r="2.5" fill="#fff3c4" stroke="#22211f" stroke-width="0.8"></circle>
+<path d="M77 97 L66 270 M77 97 L114 270 M77 97 L166 262" fill="none" stroke="#e8a33d" stroke-width="1.6" stroke-dasharray="6 5"></path>
+<!-- Blick von außen trifft die Schürze, Blick von gegenüber trifft die Blende -->
+<path d="M-130 196 L-2 150" fill="none" stroke="#22211f" stroke-width="1.4" stroke-dasharray="3 4"></path>
+<circle cx="-140" cy="199" r="9" fill="none" stroke="#22211f" stroke-width="1.5"></circle>
+<circle cx="-137" cy="199" r="3" fill="#22211f"></circle>
+<path d="M306 190 L128 140" fill="none" stroke="#22211f" stroke-width="1.4" stroke-dasharray="3 4"></path>
+<circle cx="310" cy="193" r="9" fill="none" stroke="#22211f" stroke-width="1.5"></circle>
+<circle cx="307" cy="193" r="3" fill="#22211f"></circle>
+<!-- Maße -->
+<path d="M0 -30 L126 -30" stroke="#22211f" stroke-width="1" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M-24 0 L-24 162" stroke="#22211f" stroke-width="1" marker-start="url(#a)" marker-end="url(#a)"></path>
+</g>
+<g font-family="Caveat, cursive" fill="#22211f">
+<text x="223" y="36" font-size="20" text-anchor="middle">21</text>
+<text x="126" y="160" font-size="20" text-anchor="end">27</text>
+<text x="-80" y="316" font-size="19" fill="#6b665d">Blick von außen</text>
+<text x="420" y="316" font-size="19" fill="#6b665d">Blick von gegenüber</text>
+<text x="560" y="50" font-size="22">Deckel liegt oben auf, bleibt kabelfrei</text>
+<text x="560" y="90" font-size="22">Schürze außen (Nut für die Scheibe)</text>
+<text x="560" y="114" font-size="19" fill="#6b665d">verdeckt die LED von außen</text>
+<text x="560" y="154" font-size="22">Blende innen, 14 tief</text>
+<text x="560" y="178" font-size="19" fill="#6b665d">verdeckt die LED quer durch die Box</text>
+<text x="560" y="218" font-size="22">LED-Kanal 12 breit, nur nach unten offen</text>
+<text x="560" y="242" font-size="19" fill="#6b665d">Streifen 10 mm breit, 5 V · Licht fällt auf die Pilze</text>
+<text x="560" y="266" font-size="19" fill="#6b665d">Kabel im Profil zum Technikraum</text>
+</g>
+</g>
+</svg>
+</body>
+</html>

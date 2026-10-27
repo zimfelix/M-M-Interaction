@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Oberer Rahmen Zeichnung</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600&display=swap">
+<style>
+html,body{margin:0;background:#ffffff}
+svg{display:block;width:100%;max-width:1400px;height:auto;margin:0 auto}
+text{font-family:'IBM Plex Sans Condensed',Arial Narrow,sans-serif;fill:#111}
+.ln{fill:none;stroke:#111;stroke-width:2}
+.thin{fill:none;stroke:#111;stroke-width:1}
+.hid{fill:none;stroke:#111;stroke-width:1.2;stroke-dasharray:7 4}
+.ctr{fill:none;stroke:#111;stroke-width:0.8;stroke-dasharray:14 3 2 3}
+.dim{fill:none;stroke:#111;stroke-width:0.9}
+.d{font-size:15px}
+.lbl{font-size:14px}
+.h{font-size:17px;font-weight:600}
+.led{fill:#f2b54a;stroke:#111;stroke-width:1}
+.chan{fill:#eef1f4}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1200 1010" role="img" aria-label="Technische Zeichnung des oberen Rahmens der Pilzkammer mit verdeckten LED-Streifen: Untersicht 250 mal 200 Millimeter mit vier Profilen, Eck- und T-Stücken und LED-Streifen im Kanal; Schnitt durch das obere Profil 21 mal 27 Millimeter mit Schürze, Kanal und Blende; Eckstück oben 36 mal 36 Millimeter mit Kabelkanal um die Hülse; Teileliste">
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 2 L10 5 L0 8 Z" fill="#111"></path></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#111" stroke-width="0.8"></line></pattern>
+</defs>
+<rect x="10" y="10" width="1180" height="990" class="thin"></rect>
+
+<!-- ========== 1 · UNTERSICHT OBERER RAHMEN (1 mm = 2 px) ========== -->
+<text x="80" y="44" class="h">1 · Untersicht: oberer Rahmen der Pilzkammer (von unten gesehen)</text>
+<!-- Kanal (offen nach unten) -->
+<path d="M93.3 133.3 H566.7 V506.7 H93.3 Z M118 158 V482 H542 V158 Z" class="chan" fill-rule="evenodd"></path>
+<!-- Außen- und Innenkante -->
+<rect x="80" y="120" width="500" height="400" rx="6" class="ln"></rect>
+<rect x="122" y="162" width="416" height="316" class="ln"></rect>
+<!-- Kanalkanten -->
+<rect x="93.3" y="133.3" width="473.4" height="373.4" class="thin"></rect>
+<rect x="118" y="158" width="424" height="324" class="thin"></rect>
+<!-- Eck- und T-Stücke 36 × 36 -->
+<path d="M152 120 V192 H80 M508 120 V192 H580 M152 520 V448 H80 M508 520 V448 H580" class="ln"></path>
+<!-- Anschluss zum Technikraum an den T-Stücken -->
+<path d="M580 134 H612 M580 178 H612 M580 462 H612 M580 506 H612" class="thin"></path>
+<text x="618" y="160" class="lbl">→ Technikraum</text>
+<text x="618" y="488" class="lbl">→ Technikraum</text>
+<!-- LED-Streifen 10 mm im Kanal -->
+<rect x="162" y="135.6" width="334" height="20" class="led"></rect>
+<rect x="162" y="484.4" width="334" height="20" class="led"></rect>
+<rect x="95.6" y="202" width="20" height="234" class="led"></rect>
+<rect x="544.4" y="202" width="20" height="234" class="led"></rect>
+<!-- Kabelbrücken in den Eckstücken -->
+<path d="M162 145.6 Q105.6 145.6 105.6 202 M496 145.6 Q554.4 145.6 554.4 202 M162 494.4 Q105.6 494.4 105.6 436 M496 494.4 Q554.4 494.4 554.4 436" fill="none" stroke="#111" stroke-width="1.6" stroke-dasharray="5 3"></path>
+<!-- Hülsen für senkrechte Profile (verdeckt) -->
+<rect x="80" y="120" width="30" height="30" class="hid"></rect>
+<rect x="550" y="120" width="30" height="30" class="hid"></rect>
+<rect x="80" y="490" width="30" height="30" class="hid"></rect>
+<rect x="550" y="490" width="30" height="30" class="hid"></rect>
+<!-- Schnittlinie A–A -->
+<path d="M330 100 V180" class="ctr"></path>
+<path d="M330 100 H356" class="ln" marker-end="url(#ar)"></path>
+<text x="360" y="105" class="h">A</text>
+<!-- Maße -->
+<path d="M80 116 V66 M580 116 V66" class="thin"></path>
+<path d="M80 74 H580" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="330" y="69" class="d" text-anchor="middle">250</text>
+<path d="M152 116 V88 M508 116 V88" class="thin"></path>
+<path d="M152 94 H508" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="240" y="89" class="d" text-anchor="middle">178 Profil vorn / hinten</text>
+<path d="M76 120 H36 M76 520 H36" class="thin"></path>
+<path d="M44 120 V520" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="38" y="324" class="d" text-anchor="end" transform="rotate(-90 38 324)">200</text>
+<path d="M76 192 H58 M76 448 H58" class="thin"></path>
+<path d="M64 192 V448" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="72" y="320" class="d" transform="rotate(-90 72 320)" text-anchor="middle">128 Profil Seite</text>
+<path d="M80 540 H152" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<path d="M80 524 V548 M152 524 V548" class="thin"></path>
+<text x="116" y="562" class="d" text-anchor="middle">36</text>
+<path d="M122 540 H122" class="thin"></path>
+<path d="M538 540 H580" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<path d="M538 482 V548" class="thin"></path>
+<text x="559" y="562" class="d" text-anchor="middle">21</text>
+<!-- Beschriftung -->
+<path d="M330 330 H330" class="thin"></path>
+<text x="330" y="310" class="lbl" text-anchor="middle">Innenöffnung 208 × 158</text>
+<text x="330" y="328" class="lbl" text-anchor="middle">Deckel liegt von oben auf</text>
+<path d="M250 156 L250 206 L300 206" class="thin"></path>
+<text x="304" y="210" class="lbl">LED-Streifen 10 breit im Kanal</text>
+<path d="M120 170 L170 232 L210 232" class="thin"></path>
+<text x="214" y="236" class="lbl">Kabelbrücke im Eckstück (3 Adern)</text>
+<path d="M95 135 L60 600" class="thin"></path>
+<text x="60" y="616" class="lbl">Hülse 15 × 15 für das senkrechte Profil</text>
+
+<!-- ========== 2 · SCHNITT A–A OBERES PROFIL (1 mm = 6 px) ========== -->
+<text x="740" y="44" class="h">2 · Schnitt A–A: oberes Profil 21 × 27</text>
+<g transform="translate(870 140)">
+<rect x="-14" y="-16" width="230" height="12" fill="#cfe0ea" stroke="#111" stroke-width="1"></rect>
+<rect x="12.6" y="132" width="18" height="110" fill="#cfe0ea" stroke="#111" stroke-width="1"></rect>
+<path d="M24 0 L126 0 L126 162 L114 162 L114 78 L40 78 L40 162 L31 162 L31 132 L11 132 L11 162 L0 162 L0 24 Q0 0 24 0 Z" fill="url(#hatch)" stroke="#111" stroke-width="2"></path>
+<rect x="47" y="78" width="60" height="15" class="led"></rect>
+<!-- Maße oben -->
+<path d="M0 -24 V-60 M126 -24 V-60" class="thin"></path>
+<path d="M0 -52 H126" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="63" y="-57" class="d" text-anchor="middle">21</text>
+<!-- Maße unten: Schürze / Kanal / Blende -->
+<path d="M0 166 V214 M40 166 V214 M114 166 V214 M126 166 V214" class="thin"></path>
+<path d="M0 206 H40" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="20" y="232" class="d" text-anchor="middle">6,7</text>
+<path d="M40 206 H114" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="77" y="232" class="d" text-anchor="middle">12,3 Kanal</text>
+<path d="M114 206 H126" class="dim"></path>
+<text x="140" y="232" class="d">2 Blende</text>
+<!-- Maße rechts -->
+<path d="M130 0 H200 M118 78 H170 M130 162 H200" class="thin"></path>
+<path d="M192 0 V162" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="200" y="86" class="d">27</text>
+<path d="M162 0 V78" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="136" y="44" class="d">13</text>
+<path d="M162 78 V162" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="136" y="126" class="d">14</text>
+<!-- Nut -->
+<path d="M21 132 L-40 100 L-110 100" class="thin"></path>
+<text x="-110" y="94" class="lbl">Nut 3,4 × 5</text>
+<path d="M21 240 L-40 260 L-110 260" class="thin"></path>
+<text x="-110" y="254" class="lbl">Plexi 3</text>
+<path d="M77 93 L77 290 L-110 290" class="thin"></path>
+<text x="-110" y="284" class="lbl">LED 10 × 2,5, klebt an der Kanaldecke</text>
+<text x="-110" y="-22" class="lbl">Deckel</text>
+<text x="-110" y="40" class="lbl">außen</text>
+<text x="230" y="40" class="lbl">innen</text>
+</g>
+<g transform="translate(740 470)">
+<text x="0" y="0" class="lbl">Schürze außen: verdeckt die LED für den Blick von außen.</text>
+<text x="0" y="20" class="lbl">Blende innen: verdeckt die LED quer durch die Box.</text>
+<text x="0" y="40" class="lbl">Kanal ist nur nach unten offen: Licht fällt auf die Pilze.</text>
+</g>
+
+<!-- ========== 3 · ECKSTÜCK OBEN (1 mm = 4 px) ========== -->
+<text x="80" y="672" class="h">3 · Eckstück oben 36 × 36 × 27 (Untersicht)</text>
+<g transform="translate(140 745)">
+<rect x="0" y="0" width="144" height="144" rx="12" class="ln"></rect>
+<!-- Kanal der Profile endet an den Armen -->
+<path d="M144 26.8 H180 M144 76 H180 M26.8 144 V180 M76 144 V180" class="thin"></path>
+<rect x="144" y="26.8" width="36" height="49.2" class="chan"></rect>
+<rect x="26.8" y="144" width="49.2" height="36" class="chan"></rect>
+<!-- Kabelkanal 4 × 4 um die Hülse -->
+<path d="M144 43 H108 A65 65 0 0 0 43 108 V144 M144 59 H108 A49 49 0 0 0 59 108 V144" fill="none" stroke="#111" stroke-width="1.4"></path>
+<!-- Hülse 15 × 15 -->
+<rect x="0" y="0" width="60" height="60" class="hid"></rect>
+<!-- M3 von oben -->
+<circle cx="126" cy="14" r="6" class="hid"></circle>
+<circle cx="126" cy="114" r="6" class="hid"></circle>
+<circle cx="14" cy="126" r="6" class="hid"></circle>
+<circle cx="114" cy="126" r="6" class="hid"></circle>
+<!-- Maße -->
+<path d="M0 -8 V-40 M144 -8 V-40" class="thin"></path>
+<path d="M0 -32 H144" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="72" y="-37" class="d" text-anchor="middle">36</text>
+<path d="M-8 0 H-40 M-8 144 H-40" class="thin"></path>
+<path d="M-32 0 V144" class="dim" marker-start="url(#ar)" marker-end="url(#ar)"></path>
+<text x="-38" y="76" class="d" text-anchor="end">36</text>
+</g>
+<g transform="translate(360 755)">
+<text x="0" y="0" class="lbl">• Hülse 15 × 15, 15 tief: senkrechtes Profil von unten</text>
+<text x="0" y="22" class="lbl">• Kabelkanal 4 × 4, R 14: führt die 3 Adern um die Hülse herum</text>
+<text x="0" y="44" class="lbl">  von einem Streifen zum nächsten (Streifen biegen nicht um die Ecke)</text>
+<text x="0" y="66" class="lbl">• Profile stoßen stumpf an, je 2 × M3 von oben, unter dem Deckel verdeckt</text>
+<text x="0" y="88" class="lbl">• T-Stück oben: gleiche Form + Arm zum Technikraum, dort läuft das Kabel weiter</text>
+<text x="0" y="110" class="lbl">• außen R 6 gerundet, Querschnitt der Arme wie das Profil (21 × 27)</text>
+</g>
+
+<!-- Teile -->
+<g transform="translate(740 580)">
+<text x="0" y="0" class="h">Teile oberer Rahmen (Druckbett 255)</text>
+<path d="M0 10 H420" class="thin"></path>
+<text x="0" y="32" class="d">Eckstück oben</text><text x="260" y="32" class="d">2</text><text x="300" y="32" class="d">36 × 36 × 27</text>
+<text x="0" y="54" class="d">T-Stück oben</text><text x="260" y="54" class="d">2</text><text x="300" y="54" class="d">36 × 51 × 27</text>
+<text x="0" y="76" class="d">Profil oben vorn / hinten</text><text x="260" y="76" class="d">2</text><text x="300" y="76" class="d">178 × 21 × 27</text>
+<text x="0" y="98" class="d">Profil oben Seite</text><text x="260" y="98" class="d">2</text><text x="300" y="98" class="d">128 × 21 × 27</text>
+<path d="M0 110 H420" class="thin"></path>
+<text x="0" y="132" class="d">LED-Streifen 5 V, 10 breit</text><text x="260" y="132" class="d">2 + 2</text><text x="300" y="132" class="d">167 + 117 lang</text>
+<text x="0" y="152" class="lbl">an den Schnittmarken kürzen (bei 60 LED/m alle 16,7 mm)</text>
+</g>
+
+<!-- Schriftfeld -->
+<g transform="translate(680 870)">
+<rect x="0" y="0" width="500" height="120" class="thin"></rect>
+<path d="M0 40 L500 40 M0 80 L500 80 M250 40 L250 120" class="thin"></path>
+<text x="14" y="27" class="h">Growbox · oberer Rahmen mit verdeckter LED</text>
+<text x="14" y="66" class="d">Maße in mm · Toleranz ±0,2</text>
+<text x="264" y="66" class="d">PETG schwarz</text>
+<text x="14" y="106" class="d">neu, ergänzt Gestell V2</text>
+<text x="264" y="106" class="d">Stand: Entwurf</text>
+</g>
+</svg>
+</body>
+</html>

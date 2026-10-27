@@ -14,7 +14,8 @@ from pathlib import Path
 
 HIER = Path(__file__).parent
 ZIEL = HIER / "bilder"
-SEITEN = ["skizze-box", "skizze-sockel", "zeichnung-bedienfeld", "skizze-gestell"]
+SEITEN = ["skizze-box", "skizze-sockel", "zeichnung-bedienfeld", "skizze-gestell",
+          "skizze-gestell-v2", "zeichnung-oberer-rahmen"]
 
 SCHRIFTEN = [
     ("Caveat", "400 700", "Caveat-variable.woff2"),

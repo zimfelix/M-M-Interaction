@@ -18,6 +18,18 @@ Aktueller Stand der Box als Bilder (direkt auf GitHub sichtbar). Lokal gibt es d
 
 ![Bedienfeld-Front](bilder/zeichnung-bedienfeld.svg)
 
+## Neu: LED verdeckt im oberen Rahmen
+
+Ergänzt die Zeichnungen oben, ersetzt sie nicht. Die älteren Stände bleiben als Dokumentation unverändert.
+
+### 5 · Gestell V2: dickere obere Verbindungsstücke
+
+![Gestell V2](bilder/skizze-gestell-v2.svg)
+
+### 6 · Technische Zeichnung oberer Rahmen mit LED-Kanal
+
+![Oberer Rahmen](bilder/zeichnung-oberer-rahmen.svg)
+
 ## Dateien
 
 | Datei | Inhalt |
@@ -26,10 +38,12 @@ Aktueller Stand der Box als Bilder (direkt auf GitHub sichtbar). Lokal gibt es d
 | [`skizze-gestell.html`](skizze-gestell.html) | Gestell: Profile, Eckstück, LED-Profil, Teileliste |
 | [`skizze-sockel.html`](skizze-sockel.html) | Sockel 30 mm, Bodenrahmen, Plexi-Wanne |
 | [`zeichnung-bedienfeld.html`](zeichnung-bedienfeld.html) | Bedienfeld-Front 85 × 250 × 10 mit iPhone-Tasche |
+| [`skizze-gestell-v2.html`](skizze-gestell-v2.html) | Gestell V2: obere Profile 21 × 27 mit verdeckter LED |
+| [`zeichnung-oberer-rahmen.html`](zeichnung-oberer-rahmen.html) | Oberer Rahmen: Untersicht, Profil-Schnitt, Eckstück oben, Teile |
 | [`masse-iphone-13-mini.md`](masse-iphone-13-mini.md) | iPhone-Maße aus Apples Zeichnung |
 | [`export_svg.py`](export_svg.py) | erzeugt `bilder/*.svg` aus den HTML-Seiten |
 
-**Nach jeder Änderung an einer Zeichnung:** `python3 konzept/export_svg.py` ausführen und die Bilder mit committen. Schriften (OFL-Lizenz) liegen in `fonts/`.
+**Neue Stände als neue Datei anlegen** (z. B. `-v2`), bestehende Zeichnungen bleiben als Dokumentation. Danach `python3 konzept/export_svg.py` ausführen und die Bilder mit committen. Schriften (OFL-Lizenz) liegen in `fonts/`.
 
 ## Oberfläche und Nutzer
 
