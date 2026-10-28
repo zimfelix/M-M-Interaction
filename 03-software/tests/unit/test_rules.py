@@ -1,6 +1,6 @@
 import pytest
 
-from server.rules import evaluate, humidity_level, temperature_level
+from growbox.core.rules import evaluate, humidity_level, temperature_level
 
 
 @pytest.mark.parametrize("humidity, level", [(68, "now"), (74.9, "now"), (75, "soon"), (84, "soon"),

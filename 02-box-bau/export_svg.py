@@ -1,10 +1,10 @@
-"""Exportiert die Zeichnungen aus konzept/*.html als eigenständige SVG-Bilder.
+"""Exportiert die Zeichnungen aus zeichnungen/*.html als eigenständige SVG-Bilder.
 
 GitHub zeigt HTML nur als Quelltext, SVG-Bilder aber direkt an. Das Skript nimmt
 das <svg> aus jeder Seite, übernimmt deren CSS und bettet die Schriften ein,
 damit die Bilder auch ohne Internet gleich aussehen.
 
-Aufruf (nach jeder Änderung an einer Zeichnung):  python3 konzept/export_svg.py
+Aufruf (nach jeder Änderung an einer Zeichnung):  python3 02-box-bau/export_svg.py
 """
 
 import base64
@@ -13,6 +13,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 HIER = Path(__file__).parent
+QUELLE = HIER / "zeichnungen"
 ZIEL = HIER / "bilder"
 SEITEN = ["skizze-box", "skizze-sockel", "zeichnung-bedienfeld", "skizze-gestell",
           "skizze-gestell-v2", "zeichnung-oberer-rahmen"]
@@ -47,7 +48,7 @@ def seiten_css(html: str) -> str:
 
 
 def exportiere(name: str, fonts: str) -> Path:
-    html = (HIER / f"{name}.html").read_text(encoding="utf-8")
+    html = (QUELLE / f"{name}.html").read_text(encoding="utf-8")
     svg = re.search(r"<svg\b.*?</svg>", html, re.S).group(0)
     vb = re.search(r'viewBox="0 0 ([\d.]+) ([\d.]+)"', svg)
     breite, hoehe = vb.group(1), vb.group(2)

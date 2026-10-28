@@ -62,4 +62,4 @@ Damit Display und App wie ein Produkt wirken, gelten auf beiden dieselben:
 
 - **Begriffe:** „Alles gut“, „Bald kümmern“, „Jetzt handeln“, „Licht“, „Klima“, „Hinweise“, „Erledigt“
 - **Symbole:** Kreis mit Haken (ok), Dreieck mit ! (bald), Achteck mit !! (jetzt) – Farbe nie allein
-- **Farben:** siehe `box/ui/style.css` (`--ok`, `--soon`, `--now`, `--light-on`)
+- **Farben:** siehe `src/growbox/web/display/style.css` (`--ok`, `--soon`, `--now`, `--light-on`)

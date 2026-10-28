@@ -2,10 +2,10 @@ import asyncio
 
 from fastapi.testclient import TestClient
 
-from server.hardware import SimulatedHardware
-from server.main import create_app
-from server.simulator import Simulator
-from server.state import BoxModel
+from growbox.core import BoxModel
+from growbox.hardware import SimulatedHardware
+from growbox.main import create_app
+from growbox.simulation import Simulator
 
 
 def make_client():

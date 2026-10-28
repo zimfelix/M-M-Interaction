@@ -2,39 +2,45 @@
 
 **Mensch-Maschine-Interaktion an einer Growbox** – Uni-Projekt im Fach Human-Computer Interaction (Option B „Bedienoberfläche für eine Growbox“).
 
-- Kleine Growbox für Pilze, aufgebaut wie eine Mikrowelle: links Pilzkammer aus Plexi (ca. 20 cm), rechts Technikraum mit Bedienfeld
+- Kleine Growbox für Pilze, aufgebaut wie eine Mikrowelle: links Pilzkammer aus Plexi, rechts Technikraum mit Bedienfeld
 - Bedienung **am Gerät** über ein eingebautes iPhone 13 mini (Display) und einen physischen Taster, **aus der Ferne** über eine App (eigenes Teammitglied)
 - Leitidee: **radikal einfach** – ein großer Zustand auf einen Blick, drei große Bedienkacheln, für alle Altersgruppen
 
-Status: Konzept und Klick-Prototyp stehen, Box wird gebaut. Zeichnungen der Box: [konzept/README.md](konzept/README.md). Ausgangslage und Entscheidungen: [BRIEF.md](BRIEF.md) · Vorlesungsbezug: [HCI-KONZEPTE.md](HCI-KONZEPTE.md)
+Status: Konzept und Klick-Prototyp stehen, Box wird gebaut.
 
-## Projektaufbau
+## Projektaufbau – nach Schritten
 
 ```text
-box/            Software auf dem Pi (Server, Display, Vorführ-Panel, Tests)
-docs/api.md     Schnittstelle für die App
-konzept/        Zeichnungen der Box (index.html), Personas, Material fürs Booklet
+M-M-Interaction/
+├── BRIEF.md          Ziel, offene Punkte, alle bestätigten Entscheidungen
+├── AGENTS.md         Arbeitsregeln für KI-Agenten
+├── 01-konzept/       Interaktionskonzept: Personas, Storyboards, Vorlesungsbezug
+├── 02-box-bau/       Zeichnungen der Box (Gestell, Sockel, Bedienfeld, LED-Rahmen)
+├── 03-software/      Software auf dem Raspberry Pi: Server, Display, Demo-Panel, Tests
+└── 04-evaluation/    Papierprototyp-Fotos, Testprotokolle, AttrakDiff
 ```
 
-## Lokal starten (Laptop, ohne Hardware)
+## Ich suche …
+
+| … | hier |
+|---|---|
+| eine Entscheidung (Maße, Farben, Bedienkonzept) | [`BRIEF.md`](BRIEF.md) |
+| Vorlesungskonzepte mit Foliennummern | [`01-konzept/HCI-KONZEPTE.md`](01-konzept/HCI-KONZEPTE.md) |
+| Zeichnungen der Box | [`02-box-bau/README.md`](02-box-bau/README.md) |
+| die Software starten oder testen | [`03-software/README.md`](03-software/README.md) |
+| die Schnittstelle für die App | [`03-software/API.md`](03-software/API.md) |
+| das Aussehen des Displays | [`03-software/src/growbox/web/display/`](03-software/src/growbox/web/display/) |
+| die Regeln „Alles gut / Bald kümmern / Jetzt handeln“ | [`03-software/src/growbox/core/rules.py`](03-software/src/growbox/core/rules.py) |
+| Vorführ-Szenarien für die Präsentation | [`03-software/src/growbox/simulation/scenarios.py`](03-software/src/growbox/simulation/scenarios.py) |
+| GPIO-Pins von Taster und LED | [`03-software/src/growbox/config.py`](03-software/src/growbox/config.py) |
+
+## Schnellstart (Laptop, ohne Hardware)
 
 ```bash
-cd box
+cd 03-software
 python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt -r requirements-dev.txt
-.venv/bin/uvicorn server.main:app --port 8000
+.venv/bin/pip install -e ".[dev]"
+.venv/bin/uvicorn growbox.main:app --port 8000
 ```
 
-- Display: http://127.0.0.1:8000/ (am Laptop als Handy-Rahmen im Hochformat)
-- Vorführ-Panel: http://127.0.0.1:8000/demo/
-- API-Doku für die App: http://127.0.0.1:8000/docs
-- Tests: `.venv/bin/python -m pytest -q`
-
-Ohne Raspberry Pi werden Taster und LED automatisch simuliert; Feuchte und Temperatur sind im Prototyp immer simuliert.
-
-## Auf dem iPhone anzeigen
-
-1. Server im WLAN erreichbar starten: `.venv/bin/uvicorn server.main:app --host 0.0.0.0 --port 8000`
-2. Auf dem iPhone in Safari `http://<IP des Pi oder Laptops>:8000/` öffnen → Teilen → **Zum Home-Bildschirm** (startet dann ohne Safari-Leisten).
-3. In den iPhone-Einstellungen **Bedienungshilfen → Geführter Zugriff** aktivieren und in der App dreimal die Seitentaste drücken: Das iPhone bleibt dann auf der Growbox-Oberfläche.
-4. Automatische Sperre auf „Nie“ stellen und das iPhone dauerhaft ans Ladekabel hängen.
+Display: http://127.0.0.1:8000/ · Vorführ-Panel: http://127.0.0.1:8000/demo/ · Details: [`03-software/README.md`](03-software/README.md)

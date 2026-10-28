@@ -8,9 +8,12 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass, field
-from typing import Awaitable, Callable
+from typing import TYPE_CHECKING, Awaitable, Callable
 
 from .rules import evaluate
+
+if TYPE_CHECKING:
+    from ..hardware import Hardware
 
 log = logging.getLogger(__name__)
 
@@ -32,7 +35,7 @@ class BoxState:
 
 
 class BoxModel:
-    def __init__(self, hardware) -> None:
+    def __init__(self, hardware: "Hardware") -> None:
         self.state = BoxState()
         self.hardware = hardware
         self._listeners: list[Listener] = []
