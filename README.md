@@ -4,6 +4,12 @@ Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zag
 
 **Präsentation 05.11.2026, 10:00 · Abgabe 08.11.2026, 23:59**
 
+**▶ Bedienfeld live zum Ausprobieren: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi** (wird bei jeder Änderung neu veröffentlicht, gleicher Link)
+
+[![Bedienfeld: aktuell v4, vorher v3, Ursprung claude.ai](01-konzept/bedienfeld/bilder/vorschau-3-screens.png)](01-konzept/bedienfeld/)
+
+Links der aktuelle Stand, Mitte der vorige Stand, rechts das Original von claude.ai. Das Bild erzeugt `sh 01-konzept/bedienfeld/screenshot.sh`.
+
 ## Wo wir stehen (29.10.2026)
 
 | Schritt | Status | Was steht | Was fehlt |
