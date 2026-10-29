@@ -29,6 +29,12 @@ Zeichnungen der Box als Bilder (direkt auf GitHub sichtbar). Lokal gibt es diese
 
 ![Bedienfeld-Front](bilder/zeichnung-bedienfeld.svg)
 
+## 5 · Farbvarianten 3D-Druck
+
+Handybox rechts fest schwarz glänzend; Rahmen, Griffe und Sockel aus beige, schwarz oder grau.
+
+![Farbvarianten](bilder/skizze-farben.svg)
+
 ## Dateien
 
 | Datei | Inhalt |
@@ -37,6 +43,7 @@ Zeichnungen der Box als Bilder (direkt auf GitHub sichtbar). Lokal gibt es diese
 | [`zeichnungen/skizze-gestell.html`](zeichnungen/skizze-gestell.html) | Gestell: Profile, Eckstück, LED-Profil, Teileliste |
 | [`zeichnungen/skizze-sockel.html`](zeichnungen/skizze-sockel.html) | Sockel 30 mm, Bodenrahmen, Plexi-Wanne |
 | [`zeichnungen/zeichnung-bedienfeld.html`](zeichnungen/zeichnung-bedienfeld.html) | Bedienfeld-Front 85 × 250 × 10 mit iPhone-Tasche |
+| [`zeichnungen/skizze-farben.html`](zeichnungen/skizze-farben.html) | Drei Farbvarianten A/B/C für den 3D-Druck |
 | [`masse-iphone-13-mini.md`](masse-iphone-13-mini.md) | iPhone-Maße aus Apples Zeichnung |
 | [`export_svg.py`](export_svg.py) | erzeugt `bilder/*.svg` aus `zeichnungen/*.html` |
 
