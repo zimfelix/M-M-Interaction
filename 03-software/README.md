@@ -1,5 +1,7 @@
 # Schritt 3 · Software
 
+**Status: ⏳ pending – erster Entwurf, nicht abgestimmt** · Gesamtübersicht: [`../README.md`](../README.md)
+
 Läuft auf dem Raspberry Pi (am Laptop ohne Hardware testbar). Der Pi hält den **einzigen Zustand** der Box; Display, App und Demo-Panel sind Ansichten davon.
 
 ## Aufbau

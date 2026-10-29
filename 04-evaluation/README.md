@@ -1,5 +1,7 @@
 # Schritt 4 · Evaluation
 
+**Status: ⏳ pending** · Gesamtübersicht: [`../README.md`](../README.md)
+
 Material aus Tests mit Nutzerinnen und Nutzern, als Grundlage fürs Booklet.
 
 Hier ablegen:

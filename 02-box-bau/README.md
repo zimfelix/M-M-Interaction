@@ -1,5 +1,7 @@
 # Schritt 2 · Box-Bau
 
+**Status: 🔄 in progress** · Gesamtübersicht: [`../README.md`](../README.md)
+
 Zeichnungen der Box als Bilder (direkt auf GitHub sichtbar). Lokal gibt es dieselben Zeichnungen interaktiv in [`zeichnungen/index.html`](zeichnungen/index.html).
 
 ```text

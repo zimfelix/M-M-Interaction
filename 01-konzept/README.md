@@ -1,5 +1,7 @@
 # Schritt 1 · Konzept
 
+**Status: 🔄 in progress** · Gesamtübersicht: [`../README.md`](../README.md)
+
 Interaktionskonzept der Growbox: wer sie bedient, wie und mit welchem Bezug zur Vorlesung.
 
 | Inhalt | Wo |
