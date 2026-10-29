@@ -22,7 +22,6 @@ Zeichnungen der Box: `02-box-bau/README.md` (Bilder) bzw. `02-box-bau/zeichnunge
 
 ## Offen
 
-- **Wassertank:** Nachfüllen ist die Hauptaufgabe des Menschen. Tank gut erreichbar, aber nicht direkt beim Display/Pi (Wasser + Elektronik); Füllstand von außen sichtbar? Steht im Widerspruch zu „Lage der Elektronik“ (Tank im Technikraum hinter dem Bedienfeld).
 - **Aufstellort:** Wo und wie steht die Box (Zugang vorn und zum Tank, Abstand für Lüftung, keine Heizung/Sonne, Display-Blickwinkel)?
 - **Hardware Heizung:** Heizmatte oder PTC-Heizer über Relais (Einkauf) oder nur simuliert.
 - **Pilz als Status:** Das Pilz-Gesicht im Ring soll deutlicher zeigen, dass alles gut läuft. Noch nicht umsetzen.
@@ -50,7 +49,8 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | 6 | Tür und Griff | **Fronttür aus Plexi, Scharniere links**, langer **senkrechter Stangengriff** (wie IKEA) zwischen Tür und Bedienfeld. |
 | 6 | Farbprinzip | **Bedienen vs. Gestalt farblich unterscheiden:** Teile zum Anfassen/Bedienen (Handybox, Griffe) heben sich farblich vom Rahmen ab. Handybox fest **schwarz glänzend**; verfügbar außerdem beige, schwarz, grau. Konkrete Variante offen. |
 | 5 | Kultur | **Pilze** (z. B. ein fertig durchwachsenes Austernpilz-Zuchtset, damit innerhalb von 2 Wochen etwas sichtbar ist). |
-| 6 | Lage der Elektronik | **Im Technikraum hinter dem Bedienfeld:** Pi, Kabel, später Wassertank (Vernebler) und Lüfter mit Schlitzen zur Pilzkammer. In der Pilzkammer nur LED und ggf. Sensor. |
+| 6 | Lage der Elektronik | **Im Technikraum:** Pi und Kabel oben hinter dem Bedienfeld; Lüfter mit Schlitzen zur Pilzkammer. In der Pilzkammer nur LED und ggf. Sensor. |
+| 6 | Wassertank (Variante A) | **Entschieden 2026-10-29:** Nachfüllen ist die Hauptaufgabe des Menschen, deshalb **Einfüllöffnung oben auf dem Technikraum, hinten rechts** (Wasser von oben eingießen wie bei einer Kaffeemaschine, Tank bleibt drin). Tank unten im Technikraum **hinter einer Trennwand**, getrennt von Pi und iPhone; Einfüllöffnung mit Abstand zum Display. **Sichtfenster mit Füllstandslinie** von außen (Mapping zu Display-Anzeige „Wasser · reicht ca. X Tage“). Verworfen: B Schublade im Sockel (Sockel 30 → 70 mm), C Tank seitlich außen. Box-Skizzen noch anpassen. |
 | 7 | Bedienkonzept | **Touch-Display (iPhone) + ein physischer Taster** mit fester Bedeutung **Licht an/aus** (kein Modus; Ergebnis direkt durchs Plexiglas sichtbar). |
 | 8 | Aktoren | **Licht: 4 LED-Streifen rundum im oberen Rahmen**, verdeckt im LED-Kanal der oberen Profile (Schürze außen, Blende innen); Deckel bleibt kabelfrei. Lüfter und Vernebler sind im Technikraum vorgesehen, aber nicht Teil des Prototyps. |
 | 4 | **Schwerpunkt** | **Interaktionskonzept vor Technik.** HCI-Prüfungsleistung (Prof. Zagel), Option B: Booklet je 5 Seiten pro Person (50 %) + Prototyp (50 %), bewertet nach Bezug zu Vorlesungstheorien, HCI-Grundprinzipien und beschriebener Technik. Funktionen sind zweitrangig; die Uni hat fast alle Bauteile. Ein Prototyp darf auch Papier- oder Klick-Prototyp sein. |

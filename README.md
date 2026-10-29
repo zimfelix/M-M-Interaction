@@ -40,7 +40,7 @@ Folge für den Bau: Was der Mensch tun muss, muss gut erreichbar sein. **Wassert
 
 ## Offen
 
-- [ ] **Wassertank:** Wo sitzt er, damit Nachfüllen einfach ist, ohne Wasser an Display und Elektronik? Mit Füllstand von außen sichtbar?
+- [ ] **Box-Skizzen anpassen:** Einfüllöffnung oben hinten rechts, Trennwand, Sichtfenster für den Füllstand (Tank-Variante A ist entschieden, siehe `BRIEF.md`).
 - [ ] **Aufstellort:** Wo steht die Box (Küche, Regal)? Freier Zugang von vorn und zum Tank, Lüftungsschlitze frei, keine Heizung oder Sonne, Display gut sichtbar.
 - [ ] **Pilz als Status:** Das Pilz-Gesicht im Ring zeigt den Zustand schon (froh/besorgt/gestresst). Wie wird deutlicher, dass „alles easy läuft“?
 - [ ] **Farben 3D-Druck:** Variante A, B oder C ([Skizze](02-box-bau/README.md#5--farbvarianten-3d-druck)). Fest: Handybox schwarz glänzend; Bedienteile farblich vom Rest abheben.
