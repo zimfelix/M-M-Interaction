@@ -22,6 +22,9 @@ Zeichnungen der Box: `02-box-bau/README.md` (Bilder) bzw. `02-box-bau/zeichnunge
 
 ## Offen
 
+- **Umfang Klima:** Wärme und Luftfeuchte überhaupt im Interface, oder **nur Licht**? (Schwerpunkt ist Interface/Interaktion, nicht Technik.)
+- **Taster und Startbild:** Bleibt der Taster fest Licht an/aus? Bleibt der 3-Stufen-Zustand im neuen Bedienfeld?
+- **Power-User-Persona:** Kultur bleibt Pilze, also ein erfahrener Pilzzüchter, der alles trackt.
 - **Türschalter** (Magnetschalter, meldet „Tür offen“ ans Display): echt, simuliert oder weglassen?
 - **LED-Elektronik (später):** Streifen sind **adressierbar, 5 V, 3 Kontakte, 10 mm breit**. Ansteuerung, Netzteil und Code folgen, wenn die Box steht; der Code steuert bisher eine einzelne LED.
 
@@ -50,7 +53,10 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | 7–8 | Hardware | **Raspberry Pi bleibt Steuerrechner; als Display dient ein fest eingebautes iPhone 13 mini** (statt Touch Display 2), das die Web-Oberfläche des Pi über WLAN zeigt; Dauerstrom per Kabel. **Echt:** Taster und LED. **Simuliert:** Feuchte und Temperatur (für die Vorführung umschaltbar). Lüfter, Vernebler und Sensor sind nicht Teil des Prototyps. |
 | – | **Leitidee** | **B „Radikal einfach“:** ein großer Zustand (Farbe + Symbol + ein Satz), darunter drei große Kacheln. Verworfen: A „Pilz-Begleiter“ (Charakter, Gamification), C „Physisch zuerst“ (Taster/Drehknopf/LED-Ring). |
 | 10 | Startbild | Große **Zustandsanzeige mit 3 Stufen** – „Alles gut“ / „Bald kümmern“ / „Jetzt handeln“ – jeweils Farbe + Symbol + ein Satz. |
-| 10 | Kacheln | **Licht · Klima · Hinweise.** Klima = Feuchte + Temperatur; Hinweise = Alarme mit Handlungsanweisung. |
+| 10 | Bedienfeld (Box) | **Stand 2026-10-29: Layout wie im Panel-Prototyp** https://claude.ai/artifact/EGmf5bvFTK16eYGfKWVkPE – Status „Austernpilz · Fruchtung“, Luftfeuchte ±, Ein/Standby, Frischluft 60 s, Meldungen, Sorte/Phase, Demo-Panel mit 5 Szenarien. Ersetzt die Kacheln Licht · Klima · Hinweise. |
+| 9 | App-Aufbau | **Separate App:** einfache Startseite + 5 Unterseiten, eine davon **Advanced Analytics**. |
+| – | Booklet | **Großteils als Story:** einfacher Nutzer und Power-User, der alles trackt, plus Ausschnitt Bauprozess mit Skizzen und 1–2 FreeCAD-Bildern; jede Szene mit HCI-Bezug. |
+| – | Priorität | **Interface und Interaktion vor Pi:** Pi-Software und Display-Code ruhen vorerst; das Repo-Display zeigt noch die alte Oberfläche. |
 | – | Prototyp | **Papierprototyp → Klick-Prototyp auf dem eingebauten iPhone an der Box**, Messwerte simuliert und für die Vorführung umschaltbar. |
 | 9 | App-Anbindung | **Live-Synchronität im Prototyp:** Der Pi hält den einzigen Zustand und bietet eine Schnittstelle (HTTP + Live-Updates) an; Display und App des Teammitglieds sind zwei Ansichten davon (MVC). |
 | 11 | Display-Technik | **Web-Oberfläche vom Pi, im Vollbild auf dem iPhone** (Safari, gesperrt per Geführtem Zugriff); am Laptop ohne Hardware testbar. |

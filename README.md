@@ -4,9 +4,35 @@
 
 - Kleine Growbox für Pilze, aufgebaut wie eine Mikrowelle: links Pilzkammer aus Plexi, rechts Technikraum mit Bedienfeld
 - Bedienung **am Gerät** über ein eingebautes iPhone 13 mini (Display) und einen physischen Taster, **aus der Ferne** über eine App (eigenes Teammitglied)
-- Leitidee: **radikal einfach** – ein großer Zustand auf einen Blick, drei große Bedienkacheln, für alle Altersgruppen
+- Leitidee: **radikal einfach** – ein großer Zustand auf einen Blick, wenige große Bedienelemente, für alle Altersgruppen
 
-Status: Konzept und Klick-Prototyp stehen, Box wird gebaut.
+## Aktueller Stand (29.10.2026)
+
+Präsentation **05.11.2026, 10:00** · Abgabe **08.11.2026, 23:59**. Schwerpunkt ist **Interface und Interaktion**, nicht der technische Prototyp.
+
+```text
+   Box-Bedienfeld (iPhone in der Box)      separate App (Teammitglied)
+   = Layout aus dem Panel-Link             ├─ Seite 1: einfache Übersicht
+   + physischer Taster                     ├─ 4 weitere Unterseiten
+                                           └─ 1 davon: Advanced Analytics
+                     ▲                          ▲
+                     └──── Raspberry Pi ────────┘   (zurzeit keine Priorität)
+```
+
+| Baustein | Stand |
+|---|---|
+| **Bedienfeld (Box)** | Bleibt wie im [Panel-Prototyp](https://claude.ai/artifact/EGmf5bvFTK16eYGfKWVkPE): Status „Austernpilz · Fruchtung“, Luftfeuchte ±, Ein/Standby, Frischluft 60 s, Meldungen, Sorte/Phase; Demo-Panel mit 5 Szenarien (Tank leer, Tür offen, zu warm, Sensor aus, Tag 6). Optische Referenz: Klima-Bedienfeld mit Symboltasten links/rechts und runder Anzeige in der Mitte. |
+| **App** | Separat: einfache Startseite + 5 Unterseiten wie bei normalen Apps, eine davon **Advanced Analytics**. |
+| **Box (Bau)** | Zeichnungen fertig (`02-box-bau/`, Gestell V2, oberer Rahmen mit verdeckter LED); Bau läuft. FreeCAD-Bilder hat ein Teammitglied. |
+| **Software (Pi)** | Server, Regeln, Simulation und API stehen (`03-software/`), das Display dort zeigt aber noch die **alte** Oberfläche (Licht · Klima · Hinweise). Zurzeit keine Priorität. |
+| **Booklet** | Großteils als **Story**: einfacher Nutzer und Power-User, der alles trackt; dazu ein Ausschnitt aus dem Bauprozess mit Skizzen und 1–2 FreeCAD-Bildern. Jede Szene braucht einen HCI-Bezug mit Folie (`01-konzept/HCI-KONZEPTE.md`). Bausteine: `01-konzept/personas-storyboard.md`. |
+
+**Offen**
+
+- Wärme und Luftfeuchte überhaupt im Interface – oder **nur Licht**?
+- Taster weiterhin fest **Licht an/aus**? Bleibt der 3-Stufen-Zustand („Alles gut / Bald kümmern / Jetzt handeln“)?
+- Power-User-Persona: Kultur bleibt **Pilze** – also ein erfahrener Pilzzüchter, der alles tracken will.
+- Display-Code und API an das neue Panel anpassen – erst wenn der Pi wieder Priorität hat.
 
 ## Projektaufbau – nach Schritten
 
