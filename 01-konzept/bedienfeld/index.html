@@ -39,6 +39,11 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .screen.standby{filter:brightness(.4) saturate(.6)}
 .screen.standby #kSort{filter:brightness(2.5)}
 .screen.away{filter:brightness(.8)}
+.sleep{position:absolute;inset:0;z-index:5;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;color:#5a5f78;font-size:3.8cqw;font-weight:600;text-align:center;border:0;width:100%;padding:0}
+.sleep b{font-size:4.6cqw;color:#7d83a3}
+.sleep span{opacity:1;transition:opacity 1.2s}
+.sleep.quiet span{opacity:0}
+.sleep-chip{border:.5cqw solid var(--ink-dim);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink-soft);background:transparent}
 
 /* Tasten */
 .keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2.6cqw;margin-top:auto}
@@ -291,7 +296,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
         </div>
         <div class="keys">
           <button class="key" id="kClima" aria-label="Klima, läuft automatisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5V5a2 2 0 0 1 4 0v8.5a4 4 0 1 1-4 0z"/><path d="M17.5 6h4M17.5 10h3M3 8h3.5M2.5 12h4"/></svg><b>Klima</b><i id="climaSub">Auto</i></button>
-          <button class="key" id="kLight" aria-label="Licht an oder aus" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg><b>Licht</b><i id="lightSub">Auto</i></button>
+          <button class="key" id="kSleep" aria-label="Ruhemodus: Display aus, weckt nur bei Warnung" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><b>Ruhe-<br>modus</b><i id="sleepSub">aus</i></button>
           <button class="key" id="kAlerts" aria-label="Meldungen anzeigen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 21h4"/></svg><b>Meldungen</b><span class="count" id="count" hidden>0</span></button>
           <button class="key" id="kSort" aria-label="Sorte und neu ansetzen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M3 13a9 7 0 0 1 18 0z"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5"/></svg><b>Sorte &amp;<br>Neu</b></button>
         </div>
@@ -531,11 +536,12 @@ function render(){
   const left=Math.max(0,sim.burst-Date.now()), mleft=Math.max(0,sim.mist-Date.now());
   const Dv=sim.dev, busy=S.power&&(Dv.luefter||Dv.nebel||Dv.heizung);
   $("#climaSub").innerHTML=!S.power?"aus":busy?'<span class="pulse" aria-hidden="true"></span>Auto':"Auto";
-  $("#kLight").classList.toggle("on",S.power&&Dv.licht); $("#kLight").setAttribute("aria-pressed",S.power&&Dv.licht);
-  $("#lightSub").textContent=!S.power?"aus":sim.lightOv?(Dv.licht?"an · Hand":"aus · Hand"):(Dv.licht?"an · Auto":"aus · Auto");
+  $("#kSleep").classList.toggle("on",!!S.sleep); $("#kSleep").setAttribute("aria-pressed",!!S.sleep);
+  $("#sleepSub").textContent=S.sleep?"an":"aus";
+  syncSleep(list);
   $("#autoline").innerHTML=!S.power?"":autoText();
   if(open==="clima"){const v=$("#climaRows");if(v)v.innerHTML=climaRows()}
-  $("#topIcons").innerHTML=(S.power&&sim.dev.licht?`<span aria-label="Licht an" role="img">${IC.bulb}</span>`:"")+(S.away?`<button class="away-chip" data-endaway aria-label="Urlaub beenden">Urlaub ✕</button>`:"");
+  $("#topIcons").innerHTML=(S.power&&sim.dev.licht?`<span aria-label="Licht an" role="img">${IC.bulb}</span>`:"")+(S.away?`<button class="away-chip" data-endaway aria-label="Urlaub beenden">Urlaub ✕</button>`:"")+(S.sleep?`<span class="sleep-chip" aria-label="Ruhemodus an">Ruhe</span>`:"");
   $("#linkChip").classList.toggle("on",!!appSeen);
   $("#plateSub").textContent=`${SPECIES[S.species].name} · ${PHASES[S.phase]}`;
   if(open==="alerts") alertPanel(true);
@@ -705,6 +711,25 @@ function climaPanel(){
     p.addEventListener("click",e=>{const b=e.target.closest("[data-run]");if(b)runConfirm(b.dataset.run,climaPanel)});
   });
 }
+/* Ruhemodus: Display bleibt schwarz. Es wacht nur auf, wenn eine Warnung ein Handeln verlangt
+   (z. B. Tank leer, zu warm), bei Berührung oder beim Druck auf den Taster; nach 30 s ohne Bedienung wieder schwarz. */
+let wakeUntil=0;
+function wake(){if(S.sleep)wakeUntil=Date.now()+30000}
+function syncSleep(list){
+  let el=$("#sleepHost");
+  const alarm=S.power&&list.some(x=>x.sev==="warn");
+  const dark=!!S.sleep&&!alarm&&Date.now()>wakeUntil;
+  if(!dark){el?.remove();return}
+  if(!el){
+    el=document.createElement("button");el.id="sleepHost";el.className="sleep";el.type="button";
+    el.setAttribute("aria-label","Ruhemodus. Antippen zum Wecken.");
+    el.innerHTML='<span><b>Ruhemodus</b><br>Antippen zum Wecken · bei Warnung geht das Display von selbst an</span>';
+    el.onclick=()=>{wake();render()};
+    $("#screen").appendChild(el); setTimeout(()=>el.classList.add("quiet"),3000);
+  }
+}
+["pointerdown","keydown"].forEach(ev=>document.addEventListener(ev,()=>{if(S.sleep&&Date.now()<wakeUntil)wake()},true));
+
 /* Licht: Ausnahme von Hand, gilt bis zum nächsten Wechsel (8:00 bzw. 20:00) */
 function toggleLight(src){
   if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return}
@@ -745,7 +770,7 @@ function runConfirm(kind,back){
   });
 }
 $("#kClima").onclick=()=>["clima","run"].includes(open)?closePanel():climaPanel();
-$("#kLight").onclick=()=>toggleLight("Licht");
+$("#kSleep").onclick=()=>{S.sleep=!S.sleep;save();closePanel();if(S.sleep){wakeUntil=0;msg("Ruhemodus an")}else msg("Ruhemodus aus");render()};
 $("#kAlerts").onclick=()=>open==="alerts"?closePanel():alertPanel();
 $("#alert").onclick=()=>{if(S.power)alertPanel()};
 $("#kSort").onclick=()=>["sort","info","confirm","new","away","restore"].includes(open)?closePanel():sortPanel();
@@ -754,7 +779,7 @@ $("#topIcons").addEventListener("click",e=>{if(e.target.closest("[data-endaway]"
 /* Demo-Leiste */
 function syncDemo(){document.querySelectorAll("[data-d]").forEach(b=>b.setAttribute("aria-pressed",demo[b.dataset.d]))}
 function toggleDemo(k){
-  if(k==="taster"){ toggleLight("Taster"); return }
+  if(k==="taster"){ wake(); toggleLight("Taster"); return }
   demo[k]=!demo[k];
   if(k==="tank"&&!demo.tank) sim.tank=100;
   if(k==="harvest"){acked.delete("harvest"); if(demo.harvest&&S.phase!=="frucht"){S.phase="frucht";S.phaseStart=Date.now();save()}}
@@ -776,9 +801,10 @@ function adminVals(){
     <tr><td>Temperatur (Ziel)</td><td>${sim.t.toFixed(1).replace(".",",")} ° (${T.t[0]}–${T.t[1]})</td></tr>
     <tr><td>Luftfeuchte (Ziel)</td><td>${Math.round(sim.rh)} % (${T.rh[0]}–${T.rh[1]})</td></tr>
     <tr><td>CO₂ (Ziel)</td><td>${Math.round(sim.co2/10)*10} ppm (&lt; ${T.co2})</td></tr>
+    <tr><td>Display</td><td>${!S.sleep?"immer an":document.getElementById("sleepHost")?"schwarz (Ruhe)":"wach"}</td></tr>
     <tr><td>Wassertank</td><td>${Math.round(sim.tank)} % · ca. ${tankDays()} Tage</td></tr>
     <tr><td>Licht · Lüfter · Nebler</td><td>${on(sim.dev.licht)} · ${on(sim.dev.luefter)} · ${on(sim.dev.nebel)}</td></tr>
-    <tr><td>Urlaub · Handy-Code</td><td>${S.away?"an":"aus"} · ${S.code}</td></tr>
+    <tr><td>Urlaub · Ruhemodus · Code</td><td>${S.away?"an":"aus"} · ${S.sleep?"an":"aus"} · ${S.code}</td></tr>
   </tbody></table>`;
 }
 function demoPanel(){
@@ -842,6 +868,7 @@ function applyCmd(c){
   else if(c.type==="burst"){if(!S.power)return;sim.burst=sim.burst>now?0:now+60000}
   else if(c.type==="mist"){if(!S.power||sim.tank<=0)return;sim.mist=sim.mist>now?0:now+60000}
   else if(c.type==="away"){if(!S.power)return;S.away=!!a;save()}
+  else if(c.type==="sleep"){S.sleep=!!a;save()}
   else if(c.type==="do"){const it=alerts().find(x=>x.id===a);if(!it)return;it.do.run()}
   else if(c.type==="species"){if(typeof a!=="string"||!SPECIES[a])return;S.species=a;save()}
   else if(c.type==="phase"){if(typeof a!=="string"||!PHASES[a]||a===S.phase)return;S.phase=a;S.phaseStart=now;acked.clear();save()}
@@ -858,7 +885,7 @@ function applyCmd(c){
 function payload(){
   return {power:!!S.power,species:S.species,phase:S.phase,phaseStart:S.phaseStart,custom:S.custom||null,away:!!S.away,
     t:Math.round(sim.t*10)/10,rh:Math.round(sim.rh),co2:Math.round(sim.co2/10)*10,tank:Math.round(sim.tank),
-    dev:{licht:!!sim.dev.licht,luefter:!!sim.dev.luefter,nebel:!!sim.dev.nebel,heizung:!!sim.dev.heizung},burst:sim.burst>Date.now()?sim.burst:0,mist:sim.mist>Date.now()?sim.mist:0,sensor:!demo.sensor,
+    sleep:!!S.sleep,dev:{licht:!!sim.dev.licht,luefter:!!sim.dev.luefter,nebel:!!sim.dev.nebel,heizung:!!sim.dev.heizung},burst:sim.burst>Date.now()?sim.burst:0,mist:sim.mist>Date.now()?sim.mist:0,sensor:!demo.sensor,
     alerts:alerts().map(x=>({id:x.id,sev:x.sev,t:x.t,a:x.a,label:x.do.label,kind:x.do.kind,icon:x.do.icon||null}))};
 }
 let lastPush=0,lastJs="",lastImp="",pushing=false;

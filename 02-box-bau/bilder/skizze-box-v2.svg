@@ -37,7 +37,8 @@
 <circle cx="541" cy="495.2" r="18" fill="#e8a33d" fill-opacity="0.8"></circle>
 <rect x="516" y="524" width="50" height="26" rx="5" fill="#f3ecdd"></rect>
 <rect x="516" y="535" width="50" height="15" rx="4" fill="#5b8db5" fill-opacity="0.55"></rect>
-<ellipse cx="628" cy="213" rx="14" ry="5.5" fill="#5b8db5" fill-opacity="0.6"></ellipse>
+<path d="M596 214 Q596 176 620 172 Q644 176 644 214 Z" fill="#c99a62"></path>
+<ellipse cx="620" cy="216" rx="26" ry="10" fill="#5b8db5" fill-opacity="0.6"></ellipse>
 <rect x="446" y="320" width="11" height="160" rx="5.5" fill="#e8a33d" fill-opacity="0.85"></rect>
 
 <!-- Rahmen schwarz -->
@@ -77,10 +78,11 @@
 <path d="M594 456.6 L662 403.4 M594 450.6 L662 397.4" stroke-width="1.6"></path>
 <path d="M613.6 423.2 L646 398 L646 338 L613.6 363.2 Z"></path>
 <path d="M617 372 L642 352 M617 386 L642 366 M617 410 L642 390" stroke-width="1.1"></path>
-<ellipse cx="628" cy="213" rx="14" ry="5.5"></ellipse>
-<path d="M616 211 Q628 205 640 211" stroke-width="1.2"></path>
-<path d="M638 217 L647 226 L647 404 L631.6 442" stroke-dasharray="4 4" stroke-width="1.6" stroke="#2f6d9e"></path>
-<path d="M628 180 L628 202" stroke-width="1.6" marker-end="url(#a)"></path>
+<path d="M596 214 Q596 176 620 172 Q644 176 644 214" stroke-width="1.6"></path>
+<ellipse cx="620" cy="216" rx="26" ry="10"></ellipse>
+<path d="M600 214 Q620 204 640 214" stroke-width="1.2"></path>
+<path d="M640 222 L647 228 L647 404 L631.6 442" stroke-dasharray="4 4" stroke-width="1.6" stroke="#2f6d9e"></path>
+<path d="M620 150 L620 200" stroke-width="1.8" stroke="#2f6d9e" marker-end="url(#a)"></path>
 <path d="M630 360 C 600 380, 570 440, 556 482" stroke-dasharray="3 4" stroke-width="1.3"></path>
 <rect x="516" y="524" width="50" height="26" rx="5" stroke-width="1.6"></rect>
 <path d="M516 535 L566 535" stroke-width="1.3"></path>
@@ -114,7 +116,7 @@
 <path d="M330 124 Q410 160 448 316" stroke-width="1.5" marker-end="url(#a)"></path>
 <path d="M720 150 Q640 170 580 278" stroke-width="1.5" marker-end="url(#a)"></path>
 <path d="M720 290 L654 294" stroke-width="1.5" marker-end="url(#a)"></path>
-<path d="M720 230 Q690 216 645 213" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M720 230 Q690 222 648 218" stroke-width="1.5" marker-end="url(#a)"></path>
 <path d="M720 380 L648 370" stroke-width="1.5" marker-end="url(#a)"></path>
 <path d="M720 452 L660 418" stroke-width="1.5" marker-end="url(#a)"></path>
 <path d="M720 520 L634 500" stroke-width="1.5" marker-end="url(#a)"></path>
@@ -139,8 +141,8 @@
 <text x="726" y="194" font-size="20" fill="#6b665d">Tasche im Druckteil: 6,46 × 13,19 × 0,8 cm</text>
 <text x="726" y="288" font-size="24">Lüfter</text>
 <text x="726" y="310" font-size="20" fill="#6b665d">bläst durch Schlitze in die Pilzkammer</text>
-<text x="726" y="228" font-size="24">Einfüllöffnung oben hinten</text>
-<text x="726" y="250" font-size="20" fill="#6b665d">Wasser eingießen wie bei der Kaffeemaschine</text>
+<text x="726" y="228" font-size="24">Einfüllöffnung oben hinten · Ø ca. 4 cm</text>
+<text x="726" y="250" font-size="20" fill="#6b665d">mit Klappe; groß genug für Gießkanne oder Glas</text>
 <text x="726" y="378" font-size="24">Raspberry Pi + Elektronik oben</text>
 <text x="726" y="400" font-size="20" fill="#6b665d">steuert LED, Taster, Lüfter, Nebler, Heizung</text>
 <text x="726" y="450" font-size="24">Trennwand</text>

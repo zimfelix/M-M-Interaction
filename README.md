@@ -20,7 +20,7 @@ Kernidee des Interaktionskonzepts. Die Box regelt das Klima selbst und **zeigt s
 
 | Die Box regelt selbst (sichtbar unter KLIMA) | Der Mensch macht (die Box meldet sich) |
 |---|---|
-| Licht 8–20 Uhr (Ausnahme: Taster, Kachel, App) | **Wasser nachfüllen**, die häufigste Handlung, ca. 1× pro Woche |
+| Licht 8–20 Uhr (Ausnahme: Taster, App) | **Wasser nachfüllen**, die häufigste Handlung, ca. 1× pro Woche |
 | Frischluft: Lüfter alle 30 Min und bei hohem CO₂ | **Ernten** |
 | Luftfeuchte: Nebler bei zu trockener Luft | **Neu ansetzen** (Kammer leeren, Zuchtset einsetzen) |
 | Wärme: Heizung bei zu kalt | Box **umstellen**, wenn es zu warm ist (Kühlen gibt es nicht) |
@@ -41,6 +41,7 @@ Folge für den Bau: Was der Mensch tun muss, muss gut erreichbar sein. **Wassert
 ## Offen
 
 - [ ] **Aufstellort:** Wo steht die Box (Küche, Regal)? Freier Zugang von vorn und zum Tank, Lüftungsschlitze frei, keine Heizung oder Sonne, Display gut sichtbar.
+- [ ] **Taster:** nur Licht + weckt das Display (umgesetzt), oder soll er auch den Ruhemodus schalten?
 - [ ] **Pilz als Status:** Das Pilz-Gesicht im Ring zeigt den Zustand schon (froh/besorgt/gestresst). Wie wird deutlicher, dass „alles easy läuft“?
 - [ ] **Farben 3D-Druck:** Variante A, B oder C ([Skizze](02-box-bau/README.md#5--farbvarianten-3d-druck)). Fest: Handybox schwarz glänzend; Bedienteile farblich vom Rest abheben.
 - [ ] Wer macht das Backend, und wird der Entwurf in `03-software` genutzt?
