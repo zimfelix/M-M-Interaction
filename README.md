@@ -24,7 +24,7 @@ Präsentation **05.11.2026, 10:00** · Abgabe **08.11.2026, 23:59**. Schwerpunkt
 | **Bedienfeld (Box)** | Bleibt wie im [Panel-Prototyp](https://claude.ai/artifact/EGmf5bvFTK16eYGfKWVkPE): Status „Austernpilz · Fruchtung“, Luftfeuchte ±, Ein/Standby, Frischluft 60 s, Meldungen, Sorte/Phase; Demo-Panel mit 5 Szenarien (Tank leer, Tür offen, zu warm, Sensor aus, Tag 6). Optische Referenz: Klima-Bedienfeld mit Symboltasten links/rechts und runder Anzeige in der Mitte. |
 | **App** | Separat: einfache Startseite + 5 Unterseiten wie bei normalen Apps, eine davon **Advanced Analytics**. |
 | **Box (Bau)** | Zeichnungen fertig (`02-box-bau/`, Gestell V2, oberer Rahmen mit verdeckter LED); Bau läuft. FreeCAD-Bilder hat ein Teammitglied. |
-| **Software (Pi)** | Server, Regeln, Simulation und API stehen (`03-software/`), das Display dort zeigt aber noch die **alte** Oberfläche (Licht · Klima · Hinweise). Zurzeit keine Priorität. |
+| **Software (Pi)** | **[pending]** – ein erster Entwurf liegt in `03-software/` (Server, Regeln, Simulation, API, altes Display mit Licht · Klima · Hinweise), ist aber nicht abgestimmt. Zurzeit keine Priorität. |
 | **Booklet** | Großteils als **Story**: einfacher Nutzer und Power-User, der alles trackt; dazu ein Ausschnitt aus dem Bauprozess mit Skizzen und 1–2 FreeCAD-Bildern. Jede Szene braucht einen HCI-Bezug mit Folie (`01-konzept/HCI-KONZEPTE.md`). Bausteine: `01-konzept/personas-storyboard.md`. |
 
 **Offen**
@@ -40,10 +40,10 @@ Präsentation **05.11.2026, 10:00** · Abgabe **08.11.2026, 23:59**. Schwerpunkt
 M-M-Interaction/
 ├── BRIEF.md          Ziel, offene Punkte, alle bestätigten Entscheidungen
 ├── AGENTS.md         Arbeitsregeln für KI-Agenten
-├── 01-konzept/       Interaktionskonzept: Personas, Storyboards, Vorlesungsbezug
-├── 02-box-bau/       Zeichnungen der Box (Gestell, Sockel, Bedienfeld, LED-Rahmen)
-├── 03-software/      Software auf dem Raspberry Pi: Server, Display, Demo-Panel, Tests
-└── 04-evaluation/    Papierprototyp-Fotos, Testprotokolle, AttrakDiff
+├── 01-konzept/       [in progress] Interaktionskonzept: Personas, Storyboards, Vorlesungsbezug
+├── 02-box-bau/       [in progress] Zeichnungen der Box (Gestell, Sockel, Bedienfeld, LED-Rahmen)
+├── 03-software/      [pending]     Software auf dem Raspberry Pi: Server, Display, Demo-Panel, Tests
+└── 04-evaluation/    [pending]     Papierprototyp-Fotos, Testprotokolle, AttrakDiff
 ```
 
 ## Ich suche …
