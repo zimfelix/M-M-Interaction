@@ -35,6 +35,12 @@ Handybox rechts fest schwarz glänzend; Rahmen, Griffe und Sockel aus beige, sch
 
 ![Farbvarianten](bilder/skizze-farben.svg)
 
+## 6 · Front-Skizze v2: Wassertank gut erreichbar
+
+Nachfüllen ist die Hauptaufgabe des Menschen (Tank-Variante A): Einfüllöffnung oben hinten, Trennwand (Wasser unten, Elektronik oben), Sichtfenster für den Wasserstand vorn unter dem Taster.
+
+![Front-Skizze v2](bilder/skizze-box-v2.svg)
+
 ## Dateien
 
 | Datei | Inhalt |
@@ -43,6 +49,7 @@ Handybox rechts fest schwarz glänzend; Rahmen, Griffe und Sockel aus beige, sch
 | [`zeichnungen/skizze-gestell.html`](zeichnungen/skizze-gestell.html) | Gestell: Profile, Eckstück, LED-Profil, Teileliste |
 | [`zeichnungen/skizze-sockel.html`](zeichnungen/skizze-sockel.html) | Sockel 30 mm, Bodenrahmen, Plexi-Wanne |
 | [`zeichnungen/zeichnung-bedienfeld.html`](zeichnungen/zeichnung-bedienfeld.html) | Bedienfeld-Front 85 × 250 × 10 mit iPhone-Tasche |
+| [`zeichnungen/skizze-box-v2.html`](zeichnungen/skizze-box-v2.html) | Front-Skizze v2: Einfüllöffnung, Trennwand, Tank unten vorn, Sichtfenster |
 | [`zeichnungen/skizze-farben.html`](zeichnungen/skizze-farben.html) | Drei Farbvarianten A/B/C für den 3D-Druck |
 | [`masse-iphone-13-mini.md`](masse-iphone-13-mini.md) | iPhone-Maße aus Apples Zeichnung |
 | [`export_svg.py`](export_svg.py) | erzeugt `bilder/*.svg` aus `zeichnungen/*.html` |

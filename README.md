@@ -9,7 +9,7 @@ Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zag
 | Schritt | Status | Was steht | Was fehlt |
 |---|---|---|---|
 | **01 Konzept** | 🔄 in progress | Personas, Storyboards, Vorlesungsbezug, Bedienfeld in [`01-konzept/bedienfeld/`](01-konzept/bedienfeld/) (alte Stände im Verlauf), App-Aufbau | offene Entscheidungen (unten), Booklet-Story |
-| **02 Box-Bau** | 🔄 in progress | Zeichnungen fertig (Gestell V2, Bedienfeld, oberer Rahmen mit LED) | Box bauen, Fotos, FreeCAD-Bilder vom Kollegen einsammeln |
+| **02 Box-Bau** | 🔄 in progress | Zeichnungen fertig (Front v2 mit Wassertank, Gestell, Sockel, Bedienfeld, Farbvarianten) | Box bauen, Fotos, FreeCAD-Bilder vom Kollegen einsammeln |
 | **03 Software** | ⏳ pending | erster Entwurf vorhanden, nicht abgestimmt | Backend klären; zurzeit keine Priorität |
 | **04 Evaluation** | ⏳ pending | – | Papierprototyp testen, Protokolle, AttrakDiff |
 | **Booklet** | ⏳ pending | Idee: großteils als Story | Gliederung und Text (5 Seiten pro Person) |
@@ -40,7 +40,6 @@ Folge für den Bau: Was der Mensch tun muss, muss gut erreichbar sein. **Wassert
 
 ## Offen
 
-- [ ] **Box-Skizzen anpassen:** Einfüllöffnung oben hinten rechts, Trennwand, Sichtfenster für den Füllstand (Tank-Variante A ist entschieden, siehe `BRIEF.md`).
 - [ ] **Aufstellort:** Wo steht die Box (Küche, Regal)? Freier Zugang von vorn und zum Tank, Lüftungsschlitze frei, keine Heizung oder Sonne, Display gut sichtbar.
 - [ ] **Pilz als Status:** Das Pilz-Gesicht im Ring zeigt den Zustand schon (froh/besorgt/gestresst). Wie wird deutlicher, dass „alles easy läuft“?
 - [ ] **Farben 3D-Druck:** Variante A, B oder C ([Skizze](02-box-bau/README.md#5--farbvarianten-3d-druck)). Fest: Handybox schwarz glänzend; Bedienteile farblich vom Rest abheben.

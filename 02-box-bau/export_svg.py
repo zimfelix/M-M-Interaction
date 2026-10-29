@@ -16,7 +16,7 @@ HIER = Path(__file__).parent
 QUELLE = HIER / "zeichnungen"
 ZIEL = HIER / "bilder"
 SEITEN = ["skizze-box", "skizze-sockel", "zeichnung-bedienfeld", "skizze-gestell",
-          "skizze-gestell-v2", "zeichnung-oberer-rahmen", "skizze-farben"]
+          "skizze-gestell-v2", "zeichnung-oberer-rahmen", "skizze-farben", "skizze-box-v2"]
 
 SCHRIFTEN = [
     ("Caveat", "400 700", "Caveat-variable.woff2"),
