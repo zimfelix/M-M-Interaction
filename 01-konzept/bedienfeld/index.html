@@ -37,15 +37,15 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   box-shadow:0 0 0 .5cqw #c9cfe6, 0 0 0 1cqw #2b2f3a;color:var(--ink);user-select:none;-webkit-user-select:none;transition:filter .5s}
 .screen::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(160deg,rgba(255,255,255,.09),transparent 40%)}
 .screen.standby{filter:brightness(.4) saturate(.6)}
-.screen.standby #kNew{filter:brightness(2.5)}
+.screen.standby #kSort{filter:brightness(2.5)}
 .screen.away{filter:brightness(.8)}
 
 /* Tasten */
-.keys{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2cqw;margin-top:auto}
+.keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2.6cqw;margin-top:auto}
 .key{position:relative;width:100%;height:24cqw;border-radius:3cqw;border:.6cqw solid var(--ink);background:rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6cqw;padding:0 1cqw;
   box-shadow:0 0 1.6cqw rgba(140,160,255,.35);transition:background .15s, transform .1s}
 .key svg{width:10cqw;height:10cqw}
-.key b{font-family:var(--f-cond);font-size:3cqw;font-weight:700;letter-spacing:0;text-transform:uppercase;line-height:1.05;text-align:center}
+.key b{font-family:var(--f-cond);font-size:3.2cqw;font-weight:700;letter-spacing:0;text-transform:uppercase;line-height:1.05;text-align:center}
 .key i{font-style:normal;font-family:var(--f-cond);font-size:2.8cqw;font-weight:600;color:var(--ink-soft);margin-top:-1cqw}
 .key.busy i,.key.on i{color:var(--lcd-mid)}
 .key.on{background:var(--ink);color:var(--lcd-mid)}
@@ -80,7 +80,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .crit .sweat{opacity:1}
 .hum{font-weight:700;font-size:10.5cqw;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:.4cqw}
 .hum small{font-size:5.4cqw;font-weight:600;margin-left:1.2cqw}
-.humlbl{font-family:var(--f-cond);font-size:3.8cqw;font-weight:600;letter-spacing:.12em;color:var(--ink-soft);text-transform:uppercase;margin-top:.7cqw}
+.humlbl{font-family:var(--f-cond);font-size:3.8cqw;font-weight:600;letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;margin-top:.7cqw}
 
 .alert{width:100%;margin-top:2cqw;border:0;background:transparent;padding:1.2cqw 1.4cqw;border-radius:2cqw;display:flex;flex-direction:column;align-items:center;gap:.6cqw;text-align:center;line-height:1.1}
 .alert .t{display:flex;align-items:center;gap:2cqw;font-weight:700;font-size:7cqw}
@@ -112,6 +112,13 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .ticon{display:inline-flex;align-items:center;gap:1.4cqw}
 .ticon svg{width:4.6cqw;height:4.6cqw}
 .away-chip{border:.5cqw solid var(--ink);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink)}
+.link-chip{display:inline-flex;align-items:center;gap:1cqw;border:.5cqw solid var(--ink-dim);background:transparent;border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.6cqw;letter-spacing:.06em;text-transform:uppercase;padding:.8cqw 2.2cqw;color:var(--ink-soft)}
+.link-chip svg{width:3.8cqw;height:3.8cqw}
+.link-chip.on{border-color:var(--band);color:var(--ink)}
+.code{font-size:17cqw;font-weight:800;letter-spacing:.12em;text-align:center;font-variant-numeric:tabular-nums;padding:3cqw;border:.7cqw dashed var(--ink-dim);border-radius:3cqw}
+.panel ol{margin:0;padding-left:5cqw;font-size:4.2cqw;line-height:1.35;color:var(--ink-soft);display:flex;flex-direction:column;gap:1.4cqw}
+.opt small{display:block;font-weight:500;font-size:.8em;opacity:.8;margin-top:.6cqw}
+.away-chip{cursor:pointer;background:transparent}
 .steps{font-family:var(--f-cond);font-size:3.4cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
 .panel ul{margin:0;padding-left:5cqw;font-size:4.4cqw;line-height:1.35;color:var(--ink)}
 
@@ -191,8 +198,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   .plate,.demo{display:none}
   .demo-chip{display:inline-flex}
   .topbar{font-size:4.6cqw}
-  .ring{width:68cqw;height:68cqw}
-  .shroom{width:30cqw;height:30cqw}
+  .ring{width:78cqw;height:78cqw}
+  .shroom{width:30cqw;height:30cqw;margin-top:0}
   .hum{font-size:14cqw}
   .hum small{font-size:6.4cqw}
   .humlbl{font-size:4.2cqw}
@@ -201,9 +208,9 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   .alert .a{font-size:4.8cqw;max-width:84cqw}
   .mini{gap:5cqw;margin-top:3cqw}
   .sv{font-size:5.2cqw}
-  .key{height:22cqw;gap:1.2cqw}
-  .key svg{width:8.6cqw;height:8.6cqw}
-  .key b{font-size:3.1cqw}
+  .key{height:27cqw}
+  .key svg{width:11cqw;height:11cqw}
+  .key b{font-size:3.5cqw}
   .panel{padding:6cqw max(5cqw, env(safe-area-inset-right, 0px)) 6cqw max(5cqw, env(safe-area-inset-left, 0px))}
   .msg{bottom:36cqw}
 }
@@ -216,7 +223,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   <div class="device">
     <div class="glass">
       <div class="screen" id="screen">
-        <div class="topbar"><span id="topCulture">Austernpilz · <b>Fruchtung</b></span><span class="tr"><span class="ticon" id="topIcons"></span><button class="demo-chip" id="demoChip" aria-label="Demo-Situationen">Demo</button><span id="topClock">--:--</span></span></div>
+        <div class="topbar"><span id="topCulture">Austernpilz · <b>Fruchtung</b></span><span class="tr"><span class="ticon" id="topIcons"></span><button class="link-chip" id="linkChip" aria-label="Mit Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span>Handy</span></button><button class="demo-chip" id="demoChip" aria-label="Demo-Situationen">Demo</button><span id="topClock">--:--</span></span></div>
 
         <div class="center" id="home">
           <div class="ring">
@@ -252,8 +259,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
           <button class="key" id="kAir" aria-label="Lüften, 1 Minute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg><b id="airLbl">Lüften</b><i id="airSub">1 Min</i></button>
           <button class="key" id="kMist" aria-label="Befeuchten, 1 Minute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M12 3s5 5.5 5 9.5a5 5 0 0 1-10 0C7 8.5 12 3 12 3z"/><path d="M5 19.5h.01M9 21h.01M15 21h.01M19 19.5h.01"/></svg><b id="mistLbl">Befeuchten</b><i id="mistSub">1 Min</i></button>
           <button class="key" id="kAlerts" aria-label="Meldungen anzeigen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 21h4"/></svg><b>Meldungen</b><span class="count" id="count" hidden>0</span></button>
-          <button class="key" id="kAway" aria-label="Urlaub" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect class="fill" x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M9 7v13M15 7v13"/></svg><b>Urlaub</b></button>
-          <button class="key" id="kNew" aria-label="Neu ansetzen: Durchgang beenden und neu starten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v8"/><path d="M6.6 6.6a7.5 7.5 0 1 0 10.8 0"/></svg><b>Neu<br>ansetzen</b></button>
+          <button class="key" id="kSort" aria-label="Sorte und neu ansetzen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M3 13a9 7 0 0 1 18 0z"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5"/></svg><b>Sorte &amp; Neu</b></button>
         </div>
         <div id="panelHost"></div>
         <div id="msgHost"></div>
@@ -434,7 +440,7 @@ function render(){
   const awayQuiet=S.away&&sev!=="crit";
   const key=!S.power?"sb":awayQuiet?"away":top?top.id+top.a:"ok";
   if(key!==lastAlert){lastAlert=key;const el=$("#alert");
-    if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neue Pilze: NEU ANSETZEN.</span>`}
+    if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neue Pilze: SORTE &amp; NEU.</span>`}
     else if(awayQuiet){el.className="alert";el.innerHTML=`<span class="t">${IC.away}Urlaub</span><span class="a">Box spart Wasser · Meldungen gehen aufs Handy</span>`}
     else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a">${PHASES[S.phase]} · Tag ${day()}</span>`}
     else{el.className="alert "+top.sev;el.innerHTML=`<span class="t">${IC[top.sev]}${top.t}</span><span class="a">${top.a}</span>`}
@@ -462,8 +468,8 @@ function render(){
   $("#airSub").textContent=left>0?`noch ${Math.ceil(left/1000)} s`:"1 Min";
   $("#kMist").classList.toggle("busy",mleft>0);
   $("#mistSub").textContent=mleft>0?`noch ${Math.ceil(mleft/1000)} s`:"1 Min";
-  $("#kAway").classList.toggle("on",!!S.away); $("#kAway").setAttribute("aria-pressed",!!S.away);
-  $("#topIcons").innerHTML=(S.power&&sim.dev.licht?`<span aria-label="Licht an" role="img">${IC.bulb}</span>`:"")+(S.away?`<span class="away-chip">Urlaub</span>`:"");
+  $("#topIcons").innerHTML=(S.power&&sim.dev.licht?`<span aria-label="Licht an" role="img">${IC.bulb}</span>`:"")+(S.away?`<button class="away-chip" data-endaway aria-label="Urlaub beenden">Urlaub ✕</button>`:"");
+  $("#linkChip").classList.toggle("on",!!appSeen);
   $("#plateSub").textContent=`${SPECIES[S.species].name} · ${PHASES[S.phase]}`;
   if(open==="alerts") alertPanel(true);
 }
@@ -499,12 +505,8 @@ function newPanel(n){
   });
   if(n===2) panel("new","Kammer leeren",`${head}<p>Alte Pilze und Substrat herausnehmen. Kammer feucht auswischen. Wassertank auffüllen.</p>
     <div class="btnrow"><button class="bigbtn out" data-x>Weiterlaufen</button><button class="bigbtn" data-ok>Fertig</button></div>`,p=>{p.querySelector("[data-x]").onclick=resume;p.querySelector("[data-ok]").onclick=()=>{refill();newPanel(3)}});
-  if(n===3) panel("new","Was wächst als Nächstes?",`${head}
-    <div class="grid g2" role="radiogroup" aria-label="Pilzsorte">${Object.entries(SPECIES).filter(([k])=>k!=="custom").map(([k,sp])=>`<button class="opt" role="radio" data-sp="${k}" aria-checked="${k===S.species}">${shroomSvg(sp.cap)}${sp.name}</button>`).join("")}
-      <button class="opt wide" role="radio" data-custom aria-checked="${S.species==="custom"}">${S.custom?shroomSvg("#cdb79e")+esc(SPECIES.custom.name)+'<span style="font-weight:600;opacity:.75">· ändern</span>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Eigene Sorte eingeben'}</button></div>
-    <button class="bigbtn" data-ok>Weiter</button>`,p=>{
-      p.querySelectorAll("[data-sp]").forEach(b=>b.onclick=()=>{S.species=b.dataset.sp;save();newPanel(3);render()});
-      p.querySelector("[data-custom]").onclick=customPanel;
+  if(n===3) panel("new","Was wächst als Nächstes?",`${head}${speciesGrid()}<button class="bigbtn" data-ok>Weiter</button>`,p=>{
+      bindSpecies(p,()=>newPanel(3));
       p.querySelector("[data-ok]").onclick=()=>newPanel(4);
   });
   if(n===4) panel("new","Zuchtset einsetzen",`${head}<p>Neues ${esc(SPECIES[S.species].name)}-Zuchtset einsetzen, Tür und Deckel schließen. Die Box startet bei Tag 1 (Durchwachsen).</p>
@@ -512,11 +514,41 @@ function newPanel(n){
       p.querySelector("[data-ok]").onclick=()=>{S.power=true;S.phase="kol";S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());closePanel();render();msg(`${SPECIES[S.species].name} · Tag 1`)};
   });
 }
+/* Sortenauswahl: in „Neu ansetzen“ (Schritt 3) und „Sorte ändern“ */
+let afterCustom=()=>newPanel(3);
+const speciesGrid=()=>`<div class="grid g2" role="radiogroup" aria-label="Pilzsorte">${Object.entries(SPECIES).filter(([k])=>k!=="custom").map(([k,sp])=>`<button class="opt" role="radio" data-sp="${k}" aria-checked="${k===S.species}">${shroomSvg(sp.cap)}${sp.name}</button>`).join("")}
+  <button class="opt wide" role="radio" data-custom aria-checked="${S.species==="custom"}">${S.custom?shroomSvg("#cdb79e")+esc(SPECIES.custom.name)+'<span style="font-weight:600;opacity:.75">· ändern</span>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Eigene Sorte eingeben'}</button></div>`;
+function bindSpecies(p,again){
+  afterCustom=again;
+  p.querySelectorAll("[data-sp]").forEach(b=>b.onclick=()=>{S.species=b.dataset.sp;acked.clear();save();step(new Date());again();render()});
+  p.querySelector("[data-custom]").onclick=customPanel;
+}
+/* Kachel „Sorte & Neu“: seltene Aktionen gebündelt */
+function sortPanel(){
+  const sp=SPECIES[S.species].name;
+  panel("sort","Sorte & Neu",`<div class="list">
+    <button class="opt" data-a="sort">${shroomSvg(SPECIES[S.species].cap)}<div>Sorte ändern<small>Jetzt: ${esc(sp)}. Ohne Neustart, Tag bleibt.</small></div></button>
+    <button class="opt" data-a="new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v8"/><path d="M6.6 6.6a7.5 7.5 0 1 0 10.8 0"/></svg><div>${S.power?"Neu ansetzen":"Neu ansetzen fortsetzen"}<small>Durchgang beenden und neue Pilze einsetzen.</small></div></button>
+    <button class="opt" data-a="away">${IC.away}<div>${S.away?"Urlaub beenden":"Urlaub"}<small>${S.away?"Box läuft wieder normal.":"Box spart Wasser, Meldungen aufs Handy."}</small></div></button>
+  </div>`,p=>{
+    p.querySelector('[data-a="sort"]').onclick=sortChange;
+    p.querySelector('[data-a="new"]').onclick=()=>newPanel(S.power?1:2);
+    p.querySelector('[data-a="away"]').onclick=()=>{if(paused())return;if(S.away)endAway();else awayPanel()};
+  });
+}
+function sortChange(){
+  panel("sort","Sorte ändern",`<p>Nur wenn die falsche Sorte eingestellt ist. Phase und Tag bleiben.</p>${speciesGrid()}<button class="bigbtn" data-ok>Fertig</button>`,p=>{
+    bindSpecies(p,sortChange);
+    p.querySelector("[data-ok]").onclick=()=>{closePanel();msg(`${SPECIES[S.species].name} · ${PHASES[S.phase]}`)};
+  });
+}
+function endAway(){S.away=false;save();closePanel();step(new Date());render();msg("Urlaub beendet")}
+
 /* Urlaub: Modus mit Bestätigung starten, mit einem Tipp beenden */
 function awayPanel(){
   panel("away","Urlaub starten?",`<p>Die Box läuft allein weiter. Das ändert sich:</p>
     <ul><li>Nebler springt später an und spart Wasser (Tank reicht ca. 10 statt 7 Tage)</li><li>Meldungen gehen aufs Handy, das Display bleibt ruhig</li><li>Display wird etwas dunkler</li></ul>
-    <p>Beenden: Urlaub nochmal antippen.</p>
+    <p>Beenden: oben auf URLAUB ✕ tippen oder hier unter SORTE &amp; NEU.</p>
     <div class="btnrow"><button class="bigbtn out" data-x>Abbrechen</button><button class="bigbtn" data-ok>Starten</button></div>`,p=>{
       p.querySelector("[data-x]").onclick=closePanel;
       p.querySelector("[data-ok]").onclick=()=>{S.away=true;save();closePanel();step(new Date());render();msg("Urlaub · Box spart Wasser")};
@@ -543,14 +575,14 @@ function customPanel(){
         ROWS.forEach(([k2,,u])=>p.querySelector("#o-"+k2).textContent=`${get(k2)} ${u}`)});
       p.querySelector("[data-save]").onclick=()=>{
         d.name=name.value.trim(); if(!d.name){name.focus();msg("Bitte einen Namen eingeben");return}
-        S.custom=d;S.species="custom";applyCustom();acked.clear();save();step(new Date());render();newPanel(3);msg(`${d.name} gespeichert`)};
-      const del=p.querySelector("[data-del]"); if(del) del.onclick=()=>{S.custom=null;applyCustom();save();render();newPanel(3);msg("Eigene Sorte gelöscht")};
+        S.custom=d;S.species="custom";applyCustom();acked.clear();save();step(new Date());render();afterCustom();msg(`${d.name} gespeichert`)};
+      const del=p.querySelector("[data-del]"); if(del) del.onclick=()=>{S.custom=null;applyCustom();save();render();afterCustom();msg("Eigene Sorte gelöscht")};
       if(!S.custom) name.focus();
   });
 }
 
 /* Tasten */
-const paused=()=>{if(!S.power){msg("Pausiert · erst NEU ANSETZEN");return true}return false};
+const paused=()=>{if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return true}return false};
 $("#kAir").onclick=()=>{if(paused())return;
   if(sim.burst>Date.now()){sim.burst=0;msg("Lüften gestoppt")}else{sim.burst=Date.now()+60000;msg("Lüften · 1 Minute")}step(new Date());render()};
 $("#kMist").onclick=()=>{if(paused())return;
@@ -558,9 +590,8 @@ $("#kMist").onclick=()=>{if(paused())return;
   if(sim.mist>Date.now()){sim.mist=0;msg("Befeuchten gestoppt")}else{sim.mist=Date.now()+60000;msg("Befeuchten · 1 Minute")}step(new Date());render()};
 $("#kAlerts").onclick=()=>open==="alerts"?closePanel():alertPanel();
 $("#alert").onclick=()=>{if(S.power)alertPanel()};
-$("#kAway").onclick=()=>{if(paused())return;
-  if(S.away){S.away=false;save();closePanel();step(new Date());render();msg("Urlaub beendet")}else if(open==="away")closePanel();else awayPanel()};
-$("#kNew").onclick=()=>open==="new"?closePanel():newPanel(S.power?1:2);
+$("#kSort").onclick=()=>["sort","new","away","custom"].includes(open)?closePanel():sortPanel();
+$("#topIcons").addEventListener("click",e=>{if(e.target.closest("[data-endaway]"))endAway()});
 
 /* Demo-Leiste */
 function syncDemo(){document.querySelectorAll("[data-d]").forEach(b=>b.setAttribute("aria-pressed",demo[b.dataset.d]))}
@@ -584,6 +615,69 @@ function demoPanel(){
 }
 $("#demoChip").onclick=()=>open==="demo"?closePanel():demoPanel();
 
+/* ---------- Verbindung Box und Handy-App (übernommen aus dem claude.ai-Original, Box-Seite) ----------
+   Die Box schreibt ihren Stand nach boxes/<Code>, die App liest ihn live.
+   Die App schreibt Befehle nach boxes/<Code>/cmd/last, die Box führt sie aus.
+   Funktioniert nur, wenn die Seite auf claude.ai läuft (Speicher „db“); sonst zeigt HANDY einen Hinweis. */
+if(!S.code){S.code=String(1000+Math.floor(Math.random()*9000));save()}
+let db=null, appSeen=null;
+function validCustom(c){return c&&typeof c==="object"&&typeof c.name==="string"&&Array.isArray(c.t)&&Array.isArray(c.rh)&&c.t.length===2&&c.rh.length===2&&[...c.t,...c.rh,c.co2].every(Number.isFinite)}
+function applyCmd(c){
+  if(!c||typeof c.id!=="string"||c.id===S.lastCmd) return;
+  S.lastCmd=c.id; save();
+  if(!Number.isFinite(c.at)||Math.abs(Date.now()-c.at)>120000) return;
+  const a=c.arg, now=Date.now();
+  if(c.type==="power"){S.power=!S.power;save();closePanel()}
+  else if(c.type==="burst"){if(!S.power)return;sim.burst=sim.burst>now?0:now+60000}
+  else if(c.type==="mist"){if(!S.power||sim.tank<=0)return;sim.mist=sim.mist>now?0:now+60000}
+  else if(c.type==="away"){if(!S.power)return;S.away=!!a;save()}
+  else if(c.type==="do"){const it=alerts().find(x=>x.id===a);if(!it)return;it.do.run()}
+  else if(c.type==="species"){if(typeof a!=="string"||!SPECIES[a])return;S.species=a;save()}
+  else if(c.type==="phase"){if(typeof a!=="string"||!PHASES[a]||a===S.phase)return;S.phase=a;S.phaseStart=now;acked.clear();save()}
+  else if(c.type==="custom"){
+    if(a===null){S.custom=null}
+    else if(validCustom(a)){S.custom={name:a.name.trim().slice(0,20)||"Eigene Sorte",t:[+a.t[0],+a.t[1]],rh:[+a.rh[0],+a.rh[1]],co2:+a.co2};S.species="custom";acked.clear()}
+    else return;
+    applyCustom();save();
+  }
+  else return;
+  msg("Befehl vom Handy ausgeführt");
+  step(new Date());render();
+}
+function payload(){
+  return {power:!!S.power,species:S.species,phase:S.phase,phaseStart:S.phaseStart,custom:S.custom||null,away:!!S.away,
+    t:Math.round(sim.t*10)/10,rh:Math.round(sim.rh),co2:Math.round(sim.co2/10)*10,tank:Math.round(sim.tank),
+    dev:{licht:!!sim.dev.licht,luefter:!!sim.dev.luefter,nebel:!!sim.dev.nebel},burst:sim.burst>Date.now()?sim.burst:0,mist:sim.mist>Date.now()?sim.mist:0,sensor:!demo.sensor,
+    alerts:alerts().map(x=>({id:x.id,sev:x.sev,t:x.t,a:x.a,label:x.do.label,kind:x.do.kind,icon:x.do.icon||null}))};
+}
+let lastPush=0,lastJs="",lastImp="",pushing=false;
+async function maybePush(){
+  if(!db||pushing) return;
+  const p=payload(), js=JSON.stringify(p), now=Date.now();
+  const imp=JSON.stringify([p.power,p.species,p.phase,p.phaseStart,p.custom,p.away,p.dev,p.burst,p.mist,p.sensor,p.alerts.map(x=>x.id)]);
+  if(!(imp!==lastImp||(js!==lastJs&&now-lastPush>15000)||now-lastPush>60000)) return;
+  pushing=true; lastImp=imp; lastJs=js; lastPush=now;
+  try{await db.doc("boxes/"+S.code).set({...p,v:1,at:now})}catch(e){}
+  pushing=false;
+}
+const ago=t=>{const m=Math.round((Date.now()-t)/60000);return m<1?"gerade eben":m<60?`vor ${m} Min.`:`vor ${Math.round(m/60)} Std.`};
+function connectPanel(){
+  if(!db){panel("link","Handy verbinden",`<p>Die Verbindung braucht eine Anmeldung bei Claude. Sie funktioniert, wenn das Bedienfeld auf claude.ai geöffnet ist, nicht als lokale Datei.</p>
+    <p>Dein Code wäre:</p><div class="code" aria-label="Code ${S.code.split("").join(" ")}">${S.code}</div>`);return}
+  panel("link","Handy verbinden",`
+    <ol><li>Den Link der Handy-App auf dem Handy öffnen.</li><li><b>Handy-App</b> wählen.</li><li>Diesen Code eingeben:</li></ol>
+    <div class="code" aria-label="Code ${S.code.split("").join(" ")}">${S.code}</div>
+    <p>${appSeen?`Zuletzt verbunden: ${ago(appSeen)}`:"Noch kein Handy verbunden."}</p>`);
+}
+$("#linkChip").onclick=()=>open==="link"?closePanel():connectPanel();
+(async()=>{
+  try{db=window.claude?.use?await window.claude.use("db"):null}catch(e){db=null}
+  if(!db) return;
+  db.doc("boxes/"+S.code+"/cmd/last").onSnapshot(s=>{if(s.exists)applyCmd(s.data())},()=>{});
+  db.doc("boxes/"+S.code+"/app/seen").onSnapshot(s=>{const v=s.exists?s.data()?.at:null;appSeen=Number.isFinite(v)?v:null;if(open==="link")connectPanel();render()},()=>{});
+  maybePush();
+})();
+
 /* Bildschirm anlassen, solange das Display offen ist (wenn das Gerät es erlaubt) */
 let lock=null;
 async function keepAwake(){try{if(!lock&&navigator.wakeLock&&document.visibilityState==="visible"){lock=await navigator.wakeLock.request("screen");lock.addEventListener("release",()=>{lock=null})}}catch(e){}}
@@ -591,7 +685,7 @@ document.addEventListener("pointerdown",keepAwake);
 document.addEventListener("visibilitychange",keepAwake);
 
 render();
-setInterval(render,1000);
+setInterval(()=>{render();maybePush()},1000);
 setInterval(()=>step(new Date()),3000);
 })();
 </script>
