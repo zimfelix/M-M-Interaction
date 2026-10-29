@@ -291,9 +291,9 @@ const SPECIES={
 };
 const PHASES={kol:"Durchwachsen",frucht:"Fruchtung",ruhe:"Ruhephase"};
 
-let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v3"))}catch(e){}
+let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v4"))}catch(e){}
 if(!S||!S.species) S={species:"auster",phase:"frucht",phaseStart:Date.now()-3.4*DAY,power:true,away:false};
-const save=()=>{try{localStorage.setItem("growbox-display-v3",JSON.stringify(S))}catch(e){}};
+const save=()=>{try{localStorage.setItem("growbox-display-v4",JSON.stringify(S))}catch(e){}};
 /* Eigene Sorte: Zielwerte für die Fruchtung, die anderen Phasen leiten sich davon ab */
 function applyCustom(){
   delete SPECIES.custom;
