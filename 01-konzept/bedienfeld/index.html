@@ -14,7 +14,7 @@
   --page:#e9ebe6; --page-fg:#2a2c28; --page-muted:#62665e; --page-card:#ffffff; --page-line:#d3d6cf;
   --lcd-hi:#2f45f5; --lcd-mid:#1525c4; --lcd-lo:#08106c;
   --ink:#ffffff; --ink-soft:#c7cfff; --ink-dim:rgba(255,255,255,.35);
-  --band:#f0e442; --alarm:#e69f00;
+  --band:#f0e442; --alarm:#e69f00; --ok:#3fcf7f; --stop:#ff4d3d;
   --housing:#f4f4f1; --housing-edge:#d9d9d4; --glass:#0b0c10;
   --f-ui:"Barlow", "Roboto", "Helvetica Neue", Arial, sans-serif;
   --f-cond:"Barlow Semi Condensed", "Roboto Condensed", "Arial Narrow", sans-serif;
@@ -37,14 +37,19 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   box-shadow:0 0 0 .5cqw #c9cfe6, 0 0 0 1cqw #2b2f3a;color:var(--ink);user-select:none;-webkit-user-select:none;transition:filter .5s}
 .screen::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(160deg,rgba(255,255,255,.09),transparent 40%)}
 .screen.standby{filter:brightness(.4) saturate(.6)}
-.screen.standby #kPower{filter:brightness(2.5)}
+.screen.standby #kNew{filter:brightness(2.5)}
+.screen.away{filter:brightness(.8)}
 
 /* Tasten */
-.keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2.6cqw;margin-top:auto}
+.keys{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2cqw;margin-top:auto}
 .key{position:relative;width:100%;height:24cqw;border-radius:3cqw;border:.6cqw solid var(--ink);background:rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6cqw;padding:0 1cqw;
   box-shadow:0 0 1.6cqw rgba(140,160,255,.35);transition:background .15s, transform .1s}
 .key svg{width:10cqw;height:10cqw}
-.key b{font-family:var(--f-cond);font-size:3.2cqw;font-weight:700;letter-spacing:0;text-transform:uppercase;line-height:1.05;text-align:center}
+.key b{font-family:var(--f-cond);font-size:3cqw;font-weight:700;letter-spacing:0;text-transform:uppercase;line-height:1.05;text-align:center}
+.key i{font-style:normal;font-family:var(--f-cond);font-size:2.8cqw;font-weight:600;color:var(--ink-soft);margin-top:-1cqw}
+.key.busy i,.key.on i{color:var(--lcd-mid)}
+.key.on{background:var(--ink);color:var(--lcd-mid)}
+.key.on .fill{fill:var(--lcd-mid)}
 .key:active{transform:scale(.95)}
 .key .fill{fill:var(--ink-soft)}
 .key.busy{background:var(--ink);color:var(--lcd-mid)}
@@ -74,7 +79,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .sweat{opacity:0;transition:opacity .4s}
 .crit .sweat{opacity:1}
 .hum{font-weight:700;font-size:10.5cqw;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:.4cqw}
-.hum small{font-size:5.4cqw;font-weight:600;margin-left:.3cqw}
+.hum small{font-size:5.4cqw;font-weight:600;margin-left:1.2cqw}
 .humlbl{font-family:var(--f-cond);font-size:3.8cqw;font-weight:600;letter-spacing:.12em;color:var(--ink-soft);text-transform:uppercase;margin-top:.7cqw}
 
 .alert{width:100%;margin-top:2cqw;border:0;background:transparent;padding:1.2cqw 1.4cqw;border-radius:2cqw;display:flex;flex-direction:column;align-items:center;gap:.6cqw;text-align:center;line-height:1.1}
@@ -93,10 +98,22 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .hasact .mini{display:none}
 .item .do{flex:none;border:.7cqw solid var(--alarm);background:var(--alarm);color:#1a1000;border-radius:2.4cqw;font-weight:700;font-size:4.2cqw;padding:2cqw 3cqw}
 .item.info .do{background:transparent;border-color:var(--ink);color:var(--ink)}
-.mini{display:flex;gap:6cqw;margin-top:2.4cqw;font-size:4.8cqw;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink-soft)}
-.mini span{display:flex;align-items:center;gap:.7cqw;white-space:nowrap}
-.mini span.off{color:var(--alarm)}
-.mini svg{width:4.8cqw;height:4.8cqw}
+.mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4cqw;width:100%;margin-top:2.4cqw;font-variant-numeric:tabular-nums}
+.stat{display:flex;flex-direction:column;gap:1.2cqw;min-width:0}
+.sv{display:flex;align-items:center;gap:1cqw;font-weight:700;font-size:4.8cqw;color:var(--ink);white-space:nowrap}
+.sv svg{flex:none;width:4.6cqw;height:4.6cqw;color:var(--ink-soft)}
+.bar{position:relative;height:1.6cqw;border-radius:1cqw;background:rgba(255,255,255,.16)}
+.bar .band{position:absolute;top:0;bottom:0;background:rgba(255,255,255,.4);border-radius:1cqw}
+.bar .dot{position:absolute;top:50%;width:3.2cqw;height:3.2cqw;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%);box-shadow:0 0 0 .5cqw var(--lcd-mid)}
+.bar .lvl{position:absolute;left:0;top:0;bottom:0;background:var(--ink);border-radius:1cqw}
+.cap{font-family:var(--f-cond);font-size:3.1cqw;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat.off .sv,.stat.off .cap{color:var(--alarm)}
+.stat.off .dot,.stat.off .lvl{background:var(--alarm)}
+.ticon{display:inline-flex;align-items:center;gap:1.4cqw}
+.ticon svg{width:4.6cqw;height:4.6cqw}
+.away-chip{border:.5cqw solid var(--ink);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink)}
+.steps{font-family:var(--f-cond);font-size:3.4cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.panel ul{margin:0;padding-left:5cqw;font-size:4.4cqw;line-height:1.35;color:var(--ink)}
 
 /* Vollbild-Panels */
 .panel{position:absolute;inset:0;padding:5cqw;display:flex;flex-direction:column;gap:3cqw;animation:pin .18s ease-out;z-index:2;
@@ -162,7 +179,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 
 /* Handy im Technikraum (iPhone 13 mini und ähnliche): Display füllt den ganzen Bildschirm */
 @media (max-width:500px){
-  .hasact .mini{display:flex}
+  .hasact .mini{display:grid}
   html,body{height:100%;background:var(--lcd-lo)}
   body{padding:0;overflow:hidden;overscroll-behavior:none;-webkit-touch-callout:none;touch-action:manipulation}
   body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--lcd-lo)}
@@ -174,19 +191,19 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   .plate,.demo{display:none}
   .demo-chip{display:inline-flex}
   .topbar{font-size:4.6cqw}
-  .ring{width:78cqw;height:78cqw}
-  .shroom{width:36cqw;height:36cqw}
+  .ring{width:68cqw;height:68cqw}
+  .shroom{width:30cqw;height:30cqw}
   .hum{font-size:14cqw}
   .hum small{font-size:6.4cqw}
   .humlbl{font-size:4.2cqw}
-  .alert{margin-top:4cqw;min-height:24cqw}
+  .alert{margin-top:3cqw;min-height:20cqw}
   .alert .t{font-size:7.6cqw}
   .alert .a{font-size:4.8cqw;max-width:84cqw}
-  .mini{font-size:5cqw;gap:7cqw;margin-top:3cqw}
-  .mini svg{width:5cqw;height:5cqw}
-  .key{height:27cqw}
-  .key svg{width:11cqw;height:11cqw}
-  .key b{font-size:3.5cqw}
+  .mini{gap:5cqw;margin-top:3cqw}
+  .sv{font-size:5.2cqw}
+  .key{height:22cqw;gap:1.2cqw}
+  .key svg{width:8.6cqw;height:8.6cqw}
+  .key b{font-size:3.1cqw}
   .panel{padding:6cqw max(5cqw, env(safe-area-inset-right, 0px)) 6cqw max(5cqw, env(safe-area-inset-left, 0px))}
   .msg{bottom:36cqw}
 }
@@ -199,7 +216,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   <div class="device">
     <div class="glass">
       <div class="screen" id="screen">
-        <div class="topbar"><span id="topCulture">Austernpilz · <b>Fruchtung</b></span><span class="tr"><button class="demo-chip" id="demoChip" aria-label="Demo-Situationen">Demo</button><span id="topClock">--:--</span></span></div>
+        <div class="topbar"><span id="topCulture">Austernpilz · <b>Fruchtung</b></span><span class="tr"><span class="ticon" id="topIcons"></span><button class="demo-chip" id="demoChip" aria-label="Demo-Situationen">Demo</button><span id="topClock">--:--</span></span></div>
 
         <div class="center" id="home">
           <div class="ring">
@@ -224,7 +241,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
                 <path class="drop" d="M50 0c0 0 4 5 4 8a4 4 0 0 1-8 0c0-3 4-8 4-8z" transform="translate(0 2)"/>
               </svg>
               <span class="hum" id="hum">–</span>
-              <span class="humlbl">Luftfeuchte</span>
+              <span class="humlbl" id="humlbl">bis zur Ernte</span>
             </div>
           </div>
           <button class="alert" id="alert" aria-label="Alle Meldungen anzeigen"></button>
@@ -232,10 +249,11 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
           <div class="mini" id="mini"></div>
         </div>
         <div class="keys">
-          <button class="key" id="kPower" aria-label="Ein oder Standby"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v8"/><path d="M6.6 6.6a7.5 7.5 0 1 0 10.8 0"/></svg><b id="powerLbl">Ein</b></button>
-          <button class="key" id="kAir" aria-label="Frischluft 60 Sekunden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg><b id="airLbl">Frischluft</b></button>
+          <button class="key" id="kAir" aria-label="Lüften, 1 Minute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg><b id="airLbl">Lüften</b><i id="airSub">1 Min</i></button>
+          <button class="key" id="kMist" aria-label="Befeuchten, 1 Minute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M12 3s5 5.5 5 9.5a5 5 0 0 1-10 0C7 8.5 12 3 12 3z"/><path d="M5 19.5h.01M9 21h.01M15 21h.01M19 19.5h.01"/></svg><b id="mistLbl">Befeuchten</b><i id="mistSub">1 Min</i></button>
           <button class="key" id="kAlerts" aria-label="Meldungen anzeigen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 21h4"/></svg><b>Meldungen</b><span class="count" id="count" hidden>0</span></button>
-          <button class="key" id="kSet" aria-label="Pilzsorte und Phase wählen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M3 13a9 7 0 0 1 18 0z"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5"/></svg><b>Sorte</b></button>
+          <button class="key" id="kAway" aria-label="Urlaub" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect class="fill" x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M9 7v13M15 7v13"/></svg><b>Urlaub</b></button>
+          <button class="key" id="kNew" aria-label="Neu ansetzen: Durchgang beenden und neu starten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v8"/><path d="M6.6 6.6a7.5 7.5 0 1 0 10.8 0"/></svg><b>Neu<br>ansetzen</b></button>
         </div>
         <div id="panelHost"></div>
         <div id="msgHost"></div>
@@ -254,6 +272,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
       <button data-d="hot" aria-pressed="false">Raum zu warm</button>
       <button data-d="sensor" aria-pressed="false">Sensor ausgefallen</button>
       <button data-d="harvest" aria-pressed="false">Tag 6 der Fruchtung</button>
+      <button data-d="taster" aria-pressed="false">Taster drücken (Licht)</button>
     </div>
   </div>
 </div>
@@ -273,7 +292,7 @@ const SPECIES={
 const PHASES={kol:"Durchwachsen",frucht:"Fruchtung",ruhe:"Ruhephase"};
 
 let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v3"))}catch(e){}
-if(!S||!S.species) S={species:"auster",phase:"frucht",phaseStart:Date.now()-3.4*DAY,power:true};
+if(!S||!S.species) S={species:"auster",phase:"frucht",phaseStart:Date.now()-3.4*DAY,power:true,away:false};
 const save=()=>{try{localStorage.setItem("growbox-display-v3",JSON.stringify(S))}catch(e){}};
 /* Eigene Sorte: Zielwerte für die Fruchtung, die anderen Phasen leiten sich davon ab */
 function applyCustom(){
@@ -288,17 +307,21 @@ applyCustom();
 const tgt=()=>SPECIES[S.species].p[S.phase];
 const day=()=>Math.floor((Date.now()-S.phaseStart)/DAY)+1;
 
-/* Simulation. LED 8–20 Uhr, Frischluft alle 30 Min, Nebler regelt automatisch. */
-const demo={tank:false,door:false,hot:false,sensor:false,harvest:false};
-const sim={t:22.4,rh:89,co2:690,tank:64,dev:{licht:false,luefter:false,nebel:false},burst:0};
+/* Simulation. LED 8–20 Uhr (Taster schaltet um), Frischluft alle 30 Min, Nebler regelt automatisch.
+   Urlaub: Nebler springt erst später an und spart so Wasser. */
+const demo={tank:false,door:false,hot:false,sensor:false,harvest:false,taster:false};
+const sim={t:22.4,rh:89,co2:690,tank:64,dev:{licht:false,luefter:false,nebel:false},burst:0,mist:0,lightOv:null};
 function step(d){
   const T=tgt(), m=d.getHours()*60+d.getMinutes();
   if(demo.tank) sim.tank=0;
   if(!S.power) sim.dev={licht:false,luefter:false,nebel:false};
   else{
-    let N=sim.dev.nebel; if(sim.rh<T.rh[0]+1.5)N=true; else if(sim.rh>(T.rh[0]+T.rh[1])/2+2)N=false; if(S.phase==="kol"&&sim.rh>T.rh[0]+3)N=false;
+    const on=S.away?T.rh[0]-1:T.rh[0]+1.5, off=S.away?T.rh[0]+2:(T.rh[0]+T.rh[1])/2+2;
+    let N=sim.dev.nebel; if(sim.rh<on)N=true; else if(sim.rh>off)N=false; if(S.phase==="kol"&&sim.rh>T.rh[0]+3)N=false;
+    if(sim.mist>d.getTime())N=true;
     if(sim.tank<=0) N=false;
-    sim.dev={licht:T.light&&m>=480&&m<1200, luefter:sim.burst>d.getTime()||sim.co2>T.co2-60||(S.phase!=="kol"&&m%30<2)||sim.rh>T.rh[1]+1.5, nebel:N};
+    const autoL=T.light&&m>=480&&m<1200;
+    sim.dev={licht:sim.lightOv??autoL, luefter:sim.burst>d.getTime()||sim.co2>T.co2-60||(S.phase!=="kol"&&m%30<2)||sim.rh>T.rh[1]+1.5, nebel:N};
   }
   const r=()=>Math.random()-.5, D=sim.dev, amb=demo.hot?29.5:21.6;
   sim.t+=((amb+(D.licht?.7:0)-(D.nebel?.3:0))-sim.t)*(demo.hot?.12:D.luefter?.06:.03)+r()*.08;
@@ -309,6 +332,18 @@ function step(d){
 }
 for(let i=0;i<120;i++) step(new Date(Date.now()-(120-i)*3000));
 
+/* Fortschritt bis zur (nächsten) Ernte: Durchwachsen + Fruchtung, nach der Ernte Ruhe + Fruchtung */
+function progress(){
+  const P=SPECIES[S.species].p, d=day();
+  let tot, el, tick;
+  if(S.phase==="ruhe"){tot=P.ruhe.days+P.frucht.days; el=d-1; tick=P.ruhe.days/tot}
+  else{tot=P.kol.days+P.frucht.days; el=(S.phase==="frucht"?P.kol.days:0)+d-1; tick=P.kol.days/tot}
+  if(demo.harvest&&S.phase==="frucht") el=tot;
+  return {p:Math.max(0,Math.min(1,el/tot)), left:Math.max(0,Math.ceil(tot-el)), tick};
+}
+/* Tank-Reichweite (Annahme: voller Tank reicht 7 Tage, im Urlaub 10) */
+const tankDays=()=>Math.floor(sim.tank/100*(S.away?10:7));
+
 /* Meldungen: nur was jemand vor der Box wissen und tun muss.
    crit = Pilze nehmen bald Schaden · warn = bitte bald kümmern · info = Erinnerung
    Jede Meldung hat genau einen Knopf:
@@ -317,7 +352,7 @@ for(let i=0;i<120;i++) step(new Date(Date.now()-(120-i)*3000));
 const acked=new Map();
 const snoozed=id=>(acked.get(id)||0)>Date.now();
 function done(ids,fn,min){return ()=>{fn&&fn();[].concat(ids).forEach(i=>acked.set(i,Date.now()+min*60000));syncDemo();step(new Date());render();msg("Danke · erledigt")}}
-function burstStart(){if(!S.power)return;sim.burst=Date.now()+60000;step(new Date());render();msg("Frischluft für 60 Sekunden")}
+function burstStart(){if(!S.power)return;sim.burst=Date.now()+60000;step(new Date());render();msg("Lüften · 1 Minute")}
 function setPhase(ph,txt){return ()=>{S.phase=ph;S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());render();msg(txt)}}
 function alerts(){
   if(!S.power) return [];
@@ -335,8 +370,8 @@ function alerts(){
   if(!demo.sensor){
     if(sim.rh<T.rh[0]-8&&sim.tank>0) out.push({id:"dry2",sev:"crit",t:"Viel zu trocken",a:"Tür, Deckel und Nebler prüfen, dann GEPRÜFT drücken.",do:H("Geprüft",done("dry2",null,10))});
     else if(sim.rh<T.rh[0]&&!demo.door&&sim.tank>0) out.push({id:"dry",sev:"warn",t:"Zu trocken",a:"Der Nebler gleicht das aus. Kurz nachsehen, ob er dampft.",do:H("Gesehen",done("dry",null,15))});
-    if(sim.rh>T.rh[1]+2) out.push({id:"wet",sev:"warn",t:"Zu nass",a:"Frischluft trocknet die Kammer. Tropfen auf den Hüten vermeiden.",do:A("Frischluft 60 s",burstStart,"air")});
-    if(sim.co2>T.co2+150&&!sim.dev.luefter) out.push({id:"co2",sev:"warn",t:"Braucht Frischluft",a:"Sonst werden die Stiele lang und dünn.",do:A("Frischluft 60 s",burstStart,"air")});
+    if(sim.rh>T.rh[1]+2) out.push({id:"wet",sev:"warn",t:"Zu nass",a:"Frischluft trocknet die Kammer. Tropfen auf den Hüten vermeiden.",do:A("Lüften 1 Min",burstStart,"air")});
+    if(sim.co2>T.co2+150&&!sim.dev.luefter) out.push({id:"co2",sev:"warn",t:"Braucht Frischluft",a:"Sonst werden die Stiele lang und dünn.",do:A("Lüften 1 Min",burstStart,"air")});
   }
   if(sim.tank>0&&sim.tank<20) out.push({id:"tanklow",sev:"info",t:"Wasser bald leer",a:`Noch ${Math.round(sim.tank)} %. Nach dem Auffüllen AUFGEFÜLLT drücken.`,do:H("Aufgefüllt",refill)});
   const hd=demo.harvest?Math.max(d,T.days):d;
@@ -347,13 +382,16 @@ function alerts(){
   return out.filter(x=>!snoozed(x.id)).sort((a,b)=>rank[a.sev]-rank[b.sev]);
 }
 const IC={
-  ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>',
-  crit:'<svg viewBox="0 0 24 24"><path d="M12 2.5L23 21H1z" fill="currentColor"/><path d="M12 9v5.5M12 17.5v.4" stroke="#1525c4" stroke-width="2.6" stroke-linecap="round"/></svg>',
-  warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3.5L22 20.5H2z"/><path d="M12 10v4.5M12 17.5v.4"/></svg>',
+  ok:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="var(--ok)"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  warn:'<svg viewBox="0 0 24 24"><path d="M12 1.8L23.2 21.5H.8z" fill="var(--band)" stroke-linejoin="round"/><path d="M12 8.6v6M12 17.8v.3" stroke="#08106c" stroke-width="2.8" stroke-linecap="round"/></svg>',
+  crit:'<svg viewBox="0 0 24 24"><path d="M7.4 1h9.2L23 7.4v9.2L16.6 23H7.4L1 16.6V7.4z" fill="var(--stop)"/><path d="M9.2 6.5v7M14.8 6.5v7M9.2 17v.3M14.8 17v.3" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>',
+  away:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M9 7v13M15 7v13"/></svg>',
+  bulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>',
   info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.3v.4"/></svg>',
   temp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M10 14.2V5a2 2 0 0 1 4 0v9.2a4 4 0 1 1-4 0z"/></svg>',
   air:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3"/></svg>',
-  tank:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>',
+  tank:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M5 6h14v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M5 12h14"/></svg>',
+  rh:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>',
   clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
 };
 const shroomSvg=c=>`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13a9 7 0 0 1 18 0z" fill="${c}"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5z" fill="#efe9dc"/></svg>`;
@@ -374,14 +412,16 @@ let lastAlert="";
 function render(){
   const d=new Date(), T=tgt(), list=alerts(), top=list[0], sev=top?.sev||"ok";
   $("#screen").classList.toggle("standby",!S.power);
-  $("#powerLbl").textContent=S.power?"Ein":"Standby";
-  const f=v=>Math.max(0,Math.min(1,(v-40)/60))*360, a=f(T.rh[0]), b=f(T.rh[1]), v=f(sim.rh);
-  const showVal=S.power&&!demo.sensor;
-  $("#arcBand").setAttribute("stroke-dasharray",`0 ${a} ${b-a} 360`);
-  $("#arcVal").setAttribute("stroke-dasharray",`${showVal?Math.max(1,v):0} 360`);
+  $("#screen").classList.toggle("away",S.power&&!!S.away);
+  const showVal=S.power&&!demo.sensor, pr=progress(), v=pr.p*360, tk=pr.tick*360;
+  // Ring: Fortschritt bis zur Ernte; gelbe Marke = Wechsel Durchwachsen/Ruhe → Fruchtung
+  $("#arcBand").setAttribute("stroke-dasharray",`0 ${Math.max(0,tk-1.5)} 3 360`);
+  $("#arcVal").setAttribute("stroke-dasharray",`${S.power?Math.max(1,v):0} 360`);
   $("#knob").setAttribute("transform",`rotate(${v} 100 100)`);
-  $("#knob").style.display=showVal?"":"none";
-  $("#hum").innerHTML=showVal?`${Math.round(sim.rh)}<small>%</small>`:"––";
+  $("#knob").style.display=S.power?"":"none";
+  if(!S.power){$("#hum").innerHTML="––";$("#humlbl").textContent="pausiert"}
+  else if(pr.left===0){$("#hum").innerHTML="Jetzt";$("#humlbl").textContent="ernten"}
+  else{$("#hum").innerHTML=`${pr.left}<small>${pr.left===1?"Tag":"Tage"}</small>`;$("#humlbl").textContent="bis zur Ernte"}
   // Pilz-Gesicht: froh (ok/info), besorgt (warn), gestresst (crit)
   const sh=$("#shroom");
   $("#cap").setAttribute("fill",SPECIES[S.species].cap);
@@ -391,25 +431,38 @@ function render(){
   sh.classList.toggle("misting",sim.dev.nebel);
   sh.classList.toggle("airing",sim.dev.luefter);
   // Wichtigste Meldung
-  const key=!S.power?"sb":top?top.id+top.a:"ok";
+  const awayQuiet=S.away&&sev!=="crit";
+  const key=!S.power?"sb":awayQuiet?"away":top?top.id+top.a:"ok";
   if(key!==lastAlert){lastAlert=key;const el=$("#alert");
-    if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Standby</span><span class="a">EIN drücken zum Starten</span>`}
+    if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">NEU ANSETZEN drücken zum Fortsetzen</span>`}
+    else if(awayQuiet){el.className="alert";el.innerHTML=`<span class="t">${IC.away}Urlaub</span><span class="a">Box spart Wasser · Meldungen gehen aufs Handy</span>`}
     else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a">${PHASES[S.phase]} · Tag ${day()}</span>`}
     else{el.className="alert "+top.sev;el.innerHTML=`<span class="t">${IC[top.sev]}${top.t}</span><span class="a">${top.a}</span>`}
   }
-  const ab=$("#actBtn"), act=S.power&&top?.do;
+  const ab=$("#actBtn"), act=S.power&&!awayQuiet&&top?.do;
   ab.hidden=!act; $("#home").classList.toggle("hasact",!!act);
   if(act){ const html=`${act.kind==="auto"?ACT_IC[act.icon]:act.label==="Aufgefüllt"?DROP_IC:ACT_IC.hand}${act.label}`; if(ab.innerHTML!==html) ab.innerHTML=html; ab.className="act"+(top.sev==="info"?" info":""); ab.onclick=act.run; }
   const c=$("#count"), worstN=list.filter(x=>x.sev!=="info").length;
   c.hidden=!list.length; c.textContent=list.length; c.classList.toggle("info",!worstN);
   $("#kAlerts").setAttribute("aria-label",`Meldungen anzeigen, ${list.length} offen`);
-  const tOff=showVal&&(sim.t<T.t[0]||sim.t>T.t[1]), cOff=showVal&&sim.co2>T.co2, wOff=sim.tank<20;
-  $("#mini").innerHTML=`<span class="${tOff?"off":""}">${IC.temp}${showVal?sim.t.toFixed(1).replace(".",","):"–"}°</span><span class="${cOff?"off":""}">${IC.air}${showVal?Math.round(sim.co2/10)*10:"–"}</span><span class="${wOff?"off":""}">${IC.tank}${Math.round(sim.tank)}%</span>`;
+  // Drei Werte: Balken mit Zielbereich (hell) und Punkt für den aktuellen Wert
+  const pc=(x,lo,hi)=>Math.max(0,Math.min(100,(x-lo)/(hi-lo)*100));
+  const stat=(off,ic,val,bar,cap)=>`<div class="stat${off?" off":""}"><div class="sv">${ic}${val}</div><div class="bar">${bar}</div><span class="cap">${cap}</span></div>`;
+  const band=(r,lo,hi,x)=>`<i class="band" style="left:${pc(r[0],lo,hi)}%;width:${pc(r[1],lo,hi)-pc(r[0],lo,hi)}%"></i>${showVal?`<i class="dot" style="left:${pc(x,lo,hi)}%"></i>`:""}`;
+  const tOff=showVal&&(sim.t<T.t[0]||sim.t>T.t[1]), hOff=showVal&&(sim.rh<T.rh[0]||sim.rh>T.rh[1]), wOff=sim.tank<20, td=tankDays();
+  $("#mini").innerHTML=
+    stat(tOff,IC.temp,showVal?sim.t.toFixed(1).replace(".",",")+"°":"–",band(T.t,10,35,sim.t),"Temperatur")+
+    stat(hOff,IC.rh,showVal?Math.round(sim.rh)+" %":"–",band(T.rh,40,100,sim.rh),"Luftfeuchte")+
+    stat(wOff,IC.tank,Math.round(sim.tank)+" %",`<i class="lvl" style="width:${sim.tank}%"></i>`,sim.tank<=0?"Jetzt auffüllen":td<1?"Heute auffüllen":`reicht ca. ${td} ${td===1?"Tag":"Tage"}`);
   $("#topClock").textContent=`${pad(d.getHours())}:${pad(d.getMinutes())}`;
   $("#topCulture").innerHTML=`${esc(SPECIES[S.species].name)} · <b>${PHASES[S.phase]}</b>`;
-  const left=Math.max(0,sim.burst-Date.now());
+  const left=Math.max(0,sim.burst-Date.now()), mleft=Math.max(0,sim.mist-Date.now());
   $("#kAir").classList.toggle("busy",left>0);
-  $("#airLbl").textContent=left>0?`${Math.ceil(left/1000)} s`:"Frischluft";
+  $("#airSub").textContent=left>0?`noch ${Math.ceil(left/1000)} s`:"1 Min";
+  $("#kMist").classList.toggle("busy",mleft>0);
+  $("#mistSub").textContent=mleft>0?`noch ${Math.ceil(mleft/1000)} s`:"1 Min";
+  $("#kAway").classList.toggle("on",!!S.away); $("#kAway").setAttribute("aria-pressed",!!S.away);
+  $("#topIcons").innerHTML=(S.power&&sim.dev.licht?`<span aria-label="Licht an" role="img">${IC.bulb}</span>`:"")+(S.away?`<span class="away-chip">Urlaub</span>`:"");
   $("#plateSub").textContent=`${SPECIES[S.species].name} · ${PHASES[S.phase]}`;
   if(open==="alerts") alertPanel(true);
 }
@@ -432,17 +485,37 @@ function alertPanel(refresh){
     p.querySelectorAll("[data-do]").forEach(b=>b.onclick=()=>{const it=list.find(x=>x.id===b.dataset.do);it?.do.run();panelKey="";alertPanel()});
   });
 }
-function setPanel(){
-  panel("set","Was wächst?",`
-    <div class="grid g2" role="radiogroup" aria-label="Pilzsorte">${Object.entries(SPECIES).filter(([k])=>k!=="custom").map(([k,s])=>`<button class="opt" role="radio" data-sp="${k}" aria-checked="${k===S.species}">${shroomSvg(s.cap)}${s.name}</button>`).join("")}
+/* Neu ansetzen: geführter Ablauf in 4 Schritten. Schritt 1 schaltet die Box ab (mit Bestätigung). */
+function newPanel(n){
+  const head=`<div class="steps">Schritt ${n} von 4</div>`;
+  if(n===1) panel("new","Neu ansetzen",`${head}<p>Durchgang beenden? Licht, Lüfter und Nebler gehen aus. Die Pilze werden dann nicht mehr versorgt.</p>
+    <div class="btnrow"><button class="bigbtn out" data-x>Abbrechen</button><button class="bigbtn" data-ok>Beenden</button></div>`,p=>{
+      p.querySelector("[data-x]").onclick=closePanel;
+      p.querySelector("[data-ok]").onclick=()=>{S.power=false;S.away=false;save();step(new Date());render();newPanel(2)};
+  });
+  if(n===2) panel("new","Kammer leeren",`${head}<p>Alte Pilze und Substrat herausnehmen. Kammer feucht auswischen. Wassertank auffüllen.</p>
+    <button class="bigbtn" data-ok>Fertig</button>`,p=>{p.querySelector("[data-ok]").onclick=()=>{refill();newPanel(3)}});
+  if(n===3) panel("new","Was wächst als Nächstes?",`${head}
+    <div class="grid g2" role="radiogroup" aria-label="Pilzsorte">${Object.entries(SPECIES).filter(([k])=>k!=="custom").map(([k,sp])=>`<button class="opt" role="radio" data-sp="${k}" aria-checked="${k===S.species}">${shroomSvg(sp.cap)}${sp.name}</button>`).join("")}
       <button class="opt wide" role="radio" data-custom aria-checked="${S.species==="custom"}">${S.custom?shroomSvg("#cdb79e")+esc(SPECIES.custom.name)+'<span style="font-weight:600;opacity:.75">· ändern</span>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Eigene Sorte eingeben'}</button></div>
-    <div class="lbl">Phase</div>
-    <div class="grid g3" role="radiogroup" aria-label="Phase">${Object.entries(PHASES).map(([k,n])=>`<button class="opt" role="radio" data-ph="${k}" aria-checked="${k===S.phase}">${n}</button>`).join("")}</div>
-    <button class="bigbtn" data-done>Fertig</button>`,p=>{
-      p.querySelectorAll("[data-sp]").forEach(b=>b.onclick=()=>{S.species=b.dataset.sp;save();setPanel();render()});
+    <button class="bigbtn" data-ok>Weiter</button>`,p=>{
+      p.querySelectorAll("[data-sp]").forEach(b=>b.onclick=()=>{S.species=b.dataset.sp;save();newPanel(3);render()});
       p.querySelector("[data-custom]").onclick=customPanel;
-      p.querySelectorAll("[data-ph]").forEach(b=>b.onclick=()=>{if(S.phase!==b.dataset.ph){S.phase=b.dataset.ph;S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date())}setPanel();render()});
-      p.querySelector("[data-done]").onclick=()=>{closePanel();msg(`${SPECIES[S.species].name} · ${PHASES[S.phase]}`)};
+      p.querySelector("[data-ok]").onclick=()=>newPanel(4);
+  });
+  if(n===4) panel("new","Zuchtset einsetzen",`${head}<p>Neues ${esc(SPECIES[S.species].name)}-Zuchtset einsetzen, Tür und Deckel schließen. Die Box startet bei Tag 1 (Durchwachsen).</p>
+    <button class="bigbtn" data-ok>Starten</button>`,p=>{
+      p.querySelector("[data-ok]").onclick=()=>{S.power=true;S.phase="kol";S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());closePanel();render();msg(`${SPECIES[S.species].name} · Tag 1`)};
+  });
+}
+/* Urlaub: Modus mit Bestätigung starten, mit einem Tipp beenden */
+function awayPanel(){
+  panel("away","Urlaub starten?",`<p>Die Box läuft allein weiter. Das ändert sich:</p>
+    <ul><li>Nebler springt später an und spart Wasser (Tank reicht ca. 10 statt 7 Tage)</li><li>Meldungen gehen aufs Handy, das Display bleibt ruhig</li><li>Display wird etwas dunkler</li></ul>
+    <p>Beenden: Urlaub nochmal antippen.</p>
+    <div class="btnrow"><button class="bigbtn out" data-x>Abbrechen</button><button class="bigbtn" data-ok>Starten</button></div>`,p=>{
+      p.querySelector("[data-x]").onclick=closePanel;
+      p.querySelector("[data-ok]").onclick=()=>{S.away=true;save();closePanel();step(new Date());render();msg("Urlaub · Box spart Wasser")};
   });
 }
 
@@ -466,23 +539,29 @@ function customPanel(){
         ROWS.forEach(([k2,,u])=>p.querySelector("#o-"+k2).textContent=`${get(k2)} ${u}`)});
       p.querySelector("[data-save]").onclick=()=>{
         d.name=name.value.trim(); if(!d.name){name.focus();msg("Bitte einen Namen eingeben");return}
-        S.custom=d;S.species="custom";applyCustom();acked.clear();save();step(new Date());render();setPanel();msg(`${d.name} gespeichert`)};
-      const del=p.querySelector("[data-del]"); if(del) del.onclick=()=>{S.custom=null;applyCustom();save();render();setPanel();msg("Eigene Sorte gelöscht")};
+        S.custom=d;S.species="custom";applyCustom();acked.clear();save();step(new Date());render();newPanel(3);msg(`${d.name} gespeichert`)};
+      const del=p.querySelector("[data-del]"); if(del) del.onclick=()=>{S.custom=null;applyCustom();save();render();newPanel(3);msg("Eigene Sorte gelöscht")};
       if(!S.custom) name.focus();
   });
 }
 
 /* Tasten */
-$("#kPower").onclick=()=>{S.power=!S.power;save();closePanel();step(new Date());render();msg(S.power?"Box läuft":"Standby: alles aus")};
-$("#kAir").onclick=()=>{if(!S.power){msg("Standby · erst EIN drücken");return}
-  if(sim.burst>Date.now()){sim.burst=0;msg("Frischluft gestoppt")}else{sim.burst=Date.now()+60000;msg("Frischluft für 60 Sekunden")}step(new Date());render()};
+const paused=()=>{if(!S.power){msg("Pausiert · erst NEU ANSETZEN");return true}return false};
+$("#kAir").onclick=()=>{if(paused())return;
+  if(sim.burst>Date.now()){sim.burst=0;msg("Lüften gestoppt")}else{sim.burst=Date.now()+60000;msg("Lüften · 1 Minute")}step(new Date());render()};
+$("#kMist").onclick=()=>{if(paused())return;
+  if(sim.tank<=0){msg("Wasser leer · erst Tank auffüllen");return}
+  if(sim.mist>Date.now()){sim.mist=0;msg("Befeuchten gestoppt")}else{sim.mist=Date.now()+60000;msg("Befeuchten · 1 Minute")}step(new Date());render()};
 $("#kAlerts").onclick=()=>open==="alerts"?closePanel():alertPanel();
 $("#alert").onclick=()=>{if(S.power)alertPanel()};
-$("#kSet").onclick=()=>open==="set"?closePanel():setPanel();
+$("#kAway").onclick=()=>{if(paused())return;
+  if(S.away){S.away=false;save();closePanel();step(new Date());render();msg("Urlaub beendet")}else if(open==="away")closePanel();else awayPanel()};
+$("#kNew").onclick=()=>open==="new"?closePanel():newPanel(S.power?1:2);
 
 /* Demo-Leiste */
 function syncDemo(){document.querySelectorAll("[data-d]").forEach(b=>b.setAttribute("aria-pressed",demo[b.dataset.d]))}
 function toggleDemo(k){
+  if(k==="taster"){ if(!S.power){msg("Pausiert");return} sim.lightOv=!sim.dev.licht; step(new Date()); render(); msg(sim.dev.licht?"Taster · Licht an":"Taster · Licht aus"); return }
   demo[k]=!demo[k];
   if(k==="tank"&&!demo.tank) sim.tank=100;
   if(k==="harvest"){acked.delete("harvest"); if(demo.harvest&&S.phase!=="frucht"){S.phase="frucht";S.phaseStart=Date.now();save()}}

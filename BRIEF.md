@@ -22,8 +22,7 @@ Zeichnungen der Box: `02-box-bau/README.md` (Bilder) bzw. `02-box-bau/zeichnunge
 
 ## Offen
 
-- **Umfang Klima:** Wärme und Luftfeuchte überhaupt im Interface, oder **nur Licht**? (Schwerpunkt ist Interface/Interaktion, nicht Technik.)
-- **Taster und Startbild:** Bleibt der Taster fest Licht an/aus? Bleibt der 3-Stufen-Zustand im neuen Bedienfeld?
+- **Pilz als Status:** Das Pilz-Gesicht im Ring soll deutlicher zeigen, dass alles gut läuft. Noch nicht umsetzen.
 - **Farben 3D-Druck:** Variante A, B oder C aus `02-box-bau/zeichnungen/skizze-farben.html`; Sockel dunkelbraun ist nicht verfügbar.
 - **Power-User-Persona:** Kultur bleibt Pilze, also ein erfahrener Pilzzüchter, der alles trackt.
 - **Türschalter** (Magnetschalter, meldet „Tür offen“ ans Display): echt, simuliert oder weglassen?
@@ -54,8 +53,8 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | 4 | **Schwerpunkt** | **Interaktionskonzept vor Technik.** HCI-Prüfungsleistung (Prof. Zagel), Option B: Booklet je 5 Seiten pro Person (50 %) + Prototyp (50 %), bewertet nach Bezug zu Vorlesungstheorien, HCI-Grundprinzipien und beschriebener Technik. Funktionen sind zweitrangig; die Uni hat fast alle Bauteile. Ein Prototyp darf auch Papier- oder Klick-Prototyp sein. |
 | 7–8 | Hardware | **Raspberry Pi bleibt Steuerrechner; als Display dient ein fest eingebautes iPhone 13 mini** (statt Touch Display 2), das die Web-Oberfläche des Pi über WLAN zeigt; Dauerstrom per Kabel. **Echt:** Taster und LED. **Simuliert:** Feuchte und Temperatur (für die Vorführung umschaltbar). Lüfter, Vernebler und Sensor sind nicht Teil des Prototyps. |
 | – | **Leitidee** | **B „Radikal einfach“:** ein großer Zustand (Farbe + Symbol + ein Satz), darunter drei große Kacheln. Verworfen: A „Pilz-Begleiter“ (Charakter, Gamification), C „Physisch zuerst“ (Taster/Drehknopf/LED-Ring). |
-| 10 | Startbild | Große **Zustandsanzeige mit 3 Stufen** – „Alles gut“ / „Bald kümmern“ / „Jetzt handeln“ – jeweils Farbe + Symbol + ein Satz. |
-| 10 | Bedienfeld (Box) | **Stand 2026-10-29: Layout wie im Panel-Prototyp**, Datei `01-konzept/bedienfeld/index.html` (Original https://claude.ai/artifact/EGmf5bvFTK16eYGfKWVkPE; ältere Stände in `01-konzept/bedienfeld/verlauf/`, bleiben fürs Booklet) – Status „Austernpilz · Fruchtung“, Luftfeuchte ±, Ein/Standby, Frischluft 60 s, Meldungen, Sorte/Phase, Demo-Panel mit 5 Szenarien. Ersetzt die Kacheln Licht · Klima · Hinweise. |
+| 10 | Startbild | **3 Stufen bleiben** – „Alles gut“ / „Bald kümmern“ / „Jetzt handeln“ – als Symbol (Form + Farbe) + ein Satz, im Bedienfeld unter dem Fortschrittsring. |
+| 10 | Bedienfeld (Box) | **Stand 2026-10-29 (v3):** `01-konzept/bedienfeld/index.html`, aufbauend auf dem Panel-Prototyp (https://claude.ai/artifact/EGmf5bvFTK16eYGfKWVkPE). **Ring** = Fortschritt bis zur Ernte, in der Mitte **Tage bis zur Ernte**; darunter Status mit den 3 Symbolen aus v1 (Kreis mit Haken / Warndreieck / Stoppschild „!!“); drei grafische Werte **Temperatur · Luftfeuchte · Wasser** (Wasser mit „reicht ca. X Tage“). **5 Kacheln: Lüften 1 Min · Befeuchten 1 Min · Meldungen · Urlaub · Neu ansetzen.** Urlaub = Modus mit Bestätigung (Nebler spart Wasser, Meldungen aufs Handy, Display dunkler), dauerhaft sichtbar, ein Tipp beendet ihn. Neu ansetzen = geführter Ablauf in 4 Schritten (beenden mit Bestätigung → Kammer leeren → Sorte → Zuchtset einsetzen, Tag 1); ersetzt „Ein/Standby“ und „Sorte“. **Licht nur über Taster und App**, auf dem Display als Symbol in der Kopfzeile. Ältere Stände in `01-konzept/bedienfeld/verlauf/` (fürs Booklet). |
 | 9 | App-Aufbau | **Separate App:** einfache Startseite + 5 Unterseiten, eine davon **Advanced Analytics**. |
 | – | Booklet | **Großteils als Story:** einfacher Nutzer und Power-User, der alles trackt, plus Ausschnitt Bauprozess mit Skizzen und 1–2 FreeCAD-Bildern; jede Szene mit HCI-Bezug. |
 | – | Priorität | **Interface und Interaktion vor Pi:** Pi-Software und Display-Code ruhen vorerst; das Repo-Display zeigt noch die alte Oberfläche. |
