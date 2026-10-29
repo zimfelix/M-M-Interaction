@@ -20,6 +20,8 @@ from .hardware import Hardware, create_hardware
 from .simulation import Simulator
 
 WEB_DIR = Path(__file__).resolve().parent / "web"
+# Das Bedienfeld gehört zum Konzept und liegt deshalb in 01-konzept/bedienfeld/
+DISPLAY_DIR = Path(__file__).resolve().parents[3] / "01-konzept" / "bedienfeld"
 
 
 def create_app(
@@ -59,7 +61,7 @@ def create_app(
     app.include_router(live.router(model))
     # Statische Oberflächen zuletzt, damit "/" die API nicht verdeckt
     app.mount("/demo", StaticFiles(directory=WEB_DIR / "demo", html=True), name="demo")
-    app.mount("/", StaticFiles(directory=WEB_DIR / "display", html=True), name="display")
+    app.mount("/", StaticFiles(directory=DISPLAY_DIR, html=True), name="display")
     return app
 
 

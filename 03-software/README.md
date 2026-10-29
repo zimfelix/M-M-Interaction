@@ -16,7 +16,7 @@ Läuft auf dem Raspberry Pi (am Laptop ohne Hardware testbar). Der Pi hält den 
 │   ├── hardware/         base.py (Schnittstelle), gpio.py (Pi), simulated.py (Laptop/Tests)
 │   ├── simulation/       scenarios.py (Vorführ-Szenarien), simulator.py (Messwerte)
 │   ├── api/              routes.py (HTTP), websocket.py (Live-Updates), schemas.py
-│   └── web/              display/ (iPhone-Oberfläche), demo/ (Vorführ-Panel)
+│   └── web/              demo/ (Vorführ-Panel); das Bedienfeld liegt in ../01-konzept/bedienfeld/
 ```
 
 ```text

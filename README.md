@@ -8,7 +8,7 @@ Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zag
 
 | Schritt | Status | Was steht | Was fehlt |
 |---|---|---|---|
-| **01 Konzept** | 🔄 in progress | Personas, Storyboards, Vorlesungsbezug, Bedienfeld-Layout ([Panel-Prototyp](https://claude.ai/artifact/EGmf5bvFTK16eYGfKWVkPE)), App-Aufbau | offene Entscheidungen (unten), Booklet-Story |
+| **01 Konzept** | 🔄 in progress | Personas, Storyboards, Vorlesungsbezug, Bedienfeld in [`01-konzept/bedienfeld/`](01-konzept/bedienfeld/) (alte Stände im Verlauf), App-Aufbau | offene Entscheidungen (unten), Booklet-Story |
 | **02 Box-Bau** | 🔄 in progress | Zeichnungen fertig (Gestell V2, Bedienfeld, oberer Rahmen mit LED) | Box bauen, Fotos, FreeCAD-Bilder vom Kollegen einsammeln |
 | **03 Software** | ⏳ pending | erster Entwurf vorhanden, nicht abgestimmt | Backend klären; zurzeit keine Priorität |
 | **04 Evaluation** | ⏳ pending | – | Papierprototyp testen, Protokolle, AttrakDiff |
@@ -17,10 +17,10 @@ Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zag
 ## Was wir bauen
 
 ```text
-  Bedienfeld in der Box              separate App
-  (iPhone, Layout = Panel-Link)      ├─ Seite 1: einfache Übersicht
-  + Taster                           ├─ 4 weitere Unterseiten
-                                     └─ 1 davon: Advanced Analytics
+  Bedienfeld in der Box               separate App
+  (iPhone, 01-konzept/bedienfeld/)    ├─ Seite 1: einfache Übersicht
+  + Taster                            ├─ 4 weitere Unterseiten
+                                      └─ 1 davon: Advanced Analytics
 ```
 
 **Booklet als Story:** ein einfacher Nutzer und ein Power-User, der alles trackt. Dazu ein Ausschnitt aus dem Bauprozess mit Skizzen und 1–2 FreeCAD-Bildern. Jede Szene bekommt einen HCI-Bezug mit Folie.
@@ -39,7 +39,7 @@ M-M-Interaction/
 ├── README.md        diese Übersicht
 ├── BRIEF.md         alle Entscheidungen im Detail
 ├── AGENTS.md        Regeln für den KI-Agenten
-├── 01-konzept/      🔄 Personas, Storyboards, HCI-Konzepte
+├── 01-konzept/      🔄 Personas, Storyboards, HCI-Konzepte, Bedienfeld
 ├── 02-box-bau/      🔄 Zeichnungen der Box
 ├── 03-software/     ⏳ Software für den Raspberry Pi
 └── 04-evaluation/   ⏳ Tests und Ergebnisse
