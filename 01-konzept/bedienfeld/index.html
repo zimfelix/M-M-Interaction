@@ -434,14 +434,15 @@ function render(){
   const awayQuiet=S.away&&sev!=="crit";
   const key=!S.power?"sb":awayQuiet?"away":top?top.id+top.a:"ok";
   if(key!==lastAlert){lastAlert=key;const el=$("#alert");
-    if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">NEU ANSETZEN drücken zum Fortsetzen</span>`}
+    if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neue Pilze: NEU ANSETZEN.</span>`}
     else if(awayQuiet){el.className="alert";el.innerHTML=`<span class="t">${IC.away}Urlaub</span><span class="a">Box spart Wasser · Meldungen gehen aufs Handy</span>`}
     else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a">${PHASES[S.phase]} · Tag ${day()}</span>`}
     else{el.className="alert "+top.sev;el.innerHTML=`<span class="t">${IC[top.sev]}${top.t}</span><span class="a">${top.a}</span>`}
   }
-  const ab=$("#actBtn"), act=S.power&&!awayQuiet&&top?.do;
+  // Pausiert: ein Tipp macht das Beenden rückgängig (Fehlertoleranz)
+  const ab=$("#actBtn"), act=!S.power?{label:"Weiterlaufen",run:resume,kind:"auto",icon:"play"}:!awayQuiet&&top?.do;
   ab.hidden=!act; $("#home").classList.toggle("hasact",!!act);
-  if(act){ const html=`${act.kind==="auto"?ACT_IC[act.icon]:act.label==="Aufgefüllt"?DROP_IC:ACT_IC.hand}${act.label}`; if(ab.innerHTML!==html) ab.innerHTML=html; ab.className="act"+(top.sev==="info"?" info":""); ab.onclick=act.run; }
+  if(act){ const html=`${act.kind==="auto"?ACT_IC[act.icon]:act.label==="Aufgefüllt"?DROP_IC:ACT_IC.hand}${act.label}`; if(ab.innerHTML!==html) ab.innerHTML=html; ab.className="act"+(top?.sev==="info"?" info":""); ab.onclick=act.run; }
   const c=$("#count"), worstN=list.filter(x=>x.sev!=="info").length;
   c.hidden=!list.length; c.textContent=list.length; c.classList.toggle("info",!worstN);
   $("#kAlerts").setAttribute("aria-label",`Meldungen anzeigen, ${list.length} offen`);
@@ -485,6 +486,9 @@ function alertPanel(refresh){
     p.querySelectorAll("[data-do]").forEach(b=>b.onclick=()=>{const it=list.find(x=>x.id===b.dataset.do);it?.do.run();panelKey="";alertPanel()});
   });
 }
+/* Beenden rückgängig machen: Box läuft mit gleicher Sorte, Phase und Tag weiter */
+function resume(){S.power=true;save();closePanel();step(new Date());render();msg("Box läuft weiter")}
+
 /* Neu ansetzen: geführter Ablauf in 4 Schritten. Schritt 1 schaltet die Box ab (mit Bestätigung). */
 function newPanel(n){
   const head=`<div class="steps">Schritt ${n} von 4</div>`;
@@ -494,7 +498,7 @@ function newPanel(n){
       p.querySelector("[data-ok]").onclick=()=>{S.power=false;S.away=false;save();step(new Date());render();newPanel(2)};
   });
   if(n===2) panel("new","Kammer leeren",`${head}<p>Alte Pilze und Substrat herausnehmen. Kammer feucht auswischen. Wassertank auffüllen.</p>
-    <button class="bigbtn" data-ok>Fertig</button>`,p=>{p.querySelector("[data-ok]").onclick=()=>{refill();newPanel(3)}});
+    <div class="btnrow"><button class="bigbtn out" data-x>Weiterlaufen</button><button class="bigbtn" data-ok>Fertig</button></div>`,p=>{p.querySelector("[data-x]").onclick=resume;p.querySelector("[data-ok]").onclick=()=>{refill();newPanel(3)}});
   if(n===3) panel("new","Was wächst als Nächstes?",`${head}
     <div class="grid g2" role="radiogroup" aria-label="Pilzsorte">${Object.entries(SPECIES).filter(([k])=>k!=="custom").map(([k,sp])=>`<button class="opt" role="radio" data-sp="${k}" aria-checked="${k===S.species}">${shroomSvg(sp.cap)}${sp.name}</button>`).join("")}
       <button class="opt wide" role="radio" data-custom aria-checked="${S.species==="custom"}">${S.custom?shroomSvg("#cdb79e")+esc(SPECIES.custom.name)+'<span style="font-weight:600;opacity:.75">· ändern</span>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Eigene Sorte eingeben'}</button></div>
