@@ -3,6 +3,7 @@
 | Datei | Was |
 |---|---|
 | [`index.html`](index.html) | **Aktuelles Bedienfeld** (Stand 29.10.2026). Läuft ohne Server: im Browser öffnen oder vom Pi ausliefern. Original: https://claude.ai/artifact/EGmf5bvFTK16eYGfKWVkPE |
+| [`vorschau-iphone.html`](vorschau-iphone.html) | Vorschau des aktuellen Bedienfelds im iPhone-13-mini-Rahmen (375 × 812), im Browser öffnen |
 | [`verlauf/`](verlauf/) | Ältere Stände fürs Booklet (Entwicklungsverlauf). Nicht löschen. |
 
 ## Verlauf
