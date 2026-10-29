@@ -24,6 +24,7 @@ Zeichnungen der Box: `02-box-bau/README.md` (Bilder) bzw. `02-box-bau/zeichnunge
 
 - **Umfang Klima:** Wärme und Luftfeuchte überhaupt im Interface, oder **nur Licht**? (Schwerpunkt ist Interface/Interaktion, nicht Technik.)
 - **Taster und Startbild:** Bleibt der Taster fest Licht an/aus? Bleibt der 3-Stufen-Zustand im neuen Bedienfeld?
+- **Farben 3D-Druck:** Variante A, B oder C aus `02-box-bau/zeichnungen/skizze-farben.html`; Sockel dunkelbraun ist nicht verfügbar.
 - **Power-User-Persona:** Kultur bleibt Pilze, also ein erfahrener Pilzzüchter, der alles trackt.
 - **Türschalter** (Magnetschalter, meldet „Tür offen“ ans Display): echt, simuliert oder weglassen?
 - **LED-Elektronik (später):** Streifen sind **adressierbar, 5 V, 3 Kontakte, 10 mm breit**. Ansteuerung, Netzteil und Code folgen, wenn die Box steht; der Code steuert bisher eine einzelne LED.
@@ -45,6 +46,7 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | 3 | Name | **„M-M“ = Mensch-Maschine** → M-M Interaction = Mensch-Maschine-Interaktion (HMI). |
 | 6 | Box | **Aufbau wie eine Mikrowelle, außen 335 × 250 × 200 mm:** links die Pilzkammer (250 breit) aus 3-mm-Plexi, rechts der blickdichte **Technikraum** (85 breit, volle Tiefe) mit Bedienfeld vorn. **Gestell aus dem 3D-Drucker** wie beim Creality K2 Plus: schwarze Profile 15 × 15 mit Eck- und T-Stücken, Scheiben in Nuten, senkrechtes Profil zwischen Tür und Bedienfeld; Sockel 30 mm dunkelbraun gedruckt; Deckel abnehmbar mit Griff. Alle Teile ≤ 250 mm für das 255er-Druckbett. Zeichnungen: `02-box-bau/README.md`; ältere Fassungen bleiben als Dokumentation erhalten, neue Stände kommen als neue Dateien (z. B. `-v2`). |
 | 6 | Tür und Griff | **Fronttür aus Plexi, Scharniere links**, langer **senkrechter Stangengriff** (wie IKEA) zwischen Tür und Bedienfeld. |
+| 6 | Farbprinzip | **Bedienen vs. Gestalt farblich unterscheiden:** Teile zum Anfassen/Bedienen (Handybox, Griffe) heben sich farblich vom Rahmen ab. Handybox fest **schwarz glänzend**; verfügbar außerdem beige, schwarz, grau. Konkrete Variante offen. |
 | 5 | Kultur | **Pilze** (z. B. ein fertig durchwachsenes Austernpilz-Zuchtset, damit innerhalb von 2 Wochen etwas sichtbar ist). |
 | 6 | Lage der Elektronik | **Im Technikraum hinter dem Bedienfeld:** Pi, Kabel, später Wassertank (Vernebler) und Lüfter mit Schlitzen zur Pilzkammer. In der Pilzkammer nur LED und ggf. Sensor. |
 | 7 | Bedienkonzept | **Touch-Display (iPhone) + ein physischer Taster** mit fester Bedeutung **Licht an/aus** (kein Modus; Ergebnis direkt durchs Plexiglas sichtbar). |

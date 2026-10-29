@@ -30,6 +30,7 @@ Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zag
 - [ ] Nur **Licht** im Interface, oder auch Wärme und Luftfeuchte?
 - [ ] Taster weiterhin fest **Licht an/aus**?
 - [ ] Bleibt der 3-Stufen-Zustand („Alles gut / Bald kümmern / Jetzt handeln“)?
+- [ ] **Farben 3D-Druck:** Variante A, B oder C ([Skizze](02-box-bau/README.md#5--farbvarianten-3d-druck)). Fest: Handybox schwarz glänzend; Bedienteile farblich vom Rest abheben.
 - [ ] Wer macht das Backend, und wird der Entwurf in `03-software` genutzt?
 
 ## Ordner
