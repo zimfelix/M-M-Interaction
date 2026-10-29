@@ -27,6 +27,7 @@ Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zag
 
 ## Offen
 
+- [ ] **Temperaturregelung:** automatisch heizen (Heizmatte o. Ä.) oder nur Hinweis? Einstellen nur in der App.
 - [ ] **Pilz als Status:** Das Pilz-Gesicht im Ring zeigt den Zustand schon (froh/besorgt/gestresst). Wie wird deutlicher, dass „alles easy läuft“?
 - [ ] **Farben 3D-Druck:** Variante A, B oder C ([Skizze](02-box-bau/README.md#5--farbvarianten-3d-druck)). Fest: Handybox schwarz glänzend; Bedienteile farblich vom Rest abheben.
 - [ ] Wer macht das Backend, und wird der Entwurf in `03-software` genutzt?

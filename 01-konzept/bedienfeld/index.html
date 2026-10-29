@@ -14,7 +14,7 @@
   --page:#e9ebe6; --page-fg:#2a2c28; --page-muted:#62665e; --page-card:#ffffff; --page-line:#d3d6cf;
   --lcd-hi:#2f45f5; --lcd-mid:#1525c4; --lcd-lo:#08106c;
   --ink:#ffffff; --ink-soft:#c7cfff; --ink-dim:rgba(255,255,255,.35);
-  --band:#f0e442; --alarm:#e69f00; --ok:#3fcf7f; --stop:#ff4d3d;
+  --band:#f0e442; --alarm:#e69f00; --ok:#3fcf7f; --warn-sign:#f9a800;
   --housing:#f4f4f1; --housing-edge:#d9d9d4; --glass:#0b0c10;
   --f-ui:"Barlow", "Roboto", "Helvetica Neue", Arial, sans-serif;
   --f-cond:"Barlow Semi Condensed", "Roboto Condensed", "Arial Narrow", sans-serif;
@@ -86,10 +86,9 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .alert .t{display:flex;align-items:center;gap:2cqw;font-weight:700;font-size:7cqw}
 .alert .t svg{flex:none;width:7.6cqw;height:7.6cqw}
 .alert .a{font-size:4.6cqw;max-width:72cqw;font-weight:600;color:var(--ink-soft)}
-.alert.warn,.alert.crit{color:var(--alarm)}
-.alert.crit{background:rgba(230,159,0,.16);box-shadow:0 0 0 .45cqw var(--alarm) inset}
-.alert.crit .t{animation:blink 1.1s steps(2) infinite}
-.alert.warn .a,.alert.crit .a{color:var(--ink)}
+.alert.warn{color:var(--alarm);background:rgba(230,159,0,.14);box-shadow:0 0 0 .45cqw var(--alarm) inset}
+.alert.warn .a{color:var(--ink)}
+.alert .a b{color:var(--ink)}
 @keyframes blink{50%{opacity:.4}}
 .act{width:100%;margin-top:2cqw;border:.7cqw solid var(--alarm);background:var(--alarm);color:#1a1000;border-radius:3cqw;min-height:14cqw;font-weight:700;font-size:5.4cqw;display:flex;align-items:center;justify-content:center;gap:2.4cqw}
 .act svg{width:6.4cqw;height:6.4cqw}
@@ -119,6 +118,28 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .panel ol{margin:0;padding-left:5cqw;font-size:4.2cqw;line-height:1.35;color:var(--ink-soft);display:flex;flex-direction:column;gap:1.4cqw}
 .opt small{display:block;font-weight:500;font-size:.8em;opacity:.8;margin-top:.6cqw}
 .away-chip{cursor:pointer;background:transparent}
+.admin-btn{display:inline-grid;place-items:center;width:6.4cqw;height:6.4cqw;padding:0;border:0;background:transparent;color:var(--ink-soft);opacity:.5}
+.admin-btn svg{width:4.4cqw;height:4.4cqw}
+.admin-btn:focus-visible{opacity:1;outline:.5cqw solid var(--band)}
+.rec{display:flex;align-items:center;gap:2cqw;border-radius:2.4cqw;padding:2.4cqw 3cqw;font-weight:700;font-size:5cqw}
+.rec svg{flex:none;width:7cqw;height:7cqw}
+.rec.ok{background:rgba(63,207,127,.16);box-shadow:0 0 0 .45cqw var(--ok) inset}
+.rec.warn{background:rgba(230,159,0,.14);box-shadow:0 0 0 .45cqw var(--alarm) inset;color:var(--alarm)}
+.bigbtn.out.weak{border-color:var(--ink-dim);color:var(--ink-soft)}
+.hold{position:relative;overflow:hidden;background:transparent;color:var(--ink);touch-action:none;user-select:none;-webkit-user-select:none}
+.hold .fillbar{position:absolute;inset:0;background:rgba(230,159,0,.55);transform:scaleX(var(--p,0));transform-origin:left;pointer-events:none}
+.hold span{position:relative}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:1.4cqw 3cqw;font-size:4.4cqw;margin:0}
+.spec dt{color:var(--ink-soft)} .spec dd{margin:0;font-weight:700}
+.dots{letter-spacing:.15em}
+.tag{display:inline-block;margin-left:1.4cqw;padding:.2cqw 1.6cqw;border-radius:1.6cqw;border:.4cqw solid var(--ink);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;vertical-align:middle}
+.hist{display:grid;grid-template-columns:auto auto 1fr;gap:1cqw 2cqw;align-items:center;font-size:4cqw;border-bottom:.3cqw solid var(--ink-dim);padding:1.4cqw 0}
+.hist svg{width:5cqw;height:5cqw}
+.hist time{color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+.hist small{grid-column:3;color:var(--ink-soft);font-size:3.6cqw}
+.adm{width:100%;border-collapse:collapse;font-size:3.8cqw;font-variant-numeric:tabular-nums}
+.adm td{padding:.8cqw 0;border-bottom:.3cqw solid var(--ink-dim)} .adm td:last-child{text-align:right;font-weight:700}
+.btnrow.wrap{flex-wrap:wrap}
 .steps{font-family:var(--f-cond);font-size:3.4cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
 .panel ul{margin:0;padding-left:5cqw;font-size:4.4cqw;line-height:1.35;color:var(--ink)}
 
@@ -158,9 +179,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .item div{flex:1;min-width:0}
 .item b{display:block;font-size:5cqw;line-height:1.15}
 .item span{display:block;font-size:4.2cqw;color:var(--ink-soft);line-height:1.25;margin-top:.4cqw}
-.item.warn,.item.crit{border-color:var(--alarm)}
-.item.warn b,.item.crit b{color:var(--alarm)}
-.item.crit{background:rgba(230,159,0,.14)}
+.item.warn{border-color:var(--alarm);background:rgba(230,159,0,.12)}
+.item.warn b{color:var(--alarm)}
 .item .ok{flex:none;border:.5cqw solid var(--ink);background:transparent;border-radius:1.8cqw;font-weight:700;font-size:3.6cqw;padding:1.4cqw 2.6cqw}
 .none{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;flex:1;text-align:center}
 .none svg{width:12cqw;height:12cqw}
@@ -223,7 +243,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   <div class="device">
     <div class="glass">
       <div class="screen" id="screen">
-        <div class="topbar"><span id="topCulture">Austernpilz · <b>Fruchtung</b></span><span class="tr"><span class="ticon" id="topIcons"></span><button class="link-chip" id="linkChip" aria-label="Mit Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span>Handy</span></button><button class="demo-chip" id="demoChip" aria-label="Demo-Situationen">Demo</button><span id="topClock">--:--</span></span></div>
+        <div class="topbar"><span id="topCulture">Austernpilz · <b>Fruchtung</b></span><span class="tr"><span class="ticon" id="topIcons"></span><button class="link-chip" id="linkChip" aria-label="Mit Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span>Handy</span></button><button class="admin-btn" id="demoChip" aria-label="Admin-Modus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button><span id="topClock">--:--</span></span></div>
 
         <div class="center" id="home">
           <div class="ring">
@@ -259,7 +279,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
           <button class="key" id="kAir" aria-label="Lüften, 1 Minute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg><b id="airLbl">Lüften</b><i id="airSub">1 Min</i></button>
           <button class="key" id="kMist" aria-label="Befeuchten, 1 Minute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M12 3s5 5.5 5 9.5a5 5 0 0 1-10 0C7 8.5 12 3 12 3z"/><path d="M5 19.5h.01M9 21h.01M15 21h.01M19 19.5h.01"/></svg><b id="mistLbl">Befeuchten</b><i id="mistSub">1 Min</i></button>
           <button class="key" id="kAlerts" aria-label="Meldungen anzeigen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 21h4"/></svg><b>Meldungen</b><span class="count" id="count" hidden>0</span></button>
-          <button class="key" id="kSort" aria-label="Sorte und neu ansetzen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M3 13a9 7 0 0 1 18 0z"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5"/></svg><b>Sorte &amp; Neu</b></button>
+          <button class="key" id="kSort" aria-label="Sorte und neu ansetzen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M3 13a9 7 0 0 1 18 0z"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5"/></svg><b>Sorte &amp;<br>Neu</b></button>
         </div>
         <div id="panelHost"></div>
         <div id="msgHost"></div>
@@ -270,7 +290,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   <div class="plate"><b>Growbox – 01</b><span>Pilzkammer Klimaregelung</span><span id="plateSub">Austernpilz · Fruchtung</span></div>
 
   <div class="demo">
-    <h3>Demo: Situation testen</h3>
+    <h3>Admin-Modus: Situation testen</h3>
     <p>Gehört nicht zum Gerät. Damit siehst du, wie das Display auf echte Probleme reagiert.</p>
     <div class="demo-btns" id="demo">
       <button data-d="tank" aria-pressed="false">Wassertank leer</button>
@@ -296,6 +316,16 @@ const SPECIES={
   igel:{name:"Igel-Stachelbart",cap:"#f1ece0",p:{kol:{t:[21,24],rh:[70,95],co2:5000,light:false,days:16},frucht:{t:[18,22],rh:[88,96],co2:700,light:true,days:7},ruhe:{t:[18,22],rh:[82,90],co2:900,light:true,days:10}}}
 };
 const PHASES={kol:"Durchwachsen",frucht:"Fruchtung",ruhe:"Ruhephase"};
+/* Infos zum Anschauen vor dem Neu-Ansetzen: Schwierigkeit 1–3 und kurze Beschreibung */
+const INFO={
+  auster:{diff:1,desc:"Wächst schnell und verzeiht Fehler. Ideal für den Start."},
+  shiitake:{diff:3,desc:"Braucht viel Geduld: sehr lange Durchwachsphase, dafür kräftiger Geschmack."},
+  kraeuter:{diff:2,desc:"Fester, aromatischer Pilz. Mag es kühl und braucht viel frische Luft."},
+  igel:{diff:2,desc:"Ungewöhnliche Form wie ein Eiszapfen. Braucht sehr hohe Luftfeuchte."},
+  custom:{diff:0,desc:"Eigene Zielwerte aus der App. Ändern lassen sie sich nur in der App."}
+};
+const DIFF=["Eigene Werte","Leicht","Mittel","Schwer"];
+const toHarvest=k=>{const P=SPECIES[k].p;return P.kol.days+P.frucht.days};
 
 let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v4"))}catch(e){}
 if(!S||!S.species) S={species:"auster",phase:"frucht",phaseStart:Date.now()-3.4*DAY,power:true,away:false};
@@ -364,17 +394,17 @@ function alerts(){
   if(!S.power) return [];
   const T=tgt(), out=[], d=day();
   const H=(label,run)=>({label,run,kind:"hand"}), A=(label,run,icon)=>({label,run,kind:"auto",icon});
-  if(demo.sensor) out.push({id:"sensor",sev:"crit",t:"Sensor ausgefallen",a:"Kabel im Technikraum prüfen, dann GEPRÜFT drücken.",do:H("Geprüft",done("sensor",()=>{demo.sensor=false},10))});
-  if(sim.tank<=0) out.push({id:"tank",sev:"crit",t:"Wasser leer",a:"Tank im Technikraum auffüllen, dann AUFGEFÜLLT drücken.",do:H("Aufgefüllt",refill)});
+  if(demo.sensor) out.push({id:"sensor",sev:"crit",urgent:true,t:"Sensor ausgefallen",a:"Kabel im Technikraum prüfen, dann GEPRÜFT drücken.",do:H("Geprüft",done("sensor",()=>{demo.sensor=false},10))});
+  if(sim.tank<=0) out.push({id:"tank",sev:"crit",urgent:true,t:"Wasser leer",a:"Tank im Technikraum auffüllen, dann AUFGEFÜLLT drücken.",do:H("Aufgefüllt",refill)});
   if(!demo.sensor){
     const moved=done(["hot","warm"],()=>{demo.hot=false},20);
-    if(sim.t>T.t[1]+3) out.push({id:"hot",sev:"crit",t:"Viel zu warm",a:"Box an einen kühleren Platz stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",moved)});
+    if(sim.t>T.t[1]+3) out.push({id:"hot",sev:"crit",urgent:true,t:"Viel zu warm",a:"Box an einen kühleren Platz stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",moved)});
     else if(sim.t>T.t[1]) out.push({id:"warm",sev:"warn",t:"Zu warm",a:"Weg von Heizung und Sonne stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",moved)});
     if(sim.t<T.t[0]) out.push({id:"cold",sev:"warn",t:"Zu kalt",a:"An einen wärmeren Platz stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",done("cold",null,30))});
   }
   if(demo.door) out.push({id:"door",sev:"warn",t:"Tür offen",a:"Tür und Deckel schließen, dann GESCHLOSSEN drücken.",do:H("Geschlossen",done("door",()=>{demo.door=false},5))});
   if(!demo.sensor){
-    if(sim.rh<T.rh[0]-8&&sim.tank>0) out.push({id:"dry2",sev:"crit",t:"Viel zu trocken",a:"Tür, Deckel und Nebler prüfen, dann GEPRÜFT drücken.",do:H("Geprüft",done("dry2",null,10))});
+    if(sim.rh<T.rh[0]-8&&sim.tank>0) out.push({id:"dry2",sev:"crit",urgent:true,t:"Viel zu trocken",a:"Tür, Deckel und Nebler prüfen, dann GEPRÜFT drücken.",do:H("Geprüft",done("dry2",null,10))});
     else if(sim.rh<T.rh[0]&&!demo.door&&sim.tank>0) out.push({id:"dry",sev:"warn",t:"Zu trocken",a:"Der Nebler gleicht das aus. Kurz nachsehen, ob er dampft.",do:H("Gesehen",done("dry",null,15))});
     if(sim.rh>T.rh[1]+2) out.push({id:"wet",sev:"warn",t:"Zu nass",a:"Frischluft trocknet die Kammer. Tropfen auf den Hüten vermeiden.",do:A("Lüften 1 Min",burstStart,"air")});
     if(sim.co2>T.co2+150&&!sim.dev.luefter) out.push({id:"co2",sev:"warn",t:"Braucht Frischluft",a:"Sonst werden die Stiele lang und dünn.",do:A("Lüften 1 Min",burstStart,"air")});
@@ -384,13 +414,15 @@ function alerts(){
   if(S.phase==="frucht"&&hd>=T.days) out.push({id:"harvest",sev:"info",t:"Ernte prüfen",a:"Ernten, solange die Hutränder noch leicht gebogen sind. Danach GEERNTET drücken.",do:A("Geerntet",setPhase("ruhe","Ruhephase gestartet"),"harvest")});
   if(S.phase==="kol"&&d>=T.days) out.push({id:"colonized",sev:"info",t:"Durchwachsen?",a:"Ist das Substrat ganz weiß, startet der Knopf die Fruchtung.",do:A("Fruchtung starten",setPhase("frucht","Fruchtung gestartet"),"play")});
   if(S.phase==="ruhe"&&d>=T.days) out.push({id:"flush",sev:"info",t:"Nächste Welle",a:"Die Pause ist vorbei. Der Knopf startet die nächste Fruchtung.",do:A("Fruchtung starten",setPhase("frucht","Fruchtung gestartet"),"play")});
+  // Nur zwei Stufen: „Alles gut“ (ok/info) oder Warnung. Dringendes (früher „crit“) steht als Warnung ganz oben.
   const rank={crit:0,warn:1,info:2};
-  return out.filter(x=>!snoozed(x.id)).sort((a,b)=>rank[a.sev]-rank[b.sev]);
+  return out.filter(x=>!snoozed(x.id)).sort((a,b)=>rank[a.sev]-rank[b.sev]).map(x=>x.sev==="crit"?{...x,sev:"warn"}:x);
 }
 const IC={
-  ok:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="var(--ok)"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-  warn:'<svg viewBox="0 0 24 24"><path d="M12 1.8L23.2 21.5H.8z" fill="var(--band)" stroke-linejoin="round"/><path d="M12 8.6v6M12 17.8v.3" stroke="#08106c" stroke-width="2.8" stroke-linecap="round"/></svg>',
-  crit:'<svg viewBox="0 0 24 24"><path d="M7.4 1h9.2L23 7.4v9.2L16.6 23H7.4L1 16.6V7.4z" fill="var(--stop)"/><path d="M9.2 6.5v7M14.8 6.5v7M9.2 17v.3M14.8 17v.3" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>',
+  ok:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="var(--ok)" stroke="#fff" stroke-width="1.4"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  warn:'<svg viewBox="0 0 24 24"><path d="M12 2L23 21.2H1z" fill="var(--warn-sign)" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8.6v6M12 17.6v.3" stroke="#111" stroke-width="2.6" stroke-linecap="round"/></svg>',
+  info:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="var(--ok)" stroke="#fff" stroke-width="1.4"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  verified:'<svg viewBox="0 0 24 24"><path d="M12 1.5l2.6 2 3.2-.3 1 3.1 2.7 1.8-1 3.1 1 3.1-2.7 1.8-1 3.1-3.2-.3-2.6 2-2.6-2-3.2.3-1-3.1-2.7-1.8 1-3.1-1-3.1 2.7-1.8 1-3.1 3.2.3z" fill="var(--ok)" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/><path d="M7.6 12.2l3 3 5.8-6" fill="none" stroke="#08106c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   away:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M9 7v13M15 7v13"/></svg>',
   bulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>',
   info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.3v.4"/></svg>',
@@ -415,8 +447,22 @@ const ACT_IC={
 };
 const DROP_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9 14l2 2 4-4"/></svg>';
 let lastAlert="";
+const when=t=>{const d=new Date(t);return `${pad(d.getDate())}.${pad(d.getMonth()+1)}. ${pad(d.getHours())}:${pad(d.getMinutes())}`};
+const clock=t=>{const d=new Date(t);return `${pad(d.getHours())}:${pad(d.getMinutes())}`};
+/* Verlauf: jede Meldung mit Beginn und Ende (behoben/erledigt), höchstens 40 Einträge */
+function syncLog(list){
+  if(!S.power) return;
+  const now=Date.now(); S.log=S.log||[];
+  const open=S.log.filter(e=>!e.to), ids=new Set(list.map(x=>x.id)); let ch=false;
+  for(const x of list) if(!open.some(e=>e.id===x.id)){S.log.unshift({id:x.id,t:x.t,sev:x.sev,from:now});ch=true}
+  for(const e of open) if(!ids.has(e.id)){e.to=now;ch=true}
+  if(S.log.length>40){S.log.length=40;ch=true}
+  if(ch){S.okSince=list.some(x=>x.sev==="warn")?null:(S.okSince||now);save()}
+  if(!S.okSince&&!list.some(x=>x.sev==="warn")){S.okSince=now;save()}
+}
 function render(){
   const d=new Date(), T=tgt(), list=alerts(), top=list[0], sev=top?.sev||"ok";
+  syncLog(list);
   $("#screen").classList.toggle("standby",!S.power);
   $("#screen").classList.toggle("away",S.power&&!!S.away);
   const showVal=S.power&&!demo.sensor, pr=progress(), v=pr.p*360, tk=pr.tick*360;
@@ -437,13 +483,14 @@ function render(){
   sh.classList.toggle("misting",sim.dev.nebel);
   sh.classList.toggle("airing",sim.dev.luefter);
   // Wichtigste Meldung
-  const awayQuiet=S.away&&sev!=="crit";
-  const key=!S.power?"sb":awayQuiet?"away":top?top.id+top.a:"ok";
+  const awayQuiet=S.away&&!list.some(x=>x.urgent);
+  const key=!S.power?"sb":awayQuiet?"away":top?top.id+top.a:"ok"+S.phase+day();
   if(key!==lastAlert){lastAlert=key;const el=$("#alert");
-    if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neue Pilze: SORTE &amp; NEU.</span>`}
+    if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neu ansetzen fortsetzen: SORTE &amp; NEU.</span>`}
     else if(awayQuiet){el.className="alert";el.innerHTML=`<span class="t">${IC.away}Urlaub</span><span class="a">Box spart Wasser · Meldungen gehen aufs Handy</span>`}
     else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a">${PHASES[S.phase]} · Tag ${day()}</span>`}
-    else{el.className="alert "+top.sev;el.innerHTML=`<span class="t">${IC[top.sev]}${top.t}</span><span class="a">${top.a}</span>`}
+    else if(top.sev==="info"){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a"><b>${top.t}:</b> ${top.a}</span>`}
+    else{el.className="alert warn";el.innerHTML=`<span class="t">${IC.warn}${top.t}</span><span class="a">${top.a}</span>`}
   }
   // Pausiert: ein Tipp macht das Beenden rückgängig (Fehlertoleranz)
   const ab=$("#actBtn"), act=!S.power?{label:"Weiterlaufen",run:resume,kind:"auto",icon:"play"}:!awayQuiet&&top?.do;
@@ -472,6 +519,7 @@ function render(){
   $("#linkChip").classList.toggle("on",!!appSeen);
   $("#plateSub").textContent=`${SPECIES[S.species].name} · ${PHASES[S.phase]}`;
   if(open==="alerts") alertPanel(true);
+  if(open==="admin"){const v=$("#admVals");if(v)v.innerHTML=adminVals()}
 }
 
 let msgT;
@@ -485,61 +533,114 @@ function panel(name,title,html,bind){
   const p=$("#panelHost .panel"); p.querySelector("[data-back]").onclick=closePanel; bind&&bind(p);
 }
 function alertPanel(refresh){
-  const list=alerts(), k=list.map(x=>x.id+x.a).join("|");
+  const list=alerts(), log=(S.log||[]).filter(e=>e.to), warn=list.filter(x=>x.sev==="warn").length;
+  const k=list.map(x=>x.id+x.a).join("|")+"#"+log.length;
   if(refresh&&k===panelKey) return; panelKey=k;
-  panel("alerts","Meldungen",list.length?`<div class="list">${list.map(x=>`<div class="item ${x.sev}">${IC[x.sev]}<div><b>${x.t}</b><span>${x.a}</span></div><button class="do" data-do="${x.id}">${x.do.label}</button></div>`).join("")}</div>`
-    :`<div class="none">${IC.ok}<b>Keine Meldungen</b><p>Klima, Wasser und Sensoren sind in Ordnung.</p></div>`,p=>{
+  const now=Date.now();
+  panel("alerts","Meldungen",`
+    <div class="rec ${warn?"warn":"ok"}">${warn?IC.warn+(warn===1?"1 Warnung":warn+" Warnungen"):IC.ok+"Alles gut"}</div>
+    <p>Stand: ${when(now)}${!warn&&S.okSince?` · alles gut seit ${S.okSince<now-DAY?when(S.okSince):clock(S.okSince)}`:""}</p>
+    ${list.length?`<div class="lbl">Jetzt</div><div class="list" style="flex:none;overflow:visible">${list.map(x=>{const e=(S.log||[]).find(l=>l.id===x.id&&!l.to);return `<div class="item ${x.sev}">${IC[x.sev]}<div><b>${x.t}</b><span>${x.a}</span>${e?`<span>seit ${clock(e.from)}</span>`:""}</div><button class="do" data-do="${x.id}">${x.do.label}</button></div>`}).join("")}</div>`:""}
+    <div class="lbl">Verlauf</div>
+    ${log.length?log.slice(0,15).map(e=>`<div class="hist"><time>${when(e.from)}</time>${IC[e.sev==="warn"?"warn":"ok"]}<b>${esc(e.t)}</b><small>${e.sev==="warn"?"behoben":"erledigt"} um ${clock(e.to)}</small></div>`).join("")
+      :`<p>Noch keine früheren Meldungen.</p>`}`,p=>{
+    p.style.overflowY="auto";
     p.querySelectorAll("[data-do]").forEach(b=>b.onclick=()=>{const it=list.find(x=>x.id===b.dataset.do);it?.do.run();panelKey="";alertPanel()});
   });
 }
 /* Beenden rückgängig machen: Box läuft mit gleicher Sorte, Phase und Tag weiter */
 function resume(){S.power=true;save();closePanel();step(new Date());render();msg("Box läuft weiter")}
 
-/* Neu ansetzen: geführter Ablauf in 4 Schritten. Schritt 1 schaltet die Box ab (mit Bestätigung). */
+/* Neu ansetzen: erst nach bewusster Bestätigung (gedrückt halten). Danach 2 Schritte, die Zeit startet bei Tag 1. */
 function newPanel(n){
-  const head=`<div class="steps">Schritt ${n} von 4</div>`;
-  if(n===1) panel("new","Neu ansetzen",`${head}<p>Durchgang beenden? Licht, Lüfter und Nebler gehen aus. Die Pilze werden dann nicht mehr versorgt.</p>
-    <div class="btnrow"><button class="bigbtn out" data-x>Abbrechen</button><button class="bigbtn" data-ok>Beenden</button></div>`,p=>{
-      p.querySelector("[data-x]").onclick=closePanel;
-      p.querySelector("[data-ok]").onclick=()=>{S.power=false;S.away=false;save();step(new Date());render();newPanel(2)};
-  });
-  if(n===2) panel("new","Kammer leeren",`${head}<p>Alte Pilze und Substrat herausnehmen. Kammer feucht auswischen. Wassertank auffüllen.</p>
-    <div class="btnrow"><button class="bigbtn out" data-x>Weiterlaufen</button><button class="bigbtn" data-ok>Fertig</button></div>`,p=>{p.querySelector("[data-x]").onclick=resume;p.querySelector("[data-ok]").onclick=()=>{refill();newPanel(3)}});
-  if(n===3) panel("new","Was wächst als Nächstes?",`${head}${speciesGrid()}<button class="bigbtn" data-ok>Weiter</button>`,p=>{
-      bindSpecies(p,()=>newPanel(3));
-      p.querySelector("[data-ok]").onclick=()=>newPanel(4);
-  });
-  if(n===4) panel("new","Zuchtset einsetzen",`${head}<p>Neues ${esc(SPECIES[S.species].name)}-Zuchtset einsetzen, Tür und Deckel schließen. Die Box startet bei Tag 1 (Durchwachsen).</p>
+  const next=SPECIES[S.next]?S.next:S.species, head=`<div class="steps">Schritt ${n} von 2</div>`;
+  if(n===1) panel("new","Kammer leeren",`${head}<p>Alte Pilze und Substrat herausnehmen. Kammer feucht auswischen. Wassertank auffüllen.</p>
+    <div class="btnrow"><button class="bigbtn out" data-x>Doch nicht · weiterlaufen</button><button class="bigbtn" data-ok>Fertig</button></div>`,p=>{
+      p.querySelector("[data-x]").onclick=()=>{delete S.next;resume()};
+      p.querySelector("[data-ok]").onclick=()=>{refill();newPanel(2)}});
+  if(n===2) panel("new","Zuchtset einsetzen",`${head}<p>Neues ${esc(SPECIES[next].name)}-Zuchtset einsetzen, Tür und Deckel schließen.</p><p>Die Zeit startet bei <b>Tag 1</b> (Durchwachsen), Ernte in ca. ${toHarvest(next)} Tagen.</p>
     <button class="bigbtn" data-ok>Starten</button>`,p=>{
-      p.querySelector("[data-ok]").onclick=()=>{S.power=true;S.phase="kol";S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());closePanel();render();msg(`${SPECIES[S.species].name} · Tag 1`)};
+      p.querySelector("[data-ok]").onclick=()=>{S.species=next;delete S.next;S.power=true;S.phase="kol";S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());closePanel();render();msg(`${SPECIES[S.species].name} · Tag 1`)};
   });
 }
-/* Sortenauswahl: in „Neu ansetzen“ (Schritt 3) und „Sorte ändern“ */
-let afterCustom=()=>newPanel(3);
-const speciesGrid=()=>`<div class="grid g2" role="radiogroup" aria-label="Pilzsorte">${Object.entries(SPECIES).filter(([k])=>k!=="custom").map(([k,sp])=>`<button class="opt" role="radio" data-sp="${k}" aria-checked="${k===S.species}">${shroomSvg(sp.cap)}${sp.name}</button>`).join("")}
-  <button class="opt wide" role="radio" data-custom aria-checked="${S.species==="custom"}">${S.custom?shroomSvg("#cdb79e")+esc(SPECIES.custom.name)+'<span style="font-weight:600;opacity:.75">· ändern</span>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Eigene Sorte eingeben'}</button></div>`;
-function bindSpecies(p,again){
-  afterCustom=again;
-  p.querySelectorAll("[data-sp]").forEach(b=>b.onclick=()=>{S.species=b.dataset.sp;acked.clear();save();step(new Date());again();render()});
-  p.querySelector("[data-custom]").onclick=customPanel;
-}
-/* Kachel „Sorte & Neu“: seltene Aktionen gebündelt */
+/* Kachel „Sorte & Neu“: Sorten in Ruhe ansehen. Ansehen ändert nichts. */
 function sortPanel(){
-  const sp=SPECIES[S.species].name;
-  panel("sort","Sorte & Neu",`<div class="list">
-    <button class="opt" data-a="sort">${shroomSvg(SPECIES[S.species].cap)}<div>Sorte ändern<small>Jetzt: ${esc(sp)}. Ohne Neustart, Tag bleibt.</small></div></button>
-    <button class="opt" data-a="new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v8"/><path d="M6.6 6.6a7.5 7.5 0 1 0 10.8 0"/></svg><div>${S.power?"Neu ansetzen":"Neu ansetzen fortsetzen"}<small>Durchgang beenden und neue Pilze einsetzen.</small></div></button>
-    <button class="opt" data-a="away">${IC.away}<div>${S.away?"Urlaub beenden":"Urlaub"}<small>${S.away?"Box läuft wieder normal.":"Box spart Wasser, Meldungen aufs Handy."}</small></div></button>
-  </div>`,p=>{
-    p.querySelector('[data-a="sort"]').onclick=sortChange;
-    p.querySelector('[data-a="new"]').onclick=()=>newPanel(S.power?1:2);
+  const pr=progress(), cur=SPECIES[S.species].name;
+  const keys=Object.keys(SPECIES).filter(k=>k!=="custom").concat(S.custom?["custom"]:[]);
+  panel("sort","Sorte & Neu",`
+    <p>${S.power?`Jetzt: <b>${esc(cur)}</b> · ${PHASES[S.phase]} Tag ${day()} · noch ${pr.left} Tage bis zur Ernte`:`Pausiert. <b>${esc(SPECIES[S.next]?SPECIES[S.next].name:cur)}</b> wartet aufs Einsetzen.`}</p>
+    <div class="list">
+      ${S.power?"":`<button class="opt" data-resume-new>${ACT_IC.play}<div>Neu ansetzen fortsetzen<small>Kammer leeren, Zuchtset einsetzen, starten.</small></div></button>`}
+      <div class="lbl">Sorten ansehen</div>
+      ${keys.map(k=>`<button class="opt" data-info="${k}">${shroomSvg(SPECIES[k].cap)}<div>${esc(SPECIES[k].name)}${k===S.species&&S.power?'<span class="tag">wächst</span>':""}<small>${DIFF[INFO[k].diff]} · ca. ${toHarvest(k)} Tage bis zur Ernte</small></div></button>`).join("")}
+      ${S.prev&&SPECIES[S.prev.species]&&Date.now()-S.prev.at<14*DAY?`<div class="lbl">Notfall</div>
+      <button class="opt" data-restore><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg><div>Zurück zu ${esc(SPECIES[S.prev.species].name)}<small>Versehentlich neu angesetzt? Der alte Durchgang läuft weiter.</small></div></button>`:""}
+      <div class="lbl">Abwesend</div>
+      <button class="opt" data-a="away">${IC.away}<div>${S.away?"Urlaub beenden":"Urlaub"}<small>${S.away?"Box läuft wieder normal.":"Box spart Wasser, Meldungen aufs Handy."}</small></div></button>
+    </div>`,p=>{
+    p.querySelectorAll("[data-info]").forEach(b=>b.onclick=()=>infoPanel(b.dataset.info));
+    p.querySelector("[data-resume-new]")?.addEventListener("click",()=>newPanel(1));
+    p.querySelector("[data-restore]")?.addEventListener("click",restorePanel);
     p.querySelector('[data-a="away"]').onclick=()=>{if(paused())return;if(S.away)endAway();else awayPanel()};
   });
 }
-function sortChange(){
-  panel("sort","Sorte ändern",`<p>Nur wenn die falsche Sorte eingestellt ist. Phase und Tag bleiben.</p>${speciesGrid()}<button class="bigbtn" data-ok>Fertig</button>`,p=>{
-    bindSpecies(p,sortChange);
-    p.querySelector("[data-ok]").onclick=()=>{closePanel();msg(`${SPECIES[S.species].name} · ${PHASES[S.phase]}`)};
+function infoPanel(k){
+  const sp=SPECIES[k], P=sp.p, inf=INFO[k], active=k===S.species&&S.power;
+  panel("info",sp.name,`
+    <dl class="spec">
+      <dt>Schwierigkeit</dt><dd>${inf.diff?`<span class="dots" aria-hidden="true">${"●".repeat(inf.diff)}${"○".repeat(3-inf.diff)}</span> `:""}${DIFF[inf.diff]}</dd>
+      <dt>Dauer</dt><dd>ca. ${toHarvest(k)} Tage bis zur Ernte</dd>
+      <dt></dt><dd style="font-weight:500">${P.kol.days} Tage durchwachsen + ${P.frucht.days} Tage fruchten</dd>
+      <dt>Temperatur</dt><dd>${P.frucht.t[0]}–${P.frucht.t[1]} °C</dd>
+      <dt>Luftfeuchte</dt><dd>${P.frucht.rh[0]}–${P.frucht.rh[1]} %</dd>
+    </dl>
+    <p>${inf.desc}</p>
+    ${active?`<p><b>Wächst gerade</b> (Tag ${day()}).</p>`:""}
+    <div class="btnrow wrap">
+      <button class="bigbtn out" data-back2>‹ Alle Sorten</button>
+      ${active?"":`<button class="bigbtn out" data-new>Neu ansetzen …</button>`}
+    </div>`,p=>{
+    p.querySelector("[data-back2]").onclick=sortPanel;
+    p.querySelector("[data-new]")?.addEventListener("click",()=>confirmNew(k));
+  });
+}
+/* Bewusst bestätigen: zeigt, was verloren geht, und verlangt 2 Sekunden gedrückt halten */
+function confirmNew(k){
+  const pr=progress(), cur=SPECIES[S.species].name, nxt=SPECIES[k].name;
+  panel("confirm","Wirklich neu ansetzen?",`
+    <div class="rec warn">${IC.warn}Das lässt sich nicht rückgängig machen</div>
+    <ul>
+      ${S.power?`<li>Dein <b>${esc(cur)}</b> (${PHASES[S.phase]}, Tag ${day()}, noch ${pr.left} Tage bis zur Ernte) wird beendet.</li>`:""}
+      <li>Die Zeit startet neu bei <b>Tag 1</b> mit <b>${esc(nxt)}</b>.</li>
+      <li>Licht, Lüfter und Nebler gehen aus, bis das neue Zuchtset drin ist.</li>
+    </ul>
+    <div class="btnrow wrap">
+      <button class="bigbtn" data-x>Abbrechen</button>
+      <button class="bigbtn hold" data-hold aria-label="2 Sekunden gedrückt halten, um ${esc(nxt)} neu anzusetzen"><span class="fillbar"></span><span>Gedrückt halten: neu ansetzen</span></button>
+    </div>`,p=>{
+    p.querySelector("[data-x]").onclick=()=>infoPanel(k);
+    const b=p.querySelector("[data-hold]"); let t0=0, raf=0;
+    const stop=()=>{t0=0;cancelAnimationFrame(raf);b.style.setProperty("--p",0)};
+    const tick=()=>{if(!t0)return;const f=Math.min(1,(performance.now()-t0)/2000);b.style.setProperty("--p",f);
+      if(f>=1){t0=0;if(S.power)S.prev={species:S.species,phase:S.phase,phaseStart:S.phaseStart,at:Date.now()};S.next=k;S.power=false;S.away=false;save();step(new Date());render();newPanel(1);msg("Durchgang beendet");return}
+      raf=requestAnimationFrame(tick)};
+    const start=e=>{if(e.repeat||t0)return;e.preventDefault();t0=performance.now();raf=requestAnimationFrame(tick)};
+    b.addEventListener("pointerdown",start);
+    ["pointerup","pointerleave","pointercancel"].forEach(ev=>b.addEventListener(ev,stop));
+    b.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter")start(e)});
+    b.addEventListener("keyup",stop);
+    b.onclick=()=>{if(!t0)msg("Bitte 2 Sekunden gedrückt halten")};
+  });
+}
+/* Notfall-Rückweg: alten Durchgang zurückholen. Die Zeit läuft weiter, als wäre nichts passiert. */
+function restorePanel(){
+  const pv=S.prev, name=SPECIES[pv.species].name, d=Math.floor((Date.now()-pv.phaseStart)/DAY)+1;
+  panel("restore",`Zurück zu ${name}?`,`
+    <p>Der alte Durchgang läuft weiter: <b>${esc(name)}</b>, ${PHASES[pv.phase]} Tag ${d}. Die Tage seit dem Neu-Ansetzen zählen mit.</p>
+    <p>${S.power?`Der neue Durchgang (${esc(SPECIES[S.species].name)}, Tag ${day()}) wird verworfen.`:"Das Neu-Ansetzen wird abgebrochen."}</p>
+    <div class="btnrow"><button class="bigbtn out" data-x>Abbrechen</button><button class="bigbtn" data-ok>Zurückwechseln</button></div>`,p=>{
+    p.querySelector("[data-x]").onclick=sortPanel;
+    p.querySelector("[data-ok]").onclick=()=>{S.species=pv.species;S.phase=pv.phase;S.phaseStart=pv.phaseStart;S.power=true;delete S.next;delete S.prev;acked.clear();save();step(new Date());closePanel();render();msg(`${name} · Tag ${day()}`)};
   });
 }
 function endAway(){S.away=false;save();closePanel();step(new Date());render();msg("Urlaub beendet")}
@@ -555,42 +656,43 @@ function awayPanel(){
   });
 }
 
-function customPanel(){
-  const d=S.custom?structuredClone(S.custom):{name:"",t:[18,24],rh:[85,95],co2:1000};
-  const ROWS=[["t0","Temperatur von","°C",1],["t1","Temperatur bis","°C",1],["r0","Feuchte von","%",1],["r1","Feuchte bis","%",1],["c","CO₂ höchstens","ppm",100]];
-  const get=k=>k==="t0"?d.t[0]:k==="t1"?d.t[1]:k==="r0"?d.rh[0]:k==="r1"?d.rh[1]:d.co2;
-  function set(k,v){
-    if(k==="t0")d.t[0]=Math.min(Math.max(8,v),d.t[1]-1); if(k==="t1")d.t[1]=Math.max(Math.min(32,v),d.t[0]+1);
-    if(k==="r0")d.rh[0]=Math.min(Math.max(50,v),d.rh[1]-2); if(k==="r1")d.rh[1]=Math.max(Math.min(99,v),d.rh[0]+2);
-    if(k==="c")d.co2=Math.max(400,Math.min(3000,v));
-  }
-  panel("custom","Eigene Sorte",`
-    <label class="lbl" for="cName">Name</label>
-    <input class="field" id="cName" maxlength="20" autocomplete="off" placeholder="z. B. Limonenseitling" value="${esc(d.name)}">
-    <div class="lbl">Zielwerte beim Fruchten</div>
-    <div class="stps">${ROWS.map(([k,l,u,st])=>`<div class="stp"><b>${l}</b><button data-k="${k}" data-v="-${st}" aria-label="${l} weniger">−</button><output id="o-${k}">${get(k)} ${u}</output><button data-k="${k}" data-v="${st}" aria-label="${l} mehr">+</button></div>`).join("")}</div>
-    <div class="btnrow">${S.custom?'<button class="bigbtn out" data-del>Löschen</button>':""}<button class="bigbtn" data-save>Speichern</button></div>`,p=>{
-      const name=p.querySelector("#cName");
-      p.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>{const k=b.dataset.k;set(k,get(k)+ +b.dataset.v);
-        ROWS.forEach(([k2,,u])=>p.querySelector("#o-"+k2).textContent=`${get(k2)} ${u}`)});
-      p.querySelector("[data-save]").onclick=()=>{
-        d.name=name.value.trim(); if(!d.name){name.focus();msg("Bitte einen Namen eingeben");return}
-        S.custom=d;S.species="custom";applyCustom();acked.clear();save();step(new Date());render();afterCustom();msg(`${d.name} gespeichert`)};
-      const del=p.querySelector("[data-del]"); if(del) del.onclick=()=>{S.custom=null;applyCustom();save();render();afterCustom();msg("Eigene Sorte gelöscht")};
-      if(!S.custom) name.focus();
-  });
-}
-
 /* Tasten */
 const paused=()=>{if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return true}return false};
-$("#kAir").onclick=()=>{if(paused())return;
-  if(sim.burst>Date.now()){sim.burst=0;msg("Lüften gestoppt")}else{sim.burst=Date.now()+60000;msg("Lüften · 1 Minute")}step(new Date());render()};
-$("#kMist").onclick=()=>{if(paused())return;
-  if(sim.tank<=0){msg("Wasser leer · erst Tank auffüllen");return}
-  if(sim.mist>Date.now()){sim.mist=0;msg("Befeuchten gestoppt")}else{sim.mist=Date.now()+60000;msg("Befeuchten · 1 Minute")}step(new Date());render()};
+/* Lüften/Befeuchten: läuft es schon, stoppt ein Tipp. Sonst erst „Bist du sicher?“ mit Empfehlung oder Warnung. */
+function advice(kind){
+  const T=tgt(), rh=Math.round(sim.rh), co2=Math.round(sim.co2/10)*10;
+  if(demo.sensor) return {rec:false,why:"Der Sensor ist ausgefallen, die Box kann es gerade nicht beurteilen."};
+  if(kind==="air"){
+    if(co2>T.co2) return {rec:true,why:`CO₂ ist hoch (${co2} ppm, Ziel unter ${T.co2}). Frische Luft hält die Stiele kurz.`};
+    if(rh>T.rh[1]) return {rec:true,why:`Die Luft ist zu feucht (${rh} %, Ziel bis ${T.rh[1]} %). Lüften trocknet die Kammer.`};
+    if(rh<T.rh[0]) return {rec:false,why:`Die Kammer ist schon zu trocken (${rh} %). Lüften trocknet sie weiter aus.`};
+    return {rec:false,why:`CO₂ und Feuchte sind im Zielbereich. Die Box lüftet ohnehin alle 30 Minuten.`};
+  }
+  if(rh<T.rh[0]) return {rec:true,why:`Die Luft ist zu trocken (${rh} %, Ziel ab ${T.rh[0]} %).`};
+  if(rh>T.rh[1]) return {rec:false,why:`Schon zu feucht (${rh} %). Mehr Nebel kann Schimmel und Tropfen auf den Hüten verursachen.`};
+  return {rec:false,why:`Die Feuchte ist im Zielbereich (${rh} %). Der Nebler regelt selbst.`};
+}
+function runConfirm(kind){
+  if(paused()) return;
+  const now=Date.now(), air=kind==="air", key=air?"burst":"mist", name=air?"Lüften":"Befeuchten";
+  if(sim[key]>now){sim[key]=0;step(new Date());render();msg(name+" gestoppt");return}
+  if(!air&&sim.tank<=0){msg("Wasser leer · erst Tank auffüllen");return}
+  const a=advice(kind);
+  panel("run",`${name} – bist du sicher?`,`
+    <div class="rec ${a.rec?"ok":"warn"}">${a.rec?IC.verified+"Empfohlen":IC.warn+"Nicht nötig"}</div>
+    <p>${a.why}</p><p>${air?"Der Lüfter läuft 1 Minute.":"Der Nebler läuft 1 Minute."} Danach regelt die Box wieder selbst.</p>
+    <div class="btnrow">${a.rec
+      ?`<button class="bigbtn out" data-x>Abbrechen</button><button class="bigbtn" data-ok>Ja, 1 Min ${air?"lüften":"befeuchten"}</button>`
+      :`<button class="bigbtn out weak" data-ok>Trotzdem ${air?"lüften":"befeuchten"}</button><button class="bigbtn" data-x>Abbrechen</button>`}</div>`,p=>{
+    p.querySelector("[data-x]").onclick=closePanel;
+    p.querySelector("[data-ok]").onclick=()=>{sim[key]=Date.now()+60000;closePanel();step(new Date());render();msg(name+" · 1 Minute")};
+  });
+}
+$("#kAir").onclick=()=>open==="run"?closePanel():runConfirm("air");
+$("#kMist").onclick=()=>open==="run"?closePanel():runConfirm("mist");
 $("#kAlerts").onclick=()=>open==="alerts"?closePanel():alertPanel();
 $("#alert").onclick=()=>{if(S.power)alertPanel()};
-$("#kSort").onclick=()=>["sort","new","away","custom"].includes(open)?closePanel():sortPanel();
+$("#kSort").onclick=()=>["sort","info","confirm","new","away","restore"].includes(open)?closePanel():sortPanel();
 $("#topIcons").addEventListener("click",e=>{if(e.target.closest("[data-endaway]"))endAway()});
 
 /* Demo-Leiste */
@@ -607,13 +709,35 @@ function toggleDemo(k){
 }
 const DEMOS=[...document.querySelectorAll("#demo button")].map(b=>[b.dataset.d,b.textContent]);
 document.querySelectorAll("#demo button").forEach(b=>b.onclick=()=>toggleDemo(b.dataset.d));
+/* Admin-Modus: klein oben rechts (Zahnrad). Für Vorführung und Bewertung, nicht für die normale Bedienung. */
+function adminVals(){
+  const T=tgt(), on=v=>v?"an":"aus", pr=progress(), list=alerts();
+  return `<table class="adm"><tbody>
+    <tr><td>Status</td><td>${!S.power?"Pausiert":list.some(x=>x.sev==="warn")?"Warnung":"Alles gut"}</td></tr>
+    <tr><td>Sorte · Phase · Tag</td><td>${esc(SPECIES[S.species].name)} · ${PHASES[S.phase]} · ${day()}</td></tr>
+    <tr><td>Bis zur Ernte</td><td>${pr.left} Tage (${Math.round(pr.p*100)} %)</td></tr>
+    <tr><td>Temperatur (Ziel)</td><td>${sim.t.toFixed(1).replace(".",",")} ° (${T.t[0]}–${T.t[1]})</td></tr>
+    <tr><td>Luftfeuchte (Ziel)</td><td>${Math.round(sim.rh)} % (${T.rh[0]}–${T.rh[1]})</td></tr>
+    <tr><td>CO₂ (Ziel)</td><td>${Math.round(sim.co2/10)*10} ppm (&lt; ${T.co2})</td></tr>
+    <tr><td>Wassertank</td><td>${Math.round(sim.tank)} % · ca. ${tankDays()} Tage</td></tr>
+    <tr><td>Licht · Lüfter · Nebler</td><td>${on(sim.dev.licht)} · ${on(sim.dev.luefter)} · ${on(sim.dev.nebel)}</td></tr>
+    <tr><td>Urlaub · Handy-Code</td><td>${S.away?"an":"aus"} · ${S.code}</td></tr>
+  </tbody></table>`;
+}
 function demoPanel(){
-  panel("demo","Demo",`<p>Löst eine Situation aus, damit du siehst, wie das Display reagiert. Nochmal tippen beendet sie.</p>
-    <div class="list">${DEMOS.map(([k,l])=>`<button class="opt" role="switch" data-d="${k}" aria-pressed="${demo[k]}" aria-checked="${demo[k]}">${l}</button>`).join("")}</div>`,p=>{
+  panel("admin","Admin-Modus",`<p>Nur für Vorführung und Bewertung, gehört nicht zur normalen Bedienung.</p>
+    <div class="lbl">Situation auslösen</div>
+    <div class="grid g2">${DEMOS.map(([k,l])=>`<button class="opt" role="switch" data-d="${k}" aria-checked="${demo[k]}">${l}</button>`).join("")}</div>
+    <div class="lbl">Zeit</div>
+    <div class="btnrow wrap" style="margin-top:0"><button class="bigbtn out" data-day>Tag +1</button><button class="bigbtn out" data-reset>Zurücksetzen</button></div>
+    <div class="lbl">Messwerte live</div><div id="admVals">${adminVals()}</div>`,p=>{
+    p.style.overflowY="auto";
     p.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{toggleDemo(b.dataset.d);b.setAttribute("aria-checked",demo[b.dataset.d])});
+    p.querySelector("[data-day]").onclick=()=>{S.phaseStart-=DAY;save();step(new Date());render();msg(`Tag ${day()}`)};
+    p.querySelector("[data-reset]").onclick=()=>{try{localStorage.removeItem("growbox-display-v4")}catch(e){};location.reload()};
   });
 }
-$("#demoChip").onclick=()=>open==="demo"?closePanel():demoPanel();
+$("#demoChip").onclick=()=>open==="admin"?closePanel():demoPanel();
 
 /* ---------- Verbindung Box und Handy-App (übernommen aus dem claude.ai-Original, Box-Seite) ----------
    Die Box schreibt ihren Stand nach boxes/<Code>, die App liest ihn live.
