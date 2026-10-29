@@ -137,6 +137,19 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .hist svg{width:5cqw;height:5cqw}
 .hist time{color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
 .hist small{grid-column:3;color:var(--ink-soft);font-size:3.6cqw}
+.autoline{display:flex;align-items:center;justify-content:center;gap:1.6cqw;flex-wrap:wrap;margin-top:2.6cqw;font-size:3.8cqw;font-weight:600;color:var(--ink-soft);text-align:center;line-height:1.2}
+.autoline b{color:var(--ink);font-weight:700}
+.autoline .pulse,.key .pulse{display:inline-block;width:2cqw;height:2cqw;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(63,207,127,.7);animation:pulse 1.6s ease-out infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 2cqw rgba(63,207,127,0)}100%{box-shadow:0 0 0 0 rgba(63,207,127,0)}}
+.key i{display:inline-flex;align-items:center;gap:1cqw}
+.crow{display:grid;grid-template-columns:auto 1fr auto;gap:1cqw 2.4cqw;align-items:center;border-bottom:.3cqw solid var(--ink-dim);padding:2cqw 0}
+.crow svg{width:6.4cqw;height:6.4cqw}
+.crow b{font-size:4.6cqw} .crow span{display:block;font-size:3.8cqw;color:var(--ink-soft);line-height:1.25}
+.crow .auto{font-family:var(--f-cond);font-weight:700;font-size:3.2cqw;letter-spacing:.06em;border:.4cqw solid var(--ok);color:var(--ok);border-radius:1.4cqw;padding:.2cqw 1.2cqw;margin-right:1cqw}
+.crow button{border:.5cqw solid var(--ink);background:transparent;border-radius:2cqw;font-weight:700;font-size:3.6cqw;padding:1.6cqw 2.4cqw;white-space:nowrap}
+.tour{position:absolute;left:3cqw;right:3cqw;top:12cqw;z-index:4;background:rgba(4,8,60,.94);border:.5cqw solid var(--band);border-radius:2.6cqw;padding:2.4cqw 3cqw;display:flex;gap:2cqw;align-items:center;font-size:4.2cqw;font-weight:600;line-height:1.3}
+.tour small{display:block;font-family:var(--f-cond);font-size:3.2cqw;letter-spacing:.08em;text-transform:uppercase;color:var(--band)}
+.tour button{flex:none;border:.5cqw solid var(--ink);background:transparent;border-radius:2cqw;font-weight:700;font-size:3.4cqw;padding:1.2cqw 2.2cqw}
 .adm{width:100%;border-collapse:collapse;font-size:3.8cqw;font-variant-numeric:tabular-nums}
 .adm td{padding:.8cqw 0;border-bottom:.3cqw solid var(--ink-dim)} .adm td:last-child{text-align:right;font-weight:700}
 .btnrow.wrap{flex-wrap:wrap}
@@ -274,10 +287,11 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
           <button class="alert" id="alert" aria-label="Alle Meldungen anzeigen"></button>
           <button class="act" id="actBtn" hidden></button>
           <div class="mini" id="mini"></div>
+          <div class="autoline" id="autoline" aria-live="polite"></div>
         </div>
         <div class="keys">
-          <button class="key" id="kAir" aria-label="Lüften, 1 Minute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg><b id="airLbl">Lüften</b><i id="airSub">1 Min</i></button>
-          <button class="key" id="kMist" aria-label="Befeuchten, 1 Minute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M12 3s5 5.5 5 9.5a5 5 0 0 1-10 0C7 8.5 12 3 12 3z"/><path d="M5 19.5h.01M9 21h.01M15 21h.01M19 19.5h.01"/></svg><b id="mistLbl">Befeuchten</b><i id="mistSub">1 Min</i></button>
+          <button class="key" id="kClima" aria-label="Klima, läuft automatisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5V5a2 2 0 0 1 4 0v8.5a4 4 0 1 1-4 0z"/><path d="M17.5 6h4M17.5 10h3M3 8h3.5M2.5 12h4"/></svg><b>Klima</b><i id="climaSub">Auto</i></button>
+          <button class="key" id="kLight" aria-label="Licht an oder aus" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg><b>Licht</b><i id="lightSub">Auto</i></button>
           <button class="key" id="kAlerts" aria-label="Meldungen anzeigen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 21h4"/></svg><b>Meldungen</b><span class="count" id="count" hidden>0</span></button>
           <button class="key" id="kSort" aria-label="Sorte und neu ansetzen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M3 13a9 7 0 0 1 18 0z"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5"/></svg><b>Sorte &amp;<br>Neu</b></button>
         </div>
@@ -296,6 +310,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
       <button data-d="tank" aria-pressed="false">Wassertank leer</button>
       <button data-d="door" aria-pressed="false">Tür offen</button>
       <button data-d="hot" aria-pressed="false">Raum zu warm</button>
+      <button data-d="cold" aria-pressed="false">Raum zu kalt</button>
       <button data-d="sensor" aria-pressed="false">Sensor ausgefallen</button>
       <button data-d="harvest" aria-pressed="false">Tag 6 der Fruchtung</button>
       <button data-d="taster" aria-pressed="false">Taster drücken (Licht)</button>
@@ -327,9 +342,9 @@ const INFO={
 const DIFF=["Eigene Werte","Leicht","Mittel","Schwer"];
 const toHarvest=k=>{const P=SPECIES[k].p;return P.kol.days+P.frucht.days};
 
-let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v4"))}catch(e){}
+let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v5"))}catch(e){}
 if(!S||!S.species) S={species:"auster",phase:"frucht",phaseStart:Date.now()-3.4*DAY,power:true,away:false};
-const save=()=>{try{localStorage.setItem("growbox-display-v4",JSON.stringify(S))}catch(e){}};
+const save=()=>{try{localStorage.setItem("growbox-display-v5",JSON.stringify(S))}catch(e){}};
 /* Eigene Sorte: Zielwerte für die Fruchtung, die anderen Phasen leiten sich davon ab */
 function applyCustom(){
   delete SPECIES.custom;
@@ -345,22 +360,25 @@ const day=()=>Math.floor((Date.now()-S.phaseStart)/DAY)+1;
 
 /* Simulation. LED 8–20 Uhr (Taster schaltet um), Frischluft alle 30 Min, Nebler regelt automatisch.
    Urlaub: Nebler springt erst später an und spart so Wasser. */
-const demo={tank:false,door:false,hot:false,sensor:false,harvest:false,taster:false};
-const sim={t:22.4,rh:89,co2:690,tank:64,dev:{licht:false,luefter:false,nebel:false},burst:0,mist:0,lightOv:null};
+const demo={tank:false,door:false,hot:false,cold:false,sensor:false,harvest:false,taster:false};
+const sim={t:22.4,rh:89,co2:690,tank:64,dev:{licht:false,luefter:false,nebel:false,heizung:false},burst:0,mist:0,lightOv:null};
 function step(d){
   const T=tgt(), m=d.getHours()*60+d.getMinutes();
   if(demo.tank) sim.tank=0;
-  if(!S.power) sim.dev={licht:false,luefter:false,nebel:false};
+  if(!S.power) sim.dev={licht:false,luefter:false,nebel:false,heizung:false};
   else{
     const on=S.away?T.rh[0]-1:T.rh[0]+1.5, off=S.away?T.rh[0]+2:(T.rh[0]+T.rh[1])/2+2;
     let N=sim.dev.nebel; if(sim.rh<on)N=true; else if(sim.rh>off)N=false; if(S.phase==="kol"&&sim.rh>T.rh[0]+3)N=false;
     if(sim.mist>d.getTime())N=true;
     if(sim.tank<=0) N=false;
     const autoL=T.light&&m>=480&&m<1200;
-    sim.dev={licht:sim.lightOv??autoL, luefter:sim.burst>d.getTime()||sim.co2>T.co2-60||(S.phase!=="kol"&&m%30<2)||sim.rh>T.rh[1]+1.5, nebel:N};
+    if(sim.lightOv&&d.getTime()>sim.lightOv.until) sim.lightOv=null;  // Ausnahme gilt bis zum nächsten Licht-Wechsel
+    // Heizung: an unter dem Zielbereich, aus kurz darüber (Kühlen gibt es nicht, nur einen Hinweis)
+    let H=sim.dev.heizung; if(sim.t<T.t[0]+.3)H=true; else if(sim.t>T.t[0]+1.5)H=false;
+    sim.dev={heizung:H, licht:sim.lightOv?sim.lightOv.on:autoL, luefter:sim.burst>d.getTime()||sim.co2>T.co2-60||(S.phase!=="kol"&&m%30<2)||sim.rh>T.rh[1]+1.5, nebel:N};
   }
-  const r=()=>Math.random()-.5, D=sim.dev, amb=demo.hot?29.5:21.6;
-  sim.t+=((amb+(D.licht?.7:0)-(D.nebel?.3:0))-sim.t)*(demo.hot?.12:D.luefter?.06:.03)+r()*.08;
+  const r=()=>Math.random()-.5, D=sim.dev, amb=demo.hot?29.5:demo.cold?14:21.6;
+  sim.t+=((amb+(D.licht?.7:0)-(D.nebel?.3:0))-sim.t)*(demo.hot?.12:D.luefter?.06:.03)+(D.heizung?.3:0)+r()*.08;
   sim.rh+=-.32+(D.nebel?2.1:0)+(D.luefter?-1.3:0)+(demo.door?-2.2:0)+r()*.35;
   sim.co2+=(S.phase==="kol"?22:11)+(D.luefter?-95:0)+(demo.door?-60:0)+r()*6;
   if(D.nebel) sim.tank=Math.max(0,sim.tank-.08);
@@ -400,7 +418,7 @@ function alerts(){
     const moved=done(["hot","warm"],()=>{demo.hot=false},20);
     if(sim.t>T.t[1]+3) out.push({id:"hot",sev:"crit",urgent:true,t:"Viel zu warm",a:"Box an einen kühleren Platz stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",moved)});
     else if(sim.t>T.t[1]) out.push({id:"warm",sev:"warn",t:"Zu warm",a:"Weg von Heizung und Sonne stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",moved)});
-    if(sim.t<T.t[0]) out.push({id:"cold",sev:"warn",t:"Zu kalt",a:"An einen wärmeren Platz stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",done("cold",null,30))});
+    if(sim.t<T.t[0]-2) out.push({id:"cold",sev:"warn",t:"Zu kalt trotz Heizung",a:"Die Heizung schafft es nicht. An einen wärmeren Platz stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",done("cold",()=>{demo.cold=false},30))});
   }
   if(demo.door) out.push({id:"door",sev:"warn",t:"Tür offen",a:"Tür und Deckel schließen, dann GESCHLOSSEN drücken.",do:H("Geschlossen",done("door",()=>{demo.door=false},5))});
   if(!demo.sensor){
@@ -511,10 +529,12 @@ function render(){
   $("#topClock").textContent=`${pad(d.getHours())}:${pad(d.getMinutes())}`;
   $("#topCulture").innerHTML=`${esc(SPECIES[S.species].name)} · <b>${PHASES[S.phase]}</b>`;
   const left=Math.max(0,sim.burst-Date.now()), mleft=Math.max(0,sim.mist-Date.now());
-  $("#kAir").classList.toggle("busy",left>0);
-  $("#airSub").textContent=left>0?`noch ${Math.ceil(left/1000)} s`:"1 Min";
-  $("#kMist").classList.toggle("busy",mleft>0);
-  $("#mistSub").textContent=mleft>0?`noch ${Math.ceil(mleft/1000)} s`:"1 Min";
+  const Dv=sim.dev, busy=S.power&&(Dv.luefter||Dv.nebel||Dv.heizung);
+  $("#climaSub").innerHTML=!S.power?"aus":busy?'<span class="pulse" aria-hidden="true"></span>Auto':"Auto";
+  $("#kLight").classList.toggle("on",S.power&&Dv.licht); $("#kLight").setAttribute("aria-pressed",S.power&&Dv.licht);
+  $("#lightSub").textContent=!S.power?"aus":sim.lightOv?(Dv.licht?"an · Hand":"aus · Hand"):(Dv.licht?"an · Auto":"aus · Auto");
+  $("#autoline").innerHTML=!S.power?"":autoText();
+  if(open==="clima"){const v=$("#climaRows");if(v)v.innerHTML=climaRows()}
   $("#topIcons").innerHTML=(S.power&&sim.dev.licht?`<span aria-label="Licht an" role="img">${IC.bulb}</span>`:"")+(S.away?`<button class="away-chip" data-endaway aria-label="Urlaub beenden">Urlaub ✕</button>`:"");
   $("#linkChip").classList.toggle("on",!!appSeen);
   $("#plateSub").textContent=`${SPECIES[S.species].name} · ${PHASES[S.phase]}`;
@@ -658,6 +678,42 @@ function awayPanel(){
 
 /* Tasten */
 const paused=()=>{if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return true}return false};
+/* Automatik sichtbar machen: was die Box gerade selbst tut */
+function nextAir(){const d=new Date(), m=d.getHours()*60+d.getMinutes();return 30-(m%30)}
+function lightUntil(){const d=new Date(), m=d.getHours()*60+d.getMinutes(), on=m>=480&&m<1200;return {on, at:on?"20:00":"8:00"}}
+function autoText(){
+  const D=sim.dev, parts=[];
+  if(D.heizung) parts.push("<b>Heizung an</b>");
+  if(D.nebel) parts.push("<b>Nebler an</b>");
+  parts.push(D.luefter?"<b>Lüfter an</b>":`Lüften in ${nextAir()} Min`);
+  return `<span class="pulse" aria-hidden="true"></span>Box regelt selbst: ${parts.join(" · ")}`;
+}
+function climaRows(){
+  const T=tgt(), D=sim.dev, rh=Math.round(sim.rh), t=sim.t.toFixed(1).replace(".",","), lu=lightUntil();
+  const row=(ic,name,state,btn)=>`<div class="crow">${ic}<div><b>${name}</b><span><span class="auto">AUTO</span>${state}</span></div>${btn||"<span></span>"}</div>`;
+  const left=k=>Math.max(0,Math.ceil((sim[k]-Date.now())/1000));
+  return row(IC.air,"Lüfter",D.luefter?(left("burst")?`läuft noch ${left("burst")} s (von Hand)`:"läuft gerade (frische Luft)"):`nächstes Lüften in ${nextAir()} Min`,`<button data-run="air">${left("burst")?"Stopp":"1 Min jetzt"}</button>`)
+    +row(IC.rh,"Nebler",D.nebel?(left("mist")?`läuft noch ${left("mist")} s (von Hand)`:`läuft gerade (${rh} → ${T.rh[0]} %)`):`aus · Feuchte ${rh} % im Bereich`,sim.tank>0?`<button data-run="mist">${left("mist")?"Stopp":"1 Min jetzt"}</button>`:"<span>Tank leer</span>")
+    +row(IC.temp,"Heizung",D.heizung?`heizt (${t} → ${T.t[0]+1} °C)`:`aus · ${t} °C im Bereich ${T.t[0]}–${T.t[1]}`+(sim.t>T.t[1]?" (zu warm: kühlen geht nur durch Umstellen)":""),"")
+    +row(IC.bulb,"Licht",T.light?(sim.lightOv?`${D.licht?"an":"aus"} von Hand, ab ${lu.at} wieder Auto`:`${D.licht?"an":"aus"} bis ${lu.at}`):"aus · beim Durchwachsen bleibt es dunkel","<span>Taster</span>");
+}
+function climaPanel(){
+  panel("clima","Klima · läuft automatisch",`<p>Die Box regelt Luft, Feuchte, Wärme und Licht selbst. Eingreifen musst du nur, wenn eine Meldung kommt.</p>
+    <div id="climaRows">${climaRows()}</div>
+    <p>„1 Min jetzt“ ist eine Ausnahme, z. B. zum Ausprobieren. Danach regelt die Box wieder selbst.</p>`,p=>{
+    p.style.overflowY="auto";
+    p.addEventListener("click",e=>{const b=e.target.closest("[data-run]");if(b)runConfirm(b.dataset.run,climaPanel)});
+  });
+}
+/* Licht: Ausnahme von Hand, gilt bis zum nächsten Wechsel (8:00 bzw. 20:00) */
+function toggleLight(src){
+  if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return}
+  const d=new Date(), nx=new Date(d); const m=d.getHours()*60+d.getMinutes();
+  if(m<480) nx.setHours(8,0,0,0); else if(m<1200) nx.setHours(20,0,0,0); else {nx.setDate(nx.getDate()+1);nx.setHours(8,0,0,0)}
+  sim.lightOv={on:!sim.dev.licht,until:nx.getTime()}; step(d); render();
+  msg(`${src==="Taster"?"Taster · ":""}Licht ${sim.dev.licht?"an":"aus"} bis ${pad(nx.getHours())}:00, danach Auto`);
+}
+
 /* Lüften/Befeuchten: läuft es schon, stoppt ein Tipp. Sonst erst „Bist du sicher?“ mit Empfehlung oder Warnung. */
 function advice(kind){
   const T=tgt(), rh=Math.round(sim.rh), co2=Math.round(sim.co2/10)*10;
@@ -672,10 +728,10 @@ function advice(kind){
   if(rh>T.rh[1]) return {rec:false,why:`Schon zu feucht (${rh} %). Mehr Nebel kann Schimmel und Tropfen auf den Hüten verursachen.`};
   return {rec:false,why:`Die Feuchte ist im Zielbereich (${rh} %). Der Nebler regelt selbst.`};
 }
-function runConfirm(kind){
+function runConfirm(kind,back){
   if(paused()) return;
   const now=Date.now(), air=kind==="air", key=air?"burst":"mist", name=air?"Lüften":"Befeuchten";
-  if(sim[key]>now){sim[key]=0;step(new Date());render();msg(name+" gestoppt");return}
+  if(sim[key]>now){sim[key]=0;step(new Date());render();msg(name+" gestoppt");back&&back();return}
   if(!air&&sim.tank<=0){msg("Wasser leer · erst Tank auffüllen");return}
   const a=advice(kind);
   panel("run",`${name} – bist du sicher?`,`
@@ -684,12 +740,12 @@ function runConfirm(kind){
     <div class="btnrow">${a.rec
       ?`<button class="bigbtn out" data-x>Abbrechen</button><button class="bigbtn" data-ok>Ja, 1 Min ${air?"lüften":"befeuchten"}</button>`
       :`<button class="bigbtn out weak" data-ok>Trotzdem ${air?"lüften":"befeuchten"}</button><button class="bigbtn" data-x>Abbrechen</button>`}</div>`,p=>{
-    p.querySelector("[data-x]").onclick=closePanel;
-    p.querySelector("[data-ok]").onclick=()=>{sim[key]=Date.now()+60000;closePanel();step(new Date());render();msg(name+" · 1 Minute")};
+    p.querySelector("[data-x]").onclick=back||closePanel;
+    p.querySelector("[data-ok]").onclick=()=>{sim[key]=Date.now()+60000;(back||closePanel)();step(new Date());render();msg(name+" · 1 Minute")};
   });
 }
-$("#kAir").onclick=()=>open==="run"?closePanel():runConfirm("air");
-$("#kMist").onclick=()=>open==="run"?closePanel():runConfirm("mist");
+$("#kClima").onclick=()=>["clima","run"].includes(open)?closePanel():climaPanel();
+$("#kLight").onclick=()=>toggleLight("Licht");
 $("#kAlerts").onclick=()=>open==="alerts"?closePanel():alertPanel();
 $("#alert").onclick=()=>{if(S.power)alertPanel()};
 $("#kSort").onclick=()=>["sort","info","confirm","new","away","restore"].includes(open)?closePanel():sortPanel();
@@ -698,13 +754,14 @@ $("#topIcons").addEventListener("click",e=>{if(e.target.closest("[data-endaway]"
 /* Demo-Leiste */
 function syncDemo(){document.querySelectorAll("[data-d]").forEach(b=>b.setAttribute("aria-pressed",demo[b.dataset.d]))}
 function toggleDemo(k){
-  if(k==="taster"){ if(!S.power){msg("Pausiert");return} sim.lightOv=!sim.dev.licht; step(new Date()); render(); msg(sim.dev.licht?"Taster · Licht an":"Taster · Licht aus"); return }
+  if(k==="taster"){ toggleLight("Taster"); return }
   demo[k]=!demo[k];
   if(k==="tank"&&!demo.tank) sim.tank=100;
   if(k==="harvest"){acked.delete("harvest"); if(demo.harvest&&S.phase!=="frucht"){S.phase="frucht";S.phaseStart=Date.now();save()}}
   if(k==="hot"&&demo.hot) for(let i=0;i<25;i++) step(new Date());
   if(k==="door"&&demo.door) for(let i=0;i<4;i++) step(new Date());
   if(k==="hot"&&!demo.hot) sim.t=22;
+  if(k==="cold"&&demo.cold) sim.t=tgt().t[0]-1.6;
   syncDemo(); step(new Date()); render();
 }
 const DEMOS=[...document.querySelectorAll("#demo button")].map(b=>[b.dataset.d,b.textContent]);
@@ -728,16 +785,46 @@ function demoPanel(){
   panel("admin","Admin-Modus",`<p>Nur für Vorführung und Bewertung, gehört nicht zur normalen Bedienung.</p>
     <div class="lbl">Situation auslösen</div>
     <div class="grid g2">${DEMOS.map(([k,l])=>`<button class="opt" role="switch" data-d="${k}" aria-checked="${demo[k]}">${l}</button>`).join("")}</div>
+    <div class="lbl">Vorführung</div>
+    <button class="bigbtn" data-tour style="margin-top:0">▶ Vorführung starten (ca. 2 Min)</button>
     <div class="lbl">Zeit</div>
     <div class="btnrow wrap" style="margin-top:0"><button class="bigbtn out" data-day>Tag +1</button><button class="bigbtn out" data-reset>Zurücksetzen</button></div>
     <div class="lbl">Messwerte live</div><div id="admVals">${adminVals()}</div>`,p=>{
     p.style.overflowY="auto";
     p.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{toggleDemo(b.dataset.d);b.setAttribute("aria-checked",demo[b.dataset.d])});
+    p.querySelector("[data-tour]").onclick=startTour;
     p.querySelector("[data-day]").onclick=()=>{S.phaseStart-=DAY;save();step(new Date());render();msg(`Tag ${day()}`)};
-    p.querySelector("[data-reset]").onclick=()=>{try{localStorage.removeItem("growbox-display-v4")}catch(e){};location.reload()};
+    p.querySelector("[data-reset]").onclick=()=>{try{localStorage.removeItem("growbox-display-v5")}catch(e){};location.reload()};
   });
 }
 $("#demoChip").onclick=()=>open==="admin"?closePanel():demoPanel();
+
+/* Automatische Vorführung: zeigt in ca. 2 Minuten, was die Box selbst macht und wann der Mensch dran ist */
+let tourT=[];
+function stopTour(){tourT.forEach(clearTimeout);tourT=[];$("#tourHost")?.remove()}
+function caption(n,total,text){
+  let h=$("#tourHost"); if(!h){h=document.createElement("div");h.id="tourHost";h.className="tour";h.setAttribute("role","status");$("#screen").appendChild(h)}
+  h.innerHTML=`<div style="flex:1"><small>Vorführung ${n}/${total}</small>${text}</div><button type="button">Stopp</button>`;
+  h.querySelector("button").onclick=()=>{stopTour();msg("Vorführung beendet")};
+}
+function startTour(){
+  stopTour(); closePanel();
+  Object.keys(demo).forEach(k=>demo[k]=false); syncDemo(); acked.clear();
+  S.power=true;S.away=false;S.species="auster";S.phase="frucht";S.phaseStart=Date.now()-3.4*DAY;save();
+  sim.t=22;sim.rh=89;sim.tank=64;sim.lightOv=null;sim.burst=0;sim.mist=0; step(new Date()); render();
+  const steps=[
+    [0,   ()=>caption(1,7,"Die Box regelt alles selbst: Licht, frische Luft, Feuchte und Wärme. Unten steht, was sie gerade tut.")],
+    [9,   ()=>{caption(2,7,"Unter KLIMA sieht man jede Automatik. Normalerweise muss man hier nichts tun.");climaPanel()}],
+    [20,  ()=>{closePanel();caption(3,7,"Der Raum wird kalt. Die Heizung springt von selbst an, keine Meldung nötig.");toggleDemo("cold")}],
+    [38,  ()=>{toggleDemo("cold");caption(4,7,"Wieder warm genug. Jetzt der einzige Job für den Menschen: Wasser.")}],
+    [46,  ()=>{toggleDemo("tank");caption(5,7,"Wassertank leer: gelbes Warndreieck mit klarer Anweisung.")}],
+    [60,  ()=>{refill();caption(6,7,"Aufgefüllt und bestätigt: alles gut. Unter MELDUNGEN steht es im Verlauf.");alertPanel()}],
+    [74,  ()=>{closePanel();toggleDemo("harvest");caption(7,7,"Erntezeit! Die Box sagt Bescheid. Nach dem Ernten startet die Ruhephase.")}],
+    [92,  ()=>{const a=$("#actBtn");if(!a.hidden)a.click();caption(7,7,"Geerntet. Die Box ruht und startet dann die nächste Welle. Ende der Vorführung.")}],
+    [104, ()=>{stopTour();demo.harvest=false;syncDemo();render()}]
+  ];
+  tourT=steps.map(([sec,fn])=>setTimeout(fn,sec*1000));
+}
 
 /* ---------- Verbindung Box und Handy-App (übernommen aus dem claude.ai-Original, Box-Seite) ----------
    Die Box schreibt ihren Stand nach boxes/<Code>, die App liest ihn live.
@@ -771,7 +858,7 @@ function applyCmd(c){
 function payload(){
   return {power:!!S.power,species:S.species,phase:S.phase,phaseStart:S.phaseStart,custom:S.custom||null,away:!!S.away,
     t:Math.round(sim.t*10)/10,rh:Math.round(sim.rh),co2:Math.round(sim.co2/10)*10,tank:Math.round(sim.tank),
-    dev:{licht:!!sim.dev.licht,luefter:!!sim.dev.luefter,nebel:!!sim.dev.nebel},burst:sim.burst>Date.now()?sim.burst:0,mist:sim.mist>Date.now()?sim.mist:0,sensor:!demo.sensor,
+    dev:{licht:!!sim.dev.licht,luefter:!!sim.dev.luefter,nebel:!!sim.dev.nebel,heizung:!!sim.dev.heizung},burst:sim.burst>Date.now()?sim.burst:0,mist:sim.mist>Date.now()?sim.mist:0,sensor:!demo.sensor,
     alerts:alerts().map(x=>({id:x.id,sev:x.sev,t:x.t,a:x.a,label:x.do.label,kind:x.do.kind,icon:x.do.icon||null}))};
 }
 let lastPush=0,lastJs="",lastImp="",pushing=false;

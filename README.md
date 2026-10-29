@@ -14,6 +14,19 @@ Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zag
 | **04 Evaluation** | ⏳ pending | – | Papierprototyp testen, Protokolle, AttrakDiff |
 | **Booklet** | ⏳ pending | Idee: großteils als Story | Gliederung und Text (5 Seiten pro Person) |
 
+## Priorität: Was macht die Box, was macht der Mensch?
+
+Kernidee des Interaktionskonzepts. Die Box regelt das Klima selbst und **zeigt sichtbar, was sie tut**. Der Mensch hat nur wenige, klar erkennbare Aufgaben, und genau diese Aufgaben müssen am Gerät **leicht erreichbar** sein.
+
+| Die Box regelt selbst (sichtbar unter KLIMA) | Der Mensch macht (die Box meldet sich) |
+|---|---|
+| Licht 8–20 Uhr (Ausnahme: Taster, Kachel, App) | **Wasser nachfüllen**, die häufigste Handlung, ca. 1× pro Woche |
+| Frischluft: Lüfter alle 30 Min und bei hohem CO₂ | **Ernten** |
+| Luftfeuchte: Nebler bei zu trockener Luft | **Neu ansetzen** (Kammer leeren, Zuchtset einsetzen) |
+| Wärme: Heizung bei zu kalt | Box **umstellen**, wenn es zu warm ist (Kühlen gibt es nicht) |
+
+Folge für den Bau: Was der Mensch tun muss, muss gut erreichbar sein. **Wassertank und Aufstellort** sind deshalb Teil der Interaktion (siehe Offen).
+
 ## Was wir bauen
 
 ```text
@@ -27,7 +40,8 @@ Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zag
 
 ## Offen
 
-- [ ] **Temperaturregelung:** automatisch heizen (Heizmatte o. Ä.) oder nur Hinweis? Einstellen nur in der App.
+- [ ] **Wassertank:** Wo sitzt er, damit Nachfüllen einfach ist, ohne Wasser an Display und Elektronik? Mit Füllstand von außen sichtbar?
+- [ ] **Aufstellort:** Wo steht die Box (Küche, Regal)? Freier Zugang von vorn und zum Tank, Lüftungsschlitze frei, keine Heizung oder Sonne, Display gut sichtbar.
 - [ ] **Pilz als Status:** Das Pilz-Gesicht im Ring zeigt den Zustand schon (froh/besorgt/gestresst). Wie wird deutlicher, dass „alles easy läuft“?
 - [ ] **Farben 3D-Druck:** Variante A, B oder C ([Skizze](02-box-bau/README.md#5--farbvarianten-3d-druck)). Fest: Handybox schwarz glänzend; Bedienteile farblich vom Rest abheben.
 - [ ] Wer macht das Backend, und wird der Entwurf in `03-software` genutzt?
