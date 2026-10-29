@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Growbox Display</title>
+<style>/* Grundregeln, die claude.ai der Seite mitgibt */
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: Wand-Bedienteil im Hochformat. Oben Kopfzeile, groß der Pilz im Feuchte-Ring, darunter die wichtigste Meldung, unten vier Tasten in einer Reihe. Farben farbenblindfreundlich (Okabe-Ito Gelb/Orange), Schwere immer auch über Symbol und Wort. */
+:root{
+  --page:#e9ebe6; --page-fg:#2a2c28; --page-muted:#62665e; --page-card:#ffffff; --page-line:#d3d6cf;
+  --lcd-hi:#2f45f5; --lcd-mid:#1525c4; --lcd-lo:#08106c;
+  --ink:#ffffff; --ink-soft:#c7cfff; --ink-dim:rgba(255,255,255,.35);
+  --band:#f0e442; --alarm:#e69f00;
+  --housing:#f4f4f1; --housing-edge:#d9d9d4; --glass:#0b0c10;
+  --f-ui:"Barlow", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --f-cond:"Barlow Semi Condensed", "Roboto Condensed", "Arial Narrow", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--page:#121413;--page-fg:#e6e8e3;--page-muted:#9aa096;--page-card:#1c1e1c;--page-line:#323631;color-scheme:dark}}
+:root[data-theme="dark"]{--page:#121413;--page-fg:#e6e8e3;--page-muted:#9aa096;--page-card:#1c1e1c;--page-line:#323631;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--page);color:var(--page-fg)}
+body{font-family:var(--f-ui);margin:0;-webkit-font-smoothing:antialiased;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:430px;margin:0 auto;padding-block:24px 40px;display:flex;flex-direction:column;align-items:center;gap:22px}
+
+/* Gehäuse */
+.device{width:100%;background:linear-gradient(180deg,#fbfbf9,var(--housing));border-radius:12% / 9%;padding:6.5% 6%;
+  box-shadow:0 0 0 1px var(--housing-edge), 0 2px 0 #fff inset, 0 18px 40px rgba(0,0,0,.18), 0 3px 8px rgba(0,0,0,.08)}
+.glass{background:var(--glass);border-radius:8% / 6%;padding:7% 5%;box-shadow:0 0 0 2px #1d1f24 inset}
+.screen{position:relative;width:100%;aspect-ratio:3/4;max-width:100%;container-type:inline-size;overflow:hidden;border-radius:1.6%;display:flex;flex-direction:column;padding:4cqw 4.5cqw 4.5cqw;
+  background:radial-gradient(ellipse 70% 65% at 50% 45%, var(--lcd-hi), var(--lcd-mid) 55%, var(--lcd-lo));
+  box-shadow:0 0 0 .5cqw #c9cfe6, 0 0 0 1cqw #2b2f3a;color:var(--ink);user-select:none;-webkit-user-select:none;transition:filter .5s}
+.screen::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(160deg,rgba(255,255,255,.09),transparent 40%)}
+.screen.standby{filter:brightness(.4) saturate(.6)}
+.screen.standby #kPower{filter:brightness(2.5)}
+
+/* Tasten */
+.keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2.6cqw;margin-top:auto}
+.key{position:relative;width:100%;height:24cqw;border-radius:3cqw;border:.6cqw solid var(--ink);background:rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6cqw;padding:0 1cqw;
+  box-shadow:0 0 1.6cqw rgba(140,160,255,.35);transition:background .15s, transform .1s}
+.key svg{width:10cqw;height:10cqw}
+.key b{font-family:var(--f-cond);font-size:3.2cqw;font-weight:700;letter-spacing:0;text-transform:uppercase;line-height:1.05;text-align:center}
+.key:active{transform:scale(.95)}
+.key .fill{fill:var(--ink-soft)}
+.key.busy{background:var(--ink);color:var(--lcd-mid)}
+.key.busy .fill{fill:var(--lcd-mid)}
+.key:focus-visible{outline:.7cqw solid var(--band);outline-offset:.7cqw}
+.count{position:absolute;top:-2.4cqw;right:-1.6cqw;min-width:7cqw;height:7cqw;padding:0 1.4cqw;border-radius:4cqw;background:var(--alarm);color:#1a1000;font-weight:700;font-size:4cqw;display:grid;place-items:center;border:.6cqw solid var(--lcd-mid)}
+.count.info{background:var(--ink);color:var(--lcd-mid)}
+
+/* Mitte */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:3cqw;font-family:var(--f-cond);font-weight:600;font-size:4.4cqw;letter-spacing:.04em;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.topbar b{color:var(--ink);font-weight:700}
+.topbar span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;padding-block:2cqw}
+.ring{position:relative;width:58cqw;height:58cqw;flex:none}
+.ring > svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.ring circle{fill:none;transition:stroke-dasharray .8s ease}
+.inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.shroom{width:27cqw;height:27cqw;margin-top:2cqw;overflow:visible}
+.shroom .drop{fill:var(--ink-soft);opacity:0}
+.misting .drop{animation:drip 2.2s ease-in infinite}
+.misting .drop:nth-of-type(2){animation-delay:.7s}.misting .drop:nth-of-type(3){animation-delay:1.4s}
+@keyframes drip{0%{opacity:0;transform:translateY(-4px)}30%{opacity:.9}100%{opacity:0;transform:translateY(10px)}}
+.breeze path{stroke:var(--ink-soft);opacity:0;stroke-dasharray:22;stroke-dashoffset:22}
+.airing .breeze path{animation:wind 1.6s ease-out infinite}
+.airing .breeze path:nth-child(2){animation-delay:.4s}
+@keyframes wind{0%{opacity:0;stroke-dashoffset:22}30%{opacity:.9}100%{opacity:0;stroke-dashoffset:-22}}
+.sweat{opacity:0;transition:opacity .4s}
+.crit .sweat{opacity:1}
+.hum{font-weight:700;font-size:10.5cqw;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:.4cqw}
+.hum small{font-size:5.4cqw;font-weight:600;margin-left:.3cqw}
+.humlbl{font-family:var(--f-cond);font-size:3.8cqw;font-weight:600;letter-spacing:.12em;color:var(--ink-soft);text-transform:uppercase;margin-top:.7cqw}
+
+.alert{width:100%;margin-top:2cqw;border:0;background:transparent;padding:1.2cqw 1.4cqw;border-radius:2cqw;display:flex;flex-direction:column;align-items:center;gap:.6cqw;text-align:center;line-height:1.1}
+.alert .t{display:flex;align-items:center;gap:2cqw;font-weight:700;font-size:7cqw}
+.alert .t svg{flex:none;width:7.6cqw;height:7.6cqw}
+.alert .a{font-size:4.6cqw;max-width:72cqw;font-weight:600;color:var(--ink-soft)}
+.alert.warn,.alert.crit{color:var(--alarm)}
+.alert.crit{background:rgba(230,159,0,.16);box-shadow:0 0 0 .45cqw var(--alarm) inset}
+.alert.crit .t{animation:blink 1.1s steps(2) infinite}
+.alert.warn .a,.alert.crit .a{color:var(--ink)}
+@keyframes blink{50%{opacity:.4}}
+.act{width:100%;margin-top:2cqw;border:.7cqw solid var(--alarm);background:var(--alarm);color:#1a1000;border-radius:3cqw;min-height:14cqw;font-weight:700;font-size:5.4cqw;display:flex;align-items:center;justify-content:center;gap:2.4cqw}
+.act svg{width:6.4cqw;height:6.4cqw}
+.act:active{transform:scale(.97)}
+.act.info{background:transparent;border-color:var(--ink);color:var(--ink)}
+.hasact .mini{display:none}
+.item .do{flex:none;border:.7cqw solid var(--alarm);background:var(--alarm);color:#1a1000;border-radius:2.4cqw;font-weight:700;font-size:4.2cqw;padding:2cqw 3cqw}
+.item.info .do{background:transparent;border-color:var(--ink);color:var(--ink)}
+.mini{display:flex;gap:6cqw;margin-top:2.4cqw;font-size:4.8cqw;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink-soft)}
+.mini span{display:flex;align-items:center;gap:.7cqw;white-space:nowrap}
+.mini span.off{color:var(--alarm)}
+.mini svg{width:4.8cqw;height:4.8cqw}
+
+/* Vollbild-Panels */
+.panel{position:absolute;inset:0;padding:5cqw;display:flex;flex-direction:column;gap:3cqw;animation:pin .18s ease-out;z-index:2;
+  background:radial-gradient(ellipse 70% 65% at 50% 45%, var(--lcd-hi), var(--lcd-mid) 55%, var(--lcd-lo))}
+@keyframes pin{from{opacity:0}}
+.panel h2{margin:0;font-family:var(--f-cond);font-size:5.4cqw;font-weight:700;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;gap:2cqw}
+.back{border:.55cqw solid var(--ink);background:transparent;border-radius:2cqw;font-size:3.8cqw;font-weight:700;padding:1.4cqw 3cqw;letter-spacing:.04em;font-family:var(--f-cond)}
+.panel p{margin:0;font-size:4.4cqw;line-height:1.3;color:var(--ink-soft)}
+.lbl{font-family:var(--f-cond);font-size:3.2cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.grid{display:grid;gap:2cqw}
+.g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:1fr}
+.opt{border:.5cqw solid var(--ink-dim);background:rgba(255,255,255,.06);border-radius:2.4cqw;padding:2.4cqw 3cqw;display:flex;align-items:center;gap:2.4cqw;font-size:4.6cqw;font-weight:700;min-height:13cqw;text-align:left;line-height:1.1}
+.opt svg{flex:none;width:6.4cqw;height:6.4cqw}
+.opt[aria-checked="true"]{border-color:var(--ink);background:var(--ink);color:var(--lcd-mid)}
+.g3 .opt{justify-content:center;text-align:center}
+.bigbtn{border:.6cqw solid var(--ink);background:var(--ink);color:var(--lcd-mid);border-radius:2.6cqw;padding:2.4cqw 3cqw;font-weight:700;font-size:5cqw;margin-top:auto;display:flex;align-items:center;justify-content:center;gap:2cqw;min-height:12cqw}
+.opt.wide{grid-column:1 / -1;justify-content:center;border-style:dashed}
+.opt.wide[aria-checked="true"]{border-style:solid}
+.opt.wide svg{width:5.6cqw;height:5.6cqw}
+.field{width:100%;background:rgba(255,255,255,.1);border:.6cqw solid var(--ink);border-radius:2.4cqw;padding:2.4cqw 3cqw;font-size:5cqw;font-weight:600;color:var(--ink);font-family:var(--f-ui)}
+.field::placeholder{color:var(--ink-soft);opacity:.8}
+.field:focus{outline:.7cqw solid var(--band);outline-offset:.4cqw}
+.stps{display:flex;flex-direction:column;gap:1.8cqw}
+.stp{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:2cqw;border-bottom:.3cqw solid var(--ink-dim);padding-bottom:1.8cqw}
+.stp:last-child{border-bottom:0;padding-bottom:0}
+.stp b{font-size:4.4cqw;font-weight:600}
+.stp output{min-width:17cqw;text-align:center;font-size:5.4cqw;font-weight:700;font-variant-numeric:tabular-nums}
+.stp button{width:10cqw;height:10cqw;border-radius:2.4cqw;border:.6cqw solid var(--ink);background:transparent;font-size:6cqw;font-weight:700;line-height:1;display:grid;place-items:center;padding:0}
+.btnrow{display:flex;gap:2.4cqw;margin-top:auto}
+.btnrow .bigbtn{flex:1;margin-top:0}
+.bigbtn.out{background:transparent;color:var(--ink)}
+.list{overflow-y:auto;min-height:0;flex:1;display:flex;flex-direction:column;gap:2cqw;padding-right:.6cqw}
+.item{display:flex;gap:2.4cqw;align-items:center;border:.5cqw solid var(--ink-dim);border-radius:2.2cqw;padding:2cqw 2.4cqw}
+.item svg{flex:none;width:6.4cqw;height:6.4cqw}
+.item div{flex:1;min-width:0}
+.item b{display:block;font-size:5cqw;line-height:1.15}
+.item span{display:block;font-size:4.2cqw;color:var(--ink-soft);line-height:1.25;margin-top:.4cqw}
+.item.warn,.item.crit{border-color:var(--alarm)}
+.item.warn b,.item.crit b{color:var(--alarm)}
+.item.crit{background:rgba(230,159,0,.14)}
+.item .ok{flex:none;border:.5cqw solid var(--ink);background:transparent;border-radius:1.8cqw;font-weight:700;font-size:3.6cqw;padding:1.4cqw 2.6cqw}
+.none{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;flex:1;text-align:center}
+.none svg{width:12cqw;height:12cqw}
+.none b{font-size:5cqw}
+
+.msg{position:absolute;left:50%;bottom:32cqw;transform:translateX(-50%);background:rgba(4,8,60,.92);border:.45cqw solid var(--ink-dim);border-radius:2cqw;padding:1.6cqw 3.4cqw;font-size:3.8cqw;font-weight:600;white-space:nowrap;max-width:80cqw;overflow:hidden;text-overflow:ellipsis;animation:pin .15s;z-index:3}
+
+/* Typenschild */
+.plate{background:linear-gradient(180deg,#d8d9d5,#c9cac5);color:#2b2b2a;border-radius:4px;padding:14px 22px 12px;text-align:center;min-width:min(78%,380px);
+  box-shadow:0 1px 0 #fff inset, 0 0 0 1px #b4b5b0, 0 4px 10px rgba(0,0,0,.1)}
+.plate b{display:block;font-weight:700;font-size:clamp(17px,4.6vw,24px);line-height:1.2}
+.plate span{display:block;font-weight:600;font-size:clamp(14px,3.7vw,19px);line-height:1.3;color:#3d3d3b}
+
+/* Demo-Leiste (nicht Teil des Geräts) */
+.demo{width:100%;background:var(--page-card);border:1px solid var(--page-line);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.demo h3{margin:0;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--page-muted)}
+.demo p{margin:0;font-size:14px;color:var(--page-muted);line-height:1.4}
+.demo-btns{display:flex;flex-wrap:wrap;gap:8px}
+.demo-btns button{border:1px solid var(--page-line);background:transparent;border-radius:10px;padding:9px 12px;font-size:14px;font-weight:600;color:var(--page-fg)}
+.demo-btns button[aria-pressed="true"]{background:var(--page-fg);color:var(--page);border-color:var(--page-fg)}
+.demo-chip{display:none;border:.5cqw solid var(--ink-dim);background:transparent;border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.6cqw;letter-spacing:.06em;text-transform:uppercase;padding:.8cqw 2.2cqw;color:var(--ink-soft)}
+.tr{display:flex;align-items:center;gap:2.2cqw;flex:none}
+.link-chip{display:inline-flex;align-items:center;gap:1cqw;border:.5cqw solid var(--ink-dim);background:transparent;border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.6cqw;letter-spacing:.06em;text-transform:uppercase;padding:.8cqw 2.2cqw;color:var(--ink-soft)}
+.link-chip svg{width:3.8cqw;height:3.8cqw}
+.link-chip.on{border-color:var(--band);color:var(--ink)}
+.code{font-size:17cqw;font-weight:800;letter-spacing:.12em;text-align:center;font-variant-numeric:tabular-nums;padding:3cqw;border:.7cqw dashed var(--ink-dim);border-radius:3cqw}
+.code-in{font-size:10cqw;text-align:center;letter-spacing:.3em;font-variant-numeric:tabular-nums}
+.rolebtn{margin-top:auto;border:0;background:transparent;color:var(--ink-soft);font-size:3.8cqw;text-decoration:underline;padding:2cqw;align-self:center}
+.panel .steps{margin:0;padding-left:5cqw;font-size:4.2cqw;line-height:1.35;color:var(--ink-soft);display:flex;flex-direction:column;gap:1.4cqw}
+
+/* Handy im Technikraum (iPhone 13 mini und ähnliche): Display füllt den ganzen Bildschirm */
+@media (max-width:500px){
+  .hasact .mini{display:flex}
+  html,body{height:100%;background:var(--lcd-lo)}
+  body{padding:0;overflow:hidden;overscroll-behavior:none;-webkit-touch-callout:none;touch-action:manipulation}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--lcd-lo)}
+  .wrap{max-width:none;height:100%;padding:0;gap:0}
+  .device,.glass{width:100%;height:100%;padding:0;border-radius:0;background:none;box-shadow:none}
+  .screen{aspect-ratio:auto;height:100%;border-radius:0;box-shadow:none;
+    padding-block:3cqw 4cqw;padding-left:max(5cqw, env(safe-area-inset-left, 0px));padding-right:max(5cqw, env(safe-area-inset-right, 0px))}
+  .screen::after{display:none}
+  .plate,.demo{display:none}
+  .demo-chip{display:inline-flex}
+  .topbar{font-size:4.6cqw}
+  .ring{width:78cqw;height:78cqw}
+  .shroom{width:36cqw;height:36cqw}
+  .hum{font-size:14cqw}
+  .hum small{font-size:6.4cqw}
+  .humlbl{font-size:4.2cqw}
+  .alert{margin-top:4cqw;min-height:24cqw}
+  .alert .t{font-size:7.6cqw}
+  .alert .a{font-size:4.8cqw;max-width:84cqw}
+  .mini{font-size:5cqw;gap:7cqw;margin-top:3cqw}
+  .mini svg{width:5cqw;height:5cqw}
+  .key{height:27cqw}
+  .key svg{width:11cqw;height:11cqw}
+  .key b{font-size:3.5cqw}
+  .panel{padding:6cqw max(5cqw, env(safe-area-inset-right, 0px)) 6cqw max(5cqw, env(safe-area-inset-left, 0px))}
+  .msg{bottom:36cqw}
+}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="device">
+    <div class="glass">
+      <div class="screen" id="screen">
+        <div class="topbar"><span id="topCulture">Austernpilz · <b>Fruchtung</b></span><span class="tr"><button class="link-chip" id="linkChip" aria-label="Mit Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span id="linkTxt">Handy</span></button><button class="demo-chip" id="demoChip" aria-label="Demo-Situationen">Demo</button><span id="topClock">--:--</span></span></div>
+
+        <div class="center" id="home">
+          <div class="ring">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <circle cx="100" cy="100" r="90" stroke="rgba(255,255,255,.16)" stroke-width="9"/>
+              <circle id="arcBand" cx="100" cy="100" r="90" stroke="var(--band)" stroke-width="9" pathLength="360" stroke-dasharray="0 360" opacity=".9"/>
+              <circle id="arcVal" cx="100" cy="100" r="90" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round" pathLength="360" stroke-dasharray="0 360"/>
+              <g id="knob"><circle cx="190" cy="100" r="9" stroke="var(--lcd-mid)" stroke-width="3" style="fill:var(--ink)"/></g>
+            </svg>
+            <div class="inner">
+              <svg class="shroom" id="shroom" viewBox="0 0 100 100" aria-hidden="true">
+                <g class="breeze" fill="none" stroke-width="3" stroke-linecap="round"><path d="M2 40c8-3 14 3 22 0"/><path d="M76 34c8-3 14 3 22 0"/></g>
+                <path d="M41 56c-1 14-2 24-4 32h26c-2-8-3-18-4-32z" fill="#efe9dc"/>
+                <path id="cap" d="M10 58C10 30 28 14 50 14s40 16 40 44c0 4-6 6-40 6S10 62 10 58z" fill="#b9c4cc"/>
+                <circle cx="34" cy="34" r="4.5" fill="#fff" opacity=".55"/><circle cx="62" cy="28" r="3.5" fill="#fff" opacity=".55"/><circle cx="72" cy="44" r="3" fill="#fff" opacity=".55"/>
+                <circle cx="44" cy="72" r="2.6" fill="#1d2a6b"/><circle cx="56" cy="72" r="2.6" fill="#1d2a6b"/>
+                <path id="brows" d="M40 66l7 1M53 67l7-1" stroke="#1d2a6b" stroke-width="2" stroke-linecap="round" opacity="0"/>
+                <path id="mouth" d="M45 79q5 5 10 0" fill="none" stroke="#1d2a6b" stroke-width="2.4" stroke-linecap="round"/>
+                <path class="sweat" d="M64 62c0 0 3 4 3 6a3 3 0 0 1-6 0c0-2 3-6 3-6z" fill="#9fd3ff"/>
+                <path class="drop" d="M20 66c0 0 4 5 4 8a4 4 0 0 1-8 0c0-3 4-8 4-8z"/>
+                <path class="drop" d="M82 68c0 0 4 5 4 8a4 4 0 0 1-8 0c0-3 4-8 4-8z"/>
+                <path class="drop" d="M50 0c0 0 4 5 4 8a4 4 0 0 1-8 0c0-3 4-8 4-8z" transform="translate(0 2)"/>
+              </svg>
+              <span class="hum" id="hum">–</span>
+              <span class="humlbl">Luftfeuchte</span>
+            </div>
+          </div>
+          <button class="alert" id="alert" aria-label="Alle Meldungen anzeigen"></button>
+          <button class="act" id="actBtn" hidden></button>
+          <div class="mini" id="mini"></div>
+        </div>
+        <div class="keys">
+          <button class="key" id="kPower" aria-label="Ein oder Standby"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v8"/><path d="M6.6 6.6a7.5 7.5 0 1 0 10.8 0"/></svg><b id="powerLbl">Ein</b></button>
+          <button class="key" id="kAir" aria-label="Frischluft 60 Sekunden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg><b id="airLbl">Frischluft</b></button>
+          <button class="key" id="kAlerts" aria-label="Meldungen anzeigen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 21h4"/></svg><b>Meldungen</b><span class="count" id="count" hidden>0</span></button>
+          <button class="key" id="kSet" aria-label="Pilzsorte und Phase wählen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M3 13a9 7 0 0 1 18 0z"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5"/></svg><b>Sorte</b></button>
+        </div>
+        <div id="panelHost"></div>
+        <div id="msgHost"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="plate"><b>FunghiLab – 01</b><span>Pilzkammer Klimaregelung</span><span id="plateSub">Austernpilz · Fruchtung</span></div>
+
+  <div class="demo">
+    <h3>Demo: Situation testen</h3>
+    <p>Gehört nicht zum Gerät. Damit siehst du, wie das Display auf echte Probleme reagiert.</p>
+    <div class="demo-btns" id="demo">
+      <button data-d="tank" aria-pressed="false">Wassertank leer</button>
+      <button data-d="door" aria-pressed="false">Tür offen</button>
+      <button data-d="hot" aria-pressed="false">Raum zu warm</button>
+      <button data-d="sensor" aria-pressed="false">Sensor ausgefallen</button>
+      <button data-d="harvest" aria-pressed="false">Tag 6 der Fruchtung</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+const DAY=864e5, pad=n=>String(n).padStart(2,"0");
+const esc=v=>String(v??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+const SPECIES={
+  auster:{name:"Austernpilz",cap:"#b9c4cc",p:{kol:{t:[22,26],rh:[70,95],co2:5000,light:false,days:14},frucht:{t:[18,24],rh:[85,95],co2:800,light:true,days:6},ruhe:{t:[18,24],rh:[80,90],co2:1000,light:true,days:8}}},
+  shiitake:{name:"Shiitake",cap:"#a0673f",p:{kol:{t:[21,25],rh:[70,95],co2:5000,light:false,days:45},frucht:{t:[15,21],rh:[80,90],co2:1000,light:true,days:8},ruhe:{t:[18,22],rh:[70,85],co2:1200,light:true,days:14}}},
+  kraeuter:{name:"Kräuterseitling",cap:"#d9c39a",p:{kol:{t:[22,26],rh:[70,95],co2:5000,light:false,days:18},frucht:{t:[15,20],rh:[85,95],co2:1500,light:true,days:9},ruhe:{t:[16,21],rh:[80,90],co2:1500,light:true,days:10}}},
+  igel:{name:"Igel-Stachelbart",cap:"#f1ece0",p:{kol:{t:[21,24],rh:[70,95],co2:5000,light:false,days:16},frucht:{t:[18,22],rh:[88,96],co2:700,light:true,days:7},ruhe:{t:[18,22],rh:[82,90],co2:900,light:true,days:10}}}
+};
+const PHASES={kol:"Durchwachsen",frucht:"Fruchtung",ruhe:"Ruhephase"};
+
+let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v3"))}catch(e){}
+if(!S||!S.species) S={species:"auster",phase:"frucht",phaseStart:Date.now()-3.4*DAY,power:true};
+const save=()=>{try{localStorage.setItem("growbox-display-v3",JSON.stringify(S))}catch(e){}};
+/* Rolle dieses Geräts: "box" = Display an der Box (rechnet und regelt), "app" = Handy-App (zeigt die Box live, sendet Befehle) */
+let ROLE=null; try{ROLE=localStorage.getItem("funghilab-role")}catch(e){}
+if(ROLE!=="box"&&ROLE!=="app") ROLE=null;
+const PHONE=window.matchMedia&&matchMedia("(max-width:500px)").matches;
+if(!ROLE&&!PHONE) ROLE="box";
+const isApp=()=>ROLE==="app";
+if(!S.code){S.code=String(1000+Math.floor(Math.random()*9000));save()}
+let db=null, appCode=null, remote=null, unsub=null, appSeen=null;
+try{appCode=localStorage.getItem("funghilab-app-code")}catch(e){}
+if(appCode&&!/^\d{4}$/.test(appCode)) appCode=null;
+function validCustom(c){return c&&typeof c==="object"&&typeof c.name==="string"&&Array.isArray(c.t)&&Array.isArray(c.rh)&&c.t.length===2&&c.rh.length===2&&[...c.t,...c.rh,c.co2].every(Number.isFinite)}
+/* Eigene Sorte: Zielwerte für die Fruchtung, die anderen Phasen leiten sich davon ab */
+function applyCustom(){
+  delete SPECIES.custom;
+  const c=S.custom; if(!c){ if(S.species==="custom") S.species="auster"; return }
+  SPECIES.custom={name:c.name||"Eigene Sorte",cap:"#cdb79e",p:{
+    kol:{t:[c.t[0]+2,c.t[1]+2],rh:[70,95],co2:5000,light:false,days:14},
+    frucht:{t:c.t,rh:c.rh,co2:c.co2,light:true,days:7},
+    ruhe:{t:c.t,rh:[Math.max(50,c.rh[0]-5),Math.max(55,c.rh[1]-5)],co2:c.co2+200,light:true,days:10}}};
+}
+applyCustom();
+const tgt=()=>SPECIES[S.species].p[S.phase];
+const day=()=>Math.floor((Date.now()-S.phaseStart)/DAY)+1;
+
+/* Simulation. LED 8–20 Uhr, Frischluft alle 30 Min, Nebler regelt automatisch. */
+const demo={tank:false,door:false,hot:false,sensor:false,harvest:false};
+const sim={t:22.4,rh:89,co2:690,tank:64,dev:{licht:false,luefter:false,nebel:false},burst:0};
+function step(d){
+  if(isApp()) return;
+  const T=tgt(), m=d.getHours()*60+d.getMinutes();
+  if(demo.tank) sim.tank=0;
+  if(!S.power) sim.dev={licht:false,luefter:false,nebel:false};
+  else{
+    let N=sim.dev.nebel; if(sim.rh<T.rh[0]+1.5)N=true; else if(sim.rh>(T.rh[0]+T.rh[1])/2+2)N=false; if(S.phase==="kol"&&sim.rh>T.rh[0]+3)N=false;
+    if(sim.tank<=0) N=false;
+    sim.dev={licht:T.light&&m>=480&&m<1200, luefter:sim.burst>d.getTime()||sim.co2>T.co2-60||(S.phase!=="kol"&&m%30<2)||sim.rh>T.rh[1]+1.5, nebel:N};
+  }
+  const r=()=>Math.random()-.5, D=sim.dev, amb=demo.hot?29.5:21.6;
+  sim.t+=((amb+(D.licht?.7:0)-(D.nebel?.3:0))-sim.t)*(demo.hot?.12:D.luefter?.06:.03)+r()*.08;
+  sim.rh+=-.32+(D.nebel?2.1:0)+(D.luefter?-1.3:0)+(demo.door?-2.2:0)+r()*.35;
+  sim.co2+=(S.phase==="kol"?22:11)+(D.luefter?-95:0)+(demo.door?-60:0)+r()*6;
+  if(D.nebel) sim.tank=Math.max(0,sim.tank-.08);
+  sim.t=Math.max(10,Math.min(35,sim.t));sim.rh=Math.max(40,Math.min(99.5,sim.rh));sim.co2=Math.max(420,Math.min(6000,sim.co2));
+}
+for(let i=0;i<120;i++) step(new Date(Date.now()-(120-i)*3000));
+
+/* Meldungen: nur was jemand vor der Box wissen und tun muss.
+   crit = Pilze nehmen bald Schaden · warn = bitte bald kümmern · info = Erinnerung
+   Jede Meldung hat genau einen Knopf:
+   - "auto": das Display erledigt es selbst (Frischluft geben, Phase umstellen)
+   - "hand": ihr macht es an der Box und bestätigt danach. Besteht das Problem weiter, kommt die Meldung nach einer Weile wieder. */
+const acked=new Map();
+const snoozed=id=>(acked.get(id)||0)>Date.now();
+function done(ids,fn,min){return ()=>{fn&&fn();[].concat(ids).forEach(i=>acked.set(i,Date.now()+min*60000));syncDemo();step(new Date());render();msg("Danke · erledigt")}}
+function burstStart(){if(!S.power)return;sim.burst=Date.now()+60000;step(new Date());render();msg("Frischluft für 60 Sekunden")}
+function setPhase(ph,txt){return ()=>{S.phase=ph;S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());render();msg(txt)}}
+function alerts(){
+  if(isApp()) return remoteAlerts();
+  if(!S.power) return [];
+  const T=tgt(), out=[], d=day();
+  const H=(label,run)=>({label,run,kind:"hand"}), A=(label,run,icon)=>({label,run,kind:"auto",icon});
+  if(demo.sensor) out.push({id:"sensor",sev:"crit",t:"Sensor ausgefallen",a:"Kabel im Technikraum prüfen, dann GEPRÜFT drücken.",do:H("Geprüft",done("sensor",()=>{demo.sensor=false},10))});
+  if(sim.tank<=0) out.push({id:"tank",sev:"crit",t:"Wasser leer",a:"Tank im Technikraum auffüllen, dann AUFGEFÜLLT drücken.",do:H("Aufgefüllt",refill)});
+  if(!demo.sensor){
+    const moved=done(["hot","warm"],()=>{demo.hot=false},20);
+    if(sim.t>T.t[1]+3) out.push({id:"hot",sev:"crit",t:"Viel zu warm",a:"Box an einen kühleren Platz stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",moved)});
+    else if(sim.t>T.t[1]) out.push({id:"warm",sev:"warn",t:"Zu warm",a:"Weg von Heizung und Sonne stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",moved)});
+    if(sim.t<T.t[0]) out.push({id:"cold",sev:"warn",t:"Zu kalt",a:"An einen wärmeren Platz stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",done("cold",null,30))});
+  }
+  if(demo.door) out.push({id:"door",sev:"warn",t:"Tür offen",a:"Tür und Deckel schließen, dann GESCHLOSSEN drücken.",do:H("Geschlossen",done("door",()=>{demo.door=false},5))});
+  if(!demo.sensor){
+    if(sim.rh<T.rh[0]-8&&sim.tank>0) out.push({id:"dry2",sev:"crit",t:"Viel zu trocken",a:"Tür, Deckel und Nebler prüfen, dann GEPRÜFT drücken.",do:H("Geprüft",done("dry2",null,10))});
+    else if(sim.rh<T.rh[0]&&!demo.door&&sim.tank>0) out.push({id:"dry",sev:"warn",t:"Zu trocken",a:"Der Nebler gleicht das aus. Kurz nachsehen, ob er dampft.",do:H("Gesehen",done("dry",null,15))});
+    if(sim.rh>T.rh[1]+2) out.push({id:"wet",sev:"warn",t:"Zu nass",a:"Frischluft trocknet die Kammer. Tropfen auf den Hüten vermeiden.",do:A("Frischluft 60 s",burstStart,"air")});
+    if(sim.co2>T.co2+150&&!sim.dev.luefter) out.push({id:"co2",sev:"warn",t:"Braucht Frischluft",a:"Sonst werden die Stiele lang und dünn.",do:A("Frischluft 60 s",burstStart,"air")});
+  }
+  if(sim.tank>0&&sim.tank<20) out.push({id:"tanklow",sev:"info",t:"Wasser bald leer",a:`Noch ${Math.round(sim.tank)} %. Nach dem Auffüllen AUFGEFÜLLT drücken.`,do:H("Aufgefüllt",refill)});
+  const hd=demo.harvest?Math.max(d,T.days):d;
+  if(S.phase==="frucht"&&hd>=T.days) out.push({id:"harvest",sev:"info",t:"Ernte prüfen",a:"Ernten, solange die Hutränder noch leicht gebogen sind. Danach GEERNTET drücken.",do:A("Geerntet",setPhase("ruhe","Ruhephase gestartet"),"harvest")});
+  if(S.phase==="kol"&&d>=T.days) out.push({id:"colonized",sev:"info",t:"Durchwachsen?",a:"Ist das Substrat ganz weiß, startet der Knopf die Fruchtung.",do:A("Fruchtung starten",setPhase("frucht","Fruchtung gestartet"),"play")});
+  if(S.phase==="ruhe"&&d>=T.days) out.push({id:"flush",sev:"info",t:"Nächste Welle",a:"Die Pause ist vorbei. Der Knopf startet die nächste Fruchtung.",do:A("Fruchtung starten",setPhase("frucht","Fruchtung gestartet"),"play")});
+  const rank={crit:0,warn:1,info:2};
+  return out.filter(x=>!snoozed(x.id)).sort((a,b)=>rank[a.sev]-rank[b.sev]);
+}
+const IC={
+  ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>',
+  crit:'<svg viewBox="0 0 24 24"><path d="M12 2.5L23 21H1z" fill="currentColor"/><path d="M12 9v5.5M12 17.5v.4" stroke="#1525c4" stroke-width="2.6" stroke-linecap="round"/></svg>',
+  warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3.5L22 20.5H2z"/><path d="M12 10v4.5M12 17.5v.4"/></svg>',
+  info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.3v.4"/></svg>',
+  temp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M10 14.2V5a2 2 0 0 1 4 0v9.2a4 4 0 1 1-4 0z"/></svg>',
+  air:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3"/></svg>',
+  tank:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>',
+  clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
+};
+const shroomSvg=c=>`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13a9 7 0 0 1 18 0z" fill="${c}"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5z" fill="#efe9dc"/></svg>`;
+
+/* Tank wurde von Hand aufgefüllt: Füllstand zurücksetzen, Nebler läuft wieder */
+function refill(){
+  sim.tank=100; demo.tank=false; syncDemo(); acked.delete("tank"); acked.delete("tanklow");
+  step(new Date()); render(); msg("Tank voll · Nebler läuft wieder");
+}
+const ACT_IC={
+  hand:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>',
+  air:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg>',
+  harvest:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 6 0 0 1 17 0z"/><path d="M10 12v6a2 2 0 0 0 4 0v-6"/></svg>',
+  play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg>',
+  link:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>'
+};
+const DROP_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9 14l2 2 4-4"/></svg>';
+let lastAlert="";
+function render(){
+  const d=new Date(), T=tgt(), list=alerts(), top=list[0], sev=top?.sev||"ok";
+  const off=isApp()&&(!remote||Date.now()-remote.at>180000);
+  $("#screen").classList.toggle("standby",!S.power&&!off);
+  $("#powerLbl").textContent=S.power?"Ein":"Standby";
+  const f=v=>Math.max(0,Math.min(1,(v-40)/60))*360, a=f(T.rh[0]), b=f(T.rh[1]), v=f(sim.rh);
+  const showVal=S.power&&!demo.sensor&&!off;
+  $("#arcBand").setAttribute("stroke-dasharray",`0 ${a} ${b-a} 360`);
+  $("#arcVal").setAttribute("stroke-dasharray",`${showVal?Math.max(1,v):0} 360`);
+  $("#knob").setAttribute("transform",`rotate(${v} 100 100)`);
+  $("#knob").style.display=showVal?"":"none";
+  $("#hum").innerHTML=showVal?`${Math.round(sim.rh)}<small>%</small>`:"––";
+  // Pilz-Gesicht: froh (ok/info), besorgt (warn), gestresst (crit)
+  const sh=$("#shroom");
+  $("#cap").setAttribute("fill",SPECIES[S.species].cap);
+  $("#mouth").setAttribute("d",!S.power||off?"M46 80h8":sev==="crit"?"M44 83q6 -7 12 0":sev==="warn"?"M45 81q5 -3 10 0":"M45 79q5 5 10 0");
+  $("#brows").setAttribute("opacity",sev==="crit"||sev==="warn"?1:0);
+  sh.classList.toggle("crit",sev==="crit");
+  sh.classList.toggle("misting",sim.dev.nebel);
+  sh.classList.toggle("airing",sim.dev.luefter);
+  // Wichtigste Meldung
+  const offMin=remote?Math.floor((Date.now()-remote.at)/60000):-1;
+  const key=off?"off"+offMin:!S.power?"sb":top?top.id+top.a:"ok";
+  if(key!==lastAlert){lastAlert=key;const el=$("#alert");
+    if(off){el.className="alert warn";el.innerHTML=`<span class="t">${IC.warn}${remote?"Box offline":"Nicht verbunden"}</span><span class="a">${remote?`Seit ${offMin} Min. keine Daten. Ist das Display an der Box an?`:"Gib den Code der Box ein, dann siehst du hier alles live."}</span>`}
+    else if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Standby</span><span class="a">EIN drücken zum Starten</span>`}
+    else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a">${PHASES[S.phase]} · Tag ${day()}</span>`}
+    else{el.className="alert "+top.sev;el.innerHTML=`<span class="t">${IC[top.sev]}${esc(top.t)}</span><span class="a">${esc(top.a)}</span>`}
+  }
+  const ab=$("#actBtn"), act=off?{label:"Verbinden",kind:"auto",icon:"link",run:connectPanel}:S.power&&top?.do;
+  ab.hidden=!act; $("#home").classList.toggle("hasact",!!act);
+  if(act){ const html=`${act.kind==="auto"?ACT_IC[act.icon]:act.label==="Aufgefüllt"?DROP_IC:ACT_IC.hand}${act.label}`; if(ab.innerHTML!==html) ab.innerHTML=html; ab.className="act"+(top.sev==="info"?" info":""); ab.onclick=act.run; }
+  const c=$("#count"), worstN=list.filter(x=>x.sev!=="info").length;
+  c.hidden=!list.length; c.textContent=list.length; c.classList.toggle("info",!worstN);
+  $("#kAlerts").setAttribute("aria-label",`Meldungen anzeigen, ${list.length} offen`);
+  const tOff=showVal&&(sim.t<T.t[0]||sim.t>T.t[1]), cOff=showVal&&sim.co2>T.co2, wOff=sim.tank<20;
+  $("#mini").innerHTML=`<span class="${tOff?"off":""}">${IC.temp}${showVal?sim.t.toFixed(1).replace(".",","):"–"}°</span><span class="${cOff?"off":""}">${IC.air}${showVal?Math.round(sim.co2/10)*10:"–"}</span><span class="${wOff?"off":""}">${IC.tank}${Math.round(sim.tank)}%</span>`;
+  $("#linkTxt").textContent=isApp()?(off?(remote?"Offline":"Verbinden"):"Live"):"Handy";
+  $("#linkChip").classList.toggle("on",isApp()?!off:!!appSeen);
+  $("#topClock").textContent=`${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  $("#topCulture").innerHTML=`${esc(SPECIES[S.species].name)} · <b>${PHASES[S.phase]}</b>`;
+  const left=Math.max(0,sim.burst-Date.now());
+  $("#kAir").classList.toggle("busy",left>0);
+  $("#airLbl").textContent=left>0?`${Math.ceil(left/1000)} s`:"Frischluft";
+  $("#plateSub").textContent=`${SPECIES[S.species].name} · ${PHASES[S.phase]}`;
+  if(open==="alerts") alertPanel(true);
+}
+
+let msgT;
+function msg(t){clearTimeout(msgT);$("#msgHost").innerHTML=`<div class="msg" role="status">${esc(t)}</div>`;msgT=setTimeout(()=>$("#msgHost").innerHTML="",2200)}
+
+let open=null, panelKey="";
+function closePanel(){open=null;panelKey="";$("#panelHost").innerHTML=""}
+function panel(name,title,html,bind){
+  open=name;
+  $("#panelHost").innerHTML=`<div class="panel" role="dialog" aria-label="${title}"><h2>${title}<button class="back" data-back>‹ Zurück</button></h2>${html}</div>`;
+  const p=$("#panelHost .panel"); p.querySelector("[data-back]").onclick=closePanel; bind&&bind(p);
+}
+function alertPanel(refresh){
+  const list=alerts(), k=list.map(x=>x.id+x.a).join("|");
+  if(refresh&&k===panelKey) return; panelKey=k;
+  panel("alerts","Meldungen",list.length?`<div class="list">${list.map(x=>`<div class="item ${x.sev}">${IC[x.sev]}<div><b>${esc(x.t)}</b><span>${esc(x.a)}</span></div><button class="do" data-do="${esc(x.id)}">${esc(x.do.label)}</button></div>`).join("")}</div>`
+    :`<div class="none">${IC.ok}<b>Keine Meldungen</b><p>Klima, Wasser und Sensoren sind in Ordnung.</p></div>`,p=>{
+    p.querySelectorAll("[data-do]").forEach(b=>b.onclick=()=>{const it=list.find(x=>x.id===b.dataset.do);it?.do.run();panelKey="";alertPanel()});
+  });
+}
+function setPanel(){
+  panel("set","Was wächst?",`
+    <div class="grid g2" role="radiogroup" aria-label="Pilzsorte">${Object.entries(SPECIES).filter(([k])=>k!=="custom").map(([k,s])=>`<button class="opt" role="radio" data-sp="${k}" aria-checked="${k===S.species}">${shroomSvg(s.cap)}${s.name}</button>`).join("")}
+      <button class="opt wide" role="radio" data-custom aria-checked="${S.species==="custom"}">${S.custom?shroomSvg("#cdb79e")+esc(SPECIES.custom.name)+'<span style="font-weight:600;opacity:.75">· ändern</span>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Eigene Sorte eingeben'}</button></div>
+    <div class="lbl">Phase</div>
+    <div class="grid g3" role="radiogroup" aria-label="Phase">${Object.entries(PHASES).map(([k,n])=>`<button class="opt" role="radio" data-ph="${k}" aria-checked="${k===S.phase}">${n}</button>`).join("")}</div>
+    <button class="bigbtn" data-done>Fertig</button>`,p=>{
+      p.querySelectorAll("[data-sp]").forEach(b=>b.onclick=()=>{if(isApp()){send("species",b.dataset.sp);return}S.species=b.dataset.sp;save();setPanel();render()});
+      p.querySelector("[data-custom]").onclick=customPanel;
+      p.querySelectorAll("[data-ph]").forEach(b=>b.onclick=()=>{if(isApp()){send("phase",b.dataset.ph);return}if(S.phase!==b.dataset.ph){S.phase=b.dataset.ph;S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date())}setPanel();render()});
+      p.querySelector("[data-done]").onclick=()=>{closePanel();msg(`${SPECIES[S.species].name} · ${PHASES[S.phase]}`)};
+  });
+}
+
+function customPanel(){
+  const d=S.custom?structuredClone(S.custom):{name:"",t:[18,24],rh:[85,95],co2:1000};
+  const ROWS=[["t0","Temperatur von","°C",1],["t1","Temperatur bis","°C",1],["r0","Feuchte von","%",1],["r1","Feuchte bis","%",1],["c","CO₂ höchstens","ppm",100]];
+  const get=k=>k==="t0"?d.t[0]:k==="t1"?d.t[1]:k==="r0"?d.rh[0]:k==="r1"?d.rh[1]:d.co2;
+  function set(k,v){
+    if(k==="t0")d.t[0]=Math.min(Math.max(8,v),d.t[1]-1); if(k==="t1")d.t[1]=Math.max(Math.min(32,v),d.t[0]+1);
+    if(k==="r0")d.rh[0]=Math.min(Math.max(50,v),d.rh[1]-2); if(k==="r1")d.rh[1]=Math.max(Math.min(99,v),d.rh[0]+2);
+    if(k==="c")d.co2=Math.max(400,Math.min(3000,v));
+  }
+  panel("custom","Eigene Sorte",`
+    <label class="lbl" for="cName">Name</label>
+    <input class="field" id="cName" maxlength="20" autocomplete="off" placeholder="z. B. Limonenseitling" value="${esc(d.name)}">
+    <div class="lbl">Zielwerte beim Fruchten</div>
+    <div class="stps">${ROWS.map(([k,l,u,st])=>`<div class="stp"><b>${l}</b><button data-k="${k}" data-v="-${st}" aria-label="${l} weniger">−</button><output id="o-${k}">${get(k)} ${u}</output><button data-k="${k}" data-v="${st}" aria-label="${l} mehr">+</button></div>`).join("")}</div>
+    <div class="btnrow">${S.custom?'<button class="bigbtn out" data-del>Löschen</button>':""}<button class="bigbtn" data-save>Speichern</button></div>`,p=>{
+      const name=p.querySelector("#cName");
+      p.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>{const k=b.dataset.k;set(k,get(k)+ +b.dataset.v);
+        ROWS.forEach(([k2,,u])=>p.querySelector("#o-"+k2).textContent=`${get(k2)} ${u}`)});
+      p.querySelector("[data-save]").onclick=()=>{
+        d.name=name.value.trim(); if(!d.name){name.focus();msg("Bitte einen Namen eingeben");return}
+        if(isApp()){send("custom",d);setPanel();return}
+        S.custom=d;S.species="custom";applyCustom();acked.clear();save();step(new Date());render();setPanel();msg(`${d.name} gespeichert`)};
+      const del=p.querySelector("[data-del]"); if(del) del.onclick=()=>{if(isApp()){send("custom",null);setPanel();return}S.custom=null;applyCustom();save();render();setPanel();msg("Eigene Sorte gelöscht")};
+      if(!S.custom) name.focus();
+  });
+}
+
+/* Tasten */
+$("#kPower").onclick=()=>{if(isApp()){send("power");return}S.power=!S.power;save();closePanel();step(new Date());render();msg(S.power?"Box läuft":"Standby: alles aus")};
+$("#kAir").onclick=()=>{if(isApp()){send("burst");return}if(!S.power){msg("Standby · erst EIN drücken");return}
+  if(sim.burst>Date.now()){sim.burst=0;msg("Frischluft gestoppt")}else{sim.burst=Date.now()+60000;msg("Frischluft für 60 Sekunden")}step(new Date());render()};
+$("#kAlerts").onclick=()=>open==="alerts"?closePanel():alertPanel();
+$("#alert").onclick=()=>{if(S.power)alertPanel()};
+$("#kSet").onclick=()=>open==="set"?closePanel():setPanel();
+
+/* Demo-Leiste */
+function syncDemo(){document.querySelectorAll("[data-d]").forEach(b=>b.setAttribute("aria-pressed",demo[b.dataset.d]))}
+function toggleDemo(k){
+  demo[k]=!demo[k];
+  if(k==="tank"&&!demo.tank) sim.tank=100;
+  if(k==="harvest"){acked.delete("harvest"); if(demo.harvest&&S.phase!=="frucht"){S.phase="frucht";S.phaseStart=Date.now();save()}}
+  if(k==="hot"&&demo.hot) for(let i=0;i<25;i++) step(new Date());
+  if(k==="door"&&demo.door) for(let i=0;i<4;i++) step(new Date());
+  if(k==="hot"&&!demo.hot) sim.t=22;
+  syncDemo(); step(new Date()); render();
+}
+const DEMOS=[...document.querySelectorAll("#demo button")].map(b=>[b.dataset.d,b.textContent]);
+document.querySelectorAll("#demo button").forEach(b=>b.onclick=()=>toggleDemo(b.dataset.d));
+function demoPanel(){
+  panel("demo","Demo",`<p>Löst eine Situation aus, damit du siehst, wie das Display reagiert. Nochmal tippen beendet sie.</p>
+    <div class="list">${DEMOS.map(([k,l])=>`<button class="opt" role="switch" data-d="${k}" aria-pressed="${demo[k]}" aria-checked="${demo[k]}">${l}</button>`).join("")}</div>`,p=>{
+    p.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{toggleDemo(b.dataset.d);b.setAttribute("aria-checked",demo[b.dataset.d])});
+  });
+}
+$("#demoChip").onclick=()=>open==="demo"?closePanel():demoPanel();
+
+/* ---------- Verbindung Box und Handy-App ----------
+   Die Box schreibt ihren Stand nach boxes/<Code>, die App liest ihn live.
+   Die App schreibt Befehle nach boxes/<Code>/cmd/last, die Box führt sie aus. */
+function remoteAlerts(){
+  if(!remote||!S.power) return [];
+  return remote.alerts.filter(x=>x&&typeof x.id==="string").slice(0,20).map(x=>({id:x.id,
+    sev:["crit","warn","info"].includes(x.sev)?x.sev:"info",t:String(x.t||"").slice(0,80),a:String(x.a||"").slice(0,200),
+    do:{label:String(x.label||"OK").slice(0,30),kind:x.kind==="auto"?"auto":"hand",icon:ACT_IC[x.icon]?x.icon:"play",run:()=>send("do",x.id)}}));
+}
+let sending=false;
+async function send(type,arg){
+  if(!db||!appCode){connectPanel();return}
+  if(!remote||Date.now()-remote.at>180000){msg("Box ist offline");return}
+  if(sending) return; sending=true;
+  const id=Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+  try{await db.doc("boxes/"+appCode+"/cmd/last").set({id,type,arg:arg??null,at:Date.now()});msg("An die Box gesendet")}
+  catch(e){msg("Senden hat nicht geklappt")}
+  sending=false;
+}
+function applyCmd(c){
+  if(!c||typeof c.id!=="string"||c.id===S.lastCmd) return;
+  S.lastCmd=c.id; save();
+  if(!Number.isFinite(c.at)||Math.abs(Date.now()-c.at)>120000) return;
+  const a=c.arg;
+  if(c.type==="power"){S.power=!S.power;save();closePanel()}
+  else if(c.type==="burst"){if(!S.power)return;sim.burst=sim.burst>Date.now()?0:Date.now()+60000}
+  else if(c.type==="do"){const it=alerts().find(x=>x.id===a);if(!it)return;it.do.run()}
+  else if(c.type==="species"){if(typeof a!=="string"||!SPECIES[a])return;S.species=a;save()}
+  else if(c.type==="phase"){if(typeof a!=="string"||!PHASES[a]||a===S.phase)return;S.phase=a;S.phaseStart=Date.now();acked.clear();save()}
+  else if(c.type==="custom"){
+    if(a===null){S.custom=null}
+    else if(validCustom(a)){S.custom={name:a.name.trim().slice(0,20)||"Eigene Sorte",t:[+a.t[0],+a.t[1]],rh:[+a.rh[0],+a.rh[1]],co2:+a.co2};S.species="custom";acked.clear()}
+    else return;
+    applyCustom();save();
+  }
+  else return;
+  msg("Befehl vom Handy ausgeführt");
+  step(new Date());render();if(open==="set")setPanel();
+}
+function payload(){
+  return {power:!!S.power,species:S.species,phase:S.phase,phaseStart:S.phaseStart,custom:S.custom||null,
+    t:Math.round(sim.t*10)/10,rh:Math.round(sim.rh),co2:Math.round(sim.co2/10)*10,tank:Math.round(sim.tank),
+    dev:{licht:!!sim.dev.licht,luefter:!!sim.dev.luefter,nebel:!!sim.dev.nebel},burst:sim.burst>Date.now()?sim.burst:0,sensor:!demo.sensor,
+    alerts:alerts().map(x=>({id:x.id,sev:x.sev,t:x.t,a:x.a,label:x.do.label,kind:x.do.kind,icon:x.do.icon||null}))};
+}
+let lastPush=0,lastJs="",lastImp="",pushing=false;
+async function maybePush(){
+  if(!db||isApp()||pushing) return;
+  const p=payload(), js=JSON.stringify(p), now=Date.now();
+  const imp=JSON.stringify([p.power,p.species,p.phase,p.phaseStart,p.custom,p.dev,p.burst,p.sensor,p.alerts.map(x=>x.id)]);
+  if(!(imp!==lastImp||(js!==lastJs&&now-lastPush>15000)||now-lastPush>60000)) return;
+  pushing=true; lastImp=imp; lastJs=js; lastPush=now;
+  try{await db.doc("boxes/"+S.code).set({...p,v:1,at:now})}catch(e){}
+  pushing=false;
+}
+function connectApp(code){
+  unsub?.(); unsub=null; remote=null; appCode=code;
+  try{code?localStorage.setItem("funghilab-app-code",code):localStorage.removeItem("funghilab-app-code")}catch(e){}
+  render();
+  if(!db||!code) return;
+  unsub=db.doc("boxes/"+code).onSnapshot(s=>{
+    if(!s.exists){remote=null;render();return}
+    const d=s.data()||{}, n=(v,f)=>Number.isFinite(v)?v:f;
+    remote={at:n(d.at,0),alerts:Array.isArray(d.alerts)?d.alerts:[]};
+    S.power=!!d.power;
+    S.custom=validCustom(d.custom)?{name:String(d.custom.name).slice(0,20),t:[+d.custom.t[0],+d.custom.t[1]],rh:[+d.custom.rh[0],+d.custom.rh[1]],co2:+d.custom.co2}:null;
+    applyCustom();
+    if(typeof d.species==="string"&&SPECIES[d.species]) S.species=d.species;
+    if(typeof d.phase==="string"&&PHASES[d.phase]) S.phase=d.phase;
+    S.phaseStart=n(d.phaseStart,S.phaseStart);
+    sim.t=n(d.t,sim.t);sim.rh=n(d.rh,sim.rh);sim.co2=n(d.co2,sim.co2);sim.tank=n(d.tank,sim.tank);sim.burst=n(d.burst,0);
+    sim.dev={licht:!!d.dev?.licht,luefter:!!d.dev?.luefter,nebel:!!d.dev?.nebel};
+    demo.sensor=d.sensor===false;
+    lastAlert="";render();if(open==="set")setPanel();
+  },()=>{remote=null;render()});
+  db.doc("boxes/"+code+"/app/seen").set({at:Date.now()}).catch(()=>{});
+}
+const ago=t=>{const m=Math.round((Date.now()-t)/60000);return m<1?"gerade eben":m<60?`vor ${m} Min.`:`vor ${Math.round(m/60)} Std.`};
+const roleLink=()=>`<button class="rolebtn" data-role>Dieses Gerät ist ${isApp()?"die Handy-App":"das Display an der Box"} · ändern</button>`;
+function bindRole(p){p.querySelector("[data-role]")?.addEventListener("click",()=>rolePanel())}
+function connectPanel(){
+  if(!db){panel("link",isApp()?"Mit Box verbinden":"Handy verbinden",`<p>Die Verbindung braucht eine Anmeldung bei Claude. In dieser Ansicht ist sie nicht verfügbar.</p>${roleLink()}`,bindRole);return}
+  if(!isApp()){
+    panel("link","Handy verbinden",`
+      <ol class="steps"><li>Diese Seite auf dem Handy öffnen (Link über Teilen schicken).</li><li><b>Handy-App</b> wählen.</li><li>Diesen Code eingeben:</li></ol>
+      <div class="code" aria-label="Code ${S.code.split("").join(" ")}">${S.code}</div>
+      <p>${appSeen?`Zuletzt verbunden: ${ago(appSeen)}`:"Noch kein Handy verbunden."}</p>
+      ${roleLink()}`,bindRole);
+    return;
+  }
+  panel("link","Mit Box verbinden",`
+    <label class="lbl" for="codeIn">Code vom Display der Box</label>
+    <input class="field code-in" id="codeIn" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" placeholder="0000" value="${esc(appCode||"")}">
+    <p id="linkState">${remote?`Verbunden mit Box ${esc(appCode)}. Werte kommen live.`:appCode?"Keine Box mit diesem Code gefunden. Ist das Display an?":"Den Code zeigt das Display der Box unter HANDY."}</p>
+    <div class="btnrow">${appCode?'<button class="bigbtn out" data-unlink>Trennen</button>':""}<button class="bigbtn" data-link>Verbinden</button></div>
+    ${roleLink()}`,p=>{
+      bindRole(p);
+      const inp=p.querySelector("#codeIn");
+      inp.addEventListener("input",()=>{inp.value=inp.value.replace(/\D/g,"").slice(0,4)});
+      p.querySelector("[data-link]").onclick=()=>{
+        if(!/^\d{4}$/.test(inp.value)){msg("Bitte 4 Ziffern eingeben");inp.focus();return}
+        connectApp(inp.value);msg("Verbinde …");
+        setTimeout(()=>{if(open==="link")connectPanel()},2500);
+      };
+      const un=p.querySelector("[data-unlink]"); if(un) un.onclick=()=>{connectApp(null);connectPanel();msg("Getrennt")};
+      if(!appCode) inp.focus();
+  });
+}
+function rolePanel(){
+  panel("role","Was ist dieses Gerät?",`
+    <div class="list">
+      <button class="opt" data-pick="box" aria-checked="${ROLE==="box"}" role="radio"><div style="display:flex;flex-direction:column;gap:1cqw"><span>Display an der Box</span><span style="font-weight:500;font-size:.8em;opacity:.8">Steckt im Technikraum und regelt Licht, Nebel und Lüftung.</span></div></button>
+      <button class="opt" data-pick="app" aria-checked="${ROLE==="app"}" role="radio"><div style="display:flex;flex-direction:column;gap:1cqw"><span>Handy-App</span><span style="font-weight:500;font-size:.8em;opacity:.8">Zeigt die Box live und steuert sie von überall.</span></div></button>
+    </div>`,p=>{
+      p.querySelectorAll("[data-pick]").forEach(b=>b.onclick=()=>{
+        try{localStorage.setItem("funghilab-role",b.dataset.pick)}catch(e){}
+        location.reload();
+      });
+      if(!ROLE) p.querySelector("[data-back]").hidden=true;
+  });
+}
+$("#linkChip").onclick=()=>open==="link"?closePanel():connectPanel();
+$("#demoChip").hidden=isApp();
+(async()=>{
+  try{db=window.claude?.use?await window.claude.use("db"):null}catch(e){db=null}
+  if(!db){render();return}
+  if(isApp()){if(appCode)connectApp(appCode);return}
+  db.doc("boxes/"+S.code+"/cmd/last").onSnapshot(s=>{if(s.exists)applyCmd(s.data())},()=>{});
+  db.doc("boxes/"+S.code+"/app/seen").onSnapshot(s=>{const v=s.exists?s.data()?.at:null;appSeen=Number.isFinite(v)?v:null;if(open==="link")connectPanel();render()},()=>{});
+  maybePush();
+})();
+
+/* Bildschirm anlassen, solange das Display offen ist (wenn das Gerät es erlaubt) */
+let lock=null;
+async function keepAwake(){try{if(!lock&&navigator.wakeLock&&document.visibilityState==="visible"){lock=await navigator.wakeLock.request("screen");lock.addEventListener("release",()=>{lock=null})}}catch(e){}}
+document.addEventListener("pointerdown",keepAwake);
+document.addEventListener("visibilitychange",keepAwake);
+
+render();
+if(!ROLE) rolePanel();
+setInterval(()=>{render();maybePush()},1000);
+setInterval(()=>step(new Date()),3000);
+})();
+</script>
+
+</body></html>

@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bedienfeld auf iPhone 13 mini</title>
 <style>
-  :root { --bg: #e9ebe6; --fg: #2a2c28; --muted: #62665e; }
+  :root { --bg: #e9ebe6; --fg: #2a2c28; --muted: #62665e; --sheet: #0c1585; }
   body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--fg);
          font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
          display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px 16px; box-sizing: border-box; }
   h1 { font-size: 18px; margin: 0; font-weight: 600; }
-  p { margin: 0; color: var(--muted); text-align: center; max-width: 620px; }
+  p { margin: 0; color: var(--muted); text-align: center; max-width: 640px; }
   a { color: inherit; }
   .modes { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
   .modes button { font: inherit; padding: 8px 14px; border-radius: 999px; border: 1px solid #b9bdb4; background: #fff; color: var(--fg); cursor: pointer; }
@@ -24,16 +24,31 @@
   .phone { padding: 12px; border-radius: 54px; background: #0b0b0c; box-shadow: 0 0 0 2px #3a3b3e, 0 20px 50px rgba(0,0,0,.25); }
   .screen { position: relative; width: 375px; height: 812px; border-radius: 44px; overflow: hidden; background: #000; }
   iframe { position: absolute; left: 0; width: 375px; border: 0; display: block; background: #fff; }
-  .status { position: absolute; top: 0; left: 0; right: 0; height: 50px; display: flex; align-items: center; justify-content: space-between;
-            padding: 6px 30px 0 34px; box-sizing: border-box; font-weight: 600; font-size: 15px; color: #000; background: #f2f2f7; }
-  .status .r { display: flex; gap: 6px; align-items: center; font-size: 12px; }
-  .bat { width: 24px; height: 11px; border: 1.5px solid #000; border-radius: 3px; position: relative; }
-  .bat::after { content: ""; position: absolute; inset: 1.5px; right: 5px; background: #000; border-radius: 1px; }
-  .notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 156px; height: 32px; background: #0b0b0c; border-radius: 0 0 20px 20px; }
+  .notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 156px; height: 32px; background: #0b0b0c; border-radius: 0 0 20px 20px; z-index: 3; }
+  .home { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 134px; height: 5px; border-radius: 3px; background: #000; z-index: 3; }
+
+  /* Statusleiste: hell (Safari) oder schwarz (claude.ai-Ansicht) */
+  .status { position: absolute; top: 0; left: 0; right: 0; height: 51px; display: flex; align-items: center; justify-content: space-between;
+            padding: 8px 26px 0 30px; box-sizing: border-box; font-weight: 600; font-size: 16px; color: #000; background: #f2f2f7; z-index: 2; }
+  .status .l { display: flex; flex-direction: column; line-height: 1.1; }
+  .status .l small { font-size: 11px; font-weight: 500; }
+  .status .r { display: flex; gap: 6px; align-items: center; font-size: 13px; }
+  .bat { width: 25px; height: 12px; border: 1.5px solid currentColor; border-radius: 3.5px; position: relative; }
+  .bat::after { content: ""; position: absolute; inset: 1.5px; right: 6px; background: currentColor; border-radius: 1px; }
+  .claude .status { background: #000; color: #fff; }
+
+  /* Safari: Adressleiste unten */
   .safari { position: absolute; left: 0; right: 0; bottom: 0; height: 98px; background: #f2f2f7; border-top: 1px solid #d1d1d6; }
   .safari .bar { margin: 8px 14px 0; height: 40px; border-radius: 12px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.12);
                  display: flex; align-items: center; justify-content: center; font-size: 14px; color: #000; }
-  .home { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 134px; height: 5px; border-radius: 3px; background: #000; }
+
+  /* claude.ai-Ansicht (Link aus WhatsApp o. Ä.): Blatt mit runden Ecken, Kopf mit ✕ und ⋯, unten Sicherheitsabstand */
+  .sheet { position: absolute; top: 51px; left: 0; right: 0; height: 69px; background: var(--sheet); border-radius: 26px 26px 0 0;
+           display: flex; align-items: center; justify-content: space-between; padding: 0 16px; box-sizing: border-box; z-index: 1; }
+  .sheet span { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.14); box-shadow: 0 0 0 1px rgba(255,255,255,.1) inset;
+                display: grid; place-items: center; color: #fff; font-size: 20px; line-height: 1; }
+  .sheet-bottom { position: absolute; left: 0; right: 0; bottom: 0; height: 34px; background: #08106c; }
+  .claude .home { background: rgba(255,255,255,.75); }
   .full .home { background: rgba(255,255,255,.6); }
   [hidden] { display: none !important; }
 </style>
@@ -41,7 +56,8 @@
 <body>
   <h1>Bedienfeld auf dem iPhone 13 mini</h1>
   <div class="modes" role="group" aria-label="Ansicht">
-    <button type="button" data-mode="safari" aria-pressed="true">Link in Safari öffnen</button>
+    <button type="button" data-mode="claude" aria-pressed="true">claude.ai-Link (wie auf dem iPhone)</button>
+    <button type="button" data-mode="safari" aria-pressed="false">In Safari</button>
     <button type="button" data-mode="full" aria-pressed="false">Vollbild in der Box</button>
   </div>
   <p id="hint"></p>
@@ -51,23 +67,26 @@
       <div class="phone"><div class="screen" data-src="index.html"></div></div>
     </figure>
     <figure>
-      <figcaption>Ursprung claude.ai (v2)<small>Kopie in verlauf/v2-panel/ · <a href="https://claude.ai/artifact/EGmf5bvFTK16eYGfKWVkPE" target="_blank" rel="noopener">Original-Link</a></small></figcaption>
-      <div class="phone"><div class="screen" data-src="verlauf/v2-panel/index.html"></div></div>
+      <figcaption>Ursprung claude.ai (Live-Stand)<small>Kopie in verlauf/claude-ai-live/ · <a href="https://claude.ai/artifact/EGmf5bvFTK16eYGfKWVkPE" target="_blank" rel="noopener">Original-Link</a></small></figcaption>
+      <div class="phone"><div class="screen" data-src="verlauf/claude-ai-live/index.html"></div></div>
     </figure>
   </div>
   <script>
-    // Maße in Punkten (ca.): Statusleiste 50, Safari-Leiste unten 98, Sicherheitsabstand im Vollbild oben 50 / unten 34
+    // Maße in Punkten, aus einem Screenshot vom iPhone 13 mini (375 × 812) abgemessen bzw. ca.
     const MODES = {
-      safari: { top: 50, bottom: 98, bars: true,
-                hint: "So sieht es aus, wenn du den Link auf dem iPhone in Safari öffnest: sichtbarer Bereich ca. 375 × 664." },
-      full:   { top: 50, bottom: 34, bars: false,
-                hint: "Vollbild ohne Safari-Leisten (Web-App bzw. Geführter Zugriff), so wie es in der Box hängen soll: ca. 375 × 728." },
+      claude: { top: 120, bottom: 34, hint: "So sieht es aus, wenn du den claude.ai-Link auf dem iPhone öffnest (z. B. aus WhatsApp): Seite ca. 375 × 658 unter dem claude.ai-Kopf." },
+      safari: { top: 51,  bottom: 98, hint: "Im normalen Safari-Tab: sichtbarer Bereich ca. 375 × 663." },
+      full:   { top: 51,  bottom: 34, hint: "Vollbild ohne Leisten (Web-App bzw. Geführter Zugriff), so wie es in der Box hängen soll: ca. 375 × 727." },
     };
+    // Das Original fragt beim ersten Start, ob es Box-Display oder Handy-App ist: für den Vergleich wie auf dem Handy „Box“
+    try { if (!localStorage.getItem("funghilab-role")) localStorage.setItem("funghilab-role", "box"); } catch (e) {}
     const screens = [...document.querySelectorAll(".screen")];
     for (const sc of screens) {
       sc.innerHTML = `<iframe title="Bedienfeld"></iframe>
-        <div class="status"><span>11:45</span><span class="r">5G <span class="bat"></span></span></div>
+        <div class="status"><span class="l">12:15<small>◀ WhatsApp</small></span><span class="r">LTE <span class="bat"></span></span></div>
         <div class="notch"></div>
+        <div class="sheet"><span aria-hidden="true">✕</span><span aria-hidden="true">⋯</span></div>
+        <div class="sheet-bottom"></div>
         <div class="safari"><div class="bar">🔒 claude.ai</div></div>
         <div class="home"></div>`;
       sc.querySelector("iframe").src = sc.dataset.src + "?v=" + Date.now();  // immer den aktuellen Stand laden, nicht den Cache
@@ -78,15 +97,19 @@
         const f = sc.querySelector("iframe");
         f.style.top = m.top + "px";
         f.style.height = (812 - m.top - m.bottom) + "px";
-        sc.querySelector(".status").hidden = !m.bars;
-        sc.querySelector(".safari").hidden = !m.bars;
-        sc.classList.toggle("full", !m.bars);
+        sc.querySelector(".status").hidden = mode === "full";
+        sc.querySelector(".status small").hidden = mode !== "claude";
+        sc.querySelector(".sheet").hidden = mode !== "claude";
+        sc.querySelector(".sheet-bottom").hidden = mode !== "claude";
+        sc.querySelector(".safari").hidden = mode !== "safari";
+        sc.classList.toggle("claude", mode === "claude");
+        sc.classList.toggle("full", mode === "full");
       }
       document.getElementById("hint").textContent = m.hint;
       document.querySelectorAll(".modes button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
     }
     document.querySelectorAll(".modes button").forEach(b => b.addEventListener("click", () => show(b.dataset.mode)));
-    show("safari");
+    show("claude");
   </script>
 </body>
 </html>
