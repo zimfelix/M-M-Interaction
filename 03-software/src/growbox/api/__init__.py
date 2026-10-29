@@ -1,4 +1,4 @@
-"""Web-Schnittstelle für Display, App und Demo-Panel (Details: 03-software/API.md)."""
+"""Web-Schnittstelle für Display, App und Demo-Panel."""
 
 from .routes import build_router
 from .websocket import LiveClients

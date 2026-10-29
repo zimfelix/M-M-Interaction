@@ -8,8 +8,7 @@ Läuft auf dem Raspberry Pi (am Laptop ohne Hardware testbar). Der Pi hält den 
 
 ```text
 03-software/
-├── pyproject.toml        Dependencies + Test-Einstellungen
-├── API.md                Schnittstelle für die App
+├── pyproject.toml        Dependencies
 ├── src/growbox/
 │   ├── main.py           setzt alles zusammen (create_app)
 │   ├── config.py         Pins, Takt, MM_HARDWARE
@@ -18,7 +17,6 @@ Läuft auf dem Raspberry Pi (am Laptop ohne Hardware testbar). Der Pi hält den 
 │   ├── simulation/       scenarios.py (Vorführ-Szenarien), simulator.py (Messwerte)
 │   ├── api/              routes.py (HTTP), websocket.py (Live-Updates), schemas.py
 │   └── web/              display/ (iPhone-Oberfläche), demo/ (Vorführ-Panel)
-└── tests/                unit/ (Kern, Hardware) · api/ (Schnittstelle)
 ```
 
 ```text
@@ -35,14 +33,13 @@ Messwerte ───► simulation/ ┘   (bewertet mit   └─► hardware/ ─
 ```bash
 cd 03-software
 python3 -m venv .venv
-.venv/bin/pip install -e ".[dev]"
+.venv/bin/pip install -e .
 .venv/bin/uvicorn growbox.main:app --port 8000
 ```
 
 - Display: http://127.0.0.1:8000/ (am Laptop als Handy-Rahmen im Hochformat)
 - Vorführ-Panel: http://127.0.0.1:8000/demo/
 - API-Doku für die App: http://127.0.0.1:8000/docs
-- Tests: `.venv/bin/python -m pytest -q`
 
 Ohne Raspberry Pi werden Taster und LED automatisch simuliert (`MM_HARDWARE=sim` erzwingt das auch auf dem Pi); Feuchte und Temperatur sind im Prototyp immer simuliert. Auf dem Pi bringt Raspberry Pi OS `gpiozero` bereits mit.
 

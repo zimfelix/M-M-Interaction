@@ -13,18 +13,8 @@ dependencies = [
 ]
 # gpiozero bringt Raspberry Pi OS mit; ohne gpiozero wird die Hardware simuliert.
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=8",
-    "httpx>=0.27",
-]
-
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
 growbox = ["web/**/*"]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-addopts = "--import-mode=importlib"
