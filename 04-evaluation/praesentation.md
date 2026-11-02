@@ -49,6 +49,23 @@ Abstimmen mit dem App-Teammitglied: Was davon kann die App am 05.11.?
 | B3 | „1 Min lüften“ in der App → an der Box „läuft noch 60 s (vom Handy)“ | Flexibilität für Fortgeschrittene, Box bleibt einfach | 57–58, 60 |
 | B4 | Eigene Sorte anlegen → an der Box unter SORTEN | Autonomie, Achiever/Free Spirit | 140, G 14 |
 
+## Kurzfassung 3:00 (nur Ingrid)
+
+Für den Fall, dass nur 3 Minuten bleiben, oder als einzelner Durchlauf am Bedienfeld. Eine Person (Ingrid, 72, Lesebrille, zitternde Hände), ein Live-Durchlauf; Typ B kommt nur im Schlusssatz vor. Live-Szenario: Zahnrad → Admin-Modus → **„Mensch ist dran“**.
+
+| Zeit | Was live passiert | Was wir sagen | Folie |
+|---|---|---|---|
+| 0:00–0:20 | Folie 8 neben der Box | „Unsere Box sieht aus wie eine Mikrowelle, deshalb hat sie wenige, eindeutige Bedienelemente. Nutzerin: Ingrid, 72. Die Box regelt selbst, Ingrid macht nur drei Dinge: Wasser, Licht, Ernte.“ | 8 |
+| 0:20–0:50 | Startbild „Alles gut“, Ring „3 Tage bis zur Ernte“ | „Ein Blick genügt: Form, Farbe und Text sagen dasselbe, auch bei Rot-Grün-Schwäche. Der Ring zeigt den Fortschritt bis zur Ernte.“ | 26, 23, 16–17, G 10 |
+| 0:50–1:40 | Szenario: Warnpunkt **blinkt** → „Wasser leer“ mit Handlung → auf das **Sichtfenster** zeigen → **AUFGEFÜLLT** → „Tank voll · Nebler läuft wieder“, Verlauf grün | „Blinken sieht man auch aus 3 m Entfernung. Die Meldung sagt, was zu tun ist und welcher Knopf, ohne Schuld. Die Linie im Sichtfenster entspricht dem Balken auf dem Display. Nach dem Tippen kommt sofort eine Rückmeldung.“ | 27, 63, 83–85, 77–79, 82 |
+| 1:40–2:05 | **echten Taster** drücken → LED an, Display bestätigt | „Ein Knopf, eine Bedeutung, spürbar unter dem Finger, kein Modus. Das Ergebnis sieht man durchs Plexiglas.“ | 33, 50, 72–74, 60 |
+| 2:05–2:35 | KLIMA antippen (alles AUTO), dann Zahnrad → Darstellung → **Hoher Kontrast** | „Die Box zeigt, was sie selbst regelt, und Ingrid kann nichts versehentlich verstellen. Für schwache Augen gibt es hohen Kontrast.“ | 56, 59, 61, 66 |
+| 2:35–3:00 | zurück zu „Alles gut“ | „Wer mehr will, zoomt in der App ins Detail. Box und App sind zwei Ansichten desselben Zustands (MVC). Getestet haben wir mit …“ (Ergebnis des Cognitive Walkthrough) | 99–102, 129 |
+
+- **Stärkster Moment:** Taster drücken, und Licht und Display reagieren gleichzeitig (Haptik und Feedback in einem). Ist die Box nicht verkabelt, den Taster im Admin-Modus auslösen und das offen sagen.
+- **Vorher erledigen, sonst fehlt der Schlusssatz:** ein kurzer Cognitive Walkthrough (Folie 129) mit einer älteren Person, Aufgaben wie A1–A5.
+- **Mögliche Rückfragen:** Hilfe/Anleitung fehlt noch (Nielsen Nr. 10, Folie 130); der Taster hat noch kein Licht-Symbol; Orange am Taster/Griff kollidiert mit Orange = Warnung auf dem Display (Folie 80).
+
 ## Technik am Tag
 
 ```
