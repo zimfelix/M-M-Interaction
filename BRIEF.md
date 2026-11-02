@@ -42,7 +42,7 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | 1 | Selbst bauen | **Felix (bzw. das Team) baut Hardware und Verkabelung selbst**, nach Anleitung des Agenten; die Software schreibt der Agent. |
 | 1 | Autonomie | Innerhalb eines freigegebenen Schritts schreibt, testet und committet der Agent lokal selbst. **Rückfrage vor:** Push, neuen Dependencies, Architekturänderungen, Einkäufen. |
 | 2 | Harness | **Schlank, ohne Agentic Harness** (am 2026-10-26 übernommen und wieder entfernt). Projektregeln: `AGENTS.md`; Entscheidungen: diese Datei; Vorlesungsbezug: `01-konzept/HCI-KONZEPTE.md`. |
-| 3 | Team und Rollen | Uni-Projektgruppe. **Felix:** baut die Growbox physisch inklusive Bedienfeld (Mechatronik ist neu für ihn). **Die App baut ein anderes Teammitglied.** Unser Teil muss so laufen, dass Box, Display und App synchron sind. |
+| 3 | Team und Rollen | Uni-Projektgruppe aus **4 Personen** (bestätigt 2026-11-02; Folie 5 nennt 3er-Teams) → Booklet 4 × 5 = 20 Seiten. **Felix:** baut die Growbox physisch inklusive Bedienfeld (Mechatronik ist neu für ihn). **Die App baut ein anderes Teammitglied.** Unser Teil muss so laufen, dass Box, Display und App synchron sind. |
 | 4 | Zweck | **Uni-Projekt mit Schwerpunkt Mensch-Maschine-Interaktion (HMI).** Die Bedienung am Gerät muss sehr einfach sein und möglichst alle Altersgruppen abdecken. Die Kultur ist zweitrangig. |
 | 4 | Budget | **150–300 €** für die gesamte Hardware. |
 | 4 | Termin | **Präsentation 05.11.2026, 10:00 · Abgabe 08.11.2026, 23:59** (Folie 5, von Felix bestätigt). |
