@@ -52,7 +52,7 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 |---|---|---|
 | Affordances (Gibson 1979, Norman) | 72–73 | Taster sieht drückbar aus; Kacheln sehen wie Knöpfe aus, nicht wie Text. |
 | Constraints: physisch, logisch, kulturell | 74–76 | Kulturell: Rot = Problem. Logisch: Nicht Mögliches ausgrauen. Physisch: Taster nur in einer Richtung drückbar. |
-| Mappings (Herdplatten-Beispiel) | 77–79 | Anzeige entspricht der Box: Wasser-Anzeige „reicht ca. X Tage“ ↔ Sichtfenster mit Füllstandslinie am Tank (Stand v5). |
+| Mappings (Herdplatten-Beispiel) | 77–79 | Anzeige entspricht der Box: Füllstandsbalken „Wassertank“ ↔ Sichtfenster mit Füllstandslinie am Tank (Stand v5). |
 | Konsistenz (syntaktisch, semantisch, terminologisch, innere, äußere) | 80–81 | **Äußere Konsistenz mit der App des Teammitglieds:** gleiche Symbole, Begriffe und Farben auf Display und App. |
 | Feedback (visuell, akustisch, haptisch) | 82 | Jede Aktion: Kachel ändert sich + kurzer Ton; Taster klickt fühlbar. |
 | Fehlertoleranz, aussagekräftige Fehlermeldungen (spezifisch, konstruktiv, höflich) | 83–85 | „Wassertank fast leer – bitte bis zur Markierung auffüllen“ statt „Fehler 3“. |

@@ -530,7 +530,7 @@ function render(){
   $("#mini").innerHTML=
     stat(tOff,IC.temp,showVal?sim.t.toFixed(1).replace(".",",")+"°":"–",band(T.t,10,35,sim.t),"Temperatur")+
     stat(hOff,IC.rh,showVal?Math.round(sim.rh)+" %":"–",band(T.rh,40,100,sim.rh),"Luftfeuchte")+
-    stat(wOff,IC.tank,Math.round(sim.tank)+" %",`<i class="lvl" style="width:${sim.tank}%"></i>`,sim.tank<=0?"Jetzt auffüllen":td<1?"Heute auffüllen":`reicht ca. ${td} ${td===1?"Tag":"Tage"}`);
+    stat(wOff,IC.tank,Math.round(sim.tank)+" %",`<i class="lvl" style="width:${sim.tank}%"></i>`,"Wassertank");
   const nWarn=S.power?list.filter(x=>x.sev==="warn").length:0;
   $("#alarmDot").classList.toggle("on",nWarn>0);
   $("#alarmDot").setAttribute("aria-label",nWarn?`${nWarn} ${nWarn===1?"Warnung":"Warnungen"}`:"Keine Warnung");
@@ -686,12 +686,16 @@ const paused=()=>{if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return true}
 /* Automatik sichtbar machen: was die Box gerade selbst tut */
 function nextAir(){const d=new Date(), m=d.getHours()*60+d.getMinutes();return 30-(m%30)}
 function lightUntil(){const d=new Date(), m=d.getHours()*60+d.getMinutes(), on=m>=480&&m<1200;return {on, at:on?"20:00":"8:00"}}
+/* Wassertank: Reichweite in Tagen (auf dem Startbild steht nur der Füllstand) */
+function tankLine(){const td=tankDays(), p=Math.round(sim.tank);
+  return sim.tank<=0?"leer · bitte auffüllen":`${p} % · reicht ca. ${td<1?"weniger als 1 Tag":td+(td===1?" Tag":" Tage")}`}
 function climaRows(){
   const T=tgt(), D=sim.dev, rh=Math.round(sim.rh), t=sim.t.toFixed(1).replace(".",","), lu=lightUntil();
   const row=(ic,name,state,btn)=>`<div class="crow">${ic}<div><b>${name}</b><span><span class="auto">AUTO</span>${state}</span></div>${btn||"<span></span>"}</div>`;
   const left=k=>Math.max(0,Math.ceil((sim[k]-Date.now())/1000));
   return row(IC.air,"Lüfter",D.luefter?(left("burst")?`läuft noch ${left("burst")} s (vom Handy)`:"läuft gerade (frische Luft)"):`nächstes Lüften in ${nextAir()} Min`,"")
     +row(IC.rh,"Nebler",D.nebel?(left("mist")?`läuft noch ${left("mist")} s (vom Handy)`:`läuft gerade (${rh} → ${T.rh[0]} %)`):`aus · Feuchte ${rh} % im Bereich`,sim.tank>0?"":"<span>Tank leer</span>")
+    +`<div class="crow">${IC.tank}<div><b>Wassertank</b><span>${tankLine()}</span></div><span></span></div>`
     +row(IC.temp,"Heizung",D.heizung?`heizt (${t} → ${T.t[0]+1} °C)`:`aus · ${t} °C im Bereich ${T.t[0]}–${T.t[1]}`+(sim.t>T.t[1]?" (zu warm: kühlen geht nur durch Umstellen)":""),"")
     +row(IC.bulb,"Licht",T.light?(sim.lightOv?`${D.licht?"an":"aus"} von Hand, ab ${lu.at} wieder Auto`:`${D.licht?"an":"aus"} bis ${lu.at}`):"aus · beim Durchwachsen bleibt es dunkel",'<span class="taster" aria-label="Licht schalten mit dem Taster unter dem Display">per Taster<br>unten ↓</span>');
 }
