@@ -112,6 +112,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4cqw;width:100%;margin-top:2.4cqw;font-variant-numeric:tabular-nums}
 .stat{display:flex;flex-direction:column;gap:1.2cqw;min-width:0}
 .sv{display:flex;align-items:center;gap:1cqw;font-weight:700;font-size:4.8cqw;color:var(--ink);white-space:nowrap}
+/* Tank: Reichweite in Tagen hinter dem Füllstand, kleiner und heller (Zusatzinfo) */
+.sv .days{font-size:.82em;font-weight:600;color:var(--ink-soft)}
 .sv svg{flex:none;width:4.6cqw;height:4.6cqw;color:var(--ink-soft)}
 .bar{position:relative;height:1.6cqw;border-radius:1cqw;background:rgba(255,255,255,.16)}
 .bar .band{position:absolute;top:0;bottom:0;background:rgba(255,255,255,.4);border-radius:1cqw}
@@ -530,7 +532,7 @@ function render(){
   $("#mini").innerHTML=
     stat(tOff,IC.temp,showVal?sim.t.toFixed(1).replace(".",",")+"°":"–",band(T.t,10,35,sim.t),"Temperatur")+
     stat(hOff,IC.rh,showVal?Math.round(sim.rh)+" %":"–",band(T.rh,40,100,sim.rh),"Luftfeuchte")+
-    stat(wOff,IC.tank,Math.round(sim.tank)+" %",`<i class="lvl" style="width:${sim.tank}%"></i>`,"Wassertank");
+    stat(wOff,IC.tank,Math.round(sim.tank)+" %"+(sim.tank>0?`<small class="days" aria-label="reicht ca. ${td<1?"weniger als 1 Tag":td+(td===1?" Tag":" Tage")}"> · ${td<1?"<1":td} T</small>`:""),`<i class="lvl" style="width:${sim.tank}%"></i>`,"Wassertank");
   const nWarn=S.power?list.filter(x=>x.sev==="warn").length:0;
   $("#alarmDot").classList.toggle("on",nWarn>0);
   $("#alarmDot").setAttribute("aria-label",nWarn?`${nWarn} ${nWarn===1?"Warnung":"Warnungen"}`:"Keine Warnung");

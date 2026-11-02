@@ -38,7 +38,7 @@ Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 | **Licht** | LED, Lampe | 8–20 Uhr automatisch; Ausnahme per **Taster** oder App bis zum nächsten Wechsel |
 | **Temperatur** | Temp | Anzeige `22,4°` (Komma, eine Nachkommastelle) |
 | **Luftfeuchte** | Feuchtigkeit, RH | Anzeige `89 %` |
-| **Wassertank** | Wasser, Tank, Reservoir | Startbild: `62 %` mit Füllstandsbalken und Beschriftung „Wassertank“ (wie Temperatur, Luftfeuchte); Reichweite „62 % · reicht ca. 4 Tage“ im Klima-Fenster |
+| **Wassertank** | Wasser, Tank, Reservoir | Startbild: `62 % · 4 T` (T = Tage, kleiner und heller) mit Füllstandsbalken und Beschriftung „Wassertank“ (wie Temperatur, Luftfeuchte); Reichweite „62 % · reicht ca. 4 Tage“ im Klima-Fenster |
 | **CO₂** | – | nur App (Analytics) und Admin-Modus, nicht auf dem Startbild der Box |
 
 ## Phasen und Sorten
