@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Growbox Front v3</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap">
+<style>
+html,body{margin:0;background:#fbfaf6}
+svg{display:block;width:100%;max-width:1300px;height:auto;margin:0 auto}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1180 800" role="img" aria-label="Growbox wie eine Mikrowelle, 335 mal 250 mal 200 Millimeter: links Pilzkammer aus Plexi mit Tür, Scharnieren links und senkrechtem beigem Griff, unten dunkelbrauner Sockel 30 Millimeter; rechts hellbrauner Technikraum 85 Millimeter breit mit schwarz glänzendem Bedienfeld, iPhone 13 mini, beigem Taster mit Licht-Symbol und Sichtfenster für den Wasserstand; oben hinten rechts die Einfüllöffnung für den Wassertank; die rechte Seitenwand ist aufgeschnitten und zeigt den Lüfter, oben den Raspberry Pi, eine Trennwand und unten den Wassertank; schwarzer Rahmen aus Profilen">
+<defs>
+<filter id="w" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="5"></feTurbulence><feDisplacementMap in="SourceGraphic" scale="2.2"></feDisplacementMap></filter>
+<marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9" fill="none" stroke="#22211f" stroke-width="1.6"></path></marker>
+</defs>
+
+<!-- 1 mm = 1,2 px · Front: Pilzkammer x 190–490, Bedienfeld 490–592, y 260–560 · Tiefe 200 = (72, −56) -->
+<!-- Flächen -->
+<path d="M190 260 L262 204 L562 204 L490 260 Z" fill="#8fb3cf" fill-opacity="0.28"></path>
+<path d="M490 260 L562 204 L664 204 L592 260 Z" fill="#c99a62" fill-opacity="0.6"></path>
+<path d="M592 260 L664 204 L664 504 L592 560 Z" fill="#a87b48" fill-opacity="0.7"></path>
+<rect x="190" y="260" width="300" height="264" fill="#8fb3cf" fill-opacity="0.16"></rect>
+<path d="M206 266 L476 266 M276 213 L548 213 M206 256 L266 211 M480 256 L548 211" stroke="#f2dc5d" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="9 5" fill="none"></path>
+<path d="M255 520 Q282 478 312 520 Z M305 520 Q338 464 374 520 Z M366 520 Q390 488 416 520 Z" fill="#e9dcc3"></path>
+<rect x="190" y="524" width="300" height="36" fill="#7a5230"></rect>
+<rect x="204" y="274" width="272" height="244" rx="5" fill="#8fb3cf" fill-opacity="0.22"></rect>
+<rect x="490" y="260" width="102" height="300" fill="#1d1e21"></rect>
+<path d="M496 266 L512 266 L496 330 Z" fill="#ffffff" fill-opacity="0.12"></path>
+<!-- Aufschnitt rechte Seitenwand -->
+<path d="M598 272 L608 262 L618 258 L628 248 L638 244 L648 234 L658 228 L660 250 L657 290 L661 330 L657 370 L661 410 L657 450 L660 490 L648 500 L638 508 L628 512 L618 522 L608 528 L598 540 L601 500 L597 460 L600 420 L597 380 L600 340 L597 300 Z" fill="#f3ecdd"></path>
+<path d="M599.2 544.8 L631.6 519.6 L631.6 439.2 L599.2 464.4 Z" fill="#8fb3cf" fill-opacity="0.35"></path>
+<path d="M599.2 544.8 L631.6 519.6 L631.6 469.2 L599.2 494.4 Z" fill="#5b8db5" fill-opacity="0.45"></path>
+<path d="M613.6 423.2 L646 398 L646 338 L613.6 363.2 Z" fill="#6aa57a" fill-opacity="0.55"></path>
+<path d="M594 456.6 L662 403.4 L662 397.4 L594 450.6 Z" fill="#7a5230" fill-opacity="0.55"></path>
+<!-- iPhone und Taster -->
+<rect x="504.6" y="274.4" width="72.7" height="153.5" rx="10" fill="#1d1e21"></rect>
+<rect x="506.4" y="276.2" width="69.2" height="149.95" rx="8" fill="#ffffff"></rect>
+<circle cx="541" cy="318" r="14" fill="#6aa57a" fill-opacity="0.45"></circle>
+<circle cx="541" cy="495.2" r="18" fill="#e2c3a0" stroke="#22211f" stroke-width="1.5"></circle>
+<g fill="none" stroke="#22211f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M537 500.5 Q533.5 497 533.5 492.5 A7.5 7.5 0 0 1 548.5 492.5 Q548.5 497 545 500.5 Z"/><path d="M538 503.5 H544"/></g>
+<rect x="516" y="524" width="50" height="26" rx="5" fill="#f3ecdd"></rect>
+<rect x="516" y="535" width="50" height="15" rx="4" fill="#5b8db5" fill-opacity="0.55"></rect>
+<path d="M596 214 Q596 176 620 172 Q644 176 644 214 Z" fill="#c99a62"></path>
+<ellipse cx="620" cy="216" rx="26" ry="10" fill="#5b8db5" fill-opacity="0.6"></ellipse>
+<rect x="446" y="320" width="11" height="160" rx="5.5" fill="#e2c3a0" stroke="#22211f" stroke-width="1.5"></rect>
+
+<!-- Rahmen schwarz -->
+<g fill="none" stroke="#1f2124" stroke-linecap="round" stroke-linejoin="round">
+<path d="M262 204 L262 504 L562 504 M262 504 L190 560 M562 204 L562 504" stroke-width="7" stroke-opacity="0.3" stroke-dasharray="10 8"></path>
+<path d="M190 260 L190 560 M190 260 L592 260 M190 560 L592 560 M592 260 L592 560 M490 260 L490 560 M190 260 L262 204 L664 204 M592 260 L664 204 L664 504 L592 560 M490 260 L562 204" stroke-width="12"></path>
+<path d="M204 274 L476 274 L476 518 L204 518 Z" stroke-width="6" stroke="#5c6166"></path>
+<path d="M305 245 L385 245" stroke-width="8" stroke="#e2c3a0"></path>
+<path d="M305 245 L305 253 M385 245 L385 253" stroke-width="4" stroke="#6b7076"></path>
+</g>
+<g fill="#3a3d40" stroke="#22211f" stroke-width="1.4">
+<path d="M455 334 L470 328 L472 340 L457 346 Z"></path>
+<path d="M455 454 L470 448 L472 460 L457 466 Z"></path>
+</g>
+<g fill="#3a3d40" stroke="#22211f" stroke-width="1.6">
+<circle cx="190" cy="260" r="10"></circle><circle cx="592" cy="260" r="10"></circle><circle cx="190" cy="560" r="10"></circle><circle cx="592" cy="560" r="10"></circle>
+<circle cx="262" cy="204" r="10"></circle><circle cx="664" cy="204" r="10"></circle><circle cx="664" cy="504" r="10"></circle>
+<rect x="481" y="251" width="18" height="18" rx="4"></rect><rect x="553" y="195" width="18" height="18" rx="4"></rect><rect x="481" y="551" width="18" height="18" rx="4"></rect>
+</g>
+
+<g filter="url(#w)" fill="none" stroke="#22211f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M255 520 Q282 478 312 520 Z M305 520 Q338 464 374 520 Z M366 520 Q390 488 416 520 Z"></path>
+<path d="M300 222 L296 244 M370 222 L368 246 M440 222 L440 246 M510 222 L512 244" stroke-width="1.3"></path>
+<rect x="194" y="300" width="9" height="22" rx="3"></rect>
+<rect x="194" y="470" width="9" height="22" rx="3"></rect>
+<rect x="446" y="320" width="11" height="160" rx="5.5"></rect>
+<!-- Aufschnitt: Lüfter, Schlitze, Tank, Pi -->
+<path d="M598 272 L608 262 L618 258 L628 248 L638 244 L648 234 L658 228 L660 250 L657 290 L661 330 L657 370 L661 410 L657 450 L660 490 L648 500 L638 508 L628 512 L618 522 L608 528 L598 540 L601 500 L597 460 L600 420 L597 380 L600 340 L597 300 Z" stroke-width="1.5"></path>
+<path d="M606 290 L606 310 M613 285 L613 305 M620 280 L620 300" stroke-width="1.5"></path>
+<ellipse cx="639" cy="296" rx="12" ry="18"></ellipse>
+<circle cx="639" cy="296" r="2.5"></circle>
+<path d="M639 293 Q632 284 636 279 M642 297 Q650 302 648 310 M636 299 Q630 308 634 313" stroke-width="1.3"></path>
+<path d="M626 290 L612 293" stroke-width="1.5" marker-end="url(#a)"></path>
+<!-- v2: Tank unten vorn, Trennwand, Pi oben, Einfüllrohr von oben hinten -->
+<path d="M599.2 544.8 L631.6 519.6 L631.6 439.2 L599.2 464.4 Z"></path>
+<path d="M599.2 494.4 L631.6 469.2" stroke-dasharray="3 3" stroke-width="1.3"></path>
+<path d="M594 456.6 L662 403.4 M594 450.6 L662 397.4" stroke-width="1.6"></path>
+<path d="M613.6 423.2 L646 398 L646 338 L613.6 363.2 Z"></path>
+<path d="M617 372 L642 352 M617 386 L642 366 M617 410 L642 390" stroke-width="1.1"></path>
+<path d="M596 214 Q596 176 620 172 Q644 176 644 214" stroke-width="1.6"></path>
+<ellipse cx="620" cy="216" rx="26" ry="10"></ellipse>
+<path d="M600 214 Q620 204 640 214" stroke-width="1.2"></path>
+<path d="M640 222 L647 228 L647 404 L631.6 442" stroke-dasharray="4 4" stroke-width="1.6" stroke="#2f6d9e"></path>
+<path d="M620 150 L620 200" stroke-width="1.8" stroke="#2f6d9e" marker-end="url(#a)"></path>
+<path d="M630 360 C 600 380, 570 440, 556 482" stroke-dasharray="3 4" stroke-width="1.3"></path>
+<rect x="516" y="524" width="50" height="26" rx="5" stroke-width="1.6"></rect>
+<path d="M516 535 L566 535" stroke-width="1.3"></path>
+<path d="M520 528 L527 528 M520 546 L527 546" stroke-width="1.1"></path>
+<!-- iPhone -->
+<rect x="502.5" y="272.2" width="77.05" height="157.8" rx="12" stroke-width="1" stroke-dasharray="3 3"></rect>
+<rect x="504.6" y="274.4" width="72.7" height="153.5" rx="10"></rect>
+<rect x="506.4" y="276.2" width="69.2" height="149.95" rx="8" stroke-width="1.2"></rect>
+<path d="M525 276.2 L557 276.2 L555 279.8 L527 279.8 Z" stroke-width="1.2" fill="#1d1e21"></path>
+<circle cx="541" cy="318" r="14"></circle>
+<path d="M535 318 L539.5 322.5 L548 312" stroke-width="2.4"></path>
+<rect x="510" y="380" width="19" height="25" rx="3" stroke-width="1.3"></rect>
+<rect x="531.5" y="380" width="19" height="25" rx="3" stroke-width="1.3"></rect>
+<rect x="553" y="380" width="19" height="25" rx="3" stroke-width="1.3"></rect>
+<rect x="532.6" y="430" width="16.8" height="9.6" rx="2" stroke-width="1" stroke-dasharray="3 2"></rect>
+<circle cx="541" cy="495.2" r="18"></circle>
+<circle cx="541" cy="495.2" r="10.5"></circle>
+<path d="M200 530 Q340 526 482 531 M200 550 Q340 554 482 549" stroke-width="0.9" stroke="#a8784c"></path>
+<!-- Maße -->
+<path d="M190 600 L490 600" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M490 600 L592 600" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M120 262 L120 558" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M160 262 L160 522" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M160 526 L160 558" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<path d="M186 260 L112 260 M186 524 L152 524 M186 560 L112 560" stroke-width="1" stroke-dasharray="2 4"></path>
+<path d="M606 588 L676 534" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"></path>
+<!-- Beschriftungspfeile -->
+<path d="M206 176 Q260 186 296 210" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M150 296 Q178 300 192 308" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M210 218 Q270 222 300 240" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M330 124 Q410 160 448 316" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M720 150 Q640 170 580 278" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M720 290 L654 294" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M720 230 Q690 222 648 218" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M720 380 L648 370" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M720 452 L660 418" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M720 520 L634 500" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M660 738 Q600 640 570 545" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M140 680 Q230 640 280 562" stroke-width="1.5" marker-end="url(#a)"></path>
+<path d="M500 678 Q530 600 538 516" stroke-width="1.5" marker-end="url(#a)"></path>
+</g>
+
+<g font-family="Caveat, cursive" fill="#22211f">
+<text x="40" y="58" font-size="46" font-weight="700">Growbox · Front v3 · Bedienteile beige, Orange nur für Warnungen</text>
+<text x="40" y="90" font-size="22" fill="#6b665d">links Pilzkammer aus Plexi · rechts Technikraum mit Bedienfeld · schwarz = Rahmen · beige = zum Anfassen · gelb = Licht · dunkelbraun = Sockel</text>
+<text x="40" y="164" font-size="24">4 LED-Streifen oben</text>
+<text x="40" y="186" font-size="19" fill="#6b665d">verdeckt hinter Blende</text>
+<text x="40" y="222" font-size="24">Deckelgriff vorn</text>
+<text x="40" y="244" font-size="19" fill="#6b665d">beige · Deckel von vorn abheben</text>
+<text x="40" y="294" font-size="24">Scharniere</text>
+<text x="40" y="316" font-size="24">links</text>
+<text x="300" y="118" font-size="24">Griff: senkrechte Stange, beige</text>
+<text x="300" y="140" font-size="19" fill="#6b665d">auf 2 Griffhaltern am Türrahmen</text>
+<text x="726" y="148" font-size="24">iPhone 13 mini · Apple-Maße</text>
+<text x="726" y="172" font-size="20" fill="#6b665d">Breite 6,42 × Höhe 13,15 × Dicke 0,77 cm</text>
+<text x="726" y="194" font-size="20" fill="#6b665d">Tasche im Druckteil: 6,46 × 13,19 × 0,8 cm</text>
+<text x="726" y="288" font-size="24">Lüfter</text>
+<text x="726" y="310" font-size="20" fill="#6b665d">bläst durch Schlitze in die Pilzkammer</text>
+<text x="726" y="228" font-size="24">Einfüllöffnung oben hinten · Ø ca. 4 cm</text>
+<text x="726" y="250" font-size="20" fill="#6b665d">mit Klappe; groß genug für Gießkanne oder Glas</text>
+<text x="726" y="378" font-size="24">Raspberry Pi + Elektronik oben</text>
+<text x="726" y="400" font-size="20" fill="#6b665d">steuert LED, Taster, Lüfter, Nebler, Heizung</text>
+<text x="726" y="450" font-size="24">Trennwand</text>
+<text x="726" y="472" font-size="20" fill="#6b665d">Wasser unten, Elektronik oben: Leck läuft nach unten</text>
+<text x="726" y="518" font-size="24">Wassertank unten vorn</text>
+<text x="726" y="540" font-size="20" fill="#6b665d">mit Vernebler, bleibt drin, Rohr von der Öffnung</text>
+<text x="726" y="626" font-size="27" font-weight="700">Technikraum hinter dem Bedienfeld</text>
+<text x="726" y="652" font-size="20">hellbraun, blickdicht, volle Tiefe</text>
+<text x="726" y="676" font-size="20">Seitenwand hier aufgeschnitten gezeichnet</text>
+<text x="726" y="700" font-size="20">hier wachsen keine Pilze</text>
+<text x="40" y="694" font-size="24">Sockel 3 cm</text>
+<text x="40" y="716" font-size="20" fill="#6b665d">dunkelbraun, verdeckt die Erde</text>
+<text x="420" y="700" font-size="24">Taster: Licht an / aus, beige</text>
+<text x="420" y="722" font-size="20" fill="#6b665d">Ø 3 cm, Licht-Symbol eingeprägt · Mitte 5,4 cm über Boden</text>
+<text x="600" y="758" font-size="24">Sichtfenster: Wasserstand von vorn</text>
+<text x="600" y="778" font-size="20" fill="#6b665d">MAX/MIN-Linie, passt zu „Wasser · reicht ca. X Tage“</text>
+<text x="340" y="632" font-size="22" text-anchor="middle">25 cm</text>
+<text x="541" y="632" font-size="22" text-anchor="middle">8,5 cm</text>
+<text x="112" y="416" font-size="22" text-anchor="end">25 cm</text>
+<text x="156" y="400" font-size="20" text-anchor="end">22</text>
+<text x="156" y="548" font-size="18" text-anchor="end">3</text>
+<text x="660" y="590" font-size="22">20 cm tief</text>
+<text x="340" y="656" font-size="18" fill="#6b665d" text-anchor="middle">gesamt 33,5 × 25 × 20 cm</text>
+</g>
+</svg>
+</body>
+</html>

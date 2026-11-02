@@ -31,7 +31,7 @@ Zeichnungen der Box als Bilder (direkt auf GitHub sichtbar). Lokal gibt es diese
 
 ## 5 · Farbvarianten 3D-Druck
 
-Handybox rechts fest schwarz glänzend; Rahmen, Griffe und Sockel aus beige, schwarz oder grau.
+Handybox rechts fest schwarz glänzend; Rahmen und Sockel aus beige, schwarz oder grau. **Seit v3 (02.11.):** Taster und Griffe fest **beige** (siehe Abschnitt 7). Damit sie sich abheben, ist der Rahmen schwarz oder grau; Variante C (beiger Rahmen) passt dazu nicht mehr.
 
 ![Farbvarianten](bilder/skizze-farben.svg)
 
@@ -40,6 +40,12 @@ Handybox rechts fest schwarz glänzend; Rahmen, Griffe und Sockel aus beige, sch
 Nachfüllen ist die Hauptaufgabe des Menschen (Tank-Variante A): Einfüllöffnung oben hinten, Trennwand (Wasser unten, Elektronik oben), Sichtfenster für den Wasserstand vorn unter dem Taster.
 
 ![Front-Skizze v2](bilder/skizze-box-v2.svg)
+
+## 7 · Front-Skizze v3: Orange nur für Warnungen
+
+Konsistenz mit dem Display (Folie 80): Orange bedeutet auf dem Display **Warnung**. Deshalb sind Taster, Türgriff und Deckelgriff **beige**, die Bedienfeld-Front schwarz glänzend; der Taster trägt ein eingeprägtes **Licht-Symbol** (Recognition, Folie 130; Affordance, 72–74). LEDs in der Zeichnung hellgelb (warmweißes Licht).
+
+![Front-Skizze v3](bilder/skizze-box-v3.svg)
 
 ## Dateien
 
@@ -50,6 +56,7 @@ Nachfüllen ist die Hauptaufgabe des Menschen (Tank-Variante A): Einfüllöffnun
 | [`zeichnungen/skizze-sockel.html`](zeichnungen/skizze-sockel.html) | Sockel 30 mm, Bodenrahmen, Plexi-Wanne |
 | [`zeichnungen/zeichnung-bedienfeld.html`](zeichnungen/zeichnung-bedienfeld.html) | Bedienfeld-Front 85 × 250 × 10 mit iPhone-Tasche |
 | [`zeichnungen/skizze-box-v2.html`](zeichnungen/skizze-box-v2.html) | Front-Skizze v2: Einfüllöffnung, Trennwand, Tank unten vorn, Sichtfenster |
+| [`zeichnungen/skizze-box-v3.html`](zeichnungen/skizze-box-v3.html) | Front-Skizze v3: Taster und alle Griffe beige, Taster mit Licht-Symbol, LEDs hellgelb |
 | [`zeichnungen/skizze-farben.html`](zeichnungen/skizze-farben.html) | Drei Farbvarianten A/B/C für den 3D-Druck |
 | [`masse-iphone-13-mini.md`](masse-iphone-13-mini.md) | iPhone-Maße aus Apples Zeichnung |
 | [`export_svg.py`](export_svg.py) | erzeugt `bilder/*.svg` aus `zeichnungen/*.html` |

@@ -63,6 +63,7 @@ Muss jeder es sofort sehen?                  ── ja ──► Box zeigt es, A
 | E27 | **Meldungs-Verlauf grün mit Haken** („behoben · von – bis“), offene Meldungen orange mit Dreieck | A | 59, 76, 26 | Behobenes sah vorher wie eine Warnung aus (gelbes Dreieck): Man konnte nicht bewerten, ob noch etwas zu tun ist (**Gulf of Evaluation**, 59). Grün mit Haken = erledigt ist kulturell gelernt (76) und präattentiv unterscheidbar (26). |
 | E28 | **SORTEN · Neu**: oben sichtbar „Neu ansetzen …“ (Sorte wählen, aktuelle zuerst), darunter Sorten ansehen | A, B | 130, 95, 61 | Das „Neu“ der Kachel muss man auch finden (*Visibility*, 130). Handeln (neu ansetzen) und Stöbern (Sorten ansehen) sind getrennt (Suchen vs. Stöbern, 95). Die Bestätigung mit 2 s Halten bleibt (Murphy, 61). |
 | E29 | **Lesbarkeit und Treffsicherheit überall**: Schrift in Meldungen/Listen ≥ 15 pt, alle Touch-Ziele ≥ 44 pt (auch „Zurück“), Ruhemodus-Text lesbar | A | 63, 50 | Sichtabstand (63) und Fitts (50) gelten nicht nur fürs Startbild, sondern für jede Ebene. Zahlen extern: Apple HIG 44 pt, WCAG 4,5 : 1. |
+| E30 | **Orange nur für Warnungen, auch an der Box**: Taster, Türgriff und Deckelgriff **beige**, Bedienfeld-Front schwarz glänzend, Taster mit eingeprägtem **Licht-Symbol** (Skizze `02-box-bau/zeichnungen/skizze-box-v3.html`) | A, B | 80, 72–74, 130, 26 | **Konsistenz** (80): Eine Farbe hat überall dieselbe Bedeutung. Auf dem Display heißt Orange „Warnung“ (E25), deshalb darf ein Bedienteil nicht orange sein. Beige hebt die Teile zum Anfassen vom schwarzen Rahmen ab, ohne eine Statusfarbe zu sein. Ein Taster zeigt, *dass* man ihn drücken kann (Affordance, 72–74), aber nicht, *was* er tut. Das Licht-Symbol macht ihn wiedererkennbar (*Recognition rather than recall*, 130). → Ein mögliches Warnlicht an der Box (Offen A1) wäre orange und damit konsistent. |
 | E20 | **Admin-Modus** versteckt (Einstellungen → ganz unten) | – | 60 | Nicht personenbezogen, nur für die Vorführung. Er bleibt verborgen, damit kein Nutzer versehentlich hineingerät. |
 
 ## Offen für Mittwoch (04.11.)
@@ -121,12 +122,31 @@ Jede Szene zeigt eine Entscheidung „in Aktion“ (Storyboard, Folien 143–150
 
 Pointe für die Präsentation: **Dieselbe Box, zwei Nutzungen.** Ingrid braucht nur das Display. Der Power-User bekommt in der App mehr Kontrolle, ohne dass die Box für Ingrid komplizierter wird.
 
+## Nielsen-Check (Folie 130)
+
+Analytische Selbstprüfung von Bedienfeld v6 und Box-Skizze v3 gegen die 10 Heuristiken (Stand 02.11.2026). Das ist der Maßstab, an dem sich die Präsentation messen lassen muss; in der Präsentation verlinkt. Die App-Spalte prüft das App-Teammitglied vor der Probe gegen [`begriffe-box-app.md`](../01-konzept/begriffe-box-app.md).
+
+| Heuristik | Umsetzung an der Box | | App |
+|---|---|---|---|
+| Visibility of system status | Warnpunkt blinkt nur bei Warnung, „Alles gut“, KLIMA zeigt AUTO (E1, E6, E22) | ✅ | Push mit derselben Meldung |
+| Match between system and real world | Füllstand ↔ Sichtfenster, Ring = Wachstum bis zur Ernte (E13–E15) | ✅ | gleiche Symbole |
+| User control and freedom | „Zurück zu …“ 14 Tage, `URLAUB ✕`, Handy trennen (E11, E12, E24) | ✅ | – |
+| **Consistency and standards** | gleiche Wörter, Symbole und Farben in Box und App (E18); **Orange nur für Warnungen**, auch an Taster und Griff (E30) | ✅ seit v3 | ⚠️ prüfen: dieselben Wörter, kein Rot, Orange nur für Warnungen |
+| Error prevention | Neu ansetzen nur mit 2 s halten; kein Eingriff ins Klima an der Box (E7, E11) | ✅ | – |
+| Recognition rather than recall | Symbol + Wort auf jeder Kachel; Taster mit Licht-Symbol (E3, E30) | ✅ | – |
+| Flexibility and efficiency of use | Licht über Taster **oder** App; 1 Min lüften nur in der App (E7, E10) | ✅ | Kern der App |
+| Aesthetic and minimalist design | 3 Kacheln, keine Uhr, Handy-Symbol nach dem Koppeln weg (E3, E23, E24) | ✅ | – |
+| Help users recognize, diagnose, and recover from errors | Warnung nennt Handlung und Knopfwort; Fehler melden (E8, E26) | ✅ | – |
+| **Help and documentation** | **fehlt**: keine Hilfe am Display, keine Anleitung an der Box | ❌ | – |
+
+**Offene Lücke Hilfe:** Vorschlag (noch nicht entschieden): kleine gedruckte Karte an der Box („Wasser · Licht · Ernte“ mit den drei Handgriffen) oder Eintrag „So geht’s“ unter dem Zahnrad. Die Karte passt besser zu Ingrid (ohne Menü, Folie 41–42 Vergessen), der Eintrag ist ohne Bau umsetzbar.
+
 ## Evaluation (Plan)
 
 | Methode | Folie | Mit wem / was | Ergebnis |
 |---|---|---|---|
 | **Cognitive Walkthrough** (3 Fragen: Ist das Ziel klar? Ist die Aktion erkennbar? Gibt es Rückmeldung?) | 129 | A: Zustand ablesen, Wasser nachfüllen und bestätigen, Licht an, ernten. B: Meldung in App und Box vergleichen, 1 Min lüften per App | offen |
-| **Nielsen-Heuristiken** als Checkliste | 130 | Bedienfeld v6 und App | offen |
+| **Nielsen-Heuristiken** als Checkliste | 130 | Bedienfeld v6 und App | **Box erledigt** (9 von 10, Lücke „Help and documentation“), siehe [Nielsen-Check](#nielsen-check-folie-130); App offen |
 | **Kurzer Nutzertest** (Labor, formativ) | 126, 133, 136 | 3–5 Personen, bewusst über Altersgruppen gestreut; mindestens eine Person im Alter von Ingrid | offen |
 | **AttrakDiff-Kurzform** nach dem Test | 141–142 | pragmatische vs. hedonische Qualität | offen |
 

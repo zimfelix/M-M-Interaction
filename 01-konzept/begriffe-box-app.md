@@ -17,6 +17,8 @@ Wenn die App einen Begriff anders braucht: bitte kurz absprechen und hier änder
 
 Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 
+**Orange heißt überall Warnung**, auch an der Box: Taster und Griffe sind deshalb beige, der Taster trägt ein Licht-Symbol (`02-box-bau/zeichnungen/skizze-box-v3.html`). Zeigt die App die Box oder den Taster, dann in diesen Farben; Orange nie als Akzent- oder Knopffarbe ohne Warnung verwenden.
+
 ## Hauptbereiche
 
 | Box (Kachel) | App | Inhalt |
