@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap">
 <style>
-/* Layout: Wand-Bedienteil im Hochformat. Oben Kopfzeile, groß der Pilz im Feuchte-Ring, darunter die wichtigste Meldung, unten vier Tasten in einer Reihe. Farben farbenblindfreundlich (Okabe-Ito Gelb/Orange), Schwere immer auch über Symbol und Wort. */
+/* Layout: Wand-Bedienteil im Hochformat. Oben Kopfzeile, groß der Pilz im Feuchte-Ring, darunter die wichtigste Meldung, unten drei große Tasten in einer Reihe. Farben farbenblindfreundlich (Okabe-Ito Gelb/Orange), Schwere immer auch über Symbol und Wort. */
 :root{
   --page:#e9ebe6; --page-fg:#2a2c28; --page-muted:#62665e; --page-card:#ffffff; --page-line:#d3d6cf;
   --lcd-hi:#2f45f5; --lcd-mid:#1525c4; --lcd-lo:#08106c;
@@ -43,15 +43,15 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .sleep b{font-size:4.6cqw;color:#7d83a3}
 .sleep span{opacity:1;transition:opacity 1.2s}
 .sleep.quiet span{opacity:0}
-.sleep-chip{border:.5cqw solid var(--ink-dim);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink-soft);background:transparent}
+.sleep-chip{border:.5cqw solid var(--ink-dim);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink-soft);background:transparent;font-size:3.9cqw}
 
 /* Tasten */
-.keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2.6cqw;margin-top:auto}
+.keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3cqw;margin-top:auto}
 .key{position:relative;width:100%;height:24cqw;border-radius:3cqw;border:.6cqw solid var(--ink);background:rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6cqw;padding:0 1cqw;
   box-shadow:0 0 1.6cqw rgba(140,160,255,.35);transition:background .15s, transform .1s}
 .key svg{width:10cqw;height:10cqw}
-.key b{font-family:var(--f-cond);font-size:3.2cqw;font-weight:700;letter-spacing:0;text-transform:uppercase;line-height:1.05;text-align:center}
-.key i{font-style:normal;font-family:var(--f-cond);font-size:2.8cqw;font-weight:600;color:var(--ink-soft);margin-top:-1cqw}
+.key b{font-family:var(--f-cond);font-size:4.4cqw;font-weight:700;letter-spacing:0;text-transform:uppercase;line-height:1.05;text-align:center}
+.key i{font-style:normal;font-family:var(--f-cond);font-size:3.8cqw;font-weight:600;color:var(--ink-soft);margin-top:-1cqw}
 .key.busy i,.key.on i{color:var(--lcd-mid)}
 .key.on{background:var(--ink);color:var(--lcd-mid)}
 .key.on .fill{fill:var(--lcd-mid)}
@@ -112,7 +112,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .bar .band{position:absolute;top:0;bottom:0;background:rgba(255,255,255,.4);border-radius:1cqw}
 .bar .dot{position:absolute;top:50%;width:3.2cqw;height:3.2cqw;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%);box-shadow:0 0 0 .5cqw var(--lcd-mid)}
 .bar .lvl{position:absolute;left:0;top:0;bottom:0;background:var(--ink);border-radius:1cqw}
-.cap{font-family:var(--f-cond);font-size:3.1cqw;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cap{font-family:var(--f-cond);font-size:3.9cqw;font-weight:600;letter-spacing:0;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .stat.off .sv,.stat.off .cap{color:var(--alarm)}
 .stat.off .dot,.stat.off .lvl{background:var(--alarm)}
 .ticon{display:inline-flex;align-items:center;gap:1.4cqw}
@@ -143,21 +143,19 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .hist{display:grid;grid-template-columns:auto auto 1fr;gap:1cqw 2cqw;align-items:center;font-size:4cqw;border-bottom:.3cqw solid var(--ink-dim);padding:1.4cqw 0}
 .hist svg{width:5cqw;height:5cqw}
 .hist time{color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
-.hist small{grid-column:3;color:var(--ink-soft);font-size:3.6cqw}
-/* Klima-Taste: grüner Punkt blinkt dauerhaft, solange die Automatik läuft */
-.key .pulse{display:inline-block;width:2cqw;height:2cqw;border-radius:50%;background:var(--ok);animation:autoblink 1.2s ease-in-out infinite}
-@keyframes autoblink{50%{opacity:.1}}
-@media (prefers-reduced-motion:reduce){.key .pulse{animation:none}}
+.hist small{grid-column:3;color:var(--ink-soft);font-size:4cqw}
+/* Klima-Taste: grüner Punkt leuchtet ruhig, solange die Automatik läuft (Blinken hieße „schau her“) */
+.key .pulse{display:inline-block;width:2.4cqw;height:2.4cqw;border-radius:50%;background:var(--ok)}
 .key i{display:inline-flex;align-items:center;gap:1cqw}
 .crow{display:grid;grid-template-columns:auto 1fr auto;gap:1cqw 2.4cqw;align-items:center;border-bottom:.3cqw solid var(--ink-dim);padding:2cqw 0}
 .crow svg{width:6.4cqw;height:6.4cqw}
-.crow b{font-size:4.6cqw} .crow span{display:block;font-size:3.8cqw;color:var(--ink-soft);line-height:1.25}
-.crow .auto{display:inline-block;font-family:var(--f-cond);font-weight:700;font-size:3.2cqw;letter-spacing:.06em;border:.4cqw solid var(--ok);color:var(--ok);border-radius:1.4cqw;padding:.2cqw 1.2cqw;margin-right:1cqw}
+.crow b{font-size:4.8cqw} .crow span{display:block;font-size:4.3cqw;color:var(--ink-soft);line-height:1.25}
+.crow .auto{display:inline-block;font-family:var(--f-cond);font-weight:700;font-size:3.6cqw;letter-spacing:.06em;border:.4cqw solid var(--ok);color:var(--ok);border-radius:1.4cqw;padding:.2cqw 1.2cqw;margin-right:1cqw}
 .crow button{border:.5cqw solid var(--ink);background:transparent;border-radius:2cqw;font-weight:700;font-size:3.6cqw;padding:1.6cqw 2.4cqw;white-space:nowrap}
 .adm{width:100%;border-collapse:collapse;font-size:3.8cqw;font-variant-numeric:tabular-nums}
 .adm td{padding:.8cqw 0;border-bottom:.3cqw solid var(--ink-dim)} .adm td:last-child{text-align:right;font-weight:700}
 .btnrow.wrap{flex-wrap:wrap}
-.steps{font-family:var(--f-cond);font-size:3.4cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.steps{font-family:var(--f-cond);font-size:3.9cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
 .panel ul{margin:0;padding-left:5cqw;font-size:4.4cqw;line-height:1.35;color:var(--ink)}
 
 /* Vollbild-Panels */
@@ -165,9 +163,9 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   background:radial-gradient(ellipse 70% 65% at 50% 45%, var(--lcd-hi), var(--lcd-mid) 55%, var(--lcd-lo))}
 @keyframes pin{from{opacity:0}}
 .panel h2{margin:0;font-family:var(--f-cond);font-size:5.4cqw;font-weight:700;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;gap:2cqw}
-.back{border:.55cqw solid var(--ink);background:transparent;border-radius:2cqw;font-size:3.8cqw;font-weight:700;padding:1.4cqw 3cqw;letter-spacing:.04em;font-family:var(--f-cond)}
+.back{border:.55cqw solid var(--ink);background:transparent;border-radius:2cqw;font-size:4.4cqw;font-weight:700;padding:1.4cqw 3cqw;letter-spacing:.04em;font-family:var(--f-cond)}
 .panel p{margin:0;font-size:4.4cqw;line-height:1.3;color:var(--ink-soft)}
-.lbl{font-family:var(--f-cond);font-size:3.2cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.lbl{font-family:var(--f-cond);font-size:3.9cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
 .grid{display:grid;gap:2cqw}
 .g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:1fr}
 .opt{border:.5cqw solid var(--ink-dim);background:rgba(255,255,255,.06);border-radius:2.4cqw;padding:2.4cqw 3cqw;display:flex;align-items:center;gap:2.4cqw;font-size:4.6cqw;font-weight:700;min-height:13cqw;text-align:left;line-height:1.1}
@@ -198,12 +196,12 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .item span{display:block;font-size:4.2cqw;color:var(--ink-soft);line-height:1.25;margin-top:.4cqw}
 .item.warn{border-color:var(--alarm);background:rgba(230,159,0,.12)}
 .item.warn b{color:var(--alarm)}
-.item .ok{flex:none;border:.5cqw solid var(--ink);background:transparent;border-radius:1.8cqw;font-weight:700;font-size:3.6cqw;padding:1.4cqw 2.6cqw}
+.item .ok{flex:none;border:.5cqw solid var(--ink);background:transparent;border-radius:1.8cqw;font-weight:700;font-size:4.2cqw;padding:1.4cqw 2.6cqw}
 .none{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;flex:1;text-align:center}
 .none svg{width:12cqw;height:12cqw}
 .none b{font-size:5cqw}
 
-.msg{position:absolute;left:50%;bottom:32cqw;transform:translateX(-50%);background:rgba(4,8,60,.92);border:.45cqw solid var(--ink-dim);border-radius:2cqw;padding:1.6cqw 3.4cqw;font-size:3.8cqw;font-weight:600;white-space:nowrap;max-width:80cqw;overflow:hidden;text-overflow:ellipsis;animation:pin .15s;z-index:3}
+.msg{position:absolute;left:50%;bottom:32cqw;transform:translateX(-50%);background:rgba(4,8,60,.92);border:.45cqw solid var(--ink-dim);border-radius:2cqw;padding:1.6cqw 3.4cqw;font-size:4.4cqw;font-weight:600;white-space:nowrap;max-width:80cqw;overflow:hidden;text-overflow:ellipsis;animation:pin .15s;z-index:3}
 
 /* Typenschild */
 .plate{background:linear-gradient(180deg,#d8d9d5,#c9cac5);color:#2b2b2a;border-radius:4px;padding:14px 22px 12px;text-align:center;min-width:min(78%,380px);
@@ -247,7 +245,9 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   .sv{font-size:5.2cqw}
   .key{height:27cqw}
   .key svg{width:11cqw;height:11cqw}
-  .key b{font-size:3.5cqw}
+  .key b{font-size:4.8cqw}
+  .key i{font-size:4cqw}
+  .cap{font-size:4.1cqw}
   .panel{padding:6cqw max(5cqw, env(safe-area-inset-right, 0px)) 6cqw max(5cqw, env(safe-area-inset-left, 0px))}
   .msg{bottom:36cqw}
 }
@@ -294,7 +294,6 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
         </div>
         <div class="keys">
           <button class="key" id="kClima" aria-label="Klima, läuft automatisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5V5a2 2 0 0 1 4 0v8.5a4 4 0 1 1-4 0z"/><path d="M17.5 6h4M17.5 10h3M3 8h3.5M2.5 12h4"/></svg><b>Klima</b><i id="climaSub">Auto</i></button>
-          <button class="key" id="kSleep" aria-label="Ruhemodus: Display aus, weckt nur bei Warnung" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><b>Ruhe-<br>modus</b><i id="sleepSub">aus</i></button>
           <button class="key" id="kAlerts" aria-label="Meldungen anzeigen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 21h4"/></svg><b>Meldungen</b><span class="count" id="count" hidden>0</span></button>
           <button class="key" id="kSort" aria-label="Sorte und neu ansetzen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M3 13a9 7 0 0 1 18 0z"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5"/></svg><b>Sorte &amp;<br>Neu</b></button>
         </div>
@@ -404,12 +403,11 @@ const tankDays=()=>Math.floor(sim.tank/100*(S.away?10:7));
 /* Meldungen: nur was jemand vor der Box wissen und tun muss.
    crit = Pilze nehmen bald Schaden · warn = bitte bald kümmern · info = Erinnerung
    Jede Meldung hat genau einen Knopf:
-   - "auto": das Display erledigt es selbst (Frischluft geben, Phase umstellen)
+   - "auto": das Display erledigt es selbst (Phase umstellen)
    - "hand": ihr macht es an der Box und bestätigt danach. Besteht das Problem weiter, kommt die Meldung nach einer Weile wieder. */
 const acked=new Map();
 const snoozed=id=>(acked.get(id)||0)>Date.now();
 function done(ids,fn,min){return ()=>{fn&&fn();[].concat(ids).forEach(i=>acked.set(i,Date.now()+min*60000));syncDemo();step(new Date());render();msg("Danke · erledigt")}}
-function burstStart(){if(!S.power)return;sim.burst=Date.now()+60000;step(new Date());render();msg("Lüften · 1 Minute")}
 function setPhase(ph,txt){return ()=>{S.phase=ph;S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());render();msg(txt)}}
 function alerts(){
   if(!S.power) return [];
@@ -427,8 +425,8 @@ function alerts(){
   if(!demo.sensor){
     if(sim.rh<T.rh[0]-8&&sim.tank>0) out.push({id:"dry2",sev:"crit",urgent:true,t:"Viel zu trocken",a:"Tür, Deckel und Nebler prüfen, dann GEPRÜFT drücken.",do:H("Geprüft",done("dry2",null,10))});
     else if(sim.rh<T.rh[0]&&!demo.door&&sim.tank>0) out.push({id:"dry",sev:"warn",t:"Zu trocken",a:"Der Nebler gleicht das aus. Kurz nachsehen, ob er dampft.",do:H("Gesehen",done("dry",null,15))});
-    if(sim.rh>T.rh[1]+2) out.push({id:"wet",sev:"warn",t:"Zu nass",a:"Frischluft trocknet die Kammer. Tropfen auf den Hüten vermeiden.",do:A("Lüften 1 Min",burstStart,"air")});
-    if(sim.co2>T.co2+150&&!sim.dev.luefter) out.push({id:"co2",sev:"warn",t:"Braucht Frischluft",a:"Sonst werden die Stiele lang und dünn.",do:A("Lüften 1 Min",burstStart,"air")});
+    if(sim.rh>T.rh[1]+2) out.push({id:"wet",sev:"warn",t:"Zu nass",a:"Der Lüfter trocknet die Kammer schon. Tür und Deckel geschlossen halten.",do:H("Gesehen",done("wet",null,15))});
+    if(sim.co2>T.co2+150&&!sim.dev.luefter) out.push({id:"co2",sev:"warn",t:"Braucht Frischluft",a:"Die Box lüftet gleich selbst. Lüftungsschlitze frei halten.",do:H("Gesehen",done("co2",null,15))});
   }
   if(sim.tank>0&&sim.tank<20) out.push({id:"tanklow",sev:"info",t:"Wasser bald leer",a:`Noch ${Math.round(sim.tank)} %. Nach dem Auffüllen AUFGEFÜLLT drücken.`,do:H("Aufgefüllt",refill)});
   const hd=demo.harvest?Math.max(d,T.days):d;
@@ -462,7 +460,6 @@ function refill(){
 }
 const ACT_IC={
   hand:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>',
-  air:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg>',
   harvest:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 6 0 0 1 17 0z"/><path d="M10 12v6a2 2 0 0 0 4 0v-6"/></svg>',
   play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg>'
 };
@@ -533,8 +530,6 @@ function render(){
   $("#topCulture").textContent=SPECIES[S.species].short;
   const left=Math.max(0,sim.burst-Date.now()), mleft=Math.max(0,sim.mist-Date.now());
   $("#climaSub").innerHTML=!S.power?"aus":'<span class="pulse" aria-hidden="true"></span>Auto';
-  $("#kSleep").classList.toggle("on",!!S.sleep); $("#kSleep").setAttribute("aria-pressed",!!S.sleep);
-  $("#sleepSub").textContent=S.sleep?"an":"aus";
   syncSleep(list);
   if(open==="clima"){const v=$("#climaRows");if(v)v.innerHTML=climaRows()}
   $("#topIcons").innerHTML=(S.away?`<button class="away-chip" data-endaway aria-label="Urlaub beenden">Urlaub ✕</button>`:"")+(S.sleep?`<span class="sleep-chip" aria-label="Ruhemodus an">Ruhe</span>`:"");
@@ -687,17 +682,15 @@ function climaRows(){
   const T=tgt(), D=sim.dev, rh=Math.round(sim.rh), t=sim.t.toFixed(1).replace(".",","), lu=lightUntil();
   const row=(ic,name,state,btn)=>`<div class="crow">${ic}<div><b>${name}</b><span><span class="auto">AUTO</span>${state}</span></div>${btn||"<span></span>"}</div>`;
   const left=k=>Math.max(0,Math.ceil((sim[k]-Date.now())/1000));
-  return row(IC.air,"Lüfter",D.luefter?(left("burst")?`läuft noch ${left("burst")} s (von Hand)`:"läuft gerade (frische Luft)"):`nächstes Lüften in ${nextAir()} Min`,`<button data-run="air">${left("burst")?"Stopp":"1 Min jetzt"}</button>`)
-    +row(IC.rh,"Nebler",D.nebel?(left("mist")?`läuft noch ${left("mist")} s (von Hand)`:`läuft gerade (${rh} → ${T.rh[0]} %)`):`aus · Feuchte ${rh} % im Bereich`,sim.tank>0?`<button data-run="mist">${left("mist")?"Stopp":"1 Min jetzt"}</button>`:"<span>Tank leer</span>")
+  return row(IC.air,"Lüfter",D.luefter?(left("burst")?`läuft noch ${left("burst")} s (vom Handy)`:"läuft gerade (frische Luft)"):`nächstes Lüften in ${nextAir()} Min`,"")
+    +row(IC.rh,"Nebler",D.nebel?(left("mist")?`läuft noch ${left("mist")} s (vom Handy)`:`läuft gerade (${rh} → ${T.rh[0]} %)`):`aus · Feuchte ${rh} % im Bereich`,sim.tank>0?"":"<span>Tank leer</span>")
     +row(IC.temp,"Heizung",D.heizung?`heizt (${t} → ${T.t[0]+1} °C)`:`aus · ${t} °C im Bereich ${T.t[0]}–${T.t[1]}`+(sim.t>T.t[1]?" (zu warm: kühlen geht nur durch Umstellen)":""),"")
     +row(IC.bulb,"Licht",T.light?(sim.lightOv?`${D.licht?"an":"aus"} von Hand, ab ${lu.at} wieder Auto`:`${D.licht?"an":"aus"} bis ${lu.at}`):"aus · beim Durchwachsen bleibt es dunkel","<span>Taster</span>");
 }
 function climaPanel(){
   panel("clima","Klima · läuft automatisch",`<p>Die Box regelt Luft, Feuchte, Wärme und Licht selbst. Eingreifen musst du nur, wenn eine Meldung kommt.</p>
-    <div id="climaRows">${climaRows()}</div>
-    <p>„1 Min jetzt“ ist eine Ausnahme, z. B. zum Ausprobieren. Danach regelt die Box wieder selbst.</p>`,p=>{
+    <div id="climaRows">${climaRows()}</div>`,p=>{
     p.style.overflowY="auto";
-    p.addEventListener("click",e=>{const b=e.target.closest("[data-run]");if(b)runConfirm(b.dataset.run,climaPanel)});
   });
 }
 /* Ruhemodus: Display bleibt schwarz. Es wacht nur auf, wenn eine Warnung ein Handeln verlangt
@@ -728,38 +721,7 @@ function toggleLight(src){
   msg(`${src==="Taster"?"Taster · ":""}Licht ${sim.dev.licht?"an":"aus"} bis ${pad(nx.getHours())}:00, danach Auto`);
 }
 
-/* Lüften/Befeuchten: läuft es schon, stoppt ein Tipp. Sonst erst „Bist du sicher?“ mit Empfehlung oder Warnung. */
-function advice(kind){
-  const T=tgt(), rh=Math.round(sim.rh), co2=Math.round(sim.co2/10)*10;
-  if(demo.sensor) return {rec:false,why:"Der Sensor ist ausgefallen, die Box kann es gerade nicht beurteilen."};
-  if(kind==="air"){
-    if(co2>T.co2) return {rec:true,why:`CO₂ ist hoch (${co2} ppm, Ziel unter ${T.co2}). Frische Luft hält die Stiele kurz.`};
-    if(rh>T.rh[1]) return {rec:true,why:`Die Luft ist zu feucht (${rh} %, Ziel bis ${T.rh[1]} %). Lüften trocknet die Kammer.`};
-    if(rh<T.rh[0]) return {rec:false,why:`Die Kammer ist schon zu trocken (${rh} %). Lüften trocknet sie weiter aus.`};
-    return {rec:false,why:`CO₂ und Feuchte sind im Zielbereich. Die Box lüftet ohnehin alle 30 Minuten.`};
-  }
-  if(rh<T.rh[0]) return {rec:true,why:`Die Luft ist zu trocken (${rh} %, Ziel ab ${T.rh[0]} %).`};
-  if(rh>T.rh[1]) return {rec:false,why:`Schon zu feucht (${rh} %). Mehr Nebel kann Schimmel und Tropfen auf den Hüten verursachen.`};
-  return {rec:false,why:`Die Feuchte ist im Zielbereich (${rh} %). Der Nebler regelt selbst.`};
-}
-function runConfirm(kind,back){
-  if(paused()) return;
-  const now=Date.now(), air=kind==="air", key=air?"burst":"mist", name=air?"Lüften":"Befeuchten";
-  if(sim[key]>now){sim[key]=0;step(new Date());render();msg(name+" gestoppt");back&&back();return}
-  if(!air&&sim.tank<=0){msg("Wasser leer · erst Tank auffüllen");return}
-  const a=advice(kind);
-  panel("run",`${name} – bist du sicher?`,`
-    <div class="rec ${a.rec?"ok":"warn"}">${a.rec?IC.verified+"Empfohlen":IC.warn+"Nicht nötig"}</div>
-    <p>${a.why}</p><p>${air?"Der Lüfter läuft 1 Minute.":"Der Nebler läuft 1 Minute."} Danach regelt die Box wieder selbst.</p>
-    <div class="btnrow">${a.rec
-      ?`<button class="bigbtn out" data-x>Abbrechen</button><button class="bigbtn" data-ok>Ja, 1 Min ${air?"lüften":"befeuchten"}</button>`
-      :`<button class="bigbtn out weak" data-ok>Trotzdem ${air?"lüften":"befeuchten"}</button><button class="bigbtn" data-x>Abbrechen</button>`}</div>`,p=>{
-    p.querySelector("[data-x]").onclick=back||closePanel;
-    p.querySelector("[data-ok]").onclick=()=>{sim[key]=Date.now()+60000;(back||closePanel)();step(new Date());render();msg(name+" · 1 Minute")};
-  });
-}
-$("#kClima").onclick=()=>["clima","run"].includes(open)?closePanel():climaPanel();
-$("#kSleep").onclick=()=>{S.sleep=!S.sleep;save();closePanel();if(S.sleep){wakeUntil=0;msg("Ruhemodus an")}else msg("Ruhemodus aus");render()};
+$("#kClima").onclick=()=>open==="clima"?closePanel():climaPanel();
 $("#kAlerts").onclick=()=>open==="alerts"?closePanel():alertPanel();
 $("#alert").onclick=()=>{if(S.power)alertPanel()};
 $("#kSort").onclick=()=>["sort","info","confirm","new","away","restore"].includes(open)?closePanel():sortPanel();
@@ -821,7 +783,7 @@ function settingsPanel(){
       <button class="opt" role="switch" data-set="sleep" aria-checked="${!!S.sleep}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><div>Ruhemodus ${sw(S.sleep)}<small>Display aus, weckt nur bei Warnung</small></div></button>
       <button class="opt" data-set="away">${IC.away}<div>Urlaub ${sw(S.away)}<small>Box spart Wasser, Meldungen aufs Handy</small></div></button>
       <div class="lbl">Über diese Box</div>
-      <p style="margin:0">Growbox 01 · ${esc(SPECIES[S.species].name)} · Prototyp v4</p>
+      <p style="margin:0">Growbox 01 · ${esc(SPECIES[S.species].name)} · Prototyp v5</p>
     </div>
     <button class="bigbtn out" data-set="admin">Admin-Modus</button>`,p=>{
     p.querySelector('[data-set="link"]').onclick=connectPanel;

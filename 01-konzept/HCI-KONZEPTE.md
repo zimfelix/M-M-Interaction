@@ -41,7 +41,7 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 | Konzept | Folien | Anwendung |
 |---|---|---|
 | Mentale Modelle: Designer-, System-, Benutzermodell (Norman) | 56 | Metapher „Die Box ist ein Lebewesen, das Bedürfnisse zeigt“ statt „Gerät mit Relais“. |
-| Flexibilität: mehrere Wege zum Ziel | 57–58 | Licht per Touch, per Taster **oder** per App schalten. |
+| Flexibilität: mehrere Wege zum Ziel | 57–58 | Licht per Taster **oder** per App schalten; „1 Min lüften“ nur in der App für Fortgeschrittene (Stand v5). |
 | Gulf of Execution / Gulf of Evaluation | 59 | Ausführung: Aktion ist offensichtlich. Bewertung: Ergebnis sichtbar, denn die LED leuchtet durch das Plexiglas (natürliches Feedback). |
 | Fehlerarten, besonders **Modusfehler** | 60 | Möglichst keine Modi; wenn „Automatik/Manuell“ nötig ist, Modus dauerhaft sichtbar anzeigen. |
 | Murphys Law | 61 | Kritisches (z. B. Alarm aus) nur mit Bestätigung oder rückgängig machbar. |
@@ -52,7 +52,7 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 |---|---|---|
 | Affordances (Gibson 1979, Norman) | 72–73 | Taster sieht drückbar aus; Kacheln sehen wie Knöpfe aus, nicht wie Text. |
 | Constraints: physisch, logisch, kulturell | 74–76 | Kulturell: Rot = Problem. Logisch: Nicht Mögliches ausgrauen. Physisch: Taster nur in einer Richtung drückbar. |
-| Mappings (Herdplatten-Beispiel) | 77–79 | Anordnung auf dem Display entspricht der Box: Licht-Kachel oben (Lampe oben), Feuchte unten. |
+| Mappings (Herdplatten-Beispiel) | 77–79 | Anzeige entspricht der Box: Wasser-Anzeige „reicht ca. X Tage“ ↔ Sichtfenster mit Füllstandslinie am Tank (Stand v5). |
 | Konsistenz (syntaktisch, semantisch, terminologisch, innere, äußere) | 80–81 | **Äußere Konsistenz mit der App des Teammitglieds:** gleiche Symbole, Begriffe und Farben auf Display und App. |
 | Feedback (visuell, akustisch, haptisch) | 82 | Jede Aktion: Kachel ändert sich + kurzer Ton; Taster klickt fühlbar. |
 | Fehlertoleranz, aussagekräftige Fehlermeldungen (spezifisch, konstruktiv, höflich) | 83–85 | „Wassertank fast leer – bitte bis zur Markierung auffüllen“ statt „Fehler 3“. |
@@ -84,7 +84,7 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 |---|---|---|
 | Formativ vs. summativ (Scriven 1967) | 126 | Formativ: Papierprototyp testen und ändern. Summativ: Endstand messen. |
 | Qualitativ/quantitativ, analytisch/empirisch (Axt-Beispiel) | 127–128 | Beides: Heuristik-Check (analytisch) + Nutzertest (empirisch). |
-| Cognitive Walkthrough (Folie: „Analytische Methoden“, 3 Fragen: klar? erkennbar? Rückmeldung?) | 129 | Für 3 Kernaufgaben: Licht an, Alarm verstehen und quittieren, Zustand ablesen. |
+| Cognitive Walkthrough (Folie: „Analytische Methoden“, 3 Fragen: klar? erkennbar? Rückmeldung?) | 129 | Für die Kernaufgaben: Zustand ablesen, Warnung verstehen und mit dem Knopf bestätigen, Licht per Taster (Aufgaben je Persona: `04-evaluation/entscheidungen-folien.md`). |
 | Probanden: Alter, Vorkenntnisse, Sehkraft … | 133 | Tester bewusst über Altersgruppen streuen, denn das ist eure Kernanforderung. |
 | Feld- vs. Laborstudie | 136 | Kurzer Labortest an der Uni reicht. |
 | **AttrakDiff** (pragmatische vs. hedonische Qualität), PANAS | 141–142 | AttrakDiff-Kurzform als Fragebogen nach dem Test. |
@@ -111,6 +111,6 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 ## Stärkste Hebel für Konzept und Bewertung
 
 1. **Lebewesen-Metapher** (mentales Modell) + präattentiver Zustand + Progression (Gamification) → ein Konzept, das viele Theorien zugleich belegt.
-2. **Mehrere Wege** (Touch, Taster, App) über **ein gemeinsames Modell (MVC)** → HCI-Prinzip und Technik in einem.
+2. **Mehrere Wege** (Taster, App; an der Box bewusst nur einer) über **ein gemeinsames Modell (MVC)** → HCI-Prinzip und Technik in einem.
 3. **Alle Altersgruppen**: Fitts, redundante Codierung, keine Modi, Recognition statt Recall, Personas und Tester über Altersgruppen.
 4. **Evaluation**: Nielsen-Heuristiken + Cognitive Walkthrough (analytisch) + kurzer Nutzertest mit AttrakDiff (empirisch).

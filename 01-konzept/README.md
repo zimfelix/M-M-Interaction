@@ -10,6 +10,8 @@ Interaktionskonzept der Growbox: wer sie bedient, wie und mit welchem Bezug zur 
 | **Bedienfeld** (aktuell + Verlauf fürs Booklet) | [`bedienfeld/`](bedienfeld/) |
 | Personas und Storyboards | [`personas-storyboard.md`](personas-storyboard.md) |
 | Vorlesungskonzepte mit Foliennummern | [`HCI-KONZEPTE.md`](HCI-KONZEPTE.md) |
+| Gleiche Begriffe in Box und App (fürs App-Teammitglied) | [`begriffe-box-app.md`](begriffe-box-app.md) |
+| Entscheidungen mit Person und Folie (Präsentation, Booklet) | [`../04-evaluation/entscheidungen-folien.md`](../04-evaluation/entscheidungen-folien.md) |
 | Bestätigte Entscheidungen (Leitidee, Startbild, Kacheln …) | [`../BRIEF.md`](../BRIEF.md) |
 
 Weiter: [Schritt 2 · Box-Bau](../02-box-bau/) · [Schritt 3 · Software](../03-software/) · [Schritt 4 · Evaluation](../04-evaluation/)
