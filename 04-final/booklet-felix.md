@@ -4,7 +4,31 @@ Mein Teil: das **Hauptgerät**, also die physische Box und das Bedienfeld daran,
 
 Jede Seite: **eine Aussage**, ein bis zwei Bilder, **Folien im Text ausdrücklich erklärt** (Muster aus [`entscheidungen-folien.md`](entscheidungen-folien.md): „Folie sagt … → deshalb …“). Das erfüllt die Kriterien von Folie 5: Theorie-Bezug, HCI-Grundprinzipien, Technologie.
 
-## Überblick
+## Einordnung ins Gesamt-Booklet (20 Seiten)
+
+Das Booklet hat **20 Seiten, 5 pro Person**. Meine 5 Seiten sind der **Hauptteil zum Gerät**. Die anderen Teile (App, Typ B, gemeinsamer Rahmen) bauen darauf auf und verweisen zurück. Die Reihenfolge stimmen wir gemeinsam ab; ein Vorschlag:
+
+```
+Rahmen (Titel, Aufgabe, Vorgehen) → Felix: Box + Bedienfeld (Typ A) → App (Typ B) → Gamification / Evaluation / Fazit
+```
+
+## Gestaltung des Booklets (Vorschlag für alle 20 Seiten)
+
+Das Booklet sieht aus wie das Produkt. Dann begründet die Gestaltung sich selbst: Wir zeigen äußere Konsistenz (Folie 80–81), statt nur darüber zu schreiben.
+
+| Element | Vorschlag | Grund |
+|---|---|---|
+| **Farben** | Blau `#1525c4` als Akzentfläche (Kapitelbalken, Kästen); Grün `#3fcf7f` nur für „gut/erledigt“, Orange `#e69f00` nur für „Achtung“; Text schwarz auf Weiß | gleiche Bedeutung wie auf Box und App; Blau nie für kleine Schrift (Folie 20, 22) |
+| **Schrift** | Barlow (wie das Bedienfeld), Überschriften Barlow Semi Condensed fett; Fließtext 10–11 pt | Wiedererkennung; gut lesbar gedruckt |
+| **Raster** | pro Seite **eine Aussage** als Überschrift, ein großes Bild, Text in 2 Spalten | wie das Display: ein Blick, eine Aussage (Folie 16–17) |
+| **Folienbezug** | ein wiederkehrender Kasten „📖 Folie 27: … → deshalb …“ in Blau mit weißer Schrift | macht das Bewertungskriterium von Folie 5 sichtbar |
+| **Screenshots** | aus `bedienfeld-v6/`, mit nummerierten Markierungen (Kreise 1, 2, 3 …) statt Pfeil-Wirrwarr | Bild und Text lassen sich eindeutig zuordnen (Mapping, Folie 77–79) |
+| **Personen** | kleines Symbol für Typ A und Typ B am Seitenrand, auf allen 20 Seiten gleich | man sieht sofort, für wen eine Entscheidung gilt |
+| **Barrierefreiheit** | Kontrast ≥ 4,5 : 1, Status nie nur über Farbe (auch im Druck) | wir halten uns im Booklet an dieselben Regeln wie im Produkt |
+
+⚠️ **Mit den anderen abstimmen:** Vorlage (z. B. gemeinsame Vorlage in Word, Pages oder Canva), Schrift, Farben und Folienkasten **vor** dem Schreiben festlegen. Sonst passen die 20 Seiten nicht zusammen.
+
+## Überblick meiner 5 Seiten
 
 ```
 S1 Nutzungskontext ──► S2 Die Box (Gestalt + Technik) ──► S3 Startbild
