@@ -51,9 +51,8 @@
   .claude .home { background: rgba(255,255,255,.75); }
   .full .home { background: rgba(255,255,255,.6); }
   [hidden] { display: none !important; }
-  /* drei Telefone nebeneinander auch auf kleineren Bildschirmen */
-  @media (max-width: 1400px) { .phone { zoom: .86; } }
-  @media (max-width: 1150px) { .phone { zoom: .72; } }
+  /* auf kleinen Bildschirmen verkleinern */
+  @media (max-width: 440px) { .phone { zoom: .86; } }
 </style>
 </head>
 <body>
@@ -64,18 +63,11 @@
     <button type="button" data-mode="full" aria-pressed="false">Vollbild in der Box</button>
   </div>
   <p id="hint"></p>
+  <p>Ältere Stände (v1–v3, Original von claude.ai) liegen im Archiv <code>verlauf/</code>.</p>
   <div class="row">
     <figure>
       <figcaption>Aktuell (v4)<small>index.html · Klima-Automatik sichtbar</small></figcaption>
       <div class="phone"><div class="screen" data-src="index.html"></div></div>
-    </figure>
-    <figure>
-      <figcaption>Vorher (v3)<small>verlauf/v3/</small></figcaption>
-      <div class="phone"><div class="screen" data-src="verlauf/v3/index.html"></div></div>
-    </figure>
-    <figure>
-      <figcaption>Ursprung claude.ai (Live-Stand)<small>Kopie in verlauf/claude-ai-live/ · <a href="https://claude.ai/artifact/EGmf5bvFTK16eYGfKWVkPE" target="_blank" rel="noopener">Original-Link</a></small></figcaption>
-      <div class="phone"><div class="screen" data-src="verlauf/claude-ai-live/index.html"></div></div>
     </figure>
   </div>
   <script>
@@ -85,8 +77,6 @@
       safari: { top: 51,  bottom: 98, hint: "Im normalen Safari-Tab: sichtbarer Bereich ca. 375 × 663." },
       full:   { top: 51,  bottom: 34, hint: "Vollbild ohne Leisten (Web-App bzw. Geführter Zugriff), so wie es in der Box hängen soll: ca. 375 × 727." },
     };
-    // Das Original fragt beim ersten Start, ob es Box-Display oder Handy-App ist: für den Vergleich wie auf dem Handy „Box“
-    try { if (!localStorage.getItem("funghilab-role")) localStorage.setItem("funghilab-role", "box"); } catch (e) {}
     const screens = [...document.querySelectorAll(".screen")];
     for (const sc of screens) {
       sc.innerHTML = `<iframe title="Bedienfeld"></iframe>

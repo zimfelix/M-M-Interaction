@@ -4,11 +4,11 @@ Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zag
 
 **Präsentation 05.11.2026, 10:00 · Abgabe 08.11.2026, 23:59**
 
-**▶ Bedienfeld live zum Ausprobieren: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi** (Vergleich mit älteren Ständen) · **nur aktueller Entwurf: https://claude.ai/artifact/Lk5ruX821tCk1WkfVvBxKC** (beide werden bei jeder Änderung neu veröffentlicht, gleiche Links)
+**▶ Bedienfeld live zum Ausprobieren: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi** (aktueller Stand, Ansichten claude.ai/Safari/Vollbild) · **nur aktueller Entwurf: https://claude.ai/artifact/Lk5ruX821tCk1WkfVvBxKC** (beide werden bei jeder Änderung neu veröffentlicht, gleiche Links)
 
-[![Bedienfeld: aktuell v4, vorher v3, Ursprung claude.ai](01-konzept/bedienfeld/bilder/vorschau-3-screens.png)](01-konzept/bedienfeld/)
+[![Bedienfeld: aktueller Stand v4](01-konzept/bedienfeld/bilder/vorschau-aktuell.png)](01-konzept/bedienfeld/)
 
-Links der aktuelle Stand, Mitte der vorige Stand, rechts das Original von claude.ai. Das Bild erzeugt `sh 01-konzept/bedienfeld/screenshot.sh`.
+Aktueller Stand; ältere Stände liegen im Archiv `01-konzept/bedienfeld/verlauf/`. Das Bild erzeugt `sh 01-konzept/bedienfeld/screenshot.sh`.
 
 ## Wo wir stehen (29.10.2026)
 
