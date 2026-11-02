@@ -25,7 +25,7 @@ Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 | **Meldungen** (Zahl = offene Meldungen) | Meldungen | offene Meldungen mit „seit“, Verlauf (Beginn, „behoben um“ / „erledigt um“) |
 | **Sorte & Neu** | Sorte & Neu | Sorten ansehen, neu ansetzen, Notfall „Zurück zu …“, Urlaub |
 | Zahnrad = **Einstellungen** (oben rechts) | Einstellungen | Handy verbinden, Ruhemodus, Urlaub, Über diese Box |
-| **HANDY** (oben links unter der Sorte) | – | Code zum Verbinden, Knopf **VERBUNDEN**; danach ausgeblendet |
+| **Handy-Symbol** (oben rechts neben dem Zahnrad) | – | Code zum Verbinden, Knopf **VERBUNDEN**; danach ausgeblendet |
 | – | **Advanced Analytics** (nur App) | Verläufe, CO₂, Vergleiche |
 
 ## Geräte und Werte

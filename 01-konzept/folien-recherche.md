@@ -39,6 +39,19 @@ Die Folien geben **keine Knopfzahl vor**. Sie liefern aber Prinzipien, mit denen
 | **66** Farbauflösung & Kontrast | „Wie wichtig ist der Bildschirmkontrast?“ | Kontraste nachgemessen (siehe unten): Weiße Schrift ist gut, **orange Schrift auf hellem Blau ist zu schwach**. |
 | **82** Feedback | Ladekreis, Fortschrittsbalken, Sanduhr | Der Ring ist ein Fortschrittsbalken für einen Prozess, der Wochen dauert. |
 
+**Der blaue Hintergrund** – was sagen die Folien?
+
+| Folie | Was die Folie zeigt | Folgerung für Blau |
+|---|---|---|
+| **22** Lichtempfindlichkeit der Sinneszellen | eigene Kurve der **S-Zapfen** (Blau, 420 nm), weit weg von M und L (534/564 nm), die sich stark überlappen | Blau wird über einen eigenen Zapfentyp gesehen. Die starke Überlappung von M und L erklärt, warum **Rot-Grün** schwierig ist, **Blau-Gelb** dagegen nicht. |
+| **20** Sinneszellen im Auge | Zapfen konzentriert in der Fovea (Punkt des schärfsten Sehens) | Externe Ergänzung: Blau-Zapfen sind selten und fehlen in der Fovea-Mitte. Deshalb **Blau als große Fläche**, nie für kleine Schrift oder Details. Bei uns: Schrift weiß, Blau nur als Hintergrund ✅ |
+| **26** präattentiv | ein farbiges Element auf gleichmäßigem Grund springt sofort heraus | Ein ruhiger, einfarbiger Hintergrund ist die Voraussetzung dafür, dass Grün (alles gut) und Orange (Warnung) sofort auffallen. Blau ist dafür gut, weil es weder Grün noch Orange ähnelt. |
+| **23** Farbenblindheit | Rot-Grün-Schwäche ca. 8 % der Männer | Unsere Simulation: Der Hintergrund bleibt bei Rot-Grün-Schwäche **blau** (`#1525c4` → `#0039c1`), Grün und Orange werden **gelblich**. Die **Blau-Gelb-Achse bleibt erhalten**: Statusfarbe und Hintergrund sind weiter klar getrennt. Nur Grün und Orange untereinander nicht, dafür gibt es Form und Text. |
+| **76** kulturelle Constraints | Farben tragen gelernte Bedeutungen (Stoppschild rot, Recycling grün) | Blau trägt bei Geräten keine Warn- oder Erfolgsbedeutung, ist also **neutral**. Grün = gut und Gelb/Orange = Achtung bleiben exklusiv für den Status. Rot nutzen wir bewusst nicht. |
+| **66** Farbauflösung & Kontrast | „Wie wichtig ist der Bildschirmkontrast?“ | Weiß auf unserem Blau: 6,4–16 : 1. Ein dunkler Grund passt auch zum Aufstellort (Küche, abends): Er blendet weniger als ein weißes Display. Das ist eine eigene Begründung, sie steht nicht auf den Folien. |
+
+**Fazit:** Der blaue Hintergrund ist mit den Folien gut begründbar, solange **Blau nur Fläche** ist (keine blaue Schrift, keine blauen Statusfarben) und der **Status über Form + Wort** läuft. Nicht aus den Folien begründbar ist die konkrete Wahl gerade *dieses* Blaus. Das ist Gestaltung (Bezug zum Original-Panel des Kollegen) und sollte im Booklet auch so benannt werden.
+
 **Simulation Rot-Grün-Schwäche** (Machado et al. 2009, volle Ausprägung):
 
 | | Grün „Alles gut“ `#3fcf7f` | Orange „Warnung“ `#e69f00` | Helligkeitsunterschied |
@@ -124,7 +137,7 @@ Was wir darüber hinaus tun, braucht für das Booklet eine **externe Quelle**, z
 2. **Nebentexte heller**: `#c7cfff` → `#dfe4ff`, jetzt mindestens 5,1 : 1 auch in der hellen Mitte.
 3. **Werte außerhalb des Zielbereichs** zeigen ein **Warndreieck statt des Symbols** und färben nicht mehr nur den Text orange (sonst wieder nur Farbe als Signal, Folie 23).
 4. **Licht-Taster** im Klima-Fenster erklärt (siehe Abschnitt 4).
-5. **Kopfzeile neu**: Warnpunkt in der Mitte (Folien 26, 23, 63, 130), HANDY links unter der Sorte und nach VERBUNDEN ausgeblendet, Uhr entfernt, Zahnrad als 44-pt-Ziel. Die Größe stammt aus einer externen Quelle (Apple HIG); die Folien begründen nur das Prinzip (Fitts, 50).
+5. **Kopfzeile neu**: eine Zeile, alles 44 pt hoch: Sorte links, Warnpunkt in der Mitte (Folien 26, 23, 63, 130), rechts Handy-Symbol (nach VERBUNDEN ausgeblendet) und Zahnrad als gleich große Knöpfe; Uhr entfernt. Die Größe stammt aus einer externen Quelle (Apple HIG); die Folien begründen nur das Prinzip (Fitts, 50).
 
 ## Weiter gültig
 

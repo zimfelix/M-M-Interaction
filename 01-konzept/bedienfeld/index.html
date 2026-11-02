@@ -66,10 +66,11 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 /* Mitte */
 .topbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2cqw;font-family:var(--f-cond);font-weight:600;font-size:4.4cqw;letter-spacing:.04em;color:var(--ink-soft);font-variant-numeric:tabular-nums}
 .topbar b{color:var(--ink);font-weight:700}
-.topbar .tl{display:flex;flex-direction:column;align-items:flex-start;gap:1.4cqw;min-width:0}
-.topbar .tl > span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+/* Kopfzeile: eine Zeile, alle Elemente 44 pt hoch (12cqw bei 375 pt Breite) */
+.topbar{min-height:12cqw}
+#topCulture{font-size:6.6cqw;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase;line-height:12cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 /* Warnpunkt: leuchtet nur, wenn eine Warnung ansteht – aus der Ferne sichtbar (hell/dunkel + „!“, nicht nur Farbe) */
-.alarm-dot{width:11cqw;height:11cqw;border-radius:50%;border:.6cqw solid var(--ink-dim);display:grid;place-items:center;color:transparent;font-family:var(--f-ui);font-weight:800;font-size:7.4cqw;line-height:1}
+.alarm-dot{width:12cqw;height:12cqw;border-radius:50%;border:.6cqw solid var(--ink-dim);display:grid;place-items:center;color:transparent;font-family:var(--f-ui);font-weight:800;font-size:8cqw;line-height:1}
 .alarm-dot.on{background:var(--alarm);border-color:#fff;color:#1a1000;box-shadow:0 0 0 1.2cqw rgba(230,159,0,.35),0 0 5cqw 1.5cqw rgba(230,159,0,.75)}
 .topbar .tr{justify-self:end;display:inline-flex;align-items:center;gap:1.6cqw}
 .center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;padding-block:2cqw}
@@ -122,9 +123,6 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .ticon{display:inline-flex;align-items:center;gap:1.4cqw}
 .ticon svg{width:4.6cqw;height:4.6cqw}
 .away-chip{border:.5cqw solid var(--ink);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink)}
-.link-chip{display:inline-flex;align-items:center;gap:1cqw;border:.5cqw solid var(--ink-dim);background:transparent;border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:4.6cqw;letter-spacing:.06em;text-transform:uppercase;padding:1.2cqw 3cqw;color:var(--ink-soft)}
-.link-chip svg{width:5cqw;height:5cqw}
-.link-chip.on{border-color:var(--band);color:var(--ink)}
 .code{font-size:17cqw;font-weight:800;letter-spacing:.12em;text-align:center;font-variant-numeric:tabular-nums;padding:3cqw;border:.7cqw dashed var(--ink-dim);border-radius:3cqw}
 .panel ol{margin:0;padding-left:5cqw;font-size:4.2cqw;line-height:1.35;color:var(--ink-soft);display:flex;flex-direction:column;gap:1.4cqw}
 .opt small{display:block;font-weight:500;font-size:.8em;opacity:.8;margin-top:.6cqw}
@@ -132,6 +130,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 /* Zahnrad: Touch-Ziel 44 × 44 pt (≈ 11,7 % von 375 pt), mit Rahmen, damit es drückbar aussieht */
 .admin-btn{display:inline-grid;place-items:center;width:12cqw;height:12cqw;padding:0;border:.5cqw solid var(--ink-dim);border-radius:3cqw;background:rgba(255,255,255,.06);color:var(--ink)}
 .admin-btn svg{width:7.2cqw;height:7.2cqw}
+#linkChip.on{border-color:var(--band)}
 .admin-btn:focus-visible{opacity:1;outline:.5cqw solid var(--band)}
 .rec{display:flex;align-items:center;gap:2cqw;border-radius:2.4cqw;padding:2.4cqw 3cqw;font-weight:700;font-size:5cqw}
 .rec svg{flex:none;width:7cqw;height:7cqw}
@@ -239,7 +238,6 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   .screen::after{display:none}
   .plate,.demo{display:none}
   .demo-chip{display:inline-flex}
-  .topbar{font-size:4.6cqw}
   .ring{width:78cqw;height:78cqw}
   .shroom{width:30cqw;height:30cqw;margin-top:0}
   .hum{font-size:14cqw}
@@ -267,7 +265,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   <div class="device">
     <div class="glass">
       <div class="screen" id="screen">
-        <div class="topbar"><div class="tl"><span id="topCulture">Auster</span><button class="link-chip" id="linkChip" aria-label="Mit Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span>Handy</span></button></div><span class="alarm-dot" id="alarmDot" role="img" aria-label="Keine Warnung">!</span><span class="tr"><span class="ticon" id="topIcons"></span><button class="admin-btn" id="demoChip" aria-label="Einstellungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
+        <div class="topbar"><span id="topCulture">Auster</span><span class="alarm-dot" id="alarmDot" role="img" aria-label="Keine Warnung">!</span><span class="tr"><span class="ticon" id="topIcons"></span><button class="admin-btn" id="linkChip" aria-label="Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></button><button class="admin-btn" id="demoChip" aria-label="Einstellungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
 
         <div class="center" id="home">
           <div class="ring">
