@@ -15,5 +15,5 @@ Uni-Projekt (HCI, Prof. Zagel, Option B): Interaktionskonzept und Prototyp für 
 - **Autonomie:** Innerhalb eines freigegebenen Schritts selbst schreiben, testen und lokal committen. **Rückfrage vor:** Push, neuen Dependencies, Architekturänderungen, Einkäufen.
 - **Kein Bau ohne Zustimmung:** Erst Konzept und Architektur vorschlagen, bauen erst nach Freigabe.
 - **Git:** Vor jedem Commit `git status` prüfen und nur eigene Änderungen gezielt stagen (kein `git add -A`); fremde Änderungen ansprechen.
-- **Bedienfeld geändert?** Danach `sh 01-konzept/bedienfeld/screenshot.sh` ausführen (Bild in der README) und die Vorschau auf denselben claude.ai-Link neu veröffentlichen (https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi; `vorschau-iphone.html` mit `index.html` als `aktuell/index.html`).
+- **Bedienfeld geändert?** Danach `sh 01-konzept/bedienfeld/screenshot.sh` ausführen (Bild in der README) und die Vorschau auf denselben claude.ai-Link neu veröffentlichen (https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi; `vorschau-iphone.html` mit `index.html` als `aktuell/index.html`) – ebenso die Einzelansicht https://claude.ai/artifact/Lk5ruX821tCk1WkfVvBxKC (`vorschau-einzeln.html`). In beiden Vorschauen dabei `data-src="index.html"` zu `aktuell/index.html` ändern.
 - **Entscheidungen** sofort in `BRIEF.md` eintragen; Überholtes ersetzen statt anhängen.

@@ -142,10 +142,10 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .hist svg{width:5cqw;height:5cqw}
 .hist time{color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
 .hist small{grid-column:3;color:var(--ink-soft);font-size:3.6cqw}
-.autoline{display:flex;align-items:center;justify-content:center;gap:1.6cqw;flex-wrap:wrap;margin-top:2.6cqw;font-size:3.8cqw;font-weight:600;color:var(--ink-soft);text-align:center;line-height:1.2}
-.autoline b{color:var(--ink);font-weight:700}
-.autoline .pulse,.key .pulse{display:inline-block;width:2cqw;height:2cqw;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(63,207,127,.7);animation:pulse 1.6s ease-out infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 2cqw rgba(63,207,127,0)}100%{box-shadow:0 0 0 0 rgba(63,207,127,0)}}
+/* Klima-Taste: grüner Punkt blinkt dauerhaft, solange die Automatik läuft */
+.key .pulse{display:inline-block;width:2cqw;height:2cqw;border-radius:50%;background:var(--ok);animation:autoblink 1.2s ease-in-out infinite}
+@keyframes autoblink{50%{opacity:.1}}
+@media (prefers-reduced-motion:reduce){.key .pulse{animation:none}}
 .key i{display:inline-flex;align-items:center;gap:1cqw}
 .crow{display:grid;grid-template-columns:auto 1fr auto;gap:1cqw 2.4cqw;align-items:center;border-bottom:.3cqw solid var(--ink-dim);padding:2cqw 0}
 .crow svg{width:6.4cqw;height:6.4cqw}
@@ -261,7 +261,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   <div class="device">
     <div class="glass">
       <div class="screen" id="screen">
-        <div class="topbar"><span id="topCulture">Austernpilz · <b>Fruchtung</b></span><span class="tr"><span class="ticon" id="topIcons"></span><button class="link-chip" id="linkChip" aria-label="Mit Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span>Handy</span></button><button class="admin-btn" id="demoChip" aria-label="Admin-Modus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button><span id="topClock">--:--</span></span></div>
+        <div class="topbar"><span id="topCulture">Austernpilz</span><span class="tr"><span class="ticon" id="topIcons"></span><button class="link-chip" id="linkChip" aria-label="Mit Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span>Handy</span></button><button class="admin-btn" id="demoChip" aria-label="Admin-Modus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button><span id="topClock">--:--</span></span></div>
 
         <div class="center" id="home">
           <div class="ring">
@@ -292,7 +292,6 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
           <button class="alert" id="alert" aria-label="Alle Meldungen anzeigen"></button>
           <button class="act" id="actBtn" hidden></button>
           <div class="mini" id="mini"></div>
-          <div class="autoline" id="autoline" aria-live="polite"></div>
         </div>
         <div class="keys">
           <button class="key" id="kClima" aria-label="Klima, läuft automatisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5V5a2 2 0 0 1 4 0v8.5a4 4 0 1 1-4 0z"/><path d="M17.5 6h4M17.5 10h3M3 8h3.5M2.5 12h4"/></svg><b>Klima</b><i id="climaSub">Auto</i></button>
@@ -511,8 +510,8 @@ function render(){
   if(key!==lastAlert){lastAlert=key;const el=$("#alert");
     if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neu ansetzen fortsetzen: SORTE &amp; NEU.</span>`}
     else if(awayQuiet){el.className="alert";el.innerHTML=`<span class="t">${IC.away}Urlaub</span><span class="a">Box spart Wasser · Meldungen gehen aufs Handy</span>`}
-    else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a">${PHASES[S.phase]} · Tag ${day()}</span>`}
-    else if(top.sev==="info"){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a"><b>${top.t}:</b> ${top.a}</span>`}
+    else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span>`}
+    else if(top.sev==="info"){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span>`}
     else{el.className="alert warn";el.innerHTML=`<span class="t">${IC.warn}${top.t}</span><span class="a">${top.a}</span>`}
   }
   // Pausiert: ein Tipp macht das Beenden rückgängig (Fehlertoleranz)
@@ -532,16 +531,14 @@ function render(){
     stat(hOff,IC.rh,showVal?Math.round(sim.rh)+" %":"–",band(T.rh,40,100,sim.rh),"Luftfeuchte")+
     stat(wOff,IC.tank,Math.round(sim.tank)+" %",`<i class="lvl" style="width:${sim.tank}%"></i>`,sim.tank<=0?"Jetzt auffüllen":td<1?"Heute auffüllen":`reicht ca. ${td} ${td===1?"Tag":"Tage"}`);
   $("#topClock").textContent=`${pad(d.getHours())}:${pad(d.getMinutes())}`;
-  $("#topCulture").innerHTML=`${esc(SPECIES[S.species].name)} · <b>${PHASES[S.phase]}</b>`;
+  $("#topCulture").textContent=SPECIES[S.species].name;
   const left=Math.max(0,sim.burst-Date.now()), mleft=Math.max(0,sim.mist-Date.now());
-  const Dv=sim.dev, busy=S.power&&(Dv.luefter||Dv.nebel||Dv.heizung);
-  $("#climaSub").innerHTML=!S.power?"aus":busy?'<span class="pulse" aria-hidden="true"></span>Auto':"Auto";
+  $("#climaSub").innerHTML=!S.power?"aus":'<span class="pulse" aria-hidden="true"></span>Auto';
   $("#kSleep").classList.toggle("on",!!S.sleep); $("#kSleep").setAttribute("aria-pressed",!!S.sleep);
   $("#sleepSub").textContent=S.sleep?"an":"aus";
   syncSleep(list);
-  $("#autoline").innerHTML=!S.power?"":autoText();
   if(open==="clima"){const v=$("#climaRows");if(v)v.innerHTML=climaRows()}
-  $("#topIcons").innerHTML=(S.power&&sim.dev.licht?`<span aria-label="Licht an" role="img">${IC.bulb}</span>`:"")+(S.away?`<button class="away-chip" data-endaway aria-label="Urlaub beenden">Urlaub ✕</button>`:"")+(S.sleep?`<span class="sleep-chip" aria-label="Ruhemodus an">Ruhe</span>`:"");
+  $("#topIcons").innerHTML=(S.away?`<button class="away-chip" data-endaway aria-label="Urlaub beenden">Urlaub ✕</button>`:"")+(S.sleep?`<span class="sleep-chip" aria-label="Ruhemodus an">Ruhe</span>`:"");
   $("#linkChip").classList.toggle("on",!!appSeen);
   $("#plateSub").textContent=`${SPECIES[S.species].name} · ${PHASES[S.phase]}`;
   if(open==="alerts") alertPanel(true);
@@ -687,13 +684,6 @@ const paused=()=>{if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return true}
 /* Automatik sichtbar machen: was die Box gerade selbst tut */
 function nextAir(){const d=new Date(), m=d.getHours()*60+d.getMinutes();return 30-(m%30)}
 function lightUntil(){const d=new Date(), m=d.getHours()*60+d.getMinutes(), on=m>=480&&m<1200;return {on, at:on?"20:00":"8:00"}}
-function autoText(){
-  const D=sim.dev, parts=[];
-  if(D.heizung) parts.push("<b>Heizung an</b>");
-  if(D.nebel) parts.push("<b>Nebler an</b>");
-  parts.push(D.luefter?"<b>Lüfter an</b>":`Lüften in ${nextAir()} Min`);
-  return `<span class="pulse" aria-hidden="true"></span>Box regelt selbst: ${parts.join(" · ")}`;
-}
 function climaRows(){
   const T=tgt(), D=sim.dev, rh=Math.round(sim.rh), t=sim.t.toFixed(1).replace(".",","), lu=lightUntil();
   const row=(ic,name,state,btn)=>`<div class="crow">${ic}<div><b>${name}</b><span><span class="auto">AUTO</span>${state}</span></div>${btn||"<span></span>"}</div>`;
