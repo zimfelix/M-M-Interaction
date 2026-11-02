@@ -23,7 +23,7 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 | Präattentive Wahrnehmung: Farbe **oder** Form allein wird sofort erkannt, Kombination nicht | 26–27 | Zustand auf einen Blick durch **eine** Dimension (Farbe und Form des Zustandssymbols); Details erst beim Hinsehen. |
 | Farbenblindheit (Rot-Grün, ca. 8 % der Männer) | 23 | Zustand nie nur über Rot/Grün: zusätzlich Symbol und Text (redundante Codierung). |
 | Auditory Icons vs. Earcons | 31 | Alarm als Auditory Icon (z. B. Tropfgeräusch bei „zu trocken“), statt abstraktem Piepen, dessen Bedeutung man lernen muss. |
-| Begrenztes Kurzzeitgedächtnis, recognize-act-Zyklus | 37–38 | Höchstens 3–4 Kacheln pro Bildschirm; nichts muss man sich merken. |
+| Begrenztes Kurzzeitgedächtnis, recognize-act-Zyklus (Folie 38 ohne Zahl; extern Cowan 2001: ca. 4) | 37–38 | Höchstens 3–4 Kacheln pro Bildschirm; nichts muss man sich merken. |
 | Vergessen (Ebbinghaus), Kontext | 41–42 | Die Box wird nur alle paar Tage bedient → alles sichtbar, keine versteckten Gesten oder Menüs. |
 | Kognitive Belastung (intrinsisch / extrinsisch / lernbezogen) | 45–47 | Extrinsische Last minimieren: keine Messwerte mit Nachkommastellen, sondern „passt / zu trocken“. |
 
