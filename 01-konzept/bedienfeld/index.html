@@ -125,7 +125,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .panel ol{margin:0;padding-left:5cqw;font-size:4.2cqw;line-height:1.35;color:var(--ink-soft);display:flex;flex-direction:column;gap:1.4cqw}
 .opt small{display:block;font-weight:500;font-size:.8em;opacity:.8;margin-top:.6cqw}
 .away-chip{cursor:pointer;background:transparent}
-.admin-btn{display:inline-grid;place-items:center;width:6.4cqw;height:6.4cqw;padding:0;border:0;background:transparent;color:var(--ink-soft);opacity:.5}
+.admin-btn{display:inline-grid;place-items:center;width:6.4cqw;height:6.4cqw;padding:0;border:0;background:transparent;color:var(--ink-soft);opacity:.8}
 .admin-btn svg{width:4.4cqw;height:4.4cqw}
 .admin-btn:focus-visible{opacity:1;outline:.5cqw solid var(--band)}
 .rec{display:flex;align-items:center;gap:2cqw;border-radius:2.4cqw;padding:2.4cqw 3cqw;font-weight:700;font-size:5cqw}
@@ -152,11 +152,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .crow{display:grid;grid-template-columns:auto 1fr auto;gap:1cqw 2.4cqw;align-items:center;border-bottom:.3cqw solid var(--ink-dim);padding:2cqw 0}
 .crow svg{width:6.4cqw;height:6.4cqw}
 .crow b{font-size:4.6cqw} .crow span{display:block;font-size:3.8cqw;color:var(--ink-soft);line-height:1.25}
-.crow .auto{font-family:var(--f-cond);font-weight:700;font-size:3.2cqw;letter-spacing:.06em;border:.4cqw solid var(--ok);color:var(--ok);border-radius:1.4cqw;padding:.2cqw 1.2cqw;margin-right:1cqw}
+.crow .auto{display:inline-block;font-family:var(--f-cond);font-weight:700;font-size:3.2cqw;letter-spacing:.06em;border:.4cqw solid var(--ok);color:var(--ok);border-radius:1.4cqw;padding:.2cqw 1.2cqw;margin-right:1cqw}
 .crow button{border:.5cqw solid var(--ink);background:transparent;border-radius:2cqw;font-weight:700;font-size:3.6cqw;padding:1.6cqw 2.4cqw;white-space:nowrap}
-.tour{position:absolute;left:3cqw;right:3cqw;top:12cqw;z-index:4;background:rgba(4,8,60,.94);border:.5cqw solid var(--band);border-radius:2.6cqw;padding:2.4cqw 3cqw;display:flex;gap:2cqw;align-items:center;font-size:4.2cqw;font-weight:600;line-height:1.3}
-.tour small{display:block;font-family:var(--f-cond);font-size:3.2cqw;letter-spacing:.08em;text-transform:uppercase;color:var(--band)}
-.tour button{flex:none;border:.5cqw solid var(--ink);background:transparent;border-radius:2cqw;font-weight:700;font-size:3.4cqw;padding:1.2cqw 2.2cqw}
 .adm{width:100%;border-collapse:collapse;font-size:3.8cqw;font-variant-numeric:tabular-nums}
 .adm td{padding:.8cqw 0;border-bottom:.3cqw solid var(--ink-dim)} .adm td:last-child{text-align:right;font-weight:700}
 .btnrow.wrap{flex-wrap:wrap}
@@ -263,7 +260,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   <div class="device">
     <div class="glass">
       <div class="screen" id="screen">
-        <div class="topbar"><span id="topCulture">Auster</span><button class="link-chip" id="linkChip" aria-label="Mit Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span>Handy</span></button><span class="tr"><span class="ticon" id="topIcons"></span><button class="admin-btn" id="demoChip" aria-label="Admin-Modus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button><span id="topClock">--:--</span></span></div>
+        <div class="topbar"><span id="topCulture">Auster</span><button class="link-chip" id="linkChip" aria-label="Mit Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span>Handy</span></button><span class="tr"><span class="ticon" id="topIcons"></span><button class="admin-btn" id="demoChip" aria-label="Einstellungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button><span id="topClock">--:--</span></span></div>
 
         <div class="center" id="home">
           <div class="ring">
@@ -803,45 +800,67 @@ function demoPanel(){
   panel("admin","Admin-Modus",`<p>Nur für Vorführung und Bewertung, gehört nicht zur normalen Bedienung.</p>
     <div class="lbl">Situation auslösen</div>
     <div class="grid g2">${DEMOS.map(([k,l])=>`<button class="opt" role="switch" data-d="${k}" aria-checked="${demo[k]}">${l}</button>`).join("")}</div>
-    <div class="lbl">Vorführung</div>
-    <button class="bigbtn" data-tour style="margin-top:0">▶ Vorführung starten (ca. 2 Min)</button>
+    <div class="lbl">Vorführung (läuft live, nochmal tippen = Stopp)</div>
+    <div class="grid g2">${SCENES.map((x,i)=>`<button class="opt" role="switch" data-scene="${i}" aria-checked="${sceneOn===i}"><span>${x.name}<small>${x.sub}</small></span></button>`).join("")}</div>
     <div class="lbl">Zeit</div>
     <div class="btnrow wrap" style="margin-top:0"><button class="bigbtn out" data-day>Tag +1</button><button class="bigbtn out" data-reset>Zurücksetzen</button></div>
     <div class="lbl">Messwerte live</div><div id="admVals">${adminVals()}</div>`,p=>{
     p.style.overflowY="auto";
     p.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{toggleDemo(b.dataset.d);b.setAttribute("aria-checked",demo[b.dataset.d])});
-    p.querySelector("[data-tour]").onclick=startTour;
+    p.querySelector("[data-back]").onclick=settingsPanel;
+    p.querySelectorAll("[data-scene]").forEach(b=>b.onclick=()=>playScene(+b.dataset.scene));
     p.querySelector("[data-day]").onclick=()=>{S.phaseStart-=DAY;save();step(new Date());render();msg(`Tag ${day()}`)};
     p.querySelector("[data-reset]").onclick=()=>{try{localStorage.removeItem("growbox-display-v5")}catch(e){};location.reload()};
   });
 }
-$("#demoChip").onclick=()=>open==="admin"?closePanel():demoPanel();
-
-/* Automatische Vorführung: zeigt in ca. 2 Minuten, was die Box selbst macht und wann der Mensch dran ist */
-let tourT=[];
-function stopTour(){tourT.forEach(clearTimeout);tourT=[];$("#tourHost")?.remove()}
-function caption(n,total,text){
-  let h=$("#tourHost"); if(!h){h=document.createElement("div");h.id="tourHost";h.className="tour";h.setAttribute("role","status");$("#screen").appendChild(h)}
-  h.innerHTML=`<div style="flex:1"><small>Vorführung ${n}/${total}</small>${text}</div><button type="button">Stopp</button>`;
-  h.querySelector("button").onclick=()=>{stopTour();msg("Vorführung beendet")};
+/* Einstellungen (Zahnrad): normale Einstellungen; der Admin-Modus liegt unten als eigener Knopf */
+function settingsPanel(){
+  const sw=on=>`<span class="tag">${on?"an":"aus"}</span>`;
+  panel("settings","Einstellungen",`<div class="list">
+      <button class="opt" data-set="link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><div>Handy verbinden<small>Code ${S.code} · Meldungen aufs Handy</small></div></button>
+      <button class="opt" role="switch" data-set="sleep" aria-checked="${!!S.sleep}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><div>Ruhemodus ${sw(S.sleep)}<small>Display aus, weckt nur bei Warnung</small></div></button>
+      <button class="opt" data-set="away">${IC.away}<div>Urlaub ${sw(S.away)}<small>Box spart Wasser, Meldungen aufs Handy</small></div></button>
+      <div class="lbl">Über diese Box</div>
+      <p style="margin:0">Growbox 01 · ${esc(SPECIES[S.species].name)} · Prototyp v4</p>
+    </div>
+    <button class="bigbtn out" data-set="admin">Admin-Modus</button>`,p=>{
+    p.querySelector('[data-set="link"]').onclick=connectPanel;
+    p.querySelector('[data-set="sleep"]').onclick=()=>{S.sleep=!S.sleep;save();if(S.sleep)wakeUntil=0;render();settingsPanel()};
+    p.querySelector('[data-set="away"]').onclick=()=>S.away?(endAway(),settingsPanel()):awayPanel();
+    p.querySelector('[data-set="admin"]').onclick=demoPanel;
+  });
 }
-function startTour(){
-  stopTour(); closePanel();
+$("#demoChip").onclick=()=>["settings","admin"].includes(open)?closePanel():settingsPanel();
+
+/* Vorführung: zwei Szenarien, die nur live auf dem Bildschirm ablaufen (ohne Erklärkasten).
+   Start und Stopp über die Kacheln im Admin-Modus. */
+const SCENES=[
+  {name:"Box regelt selbst",sub:"Kälte → Heizung an → wieder gut",steps:[
+    [2, ()=>toggleDemo("cold")],
+    [6, ()=>climaPanel()],
+    [16,()=>closePanel()],
+    [24,()=>toggleDemo("cold")],
+    [32,()=>{}]]},
+  {name:"Mensch ist dran",sub:"Tank leer → auffüllen → ernten",steps:[
+    [2, ()=>toggleDemo("tank")],
+    [12,()=>refill()],
+    [14,()=>alertPanel()],
+    [22,()=>{closePanel();toggleDemo("harvest")}],
+    [32,()=>{const a=$("#actBtn");if(!a.hidden)a.click()}],
+    [42,()=>{demo.harvest=false;syncDemo();render()}]]}
+];
+let sceneT=[], sceneOn=null;
+function syncScenes(){document.querySelectorAll("[data-scene]").forEach(b=>b.setAttribute("aria-checked",sceneOn===+b.dataset.scene))}
+function stopScene(){sceneT.forEach(clearTimeout);sceneT=[];sceneOn=null;syncScenes()}
+function playScene(i){
+  const again=sceneOn===i; stopScene(); if(again) return;
+  closePanel();
   Object.keys(demo).forEach(k=>demo[k]=false); syncDemo(); acked.clear();
-  S.power=true;S.away=false;S.species="auster";S.phase="frucht";S.phaseStart=Date.now()-3.4*DAY;save();
+  S.power=true;S.away=false;S.sleep=false;S.species="auster";S.phase="frucht";S.phaseStart=Date.now()-3.4*DAY;save();
   sim.t=22;sim.rh=89;sim.tank=64;sim.lightOv=null;sim.burst=0;sim.mist=0; step(new Date()); render();
-  const steps=[
-    [0,   ()=>caption(1,7,"Die Box regelt alles selbst: Licht, frische Luft, Feuchte und Wärme. Unten steht, was sie gerade tut.")],
-    [9,   ()=>{caption(2,7,"Unter KLIMA sieht man jede Automatik. Normalerweise muss man hier nichts tun.");climaPanel()}],
-    [20,  ()=>{closePanel();caption(3,7,"Der Raum wird kalt. Die Heizung springt von selbst an, keine Meldung nötig.");toggleDemo("cold")}],
-    [38,  ()=>{toggleDemo("cold");caption(4,7,"Wieder warm genug. Jetzt der einzige Job für den Menschen: Wasser.")}],
-    [46,  ()=>{toggleDemo("tank");caption(5,7,"Wassertank leer: gelbes Warndreieck mit klarer Anweisung.")}],
-    [60,  ()=>{refill();caption(6,7,"Aufgefüllt und bestätigt: alles gut. Unter MELDUNGEN steht es im Verlauf.");alertPanel()}],
-    [74,  ()=>{closePanel();toggleDemo("harvest");caption(7,7,"Erntezeit! Die Box sagt Bescheid. Nach dem Ernten startet die Ruhephase.")}],
-    [92,  ()=>{const a=$("#actBtn");if(!a.hidden)a.click();caption(7,7,"Geerntet. Die Box ruht und startet dann die nächste Welle. Ende der Vorführung.")}],
-    [104, ()=>{stopTour();demo.harvest=false;syncDemo();render()}]
-  ];
-  tourT=steps.map(([sec,fn])=>setTimeout(fn,sec*1000));
+  sceneOn=i;
+  const st=SCENES[i].steps, end=st[st.length-1][0];
+  sceneT=st.map(([sec,fn])=>setTimeout(fn,sec*1000)).concat(setTimeout(stopScene,end*1000+500));
 }
 
 /* ---------- Verbindung Box und Handy-App (übernommen aus dem claude.ai-Original, Box-Seite) ----------
