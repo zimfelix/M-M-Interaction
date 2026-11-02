@@ -9,9 +9,11 @@ Wenn die App einen Begriff anders braucht: bitte kurz absprechen und hier änder
 | Begriff | Bedeutung | Symbol / Farbe |
 |---|---|---|
 | **Alles gut** | Nichts zu tun. Hinweise wie „Ernte prüfen“ laufen trotzdem darunter. | grüner Kreis mit Haken, Grün `#3fcf7f` |
-| **Warnung** (Titel der Meldung, z. B. „Wasser leer“) | Der Mensch muss etwas tun. | gelbes Warndreieck mit „!“ (ISO 7010), Orange `#e69f00` |
+| **Warnung** (Titel der Meldung, z. B. „Wasser leer“) | Der Mensch muss etwas tun. | gelbes Warndreieck mit „!“ (ISO 7010); Orange `#e69f00` nur für Dreieck, Rahmen und Knopf, **Text weiß** (Kontrast) |
 | **Klima regelt sich automatisch.** | Satz unter „Alles gut“ | – |
 | **Pausiert** | Durchgang beendet, neues Zuchtset noch nicht drin | – |
+
+| **Warnpunkt** (Mitte der Kopfzeile) | leuchtet nur, wenn eine Warnung ansteht; aus der Ferne sichtbar | oranger Punkt mit „!“ und Leuchten; sonst dunkler Ring |
 
 Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 
@@ -22,7 +24,8 @@ Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 | **Klima** (Untertitel „Auto“, grüner Punkt leuchtet ruhig) | Klima | Lüfter, Nebler, Heizung, Licht mit Kennzeichen **AUTO** und „läuft gerade“ bzw. „nächstes Lüften in X Min“ |
 | **Meldungen** (Zahl = offene Meldungen) | Meldungen | offene Meldungen mit „seit“, Verlauf (Beginn, „behoben um“ / „erledigt um“) |
 | **Sorte & Neu** | Sorte & Neu | Sorten ansehen, neu ansetzen, Notfall „Zurück zu …“, Urlaub |
-| Zahnrad = **Einstellungen** | Einstellungen | Handy verbinden, Ruhemodus, Urlaub, Über diese Box |
+| Zahnrad = **Einstellungen** (oben rechts) | Einstellungen | Handy verbinden, Ruhemodus, Urlaub, Über diese Box |
+| **HANDY** (oben links unter der Sorte) | – | Code zum Verbinden, Knopf **VERBUNDEN**; danach ausgeblendet |
 | – | **Advanced Analytics** (nur App) | Verläufe, CO₂, Vergleiche |
 
 ## Geräte und Werte

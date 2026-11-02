@@ -84,7 +84,23 @@ Die Folien (G 10) listen **24 Mechaniken**. Für eine ruhige Box ohne Spielfigur
 | **G 14** Hexad (Marczewski) | Philanthropist (Purpose), Achiever (Mastery), Free Spirit (Autonomy), Socialiser (Relatedness) … | **A Ingrid = Philanthropist** (kümmert sich). **B Power-User = Achiever** (Mastery: optimieren) mit Zügen von **Free Spirit** (Autonomie: eigene Sorte, 1 Min lüften). |
 | **G 15** Serious Games | „Balance“ zwischen ernstem Ziel (*Characterizing Goal*) und Spiel | Das ernste Ziel (Pilze erfolgreich züchten) bleibt vorne. |
 
-## 4. Barrierefreiheit
+## 4. Der haptische Licht-Taster
+
+Licht hat bewusst **keine Kachel** auf dem Display, sondern einen **echten Taster** unter dem Display. Die Folien liefern dafür mehrere Argumente:
+
+| Folie | Was die Folie zeigt | Argument für den Taster |
+|---|---|---|
+| **33** Tastsinn, Gewichtung der Sinneszellen | sensorischer Homunculus: Hände und Finger sind riesig dargestellt | Finger sind besonders fein mit Sinneszellen besetzt. Ein echter Knopf mit spürbarem Druckpunkt gibt **haptisches Feedback** (Folie 82), ein Glas-Display nicht. |
+| **49** Speed-Accuracy-Tradeoff | Genauigkeit vs. Geschwindigkeit | Auf einem Touch-Display braucht man Augen und Zielgenauigkeit. Einen großen Taster trifft man auch schnell, im Halbdunkel oder mit zitternder Hand (Ingrid). |
+| **72–74** Affordances, physikalische Constraints | Gestalt zeigt die Benutzung; Stecker passen nur in eine Richtung | Ein Taster sieht drückbar aus und lässt sich nur auf eine Art bedienen: drücken. |
+| **8** Mikrowelle | wenige physische Bedienelemente | Die häufigste Spontanhandlung (Licht, um die Pilze anzusehen) braucht kein Display. |
+| **59** Gulf of Evaluation | Ergebnis beobachten und bewerten | Das Licht geht in der Kammer an, sichtbar durchs Plexiglas: Das Ergebnis ist das Feedback. |
+| **60** Modusfehler | Fehler durch Modi | Der Taster hat **eine feste Bedeutung** (Licht), keinen Modus. |
+| **57–58** Flexibilität | mehrere Wege zum Ziel | Licht geht zusätzlich per App (Power-User unterwegs). |
+
+**Im Display umgesetzt:** Das Klima-Fenster sagt „Licht an oder aus: **Taster unter dem Display** drücken“. In der Zeile Licht steht „per Taster unten ↓“ als reiner Hinweistext **ohne Rahmen**, damit er nicht wie ein Touch-Knopf aussieht (falsche Affordance, Folie 73). Nach dem Drücken bestätigt das Display: „Taster · Licht an bis 20:00, danach Auto“ (Feedback, 82).
+
+## 5. Barrierefreiheit
 
 Die Folien behandeln Barrierefreiheit **nur knapp**:
 
@@ -102,9 +118,15 @@ Was wir darüber hinaus tun, braucht für das Booklet eine **externe Quelle**, z
 - **Folie 38** („Begrenzung des Kurzzeitgedächtnisses“) zeigt nur ein Bild, **keine Zahl**. „Höchstens 3–4 Elemente“ steht nicht auf der Folie. Für eine Zahl braucht es eine externe Quelle (Miller 1956: 7 ± 2; Cowan 2001: ca. 4). Sonst nur „begrenzt“ schreiben. In `04-evaluation/entscheidungen-folien.md` (E3) angepasst.
 - **Folie 27** belegt Blinken als präattentives Merkmal und stützt damit E5. Ergänzt.
 
-## Vorschläge (noch nicht umgesetzt)
+## Umgesetzt (v5, 02.11.2026)
 
-1. **Warntitel weiß statt orange**: Kontrast 2,8 → 6,4. Orange bleibt bei Dreieck, Rahmen und Knopf.
-2. **Nebentexte etwas heller** (`#c7cfff` → z. B. `#d8deff`), damit sie auch in der hellen Mitte über 4,5 : 1 liegen.
-3. **3 Kacheln behalten**, Begründung wie oben (Folien 8, 50, 72–73, 80–81, 130).
-4. **Folie 8 (Mikrowelle)** als Einstieg für die Präsentation: Unsere Box sieht aus wie eine Mikrowelle, und genau deshalb hat sie wenige Bedienelemente.
+1. **Warntexte weiß statt orange** (Startbild, Meldungsliste, Kopf „1 Warnung“): Kontrast 2,8 → 6,4. Orange bleibt bei Dreieck, Rahmen und Knopf.
+2. **Nebentexte heller**: `#c7cfff` → `#dfe4ff`, jetzt mindestens 5,1 : 1 auch in der hellen Mitte.
+3. **Werte außerhalb des Zielbereichs** zeigen ein **Warndreieck statt des Symbols** und färben nicht mehr nur den Text orange (sonst wieder nur Farbe als Signal, Folie 23).
+4. **Licht-Taster** im Klima-Fenster erklärt (siehe Abschnitt 4).
+5. **Kopfzeile neu**: Warnpunkt in der Mitte (Folien 26, 23, 63, 130), HANDY links unter der Sorte und nach VERBUNDEN ausgeblendet, Uhr entfernt, Zahnrad als 44-pt-Ziel. Die Größe stammt aus einer externen Quelle (Apple HIG); die Folien begründen nur das Prinzip (Fitts, 50).
+
+## Weiter gültig
+
+1. **3 Kacheln behalten**, Begründung wie oben (Folien 8, 50, 72–73, 80–81, 130).
+2. **Folie 8 (Mikrowelle)** als Einstieg für die Präsentation: Unsere Box sieht aus wie eine Mikrowelle, und genau deshalb hat sie wenige Bedienelemente.
