@@ -37,10 +37,12 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   box-shadow:0 0 0 .5cqw #c9cfe6, 0 0 0 1cqw #2b2f3a;color:var(--ink);user-select:none;-webkit-user-select:none;transition:filter .5s}
 .screen::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(160deg,rgba(255,255,255,.09),transparent 40%)}
 .screen.standby{filter:brightness(.4) saturate(.6)}
+/* Darstellung „Hoher Kontrast“: schwarzer Grund, Nebentexte und Rahmen weiß */
+.screen.hc{--lcd-hi:#111;--lcd-mid:#000;--lcd-lo:#000;--ink-soft:#fff;--ink-dim:rgba(255,255,255,.75)}
 .screen.standby #kSort{filter:brightness(2.5)}
 .screen.away{filter:brightness(.8)}
-.sleep{position:absolute;inset:0;z-index:5;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;color:#5a5f78;font-size:3.8cqw;font-weight:600;text-align:center;border:0;width:100%;padding:0}
-.sleep b{font-size:4.6cqw;color:#7d83a3}
+.sleep{position:absolute;inset:0;z-index:5;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;color:#a9afcc;font-size:4.2cqw;font-weight:600;text-align:center;border:0;width:100%;padding:0}
+.sleep b{font-size:4.8cqw;color:#c7cdea}
 .sleep span{opacity:1;transition:opacity 1.2s}
 .sleep.quiet span{opacity:0}
 .sleep-chip{border:.5cqw solid var(--ink-dim);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink-soft);background:transparent;font-size:3.9cqw}
@@ -71,7 +73,9 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 #topCulture{font-size:6.6cqw;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase;line-height:12cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 /* Warnpunkt: leuchtet nur, wenn eine Warnung ansteht – aus der Ferne sichtbar (hell/dunkel + „!“, nicht nur Farbe) */
 .alarm-dot{width:12cqw;height:12cqw;border-radius:50%;border:.6cqw solid var(--ink-dim);display:grid;place-items:center;color:transparent;font-family:var(--f-ui);font-weight:800;font-size:8cqw;line-height:1}
-.alarm-dot.on{background:var(--alarm);border-color:#fff;color:#1a1000;box-shadow:0 0 0 1.2cqw rgba(230,159,0,.35),0 0 5cqw 1.5cqw rgba(230,159,0,.75)}
+.alarm-dot.on{background:var(--alarm);border-color:#fff;color:#1a1000;box-shadow:0 0 0 1.2cqw rgba(230,159,0,.35),0 0 5cqw 1.5cqw rgba(230,159,0,.75);animation:alarmblink 1.2s ease-in-out infinite}
+/* Blinken nur bei Warnung (Folie 27: präattentiv). Langsam (< 3 Blitze/s, WCAG) und nie ganz dunkel */
+@keyframes alarmblink{50%{opacity:.3;box-shadow:none}}
 .topbar .tr{justify-self:end;display:inline-flex;align-items:center;gap:1.6cqw}
 .center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;padding-block:2cqw}
 .ring{position:relative;width:58cqw;height:58cqw;flex:none}
@@ -107,13 +111,12 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .act:active{transform:scale(.97)}
 .act.info{background:transparent;border-color:var(--ink);color:var(--ink)}
 .hasact .mini{display:none}
-.item .do{flex:none;border:.7cqw solid var(--alarm);background:var(--alarm);color:#1a1000;border-radius:2.4cqw;font-weight:700;font-size:4.2cqw;padding:2cqw 3cqw}
+.item .do{flex:none;border:.7cqw solid var(--alarm);background:var(--alarm);color:#1a1000;border-radius:2.4cqw;font-weight:700;font-size:4.2cqw;padding:2cqw 3cqw;min-height:12cqw}
 .item.info .do{background:transparent;border-color:var(--ink);color:var(--ink)}
 .mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4cqw;width:100%;margin-top:2.4cqw;font-variant-numeric:tabular-nums}
 .stat{display:flex;flex-direction:column;gap:1.2cqw;min-width:0}
 .sv{display:flex;align-items:center;gap:1cqw;font-weight:700;font-size:4.8cqw;color:var(--ink);white-space:nowrap}
 /* Tank: Reichweite in Tagen hinter dem Füllstand, kleiner und heller (Zusatzinfo) */
-.sv .days{font-size:.82em;font-weight:600;color:var(--ink-soft)}
 .sv svg{flex:none;width:4.6cqw;height:4.6cqw;color:var(--ink-soft)}
 .bar{position:relative;height:1.6cqw;border-radius:1cqw;background:rgba(255,255,255,.16)}
 .bar .band{position:absolute;top:0;bottom:0;background:rgba(255,255,255,.4);border-radius:1cqw}
@@ -127,8 +130,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .away-chip{border:.5cqw solid var(--ink);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink)}
 .code{font-size:17cqw;font-weight:800;letter-spacing:.12em;text-align:center;font-variant-numeric:tabular-nums;padding:3cqw;border:.7cqw dashed var(--ink-dim);border-radius:3cqw}
 .panel ol{margin:0;padding-left:5cqw;font-size:4.2cqw;line-height:1.35;color:var(--ink-soft);display:flex;flex-direction:column;gap:1.4cqw}
-.opt small{display:block;font-weight:500;font-size:.8em;opacity:.8;margin-top:.6cqw}
-.away-chip{cursor:pointer;background:transparent}
+.opt small{display:block;font-weight:500;font-size:.9em;opacity:.9;margin-top:.6cqw}
+.away-chip{cursor:pointer;background:transparent;min-height:12cqw;display:inline-flex;align-items:center}
 /* Zahnrad: Touch-Ziel 44 × 44 pt (≈ 11,7 % von 375 pt), mit Rahmen, damit es drückbar aussieht */
 .admin-btn{display:inline-grid;place-items:center;width:12cqw;height:12cqw;padding:0;border:.5cqw solid var(--ink-dim);border-radius:3cqw;background:rgba(255,255,255,.06);color:var(--ink)}
 .admin-btn svg{width:7.2cqw;height:7.2cqw}
@@ -146,10 +149,10 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .spec dt{color:var(--ink-soft)} .spec dd{margin:0;font-weight:700}
 .dots{letter-spacing:.15em}
 .tag{display:inline-block;margin-left:1.4cqw;padding:.2cqw 1.6cqw;border-radius:1.6cqw;border:.4cqw solid var(--ink);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;vertical-align:middle}
-.hist{display:grid;grid-template-columns:auto auto 1fr;gap:1cqw 2cqw;align-items:center;font-size:4cqw;border-bottom:.3cqw solid var(--ink-dim);padding:1.4cqw 0}
-.hist svg{width:5cqw;height:5cqw}
+.hist{display:grid;grid-template-columns:auto 1fr;gap:.6cqw 2.4cqw;align-items:center;font-size:4.6cqw;border-bottom:.3cqw solid var(--ink-dim);padding:2cqw 0}
+.hist svg{width:6.4cqw;height:6.4cqw}
 .hist time{color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
-.hist small{grid-column:3;color:var(--ink-soft);font-size:4cqw}
+.hist small{grid-column:2;color:var(--ink-soft);font-size:4.2cqw}
 /* Klima-Taste: grüner Punkt leuchtet ruhig, solange die Automatik läuft (Blinken hieße „schau her“) */
 .key .pulse{display:inline-block;width:2.4cqw;height:2.4cqw;border-radius:50%;background:var(--ok)}
 .key i{display:inline-flex;align-items:center;gap:1cqw}
@@ -171,9 +174,9 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   background:radial-gradient(ellipse 70% 65% at 50% 45%, var(--lcd-hi), var(--lcd-mid) 55%, var(--lcd-lo))}
 @keyframes pin{from{opacity:0}}
 .panel h2{margin:0;font-family:var(--f-cond);font-size:5.4cqw;font-weight:700;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;gap:2cqw}
-.back{border:.55cqw solid var(--ink);background:transparent;border-radius:2cqw;font-size:4.4cqw;font-weight:700;padding:1.4cqw 3cqw;letter-spacing:.04em;font-family:var(--f-cond)}
+.back{border:.55cqw solid var(--ink);background:transparent;border-radius:2cqw;font-size:4.4cqw;font-weight:700;padding:1.4cqw 3cqw;min-height:12cqw;letter-spacing:.04em;font-family:var(--f-cond)}
 .panel p{margin:0;font-size:4.4cqw;line-height:1.3;color:var(--ink-soft)}
-.lbl{font-family:var(--f-cond);font-size:3.9cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.lbl{font-family:var(--f-cond);font-size:4.2cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
 .grid{display:grid;gap:2cqw}
 .g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:1fr}
 .opt{border:.5cqw solid var(--ink-dim);background:rgba(255,255,255,.06);border-radius:2.4cqw;padding:2.4cqw 3cqw;display:flex;align-items:center;gap:2.4cqw;font-size:4.6cqw;font-weight:700;min-height:13cqw;text-align:left;line-height:1.1}
@@ -196,12 +199,13 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .btnrow{display:flex;gap:2.4cqw;margin-top:auto}
 .btnrow .bigbtn{flex:1;margin-top:0}
 .bigbtn.out{background:transparent;color:var(--ink)}
+.bigbtn svg{flex:none;width:5.6cqw;height:5.6cqw}
 .list{overflow-y:auto;min-height:0;flex:1;display:flex;flex-direction:column;gap:2cqw;padding-right:.6cqw}
 .item{display:flex;gap:2.4cqw;align-items:center;border:.5cqw solid var(--ink-dim);border-radius:2.2cqw;padding:2cqw 2.4cqw}
 .item svg{flex:none;width:6.4cqw;height:6.4cqw}
 .item div{flex:1;min-width:0}
 .item b{display:block;font-size:5cqw;line-height:1.15}
-.item span{display:block;font-size:4.2cqw;color:var(--ink-soft);line-height:1.25;margin-top:.4cqw}
+.item span{display:block;font-size:4.4cqw;color:var(--ink-soft);line-height:1.25;margin-top:.4cqw}
 .item.warn{border-color:var(--alarm);background:rgba(230,159,0,.12)}
 .item.warn b{color:var(--ink)}
 .item .ok{flex:none;border:.5cqw solid var(--ink);background:transparent;border-radius:1.8cqw;font-weight:700;font-size:4.2cqw;padding:1.4cqw 2.6cqw}
@@ -302,7 +306,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
         <div class="keys">
           <button class="key" id="kClima" aria-label="Klima, läuft automatisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5V5a2 2 0 0 1 4 0v8.5a4 4 0 1 1-4 0z"/><path d="M17.5 6h4M17.5 10h3M3 8h3.5M2.5 12h4"/></svg><b>Klima</b><i id="climaSub">Auto</i></button>
           <button class="key" id="kAlerts" aria-label="Meldungen anzeigen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 21h4"/></svg><b>Meldungen</b><span class="count" id="count" hidden>0</span></button>
-          <button class="key" id="kSort" aria-label="Sorte und neu ansetzen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M3 13a9 7 0 0 1 18 0z"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5"/></svg><b>Sorte &amp;<br>Neu</b></button>
+          <button class="key" id="kSort" aria-label="Sorten ansehen und neu ansetzen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M3 13a9 7 0 0 1 18 0z"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5"/></svg><b>Sorten</b><i>Neu</i></button>
         </div>
         <div id="panelHost"></div>
         <div id="msgHost"></div>
@@ -490,6 +494,7 @@ function render(){
   syncLog(list);
   $("#screen").classList.toggle("standby",!S.power);
   $("#screen").classList.toggle("away",S.power&&!!S.away);
+  $("#screen").classList.toggle("hc",S.theme==="hc");
   const showVal=S.power&&!demo.sensor, pr=progress(), v=pr.p*360, tk=pr.tick*360;
   // Ring: Fortschritt bis zur Ernte; gelbe Marke = Wechsel Durchwachsen/Ruhe → Fruchtung
   $("#arcBand").setAttribute("stroke-dasharray",`0 ${Math.max(0,tk-1.5)} 3 360`);
@@ -511,7 +516,7 @@ function render(){
   const awayQuiet=S.away&&!list.some(x=>x.urgent);
   const key=!S.power?"sb":awayQuiet?"away":top?top.id+top.a:"ok"+S.phase+day();
   if(key!==lastAlert){lastAlert=key;const el=$("#alert");
-    if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neu ansetzen fortsetzen: SORTE &amp; NEU.</span>`}
+    if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neu ansetzen fortsetzen: SORTEN.</span>`}
     else if(awayQuiet){el.className="alert";el.innerHTML=`<span class="t">${IC.away}Urlaub</span><span class="a">Box spart Wasser · Meldungen gehen aufs Handy</span>`}
     else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a big">Klima regelt sich automatisch.</span>`}
     else if(top.sev==="info"){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a big">Klima regelt sich automatisch.</span>`}
@@ -532,7 +537,7 @@ function render(){
   $("#mini").innerHTML=
     stat(tOff,IC.temp,showVal?sim.t.toFixed(1).replace(".",",")+"°":"–",band(T.t,10,35,sim.t),"Temperatur")+
     stat(hOff,IC.rh,showVal?Math.round(sim.rh)+" %":"–",band(T.rh,40,100,sim.rh),"Luftfeuchte")+
-    stat(wOff,IC.tank,Math.round(sim.tank)+" %"+(sim.tank>0?`<small class="days" aria-label="reicht ca. ${td<1?"weniger als 1 Tag":td+(td===1?" Tag":" Tage")}"> · ${td<1?"<1":td} T</small>`:""),`<i class="lvl" style="width:${sim.tank}%"></i>`,"Wassertank");
+    stat(wOff,IC.tank,Math.round(sim.tank)+" %"+(sim.tank>0?`<span class="days" aria-label="reicht ca. ${td<1?"weniger als 1 Tag":td+(td===1?" Tag":" Tage")}"> · ${td<1?"<1":td} T</span>`:""),`<i class="lvl" style="width:${sim.tank}%"></i>`,"Wassertank");
   const nWarn=S.power?list.filter(x=>x.sev==="warn").length:0;
   $("#alarmDot").classList.toggle("on",nWarn>0);
   $("#alarmDot").setAttribute("aria-label",nWarn?`${nWarn} ${nWarn===1?"Warnung":"Warnungen"}`:"Keine Warnung");
@@ -569,7 +574,7 @@ function alertPanel(refresh){
     <p>Stand: ${when(now)}${!warn&&S.okSince?` · alles gut seit ${S.okSince<now-DAY?when(S.okSince):clock(S.okSince)}`:""}</p>
     ${list.length?`<div class="lbl">Jetzt</div><div class="list" style="flex:none;overflow:visible">${list.map(x=>{const e=(S.log||[]).find(l=>l.id===x.id&&!l.to);return `<div class="item ${x.sev}">${IC[x.sev]}<div><b>${x.t}</b><span>${x.a}</span>${e?`<span>seit ${clock(e.from)}</span>`:""}</div><button class="do" data-do="${x.id}">${x.do.label}</button></div>`}).join("")}</div>`:""}
     <div class="lbl">Verlauf</div>
-    ${log.length?log.slice(0,15).map(e=>`<div class="hist"><time>${when(e.from)}</time>${IC[e.sev==="warn"?"warn":"ok"]}<b>${esc(e.t)}</b><small>${e.sev==="warn"?"behoben":"erledigt"} um ${clock(e.to)}</small></div>`).join("")
+    ${log.length?log.slice(0,15).map(e=>`<div class="hist">${IC.ok}<b>${esc(e.t)}</b><small>${e.sev==="warn"?"behoben":"erledigt"} · <time>${when(e.from)} – ${clock(e.to)}</time></small></div>`).join("")
       :`<p>Noch keine früheren Meldungen.</p>`}`,p=>{
     p.style.overflowY="auto";
     p.querySelectorAll("[data-do]").forEach(b=>b.onclick=()=>{const it=list.find(x=>x.id===b.dataset.do);it?.do.run();panelKey="";alertPanel()});
@@ -590,25 +595,32 @@ function newPanel(n){
       p.querySelector("[data-ok]").onclick=()=>{S.species=next;delete S.next;S.power=true;S.phase="kol";S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());closePanel();render();msg(`${SPECIES[S.species].name} · Tag 1`)};
   });
 }
-/* Kachel „Sorte & Neu“: Sorten in Ruhe ansehen. Ansehen ändert nichts. */
+/* Kachel „Sorten · Neu“: Sorten in Ruhe ansehen, neu ansetzen. Ansehen ändert nichts. */
 function sortPanel(){
   const pr=progress(), cur=SPECIES[S.species].name;
   const keys=Object.keys(SPECIES).filter(k=>k!=="custom").concat(S.custom?["custom"]:[]);
-  panel("sort","Sorte & Neu",`
+  panel("sort","Sorten · Neu",`
     <p>${S.power?`Jetzt: <b>${esc(cur)}</b> · ${PHASES[S.phase]} Tag ${day()} · noch ${pr.left} Tage bis zur Ernte`:`Pausiert. <b>${esc(SPECIES[S.next]?SPECIES[S.next].name:cur)}</b> wartet aufs Einsetzen.`}</p>
     <div class="list">
+      ${S.power?`<button class="bigbtn out" data-pick style="margin-top:0;flex:none">${ACT_IC.play}Neu ansetzen …</button>`:""}
       ${S.power?"":`<button class="opt" data-resume-new>${ACT_IC.play}<div>Neu ansetzen fortsetzen<small>Kammer leeren, Zuchtset einsetzen, starten.</small></div></button>`}
       <div class="lbl">Sorten ansehen</div>
       ${keys.map(k=>`<button class="opt" data-info="${k}">${shroomSvg(SPECIES[k].cap)}<div>${esc(SPECIES[k].name)}${k===S.species&&S.power?'<span class="tag">wächst</span>':""}<small>${DIFF[INFO[k].diff]} · ca. ${toHarvest(k)} Tage bis zur Ernte</small></div></button>`).join("")}
       ${S.prev&&SPECIES[S.prev.species]&&Date.now()-S.prev.at<14*DAY?`<div class="lbl">Notfall</div>
       <button class="opt" data-restore><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg><div>Zurück zu ${esc(SPECIES[S.prev.species].name)}<small>Versehentlich neu angesetzt? Der alte Durchgang läuft weiter.</small></div></button>`:""}
-      <div class="lbl">Abwesend</div>
-      <button class="opt" data-a="away">${IC.away}<div>${S.away?"Urlaub beenden":"Urlaub"}<small>${S.away?"Box läuft wieder normal.":"Box spart Wasser, Meldungen aufs Handy."}</small></div></button>
     </div>`,p=>{
     p.querySelectorAll("[data-info]").forEach(b=>b.onclick=()=>infoPanel(b.dataset.info));
     p.querySelector("[data-resume-new]")?.addEventListener("click",()=>newPanel(1));
+    p.querySelector("[data-pick]")?.addEventListener("click",pickPanel);
     p.querySelector("[data-restore]")?.addEventListener("click",restorePanel);
-    p.querySelector('[data-a="away"]').onclick=()=>{if(paused())return;if(S.away)endAway();else awayPanel()};
+  });
+}
+/* Neu ansetzen: erst Sorte wählen (die aktuelle steht oben), dann bestätigen */
+function pickPanel(){
+  const keys=[S.species].concat(Object.keys(SPECIES).filter(k=>k!==S.species&&(k!=="custom"||S.custom)));
+  panel("pick","Neu ansetzen",`<p>Mit welcher Sorte?</p><div class="list">${keys.map(k=>`<button class="opt" data-k="${k}">${shroomSvg(SPECIES[k].cap)}<div>${esc(SPECIES[k].name)}${k===S.species?'<span class="tag">wie bisher</span>':""}<small>${DIFF[INFO[k].diff]} · ca. ${toHarvest(k)} Tage bis zur Ernte</small></div></button>`).join("")}</div>`,p=>{
+    p.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>confirmNew(b.dataset.k));
+    p.querySelector("[data-back]").onclick=sortPanel;
   });
 }
 function infoPanel(k){
@@ -625,7 +637,7 @@ function infoPanel(k){
     ${active?`<p><b>Wächst gerade</b> (Tag ${day()}).</p>`:""}
     <div class="btnrow wrap">
       <button class="bigbtn out" data-back2>‹ Alle Sorten</button>
-      ${active?"":`<button class="bigbtn out" data-new>Neu ansetzen …</button>`}
+      <button class="bigbtn out" data-new>${active?"Nochmal neu ansetzen …":"Damit neu ansetzen …"}</button>
     </div>`,p=>{
     p.querySelector("[data-back2]").onclick=sortPanel;
     p.querySelector("[data-new]")?.addEventListener("click",()=>confirmNew(k));
@@ -676,7 +688,7 @@ function endAway(){S.away=false;save();closePanel();step(new Date());render();ms
 function awayPanel(){
   panel("away","Urlaub starten?",`<p>Die Box läuft allein weiter. Das ändert sich:</p>
     <ul><li>Nebler springt später an und spart Wasser (Tank reicht ca. 10 statt 7 Tage)</li><li>Meldungen gehen aufs Handy, das Display bleibt ruhig</li><li>Display wird etwas dunkler</li></ul>
-    <p>Beenden: oben auf URLAUB ✕ tippen oder hier unter SORTE &amp; NEU.</p>
+    <p>Beenden: oben auf URLAUB ✕ tippen oder unter Einstellungen.</p>
     <div class="btnrow"><button class="bigbtn out" data-x>Abbrechen</button><button class="bigbtn" data-ok>Starten</button></div>`,p=>{
       p.querySelector("[data-x]").onclick=closePanel;
       p.querySelector("[data-ok]").onclick=()=>{S.away=true;save();closePanel();step(new Date());render();msg("Urlaub · Box spart Wasser")};
@@ -688,16 +700,12 @@ const paused=()=>{if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return true}
 /* Automatik sichtbar machen: was die Box gerade selbst tut */
 function nextAir(){const d=new Date(), m=d.getHours()*60+d.getMinutes();return 30-(m%30)}
 function lightUntil(){const d=new Date(), m=d.getHours()*60+d.getMinutes(), on=m>=480&&m<1200;return {on, at:on?"20:00":"8:00"}}
-/* Wassertank: Reichweite in Tagen (auf dem Startbild steht nur der Füllstand) */
-function tankLine(){const td=tankDays(), p=Math.round(sim.tank);
-  return sim.tank<=0?"leer · bitte auffüllen":`${p} % · reicht ca. ${td<1?"weniger als 1 Tag":td+(td===1?" Tag":" Tage")}`}
 function climaRows(){
   const T=tgt(), D=sim.dev, rh=Math.round(sim.rh), t=sim.t.toFixed(1).replace(".",","), lu=lightUntil();
   const row=(ic,name,state,btn)=>`<div class="crow">${ic}<div><b>${name}</b><span><span class="auto">AUTO</span>${state}</span></div>${btn||"<span></span>"}</div>`;
   const left=k=>Math.max(0,Math.ceil((sim[k]-Date.now())/1000));
   return row(IC.air,"Lüfter",D.luefter?(left("burst")?`läuft noch ${left("burst")} s (vom Handy)`:"läuft gerade (frische Luft)"):`nächstes Lüften in ${nextAir()} Min`,"")
     +row(IC.rh,"Nebler",D.nebel?(left("mist")?`läuft noch ${left("mist")} s (vom Handy)`:`läuft gerade (${rh} → ${T.rh[0]} %)`):`aus · Feuchte ${rh} % im Bereich`,sim.tank>0?"":"<span>Tank leer</span>")
-    +`<div class="crow">${IC.tank}<div><b>Wassertank</b><span>${tankLine()}</span></div><span></span></div>`
     +row(IC.temp,"Heizung",D.heizung?`heizt (${t} → ${T.t[0]+1} °C)`:`aus · ${t} °C im Bereich ${T.t[0]}–${T.t[1]}`+(sim.t>T.t[1]?" (zu warm: kühlen geht nur durch Umstellen)":""),"")
     +row(IC.bulb,"Licht",T.light?(sim.lightOv?`${D.licht?"an":"aus"} von Hand, ab ${lu.at} wieder Auto`:`${D.licht?"an":"aus"} bis ${lu.at}`):"aus · beim Durchwachsen bleibt es dunkel",'<span class="taster" aria-label="Licht schalten mit dem Taster unter dem Display">per Taster<br>unten ↓</span>');
 }
@@ -739,7 +747,7 @@ function toggleLight(src){
 $("#kClima").onclick=()=>open==="clima"?closePanel():climaPanel();
 $("#kAlerts").onclick=()=>open==="alerts"?closePanel():alertPanel();
 $("#alert").onclick=()=>{if(S.power)alertPanel()};
-$("#kSort").onclick=()=>["sort","info","confirm","new","away","restore"].includes(open)?closePanel():sortPanel();
+$("#kSort").onclick=()=>["sort","info","confirm","new","restore","pick"].includes(open)?closePanel():sortPanel();
 $("#topIcons").addEventListener("click",e=>{if(e.target.closest("[data-endaway]"))endAway()});
 
 /* Demo-Leiste */
@@ -797,17 +805,53 @@ function settingsPanel(){
       <button class="opt" data-set="link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><div>Handy verbinden ${sw(S.linked)}<small>Code ${S.code} · Meldungen aufs Handy</small></div></button>
       <button class="opt" role="switch" data-set="sleep" aria-checked="${!!S.sleep}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><div>Ruhemodus ${sw(S.sleep)}<small>Display aus, weckt nur bei Warnung</small></div></button>
       <button class="opt" data-set="away">${IC.away}<div>Urlaub ${sw(S.away)}<small>Box spart Wasser, Meldungen aufs Handy</small></div></button>
+      <button class="opt" data-set="lang"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c3 3.2 3 15.8 0 19M12 2.5c-3 3.2-3 15.8 0 19"/></svg><div>Sprache<small>Deutsch</small></div></button>
+      <button class="opt" data-set="look"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 2.5v19" /><path d="M12 2.5a9.5 9.5 0 0 1 0 19z" fill="currentColor"/></svg><div>Darstellung<small>${S.theme==="hc"?"Hoher Kontrast":"Standard (Blau)"}</small></div></button>
+      <button class="opt" data-set="report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4h11l-1.5 4L15 12H4"/></svg><div>Fehler melden<small>Etwas funktioniert nicht?</small></div></button>
       <div class="lbl">Über diese Box</div>
-      <p style="margin:0">Growbox 01 · ${esc(SPECIES[S.species].name)} · Prototyp v5</p>
+      <p style="margin:0">Growbox 01 · ${esc(SPECIES[S.species].name)} · Prototyp v6</p>
     </div>
     <button class="bigbtn out" data-set="admin">Admin-Modus</button>`,p=>{
     p.querySelector('[data-set="link"]').onclick=connectPanel;
     p.querySelector('[data-set="sleep"]').onclick=()=>{S.sleep=!S.sleep;save();if(S.sleep)wakeUntil=0;render();settingsPanel()};
-    p.querySelector('[data-set="away"]').onclick=()=>S.away?(endAway(),settingsPanel()):awayPanel();
+    p.querySelector('[data-set="away"]').onclick=()=>{if(S.away){endAway();settingsPanel()}else if(!paused())awayPanel()};
+    p.querySelector('[data-set="lang"]').onclick=langPanel;
+    p.querySelector('[data-set="look"]').onclick=lookPanel;
+    p.querySelector('[data-set="report"]').onclick=reportPanel;
     p.querySelector('[data-set="admin"]').onclick=demoPanel;
   });
 }
-$("#demoChip").onclick=()=>["settings","admin"].includes(open)?closePanel():settingsPanel();
+/* Sprache: im Prototyp nur Deutsch. Andere Sprachen ausgegraut statt scheinbar wählbar (logischer Constraint, Folie 75). */
+function langPanel(){
+  const L=[["Deutsch",true],["English",false],["Türkçe",false],["Русский",false]];
+  panel("lang","Sprache",`<div class="list">${L.map(([n,ok])=>`<button class="opt" role="radio" aria-checked="${ok}" ${ok?"":"disabled"} style="${ok?"":"opacity:.45"}">${n}${ok?"":"<small>folgt</small>"}</button>`).join("")}</div>
+    <p>Im Prototyp gibt es nur Deutsch.</p>
+    <button class="bigbtn out" data-x>‹ Einstellungen</button>`,p=>{p.querySelector("[data-x]").onclick=settingsPanel;p.querySelector("[data-back]").onclick=settingsPanel});
+}
+/* Darstellung: Standard (Blau) oder Hoher Kontrast (Schwarz). Wirkt sofort, damit man es vergleichen kann. */
+function lookPanel(){
+  const o=(k,n,d)=>`<button class="opt" role="radio" data-theme="${k}" aria-checked="${(S.theme||"std")===k}"><div>${n}<small>${d}</small></div></button>`;
+  panel("look","Darstellung",`<div class="list">${o("std","Standard (Blau)","Ruhiger blauer Hintergrund")}${o("hc","Hoher Kontrast","Schwarzer Hintergrund, alle Texte weiß")}</div>
+    <p>Warnungen bleiben immer an Dreieck, „!“ und Text erkennbar, nicht nur an der Farbe.</p>
+    <button class="bigbtn out" data-x>‹ Einstellungen</button>`,p=>{
+    p.querySelectorAll("[data-theme]").forEach(b=>b.onclick=()=>{S.theme=b.dataset.theme;save();render();lookPanel();msg(S.theme==="hc"?"Hoher Kontrast an":"Standard-Farben")});
+    p.querySelector("[data-x]").onclick=settingsPanel;p.querySelector("[data-back]").onclick=settingsPanel});
+}
+/* Fehler melden: eine Kategorie antippen, fertig. Der Bericht geht mit dem nächsten Stand an die App. */
+function reportPanel(){
+  const C=["Display","Taster oder Licht","Wasser oder Tank","Lüfter oder Nebler","Etwas anderes"];
+  panel("report","Fehler melden",`<p>Was funktioniert nicht? Einmal antippen genügt.</p>
+    <div class="list">${C.map(c=>`<button class="opt" data-cat="${c}"><div>${c}</div></button>`).join("")}</div>`,p=>{
+    p.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{
+      S.reports=(S.reports||[]).concat({at:Date.now(),cat:b.dataset.cat}).slice(-10);save();
+      panel("report","Fehler melden",`<div class="rec ok">${IC.ok}Danke, gemeldet</div>
+        <p>„${esc(b.dataset.cat)}“ · ${when(Date.now())}</p><p>${S.linked?"Die Meldung geht an die App. Dort siehst du, wie es weitergeht.":"Sobald ein Handy verbunden ist, geht die Meldung an die App."}</p>
+        <button class="bigbtn" data-x>Fertig</button>`,q=>{q.querySelector("[data-x]").onclick=closePanel});
+    });
+    p.querySelector("[data-back]").onclick=settingsPanel;
+  });
+}
+$("#demoChip").onclick=()=>["settings","admin","lang","look","report"].includes(open)?closePanel():settingsPanel();
 
 /* Vorführung: zwei Szenarien, die nur live auf dem Bildschirm ablaufen (ohne Erklärkasten).
    Start und Stopp über die Kacheln im Admin-Modus. */
@@ -873,6 +917,7 @@ function applyCmd(c){
 function payload(){
   return {power:!!S.power,species:S.species,phase:S.phase,phaseStart:S.phaseStart,custom:S.custom||null,away:!!S.away,
     t:Math.round(sim.t*10)/10,rh:Math.round(sim.rh),co2:Math.round(sim.co2/10)*10,tank:Math.round(sim.tank),
+    reports:(S.reports||[]).slice(-5),theme:S.theme||"std",
     sleep:!!S.sleep,dev:{licht:!!sim.dev.licht,luefter:!!sim.dev.luefter,nebel:!!sim.dev.nebel,heizung:!!sim.dev.heizung},burst:sim.burst>Date.now()?sim.burst:0,mist:sim.mist>Date.now()?sim.mist:0,sensor:!demo.sensor,
     alerts:alerts().map(x=>({id:x.id,sev:x.sev,t:x.t,a:x.a,label:x.do.label,kind:x.do.kind,icon:x.do.icon||null}))};
 }

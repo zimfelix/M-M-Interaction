@@ -1,6 +1,6 @@
 # Begriffe Box ↔ App
 
-Für das App-Teammitglied: Box-Display und App sind **zwei Ansichten auf denselben Zustand** (MVC, Folien 99–100). Damit Nutzer nichts doppelt lernen müssen, verwenden beide **dieselben Wörter, Symbole und Farben** (äußere Konsistenz, Folien 80–81). Stand: Bedienfeld v5 (`01-konzept/bedienfeld/index.html`).
+Für das App-Teammitglied: Box-Display und App sind **zwei Ansichten auf denselben Zustand** (MVC, Folien 99–100). Damit Nutzer nichts doppelt lernen müssen, verwenden beide **dieselben Wörter, Symbole und Farben** (äußere Konsistenz, Folien 80–81). Stand: Bedienfeld v6 (`01-konzept/bedienfeld/index.html`).
 
 Wenn die App einen Begriff anders braucht: bitte kurz absprechen und hier ändern, nicht still abweichen.
 
@@ -13,7 +13,7 @@ Wenn die App einen Begriff anders braucht: bitte kurz absprechen und hier änder
 | **Klima regelt sich automatisch.** | Satz unter „Alles gut“ | – |
 | **Pausiert** | Durchgang beendet, neues Zuchtset noch nicht drin | – |
 
-| **Warnpunkt** (Mitte der Kopfzeile) | leuchtet nur, wenn eine Warnung ansteht; aus der Ferne sichtbar | oranger Punkt mit „!“ und Leuchten; sonst dunkler Ring |
+| **Warnpunkt** (Mitte der Kopfzeile) | blinkt langsam, nur wenn eine Warnung ansteht; aus der Ferne sichtbar | oranger Punkt mit „!“ und Leuchten; sonst dunkler Ring |
 
 Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 
@@ -21,10 +21,10 @@ Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 
 | Box (Kachel) | App | Inhalt |
 |---|---|---|
-| **Klima** (Untertitel „Auto“, grüner Punkt leuchtet ruhig) | Klima | Lüfter, Nebler, Heizung, Licht mit Kennzeichen **AUTO** und „läuft gerade“ bzw. „nächstes Lüften in X Min“ |
+| **Klima** (klein „Auto“, grüner Punkt leuchtet ruhig) | Klima | Lüfter, Nebler, Heizung, Licht mit Kennzeichen **AUTO** und „läuft gerade“ bzw. „nächstes Lüften in X Min“ |
 | **Meldungen** (Zahl = offene Meldungen) | Meldungen | offene Meldungen mit „seit“, Verlauf (Beginn, „behoben um“ / „erledigt um“) |
-| **Sorte & Neu** | Sorte & Neu | Sorten ansehen, neu ansetzen, Notfall „Zurück zu …“, Urlaub |
-| Zahnrad = **Einstellungen** (oben rechts) | Einstellungen | Handy verbinden, Ruhemodus, Urlaub, Über diese Box |
+| **Sorten** (klein „Neu“) | Sorten | Knopf „Neu ansetzen …“, Sorten ansehen, Notfall „Zurück zu …“ |
+| Zahnrad = **Einstellungen** (oben rechts) | Einstellungen | Handy verbinden, Ruhemodus, Urlaub, **Sprache**, **Darstellung** (Standard / Hoher Kontrast), **Fehler melden**, Über diese Box |
 | **Handy-Symbol** (oben rechts neben dem Zahnrad) | – | Code zum Verbinden, Knopf **VERBUNDEN**; danach ausgeblendet |
 | – | **Advanced Analytics** (nur App) | Verläufe, CO₂, Vergleiche |
 
@@ -38,7 +38,7 @@ Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 | **Licht** | LED, Lampe | 8–20 Uhr automatisch; Ausnahme per **Taster** oder App bis zum nächsten Wechsel |
 | **Temperatur** | Temp | Anzeige `22,4°` (Komma, eine Nachkommastelle) |
 | **Luftfeuchte** | Feuchtigkeit, RH | Anzeige `89 %` |
-| **Wassertank** | Wasser, Tank, Reservoir | Startbild: `62 % · 4 T` (T = Tage, kleiner und heller) mit Füllstandsbalken und Beschriftung „Wassertank“ (wie Temperatur, Luftfeuchte); Reichweite „62 % · reicht ca. 4 Tage“ im Klima-Fenster |
+| **Wassertank** | Wasser, Tank, Reservoir | Startbild: `62 % · 4 T` (T = Tage, gleiche Schrift) mit Füllstandsbalken und Beschriftung „Wassertank“ (wie Temperatur, Luftfeuchte); vorgelesen „reicht ca. 4 Tage“ |
 | **CO₂** | – | nur App (Analytics) und Admin-Modus, nicht auf dem Startbild der Box |
 
 ## Phasen und Sorten
@@ -65,6 +65,8 @@ Meldungen sagen, was zu tun ist, und nennen das Wort auf dem Knopf in Großbuchs
 | **Geschlossen** | Tür offen |
 | **Geprüft** | Sensor ausgefallen, viel zu trocken |
 | **Gesehen** | zu trocken, zu nass, braucht Frischluft (die Box regelt selbst) |
+
+Verlauf: behobene Meldungen **grün mit Haken** und „behoben · von – bis“, nie mit Warndreieck.
 | **Weiterlaufen** | Pausiert, versehentlich beendet |
 | **Neu ansetzen** | nur mit **2 s gedrückt halten** |
 
@@ -85,4 +87,4 @@ Meldungen sagen, was zu tun ist, und nennen das Wort auf dem Knopf in Großbuchs
 
 ## Schnittstelle (technisch)
 
-Die Box schreibt ihren Stand nach `boxes/<Code>`. Die App schreibt Befehle nach `boxes/<Code>/cmd/last` als `{id, at, type, arg}`. Erlaubte `type`: `power`, `burst` (1 Min lüften), `mist` (1 Min befeuchten), `away`, `sleep`, `do` (Knopf einer Meldung, `arg` = Meldungs-ID), `species`, `phase`, `custom`. Details: `01-konzept/bedienfeld/index.html`, Abschnitt „Verbindung Box und Handy-App“.
+Die Box schreibt ihren Stand nach `boxes/<Code>`. Die App schreibt Befehle nach `boxes/<Code>/cmd/last` als `{id, at, type, arg}`. Der Stand enthält außerdem `reports` (Fehlermeldungen: `{at, cat}`) und `theme` (`std`/`hc`). Erlaubte `type`: `power`, `burst` (1 Min lüften), `mist` (1 Min befeuchten), `away`, `sleep`, `do` (Knopf einer Meldung, `arg` = Meldungs-ID), `species`, `phase`, `custom`. Details: `01-konzept/bedienfeld/index.html`, Abschnitt „Verbindung Box und Handy-App“.

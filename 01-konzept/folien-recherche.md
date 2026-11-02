@@ -1,6 +1,6 @@
 # Folien-Recherche: Was sagen die Folien konkret zum Bedienfeld?
 
-Stand 02.11.2026, geprüft an den Original-PDFs in `01-konzept/folien/` (nur lokal, per `.gitignore` ausgeschlossen). **Folie N** = Seite im HCI-PDF, **G N** = Seite im Gamification-PDF. Bezug: Bedienfeld v5.
+Stand 02.11.2026, geprüft an den Original-PDFs in `01-konzept/folien/` (nur lokal, per `.gitignore` ausgeschlossen). **Folie N** = Seite im HCI-PDF, **G N** = Seite im Gamification-PDF. Bezug: Bedienfeld v6.
 
 Wichtig fürs Booklet: Viele Folien sind **Bildbeispiele ohne Text**. Die Aussage dahinter kam in der Vorlesung mündlich. Wir zitieren deshalb das Beispiel und formulieren die Folgerung selbst. Was gar nicht auf den Folien steht, ist unten als **externe Quelle** markiert.
 
@@ -138,6 +138,15 @@ Was wir darüber hinaus tun, braucht für das Booklet eine **externe Quelle**, z
 3. **Werte außerhalb des Zielbereichs** zeigen ein **Warndreieck statt des Symbols** und färben nicht mehr nur den Text orange (sonst wieder nur Farbe als Signal, Folie 23).
 4. **Licht-Taster** im Klima-Fenster erklärt (siehe Abschnitt 4).
 5. **Kopfzeile neu**: eine Zeile, alles 44 pt hoch: Sorte links, Warnpunkt in der Mitte (Folien 26, 23, 63, 130), rechts Handy-Symbol (nach VERBUNDEN ausgeblendet) und Zahnrad als gleich große Knöpfe; Uhr entfernt. Die Größe stammt aus einer externen Quelle (Apple HIG); die Folien begründen nur das Prinzip (Fitts, 50).
+
+## Umgesetzt (v6, 02.11.2026)
+
+1. **Warnpunkt blinkt** langsam (ca. 0,8 Hz, nie ganz dunkel), nur bei Warnung: Folie 27 nennt Blinken als präattentives Merkmal. Blinken ist damit für den einzigen Fall reserviert, in dem gehandelt werden muss. Extern (WCAG 2.3.1): unter 3 Blitzen pro Sekunde; bei „Bewegung reduzieren“ leuchtet er nur.
+2. **Meldungs-Verlauf grün mit Haken**: Behobenes darf nicht mehr wie eine Warnung aussehen (Gulf of Evaluation, Folie 59; kulturelle Bedeutung Grün = erledigt, Folie 76).
+3. **Schrift in Meldungen und Listen größer** (Verlauf 15 → 17 pt, Nebentexte ≥ 15 pt, Folie 63) und **Touch-Ziele ≥ 44 pt** auch für „Zurück“, Meldungsknöpfe und `URLAUB ✕` (Folie 50; Zahl extern Apple HIG).
+4. **Einstellungen**: Sprache (nicht verfügbare Sprachen **ausgegraut**, logischer Constraint, Folie 75), **Darstellung „Hoher Kontrast“** (schwarz, alle Texte weiß; Folie 66), **Fehler melden** (ein Tippen; Nielsen: *help users recognize, diagnose, and recover from errors*, Folie 130).
+5. **SORTEN · Neu**: Neu ansetzen sichtbar oben (Visibility, 130), Sorten ansehen darunter (Stöbern vs. Suchen, Folie 95).
+6. **Ruhemodus-Text** lesbar (3,3 → 9,7 : 1).
 
 ## Weiter gültig
 

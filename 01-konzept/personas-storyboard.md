@@ -45,7 +45,7 @@ Die drei Personas decken bewusst die Altersspanne ab, die die Box laut Anforderu
 
 ## Storyboard 1 – „Ein Morgen mit der Box“ (Persona Ingrid)
 
-**Überholt** (frühe Skizzen-Fassung: Schale, Kachel „Hinweise“). Aktuelle Story passend zu Bedienfeld v5: [`../04-evaluation/entscheidungen-folien.md`](../04-evaluation/entscheidungen-folien.md).
+**Überholt** (frühe Skizzen-Fassung: Schale, Kachel „Hinweise“). Aktuelle Story passend zu Bedienfeld v6: [`../04-evaluation/entscheidungen-folien.md`](../04-evaluation/entscheidungen-folien.md).
 
 Zeigt die Kernaufgabe „Zustand erkennen und handeln“ in unter einer Minute. Grundlage: Skizze 12; Methode: Storyboard (Folien 143–144).
 

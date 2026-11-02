@@ -4,6 +4,8 @@
 
 Material aus Tests mit Nutzerinnen und Nutzern, als Grundlage für Booklet und Präsentation.
 
+**Präsentation 05.11.:** [`praesentation.md`](praesentation.md) (Ablauf, Use Cases A/B mit Folien, Technik, Risiken).
+
 **Start hier:** [`entscheidungen-folien.md`](entscheidungen-folien.md): jede Design-Entscheidung mit Person (A Ingrid / B Power-User), Folie und Erklärung, dazu die Story für die Präsentation und der Evaluationsplan.
 
 Hier ablegen:
