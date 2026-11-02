@@ -65,6 +65,35 @@ Muss jeder es sofort sehen?                  ── ja ──► Box zeigt es, A
 | E29 | **Lesbarkeit und Treffsicherheit überall**: Schrift in Meldungen/Listen ≥ 15 pt, alle Touch-Ziele ≥ 44 pt (auch „Zurück“), Ruhemodus-Text lesbar | A | 63, 50 | Sichtabstand (63) und Fitts (50) gelten nicht nur fürs Startbild, sondern für jede Ebene. Zahlen extern: Apple HIG 44 pt, WCAG 4,5 : 1. |
 | E20 | **Admin-Modus** versteckt (Einstellungen → ganz unten) | – | 60 | Nicht personenbezogen, nur für die Vorführung. Er bleibt verborgen, damit kein Nutzer versehentlich hineingerät. |
 
+## Offen für Mittwoch (04.11.)
+
+Zwei Fragen zum Taster und zur Warnung. Gemeinsamer Grundsatz für beide: **Eine Warnung muss immer sichtbar sein**, egal ob Ruhemodus, Licht aus oder Display schwarz.
+
+### A · Warnung zusätzlich als physisches Licht?
+
+| | **A1 Warnlicht an der Box** (z. B. Taster mit Leuchtring oder eigene LED, blinkt orange bei Warnung) | **A2 nur Display + App** |
+|---|---|---|
+| Display schwarz (Ruhemodus) oder ausgefallen | Warnung bleibt sichtbar ✅ | nur per Push, Ingrid hat **kein Handy** verbunden ❌ |
+| Sichtbarkeit aus der Ferne | sehr gut, auch im Augenwinkel (Folie 27, Blinken präattentiv) | Warnpunkt auf dem Display, nur wenn es an ist |
+| Folien | 59 Gulf of Evaluation, 130 *Visibility of system status*, 61 Murphy (Display kann ausfallen), 8 wenige physische Elemente | 130 *minimalist design* |
+| Aufwand | LED + Vorwiderstand am Pi, evtl. Leuchttaster (Uni-Bestand prüfen, sonst Einkauf → Rückfrage) | keiner |
+| Bedeutung des Tasters | bleibt **Licht**; das Warnlicht ist nur Ausgabe, keine zweite Funktion | unverändert |
+
+**Empfehlung: A1.** Persona A (Ingrid) nutzt keine App. Ohne physisches Signal würde sie eine Warnung bei schwarzem Display nicht bemerken. Das physische Licht ist die Rückfallebene (*Fail-safe*).
+
+### B · Taster schaltet Licht und Display gemeinsam?
+
+| | **B1 gekoppelt:** Taster an = Licht + Display an, Taster aus = Licht aus + Display aus (Ruhe) | **B2 heute:** Taster = Licht, weckt das Display nur kurz |
+|---|---|---|
+| Mentales Modell (56) | einfach: „Box ansehen“ = Licht und Anzeige an, „Box schlafen lassen“ = alles aus | zwei getrennte Dinge: Licht und Ruhemodus |
+| Modusfehler (60) | Display aus, obwohl man nur das Licht ausmachen wollte → abgefedert, weil Warnungen das Display ohnehin wecken | Ruhemodus muss man in den Einstellungen finden |
+| Bedeutung des Tasters (72–73) | eine Handlung, zwei zusammengehörige Wirkungen | eine Handlung, eine Wirkung |
+| Ruhemodus-Einstellung | wird fast überflüssig (Taster ersetzt ihn) | bleibt nötig |
+
+**Empfehlung: B1, mit zwei Bedingungen:** (1) Warnungen wecken Display und Warnlicht **immer**, unabhängig von Taster, Licht und Ruhemodus. (2) Nach 30 s ohne Bedienung geht nur das Display aus, das Licht bleibt bis zum nächsten Tasterdruck bzw. 20 Uhr. So bleibt die Bedienung für Ingrid eine einzige Handlung.
+
+Umsetzung nach der Entscheidung: Bedienfeld (Taster-Logik, Ruhemodus) und, bei A1, Pi-Code und Verkabelung.
+
 ## Story für die Präsentation
 
 Jede Szene zeigt eine Entscheidung „in Aktion“ (Storyboard, Folien 143–150). Die App-Szenen hängen vom Stand der App ab und sind mit dem App-Teammitglied abzustimmen.

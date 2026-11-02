@@ -24,7 +24,8 @@ Zeichnungen der Box: `02-box-bau/README.md` (Bilder) bzw. `02-box-bau/zeichnunge
 
 - **Aufstellort:** Wo und wie steht die Box (Zugang vorn und zum Tank, Abstand für Lüftung, keine Heizung/Sonne, Display-Blickwinkel)?
 - **Hardware Heizung:** Heizmatte oder PTC-Heizer über Relais (Einkauf) oder nur simuliert.
-- **Taster-Bedeutung:** Vorschlag umgesetzt: Taster = nur Licht (feste Bedeutung) und weckt nebenbei das Display als Rückmeldung; schaltet keinen Ruhemodus. Bestätigung durch das Team offen.
+- **Entscheidung Mittwoch 04.11. – A Warnlicht an der Box:** Warnung zusätzlich als **physisches Licht** (z. B. Taster mit Leuchtring, blinkt orange), damit sie auch bei schwarzem oder ausgefallenem Display sichtbar ist, oder nur Display + App? Optionen und Empfehlung: `04-evaluation/entscheidungen-folien.md` → „Offen für Mittwoch“.
+- **Entscheidung Mittwoch 04.11. – B Taster koppelt Display:** Taster an = Licht **und** Display an, Taster aus = beides aus; Warnung bleibt **unabhängig** davon immer sichtbar (Ruhemodus, Licht aus). Heute: Taster = Licht und weckt das Display.
 - **Pilz als Status:** Das Pilz-Gesicht im Ring soll deutlicher zeigen, dass alles gut läuft. Noch nicht umsetzen.
 - **Farben 3D-Druck:** Variante A, B oder C aus `02-box-bau/zeichnungen/skizze-farben.html`; Sockel dunkelbraun ist nicht verfügbar.
 - **Power-User-Persona (B):** Kultur bleibt Pilze, also ein erfahrener Pilzzüchter, der alles trackt. Entwurf in `04-evaluation/entscheidungen-folien.md`; Name und Details offen.

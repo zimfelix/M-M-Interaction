@@ -1,71 +1,72 @@
-# Präsentation 05.11.2026 – Ablauf
+# Präsentation 05.11.2026 · 7 Minuten
 
-Idee: **Dieselbe Box, zwei Menschen.** Wir zeigen das Bedienfeld live auf dem Whiteboard und spielen Use Cases durch, zuerst mit **A · Ingrid, 72** (nur Box), dann mit **B · Power-User** (Box + App). Zu jedem Schritt nennen wir die Entscheidung und die Folie. Alle Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) (E1–E29), Folienbelege: [`../01-konzept/folien-recherche.md`](../01-konzept/folien-recherche.md).
+**Rahmen:** 7 Minuten für Prototyp, Bedienfeld und App. Leitidee: **Dieselbe Box, zwei Menschen.** Typ A (Ingrid, 72, wenig Technik) erklärt das **Bedienfeld**, Typ B (Power-User) erklärt die **App**.
 
-Zeiten sind ein Vorschlag für ca. 12 Minuten. Bitte an die tatsächliche Redezeit anpassen.
+Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) (E1–E29). Folienbelege: [`../01-konzept/folien-recherche.md`](../01-konzept/folien-recherche.md).
 
-## Technik
+## Bewertungskriterien (Folie 5) – wo wir sie erfüllen
 
-```
- Mac ──HDMI──► Whiteboard / Beamer
-  │  Fenster 1: Bedienfeld-Vorschau, Ansicht „Vollbild in der Box“
-  │  Fenster 2: App des Teammitglieds (iPhone-Spiegelung oder Browser)
-  │
- echte Box auf dem Tisch: iPhone im Bedienfeld + Taster + LED  ← für den Taster-Moment
-```
+| Kriterium (Folie 5) | Wo in der Präsentation |
+|---|---|
+| Bezug zu Theorien und Konzepten der Vorlesung | bei jedem Schritt eine Folie (rechte Spalte unten) |
+| Beachtung der HCI-Grundprinzipien | Norman: Affordance, Mapping, Feedback, Constraints (72–87); Nielsen (130); Barrierefreiheit (23, 63, 66) |
+| Einbezug und Beschreibung verwendeter Technologien | Teil 2: iPhone als Display, Raspberry Pi, Taster/LED, ein Zustand für Box und App (MVC) |
 
-- **Bedienfeld:** https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi, oben „Vollbild in der Box“ wählen. Dafür muss der Mac bei claude.ai angemeldet sein.
-- **Ersatz ohne Internet:** im Projektordner `python3 -m http.server -d 01-konzept/bedienfeld 8000` starten und `http://localhost:8000/vorschau-iphone.html` öffnen.
-- **Vorher zurücksetzen:** Zahnrad → Admin-Modus → Zurücksetzen. So startet die Vorführung bei „Alles gut“, mit Standardfarben und ohne alte Meldungen.
-- **Live-Szenarien** laufen von selbst (Zahnrad → Admin-Modus → Vorführung): „Mensch ist dran“ (Tank leer → auffüllen → ernten) und „Box regelt selbst“ (Kälte → Heizung → wieder gut). Das spart Klicks auf dem Whiteboard.
-- **Rollen:** Felix zeigt die Box (Taster, Tank, Sichtfenster), das App-Teammitglied zeigt Teil B, die dritte Person führt durch Einstieg, Konzept und Fazit.
+## Ablauf (7:00)
 
-## Ablauf
-
-| Zeit | Teil | Was man sieht | Was wir sagen | Folie |
+| Zeit | Wer | Teil | Inhalt | Folie |
 |---|---|---|---|---|
-| 1 min | **Einstieg** | Folie 8 „Die unbedienbare Mikrowelle“ neben unserer Box (sieht aus wie eine Mikrowelle) | „Unsere Box ist eine Mikrowelle für Pilze. Deshalb hat sie wenige, eindeutige Bedienelemente.“ | 8 |
-| 1 min | **Konzept** | Grafik „Box regelt selbst / Mensch macht wenig“ und die Aufteilungsregel Box ↔ App | Die Box regelt das Klima selbst. Der Mensch füllt Wasser nach, erntet, setzt neu an. Was den Körper an der Box braucht, ist an der Box; Details sind in der App. Ein Zustand, zwei Ansichten. | 99–100, G 10 (Cascading Information) |
-| 4 min | **A · Ingrid** | Bedienfeld live, Szenario „Mensch ist dran“ | siehe Use Cases A | siehe unten |
-| 3 min | **B · Power-User** | App + Bedienfeld nebeneinander | siehe Use Cases B | siehe unten |
-| 1 min | **Gamification** | Ring, „3 Tage bis zur Ernte“, Sorten mit Schwierigkeit | Progression, Countdown, Appointments; Flow durch Schwierigkeitsstufen; bewusst keine Punkte oder Ranglisten | G 10, G 12, G 14, G 15 |
-| 1,5 min | **Evaluation** | Simulation Rot-Grün-Schwäche (Grün und Orange werden gleich), Kontrastwerte, Plan | Eigene Messung statt Behauptung; Cognitive Walkthrough und Nielsen-Check; ehrliche Grenzen | 23, 66, 129, 130 |
-| 0,5 min | **Fazit** | Startbild „Alles gut“ | „Dieselbe Box, zwei Menschen: Ingrid braucht nur das Display, der Power-User bekommt mehr Kontrolle, ohne dass es für Ingrid komplizierter wird.“ | – |
+| 0:00–0:40 | Felix | **1 Einstieg** | Aufgabe Option B Growbox (Folie 5). Folie 8 „Die unbedienbare Mikrowelle“ neben unserer Box: „Unsere Box ist eine Mikrowelle für Pilze. Deshalb wenige, eindeutige Bedienelemente.“ | 5, 8 |
+| 0:40–1:40 | Felix | **2 Werdegang + Box** | Skizzen → Papier → Klick-Prototyp → v6 (3 Bilder aus `01-konzept/bedienfeld/verlauf/`); Box-Skizze/Mockup: Display rechts, Taster darunter, Tank mit Sichtfenster. Technik in einem Satz: iPhone zeigt die Web-Oberfläche vom Raspberry Pi, Taster und LED am Pi, Box und App lesen **einen** Zustand. | 104–107, 119–125, 99–100 |
+| 1:40–2:10 | Felix | **3 Konzeptidee** | „Die Box regelt selbst, der Mensch macht wenig: Wasser nachfüllen, ernten, neu ansetzen.“ Aufteilung: Was den Körper an der Box braucht, ist an der Box; Details sind in der App. | 56, G 10 (Cascading Information) |
+| 2:10–4:40 | Felix | **4 Typ A · Ingrid** (Bedienfeld live) | siehe Use Cases A | siehe unten |
+| 4:40–6:30 | App-Teammitglied | **5 Typ B · Power-User** (App) | siehe Use Cases B | siehe unten |
+| 6:30–7:00 | alle | **6 Fazit** | „Dieselbe Box, zwei Menschen: Ingrid braucht nur das Display, der Power-User bekommt in der App mehr Kontrolle, ohne dass die Box für Ingrid komplizierter wird.“ Ein Satz Evaluation: Farbsimulation gemacht, Cognitive Walkthrough und Nielsen-Check geplant. | 23, 129, 130 |
 
-### Use Cases A · Ingrid (nur Box)
+### Use Cases A · Ingrid (2:30, Bedienfeld)
 
-| # | Use Case | Was passiert auf dem Display | Entscheidung · Folie |
+Am schnellsten mit dem Live-Szenario: Zahnrad → Admin-Modus → **„Mensch ist dran“**.
+
+| # | Was wir zeigen | Ein Satz dazu | Folie |
 |---|---|---|---|
-| A1 | **Im Vorbeigehen** | „Alles gut“, grüner Haken, Ring „3 Tage bis zur Ernte“, Warnpunkt dunkel | E1, E2, E13 · 16–17, 26 |
-| A2 | **Aus der Ferne sehen, dass etwas nicht stimmt** | Szenario starten: Warnpunkt **blinkt**, „Wasser leer“ mit Dreieck | E22 · 27 (Blinken präattentiv), 63 (Sichtabstand) |
-| A3 | **Verstehen und handeln** | „Tank im Technikraum auffüllen, dann AUFGEFÜLLT drücken.“ + großer Knopf | E8 · 83–85, 59 |
-| A4 | **Nachfüllen an der Box** | Felix zeigt Einfüllöffnung und Sichtfenster; auf dem Display Füllstand `62 % · 4 T` | E15, E14 · 77–79, 86–87 |
-| A5 | **Rückmeldung** | „Tank voll · Nebler läuft wieder“, dann „Alles gut“; Meldungen → Verlauf **grün mit Haken** | E9, E27 · 82, 59, 76 |
-| A6 | **Licht mit dem Taster** | Felix drückt den echten Taster, LED geht an; Display bestätigt kurz | E10 · 33 (Homunculus), 49, 72–74 |
-| A7 | **Nicht eingreifen müssen** | KLIMA antippen: alles AUTO, kein Knopf zum Verstellen | E6, E7 · 56, 59, 60 |
-| A8 | **Schlecht sehen** | Zahnrad → Darstellung → Hoher Kontrast | E26, E21 · 66, 23 |
+| A1 | Startbild „Alles gut“, Ring „3 Tage bis zur Ernte“ | Ein Blick, eine Aussage, Fortschritt wie ein Countdown | 16–17, 26, G 10 |
+| A2 | Warnpunkt **blinkt**, „Wasser leer“ | Blinken ist präattentiv, aus der Ferne sichtbar; Status nie nur über Farbe | 27, 23 |
+| A3 | Handlung + Knopf **AUFGEFÜLLT** | Meldung spezifisch, konstruktiv, höflich | 83–85, 59 |
+| A4 | „Tank voll · Nebler läuft wieder“ → Meldungen: Verlauf **grün** | Feedback; Erledigtes sieht erledigt aus | 82, 59, 76 |
+| A5 | **echter Taster** an der Box → Licht an | Haptisch, eine feste Bedeutung, Ergebnis sichtbar | 33, 72–74, 60 |
+| A6 | KLIMA: alles AUTO, nichts zu verstellen | Automatik sichtbar machen, Eingriff nur in der App | 56, 59 |
 
-### Use Cases B · Power-User (Box + App)
+Optional, falls Zeit bleibt: Einstellungen → Darstellung → **Hoher Kontrast** (Folie 66).
 
-| # | Use Case | Was passiert | Entscheidung · Folie |
+### Use Cases B · Power-User (1:50, App)
+
+Abstimmen mit dem App-Teammitglied: Was davon kann die App am 05.11.?
+
+| # | Was wir zeigen | Ein Satz dazu | Folie |
 |---|---|---|---|
-| B1 | **Unterwegs informiert** | Push in der App mit derselben Meldung und denselben Wörtern wie an der Box | E17, E18 · 99–100, 80–81 |
-| B2 | **Verstehen, warum** | Advanced Analytics: Verlauf von Feuchte und CO₂ | E19 · 101–102 (Zoomable UI) |
-| B3 | **Eingreifen, wenn er will** | In der App „1 Min lüften“ → an der Box unter KLIMA „läuft noch 60 s (vom Handy)“ | E7, E17 · 57–58, 99–100 |
-| B4 | **Eigene Sorte** | In der App anlegen → an der Box unter SORTEN sichtbar, ändern nur in der App | E19, E28 · 140 (Autonomie), G 14 |
-| B5 | **Box und Handy koppeln** | Handy-Symbol oben → Code → VERBUNDEN → Symbol verschwindet | E24 · 130 |
+| B1 | Push in der App: dieselbe Meldung, dieselben Wörter wie an der Box | Ein Modell, zwei Ansichten; äußere Konsistenz | 99–100, 80–81 |
+| B2 | Advanced Analytics: Verlauf Feuchte/CO₂ | Übersicht an der Box, Detail in der App | 101–102 |
+| B3 | „1 Min lüften“ in der App → an der Box „läuft noch 60 s (vom Handy)“ | Flexibilität für Fortgeschrittene, Box bleibt einfach | 57–58, 60 |
+| B4 | Eigene Sorte anlegen → an der Box unter SORTEN | Autonomie, Achiever/Free Spirit | 140, G 14 |
 
-## Was wir zeigen, nicht nur sagen
+## Technik am Tag
 
-- **Folienbilder** klein neben dem Live-Bild: 8 (Mikrowelle), 27 (Blinken), 33 (Homunculus), G 10 (Mechaniken), G 12 (Flow)
-- **Eigene Messungen:** Rot-Grün-Simulation unserer Statusfarben, Kontrastwerte vorher/nachher
-- **Entwicklungsverlauf** in 3 Bildern (v1 → v4 → v6) aus `01-konzept/bedienfeld/verlauf/`: Das zeigt den nutzerzentrierten Prozess (104–107)
+```
+ Mac ──HDMI──► Whiteboard
+   ├─ Fenster 1: Bedienfeld, Ansicht „Vollbild in der Box“
+   └─ Fenster 2: App (iPhone-Spiegelung oder Browser)
+ echte Box auf dem Tisch: Taster, Tank, Sichtfenster
+```
+
+- Bedienfeld: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi (Mac bei claude.ai angemeldet). **Ersatz ohne Internet:** `python3 -m http.server -d 01-konzept/bedienfeld 8000`, dann `http://localhost:8000/vorschau-iphone.html`.
+- **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen** (Standardfarben, keine alten Meldungen).
+- **Probe mit Stoppuhr:** 7 Minuten sind knapp. Teil 4 und 5 sind die Puffer: Bei Zeitnot A5/A6 und B4 weglassen.
 
 ## Risiken
 
 | Risiko | Gegenmittel |
 |---|---|
-| claude.ai auf dem Präsentations-Mac nicht angemeldet | lokaler Ersatz (siehe Technik) |
-| App-Funktionen aus Teil B noch nicht fertig | B mit dem Teammitglied abstimmen; Fehlendes als Mockup zeigen und so benennen |
-| Szenario läuft zu schnell | Situationen einzeln im Admin-Modus auslösen statt Szenario |
-| Alte Zustände im Browser (Kontrast, Meldungen) | vorher Admin → Zurücksetzen |
+| claude.ai auf dem Präsentations-Mac nicht angemeldet | lokaler Ersatz (siehe oben) |
+| App-Funktion aus Teil B fehlt noch | als Mockup zeigen und so benennen |
+| Szenario läuft zu schnell | Situationen einzeln im Admin-Modus auslösen |
+| Fragen zu offenen Punkten | Warnlicht (A) und Taster-Kopplung (B): Entscheidung vom 04.11. nennen, siehe [`entscheidungen-folien.md`](entscheidungen-folien.md#offen-für-mittwoch-0411) |

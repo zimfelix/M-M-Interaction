@@ -2,6 +2,8 @@
 
 Textbausteine für das Booklet. Die Personas sind **fiktiv** und beruhen auf Annahmen (Vorlesung: „idealtypische Nutzer“, Folie 118). Bitte nach den ersten Interviews und Tests anpassen und die Änderungen im Booklet benennen.
 
+**Für Präsentation und Booklet-Story nutzen wir zwei Personen:** **A = Ingrid** (Persona 3 unten) und **B = Power-User** (Entwurf in [`../04-evaluation/entscheidungen-folien.md`](../04-evaluation/entscheidungen-folien.md)). Mila und Jonas bleiben als Ergänzung für die Altersspanne im Booklet.
+
 Die drei Personas decken bewusst die Altersspanne ab, die die Box laut Anforderung bedienen soll (Probanden nach Alter, Folie 133).
 
 ## Persona 1 – Mila, 9 Jahre
@@ -45,20 +47,11 @@ Die drei Personas decken bewusst die Altersspanne ab, die die Box laut Anforderu
 
 ## Storyboard 1 – „Ein Morgen mit der Box“ (Persona Ingrid)
 
-**Überholt** (frühe Skizzen-Fassung: Schale, Kachel „Hinweise“). Aktuelle Story passend zu Bedienfeld v6: [`../04-evaluation/entscheidungen-folien.md`](../04-evaluation/entscheidungen-folien.md).
-
-Zeigt die Kernaufgabe „Zustand erkennen und handeln“ in unter einer Minute. Grundlage: Skizze 12; Methode: Storyboard (Folien 143–144).
-
-| Bild | Was man sieht | Text | HCI-Bezug |
-|---|---|---|---|
-| 1 | Ingrid geht mit der Kaffeetasse an der Box vorbei. Das schlafende Display zeigt nur ein großes gelbes Dreieck. | „Nanu – gelb?“ | Ruhezustand aus 2 m lesbar, präattentive Wahrnehmung (26, 63) |
-| 2 | Sie tippt das Display an, es wacht auf: „Bald kümmern – Es ist zu trocken.“ | „Aha, zu trocken.“ | Visibility of system status (130), ein Blick = eine Aussage (37–38) |
-| 3 | Sie tippt auf „Hinweise“ und liest: „Bitte Wasser in die Schale füllen – bis zur Linie.“ | „Das kann ich.“ | Fehlermeldung spezifisch, konstruktiv, höflich (83–85) |
-| 4 | Sie gießt Wasser in die Schale bis zur Markierung. | – | Mapping zwischen Anleitung und Box (77–79) |
-| 5 | Sie drückt groß „Erledigt“. Das Display zeigt „wird besser …“, im Klima-Bild steigt das Wasserglas. | „Feuchte steigt …“ | Feedback in Zeitstufen (64–65, 82), Physikanalogie (86) |
-| 6 | Zurück am Startbild: grüner Kreis „Alles gut“. Ingrid lächelt und drückt den Taster, das Licht geht an. | „Gut gemacht.“ | Kompetenzerleben (140), ein Knopf = eine Bedeutung (60) |
+Ersetzt durch die Use Cases A1–A6 passend zu Bedienfeld v6: [`../04-evaluation/praesentation.md`](../04-evaluation/praesentation.md). Die frühe Fassung (Schale, Kachel „Hinweise“) steht in der Git-Historie.
 
 ## Storyboard 2 – „Erntezeit“ (Personas Mila und Jonas)
+
+Idee für die **App** (Teilen, Abzeichen); im Bedienfeld gibt es kein Abzeichen.
 
 Zeigt das Erlebnis nach der Nutzung und die leichte Gamification. Grundlage: Skizzen 10–11.
 
@@ -72,5 +65,5 @@ Zeigt das Erlebnis nach der Nutzung und die leichte Gamification. Grundlage: Ski
 ## So nutzt ihr das im Booklet
 
 - **Kapitel „Nutzungskontext“:** die drei Personas (je ca. ½ Seite), Herleitung über die Altersspanne
-- **Kapitel „Konzept“:** Storyboard 1 als roter Faden, mit den Skizzen 02–09 als Detailbilder
+- **Kapitel „Konzept“:** Use Cases A (Ingrid) und B (Power-User) als roter Faden, mit den Skizzen 02–09 als Detailbilder
 - **Kapitel „Reflexion“:** Storyboard 2 für Gamification und Experience Design; dazu ehrlich benennen, dass die Personas Annahmen sind und welche Tests sie bestätigt oder verändert haben

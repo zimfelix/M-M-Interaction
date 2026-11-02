@@ -181,6 +181,12 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:1fr}
 .opt{border:.5cqw solid var(--ink-dim);background:rgba(255,255,255,.06);border-radius:2.4cqw;padding:2.4cqw 3cqw;display:flex;align-items:center;gap:2.4cqw;font-size:4.6cqw;font-weight:700;min-height:13cqw;text-align:left;line-height:1.1}
 .opt svg{flex:none;width:6.4cqw;height:6.4cqw}
+/* Sprache: Flagge zum Wiedererkennen; Darstellung: Farbfeld zeigt das Ergebnis vorab */
+.flag{flex:none;width:8cqw;font-size:6.6cqw;line-height:1;text-align:center}
+.swatch{flex:none;width:8cqw;height:8cqw;border-radius:1.8cqw;border:.5cqw solid #fff;box-shadow:0 0 0 .3cqw rgba(0,0,0,.35)}
+.swatch.std{background:radial-gradient(circle at 40% 35%,#2f45f5,#1525c4 60%,#08106c)}
+.swatch.hc{background:#000}
+.opt[disabled]{opacity:.5}
 .opt[aria-checked="true"]{border-color:var(--ink);background:var(--ink);color:var(--lcd-mid)}
 .g3 .opt{justify-content:center;text-align:center}
 .bigbtn{border:.6cqw solid var(--ink);background:var(--ink);color:var(--lcd-mid);border-radius:2.6cqw;padding:2.4cqw 3cqw;font-weight:700;font-size:5cqw;margin-top:auto;display:flex;align-items:center;justify-content:center;gap:2cqw;min-height:12cqw}
@@ -805,8 +811,8 @@ function settingsPanel(){
       <button class="opt" data-set="link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><div>Handy verbinden ${sw(S.linked)}<small>Code ${S.code} · Meldungen aufs Handy</small></div></button>
       <button class="opt" role="switch" data-set="sleep" aria-checked="${!!S.sleep}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><div>Ruhemodus ${sw(S.sleep)}<small>Display aus, weckt nur bei Warnung</small></div></button>
       <button class="opt" data-set="away">${IC.away}<div>Urlaub ${sw(S.away)}<small>Box spart Wasser, Meldungen aufs Handy</small></div></button>
-      <button class="opt" data-set="lang"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c3 3.2 3 15.8 0 19M12 2.5c-3 3.2-3 15.8 0 19"/></svg><div>Sprache<small>Deutsch</small></div></button>
-      <button class="opt" data-set="look"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 2.5v19" /><path d="M12 2.5a9.5 9.5 0 0 1 0 19z" fill="currentColor"/></svg><div>Darstellung<small>${S.theme==="hc"?"Hoher Kontrast":"Standard (Blau)"}</small></div></button>
+      <button class="opt" data-set="lang"><span class="flag" aria-hidden="true">🇩🇪</span><div>Sprache<small>Deutsch</small></div></button>
+      <button class="opt" data-set="look"><span class="swatch ${S.theme==="hc"?"hc":"std"}" aria-hidden="true"></span><div>Darstellung<small>${S.theme==="hc"?"Hoher Kontrast":"Standard (Blau)"}</small></div></button>
       <button class="opt" data-set="report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4h11l-1.5 4L15 12H4"/></svg><div>Fehler melden<small>Etwas funktioniert nicht?</small></div></button>
       <div class="lbl">Über diese Box</div>
       <p style="margin:0">Growbox 01 · ${esc(SPECIES[S.species].name)} · Prototyp v6</p>
@@ -823,14 +829,14 @@ function settingsPanel(){
 }
 /* Sprache: im Prototyp nur Deutsch. Andere Sprachen ausgegraut statt scheinbar wählbar (logischer Constraint, Folie 75). */
 function langPanel(){
-  const L=[["Deutsch",true],["English",false],["Türkçe",false],["Русский",false]];
-  panel("lang","Sprache",`<div class="list">${L.map(([n,ok])=>`<button class="opt" role="radio" aria-checked="${ok}" ${ok?"":"disabled"} style="${ok?"":"opacity:.45"}">${n}${ok?"":"<small>folgt</small>"}</button>`).join("")}</div>
+  const L=[["🇩🇪","Deutsch",true],["🇬🇧","English",false],["🇫🇷","Français",false],["🇹🇷","Türkçe",false]];
+  panel("lang","Sprache",`<div class="list">${L.map(([f,n,ok])=>`<button class="opt" role="radio" aria-checked="${ok}" ${ok?"":"disabled"}><span class="flag" aria-hidden="true">${f}</span><div>${n}<small>${ok?"aktiv":"folgt"}</small></div></button>`).join("")}</div>
     <p>Im Prototyp gibt es nur Deutsch.</p>
     <button class="bigbtn out" data-x>‹ Einstellungen</button>`,p=>{p.querySelector("[data-x]").onclick=settingsPanel;p.querySelector("[data-back]").onclick=settingsPanel});
 }
 /* Darstellung: Standard (Blau) oder Hoher Kontrast (Schwarz). Wirkt sofort, damit man es vergleichen kann. */
 function lookPanel(){
-  const o=(k,n,d)=>`<button class="opt" role="radio" data-theme="${k}" aria-checked="${(S.theme||"std")===k}"><div>${n}<small>${d}</small></div></button>`;
+  const o=(k,n,d)=>`<button class="opt" role="radio" data-theme="${k}" aria-checked="${(S.theme||"std")===k}"><span class="swatch ${k}" aria-hidden="true"></span><div>${n}<small>${d}</small></div></button>`;
   panel("look","Darstellung",`<div class="list">${o("std","Standard (Blau)","Ruhiger blauer Hintergrund")}${o("hc","Hoher Kontrast","Schwarzer Hintergrund, alle Texte weiß")}</div>
     <p>Warnungen bleiben immer an Dreieck, „!“ und Text erkennbar, nicht nur an der Farbe.</p>
     <button class="bigbtn out" data-x>‹ Einstellungen</button>`,p=>{

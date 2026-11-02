@@ -6,7 +6,7 @@
 > - **Ladebeziehungen:** Ausgangslage und Entscheidungen: `BRIEF.md`. Quellen: `~/Desktop/WS26_HCI - Vorlesungsfolien.pdf` (151 Folien), `~/Desktop/HCI - Vorlesungsfolien_Gamification.pdf` (17 Folien).
 > - **Nicht zuständig:** Entscheidungen festhalten (→ `BRIEF.md`).
 
-Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte „Folien“ = Seitenzahl im PDF (geprüft) zum Zurückverweisen.
+Status: **Ausgangssammlung** (27.10.2026). Maßgeblich sind inzwischen: was umgesetzt ist und wie begründet → [`../04-evaluation/entscheidungen-folien.md`](../04-evaluation/entscheidungen-folien.md); was die Folien wörtlich zeigen → [`folien-recherche.md`](folien-recherche.md). Die Spalte „Anwendung“ ist unten an Bedienfeld v6 angeglichen. Spalte „Folien“ = Seitenzahl im PDF (geprüft) zum Zurückverweisen.
 
 ## Prüfungsleistung (Folie 5)
 
@@ -33,17 +33,17 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 |---|---|---|
 | Fitts' Law (Zeit hängt von Zielgröße und Abstand ab) | 50 | Große Touch-Kacheln, physischer Taster groß, direkt unter dem Display; wichtig für ältere Nutzer und Kinder. |
 | Steering Law (enge Pfade sind langsam/fehleranfällig) | 51 | Keine schmalen Schieberegler; lieber +/– Tasten oder feste Stufen. |
-| Zeitliche Auflösung: < 100 ms direkt, < 1 s kausal, darüber andere Rückmeldung nötig | 64–65 | Tippen gibt sofort Rückmeldung. Weil Vernebler/Lüfter erst nach Minuten wirken, zeigt das Display „Feuchte steigt …“ als Fortschritt. |
+| Zeitliche Auflösung: < 100 ms direkt, < 1 s kausal, darüber andere Rückmeldung nötig | 64–65 | Tippen gibt sofort Rückmeldung (kurze Bestätigung, z. B. „Tank voll · Nebler läuft wieder“). Was erst nach Minuten wirkt, zeigt das Klima-Fenster als „läuft gerade (90 → 85 %)“. |
 | Sichtabstand / Auflösung | 63 | Schriftgröße für ca. 50–70 cm Abstand und das iPhone-Display (5,4″, Hochformat) auslegen. |
 
 ## 3. Mentale Modelle und Fehler
 
 | Konzept | Folien | Anwendung |
 |---|---|---|
-| Mentale Modelle: Designer-, System-, Benutzermodell (Norman) | 56 | Metapher „Die Box ist ein Lebewesen, das Bedürfnisse zeigt“ statt „Gerät mit Relais“. |
-| Flexibilität: mehrere Wege zum Ziel | 57–58 | Licht per Taster **oder** per App schalten; „1 Min lüften“ nur in der App für Fortgeschrittene (Stand v5). |
+| Mentale Modelle: Designer-, System-, Benutzermodell (Norman) | 56 | Modell „Die Box regelt selbst, ich helfe nur, wenn sie sich meldet“ (Leitidee B); das Pilz-Gesicht im Ring (froh/besorgt) gibt eine leichte Lebewesen-Anmutung. |
+| Flexibilität: mehrere Wege zum Ziel | 57–58 | Licht per Taster **oder** per App schalten; „1 Min lüften“ nur in der App für Fortgeschrittene (Stand v6). |
 | Gulf of Execution / Gulf of Evaluation | 59 | Ausführung: Aktion ist offensichtlich. Bewertung: Ergebnis sichtbar, denn die LED leuchtet durch das Plexiglas (natürliches Feedback). |
-| Fehlerarten, besonders **Modusfehler** | 60 | Möglichst keine Modi; wenn „Automatik/Manuell“ nötig ist, Modus dauerhaft sichtbar anzeigen. |
+| Fehlerarten, besonders **Modusfehler** | 60 | Wenige Modi (Ruhemodus, Urlaub), immer oben sichtbar; an der Box kein „Manuell“ fürs Klima. |
 | Murphys Law | 61 | Kritisches (z. B. Alarm aus) nur mit Bestätigung oder rückgängig machbar. |
 
 ## 4. UI-Grundregeln (Norman, Nielsen)
@@ -51,12 +51,12 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 | Konzept | Folien | Anwendung |
 |---|---|---|
 | Affordances (Gibson 1979, Norman) | 72–73 | Taster sieht drückbar aus; Kacheln sehen wie Knöpfe aus, nicht wie Text. |
-| Constraints: physisch, logisch, kulturell | 74–76 | Kulturell: Rot = Problem. Logisch: Nicht Mögliches ausgrauen. Physisch: Taster nur in einer Richtung drückbar. |
-| Mappings (Herdplatten-Beispiel) | 77–79 | Anzeige entspricht der Box: Füllstandsbalken „Wassertank“ ↔ Sichtfenster mit Füllstandslinie am Tank (Stand v5). |
+| Constraints: physisch, logisch, kulturell | 74–76 | Kulturell: Grün = gut, gelbes Dreieck = Achtung (ISO 7010), Rot nicht verwendet. Logisch: Nicht Mögliches ausgrauen (z. B. Sprachen, die noch folgen). Physisch: Taster nur in einer Richtung drückbar. |
+| Mappings (Herdplatten-Beispiel) | 77–79 | Anzeige entspricht der Box: Füllstandsbalken „Wassertank“ ↔ Sichtfenster mit Füllstandslinie am Tank (Stand v6). |
 | Konsistenz (syntaktisch, semantisch, terminologisch, innere, äußere) | 80–81 | **Äußere Konsistenz mit der App des Teammitglieds:** gleiche Symbole, Begriffe und Farben auf Display und App. |
-| Feedback (visuell, akustisch, haptisch) | 82 | Jede Aktion: Kachel ändert sich + kurzer Ton; Taster klickt fühlbar. |
+| Feedback (visuell, akustisch, haptisch) | 82 | Jede Aktion: sichtbare Bestätigung; Taster klickt fühlbar und das Licht geht sichtbar an. Ton ist nicht umgesetzt. |
 | Fehlertoleranz, aussagekräftige Fehlermeldungen (spezifisch, konstruktiv, höflich) | 83–85 | „Wassertank fast leer – bitte bis zur Markierung auffüllen“ statt „Fehler 3“. |
-| Physikanalogie | 86–87 | Feuchte als Füllstand (Wasserglas), Licht als Sonnen-Symbol. |
+| Physikanalogie | 86–87 | Tank als Füllstandsbalken (wie das Sichtfenster), Temperatur und Feuchte als Balken mit Zielbereich. |
 | 10 Usability-Heuristiken (Nielsen) | 130 | Checkliste für Design **und** analytische Evaluation (siehe 7). |
 
 ## 5. Interaktionsstile und GUI-Muster
@@ -110,7 +110,7 @@ Status: **Vorschläge**. Was davon eingebaut wird, entscheidet das Team. Spalte 
 
 ## Stärkste Hebel für Konzept und Bewertung
 
-1. **Lebewesen-Metapher** (mentales Modell) + präattentiver Zustand + Progression (Gamification) → ein Konzept, das viele Theorien zugleich belegt.
+1. **Sichtbare Automatik** (mentales Modell) + präattentiver Zustand (Warnpunkt, Form + Farbe + Text) + Progression (Ring) → ein Konzept, das viele Theorien zugleich belegt.
 2. **Mehrere Wege** (Taster, App; an der Box bewusst nur einer) über **ein gemeinsames Modell (MVC)** → HCI-Prinzip und Technik in einem.
-3. **Alle Altersgruppen**: Fitts, redundante Codierung, keine Modi, Recognition statt Recall, Personas und Tester über Altersgruppen.
+3. **Alle Altersgruppen**: Fitts, redundante Codierung, wenige sichtbare Modi, Recognition statt Recall, Personas und Tester über Altersgruppen.
 4. **Evaluation**: Nielsen-Heuristiken + Cognitive Walkthrough (analytisch) + kurzer Nutzertest mit AttrakDiff (empirisch).
