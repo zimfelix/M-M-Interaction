@@ -64,9 +64,10 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .count.info{background:var(--ink);color:var(--lcd-mid)}
 
 /* Mitte */
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:3cqw;font-family:var(--f-cond);font-weight:600;font-size:4.4cqw;letter-spacing:.04em;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.topbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2cqw;font-family:var(--f-cond);font-weight:600;font-size:4.4cqw;letter-spacing:.04em;color:var(--ink-soft);font-variant-numeric:tabular-nums}
 .topbar b{color:var(--ink);font-weight:700}
 .topbar span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.topbar .tr{justify-self:end;display:inline-flex;align-items:center;gap:1.6cqw}
 .center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;padding-block:2cqw}
 .ring{position:relative;width:58cqw;height:58cqw;flex:none}
 .ring > svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
@@ -94,6 +95,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .alert.warn{color:var(--alarm);background:rgba(230,159,0,.14);box-shadow:0 0 0 .45cqw var(--alarm) inset}
 .alert.warn .a{color:var(--ink)}
 .alert .a b{color:var(--ink)}
+.alert .a.big{font-size:5.4cqw}
 @keyframes blink{50%{opacity:.4}}
 .act{width:100%;margin-top:2cqw;border:.7cqw solid var(--alarm);background:var(--alarm);color:#1a1000;border-radius:3cqw;min-height:14cqw;font-weight:700;font-size:5.4cqw;display:flex;align-items:center;justify-content:center;gap:2.4cqw}
 .act svg{width:6.4cqw;height:6.4cqw}
@@ -116,8 +118,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .ticon{display:inline-flex;align-items:center;gap:1.4cqw}
 .ticon svg{width:4.6cqw;height:4.6cqw}
 .away-chip{border:.5cqw solid var(--ink);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink)}
-.link-chip{display:inline-flex;align-items:center;gap:1cqw;border:.5cqw solid var(--ink-dim);background:transparent;border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.6cqw;letter-spacing:.06em;text-transform:uppercase;padding:.8cqw 2.2cqw;color:var(--ink-soft)}
-.link-chip svg{width:3.8cqw;height:3.8cqw}
+.link-chip{display:inline-flex;align-items:center;gap:1cqw;border:.5cqw solid var(--ink-dim);background:transparent;border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:4.6cqw;letter-spacing:.06em;text-transform:uppercase;padding:1.2cqw 3cqw;color:var(--ink-soft)}
+.link-chip svg{width:5cqw;height:5cqw}
 .link-chip.on{border-color:var(--band);color:var(--ink)}
 .code{font-size:17cqw;font-weight:800;letter-spacing:.12em;text-align:center;font-variant-numeric:tabular-nums;padding:3cqw;border:.7cqw dashed var(--ink-dim);border-radius:3cqw}
 .panel ol{margin:0;padding-left:5cqw;font-size:4.2cqw;line-height:1.35;color:var(--ink-soft);display:flex;flex-direction:column;gap:1.4cqw}
@@ -261,7 +263,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   <div class="device">
     <div class="glass">
       <div class="screen" id="screen">
-        <div class="topbar"><span id="topCulture">Austernpilz</span><span class="tr"><span class="ticon" id="topIcons"></span><button class="link-chip" id="linkChip" aria-label="Mit Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span>Handy</span></button><button class="admin-btn" id="demoChip" aria-label="Admin-Modus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button><span id="topClock">--:--</span></span></div>
+        <div class="topbar"><span id="topCulture">Auster</span><button class="link-chip" id="linkChip" aria-label="Mit Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span>Handy</span></button><span class="tr"><span class="ticon" id="topIcons"></span><button class="admin-btn" id="demoChip" aria-label="Admin-Modus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button><span id="topClock">--:--</span></span></div>
 
         <div class="center" id="home">
           <div class="ring">
@@ -329,10 +331,10 @@ const DAY=864e5, pad=n=>String(n).padStart(2,"0");
 const esc=v=>String(v??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 const SPECIES={
-  auster:{name:"Austernpilz",cap:"#b9c4cc",p:{kol:{t:[22,26],rh:[70,95],co2:5000,light:false,days:14},frucht:{t:[18,24],rh:[85,95],co2:800,light:true,days:6},ruhe:{t:[18,24],rh:[80,90],co2:1000,light:true,days:8}}},
-  shiitake:{name:"Shiitake",cap:"#a0673f",p:{kol:{t:[21,25],rh:[70,95],co2:5000,light:false,days:45},frucht:{t:[15,21],rh:[80,90],co2:1000,light:true,days:8},ruhe:{t:[18,22],rh:[70,85],co2:1200,light:true,days:14}}},
-  kraeuter:{name:"Kräuterseitling",cap:"#d9c39a",p:{kol:{t:[22,26],rh:[70,95],co2:5000,light:false,days:18},frucht:{t:[15,20],rh:[85,95],co2:1500,light:true,days:9},ruhe:{t:[16,21],rh:[80,90],co2:1500,light:true,days:10}}},
-  igel:{name:"Igel-Stachelbart",cap:"#f1ece0",p:{kol:{t:[21,24],rh:[70,95],co2:5000,light:false,days:16},frucht:{t:[18,22],rh:[88,96],co2:700,light:true,days:7},ruhe:{t:[18,22],rh:[82,90],co2:900,light:true,days:10}}}
+  auster:{name:"Austernpilz",short:"Auster",cap:"#b9c4cc",p:{kol:{t:[22,26],rh:[70,95],co2:5000,light:false,days:14},frucht:{t:[18,24],rh:[85,95],co2:800,light:true,days:6},ruhe:{t:[18,24],rh:[80,90],co2:1000,light:true,days:8}}},
+  shiitake:{name:"Shiitake",short:"Shiitake",cap:"#a0673f",p:{kol:{t:[21,25],rh:[70,95],co2:5000,light:false,days:45},frucht:{t:[15,21],rh:[80,90],co2:1000,light:true,days:8},ruhe:{t:[18,22],rh:[70,85],co2:1200,light:true,days:14}}},
+  kraeuter:{name:"Kräuterseitling",short:"Kräuter",cap:"#d9c39a",p:{kol:{t:[22,26],rh:[70,95],co2:5000,light:false,days:18},frucht:{t:[15,20],rh:[85,95],co2:1500,light:true,days:9},ruhe:{t:[16,21],rh:[80,90],co2:1500,light:true,days:10}}},
+  igel:{name:"Igel-Stachelbart",short:"Igel",cap:"#f1ece0",p:{kol:{t:[21,24],rh:[70,95],co2:5000,light:false,days:16},frucht:{t:[18,22],rh:[88,96],co2:700,light:true,days:7},ruhe:{t:[18,22],rh:[82,90],co2:900,light:true,days:10}}}
 };
 const PHASES={kol:"Durchwachsen",frucht:"Fruchtung",ruhe:"Ruhephase"};
 /* Infos zum Anschauen vor dem Neu-Ansetzen: Schwierigkeit 1–3 und kurze Beschreibung */
@@ -510,8 +512,8 @@ function render(){
   if(key!==lastAlert){lastAlert=key;const el=$("#alert");
     if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neu ansetzen fortsetzen: SORTE &amp; NEU.</span>`}
     else if(awayQuiet){el.className="alert";el.innerHTML=`<span class="t">${IC.away}Urlaub</span><span class="a">Box spart Wasser · Meldungen gehen aufs Handy</span>`}
-    else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span>`}
-    else if(top.sev==="info"){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span>`}
+    else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a big">Klima regelt sich automatisch.</span>`}
+    else if(top.sev==="info"){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a big">Klima regelt sich automatisch.</span>`}
     else{el.className="alert warn";el.innerHTML=`<span class="t">${IC.warn}${top.t}</span><span class="a">${top.a}</span>`}
   }
   // Pausiert: ein Tipp macht das Beenden rückgängig (Fehlertoleranz)
@@ -531,7 +533,7 @@ function render(){
     stat(hOff,IC.rh,showVal?Math.round(sim.rh)+" %":"–",band(T.rh,40,100,sim.rh),"Luftfeuchte")+
     stat(wOff,IC.tank,Math.round(sim.tank)+" %",`<i class="lvl" style="width:${sim.tank}%"></i>`,sim.tank<=0?"Jetzt auffüllen":td<1?"Heute auffüllen":`reicht ca. ${td} ${td===1?"Tag":"Tage"}`);
   $("#topClock").textContent=`${pad(d.getHours())}:${pad(d.getMinutes())}`;
-  $("#topCulture").textContent=SPECIES[S.species].name;
+  $("#topCulture").textContent=SPECIES[S.species].short;
   const left=Math.max(0,sim.burst-Date.now()), mleft=Math.max(0,sim.mist-Date.now());
   $("#climaSub").innerHTML=!S.power?"aus":'<span class="pulse" aria-hidden="true"></span>Auto';
   $("#kSleep").classList.toggle("on",!!S.sleep); $("#kSleep").setAttribute("aria-pressed",!!S.sleep);
