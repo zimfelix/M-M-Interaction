@@ -128,7 +128,7 @@ Was wir darüber hinaus tun, braucht für das Booklet eine **externe Quelle**, z
 
 ## Korrekturen an unseren Dokumenten
 
-- **Folie 38** („Begrenzung des Kurzzeitgedächtnisses“) zeigt nur ein Bild, **keine Zahl**. „Höchstens 3–4 Elemente“ steht nicht auf der Folie. Für eine Zahl braucht es eine externe Quelle (Miller 1956: 7 ± 2; Cowan 2001: ca. 4). Sonst nur „begrenzt“ schreiben. In `04-evaluation/entscheidungen-folien.md` (E3) angepasst.
+- **Folie 38** („Begrenzung des Kurzzeitgedächtnisses“) zeigt nur ein Bild, **keine Zahl**. „Höchstens 3–4 Elemente“ steht nicht auf der Folie. Für eine Zahl braucht es eine externe Quelle (Miller 1956: 7 ± 2; Cowan 2001: ca. 4). Sonst nur „begrenzt“ schreiben. In `04-final/entscheidungen-folien.md` (E3) angepasst.
 - **Folie 27** belegt Blinken als präattentives Merkmal und stützt damit E5. Ergänzt.
 
 ## Umgesetzt (v5, 02.11.2026)

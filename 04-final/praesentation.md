@@ -75,7 +75,7 @@ Für den Fall, dass nur 3 Minuten bleiben, oder als einzelner Durchlauf am Bedie
  echte Box auf dem Tisch: Taster, Tank, Sichtfenster
 ```
 
-- Bedienfeld: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi (Mac bei claude.ai angemeldet). **Ersatz ohne Internet:** `python3 -m http.server -d 01-konzept/bedienfeld 8000`, dann `http://localhost:8000/vorschau-iphone.html`.
+- Bedienfeld: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi (Mac bei claude.ai angemeldet). **Ersatz ohne Internet:** eingefrorene Kopie `python3 -m http.server -d 04-final/bedienfeld-v6 8000`, dann `http://localhost:8000/vorschau-iphone.html`.
 - **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen** (Standardfarben, keine alten Meldungen).
 - **Probe mit Stoppuhr:** 7 Minuten sind knapp. Teil 4 und 5 sind die Puffer: Bei Zeitnot A5/A6 und B4 weglassen.
 

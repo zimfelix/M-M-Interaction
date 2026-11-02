@@ -6,7 +6,7 @@
 > - **Ladebeziehungen:** Ausgangslage und Entscheidungen: `BRIEF.md`. Quellen: `~/Desktop/WS26_HCI - Vorlesungsfolien.pdf` (151 Folien), `~/Desktop/HCI - Vorlesungsfolien_Gamification.pdf` (17 Folien).
 > - **Nicht zuständig:** Entscheidungen festhalten (→ `BRIEF.md`).
 
-Status: **Ausgangssammlung** (27.10.2026). Maßgeblich sind inzwischen: was umgesetzt ist und wie begründet → [`../04-evaluation/entscheidungen-folien.md`](../04-evaluation/entscheidungen-folien.md); was die Folien wörtlich zeigen → [`folien-recherche.md`](folien-recherche.md). Die Spalte „Anwendung“ ist unten an Bedienfeld v6 angeglichen. Spalte „Folien“ = Seitenzahl im PDF (geprüft) zum Zurückverweisen.
+Status: **Ausgangssammlung** (27.10.2026). Maßgeblich sind inzwischen: was umgesetzt ist und wie begründet → [`../04-final/entscheidungen-folien.md`](../04-final/entscheidungen-folien.md); was die Folien wörtlich zeigen → [`folien-recherche.md`](folien-recherche.md). Die Spalte „Anwendung“ ist unten an Bedienfeld v6 angeglichen. Spalte „Folien“ = Seitenzahl im PDF (geprüft) zum Zurückverweisen.
 
 ## Prüfungsleistung (Folie 5)
 
@@ -84,7 +84,7 @@ Status: **Ausgangssammlung** (27.10.2026). Maßgeblich sind inzwischen: was umge
 |---|---|---|
 | Formativ vs. summativ (Scriven 1967) | 126 | Formativ: Papierprototyp testen und ändern. Summativ: Endstand messen. |
 | Qualitativ/quantitativ, analytisch/empirisch (Axt-Beispiel) | 127–128 | Beides: Heuristik-Check (analytisch) + Nutzertest (empirisch). |
-| Cognitive Walkthrough (Folie: „Analytische Methoden“, 3 Fragen: klar? erkennbar? Rückmeldung?) | 129 | Für die Kernaufgaben: Zustand ablesen, Warnung verstehen und mit dem Knopf bestätigen, Licht per Taster (Aufgaben je Persona: `04-evaluation/entscheidungen-folien.md`). |
+| Cognitive Walkthrough (Folie: „Analytische Methoden“, 3 Fragen: klar? erkennbar? Rückmeldung?) | 129 | Für die Kernaufgaben: Zustand ablesen, Warnung verstehen und mit dem Knopf bestätigen, Licht per Taster (Aufgaben je Persona: `04-final/entscheidungen-folien.md`). |
 | Probanden: Alter, Vorkenntnisse, Sehkraft … | 133 | Tester bewusst über Altersgruppen streuen, denn das ist eure Kernanforderung. |
 | Feld- vs. Laborstudie | 136 | Kurzer Labortest an der Uni reicht. |
 | **AttrakDiff** (pragmatische vs. hedonische Qualität), PANAS | 141–142 | AttrakDiff-Kurzform als Fragebogen nach dem Test. |

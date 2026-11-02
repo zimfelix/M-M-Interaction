@@ -2,7 +2,7 @@
 
 Textbausteine für das Booklet. Die Personas sind **fiktiv** und beruhen auf Annahmen (Vorlesung: „idealtypische Nutzer“, Folie 118). Bitte nach den ersten Interviews und Tests anpassen und die Änderungen im Booklet benennen.
 
-**Für Präsentation und Booklet-Story nutzen wir zwei Personen:** **A = Ingrid** (Persona 3 unten) und **B = Power-User** (Entwurf in [`../04-evaluation/entscheidungen-folien.md`](../04-evaluation/entscheidungen-folien.md)). Mila und Jonas bleiben als Ergänzung für die Altersspanne im Booklet.
+**Für Präsentation und Booklet-Story nutzen wir zwei Personen:** **A = Ingrid** (Persona 3 unten) und **B = Power-User** (Entwurf in [`../04-final/entscheidungen-folien.md`](../04-final/entscheidungen-folien.md)). Mila und Jonas bleiben als Ergänzung für die Altersspanne im Booklet.
 
 Die drei Personas decken bewusst die Altersspanne ab, die die Box laut Anforderung bedienen soll (Probanden nach Alter, Folie 133).
 
@@ -47,7 +47,7 @@ Die drei Personas decken bewusst die Altersspanne ab, die die Box laut Anforderu
 
 ## Storyboard 1 – „Ein Morgen mit der Box“ (Persona Ingrid)
 
-Ersetzt durch die Use Cases A1–A6 passend zu Bedienfeld v6: [`../04-evaluation/praesentation.md`](../04-evaluation/praesentation.md). Die frühe Fassung (Schale, Kachel „Hinweise“) steht in der Git-Historie.
+Ersetzt durch die Use Cases A1–A6 passend zu Bedienfeld v6: [`../04-final/praesentation.md`](../04-final/praesentation.md). Die frühe Fassung (Schale, Kachel „Hinweise“) steht in der Git-Historie.
 
 ## Storyboard 2 – „Erntezeit“ (Personas Mila und Jonas)
 
