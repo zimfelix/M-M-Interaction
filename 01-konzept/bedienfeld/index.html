@@ -560,7 +560,7 @@ function syncLog(list){
 function render(){
   const d=new Date(), T=tgt(), list=alerts(), top=list[0], sev=top?.sev||"ok";
   syncLog(list);
-  $("#screen").classList.toggle("standby",!S.power);
+  $("#screen").classList.toggle("standby",!S.power&&!S.rest);
   $("#screen").classList.toggle("away",S.power&&!!S.away);
   $("#screen").classList.toggle("hc",S.theme==="hc");
   const showVal=S.power&&!demo.sensor, pr=progress(), v=pr.p*360, tk=pr.tick*360;
@@ -569,13 +569,14 @@ function render(){
   $("#arcVal").setAttribute("stroke-dasharray",`${S.power?Math.max(1,v):0} 360`);
   $("#knob").setAttribute("transform",`rotate(${v} 100 100)`);
   $("#knob").style.display=S.power?"":"none";
-  if(!S.power){$("#hum").innerHTML="––";$("#humlbl").textContent="pausiert"}
+  if(!S.power){$("#hum").innerHTML="––";$("#humlbl").textContent=S.rest?"Pause":"pausiert"}
   else if(pr.left===0){$("#hum").innerHTML="Jetzt";$("#humlbl").textContent="ernten"}
   else{$("#hum").innerHTML=`${pr.left}<small>${pr.left===1?"Tag":"Tage"}</small>`;$("#humlbl").textContent="bis zur Ernte"}
   // Pilz-Gesicht: froh (ok/info), besorgt (warn), gestresst (crit)
   const sh=$("#shroom");
   // Wachstum in drei Stufen: klein · mittel (Grundgröße) · groß
   sh.style.transform=`scale(${S.power?(pr.p<1/3?.84:pr.p<2/3?1:1.14):1})`;
+  sh.style.visibility=S.rest?"hidden":"";  // Pause: kein Pilz in der Kammer
   $("#cap").setAttribute("fill",SPECIES[S.species].cap);
   $("#mouth").setAttribute("d",!S.power?"M46 80h8":sev==="crit"?"M44 83q6 -7 12 0":sev==="warn"?"M45 81q5 -3 10 0":"M45 79q5 5 10 0");
   $("#brows").setAttribute("opacity",sev==="crit"||sev==="warn"?1:0);
@@ -584,18 +585,19 @@ function render(){
   sh.classList.toggle("airing",sim.dev.luefter);
   // Wichtigste Meldung
   const awayQuiet=S.away&&!list.some(x=>x.urgent);
-  const key=!S.power?"sb":awayQuiet?"away":top?top.id+top.a:"ok"+S.phase+day();
+  const key=S.rest?"rest":!S.power?"sb":awayQuiet?"away":top?top.id+top.a:"ok"+S.phase+day();
   if(key!==lastAlert){lastAlert=key;const el=$("#alert");
-    if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neu ansetzen fortsetzen: SORTEN.</span>`}
+    if(S.rest){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Pause</span>`}
+    else if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neu ansetzen fortsetzen: SORTEN.</span>`}
     else if(awayQuiet){el.className="alert";el.innerHTML=`<span class="t">${IC.away}Urlaub</span><span class="a">Box spart Wasser · Meldungen gehen aufs Handy</span>`}
     else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span>`}
     else if(top.sev==="info"){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span>`}
     else{el.className="alert warn";el.innerHTML=`<span class="t">${IC.warn}${top.t}</span><span class="a">${top.a}</span>`}
   }
   // Pausiert: ein Tipp macht das Beenden rückgängig (Fehlertoleranz)
-  const ab=$("#actBtn"), act=!S.power?{label:"Weiterlaufen",run:resume,kind:"auto",icon:"play"}:!awayQuiet&&top?.do;
+  const ab=$("#actBtn"), act=S.rest?{label:"Neue Sorte",run:pickPanel,kind:"auto",icon:"play"}:!S.power?{label:"Weiterlaufen",run:resume,kind:"auto",icon:"play"}:!awayQuiet&&top?.do;
   ab.hidden=!act; $("#home").classList.toggle("hasact",!!act);
-  if(act){ const html=`${act.kind==="auto"?ACT_IC[act.icon]:act.label==="Aufgefüllt"?DROP_IC:ACT_IC.hand}${act.label}`; if(ab.innerHTML!==html) ab.innerHTML=html; ab.className="act"+(top?.sev==="info"?" info":""); ab.onclick=act.run; }
+  if(act){ const html=`${act.kind==="auto"?ACT_IC[act.icon]:act.label==="Aufgefüllt"?DROP_IC:ACT_IC.hand}${act.label}`; if(ab.innerHTML!==html) ab.innerHTML=html; ab.className="act"+(top?.sev==="info"||S.rest?" info":""); ab.onclick=act.run; }
   const c=$("#count"), worstN=list.filter(x=>x.sev!=="info").length;
   c.hidden=!list.length; c.textContent=list.length; c.classList.toggle("info",!worstN);
   $("#kAlerts").setAttribute("aria-label",`Meldungen anzeigen, ${list.length} offen`);
@@ -612,7 +614,7 @@ function render(){
   $("#alarmDot").classList.toggle("on",nWarn>0);
   $("#alarmDot").setAttribute("aria-label",nWarn?`${nWarn} ${nWarn===1?"Warnung":"Warnungen"}`:"Keine Warnung");
   $("#linkChip").hidden=!!S.linked;
-  $("#topCulture").textContent=SPECIES[S.species].short;
+  $("#topCulture").textContent=S.rest?"Kein Pilz":SPECIES[S.species].short;
   const left=Math.max(0,sim.burst-Date.now()), mleft=Math.max(0,sim.mist-Date.now());
   $("#climaSub").innerHTML=!S.power?"aus":'<span class="pulse" aria-hidden="true"></span>Auto';
   syncSleep(list);
@@ -654,15 +656,16 @@ function alertPanel(refresh){
 function resume(){S.power=true;save();closePanel();step(new Date());render();msg("Box läuft weiter")}
 
 /* Neu ansetzen: erst nach bewusster Bestätigung (gedrückt halten). Danach 2 Schritte, die Zeit startet bei Tag 1. */
-function newPanel(n){
-  const next=SPECIES[S.next]?S.next:S.species, head=`<div class="steps">Schritt ${n} von 2</div>`;
+function newPanel(n,direct){
+  const next=SPECIES[S.next]?S.next:S.species, head=`<div class="steps">${direct?"Neues Zuchtset":`Schritt ${n} von 2`}</div>`;
   if(n===1) panel("new","Kammer leeren",`${head}<p>Alte Pilze und Substrat herausnehmen. Kammer feucht auswischen. Wassertank auffüllen.</p>
     <div class="btnrow"><button class="bigbtn out" data-x>Doch nicht · weiterlaufen</button><button class="bigbtn" data-ok>Fertig</button></div>`,p=>{
       p.querySelector("[data-x]").onclick=()=>{delete S.next;resume()};
       p.querySelector("[data-ok]").onclick=()=>{refill();newPanel(2)}});
   if(n===2) panel("new","Zuchtset einsetzen",`${head}<p>Neues ${esc(SPECIES[next].name)}-Zuchtset einsetzen, Tür und Deckel schließen.</p><p>Die Zeit startet bei <b>Tag 1</b> (Durchwachsen), Ernte in ca. ${toHarvest(next)} Tagen.</p>
     <button class="bigbtn" data-ok>Starten</button>`,p=>{
-      p.querySelector("[data-ok]").onclick=()=>{S.species=next;delete S.next;S.power=true;S.phase="kol";S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());closePanel();render();msg(`${SPECIES[S.species].name} · Tag 1`)};
+      p.querySelector("[data-ok]").onclick=()=>{S.species=next;delete S.next;delete S.rest;S.power=true;S.phase="kol";S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());closePanel();render();msg(`${SPECIES[S.species].name} · Tag 1`)};
+      if(direct) p.querySelector("[data-back]").onclick=pickPanel;
   });
 }
 /* Kachel „Sorten · Neu“: Sorten in Ruhe ansehen, neu ansetzen. Ansehen ändert nichts. */
@@ -670,10 +673,10 @@ function sortPanel(){
   const pr=progress(), cur=SPECIES[S.species].name;
   const keys=Object.keys(SPECIES).filter(k=>k!=="custom").concat(S.custom?["custom"]:[]);
   panel("sort","Sorten · Neu",`
-    <p>${S.power?`Jetzt: <b>${esc(cur)}</b> · ${PHASES[S.phase]} Tag ${day()} · noch ${pr.left} Tage bis zur Ernte`:`Pausiert. <b>${esc(SPECIES[S.next]?SPECIES[S.next].name:cur)}</b> wartet aufs Einsetzen.`}</p>
+    <p>${S.rest?"Pause · kein Pilz in der Kammer.":S.power?`Jetzt: <b>${esc(cur)}</b> · ${PHASES[S.phase]} Tag ${day()} · noch ${pr.left} Tage bis zur Ernte`:`Pausiert. <b>${esc(SPECIES[S.next]?SPECIES[S.next].name:cur)}</b> wartet aufs Einsetzen.`}</p>
     <div class="list">
-      ${S.power?`<button class="bigbtn out" data-pick style="margin-top:0;flex:none">${ACT_IC.play}Neu ansetzen …</button>`:""}
-      ${S.power?"":`<button class="opt" data-resume-new>${ACT_IC.play}<div>Neu ansetzen fortsetzen<small>Kammer leeren, Zuchtset einsetzen, starten.</small></div></button>`}
+      ${S.power||S.rest?`<button class="bigbtn out" data-pick style="margin-top:0;flex:none">${ACT_IC.play}${S.rest?"Neue Sorte wählen …":"Neu ansetzen …"}</button>`:""}
+      ${S.power||S.rest?"":`<button class="opt" data-resume-new>${ACT_IC.play}<div>Neu ansetzen fortsetzen<small>Kammer leeren, Zuchtset einsetzen, starten.</small></div></button>`}
       <div class="lbl">Sorten ansehen</div>
       ${keys.map(k=>`<button class="opt" data-info="${k}">${shroomSvg(SPECIES[k].cap)}<div>${esc(SPECIES[k].name)}${k===S.species&&S.power?'<span class="tag">wächst</span>':""}<small>${diffLine(k)}</small></div></button>`).join("")}
       ${S.prev&&SPECIES[S.prev.species]&&Date.now()-S.prev.at<14*DAY?`<div class="lbl">Notfall</div>
@@ -686,10 +689,16 @@ function sortPanel(){
   });
 }
 /* Neu ansetzen: erst Sorte wählen (die aktuelle steht oben), dann bestätigen */
+/* Nach der Ernte ist die Kammer leer: keine Rückfrage, kein „Kammer leeren“, direkt das neue Zuchtset */
+const harvested=()=>S.power&&S.phase==="ruhe";
+const PAUSE_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6v12M15 6v12"/></svg>';
+function plantDirect(k){S.next=k;save();newPanel(2,true)}
 function pickPanel(){
   const keys=[S.species].concat(Object.keys(SPECIES).filter(k=>k!==S.species&&(k!=="custom"||S.custom)));
-  panel("pick","Neu ansetzen",`<p>Mit welcher Sorte?</p><div class="list">${keys.map(k=>`<button class="opt" data-k="${k}">${shroomSvg(SPECIES[k].cap)}<div>${esc(SPECIES[k].name)}${k===S.species?'<span class="tag">wie bisher</span>':""}<small>${diffLine(k)}</small></div></button>`).join("")}</div>`,p=>{
-    p.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>confirmNew(b.dataset.k));
+  panel("pick","Neu ansetzen",`<p>Mit welcher Sorte?</p><div class="list">${keys.map(k=>`<button class="opt" data-k="${k}">${shroomSvg(SPECIES[k].cap)}<div>${esc(SPECIES[k].name)}${k===S.species?'<span class="tag">wie bisher</span>':""}<small>${diffLine(k)}</small></div></button>`).join("")}
+    ${harvested()?`<button class="opt" data-rest>${PAUSE_IC}<div>Kleine Pause einlegen<small>Erst mal kein neuer Pilz</small></div></button>`:""}</div>`,p=>{
+    p.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>harvested()||S.rest?plantDirect(b.dataset.k):confirmNew(b.dataset.k));
+    p.querySelector("[data-rest]")?.addEventListener("click",()=>{S.rest=true;S.power=false;delete S.next;save();step(new Date());closePanel();render();msg("Pause · kein Pilz")});
     p.querySelector("[data-back]").onclick=sortPanel;
   });
 }
