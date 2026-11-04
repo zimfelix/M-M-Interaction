@@ -95,3 +95,40 @@ S5 Entwicklung + Evaluation ◄── S4 Ebenen + Use Cases Ingrid ◄┘
 - [ ] Entscheidungen A/B vom 04.11. in S2 eintragen
 - [ ] Mit den anderen abgleichen: Personas, App-Übergang, Fazit, Gamification
 - [ ] Optional: Cognitive Walkthrough mit 1–2 Personen, Ergebnis in S5 und `evaluation/`
+
+## 📥 Sammelstelle: Ergänzungen und Alternativen aus den Änderungen vom 04.11.
+
+Gesammelt am 04.11., **Durchsicht am 05.11.** Nichts davon ist schon in den Seitenplan oben übernommen. Bei der Durchsicht je Punkt entscheiden: ✅ übernehmen · ❌ verwerfen · ⏸ später. Stand der Entscheidungen: `BRIEF.md`, Begründungen: E1–E31 in [`entscheidungen-folien.md`](entscheidungen-folien.md).
+
+### Grundsatzfrage zuerst
+
+| # | Frage | Alternativen | Empfehlung |
+|---|---|---|---|
+| G1 | **Welcher Stand kommt ins Booklet?** `bedienfeld-v6/` ist vom 02.11. eingefroren; seitdem gab es gut 20 Änderungen am Bedienfeld (Standby, Zeitraffer, Linien statt Rahmen …). | **A** nach der Präsentation neu einfrieren als `bedienfeld-v7/` und alle Screenshots daraus · **B** v6 lassen und die Änderungen nur auf S5 als Iteration zeigen | **A**, und v6 → v7 als Vorher/Nachher auf S5 nutzen. Nachteil: Screenshots für S3–S4 neu machen. |
+
+### Ergänzungen je Seite
+
+| # | Seite | Ergänzung | Folien | Art |
+|---|---|---|---|---|
+| 1 | S1 | Persona im Plan noch „Ingrid, 72“, in der Präsentation **ohne Altersangabe**. Einheitlich machen. | 118, 133 | Korrektur |
+| 2 | S2 | Entscheidungen A/B sind gefallen: **kein physisches Warnlicht**, **Taster nur Licht**, **kein Ruhemodus**. Text aus „Entschieden am 04.11.“ in `entscheidungen-folien.md` übernehmen; den ⚠️-Punkt auf S2 streichen. | 60, 72–73, 27 | Ergänzung |
+| 3 | S3 | **Minimalistisches Design** als eigene Aussage: ein Zustand, ein Ring, drei Werte, drei Kacheln, keine Uhr, Seltenes hinter dem Zahnrad. Gleiche Begründung wie in der Präsentation. | 130, 8, 38 | Ergänzung |
+| 4 | S3 | **Große Knöpfe** ausdrücklich nennen: mindestens 44 pt, drei breite Kacheln. | 50, 63 | Ergänzung |
+| 5 | S3 | Warnpunkt-Text ist veraltet („blinkt bei Warnung“). Neu: **Standby**, Display schwarz, nur der Punkt blinkt; in der normalen Ansicht blinkt nichts. | 27, 26, 23 | Korrektur |
+| 6 | S3 oder S4 | **Neuer Grundsatz E31: Rahmen = drückbar, Linien = Information** (grün gut, orange Warnung). Starkes Beispiel für Affordance mit Vorher/Nachher-Bild (MELDUNGEN mit Box → mit Linien). | 72–73, 80 | Ergänzung, **eigener Kasten?** |
+| 7 | S3 | **Gamification** genauer: Pilz wächst in drei Stufen, Schwierigkeit als 1–3 Pilze **wie ein Level**, Ernte als Hinweis statt Warnung. | G 10, G 12 | Ergänzung |
+| 8 | S4 | Use-Case-Kette an die **Präsentation angleichen** (Case 1 Tank leer → Case 2 Ernte + neue Sorte → Case 3 Handy). Dann erzählen Booklet und Vortrag dieselbe Geschichte. | 143–150 (Storyboard) | Alternative zur Kette A2–A6 |
+| 9 | S4 | **Abgestufte Bestätigung**: mitten im Wachstum 2 s halten, direkt nach der Ernte nur „Sicher?“, weil nichts verloren geht. Die Hürde passt zum Risiko. | 61, 130 | Ergänzung |
+| 10 | S4 | Fehlermeldung jetzt **einzeilig**: „Wasser leer · Tank im Technikraum auffüllen“, Knopfwort nur noch auf dem Knopf. Abwägung nennen: kürzer und ruhiger, dafür steht das Knopfwort nicht mehr im Satz. | 83–85, 130 | Ergänzung |
+| 11 | S4 | Einstellungen aktualisieren: **Hilfe** (statt „Fehler melden“), Darstellung mit **Individuell** (nur angezeigt), **Urlaub als einziger Modus**, oben immer sichtbar. | 60, 66, 75, 130 | Korrektur |
+| 12 | S5 | **Was wir gestrichen haben** als Iterationsbeleg: Ruhemodus (Modusfehler), Uhr (minimalist design), Admin-Fälle von vielen auf zwei. Weniger ist hier das Ergebnis der Folien. | 60, 130 | Ergänzung |
+| 13 | S5 | **Admin-Modus und Zeitraffer** offen als Werkzeuge für die Vorführung benennen, nicht als Funktion für Ingrid. | – | Ergänzung |
+| 14 | S5 | Ehrliche Grenzen ergänzen: **fällt das Display aus, gibt es keine Warnung** (kein Warnlicht); die übrigen Warnungen (Tür offen, zu warm …) nennen das Knopfwort noch im Satz und sind damit uneinheitlich. | 61, 80 | Ergänzung |
+| 15 | S5 | Die **Probelauf-Liste** aus `praesentation.md` als Aufgaben für einen **Cognitive Walkthrough** nutzen (Ziel klar? Aktion erkennbar? Rückmeldung?). | 129 | Alternative für die Evaluation |
+
+### Gestaltung des Booklets
+
+| # | Idee | Grund |
+|---|---|---|
+| 16 | Den Folienkasten „📖 Folie …“ statt als blaue Box **zwischen zwei blauen Linien** setzen, wie die Informationen auf dem Display. | Gleiche Regel im Produkt und im Booklet (äußere Konsistenz, 80). Im Druck ist ohnehin nichts drückbar; ein Rahmen hätte keine Bedeutung. |
+| 17 | Screenshots mit nummerierten Markierungen weiterhin, aber Markierungen **nicht als Rahmen** um Bildteile, sondern als Kreise mit Zahl. | Rahmen bedeutet im Produkt „drückbar“; im Bild würde er das verwischen. |

@@ -203,6 +203,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .rec svg{flex:none;width:7cqw;height:7cqw}
 .rec.ok{background:transparent;border-radius:0;border-top:.6cqw solid var(--ok);border-bottom:.6cqw solid var(--ok);padding-left:0;padding-right:0} /* nur Text: grüne Linien statt Rahmen (Rahmen = drückbar) */
 .rec.warn{background:transparent;border-radius:0;border-top:.6cqw solid var(--alarm);border-bottom:.6cqw solid var(--alarm);padding-left:0;padding-right:0;color:var(--ink)}
+.rec.plain{border-top:0;border-bottom:0;padding-top:0;padding-bottom:0;min-height:0} /* Meldungen: nur die Karte darunter hat Linien, nicht doppelt */
 .bigbtn.out.weak{border-color:var(--ink-dim);color:var(--ink-soft)}
 .hold{position:relative;overflow:hidden;background:transparent;color:var(--ink);touch-action:none;user-select:none;-webkit-user-select:none}
 .hold .fillbar{position:absolute;inset:0;background:rgba(230,159,0,.55);transform:scaleX(var(--p,0));transform-origin:left;pointer-events:none}
@@ -656,7 +657,7 @@ function alertPanel(refresh){
   if(refresh&&k===panelKey) return; panelKey=k;
   const now=Date.now();
   panel("alerts","Meldungen",`
-    <div class="rec ${warn?"warn":"ok"}">${warn?IC.warn+(warn===1?"1 Warnung":warn+" Warnungen"):IC.ok+"Alles gut"}</div>
+    <div class="rec ${warn?"warn":"ok"}${list.length?" plain":""}">${warn?IC.warn+(warn===1?"1 Warnung":warn+" Warnungen"):IC.ok+"Alles gut"}</div>
     <p>Stand: ${when(now)}${!warn&&S.okSince?` · alles gut seit ${S.okSince<now-DAY?when(S.okSince):clock(S.okSince)}`:""}</p>
     ${list.length?`<div class="lbl">Jetzt</div><div class="list" style="flex:none;overflow:visible">${list.map(x=>{const e=(S.log||[]).find(l=>l.id===x.id&&!l.to);return `<div class="item ${x.sev}">${IC[x.sev]}<div><b>${x.t}</b><span>${x.a}</span>${e?`<span>seit ${clock(e.from)}</span>`:""}</div><button class="do" data-do="${x.id}">${x.do.label}</button></div>`}).join("")}</div>`:""}
     <div class="lbl">Verlauf</div>
