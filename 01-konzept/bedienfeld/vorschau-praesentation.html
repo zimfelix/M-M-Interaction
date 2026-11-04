@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Growbox Bedienfeld</title>
+<style>
+  /* Präsentation am Whiteboard: nur das Display, wie es später in der Box sitzt.
+     Kein iPhone (keine Statusleiste, kein ✕/⋯, kein Home-Strich): Das iPhone ist nur der Platzhalter für ein festes Display. */
+  :root { --bg: #15171c; }
+  html, body { margin: 0; height: 100%; background: var(--bg); overflow: hidden; }
+  /* Display in Bildschirmgröße des iPhone 13 mini im Vollbild (375 × 727 Punkte), per Skript auf die Fensterhöhe skaliert */
+  .bezel { width: 375px; height: 727px; padding: 14px; border-radius: 22px; background: #0b0c10;
+           box-shadow: 0 0 0 2px #2a2d35, 0 30px 80px rgba(0,0,0,.5);
+           position: fixed; left: 50%; top: 50%; transform-origin: center; }
+  iframe { display: block; width: 375px; height: 727px; border: 0; border-radius: 6px; background: #08106c; }
+</style>
+</head>
+<body>
+  <div class="bezel" id="bezel"><iframe title="Bedienfeld" data-src="index.html"></iframe></div>
+  <script>
+    const f = document.querySelector("iframe");
+    f.src = f.dataset.src + "?v=" + Date.now();  // immer den aktuellen Stand laden
+    // Breite 375 bleibt fest, damit das Bedienfeld seine Handy-Darstellung zeigt; nur die Größe wird skaliert
+    function fit() {
+      const W = 375 + 28, H = 727 + 28, pad = 24;
+      const s = Math.min((innerHeight - 2 * pad) / H, (innerWidth - 2 * pad) / W);
+      document.getElementById("bezel").style.transform = `translate(-50%, -50%) scale(${s})`;
+    }
+    addEventListener("resize", fit); fit();
+  </script>
+</body>
+</html>
