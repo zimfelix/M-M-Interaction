@@ -89,6 +89,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .ring{position:relative;width:58cqw;height:58cqw;flex:none}
 .ring > svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
 .ring circle{fill:none;transition:stroke-dasharray .8s ease}
+/* Zeitraffer: Strich ohne Verzögerung, damit er mit dem Knopf mitläuft */
+.lapsing .ring circle{transition:none}
 .inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
 .shroom{width:27cqw;height:27cqw;margin-top:2cqw;overflow:visible;transform-origin:50% 88%;transition:transform .45s ease-out}
 .shroom .drop{fill:var(--ink-soft);opacity:0}
@@ -116,16 +118,24 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .alert:not(.warn) .t{font-size:8.4cqw}
 .alert:not(.warn) .t svg{width:8.6cqw;height:8.6cqw}
 /* Einstellungen und Admin: Balken ca. 1,5× so hoch, Schrift größer (Display wird mit dem Finger bedient) */
-.panel-settings .opt,.panel-admin .opt{min-height:19.5cqw;padding:3.6cqw 3.6cqw;font-size:5.6cqw;gap:3.2cqw}
-.panel-settings .opt svg,.panel-admin .opt svg{width:8cqw;height:8cqw}
-.panel-settings .opt small,.panel-admin .opt small{font-size:.85em}
-.panel-settings .bigbtn{min-height:16cqw;font-size:5.4cqw}
+.panel-settings .opt,.panel-admin .opt,.panel-sort .opt,.panel-pick .opt{min-height:19.5cqw;padding:3.6cqw 3.6cqw;font-size:5.6cqw;gap:3.2cqw}
+.panel-settings .opt svg,.panel-admin .opt svg,.panel-sort .opt svg,.panel-pick .opt svg{width:8cqw;height:8cqw}
+.panel-settings .opt small,.panel-admin .opt small,.panel-sort .opt small,.panel-pick .opt small{font-size:.85em}
+.panel-settings .bigbtn,.panel-sort .bigbtn,.panel-link .bigbtn{min-height:16cqw;font-size:5.4cqw}
+.panel-sort p,.panel-pick p,.panel-link p,.panel-link ol,.panel-info p{font-size:5cqw}
+.panel-link .rec{font-size:6cqw;padding:3.6cqw;min-height:16cqw}
+.panel-link .rec svg{width:8cqw;height:8cqw}
+.panel-info .spec{font-size:5.2cqw}
+.panel-info .btnrow{flex-direction:column;align-items:stretch;align-self:stretch;width:100%;margin-top:3cqw}
+.panel-info .btnrow .bigbtn{flex:none;width:100%;min-height:16cqw;font-size:5.4cqw}
+.dots{letter-spacing:.12em;color:var(--ink)}
 /* Hilfe: rote Flagge, damit man sie sofort findet */
 .help-flag{color:#ff5a5a}
 /* Klima und Meldungen: gleiche Größe wie die Einstellungen */
 .panel-clima .hist{font-size:5.4cqw;padding:3cqw 0;gap:.8cqw 3cqw}
 .panel-clima .hist svg{width:7.6cqw;height:7.6cqw}
 .panel-clima .hist small{font-size:4.8cqw;color:var(--ink)}
+.panel-clima .hist small .taster-ic{width:1.35em;height:1.35em;vertical-align:-.32em;margin-right:.3em}
 .panel-clima .auto{display:inline-block;vertical-align:middle;font-family:var(--f-cond);font-weight:700;font-size:4.2cqw;letter-spacing:.06em;border:.4cqw solid var(--ok);color:var(--ok);border-radius:1.4cqw;padding:.2cqw 1.4cqw;margin-left:1.4cqw}
 .panel-clima p,.panel-alerts p{font-size:5cqw}
 .panel-alerts .rec{font-size:6cqw;padding:3.6cqw;min-height:16cqw}
@@ -393,6 +403,8 @@ const INFO={
   custom:{diff:0,desc:"Eigene Zielwerte aus der App. Ändern lassen sie sich nur in der App."}
 };
 const DIFF=["Eigene Werte","Leicht","Mittel","Schwer"];
+/* Sortenliste: Schwierigkeit als 3 Punkte (wie auf der Detailseite) und die Dauer, ohne weiteren Text */
+const diffLine=k=>{const d=INFO[k].diff;return (d?`<span class="dots" aria-label="${DIFF[d]}">${"●".repeat(d)}${"○".repeat(3-d)}</span> `:"Eigene Werte · ")+`${toHarvest(k)} Tage`};
 const toHarvest=k=>{const P=SPECIES[k].p;return P.kol.days+P.frucht.days};
 
 let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v5"))}catch(e){}
@@ -488,7 +500,7 @@ function alerts(){
   }
   if(sim.tank>0&&sim.tank<20) out.push({id:"tanklow",sev:"info",t:"Wasser bald leer",a:`Noch ${Math.round(sim.tank)} %. Nach dem Auffüllen AUFGEFÜLLT drücken.`,do:H("Aufgefüllt",refill)});
   const hd=demo.harvest?Math.max(d,T.days):d;
-  if(S.phase==="frucht"&&hd>=T.days) out.push({id:"harvest",sev:"info",t:"Ernte prüfen",a:"Ernten, solange die Hutränder noch leicht gebogen sind. Danach GEERNTET drücken.",do:A("Geerntet",setPhase("ruhe","Ruhephase gestartet"),"harvest")});
+  if(S.phase==="frucht"&&hd>=T.days) out.push({id:"harvest",sev:"info",t:"Ernte prüfen",a:"Ernten, solange die Hutränder noch leicht gebogen sind. Danach „Geerntet? Neue Sorte“ drücken.",do:A("Geerntet? Neue Sorte",()=>{setPhase("ruhe","Geerntet")();pickPanel()},"harvest")});
   if(S.phase==="kol"&&d>=T.days) out.push({id:"colonized",sev:"info",t:"Durchwachsen?",a:"Ist das Substrat ganz weiß, startet der Knopf die Fruchtung.",do:A("Fruchtung starten",setPhase("frucht","Fruchtung gestartet"),"play")});
   if(S.phase==="ruhe"&&d>=T.days) out.push({id:"flush",sev:"info",t:"Nächste Welle",a:"Die Pause ist vorbei. Der Knopf startet die nächste Fruchtung.",do:A("Fruchtung starten",setPhase("frucht","Fruchtung gestartet"),"play")});
   // Nur zwei Stufen: „Alles gut“ (ok/info) oder Warnung. Dringendes (früher „crit“) steht als Warnung ganz oben.
@@ -654,7 +666,7 @@ function sortPanel(){
       ${S.power?`<button class="bigbtn out" data-pick style="margin-top:0;flex:none">${ACT_IC.play}Neu ansetzen …</button>`:""}
       ${S.power?"":`<button class="opt" data-resume-new>${ACT_IC.play}<div>Neu ansetzen fortsetzen<small>Kammer leeren, Zuchtset einsetzen, starten.</small></div></button>`}
       <div class="lbl">Sorten ansehen</div>
-      ${keys.map(k=>`<button class="opt" data-info="${k}">${shroomSvg(SPECIES[k].cap)}<div>${esc(SPECIES[k].name)}${k===S.species&&S.power?'<span class="tag">wächst</span>':""}<small>${DIFF[INFO[k].diff]} · ca. ${toHarvest(k)} Tage bis zur Ernte</small></div></button>`).join("")}
+      ${keys.map(k=>`<button class="opt" data-info="${k}">${shroomSvg(SPECIES[k].cap)}<div>${esc(SPECIES[k].name)}${k===S.species&&S.power?'<span class="tag">wächst</span>':""}<small>${diffLine(k)}</small></div></button>`).join("")}
       ${S.prev&&SPECIES[S.prev.species]&&Date.now()-S.prev.at<14*DAY?`<div class="lbl">Notfall</div>
       <button class="opt" data-restore><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg><div>Zurück zu ${esc(SPECIES[S.prev.species].name)}<small>Versehentlich neu angesetzt? Der alte Durchgang läuft weiter.</small></div></button>`:""}
     </div>`,p=>{
@@ -667,7 +679,7 @@ function sortPanel(){
 /* Neu ansetzen: erst Sorte wählen (die aktuelle steht oben), dann bestätigen */
 function pickPanel(){
   const keys=[S.species].concat(Object.keys(SPECIES).filter(k=>k!==S.species&&(k!=="custom"||S.custom)));
-  panel("pick","Neu ansetzen",`<p>Mit welcher Sorte?</p><div class="list">${keys.map(k=>`<button class="opt" data-k="${k}">${shroomSvg(SPECIES[k].cap)}<div>${esc(SPECIES[k].name)}${k===S.species?'<span class="tag">wie bisher</span>':""}<small>${DIFF[INFO[k].diff]} · ca. ${toHarvest(k)} Tage bis zur Ernte</small></div></button>`).join("")}</div>`,p=>{
+  panel("pick","Neu ansetzen",`<p>Mit welcher Sorte?</p><div class="list">${keys.map(k=>`<button class="opt" data-k="${k}">${shroomSvg(SPECIES[k].cap)}<div>${esc(SPECIES[k].name)}${k===S.species?'<span class="tag">wie bisher</span>':""}<small>${diffLine(k)}</small></div></button>`).join("")}</div>`,p=>{
     p.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>confirmNew(b.dataset.k));
     p.querySelector("[data-back]").onclick=sortPanel;
   });
@@ -751,14 +763,17 @@ function nextAir(){const d=new Date(), m=d.getHours()*60+d.getMinutes();return 3
 function lightUntil(){const d=new Date(), m=d.getHours()*60+d.getMinutes(), on=m>=480&&m<1200;return {on, at:on?"20:00":"8:00"}}
 /* Klima (2026-11-04): je Gerät ein Balken wie in den Einstellungen, nur Name, AUTO und 1–3 Wörter, was es tut.
    Keine Live-Zustände mehr, damit Ingrid möglichst wenig lesen muss. */
+/* Zeichen für den echten Taster: beiger Kreis mit Licht-Symbol wie an der Box (Mapping), ohne Rahmen, also kein Touch-Knopf */
+const TASTER_IC='<svg class="taster-ic" viewBox="0 0 24 24" aria-label="Taster"><circle cx="12" cy="12" r="11" fill="#d9c7a3" stroke="#fff" stroke-width="1.2"/><g stroke="#3a2f1c" stroke-width="1.8" stroke-linecap="round" fill="none"><circle cx="12" cy="12" r="3.2"/><path d="M12 4.5v2M12 17.5v2M4.5 12h2M17.5 12h2M6.7 6.7l1.4 1.4M15.9 15.9l1.4 1.4M6.7 17.3l1.4-1.4M15.9 8.1l1.4-1.4"/></g></svg>';
 function climaRows(){
+  const T=tgt();  // Bedingungen je Sorte und Phase
   // Nur Text, nicht drückbar: Zeilen mit Trennstrich wie der Verlauf in Meldungen (Rahmen = Knopf)
   const row=(ic,name,what)=>`<div class="hist">${ic}<b>${name} <span class="auto">AUTO</span></b><small>${what}</small></div>`;
   return `<div>`
-    +row(IC.air,"Lüfter","frische Luft")
-    +row(IC.rh,"Nebler","hält feucht")
-    +row(IC.temp,"Heizung","hält warm")
-    +row(IC.bulb,"Licht","Tag und Nacht")+`</div>`;
+    +row(IC.air,"Lüfter",S.phase==="kol"?"nur bei zu viel CO₂":"alle 30 Min frische Luft")
+    +row(IC.rh,"Nebler",`an unter ${T.rh[0]} % Feuchte`)
+    +row(IC.temp,"Heizung",`an unter ${T.t[0]} °C`)
+    +row(IC.bulb,"Licht",`${T.light?"8–20 Uhr":"aus beim Durchwachsen"} · ${TASTER_IC}Taster ↓ schaltet um`)+`</div>`;
 }
 function climaPanel(){
   panel("clima","Klima",`<p>Die Box regelt Luft, Feuchte, Wärme und Licht selbst.</p>
@@ -855,10 +870,11 @@ function startLapse(){
   clearSituations(); closePanel(); S.sleep=false; S.power=true;
   const pr=progress(), el0=pr.el, tot=pr.tot, t0=performance.now();
   msg("Zeitraffer: "+pr.left+" Tage in 5 Sekunden");
+  $("#screen").classList.add("lapsing");
   lapseTimer=setInterval(()=>{
     const k=Math.min(1,(performance.now()-t0)/5000);
     lapse=el0+(tot-el0)*k; render();
-    if(k>=1){clearInterval(lapseTimer);lapseTimer=null;lapse=null;simHarvest()}
+    if(k>=1){clearInterval(lapseTimer);lapseTimer=null;lapse=null;simHarvest();setTimeout(()=>$("#screen").classList.remove("lapsing"),100)}
   },50);
 }
 function simHarvest(){

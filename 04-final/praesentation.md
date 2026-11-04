@@ -19,7 +19,7 @@ Auf dem Bildschirm ist nur das Bedienfeld (`localhost:8000/vorschau-praesentatio
 ```
 0:00  OBERFLÄCHE + KLIMA ──────── ein Blick genügt, Box regelt selbst
 0:35  CASE 1 Tank leer ─────────── Zahnrad (Settings) → Admin → Warnung → MELDUNGEN
-1:15  CASE 2 Pilze fertig ──────── SORTEN → neue Sorte
+1:15  CASE 2 Pilze fertig ──────── Zeitraffer → „Geerntet? Neue Sorte“
 1:45  CASE 3 Handy verbinden ───── Übergabe an Anlin
 2:00
 ```
@@ -30,7 +30,7 @@ Die **drei Kacheln** (KLIMA · MELDUNGEN · SORTEN) und die **Einstellungen** be
 - **Ingrid** will pflegen, ohne sich etwas zu merken.
 - **Ein Blick:** grüner Haken „Alles gut“ = nichts zu tun. *(Ein Zustand, ein Satz · Folie 16–17)*
 - **Ring** = Tage bis zur Ernte. **3 große Kacheln**: trifft man auch mit zitternder Hand. **Nie nur Farbe**: immer Form + Farbe + Text. *(Fitts · 50, Barrierefreiheit · 23, 63)*
-- *Kachel KLIMA:* vier Zeilen, alle **AUTO**, je 1–3 Wörter (frische Luft, hält feucht …). Ingrid sieht, *dass* geregelt wird, kann aber nichts verstellen. Licht schaltet sie nur über den echten Taster (mündlich sagen, steht nicht mehr im Fenster). *(Gulf of Evaluation · 59, Modusfehler · 60)* *Zurück.*
+- *Kachel KLIMA:* vier Zeilen, alle **AUTO**, mit Bedingung (Nebler an unter 70 % Feuchte …). Ingrid sieht, *dass* und *wann* geregelt wird, kann aber nichts verstellen. Licht: Zeitplan, und der **beige Kreis** zeigt den echten Taster, mit dem sie umschaltet (Mapping · 77–79). *(Gulf of Evaluation · 59, Modusfehler · 60)* *Zurück.*
 
 ### 0:35 · Case 1: Tank leer + MELDUNGEN (40 s)
 *Zahnrad:* „Selten Gebrauchtes liegt hier: Urlaub, Sprache, Kontrast und Hilfe mit der roten Flagge. Ganz unten der Admin-Modus für die Vorführung.“ *Admin-Modus → **Wassertank leer***
@@ -42,8 +42,8 @@ Die **drei Kacheln** (KLIMA · MELDUNGEN · SORTEN) und die **Einstellungen** be
 ### 1:15 · Case 2: Pilze fertig → SORTEN (30 s)
 *Zahnrad → Admin-Modus → **Tag 6 der Fruchtung · Ernte fertig***
 - **5 s Zeitraffer:** Ring läuft voll, Tage zählen 15 → 0, der Pilz wächst sichtbar (klein → mittel → groß). Das ist die leichte Gamification: Fortschritt sehen, ohne Punkte oder Spielfigur. *(Progression, Flow · G 10, G 12)*
-- Der Ring ist voll, oben steht weiter **„Alles gut“**, darunter der Knopf **GEERNTET**: ein Hinweis, keine Warnung, denn nichts ist kaputt. → *GEERNTET*.
-- *Kachel SORTEN → Neu ansetzen … → Sorte wählen*: Vorher steht da, **was verloren geht**, dann **2 s gedrückt halten**. Versehen ist ausgeschlossen. *(Murphy · 61, Fehler vermeiden · 130)*
+- Der Ring ist voll, oben steht weiter **„Alles gut“**, darunter der Knopf **„Geerntet? Neue Sorte“**: ein Hinweis, keine Warnung, denn nichts ist kaputt. → *antippen* → öffnet **direkt die Sortenwahl**.
+- *Sorte wählen* (Schwierigkeit als ●○○, Dauer in Tagen): Vorher steht da, **was verloren geht**, dann **2 s gedrückt halten**. Versehen ist ausgeschlossen. *(Murphy · 61, Fehler vermeiden · 130)*
 - *Kammer leeren → Zuchtset einsetzen* → **Tag 1, es geht von vorn los.**
 
 ### 1:45 · Case 3: Handy verbinden (15 s)
