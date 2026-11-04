@@ -66,6 +66,10 @@ Muss jeder es sofort sehen?                  ── ja ──► Box zeigt es, A
 | E30 | **Orange nur für Warnungen, auch an der Box**: Taster, Türgriff und Deckelgriff **beige**, Bedienfeld-Front schwarz glänzend, Taster mit eingeprägtem **Licht-Symbol** (Skizze `02-box-bau/zeichnungen/skizze-box-v3.html`) | A, B | 80, 72–74, 130, 26 | **Konsistenz** (80): Eine Farbe hat überall dieselbe Bedeutung. Auf dem Display heißt Orange „Warnung“ (E25), deshalb darf ein Bedienteil nicht orange sein. Beige hebt die Teile zum Anfassen vom schwarzen Rahmen ab, ohne eine Statusfarbe zu sein. Ein Taster zeigt, *dass* man ihn drücken kann (Affordance, 72–74), aber nicht, *was* er tut. Das Licht-Symbol macht ihn wiedererkennbar (*Recognition rather than recall*, 130). → Ein mögliches Warnlicht an der Box (Offen A1) wäre orange und damit konsistent. |
 | E20 | **Admin-Modus** versteckt (Einstellungen → ganz unten) | – | 60 | Nicht personenbezogen, nur für die Vorführung. Er bleibt verborgen, damit kein Nutzer versehentlich hineingerät. |
 
+## Entschieden am 04.11. (früher „Offen für Mittwoch“)
+
+**A · Warnlicht:** Kein physisches Warnlicht an der Box. Die Warnung zeigt nur der Warnpunkt auf dem Display; im Ruhemodus bleibt das Display schwarz und nur der Punkt leuchtet (E22). Die Abwägung unten bleibt als Begründung stehen.
+
 ## Offen für Mittwoch (04.11.)
 
 Zwei Fragen zum Taster und zur Warnung. Gemeinsamer Grundsatz für beide: **Eine Warnung muss immer sichtbar sein**, egal ob Ruhemodus, Licht aus oder Display schwarz.

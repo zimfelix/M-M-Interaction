@@ -797,17 +797,41 @@ function adminVals(){
     <tr><td>Urlaub · Ruhemodus · Code</td><td>${S.away?"an":"aus"} · ${S.sleep?"an":"aus"} · ${S.code}</td></tr>
   </tbody></table>`;
 }
+/* Vorführung für die Präsentation: ein Fehler wie im Alltag (Display aus, nur der Warnpunkt leuchtet)
+   und die Ernte mit neuer Sorte. Jeweils nur eine Situation auf einmal, damit die Geschichte klar bleibt. */
+const FAULTS=[["tank","Wassertank leer"],["door","Tür offen"],["hot","Raum zu warm"],["cold","Raum zu kalt"],["sensor","Sensor ausgefallen"]];
+function clearSituations(){stopScene();FAULTS.forEach(([k])=>{if(demo[k])toggleDemo(k)});if(demo.harvest)toggleDemo("harvest")}
+function simFault(k){
+  const was=demo[k]; clearSituations(); closePanel();
+  if(was){render();return}
+  S.sleep=true;save();wakeUntil=0;
+  toggleDemo(k);
+  if(k==="cold"){sim.t=tgt().t[0]-2.6;render()}
+}
+function simHarvest(){
+  clearSituations(); closePanel();
+  S.sleep=false;S.power=true;
+  if(S.phase!=="frucht"){S.phase="frucht"}
+  S.phaseStart=Date.now()-5*DAY;save();   // Tag 6 der Fruchtung
+  toggleDemo("harvest");
+}
 function demoPanel(){
   panel("admin","Admin-Modus",`<p>Nur für Vorführung und Bewertung, gehört nicht zur normalen Bedienung.</p>
-    <div class="lbl">Situation auslösen</div>
-    <div class="grid g2">${DEMOS.map(([k,l])=>`<button class="opt" role="switch" data-d="${k}" aria-checked="${demo[k]}">${l}</button>`).join("")}</div>
-    <div class="lbl">Vorführung (läuft live, nochmal tippen = Stopp)</div>
+    <div class="lbl">1 · Fehler im Alltag</div>
+    <p>Display geht aus, nur der Warnpunkt leuchtet. Antippen zeigt die Meldung, der Knopf darin behebt sie.</p>
+    <div class="grid g2">${FAULTS.map(([k,l])=>`<button class="opt" role="switch" data-f="${k}" aria-checked="${demo[k]}">${l}</button>`).join("")}</div>
+    <div class="lbl">2 · Ernte und neue Sorte</div>
+    <p>Tag 6 der Fruchtung: GEERNTET drücken, dann Kachel SORTEN → Neu ansetzen.</p>
+    <div class="grid g2"><button class="opt" role="switch" data-h aria-checked="${demo.harvest}">Tag 6 der Fruchtung · Ernte fertig</button><button class="opt" data-t>Taster drücken (Licht)</button></div>
+    <div class="lbl">Automatische Vorführung (nochmal tippen = Stopp)</div>
     <div class="grid g2">${SCENES.map((x,i)=>`<button class="opt" role="switch" data-scene="${i}" aria-checked="${sceneOn===i}"><span>${x.name}<small>${x.sub}</small></span></button>`).join("")}</div>
     <div class="lbl">Zeit</div>
     <div class="btnrow wrap" style="margin-top:0"><button class="bigbtn out" data-day>Tag +1</button><button class="bigbtn out" data-reset>Zurücksetzen</button></div>
     <div class="lbl">Messwerte live</div><div id="admVals">${adminVals()}</div>`,p=>{
     p.style.overflowY="auto";
-    p.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{toggleDemo(b.dataset.d);b.setAttribute("aria-checked",demo[b.dataset.d])});
+    p.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>simFault(b.dataset.f));
+    p.querySelector("[data-h]").onclick=simHarvest;
+    p.querySelector("[data-t]").onclick=()=>{closePanel();toggleDemo("taster")};
     p.querySelector("[data-back]").onclick=settingsPanel;
     p.querySelectorAll("[data-scene]").forEach(b=>b.onclick=()=>playScene(+b.dataset.scene));
     p.querySelector("[data-day]").onclick=()=>{S.phaseStart-=DAY;save();step(new Date());render();msg(`Tag ${day()}`)};
@@ -884,10 +908,7 @@ const SCENES=[
     [14,()=>alertPanel()],
     [22,()=>{closePanel();toggleDemo("harvest")}],
     [32,()=>{const a=$("#actBtn");if(!a.hidden)a.click()}],
-    [42,()=>{demo.harvest=false;syncDemo();render()}]]},
-  {name:"Display aus · Warnung",sub:"Ruhe → nur Warnpunkt blinkt → antippen",steps:[
-    [0, ()=>{S.sleep=true;save();wakeUntil=0;render()}],
-    [4, ()=>toggleDemo("tank")]]}
+    [42,()=>{demo.harvest=false;syncDemo();render()}]]}
 ];
 let sceneT=[], sceneOn=null;
 function syncScenes(){document.querySelectorAll("[data-scene]").forEach(b=>b.setAttribute("aria-checked",sceneOn===+b.dataset.scene))}

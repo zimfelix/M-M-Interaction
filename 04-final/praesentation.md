@@ -20,7 +20,7 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 | 0:20–0:45 | Felix | 2 Aufgabe | Mikrowelle für Pilze: Box regelt selbst, Mensch macht 3 Dinge | 5, 8, 56 |
 | 0:45–1:15 | Felix | 3 Zwei Menschen | Ingrid (nur Box) und der Nerd (Box + App); Regel: Körper an der Box, Details in der App | 118, 139, G 13–14 |
 | 1:15–1:45 | Felix | 4 Prototyp | Box-Skizze v3, auf die echte Box zeigen; Technik in einem Satz | 72–74, 80–81, 99–100 |
-| 1:45–3:30 | Felix | 5 Ingrid live | Bedienfeld am Mac, iPhone in der Box: Alles gut → Szenario **„Display aus · Warnung“**: Display schwarz, nur der Warnpunkt blinkt → antippen → Wasser leer → AUFGEFÜLLT → Taster drücken | 23, 26, 27, 63, 77–79, 33 |
+| 1:45–3:30 | Felix | 5 Ingrid live | Bedienfeld am Mac, iPhone in der Box: Alles gut → Admin-Modus **1 · Wassertank leer**: Display schwarz, nur der Warnpunkt blinkt → antippen → Wasser leer → AUFGEFÜLLT → Taster drücken → wenn Zeit: **2 · Tag 6 der Fruchtung** → GEERNTET → SORTEN → Neu ansetzen | 23, 26, 27, 63, 77–79, 33 |
 | 3:30–4:30 | App-Teammitglied | 6 Der Nerd | Push mit denselben Wörtern → Analytics → 1 Min lüften, Box zeigt „läuft noch 60 s (vom Handy)“ | 80–81, 101–102, 57–58 |
 | 4:30–5:00 | alle | 7 Fazit | Pointe, Nielsen 9 von 10, Lücke Hilfe mit Vorschlag Karte | 130 |
 
@@ -43,7 +43,7 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 - **Ein Link für Mac und iPhone:** https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi. Am Mac Display im Rahmen, am iPhone füllt das Bedienfeld den Bildschirm (oben bleibt die claude.ai-Leiste; ganz ohne Leiste nur über `iphone-server.sh`). Mac und iPhone haben jeweils ihren eigenen Stand: Demo dort starten, wo sie gezeigt wird.
 - **Bedienfeld am Mac (Whiteboard):** `http://localhost:8000/vorschau-praesentation.html` im Browser-Vollbild (ctrl+cmd+F), solange `iphone-server.sh` läuft: nur das Display, keine claude.ai-Leiste. Ersatz ohne Server: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi (dort mit claude.ai-Kopfzeile des Browsers).
 - **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**, auf Mac und iPhone.
-- **Demo Display aus:** Zahnrad → Admin-Modus → **„Display aus · Warnung“**: Display wird schwarz, nach 4 s blinkt nur der Warnpunkt. Antippen zeigt „Wasser leer“. Danach Ruhemodus unter Einstellungen wieder ausschalten oder Zurücksetzen.
+- **Admin-Modus (Zahnrad → ganz unten):** **1 · Fehler im Alltag**: eine Situation antippen → Display aus, nur der Warnpunkt blinkt → Display antippen → Meldung mit Knopf → Knopf drücken = behoben. **2 · Ernte und neue Sorte**: „Tag 6 der Fruchtung“ → GEERNTET → Kachel SORTEN → Neu ansetzen … → Sorte wählen → 2 s halten → Kammer leeren → Zuchtset einsetzen → Tag 1. Zwischen zwei Durchläufen: Zurücksetzen.
 - **Probe mit Stoppuhr.**
 
 ## Risiken
