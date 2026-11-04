@@ -90,7 +90,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .ring > svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
 .ring circle{fill:none;transition:stroke-dasharray .8s ease}
 .inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
-.shroom{width:27cqw;height:27cqw;margin-top:2cqw;overflow:visible}
+.shroom{width:27cqw;height:27cqw;margin-top:2cqw;overflow:visible;transform-origin:50% 88%;transition:transform .45s ease-out}
 .shroom .drop{fill:var(--ink-soft);opacity:0}
 .misting .drop{animation:drip 2.2s ease-in infinite}
 .misting .drop:nth-of-type(2){animation-delay:.7s}.misting .drop:nth-of-type(3){animation-delay:1.4s}
@@ -444,13 +444,16 @@ function step(d){
 for(let i=0;i<120;i++) step(new Date(Date.now()-(120-i)*3000));
 
 /* Fortschritt bis zur (nächsten) Ernte: Durchwachsen + Fruchtung, nach der Ernte Ruhe + Fruchtung */
+/* Zeitraffer (Admin „Ernte fertig“): gespielte Tage seit dem Ansetzen, sonst null */
+let lapse=null, lapseTimer=null;
 function progress(){
   const P=SPECIES[S.species].p, d=day();
   let tot, el, tick;
   if(S.phase==="ruhe"){tot=P.ruhe.days+P.frucht.days; el=d-1; tick=P.ruhe.days/tot}
   else{tot=P.kol.days+P.frucht.days; el=(S.phase==="frucht"?P.kol.days:0)+d-1; tick=P.kol.days/tot}
   if(demo.harvest&&S.phase==="frucht") el=tot;
-  return {p:Math.max(0,Math.min(1,el/tot)), left:Math.max(0,Math.ceil(tot-el)), tick};
+  if(lapse!==null) el=lapse;
+  return {p:Math.max(0,Math.min(1,el/tot)), left:Math.max(0,Math.ceil(tot-el)), tick, tot, el};
 }
 /* Tank-Reichweite (Annahme: voller Tank reicht 7 Tage, im Urlaub 10) */
 const tankDays=()=>Math.floor(sim.tank/100*(S.away?10:7));
@@ -550,6 +553,8 @@ function render(){
   else{$("#hum").innerHTML=`${pr.left}<small>${pr.left===1?"Tag":"Tage"}</small>`;$("#humlbl").textContent="bis zur Ernte"}
   // Pilz-Gesicht: froh (ok/info), besorgt (warn), gestresst (crit)
   const sh=$("#shroom");
+  // Wachstum in drei Stufen: klein · mittel (Grundgröße) · groß
+  sh.style.transform=`scale(${S.power?(pr.p<1/3?.84:pr.p<2/3?1:1.14):1})`;
   $("#cap").setAttribute("fill",SPECIES[S.species].cap);
   $("#mouth").setAttribute("d",!S.power?"M46 80h8":sev==="crit"?"M44 83q6 -7 12 0":sev==="warn"?"M45 81q5 -3 10 0":"M45 79q5 5 10 0");
   $("#brows").setAttribute("opacity",sev==="crit"||sev==="warn"?1:0);
@@ -843,6 +848,18 @@ function simFault(k){
   toggleDemo(k);
   if(k==="cold"){sim.t=tgt().t[0]-2.6;render()}
 }
+/* 5 s Zeitraffer bis zur Ernte: Ring läuft voll, Tage zählen herunter, der Pilz wächst. Danach wie bisher Ernte fertig. */
+function startLapse(){
+  if(lapseTimer) return;
+  clearSituations(); closePanel(); S.sleep=false; S.power=true;
+  const pr=progress(), el0=pr.el, tot=pr.tot, t0=performance.now();
+  msg("Zeitraffer: "+pr.left+" Tage in 5 Sekunden");
+  lapseTimer=setInterval(()=>{
+    const k=Math.min(1,(performance.now()-t0)/5000);
+    lapse=el0+(tot-el0)*k; render();
+    if(k>=1){clearInterval(lapseTimer);lapseTimer=null;lapse=null;simHarvest()}
+  },50);
+}
 function simHarvest(){
   clearSituations(); closePanel();
   S.sleep=false;S.power=true;
@@ -859,11 +876,11 @@ function demoPanel(){
   const SHROOM_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M3 12.5a9 7.5 0 0 1 18 0z"/><path d="M10 12.5V20h4v-7.5"/></svg>';
   panel("admin","Admin-Modus",`<div class="list">
       <button class="opt" data-f>${IC.warn}<div>Fehlermeldung<small>Wassertank leer</small></div></button>
-      <button class="opt" data-h>${SHROOM_IC}<div>Ernte fertig<small>Pilze reif, dann neue Sorte</small></div></button>
+      <button class="opt" data-h>${SHROOM_IC}<div>Ernte fertig<small>5 s Zeitraffer bis zur Ernte</small></div></button>
       <button class="opt" data-reset>${RESET_IC}<div>Zurücksetzen<small>Start: 15 Tage bis zur Ernte</small></div></button>
     </div>`,p=>{
     p.querySelector("[data-f]").onclick=()=>simFault("tank");
-    p.querySelector("[data-h]").onclick=simHarvest;
+    p.querySelector("[data-h]").onclick=startLapse;
     p.querySelector("[data-back]").onclick=settingsPanel;
     p.querySelector("[data-reset]").onclick=()=>{try{localStorage.removeItem("growbox-display-v5")}catch(e){};location.reload()};
   });

@@ -41,6 +41,7 @@ Die **drei Kacheln** (KLIMA · MELDUNGEN · SORTEN) und die **Einstellungen** be
 
 ### 1:15 · Case 2: Pilze fertig → SORTEN (30 s)
 *Zahnrad → Admin-Modus → **Tag 6 der Fruchtung · Ernte fertig***
+- **5 s Zeitraffer:** Ring läuft voll, Tage zählen 15 → 0, der Pilz wächst sichtbar (klein → mittel → groß). Das ist die leichte Gamification: Fortschritt sehen, ohne Punkte oder Spielfigur. *(Progression, Flow · G 10, G 12)*
 - Der Ring ist voll, oben steht weiter **„Alles gut“**, darunter der Knopf **GEERNTET**: ein Hinweis, keine Warnung, denn nichts ist kaputt. → *GEERNTET*.
 - *Kachel SORTEN → Neu ansetzen … → Sorte wählen*: Vorher steht da, **was verloren geht**, dann **2 s gedrückt halten**. Versehen ist ausgeschlossen. *(Murphy · 61, Fehler vermeiden · 130)*
 - *Kammer leeren → Zuchtset einsetzen* → **Tag 1, es geht von vorn los.**
