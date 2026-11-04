@@ -4,7 +4,7 @@ Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zag
 
 **Präsentation 05.11.2026, 10:00 · Abgabe 08.11.2026, 23:59**
 
-**▶ Bedienfeld live zum Ausprobieren: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi** (aktueller Stand, Ansichten claude.ai/Safari/Vollbild) · **nur aktueller Entwurf: https://claude.ai/artifact/Lk5ruX821tCk1WkfVvBxKC** (beide werden bei jeder Änderung neu veröffentlicht, gleiche Links)
+**▶ Bedienfeld live zum Ausprobieren: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi** (aktueller Stand, Ansichten claude.ai/Safari/Vollbild) (wird bei jeder Änderung neu veröffentlicht, gleicher Link) · **iPhone in der Box im Vollbild:** `sh 01-konzept/bedienfeld/iphone-server.sh`
 
 [![Bedienfeld: aktueller Stand v6](01-konzept/bedienfeld/bilder/vorschau-aktuell.png)](01-konzept/bedienfeld/)
 

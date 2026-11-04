@@ -4,7 +4,8 @@
 |---|---|
 | [`index.html`](index.html) | **Aktuelles Bedienfeld** (v6, Stand 02.11.2026). Läuft ohne Server: im Browser öffnen oder vom Pi ausliefern. Original: https://claude.ai/artifact/EGmf5bvFTK16eYGfKWVkPE |
 | [`vorschau-iphone.html`](vorschau-iphone.html) | iPhone-13-mini-Vorschau, nur der aktuelle Stand (v6); ältere Stände im Archiv `verlauf/`; Ansichten claude.ai-Link / Safari / Vollbild |
-| [`vorschau-einzeln.html`](vorschau-einzeln.html) | Nur der aktuelle Entwurf im iPhone-Rahmen (eigener claude.ai-Link, siehe Haupt-README) |
+| [`vorschau-einzeln.html`](vorschau-einzeln.html) | Nur der aktuelle Entwurf im iPhone-Rahmen; **nicht mehr gepflegt** (seit 04.11.2026), maßgeblich ist `vorschau-iphone.html` |
+| [`iphone-server.sh`](iphone-server.sh) | Startet auf dem Mac einen Server: Bedienfeld im Mac-Browser und auf dem iPhone als Web-App im Vollbild (Anleitung im Skript) |
 | [`verlauf/`](verlauf/) | Ältere Stände fürs Booklet (Entwicklungsverlauf). Nicht löschen. |
 
 ## Verlauf
