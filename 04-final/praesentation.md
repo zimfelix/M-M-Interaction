@@ -14,7 +14,7 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 
 ## Bedienfeld · Spickzettel für 2:00
 
-Auf dem Bildschirm ist nur das Bedienfeld (`localhost:8000/vorschau-praesentation.html` im Vollbild oder der Hauptlink). Erzählt wird aus Sicht von **Ingrid**: Lesebrille, zitternde Hände, misstraut Technik. **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**.
+Auf dem Bildschirm ist nur das Bedienfeld (`localhost:8000/vorschau-praesentation.html` im Vollbild oder der Hauptlink). Erzählt wird aus Sicht von **Ingrid**: Lesebrille, zitternde Hände, misstraut Technik. **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**. Start: Austernpilz frisch angesetzt, **15 Tage bis zur Ernte**.
 
 ```
 0:00  OBERFLÄCHE + KLIMA ──────── ein Blick genügt, Box regelt selbst
@@ -33,9 +33,9 @@ Die **drei Kacheln** (KLIMA · MELDUNGEN · SORTEN) und die **Einstellungen** be
 - *Kachel KLIMA:* Lüfter, Nebler, Heizung, Licht laufen auf **AUTO**. Ingrid sieht, *dass* geregelt wird, kann aber nichts verstellen. Licht nur über den echten Taster. *(Gulf of Evaluation · 59, Modusfehler · 60)* *Zurück.*
 
 ### 0:35 · Case 1: Tank leer + MELDUNGEN (40 s)
-*Zahnrad:* „Selten Gebrauchtes liegt hier: Ruhemodus, Urlaub, Kontrast, Fehler melden. Ganz unten der Admin-Modus für die Vorführung.“ *Admin-Modus → **Wassertank leer***
-- Display schwarz (Ruhemodus), **nur der Warnpunkt blinkt**. Blinken sieht man, bevor man liest. *(präattentiv · 27)*
-- *Antippen* → **Problem + Handlung + Knopfwort**: „Tank auffüllen, dann AUFGEFÜLLT drücken.“ Kein Fachwort, keine Schuld. *(83–85)*
+*Zahnrad:* „Selten Gebrauchtes liegt hier: Urlaub, Sprache, Kontrast, Fehler melden. Ganz unten der Admin-Modus für die Vorführung.“ *Admin-Modus → **Wassertank leer***
+- **Standby:** Display schwarz, kein Text, **nur ein oranger Punkt blinkt**. Blinken sieht man, bevor man liest, auch im Augenwinkel. *(präattentiv · 27)*
+- *Antippen* → Blinken aus, normale Ansicht mit **Problem + Handlung + Knopfwort**: „Tank auffüllen, dann AUFGEFÜLLT drücken.“ Kein Fachwort, keine Schuld. *(83–85)*
 - **Haptisch:** oben Wasser eingießen bis zur Linie im Sichtfenster; Sichtfenster = Balken auf dem Display. *(Mapping · 77–79)* *AUFGEFÜLLT* → sofort Rückmeldung. *(Feedback · 82)*
 - *Kachel MELDUNGEN:* Der Fehler steht jetzt **grün als „behoben“** im Verlauf. Ingrid sieht, dass alles erledigt ist. *Zurück.*
 
@@ -75,6 +75,6 @@ Die **drei Kacheln** (KLIMA · MELDUNGEN · SORTEN) und die **Einstellungen** be
 | claude.ai auf dem Mac nicht angemeldet | Bedienfeld über `localhost:8000` |
 | App-Funktion fehlt noch | als Mockup zeigen und so benennen |
 | Frage nach Hilfe/Anleitung (Nielsen Nr. 10) | Lücke offen benennen, Vorschlag Karte an der Box |
-| Frage: Warum ist das Display meistens aus? | Ruhemodus ist der Regelfall. Bei Warnung leuchtet nur der Warnpunkt (Form „!“ + Helligkeit + Blinken, auch bei Rot-Grün-Schwäche erkennbar); Antippen zeigt, was zu tun ist (E22) |
+| Frage: Warum war das Display schwarz? | Standby in der Box: Bei einem Problem leuchtet nur der orange Punkt und blinkt (Helligkeit + Blinken auf Schwarz, auch bei Rot-Grün-Schwäche erkennbar); Antippen zeigt, was zu tun ist (E22). Einen Ruhemodus zum Einstellen gibt es nicht. |
 | Frage zur Taster-Kopplung (B) | Stand vom 04.11. nennen, siehe [`entscheidungen-folien.md`](entscheidungen-folien.md#offen-für-mittwoch-0411) |
 | Frage nach HCI-Grundprinzipien | Norman: Affordance (Taster), Mapping (Sichtfenster), Feedback (AUFGEFÜLLT); Nielsen-Check 9 von 10 ([Nielsen-Check](entscheidungen-folien.md#nielsen-check-folie-130)) |

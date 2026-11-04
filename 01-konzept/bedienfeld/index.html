@@ -81,7 +81,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 #topCulture{font-size:6.6cqw;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase;line-height:12cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 /* Warnpunkt: leuchtet nur, wenn eine Warnung ansteht – aus der Ferne sichtbar (hell/dunkel + „!“, nicht nur Farbe) */
 .alarm-dot{width:12cqw;height:12cqw;border-radius:50%;border:.6cqw solid var(--ink-dim);display:grid;place-items:center;color:transparent;font-family:var(--f-ui);font-weight:800;font-size:8cqw;line-height:1}
-.alarm-dot.on{background:var(--alarm);border-color:#fff;color:#1a1000;box-shadow:0 0 0 1.2cqw rgba(230,159,0,.35),0 0 5cqw 1.5cqw rgba(230,159,0,.75);animation:alarmblink 1.2s ease-in-out infinite}
+.screen.sleepalarm .alarm-dot.on{background:var(--alarm);border-color:#fff;color:transparent;cursor:pointer;box-shadow:0 0 0 1.2cqw rgba(230,159,0,.35),0 0 5cqw 1.5cqw rgba(230,159,0,.75);animation:alarmblink 1.2s ease-in-out infinite}
 /* Blinken nur bei Warnung (Folie 27: präattentiv). Langsam (< 3 Blitze/s, WCAG) und nie ganz dunkel */
 @keyframes alarmblink{50%{opacity:.3;box-shadow:none}}
 .topbar .tr{justify-self:end;display:inline-flex;align-items:center;gap:1.6cqw}
@@ -370,9 +370,11 @@ const DIFF=["Eigene Werte","Leicht","Mittel","Schwer"];
 const toHarvest=k=>{const P=SPECIES[k].p;return P.kol.days+P.frucht.days};
 
 let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v5"))}catch(e){}
-if(!S||!S.species) S={species:"auster",phase:"frucht",phaseStart:Date.now()-3.4*DAY,power:true,away:false};
-/* Präsentation: nach dem Neuladen ist das Handy-Symbol wieder da (Verbinden wird jedes Mal neu gezeigt). */
-S.linked=false;
+/* Startzustand für die Präsentation: Austernpilz frisch angesetzt, noch 15 Tage bis zur Ernte */
+if(!S||!S.species) S={species:"auster",phase:"kol",phaseStart:Date.now()-5.2*DAY,power:true,away:false};
+/* Präsentation: nach dem Neuladen ist das Handy-Symbol wieder da (Verbinden wird jedes Mal neu gezeigt).
+   Ruhemodus gibt es nicht mehr als Einstellung; schwarz wird das Display nur im Standby des Admin-Falls „Tank leer“. */
+S.linked=false; S.sleep=false;
 const save=()=>{try{localStorage.setItem("growbox-display-v5",JSON.stringify(S))}catch(e){}};
 /* Eigene Sorte: Zielwerte für die Fruchtung, die anderen Phasen leiten sich davon ab */
 function applyCustom(){
@@ -736,22 +738,27 @@ function climaPanel(){
    nach 30 s ohne Bedienung wieder schwarz. Bei einer Warnung bleibt es schwarz, aber der Warnpunkt
    leuchtet und blinkt darüber wie ein Warnlicht. Antippen zeigt die Meldung. */
 let wakeUntil=0;
+/* Standby (nur Admin-Fall „Tank leer“): schwarz, ohne Text, nur der orange Punkt blinkt. Antippen beendet ihn. */
+let standby=false;
 function wake(){if(S.sleep)wakeUntil=Date.now()+30000}
 function syncSleep(list){
   let el=$("#sleepHost");
   const alarm=S.power&&list.some(x=>x.sev==="warn");
-  const dark=!!S.sleep&&Date.now()>wakeUntil;
+  const dark=standby||(!!S.sleep&&Date.now()>wakeUntil);
   $("#screen").classList.toggle("sleepalarm",dark&&alarm);
   if(!dark){el?.remove();return}
   if(!el){
     el=document.createElement("button");el.id="sleepHost";el.className="sleep";el.type="button";
     el.setAttribute("aria-label","Ruhemodus. Antippen zum Wecken.");
     el.innerHTML='<span><b>Ruhemodus</b><br>Antippen zum Wecken · bei Warnung leuchtet oben der Warnpunkt</span>';
-    el.onclick=()=>{wake();render()};
+    if(standby){el.innerHTML="";el.setAttribute("aria-label","Standby. Antippen zum Wecken.")}
+    el.onclick=()=>{standby=false;wake();render()};
     $("#screen").appendChild(el); setTimeout(()=>el.classList.add("quiet"),3000);
   }
 }
 ["pointerdown","keydown"].forEach(ev=>document.addEventListener(ev,()=>{if(S.sleep&&Date.now()<wakeUntil)wake()},true));
+/* Auch ein Tipp direkt auf den Punkt beendet den Standby */
+$("#alarmDot").addEventListener("click",()=>{if(standby){standby=false;render()}});
 
 /* Licht: Ausnahme von Hand, gilt bis zum nächsten Wechsel (8:00 bzw. 20:00) */
 function toggleLight(src){
@@ -802,11 +809,11 @@ function adminVals(){
 /* Vorführung für die Präsentation: ein Fehler wie im Alltag (Display aus, nur der Warnpunkt leuchtet)
    und die Ernte mit neuer Sorte. Jeweils nur eine Situation auf einmal, damit die Geschichte klar bleibt. */
 const FAULTS=[["tank","Wassertank leer"],["door","Tür offen"],["hot","Raum zu warm"],["cold","Raum zu kalt"],["sensor","Sensor ausgefallen"]];
-function clearSituations(){stopScene();FAULTS.forEach(([k])=>{if(demo[k])toggleDemo(k)});if(demo.harvest)toggleDemo("harvest")}
+function clearSituations(){standby=false;stopScene();FAULTS.forEach(([k])=>{if(demo[k])toggleDemo(k)});if(demo.harvest)toggleDemo("harvest")}
 function simFault(k){
   const was=demo[k]; clearSituations(); closePanel();
   if(was){render();return}
-  S.sleep=true;save();wakeUntil=0;
+  standby=true;
   toggleDemo(k);
   if(k==="cold"){sim.t=tgt().t[0]-2.6;render()}
 }
@@ -815,6 +822,8 @@ function simHarvest(){
   S.sleep=false;S.power=true;
   if(S.phase!=="frucht"){S.phase="frucht"}
   S.phaseStart=Date.now()-5*DAY;save();   // Tag 6 der Fruchtung
+  // Start ist die Wachstumsphase: Messwerte auf die Fruchtung setzen, sonst meldet die Box sofort „zu trocken“
+  sim.t=21;sim.rh=89;sim.co2=700;sim.tank=Math.max(sim.tank,60);
   toggleDemo("harvest");
 }
 /* Admin-Modus für die Präsentation (2026-11-04): genau die zwei Fälle der Vorführung, dazu Zurücksetzen.
@@ -841,7 +850,6 @@ function settingsPanel(){
   const sw=on=>`<span class="tag">${on?"an":"aus"}</span>`;
   panel("settings","Einstellungen",`<div class="list">
       <button class="opt" data-set="link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><div>Handy verbinden ${sw(S.linked)}<small>Code ${S.code} · Meldungen aufs Handy</small></div></button>
-      <button class="opt" role="switch" data-set="sleep" aria-checked="${!!S.sleep}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><div>Ruhemodus ${sw(S.sleep)}<small>Display aus, weckt nur bei Warnung</small></div></button>
       <button class="opt" data-set="away">${IC.away}<div>Urlaub ${sw(S.away)}<small>Box spart Wasser, Meldungen aufs Handy</small></div></button>
       <button class="opt" data-set="lang"><span class="flag" aria-hidden="true">🇩🇪</span><div>Sprache<small>Deutsch</small></div></button>
       <button class="opt" data-set="look"><span class="swatch ${S.theme==="hc"?"hc":"std"}" aria-hidden="true"></span><div>Darstellung<small>${S.theme==="hc"?"Hoher Kontrast":"Standard (Blau)"}</small></div></button>
@@ -851,7 +859,6 @@ function settingsPanel(){
     </div>
     <button class="bigbtn out" data-set="admin">Admin-Modus</button>`,p=>{
     p.querySelector('[data-set="link"]').onclick=connectPanel;
-    p.querySelector('[data-set="sleep"]').onclick=()=>{S.sleep=!S.sleep;save();if(S.sleep)wakeUntil=0;render();settingsPanel()};
     p.querySelector('[data-set="away"]').onclick=()=>{if(S.away){endAway();settingsPanel()}else if(!paused())awayPanel()};
     p.querySelector('[data-set="lang"]').onclick=langPanel;
     p.querySelector('[data-set="look"]').onclick=lookPanel;
@@ -915,7 +922,7 @@ function playScene(i){
   const again=sceneOn===i; stopScene(); if(again) return;
   closePanel();
   Object.keys(demo).forEach(k=>demo[k]=false); syncDemo(); acked.clear();
-  S.power=true;S.away=false;S.sleep=false;S.species="auster";S.phase="frucht";S.phaseStart=Date.now()-3.4*DAY;save();
+  S.power=true;S.away=false;S.sleep=false;S.species="auster";S.phase="kol";S.phaseStart=Date.now()-5.2*DAY;save();
   sim.t=22;sim.rh=89;sim.tank=64;sim.lightOv=null;sim.burst=0;sim.mist=0; step(new Date()); render();
   sceneOn=i;
   const st=SCENES[i].steps, end=st[st.length-1][0];
