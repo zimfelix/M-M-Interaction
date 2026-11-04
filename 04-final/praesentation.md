@@ -14,63 +14,81 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 
 ## Bedienfeld · Spickzettel für 2:00
 
-**Fest: 2 Minuten** (2026-11-04). Auf dem Bildschirm ist nur das Bedienfeld (`localhost:8000/vorschau-praesentation.html` im Vollbild oder der Hauptlink). Erzählt wird aus Sicht von **Ingrid**: Lesebrille, zitternde Hände, misstraut Technik. **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**. Start: Austernpilz frisch angesetzt, **15 Tage bis zur Ernte**.
+**Vorher:** Bedienfeld im Vollbild. Zahnrad, Admin-Modus, Zurücksetzen, Zurück. Start bei 15 Tagen bis zur Ernte.
+
+**Tempo:** ruhig sprechen. Der Text hat rund 200 Wörter, das sind etwa 1:40. Der Rest ist Luft für das Tippen. Beim Zeitraffer einfach schweigen.
 
 ```
-0:00  OBERFLÄCHE + KLIMA ─── ein Blick · Rahmen = drückbar, Trennstrich = Text
-0:30  ZAHNRAD ────────────── Kontrast + Urlaub (je 1 Satz) → Admin-Modus
-0:45  CASE 1 Tank leer ───── Blinken → Handlung → Wasser → AUFGEFÜLLT
-1:15  CASE 2 Ernte ───────── Zeitraffer = Gamification → Neue Sorte → Starten
-1:45  CASE 3 Handy ───────── kein Handy nötig → Übergabe an Anlin
+0:00  Oberfläche
+0:30  Zahnrad
+0:40  Fall 1 · Tank leer
+1:10  Fall 2 · Ernte
+1:45  Fall 3 · Handy
 2:00
 ```
 
-**Leitsatz:** Jede Stelle zeigt *eine* Idee aus der Vorlesung. Die Kacheln und Einstellungen bekommen keinen eigenen Rundgang, sie kommen dort vor, wo der Ablauf sie braucht. Der **Admin-Modus ist kein Use Case**, sondern das Werkzeug für die Vorführung; so ansagen.
+### 0:00 · Oberfläche
+*Tippen: KLIMA, dann Zurück.*
 
-### 0:00 · Oberfläche + KLIMA (30 s)
-- **Sagen:** „Ingrid will pflegen, ohne sich etwas zu merken. **Ein Blick genügt:** grüner Haken, ‚Alles gut‘, nichts zu tun.“ *(Wahrnehmen → Denken → Handeln · 16–17)*
-- **Minimalistisch:** „Wir haben bewusst **minimalistisch** gestaltet: ein Zustand, ein Ring, drei Werte, drei Kacheln. Keine Uhr, keine Menüs auf dem Startbild. Selten Gebrauchtes liegt hinter dem Zahnrad.“ *(aesthetic and minimalist design · 130, „unbedienbare Mikrowelle“ · 8, begrenztes Kurzzeitgedächtnis · 38)*
-- **Große Knöpfe:** „Alle Knöpfe sind **groß**, mindestens 44 Punkt. Drei breite Kacheln trifft man auch mit Lesebrille und zitternder Hand.“ *(Fitts · 50, Sichtabstand · 63)* „**Nie nur Farbe**, immer Form + Farbe + Text.“ *(Rot-Grün-Schwäche · 23, präattentiv · 26–27)*
-- *KLIMA antippen:* „**Alles mit Rahmen kann man drücken. Was nur Information ist, steht zwischen Linien:** grün heißt gut, orange heißt Warnung.“ *(Affordance · 72–73, Konsistenz · 80)* „Ingrid sieht, *dass* und *wann* die Box regelt, kann aber nichts verstellen.“ *(Gulf of Evaluation · 59, Modusfehler · 60)* Der **beige Kreis** ist der echte Taster an der Box. *(Mapping · 77–79)* *Zurück.*
+„Das ist Ingrid. Sie sieht schlecht, und ihre Hände zittern.
 
-### 0:30 · Zahnrad: Kontrast + Urlaub (15 s)
-- „Selten Gebrauchtes liegt hier, nicht auf dem Startbild.“ *(minimalist design · 130)*
-- **Darstellung:** „Hoher Kontrast, schwarz und weiß, für schwache Augen. Schon der Standard hat mindestens 4,5 : 1.“ *(Kontrast · 66, Sehkraft · 133)*
-- **Urlaub:** „Ein Tipp, dann spart die Box Wasser und Meldungen gehen aufs Handy. Oben steht dauerhaft **URLAUB ✕**: Man sieht immer, in welchem Modus die Box ist.“ *(Modusfehler · 60, user control · 130)* Nur zeigen, nicht einschalten.
-- „Ganz unten der **Admin-Modus, nur für die Vorführung**.“ → *Wassertank leer*
+Ein Blick genügt. Grüner Haken, Alles gut. Sie muss nichts tun.
 
-### 0:45 · Case 1: Tank leer (30 s)
-- **Standby:** Display schwarz, nur ein **oranger Punkt blinkt**. „Blinken sieht man, bevor man liest, auch im Augenwinkel.“ *(präattentiv · 27)*
-- *Antippen* → zwischen orangen Linien **Problem + eine Handlung**: „Wasser leer · Tank im Technikraum auffüllen“, darunter der einzige gerahmte Knopf **AUFGEFÜLLT**. „Kein Fachwort, keine Schuld.“ *(Fehlermeldungen · 83–85)*
-- „Wasser oben eingießen bis zur Linie im Sichtfenster; das Sichtfenster ist der Balken auf dem Display.“ *(Mapping · 77–79)* *AUFGEFÜLLT* → sofort Rückmeldung. *(Feedback · 82)*
-- *Optional (+10 s):* MELDUNGEN zeigt den Fehler grün als „behoben“.
+Wir haben bewusst minimalistisch gestaltet. Wenig auf dem Bildschirm, dafür große Knöpfe. Farbe steht nie allein, immer auch ein Symbol und ein Wort.
 
-### 1:15 · Case 2: Ernte + neue Sorte (30 s)
-*Zahnrad → Admin-Modus → **Pilze fertig***
-- **Zeitraffer:** Ring läuft voll, 15 → 0 Tage, der Pilz wächst in drei Stufen. „**Gamification ohne Spielfigur:** Ingrid sieht ihren Fortschritt, hat ein klares Ziel und bekommt sofort Rückmeldung.“ *(Progression · G 10, Flow · G 12)*
-- „Oben steht weiter ‚Alles gut‘: ein Hinweis, keine Warnung, denn nichts ist kaputt.“ → *Geerntet? Neue Sorte*
-- *Sorte antippen:* „Schwierigkeit als 1–3 Pilze **wie ein Level**.“ *(Levels · G 10)* Detailseite → *Neu ansetzen* → **„Sicher?“** → *Starten* → **Tag 1**.
-- „Die Kammer ist schon leer, also keine Rückfrage. Mitten im Wachstum müsste man 2 s gedrückt halten.“ *(Murphy · 61, Fehler vermeiden · 130)*
+*KLIMA* Hier sieht sie: Die Box regelt alles selbst.
 
-### 1:45 · Case 3: Handy verbinden (15 s)
-- „Bis hier braucht Ingrid **kein Handy**.“ *Handy-Symbol* → Code → *VERBUNDEN* → **Symbol verschwindet**.
-- „Wer mehr will, nutzt die App: gleiche Wörter, gleiche Farben.“ *(äußere Konsistenz · 80)* → **Übergabe an Anlin.**
+Was einen Rahmen hat, kann man drücken. Was zwischen Linien steht, ist nur Information. Das ist Affordance: Man sieht, was man drücken kann.“
 
-### Probelauf mit Stoppuhr (diese Liste in der Hand)
+### 0:30 · Zahnrad
+*Tippen: Zahnrad, Admin-Modus, Fehlermeldung.*
 
-Vorher: Bedienfeld im Vollbild, Zahnrad → Admin-Modus → **Zurücksetzen** → Zurück. Stoppuhr starten.
+„Selten Gebrauchtes liegt hinter dem Zahnrad. Zum Beispiel hoher Kontrast für schwache Augen und der Urlaub. Unten der Admin-Modus, nur für die Vorführung.“
 
-| ✓ | Bis | Tippen | Sagen (Kernwort) |
-|---|---|---|---|
-| ☐ | 0:30 | – · KLIMA · Zurück | ein Blick · minimalistisch · große Knöpfe · Rahmen = drückbar |
-| ☐ | 0:45 | Zahnrad · Darstellung zeigen · Urlaub zeigen · Admin-Modus · **Fehlermeldung** | Kontrast · Modus immer sichtbar · nur für die Vorführung |
-| ☐ | 1:15 | Punkt antippen · **Aufgefüllt** | Blinken · eine Handlung · Sichtfenster = Balken · Rückmeldung |
-| ☐ | 1:45 | Zahnrad · Admin-Modus · **Ernte fertig** · Geerntet? Neue Sorte · Sorte · Neu ansetzen · Sicher? → **Starten** | Gamification · Level · keine Rückfrage |
-| ☐ | 2:00 | Handy-Symbol · **Verbunden** | kein Handy nötig · Übergabe an Anlin |
+### 0:40 · Fall 1: Tank leer
+*Tippen: Punkt, dann Aufgefüllt.*
 
-Nach dem Lauf notieren: Wo lag die Zeit über der Marke? Dort zuerst kürzen (siehe unten).
+„Fall eins: Der Tank ist leer.
 
-**Zu lang?** Zuerst MELDUNGEN weglassen (falls drin), dann Urlaub (−10 s), dann bei der Oberfläche nur „ein Blick“ und „Rahmen = drückbar“ sagen. **Zweiter Durchlauf:** Zurücksetzen oder neu laden (das Handy-Symbol ist dann wieder da).
+Das Display ist schwarz, nur ein oranger Punkt blinkt. Den sieht man sofort.
+
+*Punkt* Jetzt steht da: Wasser leer, Tank im Technikraum auffüllen. Ein Satz, ein Knopf.
+
+Sie gießt oben Wasser ein, bis zur Linie im Sichtfenster.
+
+*Aufgefüllt* Sofort steht wieder Alles gut da.“
+
+### 1:10 · Fall 2: Ernte
+*Tippen: Zahnrad, Admin-Modus, Ernte fertig. Dann Geerntet? Neue Sorte, eine Sorte, Neu ansetzen, Starten.*
+
+„Fall zwei: Die Pilze sind reif. Wir spulen kurz vor.
+
+*5 Sekunden schweigen*
+
+Der Ring füllt sich, der Pilz wächst. Das ist unsere Gamification.
+
+*Geerntet? Neue Sorte* Sie wählt eine neue Sorte. Die kleinen Pilze zeigen, wie schwer sie ist.
+
+*Neu ansetzen* Die Kammer ist schon leer. Darum reicht eine kurze Frage. *Starten* Tag eins.“
+
+### 1:45 · Fall 3: Handy
+*Tippen: Handy-Symbol, dann Verbunden.*
+
+„Bis hierhin braucht Ingrid kein Handy. Wer mehr will, verbindet sein Handy. Das zeigt euch jetzt Anlin.“
+
+### Probelauf mit Stoppuhr
+
+| ✓ | Marke | Bin ich hier spätestens? |
+|---|---|---|
+| ☐ | 0:30 | Zurück aus KLIMA |
+| ☐ | 0:40 | Fehlermeldung angetippt |
+| ☐ | 1:10 | Aufgefüllt gedrückt |
+| ☐ | 1:45 | Starten gedrückt |
+| ☐ | 2:00 | Übergabe an Anlin |
+
+**Zu lang?** Zuerst den Satz zur Affordance weglassen. Dann beim Zahnrad nur „Selten Gebrauchtes liegt hier“ sagen. **Zweiter Durchlauf:** Zurücksetzen oder neu laden.
+
+**Nachfragen zu Folien:** Begründungen mit Foliennummern stehen in `entscheidungen-folien.md`, E1 bis E31.
 
 ## Technik am Tag
 
