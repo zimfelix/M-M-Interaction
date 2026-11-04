@@ -10,11 +10,11 @@
      Derselbe Link auf dem Handy: Bedienfeld füllt den ganzen Bildschirm. */
   :root { --bg: #15171c; }
   html, body { margin: 0; height: 100%; background: var(--bg); overflow: hidden; }
-  /* Display in Bildschirmgröße des iPhone 13 mini im Vollbild (375 × 727 Punkte), per Skript auf die Fensterhöhe skaliert */
-  .bezel { width: 375px; height: 727px; padding: 14px; border-radius: 22px; background: #0b0c10;
+  /* Display in Bildschirmgröße des iPhone 13 mini im Vollbild (375 × 658 Punkte, wie das Handy im claude.ai-Link), per Skript auf die Fensterhöhe skaliert */
+  .bezel { width: 375px; height: 658px; padding: 14px; border-radius: 22px; background: #0b0c10;
            box-shadow: 0 0 0 2px #2a2d35, 0 30px 80px rgba(0,0,0,.5);
            position: fixed; left: 50%; top: 50%; transform-origin: center; }
-  iframe { display: block; width: 375px; height: 727px; border: 0; border-radius: 6px; background: #08106c; }
+  iframe { display: block; width: 375px; height: 658px; border: 0; border-radius: 6px; background: #08106c; }
   /* Handy (schmaler Bildschirm): Bedienfeld füllt alles, ohne Rahmen */
   .phone .bezel { position: fixed; inset: 0; left: 0; top: 0; width: auto; height: auto; padding: 0; border-radius: 0; box-shadow: none; background: #08106c; transform: none !important; }
   .phone iframe { width: 100%; height: 100%; border-radius: 0; }
@@ -30,7 +30,7 @@
       const phone = innerWidth <= 500;
       document.body.classList.toggle("phone", phone);
       if (phone) return;
-      const W = 375 + 28, H = 727 + 28, pad = 24;
+      const W = 375 + 28, H = 658 + 28, pad = 24;
       const s = Math.min((innerHeight - 2 * pad) / H, (innerWidth - 2 * pad) / W);
       document.getElementById("bezel").style.transform = `translate(-50%, -50%) scale(${s})`;
     }
