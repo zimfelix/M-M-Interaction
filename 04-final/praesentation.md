@@ -43,7 +43,7 @@ Die **drei Kacheln** (KLIMA · MELDUNGEN · SORTEN) und die **Einstellungen** be
 *Zahnrad → Admin-Modus → **Tag 6 der Fruchtung · Ernte fertig***
 - **5 s Zeitraffer:** Ring läuft voll, Tage zählen 15 → 0, der Pilz wächst sichtbar (klein → mittel → groß). Das ist die leichte Gamification: Fortschritt sehen, ohne Punkte oder Spielfigur. *(Progression, Flow · G 10, G 12)*
 - Der Ring ist voll, oben steht weiter **„Alles gut“**, darunter der Knopf **„Geerntet? Neue Sorte“**: ein Hinweis, keine Warnung, denn nichts ist kaputt. → *antippen* → öffnet **direkt die Sortenwahl**.
-- *Sorte wählen* (Schwierigkeit als ●○○, Dauer in Tagen): Vorher steht da, **was verloren geht**, dann **2 s gedrückt halten**. Versehen ist ausgeschlossen. *(Murphy · 61, Fehler vermeiden · 130)*
+- *Sorte wählen* (Schwierigkeit als 1–3 kleine Pilze wie ein Level, Dauer in Tagen) → „Neue Sorte ansetzen?“: Die Ernte ist drin, also **keine Warnung**, aber trotzdem **2 s gedrückt halten**. Versehen ist ausgeschlossen. (Mitten im Wachstum käme die Warnung, was verloren geht.) *(Murphy · 61, Fehler vermeiden · 130)*
 - *Kammer leeren → Zuchtset einsetzen* → **Tag 1, es geht von vorn los.**
 
 ### 1:45 · Case 3: Handy verbinden (15 s)

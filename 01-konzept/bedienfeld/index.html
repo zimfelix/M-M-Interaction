@@ -123,15 +123,17 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .panel-settings .opt small,.panel-admin .opt small,.panel-sort .opt small,.panel-pick .opt small{font-size:.85em}
 .panel-settings .bigbtn,.panel-sort .bigbtn,.panel-link .bigbtn{min-height:16cqw;font-size:5.4cqw}
 .panel-sort p,.panel-pick p,.panel-link p,.panel-link ol,.panel-info p{font-size:5cqw}
-.panel-link .rec{font-size:6cqw;padding:3.6cqw;min-height:16cqw}
+.panel-link .rec,.panel-confirm .rec{font-size:6cqw;padding:3.6cqw;min-height:16cqw}
+.panel-confirm ul{font-size:5cqw}
 .panel-link .rec svg{width:8cqw;height:8cqw}
 .panel-info .spec{font-size:5.2cqw}
 .btnrow.wrap{flex-direction:column;align-items:stretch;align-self:stretch;width:100%;gap:3.6cqw;margin-top:3cqw}
 .btnrow.wrap .bigbtn{flex:none;width:100%;min-height:16cqw;font-size:5.4cqw}
-.dots{display:inline-flex;gap:1.2cqw;align-items:center;vertical-align:middle;margin-right:1cqw}
-.dots .dot{display:block;width:.66em;height:.66em;border-radius:50%;border:.09em solid currentColor;box-sizing:border-box;opacity:.75}
+.dots{display:inline-flex;gap:.6cqw;align-items:center;vertical-align:middle;margin-right:1cqw}
+.dots .dot{display:block;width:1.05em;height:1.05em;opacity:.28}
+.dots .dot svg{display:block;width:100%!important;height:100%!important}
 .dots .dot.on{opacity:1}
-.dots .dot.on{background:currentColor}
+
 .dots{letter-spacing:.12em;color:var(--ink)}
 /* Hilfe: rote Flagge, damit man sie sofort findet */
 .help-flag{color:#ff5a5a}
@@ -408,8 +410,9 @@ const INFO={
 };
 const DIFF=["Eigene Werte","Leicht","Mittel","Schwer"];
 /* Sortenliste: Schwierigkeit als 3 Punkte (wie auf der Detailseite) und die Dauer, ohne weiteren Text */
-/* Punkte als gezeichnete Kreise statt Schriftzeichen, damit volle und leere auf einer Linie sitzen */
-const dotsHtml=d=>[1,2,3].map(i=>`<i class="dot${i<=d?" on":""}"></i>`).join("");
+/* Schwierigkeit als 1–3 Pilze (Stufe wie ein Level, keine Bewertung wie Sterne): volle = erreicht, blasse = nicht */
+const MINI_SHROOM='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 13a9.5 7.5 0 0 1 19 0z" fill="currentColor"/><path d="M9.3 13v5.2a2.7 2.7 0 0 0 5.4 0V13z" fill="currentColor"/></svg>';
+const dotsHtml=d=>[1,2,3].map(i=>`<i class="dot${i<=d?" on":""}">${MINI_SHROOM}</i>`).join("");
 const diffLine=k=>{const d=INFO[k].diff;return (d?`<span class="dots" aria-label="${DIFF[d]}">${dotsHtml(d)}</span> `:"Eigene Werte · ")+`${toHarvest(k)} Tage`};
 const toHarvest=k=>{const P=SPECIES[k].p;return P.kol.days+P.frucht.days};
 
@@ -713,16 +716,18 @@ function infoPanel(k){
 /* Bewusst bestätigen: zeigt, was verloren geht, und verlangt 2 Sekunden gedrückt halten */
 function confirmNew(k){
   const pr=progress(), cur=SPECIES[S.species].name, nxt=SPECIES[k].name;
-  panel("confirm","Wirklich neu ansetzen?",`
-    <div class="rec warn">${IC.warn}Das lässt sich nicht rückgängig machen</div>
+  // Direkt nach der Ernte (Ruhephase) geht nichts verloren: ruhige Frage statt Warnung, 2 s halten bleibt
+  const after=S.power&&S.phase==="ruhe";
+  panel("confirm",after?"Neue Sorte ansetzen?":"Wirklich neu ansetzen?",`
+    ${after?`<div class="rec ok">${IC.ok}Ernte ist drin · nichts geht verloren</div>`:`<div class="rec warn">${IC.warn}Das lässt sich nicht rückgängig machen</div>`}
     <ul>
-      ${S.power?`<li>Dein <b>${esc(cur)}</b> (${PHASES[S.phase]}, Tag ${day()}, noch ${pr.left} Tage bis zur Ernte) wird beendet.</li>`:""}
+      ${S.power&&!after?`<li>Dein <b>${esc(cur)}</b> (${PHASES[S.phase]}, Tag ${day()}, noch ${pr.left} Tage bis zur Ernte) wird beendet.</li>`:""}
       <li>Die Zeit startet neu bei <b>Tag 1</b> mit <b>${esc(nxt)}</b>.</li>
       <li>Licht, Lüfter und Nebler gehen aus, bis das neue Zuchtset drin ist.</li>
     </ul>
     <div class="btnrow wrap">
       <button class="bigbtn" data-x>Abbrechen</button>
-      <button class="bigbtn hold" data-hold aria-label="2 Sekunden gedrückt halten, um ${esc(nxt)} neu anzusetzen"><span class="fillbar"></span><span>Gedrückt halten: neu ansetzen</span></button>
+      <button class="bigbtn hold" data-hold aria-label="2 Sekunden gedrückt halten, um ${esc(nxt)} neu anzusetzen"><span class="fillbar"></span><span>Gedrückt halten: ${after?"ansetzen":"neu ansetzen"}</span></button>
     </div>`,p=>{
     p.querySelector("[data-x]").onclick=()=>infoPanel(k);
     const b=p.querySelector("[data-hold]"); let t0=0, raf=0;
