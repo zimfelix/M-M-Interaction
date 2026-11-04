@@ -1,103 +1,81 @@
-# Präsentation 05.11.2026 · 5 Minuten
+# Präsentation 05.11.2026 · ca. 5 Minuten, ohne Folien
 
-**Folien:** https://claude.ai/artifact/DcLZePjqNpwgHBrxHGHFha (7 Folien, Sprechtext in den Notizen jeder Folie). Leitidee: **Dieselbe Box, zwei Menschen.** Ingrid nutzt nur die Box, der Nerd zusätzlich die App. Personas ohne Altersangabe.
+**Keine Folien** (2026-11-04): Wir zeigen live, was es gibt: den 3D-Entwurf, das Bedienfeld und die App. Leitidee: **Dieselbe Box, zwei Menschen.** Ingrid nutzt nur die Box, der Power-User zusätzlich die App. Personas ohne Altersangabe. Der frühere Foliensatz (https://claude.ai/artifact/DcLZePjqNpwgHBrxHGHFha) wird nicht gezeigt.
 
 Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) (E1–E30). Folienbelege: [`../01-konzept/folien-recherche.md`](../01-konzept/folien-recherche.md).
 
-## Bewertungskriterien (Folie 5) – wo wir sie erfüllen
+## Ablauf
 
-| Kriterium (Folie 5) | Wo in der Präsentation |
-|---|---|
-| Bezug zu Theorien und Konzepten der Vorlesung | Foliennummern in der Fußzeile jeder Folie und an jeder Szene |
-| Beachtung der HCI-Grundprinzipien | Norman: Affordance, Mapping, Feedback (72–87); Barrierefreiheit (23, 63); **Nielsen (130):** [Nielsen-Check](entscheidungen-folien.md#nielsen-check-folie-130), 9 von 10, Lücke Hilfe offen benannt |
-| Einbezug und Beschreibung verwendeter Technologien | Folie 4: iPhone als Display, Raspberry Pi, Taster/LED, ein Zustand für Box und App (MVC) |
+| Zeit | Wer | Was auf dem Bildschirm | Inhalt |
+|---|---|---|---|
+| 0:00–ca. 1:15 | Teammitglied | 3D-Entwurf der Box | Das Haptische: Taster, Griffe, Tank mit Sichtfenster, Farbprinzip (Beige = anfassen) |
+| ca. 1:15–3:15 | **Felix** | **Bedienfeld** | Oberfläche und Begründung, dann 3 Fälle (unten) |
+| ca. 3:15–4:45 | Anlin | App | Übernimmt nach „Handy verbinden“ |
 
-## Ablauf (5:00)
+## Bedienfeld · Spickzettel für 2:00
 
-| Zeit | Wer | Folie im Deck | Inhalt | Vorlesung |
-|---|---|---|---|---|
-| 0:00–0:20 | Felix | 1 Titel | „Dieselbe Box, zwei Menschen.“ Farbsystem: Beige anfassen, Grün gut, Orange Warnung | – |
-| 0:20–0:45 | Felix | 2 Aufgabe | Mikrowelle für Pilze: Box regelt selbst, Mensch macht 3 Dinge | 5, 8, 56 |
-| 0:45–1:15 | Felix | 3 Zwei Menschen | Ingrid (nur Box) und der Nerd (Box + App); Regel: Körper an der Box, Details in der App | 118, 139, G 13–14 |
-| 1:15–1:45 | Felix | 4 Prototyp | Box-Skizze v3, auf die echte Box zeigen; Technik in einem Satz | 72–74, 80–81, 99–100 |
-| 1:45–3:30 | Felix | 5 Ingrid live | Bedienfeld am Mac, iPhone in der Box: Alles gut → Admin-Modus **1 · Wassertank leer**: Display schwarz, nur der Warnpunkt blinkt → antippen → Wasser leer → AUFGEFÜLLT → Taster drücken → wenn Zeit: **2 · Tag 6 der Fruchtung** → GEERNTET → SORTEN → Neu ansetzen | 23, 26, 27, 63, 77–79, 33 |
-| 3:30–4:30 | App-Teammitglied | 6 Der Nerd | Push mit denselben Wörtern → Analytics → 1 Min lüften, Box zeigt „läuft noch 60 s (vom Handy)“ | 80–81, 101–102, 57–58 |
-| 4:30–5:00 | alle | 7 Fazit | Pointe, Nielsen 9 von 10, Lücke Hilfe mit Vorschlag Karte | 130 |
+Auf dem Bildschirm ist nur das Bedienfeld (`localhost:8000/vorschau-praesentation.html` im Vollbild oder der Hauptlink). Erzählt wird aus Sicht von **Ingrid**: Lesebrille, zitternde Hände, misstraut Technik. **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**.
 
-- **Zeitpuffer:** Bei Zeitnot in Szene 5 den Klima-Blick weglassen und in Szene 6 Analytics kürzen. Der Taster (Szene 5, Punkt 3) bleibt immer.
-- **Stärkster Moment:** echter Taster, Licht geht an. Ist die Box nicht verkabelt, Taster im Admin-Modus auslösen und das offen sagen.
-- **Nicht mehr drin** (aus der 7-Minuten-Fassung): Hoher Kontrast, Eigene Sorte, Werdegang Skizzen → Papier → Klick-Prototyp (gehört ins Booklet).
+```
+0:00  OBERFLÄCHE ─ ein Blick genügt
+0:30  CASE 1 ───── Tank leer  (Warnung)
+1:05  CASE 2 ───── Pilze fertig → neue Sorte
+1:40  CASE 3 ───── Handy verbinden → Übergabe an Anlin
+2:00
+```
 
-## Bedienfeld-Vorführung (ca. 2:15, nur Bildschirm)
+### 0:00 · Oberfläche (30 s)
+- **Ingrid** will pflegen, ohne sich etwas zu merken.
+- **Ein Blick:** grüner Haken „Alles gut“ = nichts zu tun. *(Ein Zustand, ein Satz · Folie 16–17)*
+- **Ring** = Tage bis zur Ernte. *(Fortschritt · G 10)*
+- **3 Werte gleich aufgebaut**, **3 große Kacheln**: trifft man auch mit zitternder Hand. *(Fitts · 50, Konsistenz · 80)*
+- **Nie nur Farbe**: immer Form + Farbe + Text. *(Barrierefreiheit · 23, 63)*
 
-Auf dem Bildschirm ist nur das Bedienfeld zu sehen (`localhost:8000/vorschau-praesentation.html` im Vollbild oder der Hauptlink). Wir erzählen aus Sicht von **Ingrid** (Persona A, ohne Altersangabe). **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**. Nach jedem Neuladen ist das Handy-Symbol wieder da. Die *kursiven* Zeilen beschreiben, was getippt wird. Als Warnung zeigen wir nur **Wassertank leer**: Das ist die eine Aufgabe, die Ingrid mit den Händen an der Box erledigt.
+### 0:30 · Case 1: Tank leer (35 s)
+*Zahnrad → Admin-Modus → **Wassertank leer***
+- Display schwarz (Ruhemodus), **nur der Warnpunkt blinkt**. Blinken sieht man, bevor man liest. *(präattentiv · 27)*
+- *Antippen* → **Problem + Handlung + Knopfwort**: „Tank auffüllen, dann AUFGEFÜLLT drücken.“ Kein Fachwort, keine Schuld. *(83–85)*
+- **Haptisch:** oben Wasser eingießen bis zur Linie im Sichtfenster; Sichtfenster = Balken auf dem Display. *(Mapping · 77–79)*
+- *AUFGEFÜLLT* → sofort Rückmeldung, wieder „Alles gut“. *(Feedback · 82)*
 
-| Zeit | Teil | Folien |
-|---|---|---|
-| 0:00–0:15 | Einstieg: Ingrid | 118 |
-| 0:15–0:50 | Oberfläche und warum sie so aussieht | 16–17, 8, 50, 27, 63, G 10 |
-| 0:50–1:00 | Einstellungen (Weg zum Admin-Modus) | 60, 23 |
-| 1:00–1:35 | Warnmeldung: Wassertank leer | 27, 83–85, 77–79, 82 |
-| 1:35–2:00 | Neuer Pilz: Ernte und neue Sorte | 61, 130 |
-| 2:00–2:15 | Handy verbinden → Übergang zur App | 99–100, 41–42 |
+### 1:05 · Case 2: Pilze fertig → neue Sorte (35 s)
+*Zahnrad → Admin-Modus → **Tag 6 der Fruchtung · Ernte fertig***
+- Hinweis **„Ernte prüfen“** unter „Alles gut“: keine Warnung, nichts ist kaputt → *GEERNTET*.
+- *Kachel SORTEN → Neu ansetzen … → Sorte wählen*
+- Vorher steht da, **was verloren geht**, dann **2 s gedrückt halten**: Versehen ist ausgeschlossen. *(Murphy · 61, Fehler vermeiden · 130)*
+- *Kammer leeren → Zuchtset einsetzen* → **Tag 1, es geht von vorn los.**
 
-**0:00 · Einstieg**
-„Das ist das Display unserer Box. Wir zeigen es aus Sicht von Ingrid. Sie hat eine Lesebrille, leicht zitternde Hände und misstraut Technik. Sie will ihre Pilze pflegen, ohne sich etwas merken zu müssen.“
+### 1:40 · Case 3: Handy verbinden (20 s)
+- „Bis hier braucht Ingrid **kein Handy**.“ *(Box ohne App bedienbar · 41–42)*
+- *Handy-Symbol oben rechts* → Code → *VERBUNDEN* → **Symbol verschwindet**.
+- „Wer mehr will, nutzt die App.“ → **Übergabe an Anlin.**
 
-**0:15 · Oberfläche**
-„Ingrid soll nach einem Blick wissen, ob sie etwas tun muss. Deshalb gibt es oben nur eine große Aussage: grüner Haken, ‚Alles gut‘. Der Ring zeigt, wie viele Tage es noch bis zur Ernte sind. Darunter stehen drei Werte, alle gleich aufgebaut: Zahl, Balken, Name. Ganz unten gibt es nur drei große Kacheln: KLIMA, MELDUNGEN, SORTEN. Wenige große Flächen trifft man auch mit zitternder Hand (Fitts' Law). Status zeigen wir nie nur über Farbe, sondern immer mit Form, Farbe und Text. Geblinkt wird nur, wenn Ingrid handeln muss.“
-*Kurz auf KLIMA tippen:* „Hier sieht sie, dass die Box selbst regelt. Eingreifen kann sie hier bewusst nicht. Das Licht schaltet sie nur über den echten Taster an der Box.“ *Zurück.*
-
-**0:50 · Einstellungen**
-*Zahnrad antippen.*
-„Was man selten braucht, liegt hier und nicht auf dem Startbild: Ruhemodus, Urlaub, Hoher Kontrast, Fehler melden. Ganz unten gibt es den Admin-Modus. Mit ihm simulieren wir jetzt, was im Alltag passiert.“
-*Admin-Modus → 1 · Fehler im Alltag → **Wassertank leer**.*
-
-**1:00 · Warnmeldung: Wassertank leer**
-„Im Alltag ist das Display meist schwarz, das ist der Ruhemodus. Ist der Tank leer, leuchtet nur der orange Warnpunkt und blinkt langsam. Blinken nimmt man wahr, bevor man liest, auch im Augenwinkel.“
-*Display antippen.*
-„Die Meldung nennt das Problem, eine konkrete Handlung und das Wort auf dem Knopf: ‚Tank im Technikraum auffüllen, dann AUFGEFÜLLT drücken.‘ Kein Fachwort, keine Schuld. Ingrid gießt oben Wasser ein, bis die Linie im Sichtfenster erreicht ist. Das Sichtfenster entspricht dem Balken auf dem Display (Mapping).“
-*AUFGEFÜLLT drücken.*
-„Die Rückmeldung kommt sofort, danach steht wieder ‚Alles gut‘ da.“
-
-**1:35 · Neuer Pilz**
-*Zahnrad → Admin-Modus → 2 · **Tag 6 der Fruchtung · Ernte fertig**.*
-„Die Pilze sind fertig. Ingrid erntet und drückt GEERNTET.“ *GEERNTET → Kachel SORTEN → **Neu ansetzen …** → Sorte wählen.*
-„Jetzt sucht sie sich die neue Sorte aus. Neu ansetzen löscht den alten Durchgang. Deshalb steht vorher da, was verloren geht, und man muss den Knopf zwei Sekunden gedrückt halten.“ *2 s halten → Kammer leeren → Zuchtset einsetzen → Tag 1.*
-„Und es geht wieder von vorne los, bei Tag 1.“
-
-**2:00 · Handy verbinden → Übergang zur App**
-„Bis hierhin braucht Ingrid kein Handy. Wer mehr will, sieht hier oben das Handy-Symbol.“ *Handy-Symbol antippen.*
-„Darüber verbindet man das Handy mit einem Code.“ *VERBUNDEN drücken.*
-„Das Symbol verschwindet. Und damit zeigen wir jetzt die App.“ → *Übergabe an die App am MacBook.*
-
-**Bei Zeitnot:** Klima-Blick weglassen, dann etwa 1:55. **Vor einem zweiten Durchlauf:** Zurücksetzen oder Seite neu laden (Handy-Symbol ist dann wieder da).
+**Zu lang?** Bei der Oberfläche nur „ein Blick“ und „nie nur Farbe“ nennen. **Zweiter Durchlauf:** Zurücksetzen oder neu laden (das Handy-Symbol ist dann wieder da).
 
 ## Technik am Tag
 
 ```
  MacBook ──HDMI──► Whiteboard
-   ├─ Folien (claude.ai, Präsentieren)
-   ├─ Bedienfeld zum Erklären (claude.ai-Link oder localhost)
+   ├─ 3D-Entwurf (Teammitglied)
+   ├─ Bedienfeld (localhost oder claude.ai-Link)
    └─ läuft: iphone-server.sh ──WLAN/Hotspot──► iPhone 13 mini in der Box (Vollbild)
- App: Gerät des App-Teammitglieds
+ App: am MacBook bzw. Gerät von Anlin
 ```
 
 - **iPhone in der Box (Vollbild):** auf dem Mac `sh 01-konzept/bedienfeld/iphone-server.sh`, die angezeigte Adresse auf dem iPhone in Safari öffnen → Teilen → „Zum Home-Bildschirm“ (Als Web-App öffnen) → Symbol „Growbox“ antippen. Am besten vorher zu Hause einrichten und den Mac in der Uni mit dem **iPhone-Hotspot** verbinden (Uni-WLAN trennt Geräte oft voneinander). Optional mit Geführtem Zugriff sperren.
-- **Keine App-Kopplung am 05.11.:** Der Hauptlink zeigt das Bedienfeld ohne Verbindung zur App. Szene 6 zeigt die App allein; die Reaktion der Box („läuft noch 60 s (vom Handy)“) als Konzept erzählen und so benennen.
+- **Keine App-Kopplung am 05.11.:** Der Hauptlink zeigt das Bedienfeld ohne Verbindung zur App. „Handy verbinden“ zeigt nur den Ablauf; danach zeigt Anlin die App allein.
 - **Ein Link für Mac und iPhone:** https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi. Am Mac Display im Rahmen, am iPhone füllt das Bedienfeld den Bildschirm (oben bleibt die claude.ai-Leiste; ganz ohne Leiste nur über `iphone-server.sh`). Mac und iPhone haben jeweils ihren eigenen Stand: Demo dort starten, wo sie gezeigt wird.
-- **Bedienfeld am Mac (Whiteboard):** `http://localhost:8000/vorschau-praesentation.html` im Browser-Vollbild (ctrl+cmd+F), solange `iphone-server.sh` läuft: nur das Display, keine claude.ai-Leiste. Ersatz ohne Server: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi (dort mit claude.ai-Kopfzeile des Browsers).
-- **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**, auf Mac und iPhone.
-- **Admin-Modus (Zahnrad → ganz unten):** **1 · Fehler im Alltag**: eine Situation antippen → Display aus, nur der Warnpunkt blinkt → Display antippen → Meldung mit Knopf → Knopf drücken = behoben. **2 · Ernte und neue Sorte**: „Tag 6 der Fruchtung“ → GEERNTET → Kachel SORTEN → Neu ansetzen … → Sorte wählen → 2 s halten → Kammer leeren → Zuchtset einsetzen → Tag 1. Zwischen zwei Durchläufen: Zurücksetzen.
+- **Bedienfeld am Mac (Whiteboard):** `http://localhost:8000/vorschau-praesentation.html` im Browser-Vollbild (ctrl+cmd+F), solange `iphone-server.sh` läuft: nur das Display, keine claude.ai-Leiste. Ersatz ohne Server: der Hauptlink.
 - **Probe mit Stoppuhr.**
 
 ## Risiken
 
 | Risiko | Gegenmittel |
 |---|---|
-| iPhone erreicht den Mac nicht | Mac mit iPhone-Hotspot verbinden; sonst iPhone im Ruhemodus lassen und nur am Mac erklären |
-| claude.ai auf dem Mac nicht angemeldet | Bedienfeld über `localhost:8000`; Folien als PDF vorher exportieren |
-| App-Funktion aus Szene 6 fehlt noch | als Mockup zeigen und so benennen |
+| iPhone erreicht den Mac nicht | Mac mit iPhone-Hotspot verbinden; sonst nur am Mac zeigen |
+| claude.ai auf dem Mac nicht angemeldet | Bedienfeld über `localhost:8000` |
+| App-Funktion fehlt noch | als Mockup zeigen und so benennen |
 | Frage nach Hilfe/Anleitung (Nielsen Nr. 10) | Lücke offen benennen, Vorschlag Karte an der Box |
 | Frage: Warum ist das Display meistens aus? | Ruhemodus ist der Regelfall. Bei Warnung leuchtet nur der Warnpunkt (Form „!“ + Helligkeit + Blinken, auch bei Rot-Grün-Schwäche erkennbar); Antippen zeigt, was zu tun ist (E22) |
-| Fragen zu offenen Punkten | Warnlicht (A) und Taster-Kopplung (B): Stand vom 04.11. nennen, siehe [`entscheidungen-folien.md`](entscheidungen-folien.md#offen-für-mittwoch-0411) |
+| Frage zur Taster-Kopplung (B) | Stand vom 04.11. nennen, siehe [`entscheidungen-folien.md`](entscheidungen-folien.md#offen-für-mittwoch-0411) |
+| Frage nach HCI-Grundprinzipien | Norman: Affordance (Taster), Mapping (Sichtfenster), Feedback (AUFGEFÜLLT); Nielsen-Check 9 von 10 ([Nielsen-Check](entscheidungen-folien.md#nielsen-check-folie-130)) |
