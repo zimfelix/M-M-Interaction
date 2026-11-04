@@ -65,7 +65,7 @@ Sie gießt oben Wasser ein, bis zur Linie im Sichtfenster.
 
 *5 Sekunden schweigen*
 
-Der Ring füllt sich, der Pilz wächst. Das ist unsere Gamification.
+Der Ring füllt sich, der Pilz wächst. Das ist unsere Gamification. Jetzt steht da: Erntebereit.
 
 *Geerntet? Neue Sorte* Sie wählt eine neue Sorte. Die kleinen Pilze zeigen, wie schwer sie ist.
 
