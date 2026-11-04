@@ -51,6 +51,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .sleep b{font-size:4.8cqw;color:#c7cdea}
 .sleep span{opacity:1;transition:opacity 1.2s}
 .sleep.quiet span{opacity:0}
+/* Display aus, aber Warnung: nur der Warnpunkt leuchtet über dem schwarzen Display (wie ein Warnlicht) */
+.screen.sleepalarm .alarm-dot{position:relative;z-index:6}
 .sleep-chip{border:.5cqw solid var(--ink-dim);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink-soft);background:transparent;font-size:3.9cqw}
 
 /* Tasten */
@@ -78,8 +80,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .topbar{min-height:12cqw}
 #topCulture{font-size:6.6cqw;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase;line-height:12cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 /* Warnpunkt: leuchtet nur, wenn eine Warnung ansteht – aus der Ferne sichtbar (hell/dunkel + „!“, nicht nur Farbe) */
-.alarm-dot{width:12cqw;height:12cqw;border-radius:50%;border:.6cqw solid var(--ink-dim);display:grid;place-items:center;line-height:1}
-.alarm-dot.on{background:var(--alarm);border-color:#fff;box-shadow:0 0 0 1.2cqw rgba(230,159,0,.35),0 0 5cqw 1.5cqw rgba(230,159,0,.75);animation:alarmblink 1.2s ease-in-out infinite}
+.alarm-dot{width:12cqw;height:12cqw;border-radius:50%;border:.6cqw solid var(--ink-dim);display:grid;place-items:center;color:transparent;font-family:var(--f-ui);font-weight:800;font-size:8cqw;line-height:1}
+.alarm-dot.on{background:var(--alarm);border-color:#fff;color:#1a1000;box-shadow:0 0 0 1.2cqw rgba(230,159,0,.35),0 0 5cqw 1.5cqw rgba(230,159,0,.75);animation:alarmblink 1.2s ease-in-out infinite}
 /* Blinken nur bei Warnung (Folie 27: präattentiv). Langsam (< 3 Blitze/s, WCAG) und nie ganz dunkel */
 @keyframes alarmblink{50%{opacity:.3;box-shadow:none}}
 .topbar .tr{justify-self:end;display:inline-flex;align-items:center;gap:1.6cqw}
@@ -283,7 +285,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   <div class="device">
     <div class="glass">
       <div class="screen" id="screen">
-        <div class="topbar"><span id="topCulture">Auster</span><span class="alarm-dot" id="alarmDot" role="img" aria-label="Keine Warnung"></span><span class="tr"><span class="ticon" id="topIcons"></span><button class="admin-btn" id="linkChip" aria-label="Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></button><button class="admin-btn" id="demoChip" aria-label="Einstellungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
+        <div class="topbar"><span id="topCulture">Auster</span><span class="alarm-dot" id="alarmDot" role="img" aria-label="Keine Warnung">!</span><span class="tr"><span class="ticon" id="topIcons"></span><button class="admin-btn" id="linkChip" aria-label="Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></button><button class="admin-btn" id="demoChip" aria-label="Einstellungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
 
         <div class="center" id="home">
           <div class="ring">
@@ -728,19 +730,21 @@ function climaPanel(){
     p.style.overflowY="auto";
   });
 }
-/* Ruhemodus: Display bleibt schwarz. Es wacht nur auf, wenn eine Warnung ein Handeln verlangt
-   (z. B. Tank leer, zu warm), bei Berührung oder beim Druck auf den Taster; nach 30 s ohne Bedienung wieder schwarz. */
+/* Ruhemodus: Display bleibt schwarz und wacht bei Berührung oder beim Druck auf den Taster auf;
+   nach 30 s ohne Bedienung wieder schwarz. Bei einer Warnung bleibt es schwarz, aber der Warnpunkt
+   leuchtet und blinkt darüber wie ein Warnlicht. Antippen zeigt die Meldung. */
 let wakeUntil=0;
 function wake(){if(S.sleep)wakeUntil=Date.now()+30000}
 function syncSleep(list){
   let el=$("#sleepHost");
   const alarm=S.power&&list.some(x=>x.sev==="warn");
-  const dark=!!S.sleep&&!alarm&&Date.now()>wakeUntil;
+  const dark=!!S.sleep&&Date.now()>wakeUntil;
+  $("#screen").classList.toggle("sleepalarm",dark&&alarm);
   if(!dark){el?.remove();return}
   if(!el){
     el=document.createElement("button");el.id="sleepHost";el.className="sleep";el.type="button";
     el.setAttribute("aria-label","Ruhemodus. Antippen zum Wecken.");
-    el.innerHTML='<span><b>Ruhemodus</b><br>Antippen zum Wecken · bei Warnung geht das Display von selbst an</span>';
+    el.innerHTML='<span><b>Ruhemodus</b><br>Antippen zum Wecken · bei Warnung leuchtet oben der Warnpunkt</span>';
     el.onclick=()=>{wake();render()};
     $("#screen").appendChild(el); setTimeout(()=>el.classList.add("quiet"),3000);
   }
@@ -880,7 +884,10 @@ const SCENES=[
     [14,()=>alertPanel()],
     [22,()=>{closePanel();toggleDemo("harvest")}],
     [32,()=>{const a=$("#actBtn");if(!a.hidden)a.click()}],
-    [42,()=>{demo.harvest=false;syncDemo();render()}]]}
+    [42,()=>{demo.harvest=false;syncDemo();render()}]]},
+  {name:"Display aus · Warnung",sub:"Ruhe → nur Warnpunkt blinkt → antippen",steps:[
+    [0, ()=>{S.sleep=true;save();wakeUntil=0;render()}],
+    [4, ()=>toggleDemo("tank")]]}
 ];
 let sceneT=[], sceneOn=null;
 function syncScenes(){document.querySelectorAll("[data-scene]").forEach(b=>b.setAttribute("aria-checked",sceneOn===+b.dataset.scene))}

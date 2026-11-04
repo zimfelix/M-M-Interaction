@@ -13,7 +13,7 @@ Wenn die App einen Begriff anders braucht: bitte kurz absprechen und hier änder
 | **Klima regelt sich automatisch.** | Satz unter „Alles gut“ | – |
 | **Pausiert** | Durchgang beendet, neues Zuchtset noch nicht drin | – |
 
-| **Warnpunkt** (Mitte der Kopfzeile) | blinkt langsam, nur wenn eine Warnung ansteht; aus der Ferne sichtbar | oranger Punkt **ohne „!“**, leuchtet wie ein Warnlicht; sonst dunkler Ring |
+| **Warnpunkt** (Mitte der Kopfzeile) | blinkt langsam, nur wenn eine Warnung ansteht; aus der Ferne sichtbar | oranger Punkt mit „!“ und Leuchten, leuchtet auch allein auf dem dunklen Display (Ruhemodus); sonst dunkler Ring |
 
 Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 
