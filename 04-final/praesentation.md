@@ -17,40 +17,39 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 Auf dem Bildschirm ist nur das Bedienfeld (`localhost:8000/vorschau-praesentation.html` im Vollbild oder der Hauptlink). Erzählt wird aus Sicht von **Ingrid**: Lesebrille, zitternde Hände, misstraut Technik. **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**.
 
 ```
-0:00  OBERFLÄCHE ─ ein Blick genügt
-0:30  CASE 1 ───── Tank leer  (Warnung)
-1:05  CASE 2 ───── Pilze fertig → neue Sorte
-1:40  CASE 3 ───── Handy verbinden → Übergabe an Anlin
+0:00  OBERFLÄCHE + KLIMA ──────── ein Blick genügt, Box regelt selbst
+0:35  CASE 1 Tank leer ─────────── Zahnrad (Settings) → Admin → Warnung → MELDUNGEN
+1:15  CASE 2 Pilze fertig ──────── SORTEN → neue Sorte
+1:45  CASE 3 Handy verbinden ───── Übergabe an Anlin
 2:00
 ```
 
-### 0:00 · Oberfläche (30 s)
+Die **drei Kacheln** (KLIMA · MELDUNGEN · SORTEN) und die **Einstellungen** bekommen keinen eigenen Rundgang. Jede kommt dort vor, wo sie im Ablauf ohnehin gebraucht wird.
+
+### 0:00 · Oberfläche + KLIMA (35 s)
 - **Ingrid** will pflegen, ohne sich etwas zu merken.
 - **Ein Blick:** grüner Haken „Alles gut“ = nichts zu tun. *(Ein Zustand, ein Satz · Folie 16–17)*
-- **Ring** = Tage bis zur Ernte. *(Fortschritt · G 10)*
-- **3 Werte gleich aufgebaut**, **3 große Kacheln**: trifft man auch mit zitternder Hand. *(Fitts · 50, Konsistenz · 80)*
-- **Nie nur Farbe**: immer Form + Farbe + Text. *(Barrierefreiheit · 23, 63)*
+- **Ring** = Tage bis zur Ernte. **3 große Kacheln**: trifft man auch mit zitternder Hand. **Nie nur Farbe**: immer Form + Farbe + Text. *(Fitts · 50, Barrierefreiheit · 23, 63)*
+- *Kachel KLIMA:* Lüfter, Nebler, Heizung, Licht laufen auf **AUTO**. Ingrid sieht, *dass* geregelt wird, kann aber nichts verstellen. Licht nur über den echten Taster. *(Gulf of Evaluation · 59, Modusfehler · 60)* *Zurück.*
 
-### 0:30 · Case 1: Tank leer (35 s)
-*Zahnrad → Admin-Modus → **Wassertank leer***
+### 0:35 · Case 1: Tank leer + MELDUNGEN (40 s)
+*Zahnrad:* „Selten Gebrauchtes liegt hier: Ruhemodus, Urlaub, Kontrast, Fehler melden. Ganz unten der Admin-Modus für die Vorführung.“ *Admin-Modus → **Wassertank leer***
 - Display schwarz (Ruhemodus), **nur der Warnpunkt blinkt**. Blinken sieht man, bevor man liest. *(präattentiv · 27)*
 - *Antippen* → **Problem + Handlung + Knopfwort**: „Tank auffüllen, dann AUFGEFÜLLT drücken.“ Kein Fachwort, keine Schuld. *(83–85)*
-- **Haptisch:** oben Wasser eingießen bis zur Linie im Sichtfenster; Sichtfenster = Balken auf dem Display. *(Mapping · 77–79)*
-- *AUFGEFÜLLT* → sofort Rückmeldung, wieder „Alles gut“. *(Feedback · 82)*
+- **Haptisch:** oben Wasser eingießen bis zur Linie im Sichtfenster; Sichtfenster = Balken auf dem Display. *(Mapping · 77–79)* *AUFGEFÜLLT* → sofort Rückmeldung. *(Feedback · 82)*
+- *Kachel MELDUNGEN:* Der Fehler steht jetzt **grün als „behoben“** im Verlauf. Ingrid sieht, dass alles erledigt ist. *Zurück.*
 
-### 1:05 · Case 2: Pilze fertig → neue Sorte (35 s)
+### 1:15 · Case 2: Pilze fertig → SORTEN (30 s)
 *Zahnrad → Admin-Modus → **Tag 6 der Fruchtung · Ernte fertig***
-- Hinweis **„Ernte prüfen“** unter „Alles gut“: keine Warnung, nichts ist kaputt → *GEERNTET*.
-- *Kachel SORTEN → Neu ansetzen … → Sorte wählen*
-- Vorher steht da, **was verloren geht**, dann **2 s gedrückt halten**: Versehen ist ausgeschlossen. *(Murphy · 61, Fehler vermeiden · 130)*
+- Der Ring ist voll, oben steht weiter **„Alles gut“**, darunter der Knopf **GEERNTET**: ein Hinweis, keine Warnung, denn nichts ist kaputt. → *GEERNTET*.
+- *Kachel SORTEN → Neu ansetzen … → Sorte wählen*: Vorher steht da, **was verloren geht**, dann **2 s gedrückt halten**. Versehen ist ausgeschlossen. *(Murphy · 61, Fehler vermeiden · 130)*
 - *Kammer leeren → Zuchtset einsetzen* → **Tag 1, es geht von vorn los.**
 
-### 1:40 · Case 3: Handy verbinden (20 s)
-- „Bis hier braucht Ingrid **kein Handy**.“ *(Box ohne App bedienbar · 41–42)*
-- *Handy-Symbol oben rechts* → Code → *VERBUNDEN* → **Symbol verschwindet**.
+### 1:45 · Case 3: Handy verbinden (15 s)
+- „Bis hier braucht Ingrid **kein Handy**.“ *Handy-Symbol* → Code → *VERBUNDEN* → **Symbol verschwindet**.
 - „Wer mehr will, nutzt die App.“ → **Übergabe an Anlin.**
 
-**Zu lang?** Bei der Oberfläche nur „ein Blick“ und „nie nur Farbe“ nennen. **Zweiter Durchlauf:** Zurücksetzen oder neu laden (das Handy-Symbol ist dann wieder da).
+**Zu lang?** Zuerst die MELDUNGEN-Kachel weglassen (−10 s), dann bei der Oberfläche nur „ein Blick“ und „nie nur Farbe“ sagen. **Zweiter Durchlauf:** Zurücksetzen oder neu laden (das Handy-Symbol ist dann wieder da).
 
 ## Technik am Tag
 
