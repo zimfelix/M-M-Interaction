@@ -161,7 +161,9 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .panel-alerts .item svg{width:8cqw;height:8cqw}
 .panel-alerts .item b{font-size:5.8cqw}
 .panel-alerts .item span{font-size:5cqw}
-.panel-alerts .item .do{font-size:5cqw;min-height:14cqw}
+.panel-alerts .item .do{font-size:5cqw;min-height:14cqw;margin-left:11.2cqw} /* langer Knopf rutscht unter den Text statt ihn zu quetschen */
+.panel-alerts .item{flex-wrap:wrap}
+.panel-alerts .item div{flex:1 1 50cqw}
 .panel-alerts .hist{font-size:5.4cqw;padding:3cqw 0;gap:.8cqw 3cqw}
 .panel-alerts .hist svg{width:7.6cqw;height:7.6cqw}
 .panel-alerts .hist small{font-size:4.8cqw}
@@ -199,7 +201,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .admin-btn:focus-visible{opacity:1;outline:.5cqw solid var(--band)}
 .rec{display:flex;align-items:center;gap:2cqw;border-radius:2.4cqw;padding:2.4cqw 3cqw;font-weight:700;font-size:5cqw}
 .rec svg{flex:none;width:7cqw;height:7cqw}
-.rec.ok{background:rgba(63,207,127,.16);box-shadow:0 0 0 .45cqw var(--ok) inset}
+.rec.ok{background:transparent;border-radius:0;border-top:.6cqw solid var(--ok);border-bottom:.6cqw solid var(--ok);padding-left:0;padding-right:0} /* nur Text: grüne Linien statt Rahmen (Rahmen = drückbar) */
 .rec.warn{background:rgba(230,159,0,.14);box-shadow:0 0 0 .45cqw var(--alarm) inset;color:var(--ink)}
 .bigbtn.out.weak{border-color:var(--ink-dim);color:var(--ink-soft)}
 .hold{position:relative;overflow:hidden;background:transparent;color:var(--ink);touch-action:none;user-select:none;-webkit-user-select:none}
