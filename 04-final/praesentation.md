@@ -16,7 +16,7 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 
 **Vorher:** Bedienfeld im Vollbild. Zahnrad, Admin-Modus, Zurücksetzen, Zurück. Start bei 15 Tagen bis zur Ernte.
 
-**Tempo:** ruhig sprechen. Der Text hat rund 200 Wörter, das sind etwa 1:40. Der Rest ist Luft für das Tippen. Beim Zeitraffer einfach schweigen.
+**Tempo:** ruhig sprechen. Der Text hat rund 210 Wörter, das sind etwa 1:45. Der Rest ist Luft für das Tippen. Beim Zeitraffer einfach schweigen.
 
 ```
 0:00  Oberfläche
