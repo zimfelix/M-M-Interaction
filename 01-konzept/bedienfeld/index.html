@@ -371,6 +371,8 @@ const toHarvest=k=>{const P=SPECIES[k].p;return P.kol.days+P.frucht.days};
 
 let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v5"))}catch(e){}
 if(!S||!S.species) S={species:"auster",phase:"frucht",phaseStart:Date.now()-3.4*DAY,power:true,away:false};
+/* Präsentation: nach dem Neuladen ist das Handy-Symbol wieder da (Verbinden wird jedes Mal neu gezeigt). */
+S.linked=false;
 const save=()=>{try{localStorage.setItem("growbox-display-v5",JSON.stringify(S))}catch(e){}};
 /* Eigene Sorte: Zielwerte für die Fruchtung, die anderen Phasen leiten sich davon ab */
 function applyCustom(){

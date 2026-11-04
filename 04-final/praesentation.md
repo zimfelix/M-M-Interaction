@@ -30,17 +30,16 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 
 ## Bedienfeld-Vorführung (ca. 2:15, nur Bildschirm)
 
-Auf dem Bildschirm ist nur das Bedienfeld zu sehen (`localhost:8000/vorschau-praesentation.html` im Vollbild oder der Hauptlink). Wir erzählen aus Sicht von **Ingrid** (Persona A, ohne Altersangabe). **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**. Die *kursiven* Zeilen beschreiben, was getippt wird.
+Auf dem Bildschirm ist nur das Bedienfeld zu sehen (`localhost:8000/vorschau-praesentation.html` im Vollbild oder der Hauptlink). Wir erzählen aus Sicht von **Ingrid** (Persona A, ohne Altersangabe). **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**. Nach jedem Neuladen ist das Handy-Symbol wieder da. Die *kursiven* Zeilen beschreiben, was getippt wird. Als Warnung zeigen wir nur **Wassertank leer**: Das ist die eine Aufgabe, die Ingrid mit den Händen an der Box erledigt.
 
 | Zeit | Teil | Folien |
 |---|---|---|
 | 0:00–0:15 | Einstieg: Ingrid | 118 |
 | 0:15–0:50 | Oberfläche und warum sie so aussieht | 16–17, 8, 50, 27, 63, G 10 |
-| 0:50–1:05 | Handy verbinden | 99–100, 41–42 |
-| 1:05–1:25 | Einstellungen | 60, 23, 63 |
-| 1:25–1:55 | Warnmeldung: Wassertank leer | 27, 83–85, 77–79, 82 |
-| 1:55–2:20 | Neuer Pilz: Ernte und neue Sorte | 61, 130 |
-| 2:20–2:25 | Schluss | 41–42 |
+| 0:50–1:00 | Einstellungen (Weg zum Admin-Modus) | 60, 23 |
+| 1:00–1:35 | Warnmeldung: Wassertank leer | 27, 83–85, 77–79, 82 |
+| 1:35–2:00 | Neuer Pilz: Ernte und neue Sorte | 61, 130 |
+| 2:00–2:15 | Handy verbinden → Übergang zur App | 99–100, 41–42 |
 
 **0:00 · Einstieg**
 „Das ist das Display unserer Box. Wir zeigen es aus Sicht von Ingrid. Sie hat eine Lesebrille, leicht zitternde Hände und misstraut Technik. Sie will ihre Pilze pflegen, ohne sich etwas merken zu müssen.“
@@ -49,33 +48,30 @@ Auf dem Bildschirm ist nur das Bedienfeld zu sehen (`localhost:8000/vorschau-pra
 „Ingrid soll nach einem Blick wissen, ob sie etwas tun muss. Deshalb gibt es oben nur eine große Aussage: grüner Haken, ‚Alles gut‘. Der Ring zeigt, wie viele Tage es noch bis zur Ernte sind. Darunter stehen drei Werte, alle gleich aufgebaut: Zahl, Balken, Name. Ganz unten gibt es nur drei große Kacheln: KLIMA, MELDUNGEN, SORTEN. Wenige große Flächen trifft man auch mit zitternder Hand (Fitts' Law). Status zeigen wir nie nur über Farbe, sondern immer mit Form, Farbe und Text. Geblinkt wird nur, wenn Ingrid handeln muss.“
 *Kurz auf KLIMA tippen:* „Hier sieht sie, dass die Box selbst regelt. Eingreifen kann sie hier bewusst nicht. Das Licht schaltet sie nur über den echten Taster an der Box.“ *Zurück.*
 
-**0:50 · Handy verbinden**
-*Handy-Symbol oben rechts antippen.*
-„Wer will, verbindet sein Handy mit einem vierstelligen Code. Danach verschwindet das Symbol. Für Ingrid ist das freiwillig: Die Box ist ohne App vollständig bedienbar. Die App ist für den Power-User, der mehr Details möchte.“
-*Zurück, ohne zu verbinden.*
-
-**1:05 · Einstellungen**
+**0:50 · Einstellungen**
 *Zahnrad antippen.*
-„Alles, was man selten braucht, liegt hier und nicht auf dem Startbild: Ruhemodus, Urlaub, Sprache, Hoher Kontrast für schlechtere Augen und ‚Fehler melden‘. Ist ein Modus aktiv, steht er dauerhaft oben, zum Beispiel RUHE. So wundert sich niemand, warum das Display dunkel ist. Ganz unten gibt es den Admin-Modus. Den brauchen wir nur für die Vorführung.“
+„Was man selten braucht, liegt hier und nicht auf dem Startbild: Ruhemodus, Urlaub, Hoher Kontrast, Fehler melden. Ganz unten gibt es den Admin-Modus. Mit ihm simulieren wir jetzt, was im Alltag passiert.“
 *Admin-Modus → 1 · Fehler im Alltag → **Wassertank leer**.*
 
-**1:25 · Warnmeldung**
-„Im Alltag ist das Display meist schwarz, das ist der Ruhemodus. Bei einem Problem leuchtet nur der orange Warnpunkt und blinkt langsam. Blinken nimmt man wahr, bevor man liest, auch im Augenwinkel.“
+**1:00 · Warnmeldung: Wassertank leer**
+„Im Alltag ist das Display meist schwarz, das ist der Ruhemodus. Ist der Tank leer, leuchtet nur der orange Warnpunkt und blinkt langsam. Blinken nimmt man wahr, bevor man liest, auch im Augenwinkel.“
 *Display antippen.*
-„Die Meldung nennt das Problem, eine konkrete Handlung und das Wort auf dem Knopf: ‚Tank im Technikraum auffüllen, dann AUFGEFÜLLT drücken.‘ Kein Fachwort, keine Schuld. Der Balken auf dem Display entspricht dem Sichtfenster am Tank (Mapping).“
+„Die Meldung nennt das Problem, eine konkrete Handlung und das Wort auf dem Knopf: ‚Tank im Technikraum auffüllen, dann AUFGEFÜLLT drücken.‘ Kein Fachwort, keine Schuld. Ingrid gießt oben Wasser ein, bis die Linie im Sichtfenster erreicht ist. Das Sichtfenster entspricht dem Balken auf dem Display (Mapping).“
 *AUFGEFÜLLT drücken.*
-„Die Rückmeldung kommt sofort, danach wieder ‚Alles gut‘.“
+„Die Rückmeldung kommt sofort, danach steht wieder ‚Alles gut‘ da.“
 
-**1:55 · Neuer Pilz**
+**1:35 · Neuer Pilz**
 *Zahnrad → Admin-Modus → 2 · **Tag 6 der Fruchtung · Ernte fertig**.*
-„Die Pilze sind reif. Ingrid erntet und drückt GEERNTET.“ *GEERNTET → Kachel SORTEN → **Neu ansetzen …** → Sorte wählen.*
-„Neu ansetzen löscht den alten Durchgang. Deshalb steht vorher da, was verloren geht, und man muss den Knopf zwei Sekunden gedrückt halten. Ein versehentliches Tippen löscht also nichts.“ *2 s halten → Kammer leeren → Zuchtset einsetzen → Tag 1.*
-„Und 14 Tage lang kommt sie noch zurück zur alten Sorte.“
+„Die Pilze sind fertig. Ingrid erntet und drückt GEERNTET.“ *GEERNTET → Kachel SORTEN → **Neu ansetzen …** → Sorte wählen.*
+„Jetzt sucht sie sich die neue Sorte aus. Neu ansetzen löscht den alten Durchgang. Deshalb steht vorher da, was verloren geht, und man muss den Knopf zwei Sekunden gedrückt halten.“ *2 s halten → Kammer leeren → Zuchtset einsetzen → Tag 1.*
+„Und es geht wieder von vorne los, bei Tag 1.“
 
-**2:20 · Schluss**
-„Ingrid braucht also kein Handy und muss sich nichts merken. Alles, was sie tun muss, steht auf dem Display.“
+**2:00 · Handy verbinden → Übergang zur App**
+„Bis hierhin braucht Ingrid kein Handy. Wer mehr will, sieht hier oben das Handy-Symbol.“ *Handy-Symbol antippen.*
+„Darüber verbindet man das Handy mit einem Code.“ *VERBUNDEN drücken.*
+„Das Symbol verschwindet. Und damit zeigen wir jetzt die App.“ → *Übergabe an die App am MacBook.*
 
-**Bei Zeitnot:** Klima-Blick und Sprache/Kontrast weglassen, dann etwa 1:55. **Bei mehr Zeit (bis 2:30):** in den Einstellungen Hoher Kontrast kurz an- und wieder ausschalten.
+**Bei Zeitnot:** Klima-Blick weglassen, dann etwa 1:55. **Vor einem zweiten Durchlauf:** Zurücksetzen oder Seite neu laden (Handy-Symbol ist dann wieder da).
 
 ## Technik am Tag
 
