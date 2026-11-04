@@ -107,7 +107,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .hum small{font-size:5.4cqw;font-weight:600;margin-left:1.2cqw}
 .humlbl{font-family:var(--f-cond);font-size:3.8cqw;font-weight:600;letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;margin-top:.7cqw}
 
-.alert{width:100%;margin-top:2cqw;border:0;background:transparent;padding:1.2cqw 1.4cqw;border-radius:2cqw;display:flex;flex-direction:column;align-items:center;gap:.6cqw;text-align:center;line-height:1.1}
+.alert{width:100%;margin-top:2cqw;border:0;background:transparent;padding:1.2cqw 1.4cqw;border-radius:2cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6cqw;text-align:center;line-height:1.1}
 .alert .t{display:flex;align-items:center;gap:2cqw;font-weight:700;font-size:7cqw}
 .alert .t svg{flex:none;width:7.6cqw;height:7.6cqw}
 .alert .a{font-size:4.6cqw;max-width:72cqw;font-weight:600;color:var(--ink-soft)}
@@ -118,13 +118,18 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .alert:not(.warn) .t{font-size:8.4cqw}
 .alert:not(.warn) .t svg{width:8.6cqw;height:8.6cqw}
 /* Einstellungen und Admin: Balken ca. 1,5× so hoch, Schrift größer (Display wird mit dem Finger bedient) */
-.panel-settings .opt,.panel-admin .opt,.panel-sort .opt,.panel-pick .opt{min-height:19.5cqw;padding:3.6cqw 3.6cqw;font-size:5.6cqw;gap:3.2cqw}
-.panel-settings .opt svg,.panel-admin .opt svg,.panel-sort .opt svg,.panel-pick .opt svg{width:8cqw;height:8cqw}
-.panel-settings .opt small,.panel-admin .opt small,.panel-sort .opt small,.panel-pick .opt small{font-size:.85em}
-.panel-settings .bigbtn,.panel-sort .bigbtn,.panel-link .bigbtn{min-height:16cqw;font-size:5.4cqw}
+.panel-settings .opt,.panel-admin .opt,.panel-look .opt,.panel-lang .opt,.panel-sort .opt,.panel-pick .opt{min-height:19.5cqw;padding:3.6cqw 3.6cqw;font-size:5.6cqw;gap:3.2cqw}
+.panel-settings .opt svg,.panel-admin .opt svg,.panel-look .opt svg,.panel-lang .opt svg,.panel-sort .opt svg,.panel-pick .opt svg{width:8cqw;height:8cqw}
+.panel-settings .opt small,.panel-admin .opt small,.panel-look .opt small,.panel-lang .opt small,.panel-sort .opt small,.panel-pick .opt small{font-size:.85em}
+.panel-settings .bigbtn,.panel-look .bigbtn,.panel-lang .bigbtn,.panel-sort .bigbtn,.panel-link .bigbtn{min-height:16cqw;font-size:5.4cqw}
 .panel-sort p,.panel-pick p,.panel-link p,.panel-link ol,.panel-info p{font-size:5cqw}
 .panel-link .rec,.panel-confirm .rec{font-size:6cqw;padding:3.6cqw;min-height:16cqw}
 .panel-confirm ul{font-size:5cqw}
+/* Neu ansetzen: Kammer leeren / Zuchtset einsetzen in Einstellungs-Größe, Knöpfe untereinander */
+.panel-new p{font-size:5.2cqw}
+.panel-new .steps{font-size:4.6cqw}
+.panel-new .btnrow{flex-direction:column;align-items:stretch;gap:3.6cqw}
+.panel-new .bigbtn{flex:none;width:100%;min-height:16cqw;font-size:5.4cqw}
 .panel-link .rec svg{width:8cqw;height:8cqw}
 .panel-info .spec{font-size:5.2cqw}
 .btnrow.wrap{flex-direction:column;align-items:stretch;align-self:stretch;width:100%;gap:3.6cqw;margin-top:3cqw}
@@ -235,6 +240,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .swatch{flex:none;width:8cqw;height:8cqw;border-radius:1.8cqw;border:.5cqw solid #fff;box-shadow:0 0 0 .3cqw rgba(0,0,0,.35)}
 .swatch.std{background:radial-gradient(circle at 40% 35%,#2f45f5,#1525c4 60%,#08106c)}
 .swatch.hc{background:#000}
+.swatch.custom{background:conic-gradient(#e74c3c,#f1c40f,#2ecc71,#3498db,#9b59b6,#e74c3c)}
 .opt[disabled]{opacity:.5}
 .opt[aria-checked="true"]{border-color:var(--ink);background:var(--ink);color:var(--lcd-mid)}
 .g3 .opt{justify-content:center;text-align:center}
@@ -560,7 +566,7 @@ function syncLog(list){
 function render(){
   const d=new Date(), T=tgt(), list=alerts(), top=list[0], sev=top?.sev||"ok";
   syncLog(list);
-  $("#screen").classList.toggle("standby",!S.power&&!S.rest);
+  $("#screen").classList.toggle("standby",!S.power&&!S.rest&&!open);  // offenes Fenster nicht abdunkeln
   $("#screen").classList.toggle("away",S.power&&!!S.away);
   $("#screen").classList.toggle("hc",S.theme==="hc");
   const showVal=S.power&&!demo.sensor, pr=progress(), v=pr.p*360, tk=pr.tick*360;
@@ -951,10 +957,12 @@ function langPanel(){
 /* Darstellung: Standard (Blau) oder Hoher Kontrast (Schwarz). Wirkt sofort, damit man es vergleichen kann. */
 function lookPanel(){
   const o=(k,n,d)=>`<button class="opt" role="radio" data-theme="${k}" aria-checked="${(S.theme||"std")===k}"><span class="swatch ${k}" aria-hidden="true"></span><div>${n}<small>${d}</small></div></button>`;
-  panel("look","Darstellung",`<div class="list">${o("std","Standard (Blau)","Ruhiger blauer Hintergrund")}${o("hc","Hoher Kontrast","Schwarzer Hintergrund, alle Texte weiß")}</div>
+  panel("look","Darstellung",`<div class="list">${o("std","Standard (Blau)","Ruhiger blauer Hintergrund")}${o("hc","Hoher Kontrast","Schwarzer Hintergrund, alle Texte weiß")}<button class="opt" data-custom><span class="swatch custom" aria-hidden="true"></span><div>Individuell<small>Such dir deinen eigenen Ton aus</small></div></button></div>
     <p>Warnungen bleiben immer an Dreieck, „!“ und Text erkennbar, nicht nur an der Farbe.</p>
     <button class="bigbtn out" data-x>‹ Einstellungen</button>`,p=>{
     p.querySelectorAll("[data-theme]").forEach(b=>b.onclick=()=>{S.theme=b.dataset.theme;save();render();lookPanel();msg(S.theme==="hc"?"Hoher Kontrast an":"Standard-Farben")});
+    // Individuell: nur gezeigt, im Prototyp ohne Funktion
+    p.querySelector("[data-custom]").onclick=()=>msg("Individuell: im Prototyp noch nicht verfügbar");
     p.querySelector("[data-x]").onclick=settingsPanel;p.querySelector("[data-back]").onclick=settingsPanel});
 }
 /* Fehler melden: eine Kategorie antippen, fertig. Der Bericht geht mit dem nächsten Stand an die App. */
