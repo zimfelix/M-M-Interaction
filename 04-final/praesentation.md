@@ -14,43 +14,48 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 
 ## Bedienfeld · Spickzettel für 2:00
 
-Auf dem Bildschirm ist nur das Bedienfeld (`localhost:8000/vorschau-praesentation.html` im Vollbild oder der Hauptlink). Erzählt wird aus Sicht von **Ingrid**: Lesebrille, zitternde Hände, misstraut Technik. **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**. Start: Austernpilz frisch angesetzt, **15 Tage bis zur Ernte**.
+**Fest: 2 Minuten** (2026-11-04). Auf dem Bildschirm ist nur das Bedienfeld (`localhost:8000/vorschau-praesentation.html` im Vollbild oder der Hauptlink). Erzählt wird aus Sicht von **Ingrid**: Lesebrille, zitternde Hände, misstraut Technik. **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**. Start: Austernpilz frisch angesetzt, **15 Tage bis zur Ernte**.
 
 ```
-0:00  OBERFLÄCHE + KLIMA ──────── ein Blick genügt, Box regelt selbst
-0:35  CASE 1 Tank leer ─────────── Zahnrad (Settings) → Admin → Warnung → MELDUNGEN
-1:15  CASE 2 Pilze fertig ──────── Zeitraffer → „Geerntet? Neue Sorte“
-1:45  CASE 3 Handy verbinden ───── Übergabe an Anlin
+0:00  OBERFLÄCHE + KLIMA ─── ein Blick · Rahmen = drückbar, Trennstrich = Text
+0:30  ZAHNRAD ────────────── Kontrast + Urlaub (je 1 Satz) → Admin-Modus
+0:45  CASE 1 Tank leer ───── Blinken → Handlung → Wasser → AUFGEFÜLLT
+1:15  CASE 2 Ernte ───────── Zeitraffer = Gamification → Neue Sorte → Starten
+1:45  CASE 3 Handy ───────── kein Handy nötig → Übergabe an Anlin
 2:00
 ```
 
-Die **drei Kacheln** (KLIMA · MELDUNGEN · SORTEN) und die **Einstellungen** bekommen keinen eigenen Rundgang. Jede kommt dort vor, wo sie im Ablauf ohnehin gebraucht wird.
+**Leitsatz:** Jede Stelle zeigt *eine* Idee aus der Vorlesung. Die Kacheln und Einstellungen bekommen keinen eigenen Rundgang, sie kommen dort vor, wo der Ablauf sie braucht. Der **Admin-Modus ist kein Use Case**, sondern das Werkzeug für die Vorführung; so ansagen.
 
-### 0:00 · Oberfläche + KLIMA (35 s)
-- **Ingrid** will pflegen, ohne sich etwas zu merken.
-- **Ein Blick:** grüner Haken „Alles gut“ = nichts zu tun. *(Ein Zustand, ein Satz · Folie 16–17)*
-- **Ring** = Tage bis zur Ernte. **3 große Kacheln**: trifft man auch mit zitternder Hand. **Nie nur Farbe**: immer Form + Farbe + Text. *(Fitts · 50, Barrierefreiheit · 23, 63)*
-- *Kachel KLIMA:* vier Zeilen, alle **AUTO**, mit Bedingung (Nebler an unter 70 % Feuchte …). Ingrid sieht, *dass* und *wann* geregelt wird, kann aber nichts verstellen. Licht: Zeitplan, und der **beige Kreis** zeigt den echten Taster, mit dem sie umschaltet (Mapping · 77–79). *(Gulf of Evaluation · 59, Modusfehler · 60)* *Zurück.*
+### 0:00 · Oberfläche + KLIMA (30 s)
+- **Sagen:** „Ingrid will pflegen, ohne sich etwas zu merken. **Ein Blick genügt:** grüner Haken, ‚Alles gut‘, nichts zu tun.“ *(Wahrnehmen → Denken → Handeln · 16–17)*
+- „**Nie nur Farbe**, immer Form + Farbe + Text.“ *(Rot-Grün-Schwäche · 23, präattentiv · 26–27)* „Drei große Kacheln trifft man auch mit zitternder Hand.“ *(Fitts · 50)*
+- *KLIMA antippen:* „**Alles mit Rahmen kann man drücken, alles mit Trennstrich ist nur Text.**“ *(Affordance · 72–73, Konsistenz · 80)* „Ingrid sieht, *dass* und *wann* die Box regelt, kann aber nichts verstellen.“ *(Gulf of Evaluation · 59, Modusfehler · 60)* Der **beige Kreis** ist der echte Taster an der Box. *(Mapping · 77–79)* *Zurück.*
 
-### 0:35 · Case 1: Tank leer + MELDUNGEN (40 s)
-*Zahnrad:* „Selten Gebrauchtes liegt hier: Urlaub, Sprache, Kontrast und Hilfe mit der roten Flagge. Ganz unten der Admin-Modus für die Vorführung.“ *Admin-Modus → **Wassertank leer***
-- **Standby:** Display schwarz, kein Text, **nur ein oranger Punkt blinkt**. Blinken sieht man, bevor man liest, auch im Augenwinkel. *(präattentiv · 27)*
-- *Antippen* → Blinken aus, normale Ansicht mit **Problem + Handlung + Knopfwort**: „Tank auffüllen, dann AUFGEFÜLLT drücken.“ Kein Fachwort, keine Schuld. *(83–85)*
-- **Haptisch:** oben Wasser eingießen bis zur Linie im Sichtfenster; Sichtfenster = Balken auf dem Display. *(Mapping · 77–79)* *AUFGEFÜLLT* → sofort Rückmeldung. *(Feedback · 82)*
-- *Kachel MELDUNGEN:* Der Fehler steht jetzt **grün als „behoben“** im Verlauf. Ingrid sieht, dass alles erledigt ist. *Zurück.*
+### 0:30 · Zahnrad: Kontrast + Urlaub (15 s)
+- „Selten Gebrauchtes liegt hier, nicht auf dem Startbild.“ *(minimalist design · 130)*
+- **Darstellung:** „Hoher Kontrast, schwarz und weiß, für schwache Augen. Schon der Standard hat mindestens 4,5 : 1.“ *(Kontrast · 66, Sehkraft · 133)*
+- **Urlaub:** „Ein Tipp, dann spart die Box Wasser und Meldungen gehen aufs Handy. Oben steht dauerhaft **URLAUB ✕**: Man sieht immer, in welchem Modus die Box ist.“ *(Modusfehler · 60, user control · 130)* Nur zeigen, nicht einschalten.
+- „Ganz unten der **Admin-Modus, nur für die Vorführung**.“ → *Wassertank leer*
 
-### 1:15 · Case 2: Pilze fertig → SORTEN (30 s)
-*Zahnrad → Admin-Modus → **Tag 6 der Fruchtung · Ernte fertig***
-- **5 s Zeitraffer:** Ring läuft voll, Tage zählen 15 → 0, der Pilz wächst sichtbar (klein → mittel → groß). Das ist die leichte Gamification: Fortschritt sehen, ohne Punkte oder Spielfigur. *(Progression, Flow · G 10, G 12)*
-- Der Ring ist voll, oben steht weiter **„Alles gut“**, darunter der Knopf **„Geerntet? Neue Sorte“**: ein Hinweis, keine Warnung, denn nichts ist kaputt. → *antippen* → öffnet **direkt die Sortenwahl**.
-- *Sorte wählen* (Schwierigkeit als 1–3 kleine Pilze wie ein Level, Dauer in Tagen): Antippen zeigt die **Detailseite** (Schwierigkeit, Dauer, Temperatur, Feuchte) → **Neu ansetzen**. Die Kammer ist nach der Ernte schon leer, also **keine Rückfrage**, nur noch **„Sicher?“ → Starten**. Wer erst mal keinen neuen Pilz will, wählt **Kleine Pause einlegen** (oben steht dann „Kein Pilz“).
-- → **Tag 1, es geht von vorn los.** (Mitten im Wachstum käme dagegen die Warnung, was verloren geht, und 2 s gedrückt halten · Murphy 61, Fehler vermeiden 130.)
+### 0:45 · Case 1: Tank leer (30 s)
+- **Standby:** Display schwarz, nur ein **oranger Punkt blinkt**. „Blinken sieht man, bevor man liest, auch im Augenwinkel.“ *(präattentiv · 27)*
+- *Antippen* → **Problem + Handlung + Knopfwort**: „Tank auffüllen, dann AUFGEFÜLLT drücken.“ „Kein Fachwort, keine Schuld.“ *(Fehlermeldungen · 83–85)*
+- „Wasser oben eingießen bis zur Linie im Sichtfenster; das Sichtfenster ist der Balken auf dem Display.“ *(Mapping · 77–79)* *AUFGEFÜLLT* → sofort Rückmeldung. *(Feedback · 82)*
+- *Optional (+10 s):* MELDUNGEN zeigt den Fehler grün als „behoben“.
+
+### 1:15 · Case 2: Ernte + neue Sorte (30 s)
+*Zahnrad → Admin-Modus → **Pilze fertig***
+- **Zeitraffer:** Ring läuft voll, 15 → 0 Tage, der Pilz wächst in drei Stufen. „**Gamification ohne Spielfigur:** Ingrid sieht ihren Fortschritt, hat ein klares Ziel und bekommt sofort Rückmeldung.“ *(Progression · G 10, Flow · G 12)*
+- „Oben steht weiter ‚Alles gut‘: ein Hinweis, keine Warnung, denn nichts ist kaputt.“ → *Geerntet? Neue Sorte*
+- *Sorte antippen:* „Schwierigkeit als 1–3 Pilze **wie ein Level**.“ *(Levels · G 10)* Detailseite → *Neu ansetzen* → **„Sicher?“** → *Starten* → **Tag 1**.
+- „Die Kammer ist schon leer, also keine Rückfrage. Mitten im Wachstum müsste man 2 s gedrückt halten.“ *(Murphy · 61, Fehler vermeiden · 130)*
 
 ### 1:45 · Case 3: Handy verbinden (15 s)
 - „Bis hier braucht Ingrid **kein Handy**.“ *Handy-Symbol* → Code → *VERBUNDEN* → **Symbol verschwindet**.
-- „Wer mehr will, nutzt die App.“ → **Übergabe an Anlin.**
+- „Wer mehr will, nutzt die App: gleiche Wörter, gleiche Farben.“ *(äußere Konsistenz · 80)* → **Übergabe an Anlin.**
 
-**Zu lang?** Zuerst die MELDUNGEN-Kachel weglassen (−10 s), dann bei der Oberfläche nur „ein Blick“ und „nie nur Farbe“ sagen. **Zweiter Durchlauf:** Zurücksetzen oder neu laden (das Handy-Symbol ist dann wieder da).
+**Zu lang?** Zuerst MELDUNGEN weglassen (falls drin), dann Urlaub (−10 s), dann bei der Oberfläche nur „ein Blick“ und „Rahmen = drückbar“ sagen. **Zweiter Durchlauf:** Zurücksetzen oder neu laden (das Handy-Symbol ist dann wieder da).
 
 ## Technik am Tag
 
@@ -77,5 +82,5 @@ Die **drei Kacheln** (KLIMA · MELDUNGEN · SORTEN) und die **Einstellungen** be
 | App-Funktion fehlt noch | als Mockup zeigen und so benennen |
 | Frage nach Hilfe/Anleitung (Nielsen Nr. 10) | Lücke offen benennen, Vorschlag Karte an der Box |
 | Frage: Warum war das Display schwarz? | Standby in der Box: Bei einem Problem leuchtet nur der orange Punkt und blinkt (Helligkeit + Blinken auf Schwarz, auch bei Rot-Grün-Schwäche erkennbar); Antippen zeigt, was zu tun ist (E22). Einen Ruhemodus zum Einstellen gibt es nicht. |
-| Frage zur Taster-Kopplung (B) | Stand vom 04.11. nennen, siehe [`entscheidungen-folien.md`](entscheidungen-folien.md#offen-für-mittwoch-0411) |
+| Frage: Warum schaltet der Taster nicht auch das Display? | Der Taster hat **eine feste Bedeutung: Licht an/aus** (kein Modus, Ergebnis sichtbar durchs Plexiglas, Folie 60 und 72–73). Einen Ruhemodus gibt es nicht. |
 | Frage nach HCI-Grundprinzipien | Norman: Affordance (Taster), Mapping (Sichtfenster), Feedback (AUFGEFÜLLT); Nielsen-Check 9 von 10 ([Nielsen-Check](entscheidungen-folien.md#nielsen-check-folie-130)) |
