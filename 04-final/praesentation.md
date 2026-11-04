@@ -39,6 +39,7 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 ```
 
 - **iPhone in der Box (Vollbild):** auf dem Mac `sh 01-konzept/bedienfeld/iphone-server.sh`, die angezeigte Adresse auf dem iPhone in Safari öffnen → Teilen → „Zum Home-Bildschirm“ (Als Web-App öffnen) → Symbol „Growbox“ antippen. Am besten vorher zu Hause einrichten und den Mac in der Uni mit dem **iPhone-Hotspot** verbinden (Uni-WLAN trennt Geräte oft voneinander). Optional mit Geführtem Zugriff sperren.
+- **Vollbild vor App-Sync (04.11.):** Das iPhone in der Box ist nicht mit der App verbunden. Szene 6 (Push, „läuft noch 60 s (vom Handy)“) deshalb am **Bedienfeld am Mac über den claude.ai-Link** zeigen und vorher dort mit der App koppeln (Handy-Symbol → Code).
 - **Bedienfeld am Mac:** https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi. Ohne Internet: `http://localhost:8000/index.html`, solange `iphone-server.sh` läuft.
 - **Vorher:** Zahnrad → Admin-Modus → **Zurücksetzen**, auf Mac und iPhone.
 - **Demo Display aus:** Zahnrad → Admin-Modus → **„Display aus · Warnung“**: Display wird schwarz, nach 4 s blinkt nur der Warnpunkt. Antippen zeigt „Wasser leer“. Danach Ruhemodus unter Einstellungen wieder ausschalten oder Zurücksetzen.
