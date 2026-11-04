@@ -122,6 +122,22 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .panel-settings .bigbtn{min-height:16cqw;font-size:5.4cqw}
 /* Hilfe: rote Flagge, damit man sie sofort findet */
 .help-flag{color:#ff5a5a}
+/* Klima und Meldungen: gleiche Größe wie die Einstellungen */
+.panel-clima .opt{min-height:19.5cqw;padding:3.6cqw 3.6cqw;font-size:5.6cqw;gap:3.2cqw;cursor:default}
+.panel-clima .opt svg{flex:none;width:8cqw;height:8cqw}
+.panel-clima .opt small{font-size:.85em;color:var(--ink)}
+.panel-clima .auto{display:inline-block;vertical-align:middle;font-family:var(--f-cond);font-weight:700;font-size:4.2cqw;letter-spacing:.06em;border:.4cqw solid var(--ok);color:var(--ok);border-radius:1.4cqw;padding:.2cqw 1.4cqw;margin-left:1.4cqw}
+.panel-clima p,.panel-alerts p{font-size:5cqw}
+.panel-alerts .rec{font-size:6cqw;padding:3.6cqw;min-height:16cqw}
+.panel-alerts .rec svg{width:8cqw;height:8cqw}
+.panel-alerts .item{padding:3.6cqw;min-height:19.5cqw;gap:3.2cqw}
+.panel-alerts .item svg{width:8cqw;height:8cqw}
+.panel-alerts .item b{font-size:5.8cqw}
+.panel-alerts .item span{font-size:5cqw}
+.panel-alerts .item .do{font-size:5cqw;min-height:14cqw}
+.panel-alerts .hist{font-size:5.4cqw;padding:3cqw 0;gap:.8cqw 3cqw}
+.panel-alerts .hist svg{width:7.6cqw;height:7.6cqw}
+.panel-alerts .hist small{font-size:4.8cqw}
 @keyframes blink{50%{opacity:.4}}
 .act{width:100%;margin-top:2cqw;border:.7cqw solid var(--alarm);background:var(--alarm);color:#1a1000;border-radius:3cqw;min-height:14cqw;font-weight:700;font-size:5.4cqw;display:flex;align-items:center;justify-content:center;gap:2.4cqw}
 .act svg{width:6.4cqw;height:6.4cqw}
@@ -728,18 +744,18 @@ const paused=()=>{if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return true}
 /* Automatik sichtbar machen: was die Box gerade selbst tut */
 function nextAir(){const d=new Date(), m=d.getHours()*60+d.getMinutes();return 30-(m%30)}
 function lightUntil(){const d=new Date(), m=d.getHours()*60+d.getMinutes(), on=m>=480&&m<1200;return {on, at:on?"20:00":"8:00"}}
+/* Klima (2026-11-04): je Gerät ein Balken wie in den Einstellungen, nur Name, AUTO und 1–3 Wörter, was es tut.
+   Keine Live-Zustände mehr, damit Ingrid möglichst wenig lesen muss. */
 function climaRows(){
-  const T=tgt(), D=sim.dev, rh=Math.round(sim.rh), t=sim.t.toFixed(1).replace(".",","), lu=lightUntil();
-  const row=(ic,name,state,btn)=>`<div class="crow">${ic}<div><b>${name}</b><span><span class="auto">AUTO</span>${state}</span></div>${btn||"<span></span>"}</div>`;
-  const left=k=>Math.max(0,Math.ceil((sim[k]-Date.now())/1000));
-  return row(IC.air,"Lüfter",D.luefter?(left("burst")?`läuft noch ${left("burst")} s (vom Handy)`:"läuft gerade (frische Luft)"):`nächstes Lüften in ${nextAir()} Min`,"")
-    +row(IC.rh,"Nebler",D.nebel?(left("mist")?`läuft noch ${left("mist")} s (vom Handy)`:`läuft gerade (${rh} → ${T.rh[0]} %)`):`aus · Feuchte ${rh} % im Bereich`,sim.tank>0?"":"<span>Tank leer</span>")
-    +row(IC.temp,"Heizung",D.heizung?`heizt (${t} → ${T.t[0]+1} °C)`:`aus · ${t} °C im Bereich ${T.t[0]}–${T.t[1]}`+(sim.t>T.t[1]?" (zu warm: kühlen geht nur durch Umstellen)":""),"")
-    +row(IC.bulb,"Licht",T.light?(sim.lightOv?`${D.licht?"an":"aus"} von Hand, ab ${lu.at} wieder Auto`:`${D.licht?"an":"aus"} bis ${lu.at}`):"aus · beim Durchwachsen bleibt es dunkel",'<span class="taster" aria-label="Licht schalten mit dem Taster unter dem Display">per Taster<br>unten ↓</span>');
+  const row=(ic,name,what)=>`<div class="opt crow2">${ic}<div>${name} <span class="auto">AUTO</span><small>${what}</small></div></div>`;
+  return `<div class="list" style="flex:none;overflow:visible">`
+    +row(IC.air,"Lüfter","frische Luft")
+    +row(IC.rh,"Nebler","hält feucht")
+    +row(IC.temp,"Heizung","hält warm")
+    +row(IC.bulb,"Licht","Tag und Nacht")+`</div>`;
 }
 function climaPanel(){
-  panel("clima","Klima · läuft automatisch",`<p>Die Box regelt Luft, Feuchte, Wärme und Licht selbst. Eingreifen musst du nur, wenn eine Meldung kommt.</p>
-    <p>Licht an oder aus: <b>Taster unter dem Display</b> drücken.</p>
+  panel("clima","Klima",`<p>Die Box regelt Luft, Feuchte, Wärme und Licht selbst.</p>
     <div id="climaRows">${climaRows()}</div>`,p=>{
     p.style.overflowY="auto";
   });

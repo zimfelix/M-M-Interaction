@@ -30,7 +30,7 @@ Die **drei Kacheln** (KLIMA · MELDUNGEN · SORTEN) und die **Einstellungen** be
 - **Ingrid** will pflegen, ohne sich etwas zu merken.
 - **Ein Blick:** grüner Haken „Alles gut“ = nichts zu tun. *(Ein Zustand, ein Satz · Folie 16–17)*
 - **Ring** = Tage bis zur Ernte. **3 große Kacheln**: trifft man auch mit zitternder Hand. **Nie nur Farbe**: immer Form + Farbe + Text. *(Fitts · 50, Barrierefreiheit · 23, 63)*
-- *Kachel KLIMA:* Lüfter, Nebler, Heizung, Licht laufen auf **AUTO**. Ingrid sieht, *dass* geregelt wird, kann aber nichts verstellen. Licht nur über den echten Taster. *(Gulf of Evaluation · 59, Modusfehler · 60)* *Zurück.*
+- *Kachel KLIMA:* vier große Balken, alle **AUTO**, je 1–3 Wörter (frische Luft, hält feucht …). Ingrid sieht, *dass* geregelt wird, kann aber nichts verstellen. Licht schaltet sie nur über den echten Taster (mündlich sagen, steht nicht mehr im Fenster). *(Gulf of Evaluation · 59, Modusfehler · 60)* *Zurück.*
 
 ### 0:35 · Case 1: Tank leer + MELDUNGEN (40 s)
 *Zahnrad:* „Selten Gebrauchtes liegt hier: Urlaub, Sprache, Kontrast und Hilfe mit der roten Flagge. Ganz unten der Admin-Modus für die Vorführung.“ *Admin-Modus → **Wassertank leer***
