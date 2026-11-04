@@ -131,7 +131,13 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .panel-new .btnrow{flex-direction:column;align-items:stretch;gap:3.6cqw}
 .panel-new .bigbtn{flex:none;width:100%;min-height:16cqw;font-size:5.4cqw}
 .panel-link .rec svg{width:8cqw;height:8cqw}
-.panel-info .spec{font-size:5.2cqw}
+.panel-info .spec{font-size:5.2cqw;gap:0;margin-top:1cqw}
+.panel-info .spec dt{padding-right:3cqw!important}
+/* Sorte: jede Eigenschaft eine Zeile mit Trennstrich (nur Text, nicht drückbar) */
+.panel-info .spec dt,.panel-info .spec dd{margin:0;padding:3.2cqw 0;border-bottom:.3cqw solid var(--ink-dim)}
+.panel-info .spec dd small{display:block;font-weight:500;font-size:.85em;margin-top:.8cqw}
+.panel-info .spec dd .dots{display:inline-flex}
+.panel-info > p{margin-top:3cqw}
 .btnrow.wrap{flex-direction:column;align-items:stretch;align-self:stretch;width:100%;gap:3.6cqw;margin-top:3cqw}
 .btnrow.wrap .bigbtn{flex:none;width:100%;min-height:16cqw;font-size:5.4cqw}
 .dots{display:inline-flex;gap:.6cqw;align-items:center;vertical-align:middle;margin-right:1cqw}
@@ -714,8 +720,7 @@ function infoPanel(k,plant){
   panel("info",sp.name,`
     <dl class="spec">
       <dt>Schwierigkeit</dt><dd>${inf.diff?`<span class="dots" aria-hidden="true">${dotsHtml(inf.diff)}</span> `:""}${DIFF[inf.diff]}</dd>
-      <dt>Dauer</dt><dd>ca. ${toHarvest(k)} Tage bis zur Ernte</dd>
-      <dt></dt><dd style="font-weight:500">${P.kol.days} Tage durchwachsen + ${P.frucht.days} Tage fruchten</dd>
+      <dt>Dauer</dt><dd>ca. ${toHarvest(k)} Tage bis zur Ernte<small>${P.kol.days} Tage durchwachsen + ${P.frucht.days} Tage fruchten</small></dd>
       <dt>Temperatur</dt><dd>${P.frucht.t[0]}–${P.frucht.t[1]} °C</dd>
       <dt>Luftfeuchte</dt><dd>${P.frucht.rh[0]}–${P.frucht.rh[1]} %</dd>
     </dl>
