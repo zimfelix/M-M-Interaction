@@ -49,7 +49,7 @@ Folge für den Bau: Was der Mensch tun muss, muss gut erreichbar sein. **Wassert
 ## Offen
 
 - [ ] **Aufstellort:** Wo steht die Box (Küche, Regal)? Freier Zugang von vorn und zum Tank, Lüftungsschlitze frei, keine Heizung oder Sonne, Display gut sichtbar.
-- [ ] **Mittwoch 04.11. entscheiden:** **A** Warnung zusätzlich als physisches Licht an der Box (falls das Display aus ist oder ausfällt) oder nur Display + App? **B** Taster schaltet Licht **und** Display gemeinsam an/aus, Warnung bleibt unabhängig sichtbar? Details: [`04-final/entscheidungen-folien.md`](04-final/entscheidungen-folien.md#offen-für-mittwoch-0411)
+- [x] **04.11. entschieden:** **A** kein physisches Warnlicht (Warnpunkt im Standby genügt), **B** Taster bleibt nur Licht, kein Ruhemodus. Details: [`04-final/entscheidungen-folien.md`](04-final/entscheidungen-folien.md#entschieden-am-0411-warnlicht-und-taster)
 - [ ] **Pilz als Status:** Das Pilz-Gesicht im Ring zeigt den Zustand schon (froh/besorgt/gestresst). Wie wird deutlicher, dass „alles easy läuft“?
 - [ ] **Farben 3D-Druck:** Rahmen schwarz oder grau, Variante A oder B ([Skizze](02-box-bau/README.md#5--farbvarianten-3d-druck)). Fest: Handybox schwarz glänzend; Taster und Griffe beige; Orange nur für Warnungen.
 - [ ] Wer macht das Backend, und wird der Entwurf in `03-software` genutzt?
