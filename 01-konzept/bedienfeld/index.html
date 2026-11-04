@@ -113,6 +113,15 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .alert.warn .a{color:var(--ink)}
 .alert .a b{color:var(--ink)}
 .alert .a.big{font-size:5.4cqw}
+.alert:not(.warn) .t{font-size:8.4cqw}
+.alert:not(.warn) .t svg{width:8.6cqw;height:8.6cqw}
+/* Einstellungen und Admin: Balken ca. 1,5× so hoch, Schrift größer (Display wird mit dem Finger bedient) */
+.panel-settings .opt,.panel-admin .opt{min-height:19.5cqw;padding:3.6cqw 3.6cqw;font-size:5.6cqw;gap:3.2cqw}
+.panel-settings .opt svg,.panel-admin .opt svg{width:8cqw;height:8cqw}
+.panel-settings .opt small,.panel-admin .opt small{font-size:.85em}
+.panel-settings .bigbtn{min-height:16cqw;font-size:5.4cqw}
+/* Hilfe: rote Flagge, damit man sie sofort findet */
+.help-flag{color:#ff5a5a}
 @keyframes blink{50%{opacity:.4}}
 .act{width:100%;margin-top:2cqw;border:.7cqw solid var(--alarm);background:var(--alarm);color:#1a1000;border-radius:3cqw;min-height:14cqw;font-weight:700;font-size:5.4cqw;display:flex;align-items:center;justify-content:center;gap:2.4cqw}
 .act svg{width:6.4cqw;height:6.4cqw}
@@ -265,6 +274,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   .humlbl{font-size:4.2cqw}
   .alert{margin-top:3cqw;min-height:20cqw}
   .alert .t{font-size:7.6cqw}
+  .alert:not(.warn) .t{font-size:9cqw}
   .alert .a{font-size:4.8cqw;max-width:84cqw}
   .mini{gap:5cqw;margin-top:3cqw}
   .sv{font-size:5.2cqw}
@@ -536,8 +546,8 @@ function render(){
   if(key!==lastAlert){lastAlert=key;const el=$("#alert");
     if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neu ansetzen fortsetzen: SORTEN.</span>`}
     else if(awayQuiet){el.className="alert";el.innerHTML=`<span class="t">${IC.away}Urlaub</span><span class="a">Box spart Wasser · Meldungen gehen aufs Handy</span>`}
-    else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a big">Klima regelt sich automatisch.</span>`}
-    else if(top.sev==="info"){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span><span class="a big">Klima regelt sich automatisch.</span>`}
+    else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span>`}
+    else if(top.sev==="info"){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span>`}
     else{el.className="alert warn";el.innerHTML=`<span class="t">${IC.warn}${top.t}</span><span class="a">${top.a}</span>`}
   }
   // Pausiert: ein Tipp macht das Beenden rückgängig (Fehlertoleranz)
@@ -579,7 +589,7 @@ let open=null, panelKey="";
 function closePanel(){open=null;panelKey="";$("#panelHost").innerHTML=""}
 function panel(name,title,html,bind){
   open=name;
-  $("#panelHost").innerHTML=`<div class="panel" role="dialog" aria-label="${title}"><h2>${title}<button class="back" data-back>‹ Zurück</button></h2>${html}</div>`;
+  $("#panelHost").innerHTML=`<div class="panel panel-${name}" role="dialog" aria-label="${title}"><h2>${title}<button class="back" data-back>‹ Zurück</button></h2>${html}</div>`;
   const p=$("#panelHost .panel"); p.querySelector("[data-back]").onclick=closePanel; bind&&bind(p);
 }
 function alertPanel(refresh){
@@ -829,16 +839,13 @@ function simHarvest(){
 /* Admin-Modus für die Präsentation (2026-11-04): genau die zwei Fälle der Vorführung, dazu Zurücksetzen.
    Die übrigen Fehler, automatischen Vorführungen, Tag +1, Taster und Messwerte sind im Code noch da, aber nicht mehr erreichbar. */
 function demoPanel(){
-  panel("admin","Admin-Modus",`<p>Nur für die Vorführung, gehört nicht zur normalen Bedienung.</p>
-    <div class="lbl">1 · Tank leer</div>
-    <p>Display geht aus, nur der Warnpunkt leuchtet. Antippen zeigt die Meldung, AUFGEFÜLLT behebt sie.</p>
-    <div class="grid g2"><button class="opt" role="switch" data-f="tank" aria-checked="${demo.tank}">Wassertank leer</button></div>
-    <div class="lbl">2 · Pilze fertig</div>
-    <p>GEERNTET drücken, dann Kachel SORTEN → Neu ansetzen.</p>
-    <div class="grid g2"><button class="opt" role="switch" data-h aria-checked="${demo.harvest}">Ernte fertig</button></div>
-    <div class="lbl">Vor der Vorführung</div>
-    <div class="btnrow wrap" style="margin-top:0"><button class="bigbtn out" data-reset>Zurücksetzen</button></div>`,p=>{
-    p.style.overflowY="auto";
+  const RESET_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/></svg>';
+  const SHROOM_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M3 12.5a9 7.5 0 0 1 18 0z"/><path d="M10 12.5V20h4v-7.5"/></svg>';
+  panel("admin","Admin-Modus",`<div class="list">
+      <button class="opt" data-f>${IC.warn}<div>Fehlermeldung<small>Wassertank leer</small></div></button>
+      <button class="opt" data-h>${SHROOM_IC}<div>Ernte fertig<small>Pilze reif, dann neue Sorte</small></div></button>
+      <button class="opt" data-reset>${RESET_IC}<div>Zurücksetzen<small>Start: 15 Tage bis zur Ernte</small></div></button>
+    </div>`,p=>{
     p.querySelector("[data-f]").onclick=()=>simFault("tank");
     p.querySelector("[data-h]").onclick=simHarvest;
     p.querySelector("[data-back]").onclick=settingsPanel;
@@ -849,13 +856,11 @@ function demoPanel(){
 function settingsPanel(){
   const sw=on=>`<span class="tag">${on?"an":"aus"}</span>`;
   panel("settings","Einstellungen",`<div class="list">
-      <button class="opt" data-set="link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><div>Handy verbinden ${sw(S.linked)}<small>Code ${S.code} · Meldungen aufs Handy</small></div></button>
+      <button class="opt" data-set="link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><div>Handy verbinden ${sw(S.linked)}<small>Meldungen aufs Handy</small></div></button>
       <button class="opt" data-set="away">${IC.away}<div>Urlaub ${sw(S.away)}<small>Box spart Wasser, Meldungen aufs Handy</small></div></button>
       <button class="opt" data-set="lang"><span class="flag" aria-hidden="true">🇩🇪</span><div>Sprache<small>Deutsch</small></div></button>
       <button class="opt" data-set="look"><span class="swatch ${S.theme==="hc"?"hc":"std"}" aria-hidden="true"></span><div>Darstellung<small>${S.theme==="hc"?"Hoher Kontrast":"Standard (Blau)"}</small></div></button>
-      <button class="opt" data-set="report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4h11l-1.5 4L15 12H4"/></svg><div>Fehler melden<small>Etwas funktioniert nicht?</small></div></button>
-      <div class="lbl">Über diese Box</div>
-      <p style="margin:0">Growbox 01 · ${esc(SPECIES[S.species].name)} · Prototyp v6</p>
+      <button class="opt" data-set="report"><svg class="help-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4h11l-1.5 4L15 12H4"/></svg><div>Hilfe<small>Etwas funktioniert nicht?</small></div></button>
     </div>
     <button class="bigbtn out" data-set="admin">Admin-Modus</button>`,p=>{
     p.querySelector('[data-set="link"]').onclick=connectPanel;
@@ -885,11 +890,11 @@ function lookPanel(){
 /* Fehler melden: eine Kategorie antippen, fertig. Der Bericht geht mit dem nächsten Stand an die App. */
 function reportPanel(){
   const C=["Display","Taster oder Licht","Wasser oder Tank","Lüfter oder Nebler","Etwas anderes"];
-  panel("report","Fehler melden",`<p>Was funktioniert nicht? Einmal antippen genügt.</p>
+  panel("report","Hilfe",`<p>Was funktioniert nicht? Einmal antippen genügt.</p>
     <div class="list">${C.map(c=>`<button class="opt" data-cat="${c}"><div>${c}</div></button>`).join("")}</div>`,p=>{
     p.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{
       S.reports=(S.reports||[]).concat({at:Date.now(),cat:b.dataset.cat}).slice(-10);save();
-      panel("report","Fehler melden",`<div class="rec ok">${IC.ok}Danke, gemeldet</div>
+      panel("report","Hilfe",`<div class="rec ok">${IC.ok}Danke, gemeldet</div>
         <p>„${esc(b.dataset.cat)}“ · ${when(Date.now())}</p><p>${S.linked?"Die Meldung geht an die App. Dort siehst du, wie es weitergeht.":"Sobald ein Handy verbunden ist, geht die Meldung an die App."}</p>
         <button class="bigbtn" data-x>Fertig</button>`,q=>{q.querySelector("[data-x]").onclick=closePanel});
     });

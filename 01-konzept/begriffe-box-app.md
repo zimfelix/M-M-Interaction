@@ -10,7 +10,7 @@ Wenn die App einen Begriff anders braucht: bitte kurz absprechen und hier änder
 |---|---|---|
 | **Alles gut** | Nichts zu tun. Hinweise wie „Ernte prüfen“ laufen trotzdem darunter. | grüner Kreis mit Haken, Grün `#3fcf7f` |
 | **Warnung** (Titel der Meldung, z. B. „Wasser leer“) | Der Mensch muss etwas tun. | gelbes Warndreieck mit „!“ (ISO 7010); Orange `#e69f00` nur für Dreieck, Rahmen und Knopf, **Text weiß** (Kontrast) |
-| **Klima regelt sich automatisch.** | Satz unter „Alles gut“ | – |
+| ~~Klima regelt sich automatisch.~~ | entfällt (2026-11-04): unter „Alles gut“ steht kein Satz mehr | – |
 | **Pausiert** | Durchgang beendet, neues Zuchtset noch nicht drin | – |
 
 | **Warnpunkt** (Mitte der Kopfzeile) | blinkt langsam, nur wenn eine Warnung ansteht; aus der Ferne sichtbar | oranger Punkt mit „!“ und Leuchten, leuchtet auch allein auf dem dunklen Display (Ruhemodus); sonst dunkler Ring |
@@ -26,7 +26,7 @@ Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 | **Klima** (klein „Auto“, grüner Punkt leuchtet ruhig) | Klima | Lüfter, Nebler, Heizung, Licht mit Kennzeichen **AUTO** und „läuft gerade“ bzw. „nächstes Lüften in X Min“ |
 | **Meldungen** (Zahl = offene Meldungen) | Meldungen | offene Meldungen mit „seit“, Verlauf (Beginn, „behoben um“ / „erledigt um“) |
 | **Sorten** (klein „Neu“) | Sorten | Knopf „Neu ansetzen …“, Sorten ansehen, Notfall „Zurück zu …“ |
-| Zahnrad = **Einstellungen** (oben rechts) | Einstellungen | Handy verbinden, Ruhemodus, Urlaub, **Sprache**, **Darstellung** (Standard / Hoher Kontrast), **Fehler melden**, Über diese Box |
+| Zahnrad = **Einstellungen** (oben rechts) | Einstellungen | Handy verbinden, Urlaub, **Sprache**, **Darstellung** (Standard / Hoher Kontrast), **Hilfe** (rote Flagge, früher „Fehler melden“); Ruhemodus und „Über diese Box“ entfallen (2026-11-04) |
 | **Handy-Symbol** (oben rechts neben dem Zahnrad) | – | Code zum Verbinden, Knopf **VERBUNDEN**; danach ausgeblendet |
 | – | **Advanced Analytics** (nur App) | Verläufe, CO₂, Vergleiche |
 

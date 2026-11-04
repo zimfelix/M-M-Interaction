@@ -33,7 +33,7 @@ Die **drei Kacheln** (KLIMA · MELDUNGEN · SORTEN) und die **Einstellungen** be
 - *Kachel KLIMA:* Lüfter, Nebler, Heizung, Licht laufen auf **AUTO**. Ingrid sieht, *dass* geregelt wird, kann aber nichts verstellen. Licht nur über den echten Taster. *(Gulf of Evaluation · 59, Modusfehler · 60)* *Zurück.*
 
 ### 0:35 · Case 1: Tank leer + MELDUNGEN (40 s)
-*Zahnrad:* „Selten Gebrauchtes liegt hier: Urlaub, Sprache, Kontrast, Fehler melden. Ganz unten der Admin-Modus für die Vorführung.“ *Admin-Modus → **Wassertank leer***
+*Zahnrad:* „Selten Gebrauchtes liegt hier: Urlaub, Sprache, Kontrast und Hilfe mit der roten Flagge. Ganz unten der Admin-Modus für die Vorführung.“ *Admin-Modus → **Wassertank leer***
 - **Standby:** Display schwarz, kein Text, **nur ein oranger Punkt blinkt**. Blinken sieht man, bevor man liest, auch im Augenwinkel. *(präattentiv · 27)*
 - *Antippen* → Blinken aus, normale Ansicht mit **Problem + Handlung + Knopfwort**: „Tank auffüllen, dann AUFGEFÜLLT drücken.“ Kein Fachwort, keine Schuld. *(83–85)*
 - **Haptisch:** oben Wasser eingießen bis zur Linie im Sichtfenster; Sichtfenster = Balken auf dem Display. *(Mapping · 77–79)* *AUFGEFÜLLT* → sofort Rückmeldung. *(Feedback · 82)*
