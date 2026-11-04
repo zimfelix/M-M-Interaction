@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Growbox Display</title>
+<!-- Vom Home-Bildschirm des iPhones gestartet: Vollbild ohne Safari-Leisten (Start: iphone-server.sh) -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Growbox">
+<meta name="theme-color" content="#08106c">
 <style>/* Grundregeln, die claude.ai der Seite mitgibt; ohne sie zeigt das Bedienfeld z. B. ausgeblendete Knöpfe an */
 :root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,8 +78,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .topbar{min-height:12cqw}
 #topCulture{font-size:6.6cqw;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase;line-height:12cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 /* Warnpunkt: leuchtet nur, wenn eine Warnung ansteht – aus der Ferne sichtbar (hell/dunkel + „!“, nicht nur Farbe) */
-.alarm-dot{width:12cqw;height:12cqw;border-radius:50%;border:.6cqw solid var(--ink-dim);display:grid;place-items:center;color:transparent;font-family:var(--f-ui);font-weight:800;font-size:8cqw;line-height:1}
-.alarm-dot.on{background:var(--alarm);border-color:#fff;color:#1a1000;box-shadow:0 0 0 1.2cqw rgba(230,159,0,.35),0 0 5cqw 1.5cqw rgba(230,159,0,.75);animation:alarmblink 1.2s ease-in-out infinite}
+.alarm-dot{width:12cqw;height:12cqw;border-radius:50%;border:.6cqw solid var(--ink-dim);display:grid;place-items:center;line-height:1}
+.alarm-dot.on{background:var(--alarm);border-color:#fff;box-shadow:0 0 0 1.2cqw rgba(230,159,0,.35),0 0 5cqw 1.5cqw rgba(230,159,0,.75);animation:alarmblink 1.2s ease-in-out infinite}
 /* Blinken nur bei Warnung (Folie 27: präattentiv). Langsam (< 3 Blitze/s, WCAG) und nie ganz dunkel */
 @keyframes alarmblink{50%{opacity:.3;box-shadow:none}}
 .topbar .tr{justify-self:end;display:inline-flex;align-items:center;gap:1.6cqw}
@@ -277,7 +283,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
   <div class="device">
     <div class="glass">
       <div class="screen" id="screen">
-        <div class="topbar"><span id="topCulture">Auster</span><span class="alarm-dot" id="alarmDot" role="img" aria-label="Keine Warnung">!</span><span class="tr"><span class="ticon" id="topIcons"></span><button class="admin-btn" id="linkChip" aria-label="Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></button><button class="admin-btn" id="demoChip" aria-label="Einstellungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
+        <div class="topbar"><span id="topCulture">Auster</span><span class="alarm-dot" id="alarmDot" role="img" aria-label="Keine Warnung"></span><span class="tr"><span class="ticon" id="topIcons"></span><button class="admin-btn" id="linkChip" aria-label="Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></button><button class="admin-btn" id="demoChip" aria-label="Einstellungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
 
         <div class="center" id="home">
           <div class="ring">
