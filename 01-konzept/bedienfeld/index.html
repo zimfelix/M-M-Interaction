@@ -126,8 +126,12 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .panel-link .rec{font-size:6cqw;padding:3.6cqw;min-height:16cqw}
 .panel-link .rec svg{width:8cqw;height:8cqw}
 .panel-info .spec{font-size:5.2cqw}
-.panel-info .btnrow{flex-direction:column;align-items:stretch;align-self:stretch;width:100%;margin-top:3cqw}
-.panel-info .btnrow .bigbtn{flex:none;width:100%;min-height:16cqw;font-size:5.4cqw}
+.btnrow.wrap{flex-direction:column;align-items:stretch;align-self:stretch;width:100%;gap:3.6cqw;margin-top:3cqw}
+.btnrow.wrap .bigbtn{flex:none;width:100%;min-height:16cqw;font-size:5.4cqw}
+.dots{display:inline-flex;gap:1.2cqw;align-items:center;vertical-align:middle;margin-right:1cqw}
+.dots .dot{display:block;width:.66em;height:.66em;border-radius:50%;border:.09em solid currentColor;box-sizing:border-box;opacity:.75}
+.dots .dot.on{opacity:1}
+.dots .dot.on{background:currentColor}
 .dots{letter-spacing:.12em;color:var(--ink)}
 /* Hilfe: rote Flagge, damit man sie sofort findet */
 .help-flag{color:#ff5a5a}
@@ -404,7 +408,9 @@ const INFO={
 };
 const DIFF=["Eigene Werte","Leicht","Mittel","Schwer"];
 /* Sortenliste: Schwierigkeit als 3 Punkte (wie auf der Detailseite) und die Dauer, ohne weiteren Text */
-const diffLine=k=>{const d=INFO[k].diff;return (d?`<span class="dots" aria-label="${DIFF[d]}">${"●".repeat(d)}${"○".repeat(3-d)}</span> `:"Eigene Werte · ")+`${toHarvest(k)} Tage`};
+/* Punkte als gezeichnete Kreise statt Schriftzeichen, damit volle und leere auf einer Linie sitzen */
+const dotsHtml=d=>[1,2,3].map(i=>`<i class="dot${i<=d?" on":""}"></i>`).join("");
+const diffLine=k=>{const d=INFO[k].diff;return (d?`<span class="dots" aria-label="${DIFF[d]}">${dotsHtml(d)}</span> `:"Eigene Werte · ")+`${toHarvest(k)} Tage`};
 const toHarvest=k=>{const P=SPECIES[k].p;return P.kol.days+P.frucht.days};
 
 let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v5"))}catch(e){}
@@ -688,7 +694,7 @@ function infoPanel(k){
   const sp=SPECIES[k], P=sp.p, inf=INFO[k], active=k===S.species&&S.power;
   panel("info",sp.name,`
     <dl class="spec">
-      <dt>Schwierigkeit</dt><dd>${inf.diff?`<span class="dots" aria-hidden="true">${"●".repeat(inf.diff)}${"○".repeat(3-inf.diff)}</span> `:""}${DIFF[inf.diff]}</dd>
+      <dt>Schwierigkeit</dt><dd>${inf.diff?`<span class="dots" aria-hidden="true">${dotsHtml(inf.diff)}</span> `:""}${DIFF[inf.diff]}</dd>
       <dt>Dauer</dt><dd>ca. ${toHarvest(k)} Tage bis zur Ernte</dd>
       <dt></dt><dd style="font-weight:500">${P.kol.days} Tage durchwachsen + ${P.frucht.days} Tage fruchten</dd>
       <dt>Temperatur</dt><dd>${P.frucht.t[0]}–${P.frucht.t[1]} °C</dd>
