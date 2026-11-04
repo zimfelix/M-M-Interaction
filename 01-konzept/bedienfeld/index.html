@@ -668,7 +668,7 @@ function newPanel(n,direct){
     <div class="btnrow"><button class="bigbtn out" data-x>Doch nicht · weiterlaufen</button><button class="bigbtn" data-ok>Fertig</button></div>`,p=>{
       p.querySelector("[data-x]").onclick=()=>{delete S.next;resume()};
       p.querySelector("[data-ok]").onclick=()=>{refill();newPanel(2)}});
-  if(n===2) panel("new","Zuchtset einsetzen",`${head}<p>Neues ${esc(SPECIES[next].name)}-Zuchtset einsetzen, Tür und Deckel schließen.</p><p>Die Zeit startet bei <b>Tag 1</b> (Durchwachsen), Ernte in ca. ${toHarvest(next)} Tagen.</p>
+  if(n===2) panel("new",direct?"Sicher?":"Zuchtset einsetzen",(direct?`<p><b>${esc(SPECIES[next].name)}</b> · Tag 1</p>`:`${head}<p>Neues ${esc(SPECIES[next].name)}-Zuchtset einsetzen, Tür und Deckel schließen.</p><p>Die Zeit startet bei <b>Tag 1</b> (Durchwachsen), Ernte in ca. ${toHarvest(next)} Tagen.</p>`)+`
     <button class="bigbtn" data-ok>Starten</button>`,p=>{
       p.querySelector("[data-ok]").onclick=()=>{S.species=next;delete S.next;delete S.rest;S.power=true;S.phase="kol";S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());closePanel();render();msg(`${SPECIES[S.species].name} · Tag 1`)};
       if(direct) p.querySelector("[data-back]").onclick=pickPanel;
