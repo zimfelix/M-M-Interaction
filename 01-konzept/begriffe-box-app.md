@@ -56,7 +56,7 @@ Sorten (lang / kurz in der Kopfzeile): **Austernpilz / Auster**, **Shiitake / Sh
 
 ## Knöpfe (Bestätigungswörter)
 
-Meldungen sagen, was zu tun ist, und nennen das Wort auf dem Knopf in Großbuchstaben, z. B. „Tank auffüllen, dann AUFGEFÜLLT drücken.“
+Meldungen sagen in einer Zeile, was zu tun ist; der Knopf darunter trägt das Wort, z. B. „Wasser leer · Tank im Technikraum auffüllen“ → **AUFGEFÜLLT**.
 
 | Knopf | wann |
 |---|---|

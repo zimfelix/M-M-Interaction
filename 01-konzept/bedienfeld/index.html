@@ -111,7 +111,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .alert .t{display:flex;align-items:center;gap:2cqw;font-weight:700;font-size:7cqw}
 .alert .t svg{flex:none;width:7.6cqw;height:7.6cqw}
 .alert .a{font-size:4.6cqw;max-width:72cqw;font-weight:600;color:var(--ink-soft)}
-.alert.warn{color:var(--ink);background:rgba(230,159,0,.14);box-shadow:0 0 0 .45cqw var(--alarm) inset}
+.alert.warn{color:var(--ink);background:transparent;border-radius:0;border-top:.6cqw solid var(--alarm);border-bottom:.6cqw solid var(--alarm)} /* nur Text: Linien statt Rahmen, drückbar ist der Knopf darunter */
 .alert.warn .a{color:var(--ink)}
 .alert .a b{color:var(--ink)}
 .alert .a.big{font-size:5.4cqw}
@@ -157,7 +157,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .panel-clima p,.panel-alerts p{font-size:5cqw}
 .panel-alerts .rec{font-size:6cqw;padding:3.6cqw;min-height:16cqw}
 .panel-alerts .rec svg{width:8cqw;height:8cqw}
-.panel-alerts .item{padding:3.6cqw;min-height:19.5cqw;gap:3.2cqw}
+.panel-alerts .item{padding:3.6cqw 0;min-height:19.5cqw;gap:3.2cqw}
 .panel-alerts .item svg{width:8cqw;height:8cqw}
 .panel-alerts .item b{font-size:5.8cqw}
 .panel-alerts .item span{font-size:5cqw}
@@ -202,7 +202,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .rec{display:flex;align-items:center;gap:2cqw;border-radius:2.4cqw;padding:2.4cqw 3cqw;font-weight:700;font-size:5cqw}
 .rec svg{flex:none;width:7cqw;height:7cqw}
 .rec.ok{background:transparent;border-radius:0;border-top:.6cqw solid var(--ok);border-bottom:.6cqw solid var(--ok);padding-left:0;padding-right:0} /* nur Text: grüne Linien statt Rahmen (Rahmen = drückbar) */
-.rec.warn{background:rgba(230,159,0,.14);box-shadow:0 0 0 .45cqw var(--alarm) inset;color:var(--ink)}
+.rec.warn{background:transparent;border-radius:0;border-top:.6cqw solid var(--alarm);border-bottom:.6cqw solid var(--alarm);padding-left:0;padding-right:0;color:var(--ink)}
 .bigbtn.out.weak{border-color:var(--ink-dim);color:var(--ink-soft)}
 .hold{position:relative;overflow:hidden;background:transparent;color:var(--ink);touch-action:none;user-select:none;-webkit-user-select:none}
 .hold .fillbar{position:absolute;inset:0;background:rgba(230,159,0,.55);transform:scaleX(var(--p,0));transform-origin:left;pointer-events:none}
@@ -270,12 +270,12 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .bigbtn.out{background:transparent;color:var(--ink)}
 .bigbtn svg{flex:none;width:5.6cqw;height:5.6cqw}
 .list{overflow-y:auto;min-height:0;flex:1;display:flex;flex-direction:column;gap:2cqw;padding-right:.6cqw}
-.item{display:flex;gap:2.4cqw;align-items:center;border:.5cqw solid var(--ink-dim);border-radius:2.2cqw;padding:2cqw 2.4cqw}
+.item{display:flex;gap:2.4cqw;align-items:center;border:0;border-top:.5cqw solid var(--ink-dim);border-bottom:.5cqw solid var(--ink-dim);border-radius:0;padding:2cqw 0} /* Karte ist nur Text: Linien statt Rahmen, gerahmt ist nur ihr Knopf */
 .item svg{flex:none;width:6.4cqw;height:6.4cqw}
 .item div{flex:1;min-width:0}
 .item b{display:block;font-size:5cqw;line-height:1.15}
 .item span{display:block;font-size:4.4cqw;color:var(--ink-soft);line-height:1.25;margin-top:.4cqw}
-.item.warn{border-color:var(--alarm);background:rgba(230,159,0,.12)}
+.item.warn{border-color:var(--alarm);border-top-width:.6cqw;border-bottom-width:.6cqw}
 .item.warn b{color:var(--ink)}
 .item .ok{flex:none;border:.5cqw solid var(--ink);background:transparent;border-radius:1.8cqw;font-weight:700;font-size:4.2cqw;padding:1.4cqw 2.6cqw}
 .none{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;flex:1;text-align:center}
@@ -507,7 +507,7 @@ function alerts(){
   const T=tgt(), out=[], d=day();
   const H=(label,run)=>({label,run,kind:"hand"}), A=(label,run,icon)=>({label,run,kind:"auto",icon});
   if(demo.sensor) out.push({id:"sensor",sev:"crit",urgent:true,t:"Sensor ausgefallen",a:"Kabel im Technikraum prüfen, dann GEPRÜFT drücken.",do:H("Geprüft",done("sensor",()=>{demo.sensor=false},10))});
-  if(sim.tank<=0) out.push({id:"tank",sev:"crit",urgent:true,t:"Wasser leer",a:"Tank im Technikraum auffüllen, dann AUFGEFÜLLT drücken.",do:H("Aufgefüllt",refill)});
+  if(sim.tank<=0) out.push({id:"tank",sev:"crit",urgent:true,t:"Wasser leer",a:"Tank im Technikraum auffüllen",do:H("Aufgefüllt",refill)});
   if(!demo.sensor){
     const moved=done(["hot","warm"],()=>{demo.hot=false},20);
     if(sim.t>T.t[1]+3) out.push({id:"hot",sev:"crit",urgent:true,t:"Viel zu warm",a:"Box an einen kühleren Platz stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",moved)});

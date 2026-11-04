@@ -29,8 +29,9 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 
 ### 0:00 · Oberfläche + KLIMA (30 s)
 - **Sagen:** „Ingrid will pflegen, ohne sich etwas zu merken. **Ein Blick genügt:** grüner Haken, ‚Alles gut‘, nichts zu tun.“ *(Wahrnehmen → Denken → Handeln · 16–17)*
-- „**Nie nur Farbe**, immer Form + Farbe + Text.“ *(Rot-Grün-Schwäche · 23, präattentiv · 26–27)* „Drei große Kacheln trifft man auch mit zitternder Hand.“ *(Fitts · 50)*
-- *KLIMA antippen:* „**Alles mit Rahmen kann man drücken, alles mit Trennstrich ist nur Text.**“ *(Affordance · 72–73, Konsistenz · 80)* „Ingrid sieht, *dass* und *wann* die Box regelt, kann aber nichts verstellen.“ *(Gulf of Evaluation · 59, Modusfehler · 60)* Der **beige Kreis** ist der echte Taster an der Box. *(Mapping · 77–79)* *Zurück.*
+- **Minimalistisch:** „Wir haben bewusst **minimalistisch** gestaltet: ein Zustand, ein Ring, drei Werte, drei Kacheln. Keine Uhr, keine Menüs auf dem Startbild. Selten Gebrauchtes liegt hinter dem Zahnrad.“ *(aesthetic and minimalist design · 130, „unbedienbare Mikrowelle“ · 8, begrenztes Kurzzeitgedächtnis · 38)*
+- **Große Knöpfe:** „Alle Knöpfe sind **groß**, mindestens 44 Punkt. Drei breite Kacheln trifft man auch mit Lesebrille und zitternder Hand.“ *(Fitts · 50, Sichtabstand · 63)* „**Nie nur Farbe**, immer Form + Farbe + Text.“ *(Rot-Grün-Schwäche · 23, präattentiv · 26–27)*
+- *KLIMA antippen:* „**Alles mit Rahmen kann man drücken. Was nur Information ist, steht zwischen Linien:** grün heißt gut, orange heißt Warnung.“ *(Affordance · 72–73, Konsistenz · 80)* „Ingrid sieht, *dass* und *wann* die Box regelt, kann aber nichts verstellen.“ *(Gulf of Evaluation · 59, Modusfehler · 60)* Der **beige Kreis** ist der echte Taster an der Box. *(Mapping · 77–79)* *Zurück.*
 
 ### 0:30 · Zahnrad: Kontrast + Urlaub (15 s)
 - „Selten Gebrauchtes liegt hier, nicht auf dem Startbild.“ *(minimalist design · 130)*
@@ -40,7 +41,7 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 
 ### 0:45 · Case 1: Tank leer (30 s)
 - **Standby:** Display schwarz, nur ein **oranger Punkt blinkt**. „Blinken sieht man, bevor man liest, auch im Augenwinkel.“ *(präattentiv · 27)*
-- *Antippen* → **Problem + Handlung + Knopfwort**: „Tank auffüllen, dann AUFGEFÜLLT drücken.“ „Kein Fachwort, keine Schuld.“ *(Fehlermeldungen · 83–85)*
+- *Antippen* → zwischen orangen Linien **Problem + eine Handlung**: „Wasser leer · Tank im Technikraum auffüllen“, darunter der einzige gerahmte Knopf **AUFGEFÜLLT**. „Kein Fachwort, keine Schuld.“ *(Fehlermeldungen · 83–85)*
 - „Wasser oben eingießen bis zur Linie im Sichtfenster; das Sichtfenster ist der Balken auf dem Display.“ *(Mapping · 77–79)* *AUFGEFÜLLT* → sofort Rückmeldung. *(Feedback · 82)*
 - *Optional (+10 s):* MELDUNGEN zeigt den Fehler grün als „behoben“.
 
@@ -54,6 +55,20 @@ Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) 
 ### 1:45 · Case 3: Handy verbinden (15 s)
 - „Bis hier braucht Ingrid **kein Handy**.“ *Handy-Symbol* → Code → *VERBUNDEN* → **Symbol verschwindet**.
 - „Wer mehr will, nutzt die App: gleiche Wörter, gleiche Farben.“ *(äußere Konsistenz · 80)* → **Übergabe an Anlin.**
+
+### Probelauf mit Stoppuhr (diese Liste in der Hand)
+
+Vorher: Bedienfeld im Vollbild, Zahnrad → Admin-Modus → **Zurücksetzen** → Zurück. Stoppuhr starten.
+
+| ✓ | Bis | Tippen | Sagen (Kernwort) |
+|---|---|---|---|
+| ☐ | 0:30 | – · KLIMA · Zurück | ein Blick · minimalistisch · große Knöpfe · Rahmen = drückbar |
+| ☐ | 0:45 | Zahnrad · Darstellung zeigen · Urlaub zeigen · Admin-Modus · **Fehlermeldung** | Kontrast · Modus immer sichtbar · nur für die Vorführung |
+| ☐ | 1:15 | Punkt antippen · **Aufgefüllt** | Blinken · eine Handlung · Sichtfenster = Balken · Rückmeldung |
+| ☐ | 1:45 | Zahnrad · Admin-Modus · **Ernte fertig** · Geerntet? Neue Sorte · Sorte · Neu ansetzen · Sicher? → **Starten** | Gamification · Level · keine Rückfrage |
+| ☐ | 2:00 | Handy-Symbol · **Verbunden** | kein Handy nötig · Übergabe an Anlin |
+
+Nach dem Lauf notieren: Wo lag die Zeit über der Marke? Dort zuerst kürzen (siehe unten).
 
 **Zu lang?** Zuerst MELDUNGEN weglassen (falls drin), dann Urlaub (−10 s), dann bei der Oberfläche nur „ein Blick“ und „Rahmen = drückbar“ sagen. **Zweiter Durchlauf:** Zurücksetzen oder neu laden (das Handy-Symbol ist dann wieder da).
 
