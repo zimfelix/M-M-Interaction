@@ -23,4 +23,5 @@ Status je Eintrag: **offen** = noch nicht in einem weiteren Projekt geprüft · 
   - ein **Spiel** bzw. Mitmach-Element fürs Publikum einbauen
   - **Live-Tests** benennen, falls es welche gab (mit wem, was kam heraus)
   - **am Ende das Problem benennen**, also offene Probleme und Grenzen
+- **offen · Eigene Gedanken, Stärken und Abwägungen aktiv aussprechen.** Was bewusst weggelassen wurde, laut als Entscheidung benennen, z. B. „**bewusst** minimalistisches Design: keine Uhr, nur drei Kacheln“. Sonst wirkt es, als hätte man etwas vergessen. Dazu die Stärken des Produkts (z. B. der App) ausdrücklich nennen statt sie nur zu zeigen.
 - **offen · Häufige Rückfragen vorab beantworten können.** Für jede auffällige Gestaltungsentscheidung eine Ein-Satz-Antwort bereithalten. *Beispiel: „Warum Blau statt Schwarz?“ → Schwarz bedeutet Standby, Blau bedeutet „läuft“; Schwarz gibt es als Option „Hoher Kontrast“.*
