@@ -4,17 +4,19 @@ Grundlage für **Präsentation (05.11.)** und **Booklet (08.11.)**. Jede Design-
 
 - **Folie N** = Seitenzahl im PDF `WS26_HCI - Vorlesungsfolien.pdf`, **G N** = `HCI - Vorlesungsfolien_Gamification.pdf` (Sammlung aller Konzepte: [`../01-konzept/HCI-KONZEPTE.md`](../01-konzept/HCI-KONZEPTE.md))
 - Verbindlicher Stand der Entscheidungen: [`../BRIEF.md`](../BRIEF.md), Tabelle „Entscheidungen“
-- Geprüft gegen **Bedienfeld v6** (`01-konzept/bedienfeld/index.html`, Stand 04.11.2026), live: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi
+- Geprüft gegen **Bedienfeld v7** (`04-final/bedienfeld-v7/`, Stand 05.11.2026; Spezifikation `01-konzept/bedienfeld/README.md`), live: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi
 - Gleiche Wörter in Box und App: [`../01-konzept/begriffe-box-app.md`](../01-konzept/begriffe-box-app.md)
 - Was die Folien wörtlich zeigen, Farbsimulation, Kontrastmessung, Gamification-Mechaniken: [`../01-konzept/folien-recherche.md`](../01-konzept/folien-recherche.md)
 
 ## Die zwei Personen
 
+📘 Booklet S1 (Ingrid) · App-Teil (Power-User)
+
 Personas sind **Annahmen** (idealtypische Nutzer, Folie 118). Im Booklet benennen, was Tests bestätigt oder geändert haben.
 
-| | **A · Ingrid** (wenig bedienen) | **B · Power-User, „der Nerd“** (App als Zusatz) |
+| | **A · Ingrid** (wenig bedienen) | **B · Power-User** (App als Zusatz) |
 |---|---|---|
-| Quelle | [`../01-konzept/personas-storyboard.md`](../01-konzept/personas-storyboard.md), Persona 3 | **Entwurf**: technikaffiner „Nerd“, trackt alles (Präsentation ohne Altersangaben, 04.11.) |
+| Quelle | [`../01-konzept/personas-storyboard.md`](../01-konzept/personas-storyboard.md), Persona 3 | **Entwurf**: technikaffin, trackt alles (Präsentation ohne Altersangaben, 04.11.) |
 | Nutzt | nur die Box: Display und Taster | Box im Vorbeigehen, **App** unterwegs und für Details |
 | Motiv (Warum, Folie 139) | etwas Sinnvolles pflegen, ohne sich etwas merken zu müssen | Ernte optimieren, verstehen, was in der Kammer passiert |
 | Fähigkeiten | Lesebrille, leicht zitternde Hände, misstraut Technik | technikaffin, liest Messwerte und Verläufe gern |
@@ -28,10 +30,12 @@ Braucht die Aufgabe den Körper an der Box?   ── ja ──► Box  (A und B:
         │ nein
 Muss jeder es sofort sehen?                  ── ja ──► Box zeigt es, App pusht es  (Warnungen)
         │ nein
-        └────────────────────────────────────────────► App  (B: Analytics, 1 Min lüften, eigene Sorte, teilen)
+        └────────────────────────────────────────────► App  (B: Analytics, 1 Min lüften, eigene Sorte jederzeit, teilen)
 ```
 
 ## Entscheidungen mit Begründung
+
+📘 Booklet S2–S4: Kern des Booklets, jede Zeile = ein Folienkasten
 
 | # | Entscheidung (Stand v6) | Für | Folie | Erklärung: Folie sagt … → deshalb … |
 |---|---|---|---|---|
@@ -54,20 +58,22 @@ Muss jeder es sofort sehen?                  ── ja ──► Box zeigt es, A
 | E17 | **Ein Zustand, zwei Ansichten**: Box und App lesen denselben Stand (Pi bzw. claude.ai-Speicher) | B | 99–100 | **Model View Controller**: ein Modell, mehrere Views. → Was der Power-User unterwegs in der App tut (z. B. eine Meldung als gesehen markieren), zeigt die Box sofort. Am 05.11. läuft das iPhone in der Box ohne Kopplung; die Sync zeigt nur das Bedienfeld am Mac. |
 | E18 | **Gleiche Wörter, Symbole, Farben** in Box und App ([Begriffsliste](../01-konzept/begriffe-box-app.md)) | B | 80–81 | **Äußere Konsistenz** zwischen Produkten. → Der Power-User muss nichts doppelt lernen, und nichts widerspricht sich. |
 | E19 | **App für Details**: Push, Advanced Analytics, eigene Sorte, 1 Min lüften, Ernte teilen. Eigene Sorte zusätzlich an der Box, aber nur nach der Ernte und eingeklappt unter „Erweitert“ (2026-11-05) | B | 101–102, 140, G 13–14 | **Zoomable UI**: erst Übersicht, dann Detail. Sheldon: **Autonomie und Kompetenz** als Bedürfnisse. → Die Box bleibt Übersicht. Wer mehr will, zoomt in der App hinein. |
+| E20 | **Admin-Modus** versteckt (Einstellungen → ganz unten), mit nur **zwei Fällen** (1 · Tank leer, 2 · Pilze fertig mit 5-s-Zeitraffer) und **Zurücksetzen** | – | 60 | Nicht personenbezogen, nur für die Vorführung. Er bleibt verborgen, damit kein Nutzer versehentlich hineingerät. In der Präsentation als Vorführwerkzeug ansagen, nicht als Use Case. |
 | E21 | **Warntexte weiß**, Orange nur für Dreieck, Rahmen und Knopf; Nebentexte `#dfe4ff`; Werte außerhalb des Bereichs mit **Warndreieck** statt nur oranger Schrift | A | 66, 23, 26 | Folie 66 fragt nach Bildschirmkontrast: Orange auf hellem Blau erreichte nur 2,8 : 1 (WCAG-Ziel ≥ 4,5, externe Quelle), jetzt 6,4 : 1. Folie 23: Bei Rot-Grün-Schwäche sind unser Grün und Orange fast gleich (eigene Simulation). → Jede Abweichung braucht zusätzlich eine **Form** (26). Details: [`folien-recherche.md`](../01-konzept/folien-recherche.md). |
 | E22 | **Warnpunkt** oben in der Mitte (ohne „!“): bei Warnung orange, sonst nur dunkler Ring. **Standby** (Fall „Tank leer“): Display schwarz ohne Text, **nur der Punkt blinkt langsam**; Antippen beendet den Standby und zeigt die Meldung. In der normalen Ansicht blinkt nichts, die Warnung steht als Text mit Warndreieck da | A | 26, 27, 23, 130, 63 | Ein einzelnes Signal auf ruhigem Grund wird **präattentiv** erkannt (26). Hell/dunkel und Blinken funktionieren auch bei Rot-Grün-Schwäche (23). **Warnlicht bei dunklem Display** (04.11.): Der Punkt wirkt auf Schwarz wie ein Warnlicht. *Visibility of system status* (130). Die Box ist ein **Display im Raum**, kein Handy in der Hand: Aus 2–3 m kann man keinen Text lesen (Sichtabstand, 63), einen blinkenden Punkt aber schon (Blinken ist präattentiv, 27). Langsam (< 3 Blitze/s, WCAG, extern), nie ganz dunkel, bei „Bewegung reduzieren“ ruhig. |
 | E23 | **Kopfzeile als eine Zeile, alles 44 pt hoch**: Sorte · Warnpunkt · Handy + Zahnrad als gleich große Knöpfe mit Rahmen; **Uhr entfernt** | A | 50, 72–73, 130 | Fitts' Law (50): Größere Ziele trifft man leichter. Die Folien nennen keine Zahl, die Mindestgröße 44 pt stammt aus Apples Human Interface Guidelines (externe Quelle). Der Rahmen zeigt, dass es ein Knopf ist (Affordance, 72–73). Die Uhr war für die Pilzpflege überflüssig: *minimalist design* (130). |
 | E24 | **Handy-Symbol** rechts neben dem Zahnrad (Einrichtung gruppiert); nach VERBUNDEN ausgeblendet, über Einstellungen wieder erreichbar | A, B | 130, 41–42 | Einmaliger Einrichtungsschritt: Ist er erledigt, muss man ihn nicht mehr sehen (*minimalist design*, 130). Er bleibt über Einstellungen erreichbar und ist umkehrbar (*user control and freedom*, 130). |
 | E25 | **Blauer Hintergrund** nur als Fläche; Schrift weiß; Grün/Orange exklusiv für den Status, kein Rot | A, B | 20, 22, 23, 26, 76 | Blau wird über eigene S-Zapfen gesehen (22) und eignet sich nicht für feine Details (20, extern: wenige Blau-Zapfen in der Fovea), deshalb nur als Fläche. Ein ruhiger Grund lässt Statusfarben präattentiv herausspringen (26). Die Blau-Gelb-Achse bleibt bei Rot-Grün-Schwäche erhalten (23, eigene Simulation). Blau ist kulturell neutral (76). |
-| E26 | **Einstellungen** um **Sprache**, **Darstellung** (Standard / Hoher Kontrast) und **Hilfe** (früher „Fehler melden“, rote Flagge) ergänzt; gleiche Liste, gleich leicht zu finden | A, B | 75, 66, 130, 133 | Nicht verfügbare Sprachen sind **ausgegraut** statt scheinbar wählbar (logischer Constraint, 75). Hoher Kontrast (schwarz, alles weiß) für schwache Augen; **Individuell** („Such dir deinen eigenen Ton aus“) ist im Prototyp nur angezeigt. Bildschirmkontrast (66), Sehkraft als Nutzermerkmal (133). Fehler melden mit einem Tippen: *help users recognize, diagnose, and recover from errors* (130). |
+| E26 | **Einstellungen** um **Sprache**, **Darstellung** (Standard / Hoher Kontrast) und **Hilfe** (früher „Fehler melden“, rote Flagge) ergänzt; gleiche Liste, gleich leicht zu finden | A, B | 75, 66, 130, 133 | Nicht verfügbare Sprachen sind **ausgegraut** statt scheinbar wählbar (logischer Constraint, 75). Hoher Kontrast (schwarz, alles weiß) für schwache Augen; **Individuell** („Such dir deinen eigenen Ton aus“) ist im Prototyp nur angezeigt. Bildschirmkontrast (66), Sehkraft als Nutzermerkmal (133). **Hilfe** mit einem Tippen: *help users recognize, diagnose, and recover from errors* (130). |
 | E27 | **Meldungs-Verlauf grün mit Haken** („behoben · von – bis“), offene Meldungen orange mit Dreieck | A | 59, 76, 26 | Behobenes sah vorher wie eine Warnung aus (gelbes Dreieck): Man konnte nicht bewerten, ob noch etwas zu tun ist (**Gulf of Evaluation**, 59). Grün mit Haken = erledigt ist kulturell gelernt (76) und präattentiv unterscheidbar (26). |
 | E28 | **SORTEN · Neu**: oben sichtbar „Neu ansetzen …“ (Sorte wählen, aktuelle zuerst), darunter Sorten ansehen; **Detailseite** je Sorte mit Schwierigkeit · Dauer · Temperatur · Luftfeuchte als Zeilen mit Trennstrich | A, B | 130, 95, 61 | Das „Neu“ der Kachel muss man auch finden (*Visibility*, 130). Handeln (neu ansetzen) und Stöbern (Sorten ansehen) sind getrennt (Suchen vs. Stöbern, 95). Die Bestätigung mit 2 s Halten bleibt (Murphy, 61). |
 | E29 | **Lesbarkeit und Treffsicherheit überall**: Schrift in Meldungen/Listen ≥ 15 pt, alle Touch-Ziele ≥ 44 pt (auch „Zurück“), Einstellungen und Admin mit ca. 1,5× so hohen Balken | A | 63, 50 | Sichtabstand (63) und Fitts (50) gelten nicht nur fürs Startbild, sondern für jede Ebene. Zahlen extern: Apple HIG 44 pt, WCAG 4,5 : 1. |
 | E30 | **Orange nur für Warnungen, auch an der Box**: Taster, Türgriff und Deckelgriff **beige**, Bedienfeld-Front schwarz glänzend, Taster mit eingeprägtem **Licht-Symbol** (Skizze `02-box-bau/zeichnungen/skizze-box-v3.html`) | A, B | 80, 72–74, 130, 26 | **Konsistenz** (80): Eine Farbe hat überall dieselbe Bedeutung. Auf dem Display heißt Orange „Warnung“ (E25), deshalb darf ein Bedienteil nicht orange sein. Beige hebt die Teile zum Anfassen vom schwarzen Rahmen ab, ohne eine Statusfarbe zu sein. Ein Taster zeigt, *dass* man ihn drücken kann (Affordance, 72–74), aber nicht, *was* er tut. Das Licht-Symbol macht ihn wiedererkennbar (*Recognition rather than recall*, 130). → Ein physisches Warnlicht gibt es nicht (entschieden 04.11.); der orange Punkt auf dem Display bleibt die einzige Warnfarbe. |
 | E31 | **Rahmen = drückbar, Trennstrich = nur Text**: Knöpfe, Kacheln und Listeneinträge zum Antippen haben einen Rahmen; reine Information (Klima-Zeilen, Meldungs-Verlauf, Sorten-Detailseite) ist nur durch dezente Trennstriche gegliedert. Statuszeilen, Warnungen und Meldungskarten stehen ohne Rahmen **zwischen zwei Linien** (grün = gut, orange = Warnung, hell = Hinweis); gerahmt ist nur der Knopf darin | A, B | 72–73, 80 | Eine **Affordance** zeigt, was man mit einem Element tun kann (72–73). Sieht Text wie ein Knopf aus, tippt Ingrid ins Leere. **Innere Konsistenz** (80): dasselbe Zeichen bedeutet überall dasselbe. → Ingrid erkennt auf jeder Ebene sofort, wo sie tippen kann. |
-| E20 | **Admin-Modus** versteckt (Einstellungen → ganz unten), mit nur **zwei Fällen** (1 · Tank leer, 2 · Pilze fertig mit 5-s-Zeitraffer) und **Zurücksetzen** | – | 60 | Nicht personenbezogen, nur für die Vorführung. Er bleibt verborgen, damit kein Nutzer versehentlich hineingerät. In der Präsentation als Vorführwerkzeug ansagen, nicht als Use Case. |
 
 ## Entschieden am 04.11.: Warnlicht und Taster
+
+📘 Booklet S2
 
 Gemeinsamer Grundsatz: **Eine Warnung muss sichtbar sein, auch wenn das Display schwarz ist.**
 
@@ -77,6 +83,8 @@ Gemeinsamer Grundsatz: **Eine Warnung muss sichtbar sein, auch wenn das Display 
 | **B · Taster schaltet Licht und Display gemeinsam?** | **Nein.** Der Taster hat **eine feste Bedeutung: Licht an/aus** (E10). Einen **Ruhemodus gibt es nicht mehr** (E12); Standby entsteht nur bei „Tank leer“ und lässt sich nicht von Hand einschalten. | B1 Kopplung Licht + Display: eine Handlung mit zwei Wirkungen, „Licht aus“ hätte versehentlich auch das Display ausgemacht (Modusfehler, 60). | 60, 72–73 |
 
 ## Story für die Präsentation
+
+📘 Booklet S4 (Story A als Use-Case-Kette)
 
 Jede Szene zeigt eine Entscheidung „in Aktion“ (Storyboard, Folien 143–150). Die App-Szenen hängen vom Stand der App ab und sind mit dem App-Teammitglied abzustimmen.
 
@@ -107,6 +115,8 @@ Pointe für die Präsentation: **Dieselbe Box, zwei Nutzungen.** Ingrid braucht 
 
 ## Nielsen-Check (Folie 130)
 
+📘 Booklet S5
+
 Analytische Selbstprüfung von Bedienfeld v6 und Box-Skizze v3 gegen die 10 Heuristiken (Stand 04.11.2026). Das ist der Maßstab, an dem sich die Präsentation messen lassen muss; in der Präsentation verlinkt. Die App-Spalte prüft das App-Teammitglied vor der Probe gegen [`begriffe-box-app.md`](../01-konzept/begriffe-box-app.md).
 
 | Heuristik | Umsetzung an der Box | | App |
@@ -126,6 +136,8 @@ Analytische Selbstprüfung von Bedienfeld v6 und Box-Skizze v3 gegen die 10 Heur
 
 ## Evaluation (Plan)
 
+📘 Booklet S5
+
 | Methode | Folie | Mit wem / was | Ergebnis |
 |---|---|---|---|
 | **Cognitive Walkthrough** (3 Fragen: Ist das Ziel klar? Ist die Aktion erkennbar? Gibt es Rückmeldung?) | 129 | A: Zustand ablesen, Wasser nachfüllen und bestätigen, Licht an, ernten. B: Meldung in App und Box vergleichen, 1 Min lüften per App | offen |
@@ -134,6 +146,8 @@ Analytische Selbstprüfung von Bedienfeld v6 und Box-Skizze v3 gegen die 10 Heur
 | **AttrakDiff-Kurzform** nach dem Test | 141–142 | pragmatische vs. hedonische Qualität | offen |
 
 ## Ehrliche Grenzen (fürs Booklet)
+
+📘 Booklet S5
 
 - Personas sind Annahmen. Persona B ist noch ein Entwurf (Name und Details offen, siehe `BRIEF.md` → Offen).
 - **Meldungs-Verlauf** und **Sorten-Katalog** sind noch auf der Box. Nach der Aufteilungsregel gehören sie eher in die App. Das ist bewusst offen gelassen.
