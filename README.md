@@ -8,6 +8,10 @@ Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zag
 
 [![Bedienfeld: aktueller Stand](01-konzept/bedienfeld/bilder/vorschau-aktuell.png)](01-konzept/bedienfeld/)
 
+[![3D-Modell der Box](04-final/bilder/3d-modell.png)](04-final/3d-modell/)
+
+3D-Modell zum Drehen: `04-final/3d-modell/growbox-3d-v2-60x35x25.html` im Browser öffnen.
+
 Aktueller Stand v7; ältere Stände im Archiv `01-konzept/bedienfeld/verlauf/`. Das Bild erzeugt `sh 01-konzept/bedienfeld/screenshot.sh`.
 
 ## Wo wir stehen (05.11.2026)
