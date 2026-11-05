@@ -1,8 +1,10 @@
 # Präsentation 05.11.2026 · ca. 5 Minuten, ohne Folien
 
+**✅ Gehalten am 05.11.2026.** Feedback: `BRIEF.md` → „Feedback aus der Präsentation“; Learnings: `learnings.md`. Die Datei bleibt als Dokumentation; 📘 = fürs Booklet.
+
 **Keine Folien** (2026-11-04): Wir zeigen live, was es gibt: den 3D-Entwurf, das Bedienfeld und die App. Leitidee: **Dieselbe Box, zwei Menschen.** Ingrid nutzt nur die Box, der Power-User zusätzlich die App. Personas ohne Altersangabe. Der frühere Foliensatz (https://claude.ai/artifact/DcLZePjqNpwgHBrxHGHFha) wird nicht gezeigt.
 
-Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) (E1–E30). Folienbelege: [`../01-konzept/folien-recherche.md`](../01-konzept/folien-recherche.md).
+Begründungen im Detail: [`entscheidungen-folien.md`](entscheidungen-folien.md) (E1–E31). Folienbelege: [`../01-konzept/folien-recherche.md`](../01-konzept/folien-recherche.md).
 
 ## Ablauf
 
@@ -106,7 +108,9 @@ Der Ring füllt sich, der Pilz wächst. Das ist unsere Gamification. Jetzt steht
 - **Bedienfeld am Mac (Whiteboard):** `http://localhost:8000/vorschau-praesentation.html` im Browser-Vollbild (ctrl+cmd+F), solange `iphone-server.sh` läuft: nur das Display, keine claude.ai-Leiste. Ersatz ohne Server: der Hauptlink.
 - **Probe mit Stoppuhr.**
 
-## Risiken
+## Risiken und Rückfragen
+
+📘 Booklet S3/S4: die Antworten auf Rückfragen eignen sich als kurze Begründungen.
 
 | Risiko | Gegenmittel |
 |---|---|
@@ -116,4 +120,5 @@ Der Ring füllt sich, der Pilz wächst. Das ist unsere Gamification. Jetzt steht
 | Frage nach Hilfe/Anleitung (Nielsen Nr. 10) | Lücke offen benennen, Vorschlag Karte an der Box |
 | Frage: Warum war das Display schwarz? | Standby in der Box: Bei einem Problem leuchtet nur der orange Punkt und blinkt (Helligkeit + Blinken auf Schwarz, auch bei Rot-Grün-Schwäche erkennbar); Antippen zeigt, was zu tun ist (E22). Einen Ruhemodus zum Einstellen gibt es nicht. |
 | Frage: Warum schaltet der Taster nicht auch das Display? | Der Taster hat **eine feste Bedeutung: Licht an/aus** (kein Modus, Ergebnis sichtbar durchs Plexiglas, Folie 60 und 72–73). Einen Ruhemodus gibt es nicht. |
+| Frage (gestellt): Warum Blau statt Schwarz? | Schwarz bedeutet Standby (Display aus, nur der Warnpunkt), Blau bedeutet „Box läuft“. Schwarz gibt es als Option **Hoher Kontrast** (E25, E26). |
 | Frage nach HCI-Grundprinzipien | Norman: Affordance (Taster), Mapping (Sichtfenster), Feedback (AUFGEFÜLLT); Nielsen-Check 9 von 10 ([Nielsen-Check](entscheidungen-folien.md#nielsen-check-folie-130)) |

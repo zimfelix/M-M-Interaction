@@ -13,6 +13,8 @@ Zeichnungen der Box als Bilder (direkt auf GitHub sichtbar). Lokal gibt es diese
 └── masse-iphone-13-mini.md
 ```
 
+📘 Booklet S2: Die Skizzen 1 → 6 → 7 zeigen den Fortschritt der Box (Mikrowelle → Tank gut erreichbar → Orange nur für Warnungen).
+
 ## 1 · Front-Skizze: Aufbau wie eine Mikrowelle
 
 ![Front-Skizze](bilder/skizze-box.svg)
