@@ -1,0 +1,1182 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Growbox Display</title>
+<!-- Vom Home-Bildschirm des iPhones gestartet: Vollbild ohne Safari-Leisten (Start: iphone-server.sh) -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Growbox">
+<meta name="theme-color" content="#08106c">
+<style>/* Grundregeln, die claude.ai der Seite mitgibt; ohne sie zeigt das Bedienfeld z. B. ausgeblendete Knöpfe an */
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: Wand-Bedienteil im Hochformat. Oben Kopfzeile, groß der Pilz im Feuchte-Ring, darunter die wichtigste Meldung, unten drei große Tasten in einer Reihe. Farben farbenblindfreundlich (Okabe-Ito Gelb/Orange), Schwere immer auch über Symbol und Wort. */
+:root{
+  --page:#e9ebe6; --page-fg:#2a2c28; --page-muted:#62665e; --page-card:#ffffff; --page-line:#d3d6cf;
+  --lcd-hi:#2f45f5; --lcd-mid:#1525c4; --lcd-lo:#08106c;
+  --ink:#ffffff; --ink-soft:#dfe4ff; --ink-dim:rgba(255,255,255,.35);
+  --band:#f0e442; --alarm:#e69f00; --ok:#3fcf7f; --warn-sign:#f9a800;
+  --housing:#f4f4f1; --housing-edge:#d9d9d4; --glass:#0b0c10;
+  --f-ui:"Barlow", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --f-cond:"Barlow Semi Condensed", "Roboto Condensed", "Arial Narrow", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--page:#121413;--page-fg:#e6e8e3;--page-muted:#9aa096;--page-card:#1c1e1c;--page-line:#323631;color-scheme:dark}}
+:root[data-theme="dark"]{--page:#121413;--page-fg:#e6e8e3;--page-muted:#9aa096;--page-card:#1c1e1c;--page-line:#323631;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--page);color:var(--page-fg)}
+body{font-family:var(--f-ui);margin:0;-webkit-font-smoothing:antialiased;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:430px;margin:0 auto;padding-block:24px 40px;display:flex;flex-direction:column;align-items:center;gap:22px}
+
+/* Gehäuse */
+.device{width:100%;background:linear-gradient(180deg,#fbfbf9,var(--housing));border-radius:12% / 9%;padding:6.5% 6%;
+  box-shadow:0 0 0 1px var(--housing-edge), 0 2px 0 #fff inset, 0 18px 40px rgba(0,0,0,.18), 0 3px 8px rgba(0,0,0,.08)}
+.glass{background:var(--glass);border-radius:8% / 6%;padding:7% 5%;box-shadow:0 0 0 2px #1d1f24 inset}
+.screen{position:relative;width:100%;aspect-ratio:3/4;max-width:100%;container-type:inline-size;overflow:hidden;border-radius:1.6%;display:flex;flex-direction:column;padding:4cqw 4.5cqw 4.5cqw;
+  background:radial-gradient(ellipse 70% 65% at 50% 45%, var(--lcd-hi), var(--lcd-mid) 55%, var(--lcd-lo));
+  box-shadow:0 0 0 .5cqw #c9cfe6, 0 0 0 1cqw #2b2f3a;color:var(--ink);user-select:none;-webkit-user-select:none;transition:filter .5s}
+.screen::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(160deg,rgba(255,255,255,.09),transparent 40%)}
+.screen.standby{filter:brightness(.4) saturate(.6)}
+/* Darstellung „Hoher Kontrast“: schwarzer Grund, Nebentexte und Rahmen weiß */
+.screen.hc{--lcd-hi:#111;--lcd-mid:#000;--lcd-lo:#000;--ink-soft:#fff;--ink-dim:rgba(255,255,255,.75)}
+.screen.standby #kSort{filter:brightness(2.5)}
+.screen.away{filter:brightness(.8)}
+.sleep{position:absolute;inset:0;z-index:5;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;color:#a9afcc;font-size:4.2cqw;font-weight:600;text-align:center;border:0;width:100%;padding:0}
+.sleep b{font-size:4.8cqw;color:#c7cdea}
+.sleep span{opacity:1;transition:opacity 1.2s}
+.sleep.quiet span{opacity:0}
+/* Display aus, aber Warnung: nur der Warnpunkt leuchtet über dem schwarzen Display (wie ein Warnlicht) */
+.screen.sleepalarm .alarm-dot{position:relative;z-index:6}
+.sleep-chip{border:.5cqw solid var(--ink-dim);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink-soft);background:transparent;font-size:3.9cqw}
+
+/* Tasten */
+.keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3cqw;margin-top:auto}
+.key{position:relative;width:100%;height:24cqw;border-radius:3cqw;border:.6cqw solid var(--ink);background:rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6cqw;padding:0 1cqw;
+  box-shadow:0 0 1.6cqw rgba(140,160,255,.35);transition:background .15s, transform .1s}
+.key svg{width:10cqw;height:10cqw}
+.key b{font-family:var(--f-cond);font-size:4.4cqw;font-weight:700;letter-spacing:0;text-transform:uppercase;line-height:1.05;text-align:center}
+.key i{font-style:normal;font-family:var(--f-cond);font-size:3.8cqw;font-weight:600;color:var(--ink-soft);margin-top:-1cqw}
+.key.busy i,.key.on i{color:var(--lcd-mid)}
+.key.on{background:var(--ink);color:var(--lcd-mid)}
+.key.on .fill{fill:var(--lcd-mid)}
+.key:active{transform:scale(.95)}
+.key .fill{fill:var(--ink-soft)}
+.key.busy{background:var(--ink);color:var(--lcd-mid)}
+.key.busy .fill{fill:var(--lcd-mid)}
+.key:focus-visible{outline:.7cqw solid var(--band);outline-offset:.7cqw}
+.count{position:absolute;top:-2.4cqw;right:-1.6cqw;min-width:7cqw;height:7cqw;padding:0 1.4cqw;border-radius:4cqw;background:var(--alarm);color:#1a1000;font-weight:700;font-size:4cqw;display:grid;place-items:center;border:.6cqw solid var(--lcd-mid)}
+.count.info{background:var(--ink);color:var(--lcd-mid)}
+
+/* Mitte */
+.topbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2cqw;font-family:var(--f-cond);font-weight:600;font-size:4.4cqw;letter-spacing:.04em;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.topbar b{color:var(--ink);font-weight:700}
+/* Kopfzeile: eine Zeile, alle Elemente 44 pt hoch (12cqw bei 375 pt Breite) */
+.topbar{min-height:12cqw}
+#topCulture{font-size:6.6cqw;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase;line-height:12cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+/* Warnpunkt: leuchtet nur, wenn eine Warnung ansteht – aus der Ferne sichtbar (hell/dunkel + „!“, nicht nur Farbe) */
+.alarm-dot{width:12cqw;height:12cqw;border-radius:50%;border:.6cqw solid var(--ink-dim);display:grid;place-items:center;color:transparent;font-family:var(--f-ui);font-weight:800;font-size:8cqw;line-height:1}
+.screen.sleepalarm .alarm-dot.on{background:var(--alarm);border-color:#fff;color:transparent;cursor:pointer;box-shadow:0 0 0 1.2cqw rgba(230,159,0,.35),0 0 5cqw 1.5cqw rgba(230,159,0,.75);animation:alarmblink 1.2s ease-in-out infinite}
+/* Blinken nur bei Warnung (Folie 27: präattentiv). Langsam (< 3 Blitze/s, WCAG) und nie ganz dunkel */
+@keyframes alarmblink{50%{opacity:.3;box-shadow:none}}
+.topbar .tr{justify-self:end;display:inline-flex;align-items:center;gap:1.6cqw}
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;padding-block:2cqw}
+.ring{position:relative;width:58cqw;height:58cqw;flex:none}
+.ring > svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.ring circle{fill:none;transition:stroke-dasharray .8s ease}
+/* Zeitraffer: Strich ohne Verzögerung, damit er mit dem Knopf mitläuft */
+.lapsing .ring circle{transition:none}
+.inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.shroom{width:27cqw;height:27cqw;margin-top:2cqw;overflow:visible;transform-origin:50% 88%;transition:transform .6s cubic-bezier(.34,1.56,.64,1)} /* wächst federnd */
+/* Neue Wachstumsstufe: drei kurze Striche sprühen aus dem Hut (einmal, ca. 0,7 s) */
+.spark path{stroke:var(--ink);stroke-width:3.4;stroke-linecap:round;fill:none;opacity:0;stroke-dasharray:9 30;stroke-dashoffset:9}
+.spark.pop path{animation:spray .75s ease-out 1}
+.spark.pop path:nth-child(2){animation-delay:.06s}
+@keyframes spray{0%{opacity:0;stroke-dashoffset:9}20%{opacity:1}100%{opacity:0;stroke-dashoffset:-14}}
+.shroom .drop{fill:var(--ink-soft);opacity:0}
+.misting .drop{animation:drip 2.2s ease-in infinite}
+.misting .drop:nth-of-type(2){animation-delay:.7s}.misting .drop:nth-of-type(3){animation-delay:1.4s}
+@keyframes drip{0%{opacity:0;transform:translateY(-4px)}30%{opacity:.9}100%{opacity:0;transform:translateY(10px)}}
+.breeze path{stroke:var(--ink-soft);opacity:0;stroke-dasharray:22;stroke-dashoffset:22}
+.airing .breeze path{animation:wind 1.6s ease-out infinite}
+.airing .breeze path:nth-child(2){animation-delay:.4s}
+@keyframes wind{0%{opacity:0;stroke-dashoffset:22}30%{opacity:.9}100%{opacity:0;stroke-dashoffset:-22}}
+.sweat{opacity:0;transition:opacity .4s}
+.crit .sweat{opacity:1}
+.hum{font-weight:700;font-size:10.5cqw;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:.4cqw}
+.hum small{font-size:5.4cqw;font-weight:600;margin-left:1.2cqw}
+.humlbl{font-family:var(--f-cond);font-size:3.8cqw;font-weight:600;letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;margin-top:.7cqw}
+
+.alert{width:100%;margin-top:2cqw;border:0;background:transparent;padding:1.2cqw 1.4cqw;border-radius:2cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6cqw;text-align:center;line-height:1.1}
+.alert .t{display:flex;align-items:center;gap:2cqw;font-weight:700;font-size:7cqw}
+.alert .t svg{flex:none;width:7.6cqw;height:7.6cqw}
+.alert .a{font-size:4.6cqw;max-width:72cqw;font-weight:600;color:var(--ink-soft)}
+.alert.warn{color:var(--ink);background:transparent;border-radius:0;border-top:.6cqw solid var(--alarm);border-bottom:.6cqw solid var(--alarm)} /* nur Text: Linien statt Rahmen, drückbar ist der Knopf darunter */
+.alert.warn .a{color:var(--ink)}
+.alert .a b{color:var(--ink)}
+.alert .a.big{font-size:5.4cqw}
+.alert:not(.warn) .t{font-size:8.4cqw}
+.alert:not(.warn) .t svg{width:8.6cqw;height:8.6cqw}
+/* Einstellungen und Admin: Balken ca. 1,5× so hoch, Schrift größer (Display wird mit dem Finger bedient) */
+.panel-settings .opt,.panel-admin .opt,.panel-look .opt,.panel-lang .opt,.panel-sort .opt,.panel-pick .opt{min-height:19.5cqw;padding:3.6cqw 3.6cqw;font-size:5.6cqw;gap:3.2cqw}
+.panel-settings .opt svg,.panel-admin .opt svg,.panel-look .opt svg,.panel-lang .opt svg,.panel-sort .opt svg,.panel-pick .opt svg{width:8cqw;height:8cqw}
+.panel-settings .opt small,.panel-admin .opt small,.panel-look .opt small,.panel-lang .opt small,.panel-sort .opt small,.panel-pick .opt small{font-size:.85em}
+.panel-settings .bigbtn,.panel-look .bigbtn,.panel-lang .bigbtn,.panel-sort .bigbtn,.panel-link .bigbtn{min-height:16cqw;font-size:5.4cqw}
+.panel-sort p,.panel-pick p,.panel-link p,.panel-link ol,.panel-info p{font-size:5cqw}
+.panel-link .rec,.panel-confirm .rec{font-size:6cqw;padding:3.6cqw;min-height:16cqw}
+.panel-confirm ul{font-size:5cqw}
+/* Neu ansetzen: Kammer leeren / Zuchtset einsetzen in Einstellungs-Größe, Knöpfe untereinander */
+.panel-new p{font-size:5.2cqw}
+.panel-new .steps{font-size:4.6cqw}
+.panel-new .btnrow{flex-direction:column;align-items:stretch;gap:3.6cqw}
+.panel-new .bigbtn{flex:none;width:100%;min-height:16cqw;font-size:5.4cqw}
+.panel-link .rec svg{width:8cqw;height:8cqw}
+/* Eigene Sorte: gleiche Größen wie Sortenwahl; ±-Knöpfe 44 pt groß */
+.panel-own .opt{min-height:16cqw;padding:3cqw 3.6cqw;font-size:5.4cqw;gap:3cqw}
+.panel-own .opt svg{width:8cqw;height:8cqw}
+.panel-own .opt small{font-size:.8em}
+.panel-own .lbl{margin-top:1.4cqw}
+.panel-own .stp b{font-size:5cqw}
+.panel-own .stp output{font-size:5.6cqw;min-width:18cqw}
+.panel-own .stp button{width:12cqw;height:12cqw}
+.panel-own .bigbtn{min-height:16cqw;font-size:5.4cqw;flex:none}
+.panel-pick .opt.wide{justify-content:flex-start}
+.panel-info .spec{font-size:5.2cqw;gap:0;margin-top:1cqw}
+.panel-info .spec dt{padding-right:3cqw!important}
+/* Sorte: jede Eigenschaft eine Zeile mit Trennstrich (nur Text, nicht drückbar) */
+.panel-info .spec dt,.panel-info .spec dd{margin:0;padding:3.2cqw 0;border-bottom:.3cqw solid var(--ink-dim)}
+.panel-info .spec dd small{display:block;font-weight:500;font-size:.85em;margin-top:.8cqw}
+.panel-info .spec dd .dots{display:inline-flex}
+.panel-info > p{margin-top:3cqw}
+.btnrow.wrap{flex-direction:column;align-items:stretch;align-self:stretch;width:100%;gap:3.6cqw;margin-top:3cqw}
+.btnrow.wrap .bigbtn{flex:none;width:100%;min-height:16cqw;font-size:5.4cqw}
+.dots{display:inline-flex;gap:.6cqw;align-items:center;vertical-align:middle;margin-right:1cqw}
+.dots .dot{display:block;width:1.05em;height:1.05em;opacity:.28}
+.dots .dot svg{display:block;width:100%!important;height:100%!important}
+.dots .dot.on{opacity:1}
+
+.dots{letter-spacing:.12em;color:var(--ink)}
+/* Hilfe: rote Flagge, damit man sie sofort findet */
+.help-flag{color:#ff5a5a}
+/* Klima und Meldungen: gleiche Größe wie die Einstellungen */
+.panel-clima .hist{font-size:5.4cqw;padding:3cqw 0;gap:.8cqw 3cqw}
+.panel-clima .hist svg{width:7.6cqw;height:7.6cqw}
+.panel-clima .hist small{font-size:4.8cqw;color:var(--ink)}
+.panel-clima .hist small .taster-ic{width:1.35em;height:1.35em;vertical-align:-.32em;margin-right:.3em}
+.panel-clima .auto{display:inline-block;vertical-align:middle;font-family:var(--f-cond);font-weight:700;font-size:4.2cqw;letter-spacing:.06em;border:.4cqw solid var(--ok);color:var(--ok);border-radius:1.4cqw;padding:.2cqw 1.4cqw;margin-left:1.4cqw}
+.panel-clima p,.panel-alerts p{font-size:5cqw}
+.panel-alerts .rec{font-size:6cqw;padding:3.6cqw;min-height:16cqw}
+.panel-alerts .rec svg{width:8cqw;height:8cqw}
+.panel-alerts .item{padding:3.6cqw 0;min-height:19.5cqw;gap:3.2cqw}
+.panel-alerts .item svg{width:8cqw;height:8cqw}
+.panel-alerts .item b{font-size:5.8cqw}
+.panel-alerts .item span{font-size:5cqw}
+.panel-alerts .item .do{font-size:5cqw;min-height:14cqw;margin-left:11.2cqw} /* langer Knopf rutscht unter den Text statt ihn zu quetschen */
+.panel-alerts .item{flex-wrap:wrap}
+.panel-alerts .item div{flex:1 1 50cqw}
+.panel-alerts .hist{font-size:5.4cqw;padding:3cqw 0;gap:.8cqw 3cqw}
+.panel-alerts .hist svg{width:7.6cqw;height:7.6cqw}
+.panel-alerts .hist small{font-size:4.8cqw}
+@keyframes blink{50%{opacity:.4}}
+.act{width:100%;margin-top:2cqw;border:.7cqw solid var(--alarm);background:var(--alarm);color:#1a1000;border-radius:3cqw;min-height:14cqw;font-weight:700;font-size:5.4cqw;display:flex;align-items:center;justify-content:center;gap:2.4cqw}
+.act svg{width:6.4cqw;height:6.4cqw}
+.act:active{transform:scale(.97)}
+.act.info{background:transparent;border-color:var(--ink);color:var(--ink)}
+.hasact .mini{display:none}
+.item .do{flex:none;border:.7cqw solid var(--alarm);background:var(--alarm);color:#1a1000;border-radius:2.4cqw;font-weight:700;font-size:4.2cqw;padding:2cqw 3cqw;min-height:12cqw}
+.item.info .do{background:transparent;border-color:var(--ink);color:var(--ink)}
+.mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4cqw;width:100%;margin-top:2.4cqw;font-variant-numeric:tabular-nums}
+.stat{display:flex;flex-direction:column;gap:1.2cqw;min-width:0}
+.sv{display:flex;align-items:center;gap:1cqw;font-weight:700;font-size:4.8cqw;color:var(--ink);white-space:nowrap}
+/* Tank: Reichweite in Tagen hinter dem Füllstand, kleiner und heller (Zusatzinfo) */
+.sv svg{flex:none;width:4.6cqw;height:4.6cqw;color:var(--ink-soft)}
+.bar{position:relative;height:1.6cqw;border-radius:1cqw;background:rgba(255,255,255,.16)}
+.bar .band{position:absolute;top:0;bottom:0;background:rgba(255,255,255,.4);border-radius:1cqw}
+.bar .dot{position:absolute;top:50%;width:3.2cqw;height:3.2cqw;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%);box-shadow:0 0 0 .5cqw var(--lcd-mid)}
+.bar .lvl{position:absolute;left:0;top:0;bottom:0;background:var(--ink);border-radius:1cqw}
+.cap{font-family:var(--f-cond);font-size:3.9cqw;font-weight:600;letter-spacing:0;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat.off .sv svg{width:5cqw;height:5cqw}
+.stat.off .dot,.stat.off .lvl{background:var(--alarm)}
+.ticon{display:inline-flex;align-items:center;gap:1.4cqw}
+.ticon svg{width:4.6cqw;height:4.6cqw}
+.away-chip{border:.5cqw solid var(--ink);border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;padding:.6cqw 2cqw;color:var(--ink)}
+.code{font-size:17cqw;font-weight:800;letter-spacing:.12em;text-align:center;font-variant-numeric:tabular-nums;padding:3cqw;border:.7cqw dashed var(--ink-dim);border-radius:3cqw}
+.panel ol{margin:0;padding-left:5cqw;font-size:4.2cqw;line-height:1.35;color:var(--ink-soft);display:flex;flex-direction:column;gap:1.4cqw}
+.opt small{display:block;font-weight:500;font-size:.9em;opacity:.9;margin-top:.6cqw}
+.away-chip{cursor:pointer;background:transparent;min-height:12cqw;display:inline-flex;align-items:center}
+/* Zahnrad: Touch-Ziel 44 × 44 pt (≈ 11,7 % von 375 pt), mit Rahmen, damit es drückbar aussieht */
+.admin-btn{display:inline-grid;place-items:center;width:12cqw;height:12cqw;padding:0;border:.5cqw solid var(--ink-dim);border-radius:3cqw;background:rgba(255,255,255,.06);color:var(--ink)}
+.admin-btn svg{width:7.2cqw;height:7.2cqw}
+#linkChip.on{border-color:var(--band)}
+.admin-btn:focus-visible{opacity:1;outline:.5cqw solid var(--band)}
+.rec{display:flex;align-items:center;gap:2cqw;border-radius:2.4cqw;padding:2.4cqw 3cqw;font-weight:700;font-size:5cqw}
+.rec svg{flex:none;width:7cqw;height:7cqw}
+.rec.ok{background:transparent;border-radius:0;border-top:.6cqw solid var(--ok);border-bottom:.6cqw solid var(--ok);padding-left:0;padding-right:0} /* nur Text: grüne Linien statt Rahmen (Rahmen = drückbar) */
+.rec.warn{background:transparent;border-radius:0;border-top:.6cqw solid var(--alarm);border-bottom:.6cqw solid var(--alarm);padding-left:0;padding-right:0;color:var(--ink)}
+.rec.plain{border-top:0;border-bottom:0;padding-top:0;padding-bottom:0;min-height:0} /* Meldungen: nur die Karte darunter hat Linien, nicht doppelt */
+.bigbtn.out.weak{border-color:var(--ink-dim);color:var(--ink-soft)}
+.hold{position:relative;overflow:hidden;background:transparent;color:var(--ink);touch-action:none;user-select:none;-webkit-user-select:none}
+.hold .fillbar{position:absolute;inset:0;background:rgba(230,159,0,.55);transform:scaleX(var(--p,0));transform-origin:left;pointer-events:none}
+.hold span{position:relative}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:1.4cqw 3cqw;font-size:4.4cqw;margin:0}
+.spec dt{color:var(--ink-soft)} .spec dd{margin:0;font-weight:700}
+.dots{letter-spacing:.15em}
+.tag{display:inline-block;margin-left:1.4cqw;padding:.2cqw 1.6cqw;border-radius:1.6cqw;border:.4cqw solid var(--ink);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;vertical-align:middle}
+.hist{display:grid;grid-template-columns:auto 1fr;gap:.6cqw 2.4cqw;align-items:center;font-size:4.6cqw;border-bottom:.3cqw solid var(--ink-dim);padding:2cqw 0}
+.hist svg{width:6.4cqw;height:6.4cqw}
+.hist time{color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+.hist small{grid-column:2;color:var(--ink-soft);font-size:4.2cqw}
+/* Klima-Taste: grüner Punkt leuchtet ruhig, solange die Automatik läuft (Blinken hieße „schau her“) */
+.key .pulse{display:inline-block;width:2.4cqw;height:2.4cqw;border-radius:50%;background:var(--ok)}
+.key i{display:inline-flex;align-items:center;gap:1cqw}
+.crow{display:grid;grid-template-columns:auto 1fr auto;gap:1cqw 2.4cqw;align-items:center;border-bottom:.3cqw solid var(--ink-dim);padding:2cqw 0}
+.crow svg{width:6.4cqw;height:6.4cqw}
+.crow b{font-size:4.8cqw} .crow span{display:block;font-size:4.3cqw;color:var(--ink-soft);line-height:1.25}
+.crow .auto{display:inline-block;font-family:var(--f-cond);font-weight:700;font-size:3.6cqw;letter-spacing:.06em;border:.4cqw solid var(--ok);color:var(--ok);border-radius:1.4cqw;padding:.2cqw 1.2cqw;margin-right:1cqw}
+/* Hinweis auf den echten Taster: bewusst ohne Rahmen, damit er nicht wie ein Touch-Knopf aussieht */
+.crow .taster{font-size:3.8cqw;font-weight:600;white-space:nowrap;color:var(--ink-soft);text-align:right;line-height:1.2}
+.crow button{border:.5cqw solid var(--ink);background:transparent;border-radius:2cqw;font-weight:700;font-size:3.6cqw;padding:1.6cqw 2.4cqw;white-space:nowrap}
+.adm{width:100%;border-collapse:collapse;font-size:3.8cqw;font-variant-numeric:tabular-nums}
+.adm td{padding:.8cqw 0;border-bottom:.3cqw solid var(--ink-dim)} .adm td:last-child{text-align:right;font-weight:700}
+.btnrow.wrap{flex-wrap:wrap}
+.steps{font-family:var(--f-cond);font-size:3.9cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.panel ul{margin:0;padding-left:5cqw;font-size:4.4cqw;line-height:1.35;color:var(--ink)}
+
+/* Vollbild-Panels */
+.panel{position:absolute;inset:0;padding:5cqw;display:flex;flex-direction:column;gap:3cqw;animation:pin .18s ease-out;z-index:2;
+  background:radial-gradient(ellipse 70% 65% at 50% 45%, var(--lcd-hi), var(--lcd-mid) 55%, var(--lcd-lo))}
+@keyframes pin{from{opacity:0}}
+.panel h2{margin:0;font-family:var(--f-cond);font-size:5.4cqw;font-weight:700;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;gap:2cqw}
+.back{border:.55cqw solid var(--ink);background:transparent;border-radius:2cqw;font-size:4.4cqw;font-weight:700;padding:1.4cqw 3cqw;min-height:12cqw;letter-spacing:.04em;font-family:var(--f-cond)}
+.panel p{margin:0;font-size:4.4cqw;line-height:1.3;color:var(--ink-soft)}
+.lbl{font-family:var(--f-cond);font-size:4.2cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.grid{display:grid;gap:2cqw}
+.g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:1fr}
+.opt{border:.5cqw solid var(--ink-dim);background:rgba(255,255,255,.06);border-radius:2.4cqw;padding:2.4cqw 3cqw;display:flex;align-items:center;gap:2.4cqw;font-size:4.6cqw;font-weight:700;min-height:13cqw;text-align:left;line-height:1.1}
+.opt svg{flex:none;width:6.4cqw;height:6.4cqw}
+/* Sprache: Flagge zum Wiedererkennen; Darstellung: Farbfeld zeigt das Ergebnis vorab */
+.flag{flex:none;width:8cqw;font-size:6.6cqw;line-height:1;text-align:center}
+.swatch{flex:none;width:8cqw;height:8cqw;border-radius:1.8cqw;border:.5cqw solid #fff;box-shadow:0 0 0 .3cqw rgba(0,0,0,.35)}
+.swatch.std{background:radial-gradient(circle at 40% 35%,#2f45f5,#1525c4 60%,#08106c)}
+.swatch.hc{background:#000}
+.swatch.custom{background:conic-gradient(#e74c3c,#f1c40f,#2ecc71,#3498db,#9b59b6,#e74c3c)}
+.opt[disabled]{opacity:.5}
+.opt[aria-checked="true"]{border-color:var(--ink);background:var(--ink);color:var(--lcd-mid)}
+.g3 .opt{justify-content:center;text-align:center}
+.bigbtn{border:.6cqw solid var(--ink);background:var(--ink);color:var(--lcd-mid);border-radius:2.6cqw;padding:2.4cqw 3cqw;font-weight:700;font-size:5cqw;margin-top:auto;display:flex;align-items:center;justify-content:center;gap:2cqw;min-height:12cqw}
+.opt.wide{grid-column:1 / -1;justify-content:center;border-style:dashed}
+.opt.wide[aria-checked="true"]{border-style:solid}
+.opt.wide svg{width:5.6cqw;height:5.6cqw}
+.field{width:100%;background:rgba(255,255,255,.1);border:.6cqw solid var(--ink);border-radius:2.4cqw;padding:2.4cqw 3cqw;font-size:5cqw;font-weight:600;color:var(--ink);font-family:var(--f-ui)}
+.field::placeholder{color:var(--ink-soft);opacity:.8}
+.field:focus{outline:.7cqw solid var(--band);outline-offset:.4cqw}
+.stps{display:flex;flex-direction:column;gap:1.8cqw}
+.stp{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:2cqw;border-bottom:.3cqw solid var(--ink-dim);padding-bottom:1.8cqw}
+.stp:last-child{border-bottom:0;padding-bottom:0}
+.stp b{font-size:4.4cqw;font-weight:600}
+.stp output{min-width:17cqw;text-align:center;font-size:5.4cqw;font-weight:700;font-variant-numeric:tabular-nums}
+.stp button{width:10cqw;height:10cqw;border-radius:2.4cqw;border:.6cqw solid var(--ink);background:transparent;font-size:6cqw;font-weight:700;line-height:1;display:grid;place-items:center;padding:0}
+.btnrow{display:flex;gap:2.4cqw;margin-top:auto}
+.btnrow .bigbtn{flex:1;margin-top:0}
+.bigbtn.out{background:transparent;color:var(--ink)}
+.bigbtn svg{flex:none;width:5.6cqw;height:5.6cqw}
+.list{overflow-y:auto;min-height:0;flex:1;display:flex;flex-direction:column;gap:2cqw;padding-right:.6cqw}
+.item{display:flex;gap:2.4cqw;align-items:center;border:0;border-top:.5cqw solid var(--ink-dim);border-bottom:.5cqw solid var(--ink-dim);border-radius:0;padding:2cqw 0} /* Karte ist nur Text: Linien statt Rahmen, gerahmt ist nur ihr Knopf */
+.item svg{flex:none;width:6.4cqw;height:6.4cqw}
+.item div{flex:1;min-width:0}
+.item b{display:block;font-size:5cqw;line-height:1.15}
+.item span{display:block;font-size:4.4cqw;color:var(--ink-soft);line-height:1.25;margin-top:.4cqw}
+.item.warn{border-color:var(--alarm);border-top-width:.6cqw;border-bottom-width:.6cqw}
+.item.warn b{color:var(--ink)}
+.item .ok{flex:none;border:.5cqw solid var(--ink);background:transparent;border-radius:1.8cqw;font-weight:700;font-size:4.2cqw;padding:1.4cqw 2.6cqw}
+.none{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;flex:1;text-align:center}
+.none svg{width:12cqw;height:12cqw}
+.none b{font-size:5cqw}
+
+.msg{position:absolute;left:50%;bottom:32cqw;transform:translateX(-50%);background:rgba(4,8,60,.92);border:.45cqw solid var(--ink-dim);border-radius:2cqw;padding:1.6cqw 3.4cqw;font-size:4.4cqw;font-weight:600;white-space:nowrap;max-width:80cqw;overflow:hidden;text-overflow:ellipsis;animation:pin .15s;z-index:3}
+
+/* Typenschild */
+.plate{background:linear-gradient(180deg,#d8d9d5,#c9cac5);color:#2b2b2a;border-radius:4px;padding:14px 22px 12px;text-align:center;min-width:min(78%,380px);
+  box-shadow:0 1px 0 #fff inset, 0 0 0 1px #b4b5b0, 0 4px 10px rgba(0,0,0,.1)}
+.plate b{display:block;font-weight:700;font-size:clamp(17px,4.6vw,24px);line-height:1.2}
+.plate span{display:block;font-weight:600;font-size:clamp(14px,3.7vw,19px);line-height:1.3;color:#3d3d3b}
+
+/* Demo-Leiste (nicht Teil des Geräts) */
+.demo{width:100%;background:var(--page-card);border:1px solid var(--page-line);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.demo h3{margin:0;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--page-muted)}
+.demo p{margin:0;font-size:14px;color:var(--page-muted);line-height:1.4}
+.demo-btns{display:flex;flex-wrap:wrap;gap:8px}
+.demo-btns button{border:1px solid var(--page-line);background:transparent;border-radius:10px;padding:9px 12px;font-size:14px;font-weight:600;color:var(--page-fg)}
+.demo-btns button[aria-pressed="true"]{background:var(--page-fg);color:var(--page);border-color:var(--page-fg)}
+.demo-chip{display:none;border:.5cqw solid var(--ink-dim);background:transparent;border-radius:2cqw;font-family:var(--f-cond);font-weight:700;font-size:3.6cqw;letter-spacing:.06em;text-transform:uppercase;padding:.8cqw 2.2cqw;color:var(--ink-soft)}
+.tr{display:flex;align-items:center;gap:2.6cqw;flex:none}
+
+/* Handy im Technikraum (iPhone 13 mini und ähnliche): Display füllt den ganzen Bildschirm */
+@media (max-width:500px){
+  .hasact .mini{display:grid}
+  html,body{height:100%;background:var(--lcd-lo)}
+  body{padding:0;overflow:hidden;overscroll-behavior:none;-webkit-touch-callout:none;touch-action:manipulation}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--lcd-lo)}
+  .wrap{max-width:none;height:100%;padding:0;gap:0}
+  .device,.glass{width:100%;height:100%;padding:0;border-radius:0;background:none;box-shadow:none}
+  .screen{aspect-ratio:auto;height:100%;border-radius:0;box-shadow:none;
+    padding-block:3cqw 4cqw;padding-left:max(5cqw, env(safe-area-inset-left, 0px));padding-right:max(5cqw, env(safe-area-inset-right, 0px))}
+  .screen::after{display:none}
+  .plate,.demo{display:none}
+  .demo-chip{display:inline-flex}
+  .ring{width:78cqw;height:78cqw}
+  .shroom{width:30cqw;height:30cqw;margin-top:0}
+  .hum{font-size:14cqw}
+  .hum small{font-size:6.4cqw}
+  .humlbl{font-size:4.2cqw}
+  .alert{margin-top:3cqw;min-height:20cqw}
+  .alert .t{font-size:7.6cqw}
+  .alert:not(.warn) .t{font-size:9cqw}
+  .alert .a{font-size:4.8cqw;max-width:84cqw}
+  .mini{gap:5cqw;margin-top:3cqw}
+  .sv{font-size:5.2cqw}
+  .key{height:27cqw}
+  .key svg{width:11cqw;height:11cqw}
+  .key b{font-size:4.8cqw}
+  .key i{font-size:4cqw}
+  .cap{font-size:4.1cqw}
+  .panel{padding:6cqw max(5cqw, env(safe-area-inset-right, 0px)) 6cqw max(5cqw, env(safe-area-inset-left, 0px))}
+  .msg{bottom:36cqw}
+}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="device">
+    <div class="glass">
+      <div class="screen" id="screen">
+        <div class="topbar"><span id="topCulture">Auster</span><span class="alarm-dot" id="alarmDot" role="img" aria-label="Keine Warnung">!</span><span class="tr"><span class="ticon" id="topIcons"></span><button class="admin-btn" id="linkChip" aria-label="Handy verbinden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></button><button class="admin-btn" id="demoChip" aria-label="Einstellungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
+
+        <div class="center" id="home">
+          <div class="ring">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <circle cx="100" cy="100" r="90" stroke="rgba(255,255,255,.16)" stroke-width="9"/>
+              <circle id="arcBand" cx="100" cy="100" r="90" stroke="var(--band)" stroke-width="9" pathLength="360" stroke-dasharray="0 360" opacity=".9"/>
+              <circle id="arcVal" cx="100" cy="100" r="90" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round" pathLength="360" stroke-dasharray="0 360"/>
+              <g id="knob"><circle cx="190" cy="100" r="9" stroke="var(--lcd-mid)" stroke-width="3" style="fill:var(--ink)"/></g>
+            </svg>
+            <div class="inner">
+              <svg class="shroom" id="shroom" viewBox="0 0 100 100" aria-hidden="true">
+                <g class="breeze" fill="none" stroke-width="3" stroke-linecap="round"><path d="M2 40c8-3 14 3 22 0"/><path d="M76 34c8-3 14 3 22 0"/></g>
+                <path id="stem" d="M41 56c-1 14-2 24-4 32h26c-2-8-3-18-4-32z" fill="#efe9dc"/>
+                <path id="cap" d="M10 58C10 30 28 14 50 14s40 16 40 44c0 4-6 6-40 6S10 62 10 58z" fill="#b9c4cc"/>
+                <circle cx="34" cy="34" r="4.5" fill="#fff" opacity=".55"/><circle cx="62" cy="28" r="3.5" fill="#fff" opacity=".55"/><circle cx="72" cy="44" r="3" fill="#fff" opacity=".55"/>
+                <circle cx="44" cy="72" r="2.6" fill="#1d2a6b"/><circle cx="56" cy="72" r="2.6" fill="#1d2a6b"/>
+                <path id="brows" d="M40 66l7 1M53 67l7-1" stroke="#1d2a6b" stroke-width="2" stroke-linecap="round" opacity="0"/>
+                <path id="mouth" d="M45 79q5 5 10 0" fill="none" stroke="#1d2a6b" stroke-width="2.4" stroke-linecap="round"/>
+                <g class="spark" id="spark"><path d="M24 18L10 4"/><path d="M50 8V-12"/><path d="M76 18L90 4"/></g>
+                <path class="sweat" d="M64 62c0 0 3 4 3 6a3 3 0 0 1-6 0c0-2 3-6 3-6z" fill="#9fd3ff"/>
+                <path class="drop" d="M20 66c0 0 4 5 4 8a4 4 0 0 1-8 0c0-3 4-8 4-8z"/>
+                <path class="drop" d="M82 68c0 0 4 5 4 8a4 4 0 0 1-8 0c0-3 4-8 4-8z"/>
+                <path class="drop" d="M50 0c0 0 4 5 4 8a4 4 0 0 1-8 0c0-3 4-8 4-8z" transform="translate(0 2)"/>
+              </svg>
+              <span class="hum" id="hum">–</span>
+              <span class="humlbl" id="humlbl">bis zur Ernte</span>
+            </div>
+          </div>
+          <button class="alert" id="alert" aria-label="Alle Meldungen anzeigen"></button>
+          <button class="act" id="actBtn" hidden></button>
+          <div class="mini" id="mini"></div>
+        </div>
+        <div class="keys">
+          <button class="key" id="kClima" aria-label="Klima, läuft automatisch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5V5a2 2 0 0 1 4 0v8.5a4 4 0 1 1-4 0z"/><path d="M17.5 6h4M17.5 10h3M3 8h3.5M2.5 12h4"/></svg><b>Klima</b><i id="climaSub">Auto</i></button>
+          <button class="key" id="kAlerts" aria-label="Meldungen anzeigen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 21h4"/></svg><b>Meldungen</b><span class="count" id="count" hidden>0</span></button>
+          <button class="key" id="kSort" aria-label="Sorten ansehen und neu ansetzen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path class="fill" d="M3 13a9 7 0 0 1 18 0z"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5"/></svg><b>Sorten</b><i>Neu?</i></button>
+        </div>
+        <div id="panelHost"></div>
+        <div id="msgHost"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="plate"><b>Growbox – 01</b><span>Pilzkammer Klimaregelung</span><span id="plateSub">Austernpilz · Fruchtung</span></div>
+
+  <div class="demo">
+    <h3>Admin-Modus: Situation testen</h3>
+    <p>Gehört nicht zum Gerät. Damit siehst du, wie das Display auf echte Probleme reagiert.</p>
+    <div class="demo-btns" id="demo">
+      <button data-d="tank" aria-pressed="false">Wassertank leer</button>
+      <button data-d="door" aria-pressed="false">Tür offen</button>
+      <button data-d="hot" aria-pressed="false">Raum zu warm</button>
+      <button data-d="cold" aria-pressed="false">Raum zu kalt</button>
+      <button data-d="sensor" aria-pressed="false">Sensor ausgefallen</button>
+      <button data-d="harvest" aria-pressed="false">Tag 6 der Fruchtung</button>
+      <button data-d="taster" aria-pressed="false">Taster drücken (Licht)</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+const DAY=864e5, pad=n=>String(n).padStart(2,"0");
+const esc=v=>String(v??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+const SPECIES={
+  auster:{name:"Austernpilz",short:"Auster",cap:"#b9c4cc",p:{kol:{t:[22,26],rh:[70,95],co2:5000,light:false,days:14},frucht:{t:[18,24],rh:[85,95],co2:800,light:true,days:6},ruhe:{t:[18,24],rh:[80,90],co2:1000,light:true,days:8}}},
+  shiitake:{name:"Shiitake",short:"Shiitake",cap:"#a0673f",p:{kol:{t:[21,25],rh:[70,95],co2:5000,light:false,days:45},frucht:{t:[15,21],rh:[80,90],co2:1000,light:true,days:8},ruhe:{t:[18,22],rh:[70,85],co2:1200,light:true,days:14}}},
+  kraeuter:{name:"Kräuterseitling",short:"Kräuter",cap:"#d9c39a",p:{kol:{t:[22,26],rh:[70,95],co2:5000,light:false,days:18},frucht:{t:[15,20],rh:[85,95],co2:1500,light:true,days:9},ruhe:{t:[16,21],rh:[80,90],co2:1500,light:true,days:10}}},
+  igel:{name:"Igel-Stachelbart",short:"Igel",cap:"#ffffff",stem:"#d3c4a3",p:{kol:{t:[21,24],rh:[70,95],co2:5000,light:false,days:16},frucht:{t:[18,22],rh:[88,96],co2:700,light:true,days:7},ruhe:{t:[18,22],rh:[82,90],co2:900,light:true,days:10}}}
+};
+const PHASES={kol:"Durchwachsen",frucht:"Fruchtung",ruhe:"Ruhephase"};
+/* Infos zum Anschauen vor dem Neu-Ansetzen: Schwierigkeit 1–3 und kurze Beschreibung */
+const INFO={
+  auster:{diff:1,desc:"Wächst schnell und verzeiht Fehler. Ideal für den Start."},
+  shiitake:{diff:3,desc:"Braucht viel Geduld: sehr lange Durchwachsphase, dafür kräftiger Geschmack."},
+  kraeuter:{diff:2,desc:"Fester, aromatischer Pilz. Mag es kühl und braucht viel frische Luft."},
+  igel:{diff:2,desc:"Ungewöhnliche Form wie ein Eiszapfen. Braucht sehr hohe Luftfeuchte."},
+  custom:{diff:0,desc:"Eigene Zielwerte, angelegt an der Box nach der Ernte oder in der App."}
+};
+const DIFF=["Eigene Werte","Leicht","Mittel","Schwer"];
+/* Sortenliste: Schwierigkeit als 3 Punkte (wie auf der Detailseite) und die Dauer, ohne weiteren Text */
+/* Schwierigkeit als 1–3 Pilze (Stufe wie ein Level, keine Bewertung wie Sterne): volle = erreicht, blasse = nicht */
+const MINI_SHROOM='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 13a9.5 7.5 0 0 1 19 0z" fill="currentColor"/><path d="M9.3 13v5.2a2.7 2.7 0 0 0 5.4 0V13z" fill="currentColor"/></svg>';
+const dotsHtml=d=>[1,2,3].map(i=>`<i class="dot${i<=d?" on":""}">${MINI_SHROOM}</i>`).join("");
+const diffLine=k=>{const d=INFO[k].diff;return (d?`<span class="dots" aria-label="${DIFF[d]}">${dotsHtml(d)}</span> `:"Eigene Werte · ")+`${toHarvest(k)} Tage`};
+const toHarvest=k=>{const P=SPECIES[k].p;return P.kol.days+P.frucht.days};
+
+let S; try{S=JSON.parse(localStorage.getItem("growbox-display-v5"))}catch(e){}
+/* Startzustand für die Präsentation: Austernpilz frisch angesetzt, noch 15 Tage bis zur Ernte */
+if(!S||!S.species) S={species:"auster",phase:"kol",phaseStart:Date.now()-5.2*DAY,power:true,away:false};
+/* Präsentation: nach dem Neuladen ist das Handy-Symbol wieder da (Verbinden wird jedes Mal neu gezeigt).
+   Ruhemodus gibt es nicht mehr als Einstellung; schwarz wird das Display nur im Standby des Admin-Falls „Tank leer“. */
+S.linked=false; S.sleep=false;
+const save=()=>{try{localStorage.setItem("growbox-display-v5",JSON.stringify(S))}catch(e){}};
+/* Eigene Sorte: Zielwerte für die Fruchtung, die anderen Phasen leiten sich davon ab.
+   An der Box gestaltet (nach der Ernte) kommen Vorlage (base) und Licht-Stunden (light) dazu; aus der App fehlen sie, dann gelten die alten Standardwerte. */
+function applyCustom(){
+  delete SPECIES.custom;
+  const c=S.custom; if(!c){ if(S.species==="custom") S.species="auster"; return }
+  const B=SPECIES[c.base], lh=Number.isFinite(c.light)?c.light:12, days=B?[B.p.kol.days,B.p.frucht.days,B.p.ruhe.days]:[14,7,10];
+  SPECIES.custom={name:c.name||"Eigene Sorte",short:c.name||"Eigene",cap:B?B.cap:"#cdb79e",stem:B?B.stem:undefined,p:{
+    kol:{t:[c.t[0]+2,c.t[1]+2],rh:[70,95],co2:5000,light:false,days:days[0]},
+    frucht:{t:c.t,rh:c.rh,co2:c.co2,light:lh>0,lh,days:days[1]},
+    ruhe:{t:c.t,rh:[Math.max(50,c.rh[0]-5),Math.max(55,c.rh[1]-5)],co2:c.co2+200,light:lh>0,lh,days:days[2]}}};
+}
+/* Lichtfenster: ab 8 Uhr für lh Stunden (Standard 12 h, also 8–20 Uhr) */
+const lightWin=T=>[480,480+(T.lh??12)*60];
+applyCustom();
+const tgt=()=>SPECIES[S.species].p[S.phase];
+const day=()=>Math.floor((Date.now()-S.phaseStart)/DAY)+1;
+
+/* Simulation. LED 8–20 Uhr (Taster schaltet um), Frischluft alle 30 Min, Nebler regelt automatisch.
+   Urlaub: Nebler springt erst später an und spart so Wasser. */
+const demo={tank:false,door:false,hot:false,cold:false,sensor:false,harvest:false,taster:false};
+const sim={t:22.4,rh:89,co2:690,tank:64,dev:{licht:false,luefter:false,nebel:false,heizung:false},burst:0,mist:0,lightOv:null};
+function step(d){
+  const T=tgt(), m=d.getHours()*60+d.getMinutes();
+  if(demo.tank) sim.tank=0;
+  if(!S.power) sim.dev={licht:false,luefter:false,nebel:false,heizung:false};
+  else{
+    const on=S.away?T.rh[0]-1:T.rh[0]+1.5, off=S.away?T.rh[0]+2:(T.rh[0]+T.rh[1])/2+2;
+    let N=sim.dev.nebel; if(sim.rh<on)N=true; else if(sim.rh>off)N=false; if(S.phase==="kol"&&sim.rh>T.rh[0]+3)N=false;
+    if(sim.mist>d.getTime())N=true;
+    if(sim.tank<=0) N=false;
+    const [l0,l1]=lightWin(T), autoL=T.light&&m>=l0&&m<l1;
+    if(sim.lightOv&&d.getTime()>sim.lightOv.until) sim.lightOv=null;  // Ausnahme gilt bis zum nächsten Licht-Wechsel
+    // Heizung: an unter dem Zielbereich, aus kurz darüber (Kühlen gibt es nicht, nur einen Hinweis)
+    let H=sim.dev.heizung; if(sim.t<T.t[0]+.3)H=true; else if(sim.t>T.t[0]+1.5)H=false;
+    sim.dev={heizung:H, licht:sim.lightOv?sim.lightOv.on:autoL, luefter:sim.burst>d.getTime()||sim.co2>T.co2-60||(S.phase!=="kol"&&m%30<2)||sim.rh>T.rh[1]+1.5, nebel:N};
+  }
+  const r=()=>Math.random()-.5, D=sim.dev, amb=demo.hot?29.5:demo.cold?14:21.6;
+  sim.t+=((amb+(D.licht?.7:0)-(D.nebel?.3:0))-sim.t)*(demo.hot?.12:D.luefter?.06:.03)+(D.heizung?.3:0)+r()*.08;
+  sim.rh+=-.32+(D.nebel?2.1:0)+(D.luefter?-1.3:0)+(demo.door?-2.2:0)+r()*.35;
+  sim.co2+=(S.phase==="kol"?22:11)+(D.luefter?-95:0)+(demo.door?-60:0)+r()*6;
+  if(D.nebel) sim.tank=Math.max(0,sim.tank-.08);
+  sim.t=Math.max(10,Math.min(35,sim.t));sim.rh=Math.max(40,Math.min(99.5,sim.rh));sim.co2=Math.max(420,Math.min(6000,sim.co2));
+}
+for(let i=0;i<120;i++) step(new Date(Date.now()-(120-i)*3000));
+
+/* Fortschritt bis zur (nächsten) Ernte: Durchwachsen + Fruchtung, nach der Ernte Ruhe + Fruchtung */
+/* Zeitraffer (Admin „Ernte fertig“): gespielte Tage seit dem Ansetzen, sonst null */
+let lapse=null, lapseTimer=null;
+function progress(){
+  const P=SPECIES[S.species].p, d=day();
+  let tot, el, tick;
+  if(S.phase==="ruhe"){tot=P.ruhe.days+P.frucht.days; el=d-1; tick=P.ruhe.days/tot}
+  else{tot=P.kol.days+P.frucht.days; el=(S.phase==="frucht"?P.kol.days:0)+d-1; tick=P.kol.days/tot}
+  if(demo.harvest&&S.phase==="frucht") el=tot;
+  if(lapse!==null) el=lapse;
+  return {p:Math.max(0,Math.min(1,el/tot)), left:Math.max(0,Math.ceil(tot-el)), tick, tot, el};
+}
+/* Tank-Reichweite (Annahme: voller Tank reicht 7 Tage, im Urlaub 10) */
+const tankDays=()=>Math.floor(sim.tank/100*(S.away?10:7));
+
+/* Meldungen: nur was jemand vor der Box wissen und tun muss.
+   crit = Pilze nehmen bald Schaden · warn = bitte bald kümmern · info = Erinnerung
+   Jede Meldung hat genau einen Knopf:
+   - "auto": das Display erledigt es selbst (Phase umstellen)
+   - "hand": ihr macht es an der Box und bestätigt danach. Besteht das Problem weiter, kommt die Meldung nach einer Weile wieder. */
+const acked=new Map();
+const snoozed=id=>(acked.get(id)||0)>Date.now();
+function done(ids,fn,min){return ()=>{fn&&fn();[].concat(ids).forEach(i=>acked.set(i,Date.now()+min*60000));syncDemo();step(new Date());render();msg("Danke · erledigt")}}
+function setPhase(ph,txt){return ()=>{S.phase=ph;S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());render();msg(txt)}}
+function alerts(){
+  if(!S.power) return [];
+  const T=tgt(), out=[], d=day();
+  const H=(label,run)=>({label,run,kind:"hand"}), A=(label,run,icon)=>({label,run,kind:"auto",icon});
+  if(demo.sensor) out.push({id:"sensor",sev:"crit",urgent:true,t:"Sensor ausgefallen",a:"Kabel im Technikraum prüfen, dann GEPRÜFT drücken.",do:H("Geprüft",done("sensor",()=>{demo.sensor=false},10))});
+  if(sim.tank<=0) out.push({id:"tank",sev:"crit",urgent:true,t:"Wasser leer",a:"Tank im Technikraum auffüllen",do:H("Aufgefüllt",refill)});
+  if(!demo.sensor){
+    const moved=done(["hot","warm"],()=>{demo.hot=false},20);
+    if(sim.t>T.t[1]+3) out.push({id:"hot",sev:"crit",urgent:true,t:"Viel zu warm",a:"Box an einen kühleren Platz stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",moved)});
+    else if(sim.t>T.t[1]) out.push({id:"warm",sev:"warn",t:"Zu warm",a:"Weg von Heizung und Sonne stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",moved)});
+    if(sim.t<T.t[0]-2) out.push({id:"cold",sev:"warn",t:"Zu kalt trotz Heizung",a:"Die Heizung schafft es nicht. An einen wärmeren Platz stellen, dann UMGESTELLT drücken.",do:H("Umgestellt",done("cold",()=>{demo.cold=false},30))});
+  }
+  if(demo.door) out.push({id:"door",sev:"warn",t:"Tür offen",a:"Tür und Deckel schließen, dann GESCHLOSSEN drücken.",do:H("Geschlossen",done("door",()=>{demo.door=false},5))});
+  if(!demo.sensor){
+    if(sim.rh<T.rh[0]-8&&sim.tank>0) out.push({id:"dry2",sev:"crit",urgent:true,t:"Viel zu trocken",a:"Tür, Deckel und Nebler prüfen, dann GEPRÜFT drücken.",do:H("Geprüft",done("dry2",null,10))});
+    else if(sim.rh<T.rh[0]&&!demo.door&&sim.tank>0) out.push({id:"dry",sev:"warn",t:"Zu trocken",a:"Der Nebler gleicht das aus. Kurz nachsehen, ob er dampft.",do:H("Gesehen",done("dry",null,15))});
+    if(sim.rh>T.rh[1]+2) out.push({id:"wet",sev:"warn",t:"Zu nass",a:"Der Lüfter trocknet die Kammer schon. Tür und Deckel geschlossen halten.",do:H("Gesehen",done("wet",null,15))});
+    if(sim.co2>T.co2+150&&!sim.dev.luefter) out.push({id:"co2",sev:"warn",t:"Braucht Frischluft",a:"Die Box lüftet gleich selbst. Lüftungsschlitze frei halten.",do:H("Gesehen",done("co2",null,15))});
+  }
+  if(sim.tank>0&&sim.tank<20) out.push({id:"tanklow",sev:"info",t:"Wasser bald leer",a:`Noch ${Math.round(sim.tank)} %. Nach dem Auffüllen AUFGEFÜLLT drücken.`,do:H("Aufgefüllt",refill)});
+  const hd=demo.harvest?Math.max(d,T.days):d;
+  if(S.phase==="frucht"&&hd>=T.days) out.push({id:"harvest",sev:"info",t:"Ernte prüfen",a:"Ernten, solange die Hutränder noch leicht gebogen sind. Danach „Geerntet? Neue Sorte“ drücken.",do:A("Geerntet? Neue Sorte",()=>{setPhase("ruhe","Geerntet")();pickPanel()},"harvest")});
+  if(S.phase==="kol"&&d>=T.days) out.push({id:"colonized",sev:"info",t:"Durchwachsen?",a:"Ist das Substrat ganz weiß, startet der Knopf die Fruchtung.",do:A("Fruchtung starten",setPhase("frucht","Fruchtung gestartet"),"play")});
+  if(S.phase==="ruhe"&&d>=T.days) out.push({id:"flush",sev:"info",t:"Nächste Welle",a:"Die Pause ist vorbei. Der Knopf startet die nächste Fruchtung.",do:A("Fruchtung starten",setPhase("frucht","Fruchtung gestartet"),"play")});
+  // Nur zwei Stufen: „Alles gut“ (ok/info) oder Warnung. Dringendes (früher „crit“) steht als Warnung ganz oben.
+  const rank={crit:0,warn:1,info:2};
+  return out.filter(x=>!snoozed(x.id)).sort((a,b)=>rank[a.sev]-rank[b.sev]).map(x=>x.sev==="crit"?{...x,sev:"warn"}:x);
+}
+let lastStage=null;  // Wachstumsstufe beim letzten Zeichnen (für das Sprühen)
+const IC={
+  ok:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="var(--ok)" stroke="#fff" stroke-width="1.4"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  warn:'<svg viewBox="0 0 24 24"><path d="M12 2L23 21.2H1z" fill="var(--warn-sign)" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8.6v6M12 17.6v.3" stroke="#111" stroke-width="2.6" stroke-linecap="round"/></svg>',
+  ripe:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#efdcb8" stroke="#fff" stroke-width="1.4"/><path d="M5.6 12.6a6.4 5.4 0 0 1 12.8 0z" fill="#08106c"/><path d="M10.4 12.6v4.6h3.2v-4.6" fill="#08106c"/></svg>',
+  info:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="var(--ok)" stroke="#fff" stroke-width="1.4"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  verified:'<svg viewBox="0 0 24 24"><path d="M12 1.5l2.6 2 3.2-.3 1 3.1 2.7 1.8-1 3.1 1 3.1-2.7 1.8-1 3.1-3.2-.3-2.6 2-2.6-2-3.2.3-1-3.1-2.7-1.8 1-3.1-1-3.1 2.7-1.8 1-3.1 3.2.3z" fill="var(--ok)" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/><path d="M7.6 12.2l3 3 5.8-6" fill="none" stroke="#08106c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  away:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M9 7v13M15 7v13"/></svg>',
+  bulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>',
+  info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.3v.4"/></svg>',
+  temp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M10 14.2V5a2 2 0 0 1 4 0v9.2a4 4 0 1 1-4 0z"/></svg>',
+  air:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3"/></svg>',
+  tank:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M5 6h14v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M5 12h14"/></svg>',
+  rh:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>',
+  clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
+};
+const shroomSvg=(c,st)=>`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13a9 7 0 0 1 18 0z" fill="${c}"/><path d="M9.5 13v5a2.5 2.5 0 0 0 5 0v-5z" fill="${st||"#efe9dc"}"/></svg>`;
+
+/* Tank wurde von Hand aufgefüllt: Füllstand zurücksetzen, Nebler läuft wieder */
+function refill(){
+  sim.tank=100; demo.tank=false; syncDemo(); acked.delete("tank"); acked.delete("tanklow");
+  step(new Date()); render(); msg("Tank voll · Nebler läuft wieder");
+}
+const ACT_IC={
+  hand:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>',
+  harvest:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 6 0 0 1 17 0z"/><path d="M10 12v6a2 2 0 0 0 4 0v-6"/></svg>',
+  play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg>'
+};
+const DROP_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9 14l2 2 4-4"/></svg>';
+let lastAlert="";
+const when=t=>{const d=new Date(t);return `${pad(d.getDate())}.${pad(d.getMonth()+1)}. ${pad(d.getHours())}:${pad(d.getMinutes())}`};
+const clock=t=>{const d=new Date(t);return `${pad(d.getHours())}:${pad(d.getMinutes())}`};
+/* Verlauf: jede Meldung mit Beginn und Ende (behoben/erledigt), höchstens 40 Einträge */
+function syncLog(list){
+  if(!S.power) return;
+  const now=Date.now(); S.log=S.log||[];
+  const open=S.log.filter(e=>!e.to), ids=new Set(list.map(x=>x.id)); let ch=false;
+  for(const x of list) if(!open.some(e=>e.id===x.id)){S.log.unshift({id:x.id,t:x.t,sev:x.sev,from:now});ch=true}
+  for(const e of open) if(!ids.has(e.id)){e.to=now;ch=true}
+  if(S.log.length>40){S.log.length=40;ch=true}
+  if(ch){S.okSince=list.some(x=>x.sev==="warn")?null:(S.okSince||now);save()}
+  if(!S.okSince&&!list.some(x=>x.sev==="warn")){S.okSince=now;save()}
+}
+function render(){
+  const d=new Date(), T=tgt(), list=alerts(), top=list[0], sev=top?.sev||"ok";
+  syncLog(list);
+  $("#screen").classList.toggle("standby",!S.power&&!S.rest&&!open);  // offenes Fenster nicht abdunkeln
+  $("#screen").classList.toggle("away",S.power&&!!S.away);
+  $("#screen").classList.toggle("hc",S.theme==="hc");
+  const showVal=S.power&&!demo.sensor, pr=progress(), v=pr.p*360, tk=pr.tick*360;
+  // Ring: Fortschritt bis zur Ernte; gelbe Marke = Wechsel Durchwachsen/Ruhe → Fruchtung
+  $("#arcBand").setAttribute("stroke-dasharray",`0 ${Math.max(0,tk-1.5)} 3 360`);
+  $("#arcVal").setAttribute("stroke-dasharray",`${S.power?Math.max(1,v):0} 360`);
+  $("#knob").setAttribute("transform",`rotate(${v} 100 100)`);
+  $("#knob").style.display=S.power?"":"none";
+  if(!S.power){$("#hum").innerHTML="––";$("#humlbl").textContent=S.rest?"Pause":"pausiert"}
+  else if(pr.left===0){$("#hum").innerHTML="Jetzt";$("#humlbl").textContent="ernten"}
+  else{$("#hum").innerHTML=`${pr.left}<small>${pr.left===1?"Tag":"Tage"}</small>`;$("#humlbl").textContent="bis zur Ernte"}
+  // Pilz-Gesicht: froh (ok/info), besorgt (warn), gestresst (crit)
+  const sh=$("#shroom");
+  // Wachstum in drei Stufen: klein · mittel (Grundgröße) · groß
+  sh.style.transform=`scale(${S.power?(pr.p<1/3?.84:pr.p<2/3?1:1.14):1})`;
+  const stage=!S.power||S.rest?-1:pr.left===0?3:pr.p<1/3?0:pr.p<2/3?1:2;
+  if(lastStage!==null&&stage>lastStage){const sp=$("#spark");sp.classList.remove("pop");void sp.getBBox();sp.classList.add("pop")}
+  lastStage=stage;
+  sh.style.visibility=S.rest?"hidden":"";  // Pause: kein Pilz in der Kammer
+  $("#cap").setAttribute("fill",SPECIES[S.species].cap);$("#stem").setAttribute("fill",SPECIES[S.species].stem||"#efe9dc");
+  $("#mouth").setAttribute("d",!S.power?"M46 80h8":sev==="crit"?"M44 83q6 -7 12 0":sev==="warn"?"M45 81q5 -3 10 0":"M45 79q5 5 10 0");
+  $("#brows").setAttribute("opacity",sev==="crit"||sev==="warn"?1:0);
+  sh.classList.toggle("crit",sev==="crit");
+  sh.classList.toggle("misting",sim.dev.nebel);
+  sh.classList.toggle("airing",sim.dev.luefter);
+  // Wichtigste Meldung
+  const awayQuiet=S.away&&!list.some(x=>x.urgent);
+  const key=S.rest?"rest":!S.power?"sb":awayQuiet?"away":top?top.id+top.a:"ok"+S.phase+day();
+  if(key!==lastAlert){lastAlert=key;const el=$("#alert");
+    if(S.rest){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Pause</span>`}
+    else if(!S.power){el.className="alert";el.innerHTML=`<span class="t">Pausiert</span><span class="a">Versehentlich? WEITERLAUFEN drücken. Neu ansetzen fortsetzen: SORTEN.</span>`}
+    else if(awayQuiet){el.className="alert";el.innerHTML=`<span class="t">${IC.away}Urlaub</span><span class="a">Box spart Wasser · Meldungen gehen aufs Handy</span>`}
+    else if(!top){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span>`}
+    else if(top.id==="harvest"){el.className="alert";el.innerHTML=`<span class="t">${IC.ripe}Erntebereit</span>`}
+    else if(top.sev==="info"){el.className="alert";el.innerHTML=`<span class="t">${IC.ok}Alles gut</span>`}
+    else{el.className="alert warn";el.innerHTML=`<span class="t">${IC.warn}${top.t}</span><span class="a">${top.a}</span>`}
+  }
+  // Pausiert: ein Tipp macht das Beenden rückgängig (Fehlertoleranz)
+  const ab=$("#actBtn"), act=S.rest?{label:"Neue Sorte",run:pickPanel,kind:"auto",icon:"play"}:!S.power?{label:"Weiterlaufen",run:resume,kind:"auto",icon:"play"}:!awayQuiet&&top?.do;
+  ab.hidden=!act; $("#home").classList.toggle("hasact",!!act);
+  if(act){ const html=`${act.kind==="auto"?ACT_IC[act.icon]:act.label==="Aufgefüllt"?DROP_IC:ACT_IC.hand}${act.label}`; if(ab.innerHTML!==html) ab.innerHTML=html; ab.className="act"+(top?.sev==="info"||S.rest?" info":""); ab.onclick=act.run; }
+  const c=$("#count"), worstN=list.filter(x=>x.sev!=="info").length;
+  c.hidden=!list.length; c.textContent=list.length; c.classList.toggle("info",!worstN);
+  $("#kAlerts").setAttribute("aria-label",`Meldungen anzeigen, ${list.length} offen`);
+  // Drei Werte: Balken mit Zielbereich (hell) und Punkt für den aktuellen Wert
+  const pc=(x,lo,hi)=>Math.max(0,Math.min(100,(x-lo)/(hi-lo)*100));
+  const stat=(off,ic,val,bar,cap)=>`<div class="stat${off?" off":""}"><div class="sv">${off?IC.warn:ic}${val}</div><div class="bar">${bar}</div><span class="cap">${cap}</span></div>`;
+  const band=(r,lo,hi,x)=>`<i class="band" style="left:${pc(r[0],lo,hi)}%;width:${pc(r[1],lo,hi)-pc(r[0],lo,hi)}%"></i>${showVal?`<i class="dot" style="left:${pc(x,lo,hi)}%"></i>`:""}`;
+  const tOff=showVal&&(sim.t<T.t[0]||sim.t>T.t[1]), hOff=showVal&&(sim.rh<T.rh[0]||sim.rh>T.rh[1]), wOff=sim.tank<20, td=tankDays();
+  $("#mini").innerHTML=
+    stat(tOff,IC.temp,showVal?sim.t.toFixed(1).replace(".",",")+"°":"–",band(T.t,10,35,sim.t),"Temperatur")+
+    stat(hOff,IC.rh,showVal?Math.round(sim.rh)+" %":"–",band(T.rh,40,100,sim.rh),"Luftfeuchte")+
+    stat(wOff,IC.tank,Math.round(sim.tank)+" %"+(sim.tank>0?`<span class="days" aria-label="reicht ca. ${td<1?"weniger als 1 Tag":td+(td===1?" Tag":" Tage")}"> · ${td<1?"<1":td} T</span>`:""),`<i class="lvl" style="width:${sim.tank}%"></i>`,"Wassertank");
+  const nWarn=S.power?list.filter(x=>x.sev==="warn").length:0;
+  $("#alarmDot").classList.toggle("on",nWarn>0);
+  $("#alarmDot").setAttribute("aria-label",nWarn?`${nWarn} ${nWarn===1?"Warnung":"Warnungen"}`:"Keine Warnung");
+  $("#linkChip").hidden=!!S.linked;
+  $("#topCulture").textContent=S.rest?"Kein Pilz":SPECIES[S.species].short;
+  const left=Math.max(0,sim.burst-Date.now()), mleft=Math.max(0,sim.mist-Date.now());
+  $("#climaSub").innerHTML=!S.power?"aus":'<span class="pulse" aria-hidden="true"></span>Auto';
+  syncSleep(list);
+  if(open==="clima"){const v=$("#climaRows");if(v)v.innerHTML=climaRows()}
+  $("#topIcons").innerHTML=(S.away?`<button class="away-chip" data-endaway aria-label="Urlaub beenden">Urlaub ✕</button>`:"")+(S.sleep?`<span class="sleep-chip" aria-label="Ruhemodus an">Ruhe</span>`:"");
+  $("#linkChip").classList.toggle("on",!!appSeen);
+  $("#plateSub").textContent=`${SPECIES[S.species].name} · ${PHASES[S.phase]}`;
+  if(open==="alerts") alertPanel(true);
+  if(open==="admin"){const v=$("#admVals");if(v)v.innerHTML=adminVals()}
+}
+
+let msgT;
+function msg(t){clearTimeout(msgT);$("#msgHost").innerHTML=`<div class="msg" role="status">${esc(t)}</div>`;msgT=setTimeout(()=>$("#msgHost").innerHTML="",2200)}
+
+let open=null, panelKey="";
+function closePanel(){open=null;panelKey="";$("#panelHost").innerHTML=""}
+function panel(name,title,html,bind){
+  open=name;
+  $("#panelHost").innerHTML=`<div class="panel panel-${name}" role="dialog" aria-label="${title}"><h2>${title}<button class="back" data-back>‹ Zurück</button></h2>${html}</div>`;
+  const p=$("#panelHost .panel"); p.querySelector("[data-back]").onclick=closePanel; bind&&bind(p);
+}
+function alertPanel(refresh){
+  const list=alerts(), log=(S.log||[]).filter(e=>e.to), warn=list.filter(x=>x.sev==="warn").length;
+  const k=list.map(x=>x.id+x.a).join("|")+"#"+log.length;
+  if(refresh&&k===panelKey) return; panelKey=k;
+  const now=Date.now();
+  panel("alerts","Meldungen",`
+    <div class="rec ${warn?"warn":"ok"}${list.length?" plain":""}">${warn?IC.warn+(warn===1?"1 Warnung":warn+" Warnungen"):list.some(x=>x.id==="harvest")?IC.ripe+"Erntebereit":IC.ok+"Alles gut"}</div>
+    <p>Stand: ${when(now)}${!warn&&S.okSince?` · alles gut seit ${S.okSince<now-DAY?when(S.okSince):clock(S.okSince)}`:""}</p>
+    ${list.length?`<div class="lbl">Jetzt</div><div class="list" style="flex:none;overflow:visible">${list.map(x=>{const e=(S.log||[]).find(l=>l.id===x.id&&!l.to);return `<div class="item ${x.sev}">${x.id==="harvest"?IC.ripe:IC[x.sev]}<div><b>${x.t}</b><span>${x.a}</span>${e?`<span>seit ${clock(e.from)}</span>`:""}</div><button class="do" data-do="${x.id}">${x.do.label}</button></div>`}).join("")}</div>`:""}
+    <div class="lbl">Verlauf</div>
+    ${log.length?log.slice(0,15).map(e=>`<div class="hist">${IC.ok}<b>${esc(e.t)}</b><small>${e.sev==="warn"?"behoben":"erledigt"} · <time>${when(e.from)} – ${clock(e.to)}</time></small></div>`).join("")
+      :`<p>Noch keine früheren Meldungen.</p>`}`,p=>{
+    p.style.overflowY="auto";
+    p.querySelectorAll("[data-do]").forEach(b=>b.onclick=()=>{const it=list.find(x=>x.id===b.dataset.do);it?.do.run();panelKey="";if(open==="alerts")alertPanel()});  // öffnet der Knopf selbst ein Panel (z. B. Sortenwahl nach der Ernte), bleibt es stehen
+  });
+}
+/* Beenden rückgängig machen: Box läuft mit gleicher Sorte, Phase und Tag weiter */
+function resume(){S.power=true;save();closePanel();step(new Date());render();msg("Box läuft weiter")}
+
+/* Neu ansetzen: erst nach bewusster Bestätigung (gedrückt halten). Danach 2 Schritte, die Zeit startet bei Tag 1. */
+function newPanel(n,direct){
+  const next=SPECIES[S.next]?S.next:S.species, head=`<div class="steps">${direct?"Neues Zuchtset":`Schritt ${n} von 2`}</div>`;
+  if(n===1) panel("new","Kammer leeren",`${head}<p>Alte Pilze und Substrat herausnehmen. Kammer feucht auswischen. Wassertank auffüllen.</p>
+    <div class="btnrow"><button class="bigbtn out" data-x>Doch nicht · weiterlaufen</button><button class="bigbtn" data-ok>Fertig</button></div>`,p=>{
+      p.querySelector("[data-x]").onclick=()=>{delete S.next;resume()};
+      p.querySelector("[data-ok]").onclick=()=>{refill();newPanel(2)}});
+  if(n===2) panel("new",direct?"Sicher?":"Zuchtset einsetzen",(direct?`<p><b>${esc(SPECIES[next].name)}</b> · Tag 1</p>`:`${head}<p>Neues ${esc(SPECIES[next].name)}-Zuchtset einsetzen, Tür und Deckel schließen.</p><p>Die Zeit startet bei <b>Tag 1</b> (Durchwachsen), Ernte in ca. ${toHarvest(next)} Tagen.</p>`)+`
+    <button class="bigbtn" data-ok>Starten</button>`,p=>{
+      p.querySelector("[data-ok]").onclick=()=>{S.species=next;delete S.next;delete S.rest;S.power=true;S.phase="kol";S.phaseStart=Date.now();acked.clear();demo.harvest=false;syncDemo();save();step(new Date());closePanel();render();msg(`${SPECIES[S.species].name} · Tag 1`)};
+      if(direct) p.querySelector("[data-back]").onclick=pickPanel;
+  });
+}
+/* Kachel „Sorten · Neu“: Sorten in Ruhe ansehen, neu ansetzen. Ansehen ändert nichts. */
+function sortPanel(){
+  const pr=progress(), cur=SPECIES[S.species].name;
+  const keys=Object.keys(SPECIES).filter(k=>k!=="custom").concat(S.custom?["custom"]:[]);
+  panel("sort","Sorten · Neu",`
+    <p>${S.rest?"Pause · kein Pilz in der Kammer.":S.power?`Jetzt: <b>${esc(cur)}</b> · ${PHASES[S.phase]} Tag ${day()} · noch ${pr.left} Tage bis zur Ernte`:`Pausiert. <b>${esc(SPECIES[S.next]?SPECIES[S.next].name:cur)}</b> wartet aufs Einsetzen.`}</p>
+    <div class="list">
+      ${S.power||S.rest?`<button class="bigbtn out" data-pick style="margin-top:0;flex:none">${ACT_IC.play}${S.rest?"Neue Sorte wählen …":"Neu ansetzen …"}</button>`:""}
+      ${S.power||S.rest?"":`<button class="opt" data-resume-new>${ACT_IC.play}<div>Neu ansetzen fortsetzen<small>Kammer leeren, Zuchtset einsetzen, starten.</small></div></button>`}
+      <div class="lbl">Sorten ansehen</div>
+      ${keys.map(k=>`<button class="opt" data-info="${k}">${shroomSvg(SPECIES[k].cap,SPECIES[k].stem)}<div>${esc(SPECIES[k].name)}${k===S.species&&S.power?'<span class="tag">wächst</span>':""}<small>${diffLine(k)}</small></div></button>`).join("")}
+      ${S.prev&&SPECIES[S.prev.species]&&Date.now()-S.prev.at<14*DAY?`<div class="lbl">Notfall</div>
+      <button class="opt" data-restore><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg><div>Zurück zu ${esc(SPECIES[S.prev.species].name)}<small>Versehentlich neu angesetzt? Der alte Durchgang läuft weiter.</small></div></button>`:""}
+    </div>`,p=>{
+    p.querySelectorAll("[data-info]").forEach(b=>b.onclick=()=>infoPanel(b.dataset.info));
+    p.querySelector("[data-resume-new]")?.addEventListener("click",()=>newPanel(1));
+    p.querySelector("[data-pick]")?.addEventListener("click",pickPanel);
+    p.querySelector("[data-restore]")?.addEventListener("click",restorePanel);
+  });
+}
+/* Neu ansetzen: erst Sorte wählen (die aktuelle steht oben), dann bestätigen */
+/* Nach der Ernte ist die Kammer leer: keine Rückfrage, kein „Kammer leeren“, direkt das neue Zuchtset */
+const harvested=()=>S.power&&S.phase==="ruhe";
+const PAUSE_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6v12M15 6v12"/></svg>';
+function plantDirect(k){S.next=k;save();newPanel(2,true)}
+function pickPanel(){
+  const keys=[S.species].concat(Object.keys(SPECIES).filter(k=>k!==S.species&&(k!=="custom"||S.custom)));
+  panel("pick","Neu ansetzen",`<p>Mit welcher Sorte?</p><div class="list">${keys.map(k=>`<button class="opt" data-k="${k}">${shroomSvg(SPECIES[k].cap,SPECIES[k].stem)}<div>${esc(SPECIES[k].name)}${k===S.species?'<span class="tag">wie bisher</span>':""}<small>${diffLine(k)}</small></div></button>`).join("")}
+    ${harvested()||S.rest?`<button class="opt wide" data-own>${PLUS_IC}<div>Eigene Sorte gestalten …</div></button>`:""}
+    ${harvested()?`<button class="opt" data-rest>${PAUSE_IC}<div>Kleine Pause einlegen<small>Erst mal kein neuer Pilz</small></div></button>`:""}</div>`,p=>{
+    p.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>harvested()||S.rest?infoPanel(b.dataset.k,true):confirmNew(b.dataset.k));
+    p.querySelector("[data-own]")?.addEventListener("click",()=>ownPanel(true));
+    p.querySelector("[data-rest]")?.addEventListener("click",()=>{S.rest=true;S.power=false;delete S.next;save();step(new Date());closePanel();render();msg("Pause · kein Pilz")});
+    p.querySelector("[data-back]").onclick=sortPanel;
+  });
+}
+function infoPanel(k,plant){
+  // plant: aus der Sortenwahl nach der Ernte, „Neu ansetzen“ führt direkt zum Zuchtset
+  const sp=SPECIES[k], P=sp.p, inf=INFO[k], active=k===S.species&&S.power&&!plant;
+  panel("info",sp.name,`
+    <dl class="spec">
+      <dt>Schwierigkeit</dt><dd>${inf.diff?`<span class="dots" aria-hidden="true">${dotsHtml(inf.diff)}</span> `:""}${DIFF[inf.diff]}</dd>
+      <dt>Dauer</dt><dd>ca. ${toHarvest(k)} Tage bis zur Ernte<small>${P.kol.days} Tage durchwachsen + ${P.frucht.days} Tage fruchten</small></dd>
+      <dt>Temperatur</dt><dd>${P.frucht.t[0]}–${P.frucht.t[1]} °C</dd>
+      <dt>Luftfeuchte</dt><dd>${P.frucht.rh[0]}–${P.frucht.rh[1]} %</dd>
+    </dl>
+    <p>${inf.desc}</p>
+    ${active?`<p><b>Wächst gerade</b> (Tag ${day()}).</p>`:""}
+    <div class="btnrow wrap">
+      <button class="bigbtn out" data-back2>‹ Alle Sorten</button>
+      ${plant&&k==="custom"?`<button class="bigbtn out" data-edit>Werte ändern …</button>`:""}
+      <button class="bigbtn out" data-new>${plant?"Neu ansetzen":active?"Nochmal neu ansetzen …":"Damit neu ansetzen …"}</button>
+    </div>`,p=>{
+    p.querySelector("[data-back2]").onclick=plant?pickPanel:sortPanel;
+    p.querySelector("[data-edit]")?.addEventListener("click",()=>ownPanel(true));
+    if(plant) p.querySelector("[data-back]").onclick=pickPanel;
+    p.querySelector("[data-new]")?.addEventListener("click",()=>plant?plantDirect(k):confirmNew(k));
+  });
+}
+/* Eigene Sorte gestalten (2026-11-05): nur nach der Ernte aus „Neu ansetzen“ (Kammer ist leer, nichts geht verloren).
+   Name + Vorlage reichen; die Werte liegen eingeklappt unter „Erweitert“ (Ingrid muss sie nie sehen, Power-User B kann feinjustieren). */
+const PLUS_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+const SLIDERS_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg>';
+const AIR=[["Wenig",1500],["Normal",1000],["Viel",700]];
+const airLvl=co2=>co2<=800?2:co2<=1200?1:0;
+const BASES=["auster","shiitake","kraeuter","igel"];
+function fromBase(k){const F=SPECIES[k].p.frucht;return {base:k,t:[...F.t],rh:[...F.rh],light:F.light?(F.lh??12):0,air:airLvl(F.co2)}}
+let draft=null;
+function ownPanel(fresh){
+  if(fresh||!draft){const c=S.custom;
+    draft=c?{name:c.name,base:BASES.includes(c.base)?c.base:"auster",t:[...c.t],rh:[...c.rh],light:Number.isFinite(c.light)?c.light:12,air:airLvl(c.co2),adv:false}
+      :{name:"",...fromBase("auster"),adv:false}}
+  const D=draft, mid=a=>Math.round((a[0]+a[1])/2);
+  const rows=[["t","Temperatur",`${mid(D.t)} °C`],["rh","Luftfeuchte",`${mid(D.rh)} %`],["light","Licht pro Tag",D.light?`${D.light} h`:"aus"],["air","Frischluft",AIR[D.air][0]]];
+  const keep=$("#panelHost .panel-own .list")?.scrollTop||0;
+  panel("own","Eigene Sorte",`<div class="list">
+    <div class="lbl">Name</div>
+    <input class="field" id="ownName" maxlength="20" placeholder="Meine Sorte" value="${esc(D.name)}" autocomplete="off" enterkeyhint="done">
+    <div class="lbl">Vorlage</div>
+    <div class="grid g2">${BASES.map(k=>`<button class="opt" role="radio" data-base="${k}" aria-checked="${D.base===k}">${shroomSvg(SPECIES[k].cap,SPECIES[k].stem)}<div>${esc(SPECIES[k].short)}</div></button>`).join("")}</div>
+    <button class="opt" data-adv aria-expanded="${D.adv}">${SLIDERS_IC}<div>Erweitert ${D.adv?"▴":"▾"}<small>${rows.map(r=>r[2]).join(" · ")}</small></div></button>
+    ${D.adv?`<div class="stps">${rows.map(([k,n,v])=>`<div class="stp"><b>${n}</b><button data-s="${k}" data-dir="-1" aria-label="${n} weniger">−</button><output>${v}</output><button data-s="${k}" data-dir="1" aria-label="${n} mehr">+</button></div>`).join("")}</div>`:""}
+    </div>
+    <button class="bigbtn" data-save>Weiter: ansetzen</button>`,p=>{
+    p.querySelector(".list").scrollTop=keep;
+    p.querySelector("#ownName").oninput=e=>{D.name=e.target.value};
+    p.querySelectorAll("[data-base]").forEach(b=>b.onclick=()=>{Object.assign(D,fromBase(b.dataset.base));ownPanel()});
+    p.querySelector("[data-adv]").onclick=()=>{D.adv=!D.adv;ownPanel()};
+    // Feste Schritte und Grenzen, damit keine unsinnigen Werte entstehen (Constraint, Folie 75)
+    p.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{const s=b.dataset.s, d=+b.dataset.dir;
+      if(s==="t"&&mid(D.t)+d>=10&&mid(D.t)+d<=30) D.t=D.t.map(v=>v+d);
+      if(s==="rh"&&D.rh[0]+d*2>=50&&D.rh[1]+d*2<=99) D.rh=D.rh.map(v=>v+d*2);
+      if(s==="light") D.light=Math.max(0,Math.min(14,D.light+d*2));
+      if(s==="air") D.air=Math.max(0,Math.min(2,D.air+d));
+      ownPanel()});
+    p.querySelector("[data-save]").onclick=()=>{
+      S.custom={name:(D.name.trim()||"Meine Sorte").slice(0,20),base:D.base,t:D.t,rh:D.rh,co2:AIR[D.air][1],light:D.light};
+      applyCustom();save();draft=null;plantDirect("custom")};
+    p.querySelector("[data-back]").onclick=()=>{draft=null;pickPanel()};
+  });
+}
+/* Bewusst bestätigen: zeigt, was verloren geht, und verlangt 2 Sekunden gedrückt halten */
+function confirmNew(k){
+  const pr=progress(), cur=SPECIES[S.species].name, nxt=SPECIES[k].name;
+  // Direkt nach der Ernte (Ruhephase) geht nichts verloren: ruhige Frage statt Warnung, 2 s halten bleibt
+  const after=S.power&&S.phase==="ruhe";
+  panel("confirm",after?"Neue Sorte ansetzen?":"Wirklich neu ansetzen?",`
+    ${after?`<div class="rec ok">${IC.ok}Ernte ist drin · nichts geht verloren</div>`:`<div class="rec warn">${IC.warn}Das lässt sich nicht rückgängig machen</div>`}
+    <ul>
+      ${S.power&&!after?`<li>Dein <b>${esc(cur)}</b> (${PHASES[S.phase]}, Tag ${day()}, noch ${pr.left} Tage bis zur Ernte) wird beendet.</li>`:""}
+      <li>Die Zeit startet neu bei <b>Tag 1</b> mit <b>${esc(nxt)}</b>.</li>
+      <li>Licht, Lüfter und Nebler gehen aus, bis das neue Zuchtset drin ist.</li>
+    </ul>
+    <div class="btnrow wrap">
+      <button class="bigbtn" data-x>Abbrechen</button>
+      <button class="bigbtn hold" data-hold aria-label="2 Sekunden gedrückt halten, um ${esc(nxt)} neu anzusetzen"><span class="fillbar"></span><span>Gedrückt halten: ${after?"ansetzen":"neu ansetzen"}</span></button>
+    </div>`,p=>{
+    p.querySelector("[data-x]").onclick=()=>infoPanel(k);
+    const b=p.querySelector("[data-hold]"); let t0=0, raf=0;
+    const stop=()=>{t0=0;cancelAnimationFrame(raf);b.style.setProperty("--p",0)};
+    const tick=()=>{if(!t0)return;const f=Math.min(1,(performance.now()-t0)/2000);b.style.setProperty("--p",f);
+      if(f>=1){t0=0;if(S.power)S.prev={species:S.species,phase:S.phase,phaseStart:S.phaseStart,at:Date.now()};S.next=k;S.power=false;S.away=false;save();step(new Date());render();newPanel(1);msg("Durchgang beendet");return}
+      raf=requestAnimationFrame(tick)};
+    const start=e=>{if(e.repeat||t0)return;e.preventDefault();t0=performance.now();raf=requestAnimationFrame(tick)};
+    b.addEventListener("pointerdown",start);
+    ["pointerup","pointerleave","pointercancel"].forEach(ev=>b.addEventListener(ev,stop));
+    b.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter")start(e)});
+    b.addEventListener("keyup",stop);
+    b.onclick=()=>{if(!t0)msg("Bitte 2 Sekunden gedrückt halten")};
+  });
+}
+/* Notfall-Rückweg: alten Durchgang zurückholen. Die Zeit läuft weiter, als wäre nichts passiert. */
+function restorePanel(){
+  const pv=S.prev, name=SPECIES[pv.species].name, d=Math.floor((Date.now()-pv.phaseStart)/DAY)+1;
+  panel("restore",`Zurück zu ${name}?`,`
+    <p>Der alte Durchgang läuft weiter: <b>${esc(name)}</b>, ${PHASES[pv.phase]} Tag ${d}. Die Tage seit dem Neu-Ansetzen zählen mit.</p>
+    <p>${S.power?`Der neue Durchgang (${esc(SPECIES[S.species].name)}, Tag ${day()}) wird verworfen.`:"Das Neu-Ansetzen wird abgebrochen."}</p>
+    <div class="btnrow"><button class="bigbtn out" data-x>Abbrechen</button><button class="bigbtn" data-ok>Zurückwechseln</button></div>`,p=>{
+    p.querySelector("[data-x]").onclick=sortPanel;
+    p.querySelector("[data-ok]").onclick=()=>{S.species=pv.species;S.phase=pv.phase;S.phaseStart=pv.phaseStart;S.power=true;delete S.next;delete S.prev;acked.clear();save();step(new Date());closePanel();render();msg(`${name} · Tag ${day()}`)};
+  });
+}
+function endAway(){S.away=false;save();closePanel();step(new Date());render();msg("Urlaub beendet")}
+
+/* Urlaub: Modus mit Bestätigung starten, mit einem Tipp beenden */
+function awayPanel(){
+  panel("away","Urlaub starten?",`<p>Die Box läuft allein weiter. Das ändert sich:</p>
+    <ul><li>Nebler springt später an und spart Wasser (Tank reicht ca. 10 statt 7 Tage)</li><li>Meldungen gehen aufs Handy, das Display bleibt ruhig</li><li>Display wird etwas dunkler</li></ul>
+    <p>Beenden: oben auf URLAUB ✕ tippen oder unter Einstellungen.</p>
+    <div class="btnrow"><button class="bigbtn out" data-x>Abbrechen</button><button class="bigbtn" data-ok>Starten</button></div>`,p=>{
+      p.querySelector("[data-x]").onclick=closePanel;
+      p.querySelector("[data-ok]").onclick=()=>{S.away=true;save();closePanel();step(new Date());render();msg("Urlaub · Box spart Wasser")};
+  });
+}
+
+/* Tasten */
+const paused=()=>{if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return true}return false};
+/* Automatik sichtbar machen: was die Box gerade selbst tut */
+function nextAir(){const d=new Date(), m=d.getHours()*60+d.getMinutes();return 30-(m%30)}
+function lightUntil(){const d=new Date(), m=d.getHours()*60+d.getMinutes(), [l0,l1]=lightWin(tgt()), on=m>=l0&&m<l1;return {on, at:on?`${l1/60}:00`:"8:00"}}
+/* Klima (2026-11-04): je Gerät ein Balken wie in den Einstellungen, nur Name, AUTO und 1–3 Wörter, was es tut.
+   Keine Live-Zustände mehr, damit Ingrid möglichst wenig lesen muss. */
+/* Zeichen für den echten Taster: beiger Kreis mit Licht-Symbol wie an der Box (Mapping), ohne Rahmen, also kein Touch-Knopf */
+const TASTER_IC='<svg class="taster-ic" viewBox="0 0 24 24" aria-label="Taster"><circle cx="12" cy="12" r="11" fill="#d9c7a3" stroke="#fff" stroke-width="1.2"/><g stroke="#3a2f1c" stroke-width="1.8" stroke-linecap="round" fill="none"><circle cx="12" cy="12" r="3.2"/><path d="M12 4.5v2M12 17.5v2M4.5 12h2M17.5 12h2M6.7 6.7l1.4 1.4M15.9 15.9l1.4 1.4M6.7 17.3l1.4-1.4M15.9 8.1l1.4-1.4"/></g></svg>';
+function climaRows(){
+  const T=tgt();  // Bedingungen je Sorte und Phase
+  // Nur Text, nicht drückbar: Zeilen mit Trennstrich wie der Verlauf in Meldungen (Rahmen = Knopf)
+  const row=(ic,name,what)=>`<div class="hist">${ic}<b>${name} <span class="auto">AUTO</span></b><small>${what}</small></div>`;
+  return `<div>`
+    +row(IC.air,"Lüfter",S.phase==="kol"?"nur bei zu viel CO₂":"alle 30 Min frische Luft")
+    +row(IC.rh,"Nebler",`an unter ${T.rh[0]} % Feuchte`)
+    +row(IC.temp,"Heizung",`an unter ${T.t[0]} °C`)
+    +row(IC.bulb,"Licht",`${T.light?`8–${lightWin(T)[1]/60} Uhr`:S.phase==="kol"?"aus beim Durchwachsen":"aus"} · ${TASTER_IC}Taster ↓ schaltet um`)+`</div>`;
+}
+function climaPanel(){
+  panel("clima","Klima",`<p>Die Box regelt Luft, Feuchte, Wärme und Licht selbst.</p>
+    <div id="climaRows">${climaRows()}</div>`,p=>{
+    p.style.overflowY="auto";
+  });
+}
+/* Ruhemodus: Display bleibt schwarz und wacht bei Berührung oder beim Druck auf den Taster auf;
+   nach 30 s ohne Bedienung wieder schwarz. Bei einer Warnung bleibt es schwarz, aber der Warnpunkt
+   leuchtet und blinkt darüber wie ein Warnlicht. Antippen zeigt die Meldung. */
+let wakeUntil=0;
+/* Standby (nur Admin-Fall „Tank leer“): schwarz, ohne Text, nur der orange Punkt blinkt. Antippen beendet ihn. */
+let standby=false;
+function wake(){if(S.sleep)wakeUntil=Date.now()+30000}
+function syncSleep(list){
+  let el=$("#sleepHost");
+  const alarm=S.power&&list.some(x=>x.sev==="warn");
+  const dark=standby||(!!S.sleep&&Date.now()>wakeUntil);
+  $("#screen").classList.toggle("sleepalarm",dark&&alarm);
+  if(!dark){el?.remove();return}
+  if(!el){
+    el=document.createElement("button");el.id="sleepHost";el.className="sleep";el.type="button";
+    el.setAttribute("aria-label","Ruhemodus. Antippen zum Wecken.");
+    el.innerHTML='<span><b>Ruhemodus</b><br>Antippen zum Wecken · bei Warnung leuchtet oben der Warnpunkt</span>';
+    if(standby){el.innerHTML="";el.setAttribute("aria-label","Standby. Antippen zum Wecken.")}
+    el.onclick=()=>{standby=false;wake();render()};
+    $("#screen").appendChild(el); setTimeout(()=>el.classList.add("quiet"),3000);
+  }
+}
+["pointerdown","keydown"].forEach(ev=>document.addEventListener(ev,()=>{if(S.sleep&&Date.now()<wakeUntil)wake()},true));
+/* Auch ein Tipp direkt auf den Punkt beendet den Standby */
+$("#alarmDot").addEventListener("click",()=>{if(standby){standby=false;render()}});
+
+/* Licht: Ausnahme von Hand, gilt bis zum nächsten Wechsel (8:00 bzw. 20:00) */
+function toggleLight(src){
+  if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return}
+  const d=new Date(), nx=new Date(d); const m=d.getHours()*60+d.getMinutes();
+  if(m<480) nx.setHours(8,0,0,0); else if(m<1200) nx.setHours(20,0,0,0); else {nx.setDate(nx.getDate()+1);nx.setHours(8,0,0,0)}
+  sim.lightOv={on:!sim.dev.licht,until:nx.getTime()}; step(d); render();
+  msg(`${src==="Taster"?"Taster · ":""}Licht ${sim.dev.licht?"an":"aus"} bis ${pad(nx.getHours())}:00, danach Auto`);
+}
+
+$("#kClima").onclick=()=>open==="clima"?closePanel():climaPanel();
+$("#kAlerts").onclick=()=>open==="alerts"?closePanel():alertPanel();
+$("#alert").onclick=()=>{if(S.power)alertPanel()};
+$("#kSort").onclick=()=>["sort","info","confirm","new","restore","pick"].includes(open)?closePanel():sortPanel();
+$("#topIcons").addEventListener("click",e=>{if(e.target.closest("[data-endaway]"))endAway()});
+
+/* Demo-Leiste */
+function syncDemo(){document.querySelectorAll("[data-d]").forEach(b=>b.setAttribute("aria-pressed",demo[b.dataset.d]))}
+function toggleDemo(k){
+  if(k==="taster"){ wake(); toggleLight("Taster"); return }
+  demo[k]=!demo[k];
+  if(k==="tank"&&!demo.tank) sim.tank=100;
+  if(k==="harvest"){acked.delete("harvest"); if(demo.harvest&&S.phase!=="frucht"){S.phase="frucht";S.phaseStart=Date.now();save()}}
+  if(k==="hot"&&demo.hot) for(let i=0;i<25;i++) step(new Date());
+  if(k==="door"&&demo.door) for(let i=0;i<4;i++) step(new Date());
+  if(k==="hot"&&!demo.hot) sim.t=22;
+  if(k==="cold"&&demo.cold) sim.t=tgt().t[0]-1.6;
+  syncDemo(); step(new Date()); render();
+}
+const DEMOS=[...document.querySelectorAll("#demo button")].map(b=>[b.dataset.d,b.textContent]);
+document.querySelectorAll("#demo button").forEach(b=>b.onclick=()=>toggleDemo(b.dataset.d));
+/* Admin-Modus: klein oben rechts (Zahnrad). Für Vorführung und Bewertung, nicht für die normale Bedienung. */
+function adminVals(){
+  const T=tgt(), on=v=>v?"an":"aus", pr=progress(), list=alerts();
+  return `<table class="adm"><tbody>
+    <tr><td>Status</td><td>${!S.power?"Pausiert":list.some(x=>x.sev==="warn")?"Warnung":"Alles gut"}</td></tr>
+    <tr><td>Sorte · Phase · Tag</td><td>${esc(SPECIES[S.species].name)} · ${PHASES[S.phase]} · ${day()}</td></tr>
+    <tr><td>Bis zur Ernte</td><td>${pr.left} Tage (${Math.round(pr.p*100)} %)</td></tr>
+    <tr><td>Temperatur (Ziel)</td><td>${sim.t.toFixed(1).replace(".",",")} ° (${T.t[0]}–${T.t[1]})</td></tr>
+    <tr><td>Luftfeuchte (Ziel)</td><td>${Math.round(sim.rh)} % (${T.rh[0]}–${T.rh[1]})</td></tr>
+    <tr><td>CO₂ (Ziel)</td><td>${Math.round(sim.co2/10)*10} ppm (&lt; ${T.co2})</td></tr>
+    <tr><td>Display</td><td>${!S.sleep?"immer an":document.getElementById("sleepHost")?"schwarz (Ruhe)":"wach"}</td></tr>
+    <tr><td>Wassertank</td><td>${Math.round(sim.tank)} % · ca. ${tankDays()} Tage</td></tr>
+    <tr><td>Licht · Lüfter · Nebler</td><td>${on(sim.dev.licht)} · ${on(sim.dev.luefter)} · ${on(sim.dev.nebel)}</td></tr>
+    <tr><td>Urlaub · Ruhemodus · Code</td><td>${S.away?"an":"aus"} · ${S.sleep?"an":"aus"} · ${S.code}</td></tr>
+  </tbody></table>`;
+}
+/* Vorführung für die Präsentation: ein Fehler wie im Alltag (Display aus, nur der Warnpunkt leuchtet)
+   und die Ernte mit neuer Sorte. Jeweils nur eine Situation auf einmal, damit die Geschichte klar bleibt. */
+const FAULTS=[["tank","Wassertank leer"],["door","Tür offen"],["hot","Raum zu warm"],["cold","Raum zu kalt"],["sensor","Sensor ausgefallen"]];
+function clearSituations(){standby=false;stopScene();FAULTS.forEach(([k])=>{if(demo[k])toggleDemo(k)});if(demo.harvest)toggleDemo("harvest")}
+function simFault(k){
+  const was=demo[k]; clearSituations(); closePanel();
+  if(was){render();return}
+  standby=true;
+  toggleDemo(k);
+  if(k==="cold"){sim.t=tgt().t[0]-2.6;render()}
+}
+/* 5 s Zeitraffer bis zur Ernte: Ring läuft voll, Tage zählen herunter, der Pilz wächst. Danach wie bisher Ernte fertig. */
+function startLapse(){
+  if(lapseTimer) return;
+  clearSituations(); closePanel(); S.sleep=false; S.power=true;
+  const pr=progress(), el0=pr.el, tot=pr.tot, t0=performance.now();
+  msg("Zeitraffer: "+pr.left+" Tage in 5 Sekunden");
+  $("#screen").classList.add("lapsing");
+  lapseTimer=setInterval(()=>{
+    const k=Math.min(1,(performance.now()-t0)/5000);
+    lapse=el0+(tot-el0)*k; render();
+    if(k>=1){clearInterval(lapseTimer);lapseTimer=null;lapse=null;simHarvest();setTimeout(()=>$("#screen").classList.remove("lapsing"),100)}
+  },50);
+}
+function simHarvest(){
+  clearSituations(); closePanel();
+  S.sleep=false;S.power=true;
+  if(S.phase!=="frucht"){S.phase="frucht"}
+  S.phaseStart=Date.now()-5*DAY;save();   // Tag 6 der Fruchtung
+  // Start ist die Wachstumsphase: Messwerte auf die Fruchtung setzen, sonst meldet die Box sofort „zu trocken“
+  sim.t=21;sim.rh=89;sim.co2=700;sim.tank=Math.max(sim.tank,60);
+  toggleDemo("harvest");
+}
+/* Admin-Modus für die Präsentation (2026-11-04): genau die zwei Fälle der Vorführung, dazu Zurücksetzen.
+   Die übrigen Fehler, automatischen Vorführungen, Tag +1, Taster und Messwerte sind im Code noch da, aber nicht mehr erreichbar. */
+function demoPanel(){
+  const RESET_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/></svg>';
+  const SHROOM_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M3 12.5a9 7.5 0 0 1 18 0z"/><path d="M10 12.5V20h4v-7.5"/></svg>';
+  panel("admin","Admin-Modus",`<div class="list">
+      <button class="opt" data-f>${IC.warn}<div>Fehlermeldung<small>Wassertank leer</small></div></button>
+      <button class="opt" data-h>${SHROOM_IC}<div>Ernte fertig<small>5 s Zeitraffer bis zur Ernte</small></div></button>
+      <button class="opt" data-reset>${RESET_IC}<div>Zurücksetzen<small>Start: 15 Tage bis zur Ernte</small></div></button>
+    </div>`,p=>{
+    p.querySelector("[data-f]").onclick=()=>simFault("tank");
+    p.querySelector("[data-h]").onclick=startLapse;
+    p.querySelector("[data-back]").onclick=settingsPanel;
+    p.querySelector("[data-reset]").onclick=()=>{try{localStorage.removeItem("growbox-display-v5")}catch(e){};location.reload()};
+  });
+}
+/* Einstellungen (Zahnrad): normale Einstellungen; der Admin-Modus liegt unten als eigener Knopf */
+function settingsPanel(){
+  const sw=on=>`<span class="tag">${on?"an":"aus"}</span>`;
+  panel("settings","Einstellungen",`<div class="list">
+      <button class="opt" data-set="link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><div>Handy verbinden ${sw(S.linked)}<small>Meldungen aufs Handy</small></div></button>
+      <button class="opt" data-set="away">${IC.away}<div>Urlaub ${sw(S.away)}<small>Box spart Wasser, Meldungen aufs Handy</small></div></button>
+      <button class="opt" data-set="lang"><span class="flag" aria-hidden="true">🇩🇪</span><div>Sprache<small>Deutsch</small></div></button>
+      <button class="opt" data-set="look"><span class="swatch ${S.theme==="hc"?"hc":"std"}" aria-hidden="true"></span><div>Darstellung<small>${S.theme==="hc"?"Hoher Kontrast":"Standard (Blau)"}</small></div></button>
+      <button class="opt" data-set="report"><svg class="help-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4h11l-1.5 4L15 12H4"/></svg><div>Hilfe<small>Etwas funktioniert nicht?</small></div></button>
+    </div>
+    <button class="bigbtn out" data-set="admin">Admin-Modus</button>`,p=>{
+    p.querySelector('[data-set="link"]').onclick=connectPanel;
+    p.querySelector('[data-set="away"]').onclick=()=>{if(S.away){endAway();settingsPanel()}else if(!paused())awayPanel()};
+    p.querySelector('[data-set="lang"]').onclick=langPanel;
+    p.querySelector('[data-set="look"]').onclick=lookPanel;
+    p.querySelector('[data-set="report"]').onclick=reportPanel;
+    p.querySelector('[data-set="admin"]').onclick=demoPanel;
+  });
+}
+/* Sprache: im Prototyp nur Deutsch. Andere Sprachen ausgegraut statt scheinbar wählbar (logischer Constraint, Folie 75). */
+function langPanel(){
+  const L=[["🇩🇪","Deutsch",true],["🇬🇧","English",false],["🇫🇷","Français",false],["🇹🇷","Türkçe",false]];
+  panel("lang","Sprache",`<div class="list">${L.map(([f,n,ok])=>`<button class="opt" role="radio" aria-checked="${ok}" ${ok?"":"disabled"}><span class="flag" aria-hidden="true">${f}</span><div>${n}<small>${ok?"aktiv":"folgt"}</small></div></button>`).join("")}</div>
+    <p>Im Prototyp gibt es nur Deutsch.</p>
+    <button class="bigbtn out" data-x>‹ Einstellungen</button>`,p=>{p.querySelector("[data-x]").onclick=settingsPanel;p.querySelector("[data-back]").onclick=settingsPanel});
+}
+/* Darstellung: Standard (Blau) oder Hoher Kontrast (Schwarz). Wirkt sofort, damit man es vergleichen kann. */
+function lookPanel(){
+  const o=(k,n,d)=>`<button class="opt" role="radio" data-theme="${k}" aria-checked="${(S.theme||"std")===k}"><span class="swatch ${k}" aria-hidden="true"></span><div>${n}<small>${d}</small></div></button>`;
+  panel("look","Darstellung",`<div class="list">${o("std","Standard (Blau)","Ruhiger blauer Hintergrund")}${o("hc","Hoher Kontrast","Schwarzer Hintergrund, alle Texte weiß")}<button class="opt" data-custom><span class="swatch custom" aria-hidden="true"></span><div>Individuell<small>Such dir deinen eigenen Ton aus</small></div></button></div>
+    <p>Warnungen bleiben immer an Dreieck, „!“ und Text erkennbar, nicht nur an der Farbe.</p>
+    <button class="bigbtn out" data-x>‹ Einstellungen</button>`,p=>{
+    p.querySelectorAll("[data-theme]").forEach(b=>b.onclick=()=>{S.theme=b.dataset.theme;save();render();lookPanel();msg(S.theme==="hc"?"Hoher Kontrast an":"Standard-Farben")});
+    // Individuell: nur gezeigt, im Prototyp ohne Funktion
+    p.querySelector("[data-custom]").onclick=()=>msg("Individuell: im Prototyp noch nicht verfügbar");
+    p.querySelector("[data-x]").onclick=settingsPanel;p.querySelector("[data-back]").onclick=settingsPanel});
+}
+/* Fehler melden: eine Kategorie antippen, fertig. Der Bericht geht mit dem nächsten Stand an die App. */
+function reportPanel(){
+  const C=["Display","Taster oder Licht","Wasser oder Tank","Lüfter oder Nebler","Etwas anderes"];
+  panel("report","Hilfe",`<p>Was funktioniert nicht? Einmal antippen genügt.</p>
+    <div class="list">${C.map(c=>`<button class="opt" data-cat="${c}"><div>${c}</div></button>`).join("")}</div>`,p=>{
+    p.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{
+      S.reports=(S.reports||[]).concat({at:Date.now(),cat:b.dataset.cat}).slice(-10);save();
+      panel("report","Hilfe",`<div class="rec ok">${IC.ok}Danke, gemeldet</div>
+        <p>„${esc(b.dataset.cat)}“ · ${when(Date.now())}</p><p>${S.linked?"Die Meldung geht an die App. Dort siehst du, wie es weitergeht.":"Sobald ein Handy verbunden ist, geht die Meldung an die App."}</p>
+        <button class="bigbtn" data-x>Fertig</button>`,q=>{q.querySelector("[data-x]").onclick=closePanel});
+    });
+    p.querySelector("[data-back]").onclick=settingsPanel;
+  });
+}
+$("#demoChip").onclick=()=>["settings","admin","lang","look","report"].includes(open)?closePanel():settingsPanel();
+
+/* Vorführung: zwei Szenarien, die nur live auf dem Bildschirm ablaufen (ohne Erklärkasten).
+   Start und Stopp über die Kacheln im Admin-Modus. */
+const SCENES=[
+  {name:"Box regelt selbst",sub:"Kälte → Heizung an → wieder gut",steps:[
+    [2, ()=>toggleDemo("cold")],
+    [6, ()=>climaPanel()],
+    [16,()=>closePanel()],
+    [24,()=>toggleDemo("cold")],
+    [32,()=>{}]]},
+  {name:"Mensch ist dran",sub:"Tank leer → auffüllen → ernten",steps:[
+    [2, ()=>toggleDemo("tank")],
+    [12,()=>refill()],
+    [14,()=>alertPanel()],
+    [22,()=>{closePanel();toggleDemo("harvest")}],
+    [32,()=>{const a=$("#actBtn");if(!a.hidden)a.click()}],
+    [42,()=>{demo.harvest=false;syncDemo();render()}]]}
+];
+let sceneT=[], sceneOn=null;
+function syncScenes(){document.querySelectorAll("[data-scene]").forEach(b=>b.setAttribute("aria-checked",sceneOn===+b.dataset.scene))}
+function stopScene(){sceneT.forEach(clearTimeout);sceneT=[];sceneOn=null;syncScenes()}
+function playScene(i){
+  const again=sceneOn===i; stopScene(); if(again) return;
+  closePanel();
+  Object.keys(demo).forEach(k=>demo[k]=false); syncDemo(); acked.clear();
+  S.power=true;S.away=false;S.sleep=false;S.species="auster";S.phase="kol";S.phaseStart=Date.now()-5.2*DAY;save();
+  sim.t=22;sim.rh=89;sim.tank=64;sim.lightOv=null;sim.burst=0;sim.mist=0; step(new Date()); render();
+  sceneOn=i;
+  const st=SCENES[i].steps, end=st[st.length-1][0];
+  sceneT=st.map(([sec,fn])=>setTimeout(fn,sec*1000)).concat(setTimeout(stopScene,end*1000+500));
+}
+
+/* ---------- Verbindung Box und Handy-App (übernommen aus dem claude.ai-Original, Box-Seite) ----------
+   Die Box schreibt ihren Stand nach boxes/<Code>, die App liest ihn live.
+   Die App schreibt Befehle nach boxes/<Code>/cmd/last, die Box führt sie aus.
+   Funktioniert nur, wenn die Seite auf claude.ai läuft (Speicher „db“); sonst zeigt HANDY einen Hinweis. */
+if(!S.code){S.code=String(1000+Math.floor(Math.random()*9000));save()}
+let db=null, appSeen=null;
+function validCustom(c){return c&&typeof c==="object"&&typeof c.name==="string"&&Array.isArray(c.t)&&Array.isArray(c.rh)&&c.t.length===2&&c.rh.length===2&&[...c.t,...c.rh,c.co2].every(Number.isFinite)}
+function applyCmd(c){
+  if(!c||typeof c.id!=="string"||c.id===S.lastCmd) return;
+  S.lastCmd=c.id; save();
+  if(!Number.isFinite(c.at)||Math.abs(Date.now()-c.at)>120000) return;
+  const a=c.arg, now=Date.now();
+  if(c.type==="power"){S.power=!S.power;save();closePanel()}
+  else if(c.type==="burst"){if(!S.power)return;sim.burst=sim.burst>now?0:now+60000}
+  else if(c.type==="mist"){if(!S.power||sim.tank<=0)return;sim.mist=sim.mist>now?0:now+60000}
+  else if(c.type==="away"){if(!S.power)return;S.away=!!a;save()}
+  else if(c.type==="sleep"){S.sleep=!!a;save()}
+  else if(c.type==="do"){const it=alerts().find(x=>x.id===a);if(!it)return;it.do.run()}
+  else if(c.type==="species"){if(typeof a!=="string"||!SPECIES[a])return;S.species=a;save()}
+  else if(c.type==="phase"){if(typeof a!=="string"||!PHASES[a]||a===S.phase)return;S.phase=a;S.phaseStart=now;acked.clear();save()}
+  else if(c.type==="custom"){
+    if(a===null){S.custom=null}
+    else if(validCustom(a)){S.custom={name:a.name.trim().slice(0,20)||"Eigene Sorte",t:[+a.t[0],+a.t[1]],rh:[+a.rh[0],+a.rh[1]],co2:+a.co2};S.species="custom";acked.clear()}
+    else return;
+    applyCustom();save();
+  }
+  else return;
+  msg("Befehl vom Handy ausgeführt");
+  step(new Date());render();
+}
+function payload(){
+  return {power:!!S.power,species:S.species,phase:S.phase,phaseStart:S.phaseStart,custom:S.custom||null,away:!!S.away,
+    t:Math.round(sim.t*10)/10,rh:Math.round(sim.rh),co2:Math.round(sim.co2/10)*10,tank:Math.round(sim.tank),
+    reports:(S.reports||[]).slice(-5),theme:S.theme||"std",
+    sleep:!!S.sleep,dev:{licht:!!sim.dev.licht,luefter:!!sim.dev.luefter,nebel:!!sim.dev.nebel,heizung:!!sim.dev.heizung},burst:sim.burst>Date.now()?sim.burst:0,mist:sim.mist>Date.now()?sim.mist:0,sensor:!demo.sensor,
+    alerts:alerts().map(x=>({id:x.id,sev:x.sev,t:x.t,a:x.a,label:x.do.label,kind:x.do.kind,icon:x.do.icon||null}))};
+}
+let lastPush=0,lastJs="",lastImp="",pushing=false;
+async function maybePush(){
+  if(!db||pushing) return;
+  const p=payload(), js=JSON.stringify(p), now=Date.now();
+  const imp=JSON.stringify([p.power,p.species,p.phase,p.phaseStart,p.custom,p.away,p.dev,p.burst,p.mist,p.sensor,p.alerts.map(x=>x.id)]);
+  if(!(imp!==lastImp||(js!==lastJs&&now-lastPush>15000)||now-lastPush>60000)) return;
+  pushing=true; lastImp=imp; lastJs=js; lastPush=now;
+  try{await db.doc("boxes/"+S.code).set({...p,v:1,at:now})}catch(e){}
+  pushing=false;
+}
+const ago=t=>{const m=Math.round((Date.now()-t)/60000);return m<1?"gerade eben":m<60?`vor ${m} Min.`:`vor ${Math.round(m/60)} Std.`};
+function connectPanel(){
+  if(!db){panel("link","Handy verbinden",`<p>Die Verbindung braucht eine Anmeldung bei Claude. Sie funktioniert, wenn das Bedienfeld auf claude.ai geöffnet ist, nicht als lokale Datei.</p>
+    <p>Dein Code wäre:</p><div class="code" aria-label="Code ${S.code.split("").join(" ")}">${S.code}</div>${linkBtn()}`,bindLink);return}
+  panel("link","Handy verbinden",`
+    <ol><li>Den Link der Handy-App auf dem Handy öffnen.</li><li><b>Handy-App</b> wählen.</li><li>Diesen Code eingeben:</li></ol>
+    <div class="code" aria-label="Code ${S.code.split("").join(" ")}">${S.code}</div>
+    <p>${appSeen?`Zuletzt verbunden: ${ago(appSeen)}`:"Noch kein Handy verbunden."}</p>${linkBtn()}`,bindLink);
+}
+/* VERBUNDEN: Handy-Symbol oben verschwindet. Wieder einblenden über Einstellungen → Handy verbinden → Trennen. */
+const linkBtn=()=>S.linked
+  ?`<div class="rec ok">${IC.ok}Verbunden</div><button class="bigbtn out" data-unlink>Trennen</button>`
+  :`<button class="bigbtn" data-linked>Verbunden</button>`;
+function bindLink(p){
+  p.querySelector("[data-linked]")?.addEventListener("click",()=>{S.linked=true;save();closePanel();render();msg("Handy verbunden")});
+  p.querySelector("[data-unlink]")?.addEventListener("click",()=>{S.linked=false;save();closePanel();render();msg("Handy getrennt")});
+}
+$("#linkChip").onclick=()=>open==="link"?closePanel():connectPanel();
+(async()=>{
+  try{db=window.claude?.use?await window.claude.use("db"):null}catch(e){db=null}
+  if(!db) return;
+  db.doc("boxes/"+S.code+"/cmd/last").onSnapshot(s=>{if(s.exists)applyCmd(s.data())},()=>{});
+  db.doc("boxes/"+S.code+"/app/seen").onSnapshot(s=>{const v=s.exists?s.data()?.at:null;appSeen=Number.isFinite(v)?v:null;if(open==="link")connectPanel();render()},()=>{});
+  maybePush();
+})();
+
+/* Bildschirm anlassen, solange das Display offen ist (wenn das Gerät es erlaubt) */
+let lock=null;
+async function keepAwake(){try{if(!lock&&navigator.wakeLock&&document.visibilityState==="visible"){lock=await navigator.wakeLock.request("screen");lock.addEventListener("release",()=>{lock=null})}}catch(e){}}
+document.addEventListener("pointerdown",keepAwake);
+document.addEventListener("visibilitychange",keepAwake);
+
+render();
+setInterval(()=>{render();maybePush()},1000);
+setInterval(()=>step(new Date()),3000);
+})();
+</script>
+
+</body></html>

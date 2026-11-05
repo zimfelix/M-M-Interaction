@@ -6,6 +6,7 @@ Uni-Projekt (HCI, Prof. Zagel, Option B): Interaktionskonzept und Prototyp für 
 
 - `BRIEF.md` – Ausgangslage, offene Punkte und **alle bestätigten Entscheidungen** (Tabelle „Entscheidungen“). Zu Beginn jeder Arbeit lesen.
 - `01-konzept/HCI-KONZEPTE.md` – Vorlesungskonzepte mit Foliennummern und Bezug zur Growbox. Bei Konzept-, Design- und Evaluationsentscheidungen sowie beim Booklet lesen.
+- `learnings.md` – Learnings für **weitere Uni-Projekte** (nicht für Coding/Harness). Neue Erkenntnisse von Felix dort als „offen“ eintragen.
 - `README.md` – Ordnerstruktur nach Projektschritten (`01-konzept/` … `04-final/`); Software-Aufbau in `03-software/README.md`.
 
 ## Arbeitsabsprachen

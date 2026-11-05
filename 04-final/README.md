@@ -2,14 +2,15 @@
 
 **Status: 🔄 in progress** · Gesamtübersicht: [`../README.md`](../README.md)
 
-Alles, was in **Präsentation (05.11.2026, 10:00)** und **Booklet (Abgabe 08.11.2026, 23:59)** geht. Stand: Bedienfeld v6 vom 02.11.2026.
+Alles, was in **Präsentation (05.11.2026, 10:00)** und **Booklet (Abgabe 08.11.2026, 23:59)** geht. Präsentation gehalten; Booklet-Stand: Bedienfeld v7 vom 05.11.2026.
 
 | Datei | Wofür |
 |---|---|
 | [`praesentation.md`](praesentation.md) | Ablauf der 5 Minuten mit Folien, Use Cases A (Ingrid, Bedienfeld) und B (der Nerd, App), Technik, Risiken |
 | [`entscheidungen-folien.md`](entscheidungen-folien.md) | **Kern für beides:** jede Entscheidung (E1–E30) mit Person, Folie und Erklärung; Nielsen-Check (Folie 130); offene Fragen A/B für den 04.11. |
 | [`booklet-felix.md`](booklet-felix.md) | Felix' 5 Booklet-Seiten (Box + Bedienfeld), Seite für Seite mit Folien und Bildern |
-| [`bedienfeld-v6/`](bedienfeld-v6/) | **Eingefrorene Kopie** des Bedienfelds v6. Ändert sich nicht mehr, auch wenn in `01-konzept/bedienfeld/` weitergearbeitet wird. Öffnen: `vorschau-iphone.html` im Browser |
+| [`bedienfeld-v7/`](bedienfeld-v7/) | **Eingefrorene Kopie** des Bedienfelds v7 (Präsentationsstand 05.11. mit Editor „Eigene Sorte“), Grundlage fürs Booklet. Öffnen: `vorschau-iphone.html` im Browser |
+| [`bedienfeld-v6/`](bedienfeld-v6/) | Eingefrorener Vorgänger v6 vom 02.11., Vorher-Stand für die Iteration im Booklet |
 | [`bilder/farbsimulation.png`](bilder/farbsimulation.png) | Startbild und Warnung bei normalem Farbsehen, Grün- und Rot-Schwäche (Beleg zu Folie 23) |
 | [`evaluation/`](evaluation/) | Tests: Cognitive Walkthrough, Nutzertest, AttrakDiff (Protokolle und Ergebnisse) |
 
