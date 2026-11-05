@@ -4,7 +4,14 @@
 
 Läuft auf dem Raspberry Pi (am Laptop ohne Hardware testbar). Der Pi hält den **einzigen Zustand** der Box; Display, App und Demo-Panel sind Ansichten davon.
 
-## Aufbau
+## Das Wichtigste
+
+- **Pi hält den einzigen Zustand**, Display und App sind zwei Ansichten davon (MVC, Folie 99–100)
+- **Stack:** Python + FastAPI (HTTP + WebSocket), Web-Oberfläche ohne Framework, gpiozero für Taster/LED
+- **Echt:** Taster und LED · **simuliert:** Feuchte, Temperatur
+- **Ruht seit 02.11.:** Interface vor Pi; das Bedienfeld v7 läuft bisher ohne Pi (`01-konzept/bedienfeld/iphone-server.sh`)
+
+## Auf einen Blick
 
 ```text
 03-software/
@@ -53,3 +60,8 @@ Ohne Raspberry Pi werden Taster und LED automatisch simuliert (`MM_HARDWARE=sim`
 ## Später (wenn der Pi da ist)
 
 - `deploy/`: Autostart beim Booten (systemd-Dienst) und Einrichtungsanleitung
+
+## Links
+
+- Bedienfeld (wird später vom Pi ausgeliefert): [`../01-konzept/bedienfeld/`](../01-konzept/bedienfeld/) · Schnittstelle zur App: [`../01-konzept/begriffe-box-app.md`](../01-konzept/begriffe-box-app.md)
+- Weiter: [Übersicht](../README.md) · [Schritt 1](../01-konzept/) · [Schritt 2](../02-box-bau/) · [Schritt 4](../04-final/)

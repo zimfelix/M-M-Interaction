@@ -1,17 +1,27 @@
 # Schritt 2 · Box-Bau
 
-**Status: 🔄 in progress** · Gesamtübersicht: [`../README.md`](../README.md)
+**Status: 🔄** Zeichnungen fertig (Front v1–v3) · Box bauen, Fotos und FreeCAD-Bilder fehlen
 
-Zeichnungen der Box als Bilder (direkt auf GitHub sichtbar). Lokal gibt es dieselben Zeichnungen interaktiv in [`zeichnungen/index.html`](zeichnungen/index.html).
+## Auf einen Blick
 
-```text
-02-box-bau/
-├── zeichnungen/   Quellen: eine HTML-Seite je Zeichnung + index.html als Übersicht
-├── bilder/        daraus erzeugte SVGs (nicht von Hand bearbeiten)
-├── fonts/         Schriften für die SVGs (OFL-Lizenz)
-├── export_svg.py  zeichnungen/*.html → bilder/*.svg
-└── masse-iphone-13-mini.md
 ```
+┌────────────── 335 mm ───────────────┐
+│  Pilzkammer (250)       │ Bedienfeld│   oben: 4 LED-Streifen im Rahmen
+│  3-mm-Plexi, Tür links  │  iPhone   │   rechts: Technikraum 85 mm
+│                         │  ● Taster │   Taster beige mit Licht-Symbol
+│                      ▌  │  ▭ Tank   │   ▌ Stangengriff beige
+└─────────────────────────┴───────────┘   Sockel 30 mm, Höhe 250, Tiefe 200
+```
+
+## Das Wichtigste
+
+- **Wie eine Mikrowelle:** links Kammer, rechts Bedienen + Technik (Folie 8: wenige Bedienelemente)
+- **Gestell aus dem 3D-Drucker** (15 × 15-Profile, Prinzip Creality K2 Plus), alle Teile ≤ 250 mm
+- **Tank vorn unten mit Sichtfenster**, Einfüllöffnung oben hinten; Wasser unten, Elektronik oben (Mapping zum Display, Folie 77–79)
+- **Farbprinzip:** Anfassen = **beige** (Taster, Griffe), Rahmen schwarz/grau, **Orange nur für Warnungen** (Konsistenz, Folie 80)
+- **Ein Taster, eine Bedeutung:** Licht an/aus (Affordance, Folie 72–74)
+- **Neue Stände als neue Datei** (`-v2`, `-v3`); danach `python3 02-box-bau/export_svg.py`
+- 3D-Modell zum Drehen: [`../04-final/3d-modell/`](../04-final/3d-modell/) (eigene Maße, siehe `BRIEF.md` → Offen)
 
 📘 Booklet S2: Die Skizzen 1 → 6 → 7 zeigen den Fortschritt der Box (Mikrowelle → Tank gut erreichbar → Orange nur für Warnungen).
 
@@ -65,7 +75,8 @@ Konsistenz mit dem Display (Folie 80): Orange bedeutet auf dem Display **Warnung
 
 **Neue Stände als neue Datei anlegen** (z. B. `-v2`), bestehende Zeichnungen bleiben als Dokumentation. Danach `python3 02-box-bau/export_svg.py` ausführen und die Bilder mit committen. Schriften (OFL-Lizenz) liegen in `fonts/`.
 
-## Verwandt
+## Links
 
-- Oberfläche, Personas, Vorlesungsbezug: [`../01-konzept/`](../01-konzept/)
-- Entscheidungen (u. a. Maße und Material): [`../BRIEF.md`](../BRIEF.md)
+- Ordner: `zeichnungen/` (Quellen, HTML, interaktiv: [`zeichnungen/index.html`](zeichnungen/index.html)) · `bilder/` (erzeugte SVGs, nicht von Hand bearbeiten) · `fonts/` (OFL-Lizenz)
+- Oberfläche, Personas, Vorlesungsbezug: [`../01-konzept/`](../01-konzept/) · Entscheidungen (Maße, Material): [`../BRIEF.md`](../BRIEF.md)
+- Weiter: [Übersicht](../README.md) · [Schritt 1](../01-konzept/) · [Schritt 3](../03-software/) · [Schritt 4](../04-final/)
