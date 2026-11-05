@@ -17,4 +17,9 @@ Status je Eintrag: **offen** = noch nicht in einem weiteren Projekt geprüft · 
 - **offen · Einstieg mit persönlicher Geschichte.** „Wie bin ich drauf gekommen?“ in ein bis zwei Sätzen (z. B. ein Erlebnis im Urlaub), danach erst das Konzept.
 - **offen · Erst den Klick-Prototyp in Claude, dann den physischen Prototyp bauen.** App, Bedienfeld und Features zuerst als Klick-Prototyp in Claude (claude.ai-Artifact) durchspielen und erst danach bauen. Wenn das Digitale steht, kann man beim Bau kreativer sein.
 - **offen · Mit einem Tablet präsentieren statt mit einem eingebauten Handy.** Es ist größer fürs Publikum und lässt sich einfach am Whiteboard zeigen.
+- **offen · Präsentation aufbauen wie die von Moritz** (andere Gruppe, 05.11.2026):
+  - **Zielgruppe** ausdrücklich benennen
+  - ein **Spiel** bzw. Mitmach-Element fürs Publikum einbauen
+  - **Live-Tests** benennen, falls es welche gab (mit wem, was kam heraus)
+  - **am Ende das Problem benennen**, also offene Probleme und Grenzen
 - **offen · Häufige Rückfragen vorab beantworten können.** Für jede auffällige Gestaltungsentscheidung eine Ein-Satz-Antwort bereithalten. *Beispiel: „Warum Blau statt Schwarz?“ → Schwarz bedeutet Standby, Blau bedeutet „läuft“; Schwarz gibt es als Option „Hoher Kontrast“.*
