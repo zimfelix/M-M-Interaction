@@ -1,6 +1,6 @@
 # Begriffe Box ↔ App
 
-Für das App-Teammitglied: Box-Display und App sind **zwei Ansichten auf denselben Zustand** (MVC, Folien 99–100). Damit Nutzer nichts doppelt lernen müssen, verwenden beide **dieselben Wörter, Symbole und Farben** (äußere Konsistenz, Folien 80–81). Stand: Bedienfeld v6 (`01-konzept/bedienfeld/index.html`).
+Für das App-Teammitglied: Box-Display und App sind **zwei Ansichten auf denselben Zustand** (MVC, Folien 99–100). Damit Nutzer nichts doppelt lernen müssen, verwenden beide **dieselben Wörter, Symbole und Farben** (äußere Konsistenz, Folien 80–81). Stand: Bedienfeld v7 vom 05.11.2026 (`01-konzept/bedienfeld/index.html`, Spezifikation in `01-konzept/bedienfeld/README.md`).
 
 Wenn die App einen Begriff anders braucht: bitte kurz absprechen und hier ändern, nicht still abweichen.
 
@@ -10,12 +10,12 @@ Wenn die App einen Begriff anders braucht: bitte kurz absprechen und hier änder
 |---|---|---|
 | **Alles gut** | Nichts zu tun. Hinweise wie „Ernte prüfen“ laufen trotzdem darunter. | grüner Kreis mit Haken, Grün `#3fcf7f` |
 | **Warnung** (Titel der Meldung, z. B. „Wasser leer“) | Der Mensch muss etwas tun. | gelbes Warndreieck mit „!“ (ISO 7010); Orange `#e69f00` nur für Dreieck, Rahmen und Knopf, **Text weiß** (Kontrast) |
-| ~~Klima regelt sich automatisch.~~ | entfällt (2026-11-04): unter „Alles gut“ steht kein Satz mehr | – |
-| **Pausiert** | Durchgang beendet, neues Zuchtset noch nicht drin | – |
+| **Erntebereit** | Ring voll, Pilze reif; Hinweis, keine Warnung | beiger Kreis mit Pilz (Beige = anfassen) |
+| **Pause** | Durchgang beendet, neues Zuchtset noch nicht drin; oben „Kein Pilz“ | – |
+| **Warnpunkt** (Mitte der Kopfzeile) | zeigt eine offene Warnung; **blinkt nur im Standby** | orange ohne „!“; sonst dunkler Ring |
+| **Standby** | nur bei „Tank leer“: Display schwarz, nur der Warnpunkt blinkt; Antippen zeigt die Meldung | – |
 
-| **Warnpunkt** (Mitte der Kopfzeile) | blinkt langsam, nur wenn eine Warnung ansteht; aus der Ferne sichtbar | oranger Punkt mit „!“ und Leuchten, leuchtet auch allein auf dem dunklen Display (Ruhemodus); sonst dunkler Ring |
-
-Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
+Unter „Alles gut“ steht kein Satz (seit 2026-11-04). Keine weitere Statusfarbe (z. B. Rot) in der App einführen.
 
 **Orange heißt überall Warnung**, auch an der Box: Taster und Griffe sind deshalb beige, der Taster trägt ein Licht-Symbol (`02-box-bau/zeichnungen/skizze-box-v3.html`). Zeigt die App die Box oder den Taster, dann in diesen Farben; Orange nie als Akzent- oder Knopffarbe ohne Warnung verwenden.
 
@@ -23,10 +23,10 @@ Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 
 | Box (Kachel) | App | Inhalt |
 |---|---|---|
-| **Klima** (klein „Auto“, grüner Punkt leuchtet ruhig) | Klima | Lüfter, Nebler, Heizung, Licht mit Kennzeichen **AUTO** und „läuft gerade“ bzw. „nächstes Lüften in X Min“ |
+| **Klima** (klein „Auto“, grüner Punkt leuchtet ruhig) | Klima | Lüfter, Nebler, Heizung, Licht mit Kennzeichen **AUTO** und der Bedingung je Sorte und Phase (z. B. „an unter 70 % Feuchte“, „8–20 Uhr“); keine Live-Zustände |
 | **Meldungen** (Zahl = offene Meldungen) | Meldungen | offene Meldungen mit „seit“, Verlauf (Beginn, „behoben um“ / „erledigt um“) |
-| **Sorten** (klein „Neu“) | Sorten | Knopf „Neu ansetzen …“, Sorten ansehen, Notfall „Zurück zu …“ |
-| Zahnrad = **Einstellungen** (oben rechts) | Einstellungen | Handy verbinden, Urlaub, **Sprache**, **Darstellung** (Standard / Hoher Kontrast), **Hilfe** (rote Flagge, früher „Fehler melden“); Ruhemodus und „Über diese Box“ entfallen (2026-11-04) |
+| **Sorten** (klein „Neu“) | Sorten | Knopf „Neu ansetzen …“, Sorten ansehen, Notfall „Zurück zu …“; nach der Ernte „Eigene Sorte gestalten …“ |
+| Zahnrad = **Einstellungen** (oben rechts) | Einstellungen | Handy verbinden, Urlaub, **Sprache**, **Darstellung** (Standard Blau / Hoher Kontrast Schwarz / Individuell), **Hilfe** (rote Flagge, früher „Fehler melden“); Ruhemodus und „Über diese Box“ entfallen (2026-11-04) |
 | **Handy-Symbol** (oben rechts neben dem Zahnrad) | – | Code zum Verbinden, Knopf **VERBUNDEN**; danach ausgeblendet |
 | – | **Advanced Analytics** (nur App) | Verläufe, CO₂, Vergleiche |
 
@@ -67,16 +67,19 @@ Meldungen sagen in einer Zeile, was zu tun ist; der Knopf darunter trägt das Wo
 | **Geschlossen** | Tür offen |
 | **Geprüft** | Sensor ausgefallen, viel zu trocken |
 | **Gesehen** | zu trocken, zu nass, braucht Frischluft (die Box regelt selbst) |
+| **Weiterlaufen** | Pause, versehentlich beendet |
+| **Neu ansetzen** | mitten im Wachstum nur mit **2 s gedrückt halten**; direkt nach der Ernte kurze Frage **„Sicher?“** → **Starten** |
+| **Geerntet? Neue Sorte** | Erntebereit → öffnet die Sortenwahl |
 
 Verlauf: behobene Meldungen **grün mit Haken** und „behoben · von – bis“, nie mit Warndreieck.
-| **Weiterlaufen** | Pausiert, versehentlich beendet |
-| **Neu ansetzen** | nur mit **2 s gedrückt halten** |
 
 ## Modi (immer oben sichtbar)
 
+Einziger Modus für Nutzer ist **Urlaub**. Einen Ruhemodus gibt es nicht mehr (2026-11-04).
+
+
 | Begriff | Anzeige oben | Bedeutung |
 |---|---|---|
-| **Ruhemodus** | `RUHE` | Display schwarz, wacht bei Warnung, Berührung oder Taster |
 | **Urlaub** | `URLAUB ✕` | Box spart Wasser, Meldungen nur aufs Handy |
 | **Admin-Modus** | – | nur Vorführung, nicht Teil der normalen Bedienung |
 
