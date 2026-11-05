@@ -52,7 +52,7 @@ Nur **zwei Stufen**. Keine dritte Farbe (z. B. Rot) in der App einführen.
 | **Ruhephase** | Pause nach der Ernte bis zur nächsten Welle |
 | **bis zur Ernte** | Ring und Zahl in der Mitte: „X Tage bis zur Ernte“ bzw. „Jetzt ernten“ |
 
-Sorten (lang / kurz in der Kopfzeile): **Austernpilz / Auster**, **Shiitake / Shiitake**, **Kräuterseitling / Kräuter**, **Igel-Stachelbart / Igel**, **Eigene Sorte** (nur in der App anlegbar und änderbar).
+Sorten (lang / kurz in der Kopfzeile): **Austernpilz / Auster**, **Shiitake / Shiitake**, **Kräuterseitling / Kräuter**, **Igel-Stachelbart / Igel**, **Eigene Sorte** (in der App jederzeit, an der Box nur nach der Ernte anlegbar und änderbar; Kopfzeile zeigt ihren Namen).
 
 ## Knöpfe (Bestätigungswörter)
 
@@ -84,9 +84,9 @@ Verlauf: behobene Meldungen **grün mit Haken** und „behoben · von – bis“
 
 - **1 Min lüften / 1 Min befeuchten** (Ausnahme für den Power-User; die Box zeigt dann „läuft noch X s (vom Handy)“)
 - **Push-Mitteilungen** bei Warnungen (die Box schickt ihre Meldungen mit)
-- **Eigene Sorte** anlegen und ändern
+- **Eigene Sorte** anlegen und ändern, jederzeit (an der Box nur nach der Ernte)
 - **Advanced Analytics**, Ernte **teilen**
 
 ## Schnittstelle (technisch)
 
-Die Box schreibt ihren Stand nach `boxes/<Code>`. Die App schreibt Befehle nach `boxes/<Code>/cmd/last` als `{id, at, type, arg}`. Der Stand enthält außerdem `reports` (Fehlermeldungen: `{at, cat}`) und `theme` (`std`/`hc`). Erlaubte `type`: `power`, `burst` (1 Min lüften), `mist` (1 Min befeuchten), `away`, `sleep`, `do` (Knopf einer Meldung, `arg` = Meldungs-ID), `species`, `phase`, `custom`. Details: `01-konzept/bedienfeld/index.html`, Abschnitt „Verbindung Box und Handy-App“.
+Die Box schreibt ihren Stand nach `boxes/<Code>`. Die App schreibt Befehle nach `boxes/<Code>/cmd/last` als `{id, at, type, arg}`. Der Stand enthält außerdem `reports` (Fehlermeldungen: `{at, cat}`) und `theme` (`std`/`hc`). Erlaubte `type`: `power`, `burst` (1 Min lüften), `mist` (1 Min befeuchten), `away`, `sleep`, `do` (Knopf einer Meldung, `arg` = Meldungs-ID), `species`, `phase`, `custom`. Eine an der Box gestaltete eigene Sorte steht im Stand als `custom: {name, t, rh, co2, base, light}`; `base` (Vorlage, z. B. `auster`) und `light` (Licht-Stunden pro Tag) sind neu und optional, die App kann sie ignorieren. Details: `01-konzept/bedienfeld/index.html`, Abschnitt „Verbindung Box und Handy-App“.

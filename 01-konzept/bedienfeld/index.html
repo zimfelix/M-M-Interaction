@@ -136,6 +136,16 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .panel-new .btnrow{flex-direction:column;align-items:stretch;gap:3.6cqw}
 .panel-new .bigbtn{flex:none;width:100%;min-height:16cqw;font-size:5.4cqw}
 .panel-link .rec svg{width:8cqw;height:8cqw}
+/* Eigene Sorte: gleiche Größen wie Sortenwahl; ±-Knöpfe 44 pt groß */
+.panel-own .opt{min-height:16cqw;padding:3cqw 3.6cqw;font-size:5.4cqw;gap:3cqw}
+.panel-own .opt svg{width:8cqw;height:8cqw}
+.panel-own .opt small{font-size:.8em}
+.panel-own .lbl{margin-top:1.4cqw}
+.panel-own .stp b{font-size:5cqw}
+.panel-own .stp output{font-size:5.6cqw;min-width:18cqw}
+.panel-own .stp button{width:12cqw;height:12cqw}
+.panel-own .bigbtn{min-height:16cqw;font-size:5.4cqw;flex:none}
+.panel-pick .opt.wide{justify-content:flex-start}
 .panel-info .spec{font-size:5.2cqw;gap:0;margin-top:1cqw}
 .panel-info .spec dt{padding-right:3cqw!important}
 /* Sorte: jede Eigenschaft eine Zeile mit Trennstrich (nur Text, nicht drückbar) */
@@ -427,7 +437,7 @@ const INFO={
   shiitake:{diff:3,desc:"Braucht viel Geduld: sehr lange Durchwachsphase, dafür kräftiger Geschmack."},
   kraeuter:{diff:2,desc:"Fester, aromatischer Pilz. Mag es kühl und braucht viel frische Luft."},
   igel:{diff:2,desc:"Ungewöhnliche Form wie ein Eiszapfen. Braucht sehr hohe Luftfeuchte."},
-  custom:{diff:0,desc:"Eigene Zielwerte aus der App. Ändern lassen sie sich nur in der App."}
+  custom:{diff:0,desc:"Eigene Zielwerte, angelegt an der Box nach der Ernte oder in der App."}
 };
 const DIFF=["Eigene Werte","Leicht","Mittel","Schwer"];
 /* Sortenliste: Schwierigkeit als 3 Punkte (wie auf der Detailseite) und die Dauer, ohne weiteren Text */
@@ -444,15 +454,19 @@ if(!S||!S.species) S={species:"auster",phase:"kol",phaseStart:Date.now()-5.2*DAY
    Ruhemodus gibt es nicht mehr als Einstellung; schwarz wird das Display nur im Standby des Admin-Falls „Tank leer“. */
 S.linked=false; S.sleep=false;
 const save=()=>{try{localStorage.setItem("growbox-display-v5",JSON.stringify(S))}catch(e){}};
-/* Eigene Sorte: Zielwerte für die Fruchtung, die anderen Phasen leiten sich davon ab */
+/* Eigene Sorte: Zielwerte für die Fruchtung, die anderen Phasen leiten sich davon ab.
+   An der Box gestaltet (nach der Ernte) kommen Vorlage (base) und Licht-Stunden (light) dazu; aus der App fehlen sie, dann gelten die alten Standardwerte. */
 function applyCustom(){
   delete SPECIES.custom;
   const c=S.custom; if(!c){ if(S.species==="custom") S.species="auster"; return }
-  SPECIES.custom={name:c.name||"Eigene Sorte",cap:"#cdb79e",p:{
-    kol:{t:[c.t[0]+2,c.t[1]+2],rh:[70,95],co2:5000,light:false,days:14},
-    frucht:{t:c.t,rh:c.rh,co2:c.co2,light:true,days:7},
-    ruhe:{t:c.t,rh:[Math.max(50,c.rh[0]-5),Math.max(55,c.rh[1]-5)],co2:c.co2+200,light:true,days:10}}};
+  const B=SPECIES[c.base], lh=Number.isFinite(c.light)?c.light:12, days=B?[B.p.kol.days,B.p.frucht.days,B.p.ruhe.days]:[14,7,10];
+  SPECIES.custom={name:c.name||"Eigene Sorte",short:c.name||"Eigene",cap:B?B.cap:"#cdb79e",stem:B?B.stem:undefined,p:{
+    kol:{t:[c.t[0]+2,c.t[1]+2],rh:[70,95],co2:5000,light:false,days:days[0]},
+    frucht:{t:c.t,rh:c.rh,co2:c.co2,light:lh>0,lh,days:days[1]},
+    ruhe:{t:c.t,rh:[Math.max(50,c.rh[0]-5),Math.max(55,c.rh[1]-5)],co2:c.co2+200,light:lh>0,lh,days:days[2]}}};
 }
+/* Lichtfenster: ab 8 Uhr für lh Stunden (Standard 12 h, also 8–20 Uhr) */
+const lightWin=T=>[480,480+(T.lh??12)*60];
 applyCustom();
 const tgt=()=>SPECIES[S.species].p[S.phase];
 const day=()=>Math.floor((Date.now()-S.phaseStart)/DAY)+1;
@@ -470,7 +484,7 @@ function step(d){
     let N=sim.dev.nebel; if(sim.rh<on)N=true; else if(sim.rh>off)N=false; if(S.phase==="kol"&&sim.rh>T.rh[0]+3)N=false;
     if(sim.mist>d.getTime())N=true;
     if(sim.tank<=0) N=false;
-    const autoL=T.light&&m>=480&&m<1200;
+    const [l0,l1]=lightWin(T), autoL=T.light&&m>=l0&&m<l1;
     if(sim.lightOv&&d.getTime()>sim.lightOv.until) sim.lightOv=null;  // Ausnahme gilt bis zum nächsten Licht-Wechsel
     // Heizung: an unter dem Zielbereich, aus kurz darüber (Kühlen gibt es nicht, nur einen Hinweis)
     let H=sim.dev.heizung; if(sim.t<T.t[0]+.3)H=true; else if(sim.t>T.t[0]+1.5)H=false;
@@ -676,7 +690,7 @@ function alertPanel(refresh){
     ${log.length?log.slice(0,15).map(e=>`<div class="hist">${IC.ok}<b>${esc(e.t)}</b><small>${e.sev==="warn"?"behoben":"erledigt"} · <time>${when(e.from)} – ${clock(e.to)}</time></small></div>`).join("")
       :`<p>Noch keine früheren Meldungen.</p>`}`,p=>{
     p.style.overflowY="auto";
-    p.querySelectorAll("[data-do]").forEach(b=>b.onclick=()=>{const it=list.find(x=>x.id===b.dataset.do);it?.do.run();panelKey="";alertPanel()});
+    p.querySelectorAll("[data-do]").forEach(b=>b.onclick=()=>{const it=list.find(x=>x.id===b.dataset.do);it?.do.run();panelKey="";if(open==="alerts")alertPanel()});  // öffnet der Knopf selbst ein Panel (z. B. Sortenwahl nach der Ernte), bleibt es stehen
   });
 }
 /* Beenden rückgängig machen: Box läuft mit gleicher Sorte, Phase und Tag weiter */
@@ -723,8 +737,10 @@ function plantDirect(k){S.next=k;save();newPanel(2,true)}
 function pickPanel(){
   const keys=[S.species].concat(Object.keys(SPECIES).filter(k=>k!==S.species&&(k!=="custom"||S.custom)));
   panel("pick","Neu ansetzen",`<p>Mit welcher Sorte?</p><div class="list">${keys.map(k=>`<button class="opt" data-k="${k}">${shroomSvg(SPECIES[k].cap,SPECIES[k].stem)}<div>${esc(SPECIES[k].name)}${k===S.species?'<span class="tag">wie bisher</span>':""}<small>${diffLine(k)}</small></div></button>`).join("")}
+    ${harvested()||S.rest?`<button class="opt wide" data-own>${PLUS_IC}<div>Eigene Sorte gestalten …</div></button>`:""}
     ${harvested()?`<button class="opt" data-rest>${PAUSE_IC}<div>Kleine Pause einlegen<small>Erst mal kein neuer Pilz</small></div></button>`:""}</div>`,p=>{
     p.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>harvested()||S.rest?infoPanel(b.dataset.k,true):confirmNew(b.dataset.k));
+    p.querySelector("[data-own]")?.addEventListener("click",()=>ownPanel(true));
     p.querySelector("[data-rest]")?.addEventListener("click",()=>{S.rest=true;S.power=false;delete S.next;save();step(new Date());closePanel();render();msg("Pause · kein Pilz")});
     p.querySelector("[data-back]").onclick=sortPanel;
   });
@@ -743,11 +759,55 @@ function infoPanel(k,plant){
     ${active?`<p><b>Wächst gerade</b> (Tag ${day()}).</p>`:""}
     <div class="btnrow wrap">
       <button class="bigbtn out" data-back2>‹ Alle Sorten</button>
+      ${plant&&k==="custom"?`<button class="bigbtn out" data-edit>Werte ändern …</button>`:""}
       <button class="bigbtn out" data-new>${plant?"Neu ansetzen":active?"Nochmal neu ansetzen …":"Damit neu ansetzen …"}</button>
     </div>`,p=>{
     p.querySelector("[data-back2]").onclick=plant?pickPanel:sortPanel;
+    p.querySelector("[data-edit]")?.addEventListener("click",()=>ownPanel(true));
     if(plant) p.querySelector("[data-back]").onclick=pickPanel;
     p.querySelector("[data-new]")?.addEventListener("click",()=>plant?plantDirect(k):confirmNew(k));
+  });
+}
+/* Eigene Sorte gestalten (2026-11-05): nur nach der Ernte aus „Neu ansetzen“ (Kammer ist leer, nichts geht verloren).
+   Name + Vorlage reichen; die Werte liegen eingeklappt unter „Erweitert“ (Ingrid muss sie nie sehen, Power-User B kann feinjustieren). */
+const PLUS_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+const SLIDERS_IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg>';
+const AIR=[["Wenig",1500],["Normal",1000],["Viel",700]];
+const airLvl=co2=>co2<=800?2:co2<=1200?1:0;
+const BASES=["auster","shiitake","kraeuter","igel"];
+function fromBase(k){const F=SPECIES[k].p.frucht;return {base:k,t:[...F.t],rh:[...F.rh],light:F.light?(F.lh??12):0,air:airLvl(F.co2)}}
+let draft=null;
+function ownPanel(fresh){
+  if(fresh||!draft){const c=S.custom;
+    draft=c?{name:c.name,base:BASES.includes(c.base)?c.base:"auster",t:[...c.t],rh:[...c.rh],light:Number.isFinite(c.light)?c.light:12,air:airLvl(c.co2),adv:false}
+      :{name:"",...fromBase("auster"),adv:false}}
+  const D=draft, mid=a=>Math.round((a[0]+a[1])/2);
+  const rows=[["t","Temperatur",`${mid(D.t)} °C`],["rh","Luftfeuchte",`${mid(D.rh)} %`],["light","Licht pro Tag",D.light?`${D.light} h`:"aus"],["air","Frischluft",AIR[D.air][0]]];
+  const keep=$("#panelHost .panel-own .list")?.scrollTop||0;
+  panel("own","Eigene Sorte",`<div class="list">
+    <div class="lbl">Name</div>
+    <input class="field" id="ownName" maxlength="20" placeholder="Meine Sorte" value="${esc(D.name)}" autocomplete="off" enterkeyhint="done">
+    <div class="lbl">Vorlage</div>
+    <div class="grid g2">${BASES.map(k=>`<button class="opt" role="radio" data-base="${k}" aria-checked="${D.base===k}">${shroomSvg(SPECIES[k].cap,SPECIES[k].stem)}<div>${esc(SPECIES[k].short)}</div></button>`).join("")}</div>
+    <button class="opt" data-adv aria-expanded="${D.adv}">${SLIDERS_IC}<div>Erweitert ${D.adv?"▴":"▾"}<small>${rows.map(r=>r[2]).join(" · ")}</small></div></button>
+    ${D.adv?`<div class="stps">${rows.map(([k,n,v])=>`<div class="stp"><b>${n}</b><button data-s="${k}" data-dir="-1" aria-label="${n} weniger">−</button><output>${v}</output><button data-s="${k}" data-dir="1" aria-label="${n} mehr">+</button></div>`).join("")}</div>`:""}
+    </div>
+    <button class="bigbtn" data-save>Weiter: ansetzen</button>`,p=>{
+    p.querySelector(".list").scrollTop=keep;
+    p.querySelector("#ownName").oninput=e=>{D.name=e.target.value};
+    p.querySelectorAll("[data-base]").forEach(b=>b.onclick=()=>{Object.assign(D,fromBase(b.dataset.base));ownPanel()});
+    p.querySelector("[data-adv]").onclick=()=>{D.adv=!D.adv;ownPanel()};
+    // Feste Schritte und Grenzen, damit keine unsinnigen Werte entstehen (Constraint, Folie 75)
+    p.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{const s=b.dataset.s, d=+b.dataset.dir;
+      if(s==="t"&&mid(D.t)+d>=10&&mid(D.t)+d<=30) D.t=D.t.map(v=>v+d);
+      if(s==="rh"&&D.rh[0]+d*2>=50&&D.rh[1]+d*2<=99) D.rh=D.rh.map(v=>v+d*2);
+      if(s==="light") D.light=Math.max(0,Math.min(14,D.light+d*2));
+      if(s==="air") D.air=Math.max(0,Math.min(2,D.air+d));
+      ownPanel()});
+    p.querySelector("[data-save]").onclick=()=>{
+      S.custom={name:(D.name.trim()||"Meine Sorte").slice(0,20),base:D.base,t:D.t,rh:D.rh,co2:AIR[D.air][1],light:D.light};
+      applyCustom();save();draft=null;plantDirect("custom")};
+    p.querySelector("[data-back]").onclick=()=>{draft=null;pickPanel()};
   });
 }
 /* Bewusst bestätigen: zeigt, was verloren geht, und verlangt 2 Sekunden gedrückt halten */
@@ -808,7 +868,7 @@ function awayPanel(){
 const paused=()=>{if(!S.power){msg("Pausiert · erst WEITERLAUFEN");return true}return false};
 /* Automatik sichtbar machen: was die Box gerade selbst tut */
 function nextAir(){const d=new Date(), m=d.getHours()*60+d.getMinutes();return 30-(m%30)}
-function lightUntil(){const d=new Date(), m=d.getHours()*60+d.getMinutes(), on=m>=480&&m<1200;return {on, at:on?"20:00":"8:00"}}
+function lightUntil(){const d=new Date(), m=d.getHours()*60+d.getMinutes(), [l0,l1]=lightWin(tgt()), on=m>=l0&&m<l1;return {on, at:on?`${l1/60}:00`:"8:00"}}
 /* Klima (2026-11-04): je Gerät ein Balken wie in den Einstellungen, nur Name, AUTO und 1–3 Wörter, was es tut.
    Keine Live-Zustände mehr, damit Ingrid möglichst wenig lesen muss. */
 /* Zeichen für den echten Taster: beiger Kreis mit Licht-Symbol wie an der Box (Mapping), ohne Rahmen, also kein Touch-Knopf */
@@ -821,7 +881,7 @@ function climaRows(){
     +row(IC.air,"Lüfter",S.phase==="kol"?"nur bei zu viel CO₂":"alle 30 Min frische Luft")
     +row(IC.rh,"Nebler",`an unter ${T.rh[0]} % Feuchte`)
     +row(IC.temp,"Heizung",`an unter ${T.t[0]} °C`)
-    +row(IC.bulb,"Licht",`${T.light?"8–20 Uhr":"aus beim Durchwachsen"} · ${TASTER_IC}Taster ↓ schaltet um`)+`</div>`;
+    +row(IC.bulb,"Licht",`${T.light?`8–${lightWin(T)[1]/60} Uhr`:S.phase==="kol"?"aus beim Durchwachsen":"aus"} · ${TASTER_IC}Taster ↓ schaltet um`)+`</div>`;
 }
 function climaPanel(){
   panel("clima","Klima",`<p>Die Box regelt Luft, Feuchte, Wärme und Licht selbst.</p>
