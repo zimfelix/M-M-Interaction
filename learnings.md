@@ -15,7 +15,7 @@ Status je Eintrag: **offen** = noch nicht in einem weiteren Projekt geprüft · 
 
 - **offen · Konzept, Ziel und Zielgruppe gleich zu Beginn nennen.** Die anderen Gruppen hatten zur selben Aufgabe ganz andere Konzepte. Ohne diesen Rahmen kann das Publikum die Entscheidungen nicht einordnen. Gilt für Präsentation **und** Booklet.
 - **offen · Einstieg mit persönlicher Geschichte.** „Wie bin ich drauf gekommen?“ in ein bis zwei Sätzen (z. B. ein Erlebnis im Urlaub), danach erst das Konzept.
-- **offen · Erst den Klick-Prototyp in Claude, dann den physischen Prototyp bauen.** App, Bedienfeld und Features zuerst als Klick-Prototyp in Claude (claude.ai-Artifact) durchspielen und erst danach bauen. Wenn das Digitale steht, kann man beim Bau kreativer sein.
+- **offen · Konzept first: erst CAD und Klick-Prototyp in Claude, dann den physischen Prototyp bauen.** Die Box zuerst im CAD und App, Bedienfeld und Features als Klick-Prototyp in Claude (claude.ai-Artifact) durchspielen, erst danach bauen, statt direkt ins Prototyping zu gehen. Wenn das Konzept steht, kann man beim Bau kreativer sein. *Vorbild: die 3D-Growbox von Lukas, die genau so vorgegangen ist und sehr gut war.*
 - **offen · Mit einem Tablet präsentieren statt mit einem eingebauten Handy.** Es ist größer fürs Publikum und lässt sich einfach am Whiteboard zeigen.
 - **offen · Präsentation aufbauen wie die von Moritz** (andere Gruppe, 05.11.2026):
   - **Zielgruppe** ausdrücklich benennen
