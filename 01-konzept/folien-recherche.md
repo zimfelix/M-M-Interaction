@@ -1,6 +1,6 @@
 # Folien-Recherche: Was sagen die Folien konkret zum Bedienfeld?
 
-Stand 02.11.2026, geprüft an den Original-PDFs in `01-konzept/folien/` (nur lokal, per `.gitignore` ausgeschlossen). **Folie N** = Seite im HCI-PDF, **G N** = Seite im Gamification-PDF. Bezug: Bedienfeld v6.
+Stand 02.11.2026, geprüft an den Original-PDFs in `01-konzept/folien/` (nur lokal, per `.gitignore` ausgeschlossen). **Folie N** = Seite im HCI-PDF, **G N** = Seite im Gamification-PDF. Bezug: Bedienfeld v6. Spätere Änderungen (v7, 05.11.) stehen im Verlauf in `bedienfeld/README.md`; Abschnitte mit **📘** gehören ins Booklet.
 
 Wichtig fürs Booklet: Viele Folien sind **Bildbeispiele ohne Text**. Die Aussage dahinter kam in der Vorlesung mündlich. Wir zitieren deshalb das Beispiel und formulieren die Folgerung selbst. Was gar nicht auf den Folien steht, ist unten als **externe Quelle** markiert.
 
@@ -28,7 +28,7 @@ Die Folien geben **keine Knopfzahl vor**. Sie liefern aber Prinzipien, mit denen
 | Gar keine Kacheln, alles über Antippen des Status | maximal ruhig | versteckte Bedienung, schlecht für seltene Nutzer (Vergessen, Folie 41) | ❌ |
 | Mehr Funktionen direkt am Zustand (Aktion unter dem Status) | direkte Manipulation (96), Gulf of Execution (59) | – | ✅ ist schon so umgesetzt |
 
-## 2. Farbgestaltung
+## 2. Farbgestaltung · 📘 Booklet S3
 
 | Folie | Was die Folie zeigt | Folgerung |
 |---|---|---|
@@ -73,7 +73,7 @@ Die Folien geben **keine Knopfzahl vor**. Sie liefern aber Prinzipien, mit denen
 
 → Der **orange Warntitel** („Wasser leer“) steht im hellen Bereich unter dem Ring und ist dort zu kontrastarm. Vorschlag: Titel weiß, Orange nur für Dreieck, Rahmen und Knopf.
 
-## 3. Gamification
+## 3. Gamification · 📘 Booklet S3
 
 Die Folien (G 10) listen **24 Mechaniken**. Für eine ruhige Box ohne Spielfigur passen diese:
 
@@ -97,7 +97,7 @@ Die Folien (G 10) listen **24 Mechaniken**. Für eine ruhige Box ohne Spielfigur
 | **G 14** Hexad (Marczewski) | Philanthropist (Purpose), Achiever (Mastery), Free Spirit (Autonomy), Socialiser (Relatedness) … | **A Ingrid = Philanthropist** (kümmert sich). **B Power-User = Achiever** (Mastery: optimieren) mit Zügen von **Free Spirit** (Autonomie: eigene Sorte, 1 Min lüften). |
 | **G 15** Serious Games | „Balance“ zwischen ernstem Ziel (*Characterizing Goal*) und Spiel | Das ernste Ziel (Pilze erfolgreich züchten) bleibt vorne. |
 
-## 4. Der haptische Licht-Taster
+## 4. Der haptische Licht-Taster · 📘 Booklet S2
 
 Licht hat bewusst **keine Kachel** auf dem Display, sondern einen **echten Taster** unter dem Display. Die Folien liefern dafür mehrere Argumente:
 
@@ -111,9 +111,9 @@ Licht hat bewusst **keine Kachel** auf dem Display, sondern einen **echten Taste
 | **60** Modusfehler | Fehler durch Modi | Der Taster hat **eine feste Bedeutung** (Licht), keinen Modus. |
 | **57–58** Flexibilität | mehrere Wege zum Ziel | Licht geht zusätzlich per App (Power-User unterwegs). |
 
-**Im Display umgesetzt:** Das Klima-Fenster sagt „Licht an oder aus: **Taster unter dem Display** drücken“. In der Zeile Licht steht „per Taster unten ↓“ als reiner Hinweistext **ohne Rahmen**, damit er nicht wie ein Touch-Knopf aussieht (falsche Affordance, Folie 73). Nach dem Drücken bestätigt das Display: „Taster · Licht an bis 20:00, danach Auto“ (Feedback, 82).
+**Im Display umgesetzt (v7):** In der Klima-Zeile Licht steht ein **beiges, rundes Taster-Zeichen** mit „Taster ↓ schaltet um“, als reiner Hinweis **ohne Rahmen**, damit er nicht wie ein Touch-Knopf aussieht (falsche Affordance, Folie 73; Rahmen = drückbar, E31). Beige verbindet das Zeichen mit dem echten beigen Taster (Mapping, 77–79).
 
-## 5. Barrierefreiheit
+## 5. Barrierefreiheit · 📘 Booklet S3
 
 Die Folien behandeln Barrierefreiheit **nur knapp**:
 
@@ -123,7 +123,7 @@ Die Folien behandeln Barrierefreiheit **nur knapp**:
 
 Was wir darüber hinaus tun, braucht für das Booklet eine **externe Quelle**, z. B. WCAG 2.2 für Kontrast oder ein Buch zu Design for all:
 
-- Status dreifach codiert: Farbe + Form + Wort, dazu das Pilz-Gesicht (froh/besorgt)
+- Status dreifach codiert: Farbe + Form + Wort, dazu das Pilz-Gesicht (froh/besorgt), der in drei Stufen wachsende Pilz und „Erntebereit“ (v7)
 - große Schrift, große Ziele, kein Zeitdruck, wichtige Aktionen mit Bestätigung
 
 ## Korrekturen an unseren Dokumenten
@@ -131,7 +131,7 @@ Was wir darüber hinaus tun, braucht für das Booklet eine **externe Quelle**, z
 - **Folie 38** („Begrenzung des Kurzzeitgedächtnisses“) zeigt nur ein Bild, **keine Zahl**. „Höchstens 3–4 Elemente“ steht nicht auf der Folie. Für eine Zahl braucht es eine externe Quelle (Miller 1956: 7 ± 2; Cowan 2001: ca. 4). Sonst nur „begrenzt“ schreiben. In `04-final/entscheidungen-folien.md` (E3) angepasst.
 - **Folie 27** belegt Blinken als präattentives Merkmal und stützt damit E5. Ergänzt.
 
-## Umgesetzt (v5, 02.11.2026)
+## Umgesetzt (v5, 02.11.2026) · 📘 Booklet S5
 
 1. **Warntexte weiß statt orange** (Startbild, Meldungsliste, Kopf „1 Warnung“): Kontrast 2,8 → 6,4. Orange bleibt bei Dreieck, Rahmen und Knopf.
 2. **Nebentexte heller**: `#c7cfff` → `#dfe4ff`, jetzt mindestens 5,1 : 1 auch in der hellen Mitte.
@@ -139,14 +139,14 @@ Was wir darüber hinaus tun, braucht für das Booklet eine **externe Quelle**, z
 4. **Licht-Taster** im Klima-Fenster erklärt (siehe Abschnitt 4).
 5. **Kopfzeile neu**: eine Zeile, alles 44 pt hoch: Sorte links, Warnpunkt in der Mitte (Folien 26, 23, 63, 130), rechts Handy-Symbol (nach VERBUNDEN ausgeblendet) und Zahnrad als gleich große Knöpfe; Uhr entfernt. Die Größe stammt aus einer externen Quelle (Apple HIG); die Folien begründen nur das Prinzip (Fitts, 50).
 
-## Umgesetzt (v6, 02.11.2026)
+## Umgesetzt (v6, 02.11.2026) · 📘 Booklet S5
 
-1. **Warnpunkt blinkt** langsam (ca. 0,8 Hz, nie ganz dunkel), nur bei Warnung: Folie 27 nennt Blinken als präattentives Merkmal. Blinken ist damit für den einzigen Fall reserviert, in dem gehandelt werden muss. Extern (WCAG 2.3.1): unter 3 Blitzen pro Sekunde; bei „Bewegung reduzieren“ leuchtet er nur.
+1. **Warnpunkt blinkt** (seit v7 nur noch im Standby) langsam (ca. 0,8 Hz, nie ganz dunkel), nur bei Warnung: Folie 27 nennt Blinken als präattentives Merkmal. Blinken ist damit für den einzigen Fall reserviert, in dem gehandelt werden muss. Extern (WCAG 2.3.1): unter 3 Blitzen pro Sekunde; bei „Bewegung reduzieren“ leuchtet er nur.
 2. **Meldungs-Verlauf grün mit Haken**: Behobenes darf nicht mehr wie eine Warnung aussehen (Gulf of Evaluation, Folie 59; kulturelle Bedeutung Grün = erledigt, Folie 76).
 3. **Schrift in Meldungen und Listen größer** (Verlauf 15 → 17 pt, Nebentexte ≥ 15 pt, Folie 63) und **Touch-Ziele ≥ 44 pt** auch für „Zurück“, Meldungsknöpfe und `URLAUB ✕` (Folie 50; Zahl extern Apple HIG).
 4. **Einstellungen**: Sprache (nicht verfügbare Sprachen **ausgegraut**, logischer Constraint, Folie 75), **Darstellung „Hoher Kontrast“** (schwarz, alle Texte weiß; Folie 66), **Fehler melden** (ein Tippen; Nielsen: *help users recognize, diagnose, and recover from errors*, Folie 130).
 5. **SORTEN · Neu**: Neu ansetzen sichtbar oben (Visibility, 130), Sorten ansehen darunter (Stöbern vs. Suchen, Folie 95).
-6. **Ruhemodus-Text** lesbar (3,3 → 9,7 : 1).
+6. **Ruhemodus-Text** lesbar (3,3 → 9,7 : 1). Den Ruhemodus haben wir in v7 gestrichen.
 
 ## Weiter gültig
 

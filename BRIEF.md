@@ -25,7 +25,7 @@ Zeichnungen der Box: `02-box-bau/README.md` (Bilder) bzw. `02-box-bau/zeichnunge
 - **Aufstellort:** Wo und wie steht die Box (Zugang vorn und zum Tank, Abstand für Lüftung, keine Heizung/Sonne, Display-Blickwinkel)?
 - **Hardware Heizung:** Heizmatte oder PTC-Heizer über Relais (Einkauf) oder nur simuliert.
 - **Cognitive Walkthrough** (Folie 129) mit einer älteren Person: optional bis zur Abgabe, sonst als Grenze im Booklet (S5).
-- **Pilz als Status:** Teilweise gelöst durch Wachstum in drei Stufen und „Erntebereit“ (v7). Ob der Pilz zusätzlich „alles gut“ zeigen soll, ist offen.
+- **Pilz als Status:** Das Pilz-Gesicht (froh/besorgt) gibt es; seit v7 wächst der Pilz in drei Stufen und zeigt „Erntebereit“. Ob er „alles gut“ noch deutlicher zeigen soll, ist offen.
 - **Farben 3D-Druck:** Rahmen schwarz oder grau (Variante A oder B aus `02-box-bau/zeichnungen/skizze-farben.html`; C entfällt, weil Taster und Griffe jetzt beige sind); Sockel dunkelbraun ist nicht verfügbar.
 - **Power-User-Persona (B):** Kultur bleibt Pilze, also ein erfahrener Pilzzüchter, der alles trackt. Entwurf in `04-final/entscheidungen-folien.md`; Name und Details offen.
 - **Türschalter** (Magnetschalter, meldet „Tür offen“ ans Display): echt, simuliert oder weglassen?

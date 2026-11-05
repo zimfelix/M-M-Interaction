@@ -32,7 +32,7 @@ Die drei Personas decken bewusst die Altersspanne ab, die die Box laut Anforderu
 | **Spielertyp (Hexad)** | Socialiser: will teilen und vergleichen (G13–14). |
 | **Was die Box für sie tut** | Drei Wege zum selben Zustand (Skizze 05), Übersicht → Detail mit Werten (09), Teilen der Ernte über die App (11), Ruhezustand lesbar aus 2 m (13). |
 
-## Persona 3 – Ingrid, 72 Jahre
+## Persona 3 – Ingrid, 72 Jahre · 📘 Booklet S1
 
 | | |
 |---|---|
@@ -47,9 +47,9 @@ Die drei Personas decken bewusst die Altersspanne ab, die die Box laut Anforderu
 
 ## Storyboard 1 – „Ein Morgen mit der Box“ (Persona Ingrid)
 
-Ersetzt durch die Use Cases A1–A6 passend zu Bedienfeld v6: [`../04-final/praesentation.md`](../04-final/praesentation.md). Die frühe Fassung (Schale, Kachel „Hinweise“) steht in der Git-Historie.
+Ersetzt durch die **Story A (Ingrid, Szenen 1–6)** in [`../04-final/entscheidungen-folien.md`](../04-final/entscheidungen-folien.md#story-für-die-präsentation); in der Präsentation als Case 1–3 gezeigt ([`../04-final/praesentation.md`](../04-final/praesentation.md)). Die frühe Fassung (Schale, Kachel „Hinweise“) steht in der Git-Historie.
 
-## Storyboard 2 – „Erntezeit“ (Personas Mila und Jonas)
+## Storyboard 2 – „Erntezeit“ (Personas Mila und Jonas) · 📘 Booklet App-Teil / Gamification
 
 Idee für die **App** (Teilen, Abzeichen); im Bedienfeld gibt es kein Abzeichen.
 

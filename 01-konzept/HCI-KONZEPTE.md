@@ -6,7 +6,7 @@
 > - **Ladebeziehungen:** Ausgangslage und Entscheidungen: `BRIEF.md`. Quellen: `~/Desktop/WS26_HCI - Vorlesungsfolien.pdf` (151 Folien), `~/Desktop/HCI - Vorlesungsfolien_Gamification.pdf` (17 Folien).
 > - **Nicht zuständig:** Entscheidungen festhalten (→ `BRIEF.md`).
 
-Status: **Ausgangssammlung** (27.10.2026). Maßgeblich sind inzwischen: was umgesetzt ist und wie begründet → [`../04-final/entscheidungen-folien.md`](../04-final/entscheidungen-folien.md); was die Folien wörtlich zeigen → [`folien-recherche.md`](folien-recherche.md). Die Spalte „Anwendung“ ist unten an Bedienfeld v6 angeglichen. Spalte „Folien“ = Seitenzahl im PDF (geprüft) zum Zurückverweisen.
+Status: **Ausgangssammlung** (27.10.2026). Maßgeblich sind inzwischen: was umgesetzt ist und wie begründet → [`../04-final/entscheidungen-folien.md`](../04-final/entscheidungen-folien.md); was die Folien wörtlich zeigen → [`folien-recherche.md`](folien-recherche.md). Die Spalte „Anwendung“ ist unten an Bedienfeld v6/v7 angeglichen. Spalte „Folien“ = Seitenzahl im PDF (geprüft) zum Zurückverweisen.
 
 ## Prüfungsleistung (Folie 5)
 
@@ -43,7 +43,7 @@ Status: **Ausgangssammlung** (27.10.2026). Maßgeblich sind inzwischen: was umge
 | Mentale Modelle: Designer-, System-, Benutzermodell (Norman) | 56 | Modell „Die Box regelt selbst, ich helfe nur, wenn sie sich meldet“ (Leitidee B); das Pilz-Gesicht im Ring (froh/besorgt) gibt eine leichte Lebewesen-Anmutung. |
 | Flexibilität: mehrere Wege zum Ziel | 57–58 | Licht per Taster **oder** per App schalten; „1 Min lüften“ nur in der App für Fortgeschrittene (Stand v6). |
 | Gulf of Execution / Gulf of Evaluation | 59 | Ausführung: Aktion ist offensichtlich. Bewertung: Ergebnis sichtbar, denn die LED leuchtet durch das Plexiglas (natürliches Feedback). |
-| Fehlerarten, besonders **Modusfehler** | 60 | Wenige Modi (Ruhemodus, Urlaub), immer oben sichtbar; an der Box kein „Manuell“ fürs Klima. |
+| Fehlerarten, besonders **Modusfehler** | 60 | Einziger Modus ist Urlaub, immer oben sichtbar (Ruhemodus in v7 gestrichen); an der Box kein „Manuell“ fürs Klima. |
 | Murphys Law | 61 | Kritisches (z. B. Alarm aus) nur mit Bestätigung oder rückgängig machbar. |
 
 ## 4. UI-Grundregeln (Norman, Nielsen)
