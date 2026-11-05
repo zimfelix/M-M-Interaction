@@ -22,6 +22,7 @@ Zeichnungen der Box: `02-box-bau/README.md` (Bilder) bzw. `02-box-bau/zeichnunge
 
 ## Offen
 
+- **3D-Modell vs. Box-Maße:** Die 3D-Modelle in `04-final/3d-modell/` zeigen 60 × 35 × 25 cm, vorn feste Glasscheibe (v2) und Kamera mit Handerkennung; die Entscheidung „Box“ nennt 335 × 250 × 200 mm mit Plexi-Tür. Welcher Stand gilt fürs Booklet?
 - **Aufstellort:** Wo und wie steht die Box (Zugang vorn und zum Tank, Abstand für Lüftung, keine Heizung/Sonne, Display-Blickwinkel)?
 - **Hardware Heizung:** Heizmatte oder PTC-Heizer über Relais (Einkauf) oder nur simuliert.
 - **Cognitive Walkthrough** (Folie 129) mit einer älteren Person: optional bis zur Abgabe, sonst als Grenze im Booklet (S5).
