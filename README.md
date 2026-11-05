@@ -65,7 +65,6 @@ Folge für den Bau: Was der Mensch tun muss, muss gut erreichbar sein. **Wassert
 
 ## Offen
 
-- [ ] **3D-Modell vs. Box-Maße:** 3D-Modell 60 × 35 × 25 cm mit Glasfront ↔ Zeichnungen 335 × 250 × 200 mm mit Tür. Welcher Stand gilt?
 - [ ] **Aufstellort:** Wo steht die Box (Küche, Regal)? Freier Zugang von vorn und zum Tank, Lüftungsschlitze frei, keine Heizung oder Sonne, Display gut sichtbar.
 - [ ] **Pilz als Status:** Pilz-Gesicht (froh/besorgt) und Wachstum in drei Stufen gibt es. Soll „alles gut“ noch deutlicher werden?
 - [ ] **Farben 3D-Druck:** Rahmen schwarz oder grau, Variante A oder B ([Skizze](02-box-bau/README.md#5--farbvarianten-3d-druck)). Fest: Handybox schwarz glänzend; Taster und Griffe beige; Orange nur für Warnungen.

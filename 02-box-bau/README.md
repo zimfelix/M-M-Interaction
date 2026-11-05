@@ -21,7 +21,7 @@
 - **Farbprinzip:** Anfassen = **beige** (Taster, Griffe), Rahmen schwarz/grau, **Orange nur für Warnungen** (Konsistenz, Folie 80)
 - **Ein Taster, eine Bedeutung:** Licht an/aus (Affordance, Folie 72–74)
 - **Neue Stände als neue Datei** (`-v2`, `-v3`); danach `python3 02-box-bau/export_svg.py`
-- 3D-Modell zum Drehen: [`../04-final/3d-modell/`](../04-final/3d-modell/) (eigene Maße, siehe `BRIEF.md` → Offen)
+- 3D-Modell zum Drehen: [`../04-final/3d-modell/`](../04-final/3d-modell/)
 
 📘 Booklet S2: Die Skizzen 1 → 6 → 7 zeigen den Fortschritt der Box (Mikrowelle → Tank gut erreichbar → Orange nur für Warnungen).
 

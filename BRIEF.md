@@ -22,7 +22,6 @@ Zeichnungen der Box: `02-box-bau/README.md` (Bilder) bzw. `02-box-bau/zeichnunge
 
 ## Offen
 
-- **3D-Modell vs. Box-Maße:** Die 3D-Modelle in `04-final/3d-modell/` zeigen 60 × 35 × 25 cm, vorn feste Glasscheibe (v2) und Kamera mit Handerkennung; die Entscheidung „Box“ nennt 335 × 250 × 200 mm mit Plexi-Tür. Welcher Stand gilt fürs Booklet?
 - **Aufstellort:** Wo und wie steht die Box (Zugang vorn und zum Tank, Abstand für Lüftung, keine Heizung/Sonne, Display-Blickwinkel)?
 - **Hardware Heizung:** Heizmatte oder PTC-Heizer über Relais (Einkauf) oder nur simuliert.
 - **Cognitive Walkthrough** (Folie 129) mit einer älteren Person: optional bis zur Abgabe, sonst als Grenze im Booklet (S5).
@@ -53,7 +52,7 @@ Von Felix bestätigt. Diese Tabelle ist der maßgebliche Stand; Überholtes wird
 | 4 | Budget | **150–300 €** für die gesamte Hardware. |
 | 4 | Termin | **Präsentation 05.11.2026, 10:00 (gehalten) · Abgabe 08.11.2026, 23:59**: Booklet 5 Seiten pro Person + Prototyp (Folie 5, von Felix bestätigt). |
 | 3 | Name | **„M-M“ = Mensch-Maschine** → M-M Interaction = Mensch-Maschine-Interaktion (HMI). |
-| 6 | Box | **Aufbau wie eine Mikrowelle, außen 335 × 250 × 200 mm:** links die Pilzkammer (250 breit) aus 3-mm-Plexi, rechts der blickdichte **Technikraum** (85 breit, volle Tiefe) mit Bedienfeld vorn. **Gestell aus dem 3D-Drucker** wie beim Creality K2 Plus: schwarze Profile 15 × 15 mit Eck- und T-Stücken, Scheiben in Nuten, senkrechtes Profil zwischen Tür und Bedienfeld; Sockel 30 mm dunkelbraun gedruckt; Deckel abnehmbar mit Griff. Alle Teile ≤ 250 mm für das 255er-Druckbett. Zeichnungen: `02-box-bau/README.md`; ältere Fassungen bleiben als Dokumentation erhalten, neue Stände kommen als neue Dateien (z. B. `-v2`). |
+| 6 | Box | **Aufbau wie eine Mikrowelle, außen 335 × 250 × 200 mm:** links die Pilzkammer (250 breit) aus 3-mm-Plexi, rechts der blickdichte **Technikraum** (85 breit, volle Tiefe) mit Bedienfeld vorn. **Gestell aus dem 3D-Drucker** wie beim Creality K2 Plus: schwarze Profile 15 × 15 mit Eck- und T-Stücken, Scheiben in Nuten, senkrechtes Profil zwischen Tür und Bedienfeld; Sockel 30 mm dunkelbraun gedruckt; Deckel abnehmbar mit Griff. Alle Teile ≤ 250 mm für das 255er-Druckbett. **3D-Modelle** (`04-final/3d-modell/`) dienen nur zum Anschauen; dass ihre Maße abweichen, ist egal (2026-11-05). Zeichnungen: `02-box-bau/README.md`; ältere Fassungen bleiben als Dokumentation erhalten, neue Stände kommen als neue Dateien (z. B. `-v2`). |
 | 6 | Tür und Griff | **Fronttür aus Plexi, Scharniere links**, langer **senkrechter Stangengriff** (wie IKEA) zwischen Tür und Bedienfeld. |
 | 6 | Farbprinzip | **Bedienen vs. Gestalt farblich unterscheiden:** Teile zum Anfassen/Bedienen heben sich farblich vom Rahmen ab. Handybox (Bedienfeld-Front) fest **schwarz glänzend**; **Taster, Türgriff und Deckelgriff beige**, Taster mit eingeprägtem **Licht-Symbol** (2026-11-02). **Orange nur für Warnungen** (wie auf dem Display, Konsistenz Folie 80); LEDs warmweiß, in Zeichnungen hellgelb. Rahmen schwarz oder grau (Variante C mit beigem Rahmen entfällt). Skizze: `02-box-bau/zeichnungen/skizze-box-v3.html`. |
 | 5 | Kultur | **Pilze** (z. B. ein fertig durchwachsenes Austernpilz-Zuchtset, damit innerhalb von 2 Wochen etwas sichtbar ist). |

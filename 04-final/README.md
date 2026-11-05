@@ -30,8 +30,6 @@ Drehbare Modelle im Browser (ziehen zum Drehen; three.js wird aus dem Netz gelad
 | [`3d-modell/growbox-3d-v2-60x35x25.html`](3d-modell/growbox-3d-v2-60x35x25.html) | **v2:** 60 × 35 × 25 cm, vorn feste Glasscheibe ohne Tür, oben abnehmbare Glasplatte, LED in der Nut, Kamera mit Handerkennung weckt das Display |
 | [`3d-modell/growbox-3d-mit-tuer.html`](3d-modell/growbox-3d-mit-tuer.html) | Vorgänger mit Tür; Display geht nach ein paar Sekunden wieder aus |
 
-⚠️ Maße und Front weichen von `BRIEF.md` ab (335 × 250 × 200 mm mit Plexi-Tür), siehe „Offen“ dort.
-
 ## Dateien
 
 | Datei | Wofür |
