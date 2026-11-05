@@ -9,6 +9,7 @@ Status je Eintrag: **offen** = noch nicht in einem weiteren Projekt geprüft · 
 - **offen · Jede Entscheidung sofort mit Folie und Fachbegriff notieren.** Muster: „Folie N sagt … → deshalb …“, in einer Tabelle mit Nummer (E1, E2 …) und Persona. Nicht erst fürs Booklet sammeln. *Beleg: In der Präsentation wurden die Entscheidungen mit den Fachbegriffen der Folien gelobt.*
 - **offen · Fortschritt sichtbar machen.** Zwischenstände einfrieren (bei uns Bedienfeld v1 → v7, Box-Skizzen v1 → v3) und den Weg vom Konzept zum Prototyp zeigen. *Beleg: Der Fortschritt mit Konzept wurde gelobt.*
 - **offen · Ein starkes, einfaches Signal bleibt hängen.** Bei uns ein oranger Punkt, der auf schwarzem Display blinkt. Ein solches Bild merkt sich das Publikum eher als zehn Details. *Beleg: „Der orange Punkt war cool.“*
+- **offen · Design vor Funktionen, besonders bei Apps und Bedienfeldern.** In etwa 90 % der Präsentationen stand das Design weit vor den Funktionen. Für künftige Apps und Bedienfelder also zuerst Gestaltung und Interaktion ausarbeiten (klarer Zustand, wenige Elemente, konsistente Farben); Funktionen dürfen simuliert sein. *Beleg: Beobachtung bei den Präsentationen am 05.11.2026; unser Ansatz „Interaktion vor Technik“ lag damit richtig.*
 - **offen · Vorführmodus mit wenigen festen Fällen.** Ein versteckter Admin-Modus mit nur zwei Fällen und „Zurücksetzen“ macht die Live-Demo planbar.
 
 ## 🔁 Nächstes Mal anders
