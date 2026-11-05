@@ -71,7 +71,7 @@ Folge für den Bau: Was der Mensch tun muss, muss gut erreichbar sein. **Wassert
 
 - [ ] **Aufstellort:** Wo steht die Box (Küche, Regal)? Freier Zugang von vorn und zum Tank, Lüftungsschlitze frei, keine Heizung oder Sonne, Display gut sichtbar.
 - [ ] **Pilz als Status:** Pilz-Gesicht (froh/besorgt) und Wachstum in drei Stufen gibt es. Soll „alles gut“ noch deutlicher werden?
-- [ ] **Farben 3D-Druck:** Rahmen schwarz oder grau, Variante A oder B ([Skizze](02-box-bau/README.md#5--farbvarianten-3d-druck)). Fest: Handybox schwarz glänzend; Taster und Griffe beige; Orange nur für Warnungen.
+- [ ] **Farben 3D-Druck:** Rahmen schwarz oder grau, Variante A oder B ([Skizze](02-box-bau/zeichnungen/skizze-farben.html)). Fest: Handybox schwarz glänzend; Taster und Griffe beige; Orange nur für Warnungen.
 - [ ] Wer macht das Backend, und wird der Entwurf in `03-software` genutzt?
 
 ## Ordner
