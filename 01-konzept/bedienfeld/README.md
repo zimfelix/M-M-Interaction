@@ -92,6 +92,14 @@ direkt nach Ernte ───► Sorte ──► Detailseite ──► Neu ansetze
 - **Startzustand:** Austernpilz, Wachstumsphase, **15 Tage** bis zur Ernte
 - übrige Fehler, Tag +1, Taster und Messwerte: nicht mehr erreichbar (Code bleibt)
 
+### Details
+
+- **Fenstergrößen:** Klima, Meldungen, Sorten, Neu ansetzen, Sorte und Handy verbinden so groß wie die Einstellungen
+- **Handy verbinden** zeigt zuerst nur „Meldungen aufs Handy“, den Code erst nach dem Antippen; „Verbunden“ grün zwischen Linien; „Über diese Box“ entfällt
+- **Sortenlisten:** nur Dauer („20 Tage“) und Schwierigkeit; **Igel-Stachelbart** mit zwei Weißtönen (Hut reinweiß, Stiel creme), damit er sich vom Austernpilz abhebt
+- **Pause:** offene Fenster werden nicht abgedunkelt; „Alles gut“ steht mittig zwischen Ring und Werten
+- **Licht** nur über Taster und App (Ausnahme bis zum nächsten Wechsel 8/20 Uhr); **Heizung** simuliert; **Kühlen** nur als Hinweis
+
 ### Barrierefreiheit
 
 | Regel | Wert |
