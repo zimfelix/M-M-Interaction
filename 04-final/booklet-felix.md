@@ -36,13 +36,67 @@ S1 Nutzungskontext ──► S2 Die Box (Gestalt + Technik) ──► S3 Startbi
 S5 Entwicklung + Evaluation ◄── S4 Ebenen + Use Cases Ingrid ◄┘
 ```
 
-## Seite 1 · Nutzungskontext: Wer bedient die Box und wofür?
+## Seite 1 · Vom Auftrag zum Konzept: Wer bedient die Box?
 
-- **Aussage:** Die Box regelt das Klima selbst. Der Mensch hat nur wenige, klar erkennbare Aufgaben: nachfüllen, ernten, neu ansetzen.
-- **Inhalt:** Aufgabe (Folie 5); Persona **Ingrid, 72** (Folie 118: fiktiver, idealtypischer Nutzer) mit Warum/Was/Wie (Folie 139, Hassenzahl); Tabelle „Box macht / Mensch macht“ (aus `README.md`); Aufteilung Box ↔ App in einem Satz.
-- **Folien:** 5, 104–107 (nutzerzentriertes Vorgehen), 118, 139, 133 (Alter und Sehkraft als Nutzermerkmale)
-- **Bild:** Persona-Kasten Ingrid; kleine Grafik Box ↔ App
-- ⚠️ **Abstimmen:** Wer stellt die Personas insgesamt vor? Bei mir nur Ingrid, Typ B beim App-Teil.
+*Status: ✅ freigegeben 05.11. · offen: Einstiegsgeschichte*
+
+✍️ **Einstieg (Felix ergänzt):** ein bis zwei Sätze „Wie bin ich drauf gekommen?“ (wo, was gab es dort, was ist aufgefallen); wenn passend mit Bezug zur unbedienbaren Mikrowelle (Folie 8).
+
+**Aussage:** Die Box regelt das Klima selbst. Der Mensch hat nur drei Aufgaben, und genau diese müssen am Gerät leicht sein.
+
+### Unser Konzept auf einen Blick
+
+| | |
+|---|---|
+| **Konzept** | Eine Pilz-Growbox, die das Klima selbst regelt und am Gerät **radikal einfach** bedient wird: ein großer Zustand, drei Kacheln, ein Taster. Die App ist nur ein Zusatz. |
+| **Ziel** | Jeder erkennt mit einem Blick, ob etwas zu tun ist, und erledigt die drei Aufgaben (nachfüllen, ernten, neu ansetzen) ohne Anleitung. |
+| **Zielgruppe** | Alle Altersgruppen. Der Maßstab ist der schwächste Nutzer: **wenig Technikerfahrung, Lesebrille, unsichere Hände** (Persona Ingrid). Wer mehr will (Power-User), bekommt die App. |
+| **Abgrenzung** | Kein Technik-Gadget mit vielen Einstellungen: Funktionen sind zweitrangig, die Interaktion steht im Mittelpunkt. |
+
+### Auftrag und Vorgehen
+
+Die Aufgabe (Folie 5, Option B) war eine Bedienoberfläche für eine Growbox. Wir haben daraus eine kleine Box für Pilze gemacht. Bedient wird sie **am Gerät** über ein eingebautes Touch-Display und einen Taster und **aus der Ferne** über eine App. Ich habe die Box und das Bedienfeld daran entworfen und gebaut. Die App stammt von einem anderen Teammitglied.
+
+Wir sind nach dem **Double Diamond** und dem **User Centered Design** vorgegangen (Folie 104–107): erst das Problem verstehen, dann viele Lösungen skizzieren, eine auswählen, prototypisch umsetzen und prüfen.
+
+```
+Verstehen          Konzept              Prototyp                   Prüfen
+Personas      →    3 Leitideen     →    Box-Skizzen v1 → v3    →   Nielsen-Check,
+Box ↔ Mensch       Wahl: B              Bedienfeld v1 → v7         Farbsimulation,
+                   „Radikal einfach“    (Papier → Klick-Prototyp)  Präsentation
+```
+
+### Für wen: Persona Ingrid
+
+Eine **Persona** ist ein fiktiver, idealtypischer Nutzer (Folie 118). Unsere Personas decken bewusst verschiedene Altersgruppen ab, weil Alter, Vorkenntnisse und Sehkraft Nutzermerkmale sind (Folie 133). Für meinen Teil ist **Ingrid, 72** maßgeblich. Sie hat jahrzehntelang gegärtnert, nutzt aber kaum Touchscreens. Sie trägt eine Lesebrille, ihre Hände zittern leicht, und Technik misstraut sie.
+
+Nach **Hassenzahl** (Folie 139) beschreiben wir Ingrid auf drei Ebenen:
+
+| Ebene | Ingrid |
+|---|---|
+| **Warum** (Motiv) | etwas Sinnvolles pflegen, auch im Winter ohne Garten |
+| **Was** (Handlungsziel) | Pilze ernten, ohne sich etwas merken oder einstellen zu müssen |
+| **Wie** (motorisches Ziel) | einen echten Knopf drücken, große Flächen antippen, deutlich lesen |
+
+Die zweite Persona, ein **Power-User**, der alles misst und auswertet, nutzt zusätzlich die App. Sie steht im App-Teil.
+
+### Wer macht was?
+
+Die wichtigste Entscheidung haben wir vor jedem Bildschirm getroffen: **Was regelt die Box selbst, und was bleibt dem Menschen?**
+
+| Die Box regelt selbst | Der Mensch macht |
+|---|---|
+| Frischluft, Luftfeuchte, Wärme, Licht 8–20 Uhr | **Wasser nachfüllen** (ca. 1× pro Woche) |
+| | **Ernten** |
+| | **Neu ansetzen** (Kammer leeren, Zuchtset einsetzen) |
+
+Daraus folgt die Leitfrage für alles Weitere: Braucht eine Aufgabe den Körper an der Box, gehört sie an die Box. Ist sie nur für Fortgeschrittene, gehört sie in die App.
+
+### Drei Leitideen, eine Wahl
+
+Wir haben drei Leitideen skizziert: **A „Pilz-Begleiter“** mit einer Spielfigur, **B „Radikal einfach“** mit einem großen Zustand und drei Kacheln und **C „Physisch zuerst“** mit Taster, Drehknopf und LED-Ring. Wir haben **B** gewählt. Eine Spielfigur (A) muss man erst deuten, bevor man weiß, ob etwas zu tun ist. Viele physische Elemente (C) erinnern an „die unbedienbare Mikrowelle“ (Folie 8). Von C bleibt **ein** Taster mit fester Bedeutung, von A der wachsende Pilz als leichte Gamification.
+
+📷 **Bilder:** Persona-Kasten Ingrid · kleine Grafik „Box ↔ Mensch ↔ App“
 
 ## Seite 2 · Die Box: Gestalt, Bedienelemente, Technik
 
