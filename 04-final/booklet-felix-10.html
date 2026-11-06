@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Booklet Box und Bedienfeld</title>
-<!-- Felix' 10 Booklet-Seiten (Box + Bedienfeld), Struktur aus figma-make-prompt.md.
+<!-- Felix' 7 Booklet-Seiten (alte S. 1, 9, 10 am 06.11. gestrichen) (Box + Bedienfeld), Struktur aus figma-make-prompt.md.
      Inhalt: booklet-felix.md, Begründungen: entscheidungen-folien.md. Display-Bilder: bilder/booklet/ (Bedienfeld v7).
      Ansicht: Doppelseiten, Pfeiltasten blättern. ?alle zeigt alle Seiten untereinander.
      Drucken: Brave → Drucken → Als PDF speichern, A4, Ränder „Keine“, Hintergrundgrafiken an. -->
@@ -46,7 +46,7 @@ body.alle .page{display:flex}
 .page{width:210mm;height:297mm;padding:13mm 15mm 10mm;flex-direction:column;gap:5mm;flex:none;
   background:var(--cream);box-shadow:0 10px 40px rgba(29,59,42,.18);position:relative;overflow:hidden}
 .page.dark{background:var(--green);color:#eef2ea;--ink:#eef2ea;--muted:#b4c2b6;--line:var(--green-line);--card:var(--green-2);--accent:var(--sage)}
-.top{display:flex;justify-content:flex-end;align-items:center;border-top:1px solid var(--line);padding-top:2.6mm;
+.top{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:2.6mm;
   font:500 7.5pt "JetBrains Mono",monospace;letter-spacing:.14em;color:var(--muted)}
 .top .brand{font-family:Manrope;font-weight:800;color:var(--ink);letter-spacing:.16em}
 .foot{margin-top:auto;display:flex;justify-content:space-between;font:500 7pt "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--muted);padding-top:2mm}
@@ -205,7 +205,7 @@ h1 em{font-style:normal;color:var(--accent)}
   <div class="ttl"><b>GROWBOX</b> &nbsp;<span>BOOKLET · BOX + BEDIENFELD</span></div>
   <div class="nav">
     <button id="prev" aria-label="Zurück">←</button>
-    <span id="pos">1–2 / 10</span>
+    <span id="pos"></span>
     <button id="next" aria-label="Weiter">→</button>
   </div>
   <button onclick="window.print()">PDF / DRUCKEN</button>
@@ -213,26 +213,9 @@ h1 em{font-style:normal;color:var(--accent)}
 
 <main class="book" id="book">
 
-<!-- ═══ 1 · A Opener, hell ═══ -->
-<section class="page p1">
-  <div class="top"><span class="brand">GROWBOX</span></div>
-  <h1>Die Box regelt.<br><em>Der Mensch erntet.</em></h1>
-  <div class="main">
-    <div class="shot"><img src="../01-konzept/bedienfeld/bilder/vorschau-aktuell.png" alt="Startbild des Bedienfelds v7: Ring mit 2 Tagen bis zur Ernte, Alles gut, drei Werte, drei Kacheln"></div>
-    <div class="side">
-      <div class="todo">✍️ Platzhalter: persönlicher Einstiegssatz von Felix („Wie bin ich drauf gekommen?“). Wird beim Drucken ausgeblendet.</div>
-      <div class="row"><span class="label">Konzept</span>Eine Pilz-Growbox, die Luft, Feuchte, Wärme und Licht selbst regelt.</div>
-      <div class="row"><span class="label">Ziel</span>Am Gerät radikal einfach: ein Zustand, drei Kacheln, ein Taster.</div>
-      <div class="row"><span class="label">Zielgruppe</span>Alle Altersgruppen. Maßstab ist Ingrid, 72. Die App ist ein Zusatz für Power-User.</div>
-      <p class="one">Diese zehn Seiten zeigen den Weg vom Konzept über die Box bis zum Bedienfeld, jede Entscheidung mit ihrer Folie.</p>
-    </div>
-  </div>
-  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span></div>
-</section>
-
-<!-- ═══ 2 · B Bild + zwei Kästen, dunkel ═══ -->
+<!-- ═══ 01 (alt 2) · B Bild + zwei Kästen, dunkel ═══ -->
 <section class="page dark">
-  <div class="top"><span class="brand">GROWBOX</span></div>
+  <div class="top"><span>01 / FÜR WEN</span><span class="brand">GROWBOX</span></div>
   <h1>Für wen:<br><em>Ingrid, 72.</em></h1>
   <p class="lead">Die erste Entscheidung fiel vor jedem Bildschirm: Was regelt die Box selbst, und was bleibt für den Menschen? Je weniger Ingrid tun muss, desto weniger muss sie bedienen.</p>
 
@@ -281,12 +264,12 @@ h1 em{font-style:normal;color:var(--accent)}
     <div><b>3</b><span>Kacheln auf dem Startbild</span></div>
     <div><b>2</b><span>Personas: Ingrid und Power-User (App)</span></div>
   </div>
-  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span><span class="wip">⚠ wird noch überarbeitet</span></div>
+  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span><span><span class="wip">veränderbar später</span> &nbsp; 01</span></div>
 </section>
 
-<!-- ═══ 3 · C Annotiertes Bild, hell ═══ -->
+<!-- ═══ 02 (alt 3) · C Annotiertes Bild, hell ═══ -->
 <section class="page">
-  <div class="top"><span class="brand">GROWBOX</span></div>
+  <div class="top"><span>02 / DIE BOX</span><span class="brand">GROWBOX</span></div>
   <h1>Wie eine Mikrowelle.<br><em>Nur ohne Knopfsalat.</em></h1>
   <p class="lead">Folie 8 zeigt eine Mikrowelle, die niemand bedienen kann. Unsere Box hat dieselbe Grundform, aber auf 33,5 × 25 × 20 cm nur drei Dinge zum Bedienen: <b>ein Display, einen Taster, eine Einfüllöffnung.</b></p>
 
@@ -319,12 +302,12 @@ h1 em{font-style:normal;color:var(--accent)}
     <span class="f">MVC · 99–100</span>
   </div>
 
-  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span></div>
+  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span><span>02</span></div>
 </section>
 
-<!-- ═══ 4 · E Vorher/Nachher, dunkel ═══ -->
+<!-- ═══ 03 (alt 4) · E Vorher/Nachher, dunkel ═══ -->
 <section class="page dark">
-  <div class="top"><span class="brand">GROWBOX</span></div>
+  <div class="top"><span>03 / ENTSCHEIDUNGEN AN DER BOX</span><span class="brand">GROWBOX</span></div>
   <h1>Ein Taster.<br><em>Eine Bedeutung.</em></h1>
   <p class="lead">Von Skizze v1 zu v3 kam fast nichts dazu. Die Teile bekamen klare Bedeutungen: Was man anfassen soll, ist beige. Orange heißt überall Warnung.</p>
 
@@ -346,12 +329,12 @@ h1 em{font-style:normal;color:var(--accent)}
     <span class="label">Aus der Vorlesung</span>
     <span><b>33</b>Homunculus</span><span><b>49</b>Speed-Accuracy</span><span><b>60</b>Modusfehler</span><span><b>72–74</b>Affordance</span><span><b>77–79</b>Mapping</span><span><b>80</b>Konsistenz</span>
   </div>
-  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span></div>
+  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span><span>03</span></div>
 </section>
 
-<!-- ═══ 5 · C Startbild annotiert, hell ═══ -->
+<!-- ═══ 04 (alt 5) · C Startbild annotiert, hell ═══ -->
 <section class="page">
-  <div class="top"><span class="brand">GROWBOX</span></div>
+  <div class="top"><span>04 / DAS STARTBILD</span><span class="brand">GROWBOX</span></div>
   <h1>Ein Blick.<br><em>Eine Aussage.</em></h1>
   <p class="lead">Aus der Ferne sieht Ingrid, <b>ob</b> etwas zu tun ist. Aus der Nähe sieht sie, <b>was</b>. Jede Information steht genau einmal da.</p>
 
@@ -388,12 +371,12 @@ h1 em{font-style:normal;color:var(--accent)}
     <div><b>6,4 : 1</b><span>Kontrast Warntext (vorher 2,8)</span></div>
     <div><b>0×</b><span>Blinken im Normalbetrieb</span></div>
   </div>
-  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span></div>
+  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span><span>04</span></div>
 </section>
 
-<!-- ═══ 6 · E Vorher/Nachher (Blau/Schwarz), dunkel ═══ -->
+<!-- ═══ 05 (alt 6) · E Vorher/Nachher (Blau/Schwarz), dunkel ═══ -->
 <section class="page dark">
-  <div class="top"><span class="brand">GROWBOX</span></div>
+  <div class="top"><span>05 / FARBE</span><span class="brand">GROWBOX</span></div>
   <h1>Warum Blau<br><em>statt Schwarz?</em></h1>
   <p class="lead">Das wurde in der Präsentation gefragt. Die Antwort: Schwarz hat schon eine Bedeutung. Schwarz heißt <b>Standby</b>, Blau heißt <b>die Box läuft</b>.</p>
 
@@ -414,12 +397,12 @@ h1 em{font-style:normal;color:var(--accent)}
     <span class="label">Aus der Vorlesung</span>
     <span><b>20, 22</b>Farbsehen, Blau-Zapfen</span><span><b>26–27</b>präattentive Wahrnehmung</span><span><b>66</b>Kontrast</span><span><b>130</b>Nielsen</span>
   </div>
-  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span></div>
+  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span><span>05</span></div>
 </section>
 
-<!-- ═══ 7 · D Ablauf, hell ═══ -->
+<!-- ═══ 06 (alt 7) · D Ablauf, hell ═══ -->
 <section class="page">
-  <div class="top"><span class="brand">GROWBOX</span></div>
+  <div class="top"><span>06 / INGRID HANDELT</span><span class="brand">GROWBOX</span></div>
   <h1>Eine Warnung.<br><em>Ein Knopf.</em></h1>
   <p class="lead">Ingrid muss nichts einstellen. Sie handelt nur, wenn die Box sie braucht, und bekommt auf jede Handlung sofort eine Rückmeldung.</p>
 
@@ -449,12 +432,12 @@ h1 em{font-style:normal;color:var(--accent)}
     <span class="label">Aus der Vorlesung</span>
     <span><b>59</b>Gulf of Evaluation</span><span><b>82</b>Feedback</span><span><b>83–85</b>eine Handlung, ein Knopf</span><span><b>26–27</b>präattentiv</span>
   </div>
-  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span><span class="wip">⚠ wird noch überarbeitet</span></div>
+  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span><span><span class="wip">veränderbar später</span> &nbsp; 06</span></div>
 </section>
 
-<!-- ═══ 8 · B Bild + zwei Kästen, dunkel ═══ -->
+<!-- ═══ 07 (alt 8) · B Bild + zwei Kästen, dunkel ═══ -->
 <section class="page dark">
-  <div class="top"><span class="brand">GROWBOX</span></div>
+  <div class="top"><span>07 / FEHLER VERMEIDEN</span><span class="brand">GROWBOX</span></div>
   <h1>Die Hürde passt<br><em>zum Risiko.</em></h1>
   <p class="lead">Wer mitten im Wachstum neu ansetzt, verliert seine Pilze. Wer nach der Ernte neu ansetzt, verliert nichts. Deshalb fragt die Box unterschiedlich streng.</p>
 
@@ -489,94 +472,7 @@ h1 em{font-style:normal;color:var(--accent)}
     <span class="label">Überall gleich</span>
     <span><b>▢</b>Rahmen = drückbar</span><span><b>═</b>zwischen zwei Linien = Information</span><span><b>72–73</b>Affordance</span><span><b>80</b>Konsistenz</span>
   </div>
-  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span><span class="wip">⚠ wird noch überarbeitet</span></div>
-</section>
-
-<!-- ═══ 9 · F Zeitleiste, hell ═══ -->
-<section class="page">
-  <div class="top"><span class="brand">GROWBOX</span></div>
-  <h1>Sieben Stände.<br><em>Jeder einfacher.</em></h1>
-  <p class="lead">Wir haben iterativ entwickelt: Skizze, Klick-Prototyp, Review mit den Folien, Präsentation. Vieles kam nicht dazu, sondern <b>fiel weg</b>.</p>
-
-  <div class="tlw">
-    <ol class="tl">
-      <li><span class="v">v1</span><span class="d">27.10.</span><span><strong>Kacheln:</strong> Licht · Klima · Hinweise, Zustand in drei Stufen</span></li>
-      <li><span class="v">v2</span><span class="d">29.10.</span><span><strong>Panel</strong> aus dem Team: Pilz im Feuchte-Ring</span></li>
-      <li><span class="v">v3</span><span class="d">29.10.</span><span><strong>Ring = Fortschritt</strong> bis zur Ernte, Werte als Balken</span></li>
-      <li><span class="v">v4</span><span class="d">29.10.</span><span><strong>Automatik sichtbar:</strong> Kachel KLIMA mit „Auto“</span></li>
-      <li><span class="v">v5</span><span class="d">02.11.</span><span><strong>Review mit den Folien:</strong> größere Kacheln, Kontrast 2,8 → 6,4</span></li>
-      <li><span class="v">v6</span><span class="d">02.11.</span><span><strong>Sorten</strong> mit „Neu ansetzen“, Verlauf grün mit Haken</span></li>
-      <li class="now"><span class="v">v7</span><span class="d">05.11.</span><span><strong>Standby</strong>, Rahmen = drückbar, eigene Sorte nach der Ernte</span></li>
-    </ol>
-    <figure><img class="disp" src="bilder/booklet/01-gut.jpg" alt="Bedienfeld v7"><figcaption class="cap">Stand v7, am 05.11. präsentiert.</figcaption></figure>
-  </div>
-
-  <div class="box">
-    <h3>Bewusst gestrichen</h3>
-    <ul>
-      <li><b>Ruhemodus:</b> ein Modus mehr ist eine Fehlerquelle mehr. <span class="f">Modusfehler · 60</span></li>
-      <li><b>Uhr</b> auf dem Startbild: braucht man zum Pilzepflegen nicht. <span class="f">minimalist design · 130</span></li>
-      <li><b>Warnlicht</b> an der Box: Das Display warnt, ein Kanal reicht.</li>
-    </ul>
-  </div>
-
-  <div class="folien">
-    <span class="label">Aus der Vorlesung</span>
-    <span><b>119–125</b>Prototypen steigender Fidelity</span><span><b>126</b>formative Evaluation</span><span><b>130</b>Nielsen</span>
-  </div>
-
-  <div class="stats">
-    <div><b>7</b><span>eingefrorene Stände</span></div>
-    <div><b>9</b><span>Tage von v1 bis zur Präsentation</span></div>
-    <div><b>31</b><span>Entscheidungen, jede mit Folie</span></div>
-    <div><b>3</b><span>Funktionen bewusst gestrichen</span></div>
-  </div>
-  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span></div>
-</section>
-
-<!-- ═══ 10 · B Bild + zwei Kästen, dunkel ═══ -->
-<section class="page dark">
-  <div class="top"><span class="brand">GROWBOX</span></div>
-  <h1>Geprüft.<br><em>Und was offen ist.</em></h1>
-  <p class="lead">Geprüft haben wir analytisch, mit den Heuristiken und Werkzeugen aus der Vorlesung. Ein Test mit echten älteren Nutzern steht noch aus.</p>
-
-  <figure class="card light">
-    <div class="simlab"><span>NORMAL</span><span>GRÜN-SCHWÄCHE</span><span>ROT-SCHWÄCHE</span></div>
-    <div class="crop"><img src="bilder/farbsimulation.png" alt="Warnung Wasser leer in drei Farbsehweisen"></div>
-    <figcaption class="cap">Eigene Farbsimulation (Bedienfeld v6): Orange wird bei Rot-Grün-Schwäche fast gelb. Dreieck und Text bleiben eindeutig, deshalb nie Farbe allein.</figcaption>
-  </figure>
-
-  <div class="duo">
-    <div class="box">
-      <h3>Geprüft</h3>
-      <ul class="chk">
-        <li><span class="s">✓</span><span>Nielsen-Check: 9 von 10 Heuristiken. Lücke war „Hilfe“, v7 hat sie in den Einstellungen. <span class="f">130</span></span></li>
-        <li><span class="s">✓</span><span>Farbsimulation Rot-Grün-Schwäche <span class="f">23</span></span></li>
-        <li><span class="s">✓</span><span>Kontrast Warntext 2,8 → 6,4 : 1 <span class="f">66</span></span></li>
-      </ul>
-    </div>
-    <div class="box solid">
-      <h3>Offen und Grenzen</h3>
-      <ul class="chk">
-        <li><span class="s">○</span><span>Nutzertest mit Älteren (Cognitive Walkthrough) <span class="f">129</span></span></li>
-        <li><span class="s">–</span><span>Messwerte sind simuliert.</span></li>
-        <li><span class="s">–</span><span>Personas sind Annahmen, nicht befragt.</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="folien">
-    <span class="label">Aus der Vorlesung</span>
-    <span><b>23</b>Farbsehschwäche</span><span><b>66</b>Kontrast</span><span><b>126</b>formative Evaluation</span><span><b>128–130</b>analytische Evaluation, Nielsen</span>
-  </div>
-
-  <div class="stats">
-    <div><b>9/10</b><span>Nielsen-Heuristiken erfüllt</span></div>
-    <div><b>6,4 : 1</b><span>Kontrast Warntext, vorher 2,8</span></div>
-    <div><b>3</b><span>Farbsehweisen geprüft</span></div>
-    <div><b>1</b><span>Test offen: mit Älteren</span></div>
-  </div>
-  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span></div>
+  <div class="foot"><span>BOX + BEDIENFELD · FELIX ZIMMERMANN</span><span><span class="wip">veränderbar später</span> &nbsp; 07</span></div>
 </section>
 
 </main>
@@ -596,7 +492,7 @@ h1 em{font-style:normal;color:var(--accent)}
     const barH=document.querySelector(".bar").offsetHeight;
     const z=Math.min((innerWidth-32)/(n*PW+(n-1)*GAP),(innerHeight-barH-40)/PH);
     book.style.zoom=Math.max(.2,z);
-    pos.textContent=(n===1?`${i+1}`:`${i+1}–${i+2}`)+" / "+pages.length;
+    pos.textContent=(n===1||i+1>=pages.length?`${i+1}`:`${i+1}–${i+2}`)+" / "+pages.length;
     prev.disabled=i===0; next.disabled=i+n>=pages.length;
   }
   prev.onclick=()=>{i-=per();show()}; next.onclick=()=>{i+=per();show()};
