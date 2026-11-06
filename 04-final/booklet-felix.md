@@ -98,17 +98,76 @@ Wir haben drei Leitideen skizziert: **A „Pilz-Begleiter“** mit einer Spielfi
 
 📷 **Bilder:** Persona-Kasten Ingrid · kleine Grafik „Box ↔ Mensch ↔ App“
 
-## Seite 2 · Die Box: Gestalt, Bedienelemente, Technik
+## Seite 2 · Die Box: wenige Bedienelemente, jedes mit einer Bedeutung
 
-- **Aussage:** Aufgebaut wie eine Mikrowelle: links die Kammer, rechts Bedienfeld und Technik. Wenige, eindeutige Bedienelemente.
-- **Inhalt:**
-  - Folie 8 „Die unbedienbare Mikrowelle“ als Einstieg
-  - **haptischer Licht-Taster**: Homunculus (33), Treffen ohne Zielen (49), Affordance (72–74)
-  - **Tank mit Sichtfenster** = Mapping zur Anzeige „Wassertank“ (77–79)
-  - Farbprinzip: Bedienteile heben sich vom Rahmen ab (Affordance)
-  - **Technik** (Kriterium Folie 5): iPhone 13 mini als Display, Raspberry Pi als einziger Zustand, Taster/LED am Pi, App liest denselben Stand (**MVC**, 99–100)
-- **Bilder:** `02-box-bau/bilder/skizze-box-v2.svg`, ggf. FreeCAD-Bild; Foto der gebauten Box (falls bis 08.11. fertig)
-- ⚠️ **Abstimmen:** Entscheidungen A (Warnlicht) und B (Taster koppelt Display) vom 04.11. hier eintragen.
+*Status: ✍️ Text-Entwurf, wartet auf Felix' Freigabe*
+
+**Aussage:** Die Box ist aufgebaut wie eine Mikrowelle: links die Kammer, rechts Bedienen und Technik. Was man anfassen soll, sieht man sofort.
+
+### Ausgangspunkt: die unbedienbare Mikrowelle
+
+Folie 8 zeigt eine Mikrowelle mit so vielen Tasten, dass niemand sie bedienen kann. Unsere Box hat dieselbe Grundform, ist aber das Gegenteil: **ein Display, ein Taster, eine Einfüllöffnung.**
+
+```
+┌────────────── 335 mm ───────────────┐
+│  Pilzkammer             │  Display  │ ← Zustand auf einen Blick
+│  Plexiglas, Tür links   │           │
+│                         │  ● Taster │ ← Licht an/aus (beige)
+│                       ▌ │  ▭ Tank   │ ← Sichtfenster mit Linie
+└─────────────────────────┴───────────┘
+   ▌ Griff (beige)             Einfüllöffnung oben hinten
+```
+
+### Der Taster: eine Funktion ohne Display
+
+Licht hat **keine Kachel** auf dem Display, sondern einen echten Taster mit fester Bedeutung.
+
+| Folie | Begriff | Was daraus folgt |
+|---|---|---|
+| 33 | sensorischer **Homunculus** | Finger sind dicht mit Sinneszellen besetzt; ein Druckpunkt gibt spürbares Feedback, Glas nicht |
+| 49 | **Speed-Accuracy-Tradeoff** | einen großen Taster trifft Ingrid auch mit zitternder Hand |
+| 72–74 | **Affordance** | ein Knopf zeigt von selbst, dass man ihn drückt |
+| 59 | **Gulf of Evaluation** | das Licht geht sichtbar in der Kammer an: das Ergebnis ist das Feedback |
+| 60 | **Modusfehler** | der Taster hat keinen Modus, er schaltet immer nur das Licht |
+
+**Abwägung (04.11.):** Wir haben überlegt, ob der Taster zusätzlich das Display ein- und ausschaltet. Wir haben uns dagegen entschieden: Eine Handlung mit zwei Wirkungen hätte beim Ausschalten des Lichts versehentlich auch das Display ausgeschaltet (Modusfehler, Folie 60).
+
+### Der Tank: Display und Gerät sagen dasselbe
+
+Nachfüllen ist die häufigste Aufgabe. Deshalb sitzt die Einfüllöffnung oben, wo man Wasser eingießt wie bei einer Kaffeemaschine. Ein **Sichtfenster mit Linie** zeigt den Füllstand. Es entspricht dem Balken „Wassertank“ auf dem Display. Das ist **Mapping** (Folie 77–79): Anzeige und Gerät entsprechen sich, wie Herdplatten und Drehknöpfe. Wasser liegt unten, Elektronik oben, dazwischen eine Trennwand.
+
+### Farbe: anfassen = beige, Warnung = orange
+
+Auf dem Display heißt Orange **Warnung**. Wäre der Taster orange, würde dieselbe Farbe zwei Dinge bedeuten. Deshalb gilt an der Box dieselbe Regel (**Konsistenz**, Folie 80):
+
+- **beige** = zum Anfassen: Taster, Türgriff, Deckelgriff
+- **schwarz/grau** = Rahmen, tritt zurück
+- **orange** = nur für Warnungen, nur auf dem Display
+
+Der Taster trägt ein eingeprägtes **Licht-Symbol**. Man erkennt so, *was* er tut, ohne es sich merken zu müssen (*recognition rather than recall*, Folie 130).
+
+**Abwägung (04.11.):** Ein zusätzliches Warnlicht an der Box haben wir verworfen. Die Warnung zeigt der orange Punkt auf dem schwarzen Display (Seite 3). Die Grenze dabei: Fällt das Display aus, gibt es keine Warnung (Seite 5).
+
+### Fortschritt der Box
+
+```
+Skizze v1 (Mikrowelle) ──► v2 (Tank vorn, Sichtfenster) ──► v3 (beige = anfassen) ──► 3D-Modell
+```
+
+### Technik
+
+```
+Taster ──► Raspberry Pi ◄──► Display (iPhone 13 mini, Web-Oberfläche im Vollbild)
+           einziger Zustand ◄──► App (Power-User)
+           └──► LED-Streifen im oberen Rahmen
+```
+
+- **Model View Controller** (Folie 99–100): ein Zustand, zwei Ansichten; was in der App passiert, zeigt die Box sofort
+- **Display:** ein fest eingebautes iPhone 13 mini zeigt die Web-Oberfläche (HTML, ohne Framework) im Vollbild; im Prototyp liefert ein Mac sie aus, später der Pi (Python, FastAPI)
+- **Echt:** Taster und LED · **simuliert:** Feuchte und Temperatur, für die Vorführung umschaltbar
+- **Bewusst weggelassen:** Lüfter, Nebler und Sensoren sind vorgesehen, aber nicht gebaut, weil die Interaktion im Mittelpunkt steht
+
+📷 **Bilder:** `02-box-bau/bilder/skizze-box-v3.svg` (groß) · Leiste v1 → v2 → v3 · Screenshot aus `04-final/3d-modell/` · Foto der Box (falls bis 08.11. fertig)
 
 ## Seite 3 · Das Startbild: ein Blick, eine Aussage
 
