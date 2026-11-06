@@ -1,13 +1,13 @@
 # Booklet-Plan für das Treffen am 07.11.
 
-Stand 06.11. abends. Grundlage: `booklet-gesamt.html` (13 Seiten, Grünton), Notizen vom 06.11., Git-Historie von `BRIEF.md`.
+Stand 06.11. abends. Grundlage: `booklet.html` (13 Seiten, Grünton), Notizen vom 06.11., Git-Historie von `BRIEF.md`.
 Begriff: Im Booklet heißt eine Booklet-Seite **Seite**. „Folie“ meint nur die Vorlesungsfolien (z. B. „Folie 80 Konsistenz“).
 
 ## Abgleich Notizen ↔ Stand
 
 | Punkt | Stand | Was fehlt |
 |---|---|---|
-| Grün für alles | ✅ entschieden (`BRIEF.md`), `booklet-gesamt.html` | `booklet-felix.html` ist noch schwarz: zurück auf Grün oder entfernen |
+| Grün für alles | ✅ entschieden (`BRIEF.md`), `booklet.html` | `booklet-felix.html` entfernt (06.11.), es gibt nur noch `booklet.html` |
 | mindestens 15 Seiten | 13 | Titel, Inhalt, Konzeptweg, Szenario, 3. Abwägung |
 | Inhaltsverzeichnis mit Strichen | Segmentleiste existiert in der schwarzen Fassung (`3fa3252`) | als Inhaltsseite und Leiste auf jeder Seite in Grün |
 | Überschneidungen | offen | siehe unten |

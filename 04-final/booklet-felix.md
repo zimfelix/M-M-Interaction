@@ -1,6 +1,6 @@
 # Booklet · Teil Felix: Box und Bedienfeld
 
-Stand 06.11. nach der ersten Arbeitssitzung (2 h). Das Booklet ist **umgesetzt** als gemeinsames HTML-Booklet im Grünton: [`booklet-gesamt.html`](booklet-gesamt.html) (13 Seiten, davon S. 07–13 von Felix). Diese Datei ist nur noch der **Arbeitsstand zu Felix' Seiten**: was steht, was offen ist, was wegfällt. Der Plan für das Gesamt-Booklet (17 Seiten, Treffen am 07.11.) steht in [`booklet-plan.md`](booklet-plan.md), Begründungen mit Folien in [`entscheidungen-folien.md`](entscheidungen-folien.md) (E1–E31).
+Stand 06.11. nach der ersten Arbeitssitzung (2 h). Das Booklet ist **umgesetzt** als gemeinsames HTML-Booklet im Grünton: [`booklet.html`](booklet.html) (13 Seiten, davon S. 07–13 von Felix). Diese Datei ist nur noch der **Arbeitsstand zu Felix' Seiten**: was steht, was offen ist, was wegfällt. Der Plan für das Gesamt-Booklet (17 Seiten, Treffen am 07.11.) steht in [`booklet-plan.md`](booklet-plan.md), Begründungen mit Folien in [`entscheidungen-folien.md`](entscheidungen-folien.md) (E1–E31).
 
 Begriff: **Seite** = Booklet-Seite, **Folie** = Vorlesungsfolie.
 
