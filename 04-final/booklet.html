@@ -441,19 +441,20 @@ h1 em{font-style:normal;color:var(--accent)}
 .rows16 .v-label{color:var(--sage)}.rows16 .v-sub{color:#B4C2B6}
 .rows16 figure{margin:0;display:flex;flex-direction:column;gap:6px;align-items:center}
 .rows16 .iw{position:relative}
-.rows16 .disp{height:330px;width:auto;border-width:3px;border-radius:12px}
+.rows16 .disp{height:306px;width:auto;border-width:3px;border-radius:12px}
 .rows16 figure.on .disp{box-shadow:0 0 0 3px var(--sage)}
 .rows16 figcaption{font-size:11.5px;line-height:1.4;color:#B4C2B6;text-align:center}
 .rows16 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA}
-.rows16 .arc{width:33px;margin-top:150px;overflow:visible}
+.rows16 .arc{width:33px;margin-top:138px;overflow:visible}
 .rows16 svg path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.rows16 .sep{width:1px;height:330px;background:#3d5e4c;justify-self:center}
+.rows16 .sep{width:1px;height:306px;background:#3d5e4c;justify-self:center}
 .rows16 .hold figcaption b{color:#F2C879}
+.rows16 .hold figcaption{max-width:204px}
 .rows16 .finger{position:absolute;left:58%;top:47.5%;width:30px;height:30px;border-radius:50%;transform:translate(-50%,-50%);background:rgba(238,242,234,.6);box-shadow:0 0 0 6px rgba(242,200,121,.5),0 0 0 13px rgba(242,200,121,.2)}
 .rows16 .tlb{position:absolute;left:12px;right:12px;bottom:14px;height:6px;border-radius:3px;background:#3d5e4c;overflow:hidden}.rows16 .tlb i{display:block;width:50%;height:100%;background:#F2C879}
 /* S. 17: Einstellungen als Baum mit rechten Winkeln */
-.tree17 .root{display:grid;grid-template-columns:222px 1fr;gap:28px;align-items:center}
-.tree17 .root .disp{width:180px;margin-left:21px;border-width:3px;border-radius:14px}
+.tree17 .root{display:grid;grid-template-columns:222px 1fr;margin-top:6px;gap:28px;align-items:center}
+.tree17 .root .disp{width:212px;margin-left:5px;border-width:3px;border-radius:14px}
 .tree17 ul{list-style:none;margin:0;padding:0}
 .tree17 li{padding:8px 0;border-top:1px solid var(--line);font-size:12.5px;line-height:1.45;color:#2F4A3A}
 .tree17 li:first-child{border-top:0;padding-top:0}
@@ -462,7 +463,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .tree17 .bus path{fill:none;stroke:var(--sage);stroke-width:1.6;vector-effect:non-scaling-stroke}
 .tree17 .kids{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
 .tree17 .kids figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
-.tree17 .kids .disp{width:128px;border-width:3px;border-radius:12px}
+.tree17 .kids .disp{width:176px;border-width:3px;border-radius:12px}
 .tree17 figcaption{font-size:11.5px;line-height:1.4;color:#5D6A60;text-align:center;max-width:170px}
 .tree17 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
 /* S. 12–13: Skizzen und Displays im Hochformat, gewählte Version rechts */
@@ -954,7 +955,7 @@ body.grid .bar .nav{visibility:hidden}
     <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
     <figure class="on"><div class="iw"><img class="disp" src="bilder/booklet/17-erweitert.jpg" alt="Erweitert aufgeklappt"></div><figcaption><b>Erweitert</b>Vier Werte, feste Schritte.</figcaption></figure>
     <span class="sep" aria-hidden="true"></span>
-    <figure class="hold"><div class="iw"><img class="disp" src="bilder/booklet/18-halten-1s.jpg" alt="Neu ansetzen mitten im Wachstum, nach einer Sekunde gehalten"><span class="finger" aria-hidden="true"></span><span class="tlb"><i></i></span></div><figcaption><b>Erst halten</b>2 s halten, loslassen bricht ab.</figcaption></figure>
+    <figure class="hold"><div class="iw"><img class="disp" src="bilder/booklet/18-halten-1s.jpg" alt="Neu ansetzen mitten im Wachstum, nach einer Sekunde gehalten"><span class="finger" aria-hidden="true"></span><span class="tlb"><i></i></span></div><figcaption><b>Erst halten</b>Nur mitten im Wachstum: Neu ansetzen verwirft die laufende Ernte. Darum 2 s gedrückt halten statt tippen, so löst kein Versehen das aus. Loslassen bricht ab, nach der Ernte reicht ein „Sicher?“.</figcaption></figure>
   </div>
 
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>16</span></div>
@@ -963,7 +964,7 @@ body.grid .bar .nav{visibility:hidden}
 <!-- ═══ 17 · Bedienung III: Einstellungen als Baum, hell ═══ -->
 <section class="page vp p17">
   <div class="top"><span>17 · BEDIENFELD BEDIENUNG III</span><span class="brand">GROWBOX</span></div>
-  <h1>Einstellungen.<br><em>Hinter einem Zahnrad.</em></h1>
+  <h1>Einstellungen. <em>Ein Zahnrad.</em></h1>
   <p class="v-lead">Was man selten braucht, liegt hinter dem <b>Zahnrad</b> oben rechts. Fünf Zeilen, jede sagt in einem Satz, was sie tut. Das Startbild bleibt dadurch frei.</p>
 
   <div class="tree17">
