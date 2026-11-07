@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="175 165 550 400" role="img" aria-label="Growbox wie eine Mikrowelle: links Pilzkammer mit Plexi-Tür, Scharnieren links und Stangengriff; rechts ein blickdichter Technikraum über die volle Tiefe, vorn das Bedienfeld mit iPhone 13 mini und Taster; die rechte Seitenwand ist aufgeschnitten und zeigt Lüfter mit Schlitzen zur Pilzkammer, Wassertank und Raspberry Pi">
+<defs>
+<filter id="w" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="5"></feTurbulence><feDisplacementMap in="SourceGraphic" scale="2.4"></feDisplacementMap></filter>
+<marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#22211f" stroke-width="1.6"></path></marker>
+</defs>
+
+<!-- Pilzkammer: Plexi -->
+<rect x="200" y="250" width="300" height="225" fill="#8fb3cf" fill-opacity="0.18"></rect>
+<path d="M 200 250 L 290 180 L 590 180 L 500 250 Z" fill="#8fb3cf" fill-opacity="0.25"></path>
+<rect x="200" y="475" width="300" height="75" fill="#c99a62" fill-opacity="0.85"></rect>
+<path d="M 245 215 L 545 215" stroke="#e8a33d" stroke-width="7" stroke-linecap="round" stroke-opacity="0.8"></path>
+<path d="M 270 460 Q 295 420 322 460 Z M 315 460 Q 345 408 378 460 Z M 370 460 Q 392 430 416 460 Z" fill="#e9dcc3"></path>
+<rect x="476" y="300" width="12" height="165" rx="6" fill="#e8a33d" fill-opacity="0.75"></rect>
+
+<!-- Technikraum: Holz, volle Tiefe -->
+<rect x="500" y="250" width="112.5" height="300" fill="#c99a62" fill-opacity="0.75"></rect>
+<path d="M 500 250 L 590 180 L 702.5 180 L 612.5 250 Z" fill="#c99a62" fill-opacity="0.6"></path>
+<path d="M 612.5 250 L 702.5 180 L 702.5 480 L 612.5 550 Z" fill="#a87b48" fill-opacity="0.7"></path>
+<!-- Aufschnitt der rechten Seitenwand -->
+<path d="M 622.5 262 L 634.5 250 L 644.5 244 L 656.5 232 L 668.5 226 L 680.5 214 L 692.5 206 L 694.5 230 L 691.5 260 L 695.5 300 L 692.5 340 L 695.5 380 L 692.5 420 L 695.5 460 L 692.5 480 L 680.5 488 L 668.5 500 L 656.5 506 L 644.5 516 L 632.5 522 L 622.5 532 L 625.5 500 L 621.5 460 L 624.5 420 L 621.5 380 L 624.5 340 L 621.5 300 Z" fill="#f3ecdd"></path>
+<path d="M 657.5 515 L 697.5 484 L 697.5 349 L 657.5 380 Z" fill="#8fb3cf" fill-opacity="0.35"></path>
+<path d="M 657.5 515 L 697.5 484 L 697.5 420 L 657.5 451 Z" fill="#5b8db5" fill-opacity="0.45"></path>
+<path d="M 630.5 506 L 652.5 489 L 652.5 399 L 630.5 416 Z" fill="#6aa57a" fill-opacity="0.55"></path>
+
+<!-- iPhone und Taster -->
+<rect x="510.8" y="268" width="90.9" height="191.85" rx="12" fill="#1d1e21"></rect>
+<rect x="513" y="270.2" width="86.5" height="187.44" rx="9" fill="#ffffff"></rect>
+<circle cx="556.25" cy="326" r="18" fill="#6aa57a" fill-opacity="0.45"></circle>
+<circle cx="556.25" cy="508" r="22.5" fill="#e8a33d" fill-opacity="0.8"></circle>
+
+<!-- Linien -->
+<g filter="url(#w)" fill="none" stroke="#22211f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<!-- Korpus -->
+<rect x="200" y="250" width="412.5" height="300"></rect>
+<path d="M 500 250 L 500 550"></path>
+<path d="M 200 475 L 500 475"></path>
+<path d="M 200 250 L 290 180 L 702.5 180 L 612.5 250"></path>
+<path d="M 500 250 L 590 180"></path>
+<path d="M 612.5 550 L 702.5 480 L 702.5 180"></path>
+<path d="M 290 180 L 290 405 L 590 405 L 590 180" stroke-dasharray="5 7" stroke-width="1.4"></path>
+<!-- Aufschnitt -->
+<path d="M 622.5 262 L 634.5 250 L 644.5 244 L 656.5 232 L 668.5 226 L 680.5 214 L 692.5 206 L 694.5 230 L 691.5 260 L 695.5 300 L 692.5 340 L 695.5 380 L 692.5 420 L 695.5 460 L 692.5 480 L 680.5 488 L 668.5 500 L 656.5 506 L 644.5 516 L 632.5 522 L 622.5 532 L 625.5 500 L 621.5 460 L 624.5 420 L 621.5 380 L 624.5 340 L 621.5 300 Z" stroke-width="1.6"></path>
+<!-- Lüftungsschlitze in der Trennwand + Lüfter -->
+<path d="M 634.5 262 L 634.5 284 M 642.5 256 L 642.5 278 M 650.5 250 L 650.5 272" stroke-width="1.6"></path>
+<ellipse cx="676.5" cy="270" rx="15" ry="22"></ellipse>
+<circle cx="676.5" cy="270" r="3"></circle>
+<path d="M 676.5 267 Q 668.5 256 672.5 250 M 679.5 271 Q 689.5 276 686.5 286 M 673.5 273 Q 666.5 284 670.5 290" stroke-width="1.4"></path>
+
+<!-- Wassertank -->
+<path d="M 657.5 515 L 697.5 484 L 697.5 349 L 657.5 380 Z"></path>
+<path d="M 657.5 451 L 697.5 420" stroke-dasharray="3 3" stroke-width="1.4"></path>
+<!-- Raspberry Pi -->
+<path d="M 630.5 506 L 652.5 489 L 652.5 399 L 630.5 416 Z"></path>
+<path d="M 634.5 425 L 648.5 414 M 634.5 440 L 648.5 429 M 634.5 470 L 648.5 459" stroke-width="1.2"></path>
+<path d="M 641.5 497 C 637.5 520 596.25 520 590 510" stroke-dasharray="3 4" stroke-width="1.4"></path>
+<!-- Holzmaserung -->
+<path d="M 502.25 262 Q 504.25 400 501.25 540 M 610.25 262 Q 608.25 400 611.25 540" stroke-width="1" stroke="#7a5530"></path>
+<!-- LED-Licht -->
+<path d="M 275 228 L 270 252 M 335 228 L 333 256 M 395 228 L 395 256 M 455 228 L 457 256" stroke-width="1.4"></path>
+<!-- Pilze -->
+<path d="M 270 460 Q 295 420 322 460 Z M 315 460 Q 345 408 378 460 Z M 370 460 Q 392 430 416 460 Z"></path>
+<path d="M 292 475 L 292 460 M 346 475 L 346 460 M 393 475 L 393 460"></path>
+<!-- Scharniere -->
+<rect x="192" y="275" width="10" height="26" rx="3"></rect>
+<rect x="192" y="430" width="10" height="26" rx="3"></rect>
+<!-- Griff -->
+<path d="M 496 312 L 482 322 M 496 444 L 482 454" stroke-width="3"></path>
+<rect x="476" y="300" width="12" height="165" rx="6"></rect>
+<!-- iPhone 13 mini -->
+<rect x="508.1" y="265.3" width="96.3" height="197.25" rx="15" stroke-width="1" stroke-dasharray="3 3"></rect>
+<rect x="510.8" y="268" width="90.9" height="191.85" rx="12"></rect>
+<rect x="513" y="270.2" width="86.5" height="187.44" rx="9" stroke-width="1.2"></rect>
+<path d="M536.2 270.2 L576.3 270.2 L573.5 274.5 L539 274.5 Z" stroke-width="1.2" fill="#1d1e21"></path>
+<circle cx="556.25" cy="326" r="18"></circle>
+<path d="M 548.25 326 L 554.25 332 L 565.25 318" stroke-width="2.6"></path>
+<path d="M 534.25 360 L 578.25 360 M 540.25 370 L 572.25 370" stroke-width="1.4"></path>
+<rect x="519.25" y="392" width="23" height="30" rx="4" stroke-width="1.4"></rect>
+<rect x="545.25" y="392" width="23" height="30" rx="4" stroke-width="1.4"></rect>
+<rect x="571.25" y="392" width="23" height="30" rx="4" stroke-width="1.4"></rect>
+<!-- Lightning-Winkelstecker -->
+<rect x="545.75" y="462.5" width="21" height="12" rx="2" stroke-width="1" stroke-dasharray="3 2"></rect>
+<!-- Taster -->
+<circle cx="556.25" cy="508" r="22.5"></circle>
+<circle cx="556.25" cy="508" r="13"></circle>
+<!-- Maße -->
+
+
+
+<!-- Höhenmaße -->
+<path d="M 188 250 L 118 250 M 188 475 L 160 475 M 188 550 L 118 550" stroke-width="1" stroke-dasharray="2 4"></path>
+
+
+
+<!-- Beschriftungspfeile -->
+
+
+
+
+
+
+
+
+
+</g>
+
+<!-- Text -->
+<g font-family="Caveat, cursive" fill="#22211f">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</g>
+</svg>

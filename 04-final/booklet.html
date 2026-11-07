@@ -305,7 +305,8 @@ h1 em{font-style:normal;color:var(--accent)}
 .case3 .label{color:var(--accent)}
 
 /* ── Kopf, Titel, Fuß wie die Seiten des Kollegen (07.11.) ── */
-.page:not(.cv):not(.ext){padding:56px 64px 40px}
+.page:not(.cv):not(.ext){padding:56px 64px 28px}   /* wie S. 03: Fuß 28 px über dem Seitenrand */
+.page.vp .folien+.foot,.page.vp .v-lecture+.foot{margin-top:-4px}   /* Leiste → Fuß 12 px wie S. 03 */
 .page.tight{gap:3.2mm}
 /* Einheitliche Struktur: Kopf → 28 px → Titel … Inhalt … (frei) → Aus der Vorlesung → Fuß */
 .page:not(.cv) .folien{margin-top:auto;flex-wrap:nowrap;white-space:nowrap;overflow:hidden}
@@ -341,7 +342,18 @@ h1 em{font-style:normal;color:var(--accent)}
 /* S. 04: altes Layout (drei Bilder, Tabelle), Maße nach Vorlage; Titel 40 px wie S. 03 (viel Inhalt) */
 .page.p04 h1{font-size:40px}
 .p04 .tab{font:400 12px/1.42 Inter,sans-serif}
-.p04 .kw .card{height:38mm}.p04 .kw .card img,.p04 .kw .card svg{max-height:34mm}
+/* S. 04: V1 klein als Idee, V2 und V3 groß; Zeitleiste mit Punkten verbindet die Versionen */
+.p04 .vs3{grid-template-columns:.62fr 1fr 1fr;gap:18px;position:relative;margin-top:4px}
+.p04 .vs3::before{content:"";position:absolute;left:6px;right:0;top:6px;height:1.5px;background:var(--sage);opacity:.7}
+.p04 .vs3 .tag{position:relative;display:flex;align-items:center;gap:8px;font:700 9.5px Inter,sans-serif;letter-spacing:.08em}
+.p04 .vs3 .tag::before{content:"";width:13px;height:13px;flex:none;border-radius:50%;background:var(--green);border:2px solid var(--sage);box-sizing:border-box}
+.p04 .vs3 figure:nth-child(n+2) .tag::before{background:var(--sage)}
+.p04 .vs3 .tag{padding-right:8px;background:linear-gradient(90deg,var(--green) 90%,transparent)}
+.p04 .vs3 figure .tag{width:max-content}
+.p04 .kw .card{height:132px;padding:8px}.p04 .kw .card img,.p04 .kw .card svg{max-height:116px}
+.p04 .kw figure:nth-child(n+2) .card{height:236px;padding:10px}
+.p04 .kw figure:nth-child(n+2) .card img{width:100%;height:100%;max-height:none;object-fit:contain}
+.p04 .kw figure:nth-child(n+2) figcaption b{font-size:18px}
 .p04 .tab th{font:700 11px Inter,sans-serif;letter-spacing:.1em;color:var(--muted)}
 .p04 .tab td:first-child{font-weight:700}
 .p04 .vs3 figcaption{font-size:12px;line-height:1.4}
@@ -349,14 +361,14 @@ h1 em{font-style:normal;color:var(--accent)}
 .p04 .tag{font:700 9.5px Inter,sans-serif;letter-spacing:.08em}
 
 /* S. 05: annotierte Skizze, Maße nach Vorlage */
-.p05 .sk{padding:4px 56px}
+.p05 .sk{padding:4px 52px}
 .p05 .legend li{padding:7px 0}
 .p05 .legend{font:400 13px/1.5 Inter,sans-serif}
 .p05 .legend strong{font:700 17px/1.25 "Space Grotesk",sans-serif}
 .p05 .legend .k.o{background:transparent;border:1.5px solid var(--green);color:var(--green)}
-.p05 .self{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;border-top:1px solid var(--line);padding-top:12px;font:700 15px "Space Grotesk",sans-serif}
-.p05 .self .v-label{color:var(--accent);margin-right:4px}
-.p05 .self i{font:700 10px "JetBrains Mono";font-style:normal;display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--green);color:var(--cream);vertical-align:2px;margin-left:2px}
+.p05 .self{display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;align-items:center;gap:6px 20px;border-top:1px solid var(--line);padding-top:14px;font:700 19px "Space Grotesk",sans-serif}
+.p05 .self .v-label{color:var(--accent);grid-column:1/-1}
+.p05 .self i{font:700 10px "JetBrains Mono";font-style:normal;display:inline-grid;place-items:center;width:22px;height:22px;font-size:11px;border-radius:50%;background:var(--green);color:var(--cream);vertical-align:2px;margin-left:2px}
 /* ── Seiten des Kollegen, eingebettet ── */
 .page.ext{padding:0;background:#fff}
 .page.ext iframe{width:210mm;height:297mm;border:0;display:block}
@@ -453,8 +465,8 @@ body.grid .bar .nav{visibility:hidden}
   <g font-family="JetBrains Mono, monospace" font-size="8" fill="#5d6a60">
     <text x="18" y="135">Plexi-Kasten ca. 20 cm</text><text x="160" y="58">Raspberry Pi</text><text x="142" y="132">Kabel</text>
   </g></svg></div><figcaption><b>Aquarium + Bedienteil</b>Kasten aus Plexi, daneben Raspberry Pi und Display im eigenen Gehäuse. </figcaption></figure>
-    <figure><span class="tag">V2 · 27.10. · kompakt</span><div class="card light"><img src="bilder/design-bau/skizze.jpg" alt="Skizze V2: Mikrowellenform, Kammer 20 cm, Technikraum 7,5 cm"></div><figcaption><b>Mikrowelle kompakt</b>Kammer 20 cm, Technikraum 7,5 cm, LED im Deckel, iPhone statt Display.</figcaption></figure>
-    <figure><span class="tag">V3 · bis 02.11. · final</span><div class="card light"><img src="../02-box-bau/bilder/skizze-box-v3.svg" alt="Skizze V3: 33,5 × 25 × 20 cm mit Tank und Sichtfenster"></div><figcaption><b>Mikrowelle groß</b>33,5 × 25 × 20 cm, Gestell aus Profilen, Tank mit Sichtfenster.</figcaption></figure>
+    <figure><span class="tag">V2 · 27.10. · kompakt</span><div class="card light"><img src="bilder/design-bau/skizze-v2-ohne-text.svg" alt="Skizze V2: Mikrowellenform, Kammer 20 cm, Technikraum 7,5 cm"></div><figcaption><b>Mikrowelle kompakt</b>Kammer 20 cm, Technikraum 7,5 cm, LED im Deckel, iPhone statt Display.</figcaption></figure>
+    <figure><span class="tag">V3 · bis 02.11. · final</span><div class="card light"><img src="bilder/design-bau/skizze-v3-ohne-text.svg" alt="Skizze V3: 33,5 × 25 × 20 cm mit Tank und Sichtfenster"></div><figcaption><b>Mikrowelle groß</b>33,5 × 25 × 20 cm, Gestell aus Profilen, Tank mit Sichtfenster.</figcaption></figure>
   </div>
   <table class="tab">
     <thead><tr><th>Entscheidung</th><th>Grund (Vorlesung)</th><th>Nachteil</th></tr></thead>
@@ -464,7 +476,6 @@ body.grid .bar .nav{visibility:hidden}
       <tr><td>V2 → V3: größer, Tank mit Sichtfenster</td><td>Wasser unten, Elektronik oben, dazwischen eine Trennwand (Murphy's Law). Die Linie im Fenster entspricht dem Balken auf dem Display (Mapping).</td><td>Mehr Stellfläche in der Küche.</td></tr>
     </tbody>
   </table>
-  <p class="v-small" style="font-size:13px">Im CAD wurde V3 danach noch kompakter: <b>27,5 statt 33,5 cm</b> breit (siehe „Vom Papier ins CAD“).</p>
   <div class="folien"><span class="label">Aus der Vorlesung</span><span>Mentales Modell</span><span>Prototyping</span><span>Murphy's Law</span><span>Mapping</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>04</span></div>
 </section>
@@ -476,12 +487,13 @@ body.grid .bar .nav{visibility:hidden}
   <p class="v-lead">V3 hat zwei Räume: links wachsen die Pilze, rechts steckt alles, was sie versorgt. <b>Vorn bleibt nur das Bedienfeld.</b></p>
 
   <figure class="card sk">
-    <img src="../02-box-bau/bilder/skizze-box-v3.svg" alt="Skizze V3 der Box: links Pilzkammer, rechts Technikraum mit Bedienfeld und Tank">
+    <img src="bilder/design-bau/skizze-v3-booklet.svg" alt="Skizze V3 der Box: links Pilzkammer, rechts Technikraum mit Bedienfeld und Tank">
     <span class="pin" style="left:24%;top:50%">1</span>
     <span class="pin" style="left:53%;top:52%">2</span>
     <span class="pin" style="left:50%;top:64%">3</span>
     <span class="pin" style="left:30%;top:25.5%">4</span>
     <span class="pin" style="left:46%;top:41%">5</span>
+    <span class="pin" style="left:40%;top:38%">6</span>
   </figure>
 
   <div class="sk2">
@@ -493,13 +505,12 @@ body.grid .bar .nav{visibility:hidden}
     <ol class="legend" start="4">
       <li><span class="k">4</span><span><strong>LED im Rahmen</strong>Im oberen Rahmen statt im Deckel: Der Deckel bleibt kabelfrei und abnehmbar.</span></li>
       <li><span class="k">5</span><span><strong>Bedienfeld</strong>Display und Taster, mehr gibt es vorn nicht (siehe „Ein Taster. Eine Bedeutung.“).</span></li>
-      <li><span class="k o">–</span><span><strong>Kamera, fest eingebaut</strong>Nichts zu verstellen, immer derselbe Blick: Die Bilder in der App bleiben vergleichbar (Konsistenz).</span></li>
+      <li><span class="k">6</span><span><strong>Kamera, fest eingebaut</strong>Hinten rechts in der Kammer. Nichts zu verstellen, immer derselbe Blick: Die Bilder in der App bleiben vergleichbar.</span></li>
     </ol>
   </div>
 
   <div class="self"><span class="v-label">Die Box regelt selbst</span><span>Frischluft <i>2</i></span><span>Feuchte <i>2</i> <i>3</i></span><span>Wärme <i>2</i></span><span>Licht <i>4</i></span></div>
 
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Konsistenz</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>05</span></div>
 </section>
 
