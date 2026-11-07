@@ -36,10 +36,10 @@
 .v-page.dark{--v-bg:#1D3B2A; --v-ink:#EEF2EA; --v-muted:#B4C2B6; --v-line:#3D5E4C; --v-card:#27493A; --v-accent:#7FA86C; --v-lead:#D5DED6}
 
 /* ── Typografie-Skala ── */
-/* Titel          Space Grotesk 700 · 52 px · Zeilenhöhe 1.02 · −0.02em
+/* Titel          Space Grotesk 700 · 40 px (wie S. 03; 52 px nur bei sehr wenig Inhalt) · Zeilenhöhe 1.02 · −0.02em
    Kartentitel    Space Grotesk 700 · 19–22 px
    Kennzahl       Space Grotesk 700 · 22–28 px · Akzent (Blickfang bis 72 px)
-   Einleitung     Inter 400 · 17 px · 1.6 (Sonderfall 15 px)
+   Einleitung     Inter 400 · 15 px · 1.55 (wie S. 03, auf allen Seiten gleich)
    Fließtext      Inter 400 · 13 px · 1.5
    Klein          Inter 400 · 12 px · gedämpft
    Label          Inter 700 · 11 px · 0.1em · Versalien · gedämpft
@@ -47,7 +47,7 @@
    Kopf           Inter 600 · 13 px · 0.14em · Versalien · Akzent; GROWBOX Space Grotesk 700 · 14 px
    Fuß            Inter 400 · 13 px · gedämpft; Seitenzahl Space Grotesk */
 
-body{margin:0;background:#D5DAD0;font-family:Inter,sans-serif;display:flex;flex-wrap:wrap;gap:24px;justify-content:center;padding:24px}
+body{margin:0;-webkit-font-smoothing:auto;background:#D5DAD0;font-family:Inter,sans-serif;display:flex;flex-wrap:wrap;gap:24px;justify-content:center;padding:24px}
 .v-page{width:794px;height:1123px;box-sizing:border-box;position:relative;overflow:hidden;background:var(--v-bg);color:var(--v-ink);
   padding:56px 64px 28px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 40px rgba(29,59,42,.18)}
 .v-prog{position:absolute;top:28px;left:64px;right:64px;height:3px;border-radius:2px;background:var(--v-line)}
@@ -57,7 +57,7 @@ body{margin:0;background:#D5DAD0;font-family:Inter,sans-serif;display:flex;flex-
 .v-top span:last-child{font:700 14px "Space Grotesk",sans-serif;letter-spacing:.04em}
 .v-title{margin:12px 0 0;font:700 52px/1.02 "Space Grotesk",sans-serif;letter-spacing:-.02em}   /* 16 px Gap + 12 px = 28 px */
 .v-title em{font-style:normal;color:var(--v-accent)}
-.v-lead{margin:0;max-width:640px;font-size:17px;line-height:1.6;color:var(--v-lead)}
+.v-lead{margin:0;max-width:666px;font-size:15px;line-height:1.55;color:var(--v-lead)}
 .v-lead b{color:var(--v-ink)}
 .v-label{font:700 11px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--v-muted)}
 .v-card{background:var(--v-card);border:1px solid var(--v-line);border-radius:14px;overflow:hidden}
