@@ -440,12 +440,27 @@ h1 em{font-style:normal;color:var(--accent)}
 .p14 .tab{font:400 12.5px/1.45 Inter,sans-serif}.p14 .tab th{font:700 11px Inter,sans-serif;letter-spacing:.1em;color:var(--muted)}.p14 .tab td:first-child{font-weight:700}
 .p14 .tab .st{display:block;font:700 11px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
 .p14 .vs3 figcaption b{display:block;color:#EEF2EA;font-weight:700}
-.p14 .vs3 figure.hot .tag,.p14 .vs3 figure.hot figcaption b{color:#f0a640}
-.p14 .vs3 figure.hot .disp{border-color:#f0a640;box-shadow:0 0 0 2px #f0a640,0 0 34px rgba(240,166,64,.55)}
-.p14 .vs3 figure.hot .tag::before{content:"● ";color:#f0a640}
 .p13 .tab .st{display:block;font:700 11px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
 .page.vp .tab tr:last-child td{border-bottom:0}
 .p12 .tab,.p13 .tab{font:400 12.5px/1.45 Inter,sans-serif}.p12 .tab th,.p13 .tab th{font:700 11px Inter,sans-serif;letter-spacing:.1em;color:var(--muted)}.p12 .tab td:first-child,.p13 .tab td:first-child{font-weight:700}
+/* S. 13: Inspiration oben rechts, V1 und Final groß mit Nummern, Legende statt Tabelle */
+.h13{display:grid;grid-template-columns:1fr 210px;gap:20px;align-items:end}
+.h13 h1{margin-top:12px}.h13 .v-lead{margin-top:8px}
+.insp{margin:0;display:flex;flex-direction:column;gap:5px}
+.insp img{width:100%;border-radius:10px;display:block}
+.insp figcaption{font-size:11.5px;color:var(--muted)}
+.vs13{display:grid;grid-template-columns:1fr 40px 1fr;align-items:end;justify-items:center;margin-top:4px}
+.vs13 figure{margin:0;display:flex;flex-direction:column;gap:6px;align-items:center}
+.vs13 .pw{position:relative;height:410px}
+.vs13 .pw .disp{height:100%;width:auto;border-width:3px;border-radius:14px}
+.vs13 figure.on .disp{box-shadow:0 0 0 3px var(--sage)}
+.ar13{font:700 28px "Space Grotesk";color:var(--accent);align-self:center}
+.vs13 .pin{box-shadow:0 0 0 2px #fff;background:#E8A04A;color:#1D3B2A}
+.chg{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
+.chg li{display:grid;grid-template-columns:26px 1fr;gap:8px;font-size:12px;line-height:1.42;color:#2F4A3A}
+.chg .k{width:22px;height:22px;border-radius:50%;background:#E8A04A;color:#1D3B2A;font:700 11px "JetBrains Mono";display:grid;place-items:center}
+.chg b{display:block;font:700 14px/1.25 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
+.chg i{display:block;font-style:normal;font-size:11.5px;color:var(--muted);margin-top:2px}
 /* ── Seiten des Kollegen, eingebettet ── */
 .page.ext{padding:0;background:#fff}
 .page.ext iframe{width:210mm;height:297mm;border:0;display:block}
@@ -517,7 +532,7 @@ body.grid .bar .nav{visibility:hidden}
   </div>
   <div class="toc">
     <div><div class="kap"><span class="label">Kapitel 1 · 03</span><b>Einstieg</b></div><ol><li><span class="n">03</span><span><strong>Für jeden gemacht.</strong><span class="s">Zielgruppe · Anforderungen · Nutzungskontext</span></span></li></ol><div class="kap"><span class="label">Kapitel 2 · 04–06</span><b>Konzept</b><span class="who">Die Box: Form und Bedienteile</span></div><ol><li><span class="n">04</span><span><strong>Vom Aquarium zur Mikrowelle.</strong><span class="s">Konzeptweg Box V1 → V3 · Abwägung</span></span></li><li><span class="n">05</span><span><strong>Wie eine Mikrowelle. Nur ohne Knopfsalat.</strong><span class="s">Die Box V3 annotiert</span></span></li><li><span class="n">06</span><span><strong>Ein Taster. Eine Bedeutung.</strong><span class="s">Bedienteile an der Box · Abwägung</span></span></li></ol><div class="kap"><span class="label">Kapitel 3 · 07–10</span><b>CAD &amp; Bau</b><span class="who">Konstruktion, Druck, 3D-Modell</span></div><ol><li><span class="n">07</span><span><strong>Vom Papier ins CAD.</strong><span class="s">Konstruktion · zwei Module</span></span></li><li><span class="n">08</span><span><strong>Vom Rohdruck zum Prototyp.</strong><span class="s">Prototyp · FabLab</span></span></li><li><span class="n">09</span><span><strong>Jedes Detail hat einen Zweck.</strong><span class="s">3D-Modell · alle Features</span></span></li><li><span class="n">10</span><span><strong>Klein für die Küche. Groß für mehr Ernte.</strong><span class="s">Zwei Größen</span></span></li></ol></div>
-    <div><div class="kap"><span class="label">Kapitel 4 · 11</span><b>Technik</b></div><ol><li><span class="n">11</span><span><strong>Ein Zustand. Zwei Ansichten.</strong><span class="s">Pi, Display, App · echt und simuliert</span></span></li></ol><div class="kap"><span class="label">Kapitel 5 · 12–18</span><b>Bedienfeld</b></div><div class="sub"><span>Konzept</span><span>12–14</span></div><ol><li><span class="n">12</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Leitideen A · B · C als Skizzen</span></span></li><li><span class="n">13</span><span><strong>Vom Entwurf zum Bedienfeld.</strong><span class="s">Inspiration → V1 → Final · Abwägung</span></span></li><li><span class="n">14</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li></ol><div class="sub"><span>Bedienung</span><span>15–17</span></div><ol><li><span class="n">15</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild lesen</span></span></li><li><span class="n">16</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Fall 1 Tank leer · Fall 2 Ernte · Fall 3 Handy</span></span></li><li><span class="n">17</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Neu ansetzen ohne Fehler</span></span></li></ol><div class="sub"><span>Weggelassen &amp; offen</span><span>18</span></div><ol><li><span class="n">18</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
+    <div><div class="kap"><span class="label">Kapitel 4 · 11</span><b>Technik</b></div><ol><li><span class="n">11</span><span><strong>Ein Zustand. Zwei Ansichten.</strong><span class="s">Pi, Display, App · echt und simuliert</span></span></li></ol><div class="kap"><span class="label">Kapitel 5 · 12–18</span><b>Bedienfeld</b></div><div class="sub"><span>Konzept</span><span>12–14</span></div><ol><li><span class="n">12</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Leitideen A · B · C als Skizzen</span></span></li><li><span class="n">13</span><span><strong>Vom Entwurf zum Bedienfeld.</strong><span class="s">Inspiration · V1 → Final · was wegfiel</span></span></li><li><span class="n">14</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li></ol><div class="sub"><span>Bedienung</span><span>15–17</span></div><ol><li><span class="n">15</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild lesen</span></span></li><li><span class="n">16</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Fall 1 Tank leer · Fall 2 Ernte · Fall 3 Handy</span></span></li><li><span class="n">17</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Neu ansetzen ohne Fehler</span></span></li></ol><div class="sub"><span>Weggelassen &amp; offen</span><span>18</span></div><ol><li><span class="n">18</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
   </div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>02</span></div>
 </section>
@@ -684,22 +699,25 @@ body.grid .bar .nav{visibility:hidden}
 <!-- ═══ 13 · Vom Entwurf zum Bedienfeld (Maße nach vorlage-seite.html) ═══ -->
 <section class="page vp p13">
   <div class="top"><span>13 · ENTSTEHUNG BEDIENFELD II</span><span class="brand">GROWBOX</span></div>
-  <h1>Vom Entwurf<br><em>zum Bedienfeld.</em></h1>
-  <p class="v-lead">Inspiration war die Lüftung im Prototyping-Raum: <b>blauer Grund, Ring in der Mitte.</b></p>
-  <div class="steps13">
-    <figure class="step"><span class="tag">Inspiration · 29.10.</span><div class="scr"><img class="g13 wide" src="bilder/booklet/vorbild-lueftung.jpg" alt="Display der Lüftungsanlage im Rapid-Prototyping-Raum: blauer Grund, Ring in der Mitte, Kacheln links und rechts"></div><figcaption><b>Lüftungsanlage</b>Display im Rapid-Prototyping-Raum: blauer Grund, Ring in der Mitte.</figcaption></figure>
-    <figure class="step"><span class="tag">V1 · 29.10.</span><div class="scr"><img class="disp g13p" src="bilder/booklet/v1-luftfeuchte.jpg" alt="Bedienfeld V1: blau, Luftfeuchte im Ring, Ein-Knopf und vier Kacheln"></div><figcaption><b>Erster Ring</b>Luftfeuchte im Ring, Ein-Knopf, viele Werte.</figcaption></figure>
-    <figure class="step on"><span class="tag">Final · 05.11.</span><div class="scr"><img class="disp g13p" src="bilder/booklet/01-gut.jpg" alt="Bedienfeld final: blau, Ring mit Pilz, Tage bis zur Ernte, Alles gut, drei Kacheln"></div><figcaption><b>Bedienfeld final</b>Drei Kacheln, größer, klarer.</figcaption></figure>
+  <div class="h13">
+    <div><h1>Vom Entwurf<br><em>zum Bedienfeld.</em></h1>
+    <p class="v-lead">Blau und Ring kamen von der Lüftung, alles andere wurde von V1 bis Final <b>weggenommen oder größer gemacht.</b></p></div>
+    <figure class="insp"><span class="tag">Inspiration · 29.10.</span><img src="bilder/booklet/vorbild-lueftung.jpg" alt="Display der Lüftungsanlage im Rapid-Prototyping-Raum: blauer Grund, Ring in der Mitte"><figcaption>Lüftung im Prototyping-Raum</figcaption></figure>
   </div>
-  <table class="tab">
-    <tr><th>Entscheidung</th><th>Grund</th><th>Nachteil</th></tr>
-    <tr><td><span class="st">Inspiration → V1</span>Blau als Fläche, Ring in der Mitte</td><td>Grün, Orange und Weiß springen auf dem ruhigen Blau sofort heraus (Präattentiv).</td><td>Wer Schwarz lieber mag, muss es einstellen.</td></tr>
-    <tr><td><span class="st">V1 → Final</span>Ring zeigt Tage bis zur Ernte</td><td>Statt der Luftfeuchte ein klares Ziel mit sichtbarem Fortschritt, der Pilz darin wächst mit (Progression).</td><td>Die Feuchte rückt in eine kleine Zeile darunter.</td></tr>
-    <tr><td><span class="st">V1 → Final</span>Drei Kacheln statt fünf</td><td>Wenige große Ziele statt Knopfsalat, Seltenes liegt in der App (Minimalist Design).</td><td>Wer selbst eingreifen will, braucht die App.</td></tr>
-    <tr><td><span class="st">V1 → Final</span>Ziele ≥ 44 pt, Warntext 6,4 : 1</td><td>Lesbar aus zwei bis drei Metern und mit Lesebrille (Kontrast).</td><td>Weniger Inhalt pro Bildschirm.</td></tr>
-    <tr><td><span class="st">V1 → Final</span>Rahmen heißt drückbar</td><td>Was einen Rahmen hat, kann man drücken, Informationen stehen zwischen Linien (Affordance).</td><td>Infozeilen wirken schlichter.</td></tr>
-  </table>
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Präattentiv</span><span>Progression</span><span>Minimalist Design</span><span>Kontrast</span><span>Affordance</span></div>
+  <div class="vs13">
+    <figure><span class="tag">V1 · 29.10.</span><div class="pw"><img class="disp" src="bilder/booklet/v1-luftfeuchte.jpg" alt="Bedienfeld V1: Luftfeuchte im Ring, Ein-Knopf, vier Kacheln">
+      <span class="pin" style="left:50%;top:31%">1</span><span class="pin" style="left:13%;top:91%">2</span><span class="pin" style="left:62%;top:91%">3</span><span class="pin" style="left:50%;top:69%">4</span></div></figure>
+    <div class="ar13" aria-hidden="true">→</div>
+    <figure class="on"><span class="tag">Final · 05.11.</span><div class="pw"><img class="disp" src="bilder/booklet/01-gut.jpg" alt="Bedienfeld final: Tage bis zur Ernte im Ring, Alles gut, drei Kacheln">
+      <span class="pin" style="left:50%;top:31%">1</span><span class="pin" style="left:50%;top:90%">3</span><span class="pin" style="left:50%;top:68%">4</span></div></figure>
+  </div>
+  <ol class="chg">
+    <li><span class="k">1</span><div><b>Ring: Tage bis zur Ernte statt Luftfeuchte</b>Ein klares Ziel mit sichtbarem Fortschritt, der Pilz wächst mit (Progression). <i>Preis: Die Feuchte rückt in eine kleine Zeile.</i></div></li>
+    <li><span class="k">2</span><div><b>Ein/Aus-Knopf gestrichen</b>Die Box regelt selbst und läuft immer, ein Aus aus Versehen würde die Pflege stoppen. Licht schaltet der Taster. <i>Preis: Ausschalten nur in den Einstellungen.</i></div></li>
+    <li><span class="k">3</span><div><b>Drei Kacheln mit Rahmen statt vier</b>Wenige große Ziele (Minimalist Design), der Rahmen zeigt, was man drücken kann (Affordance). <i>Preis: Seltenes liegt in der App.</i></div></li>
+    <li><span class="k">4</span><div><b>Werte mit Balken, Ziele ≥ 44 pt</b>Lesbar aus zwei bis drei Metern und mit Lesebrille (Kontrast). <i>Preis: weniger Inhalt pro Bildschirm.</i></div></li>
+  </ol>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Progression</span><span>Minimalist Design</span><span>Affordance</span><span>Kontrast</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>13</span></div>
 </section>
 
@@ -711,14 +729,14 @@ body.grid .bar .nav{visibility:hidden}
 
   <div class="vs3">
     <figure><span class="tag">Betrieb · Blau</span><img class="disp" src="bilder/booklet/01-gut.jpg" alt="Blaues Startbild"><figcaption><b>Box läuft</b>Blau nur als Fläche, Schrift und Symbole weiß.</figcaption></figure>
-    <figure class="hot"><span class="tag">Standby · Tank leer</span><img class="disp" src="bilder/booklet/02-standby.jpg" alt="Schwarzes Display mit orangem Punkt"><figcaption><b>Oranger Warnpunkt</b>Display aus, nur der Punkt blinkt. Aus drei Metern zu sehen. Kam in der Präsentation am besten an.</figcaption></figure>
+    <figure><span class="tag">Standby · Tank leer</span><img class="disp" src="bilder/booklet/02-standby.jpg" alt="Schwarzes Display mit orangem Punkt"><figcaption><b>Oranger Warnpunkt</b>Display aus, nur der Punkt blinkt. Aus drei Metern zu sehen.</figcaption></figure>
     <figure><span class="tag">Option · Hoher Kontrast</span><img class="disp" src="bilder/booklet/11-kontrast.jpg" alt="Startbild mit schwarzem Hintergrund"><figcaption><b>Für schwache Augen</b>Schwarzer Grund, volle Anzeige. Einstellbar unter Zahnrad → Darstellung.</figcaption></figure>
   </div>
 
   <table class="tab">
     <tr><th>Entscheidung</th><th>Grund</th><th>Nachteil</th></tr>
-    <tr><td><span class="st">Betrieb</span>Blau als Standard</td><td>Schwarz bleibt für Standby frei. Blau nur als Fläche, weil blaue Schrift schwer scharf zu sehen ist (Farbsehen).</td><td>Wer Schwarz lieber mag, muss es einstellen.</td></tr>
-    <tr><td><span class="st">Standby</span>Nur der Warnpunkt blinkt</td><td>Ein blinkender oranger Punkt auf Schwarz fällt sofort auf, ohne Suchen (Präattentiv).</td><td>Eine Warnung im Betrieb blinkt nicht, sie steht als gelbes Dreieck mit Text da.</td></tr>
+    <tr><td><span class="st">Betrieb</span>Blau als Standard</td><td>Schwarz bleibt für Standby frei. Blau nur als Fläche, blaue Schrift ist unscharf (Farbsehen).</td><td>Wer Schwarz lieber mag, muss es einstellen.</td></tr>
+    <tr><td><span class="st">Standby</span>Oranger Warnpunkt</td><td>Blinkendes Orange auf Schwarz fällt sofort auf, ohne Suchen (Präattentiv). <b>Kam in der Präsentation am besten an.</b></td><td>Eine Warnung im Betrieb blinkt nicht, sie steht als gelbes Dreieck mit Text da.</td></tr>
     <tr><td><span class="st">Option</span>Hoher Kontrast</td><td>Weiß auf Schwarz hebt sich am stärksten ab, gut bei schwachen Augen (Kontrast).</td><td>Betrieb und Standby unterscheiden sich dann nur noch dadurch, ob die Anzeige an ist.</td></tr>
   </table>
 
