@@ -546,6 +546,24 @@ body.grid .bar .nav{visibility:hidden}
 .p18 .film svg{width:100%;height:auto;display:block;background:#27493a;border-radius:3px}
 .p18 .film figcaption{font:600 8.5px "JetBrains Mono",monospace;letter-spacing:.08em;color:#B4C2B6;margin-top:4px}
 .p18 .film figure.h figcaption{color:#e0a255}
+
+/* S. 02 · Inhalt als Kapitelreise */
+.p02 .kr{display:flex;flex-direction:column;flex:1;margin-top:4px}
+.p02 .kz{display:grid;grid-template-columns:62px 150px 1fr;gap:0 20px;align-items:start;padding:14px 0;border-top:1.5px solid var(--ink)}
+.p02 .kz:last-child{border-bottom:1.5px solid var(--ink)}
+.p02 .rn{font:700 40px/1 "Space Grotesk",sans-serif;color:var(--sage-text);letter-spacing:-.02em}
+.p02 .th{width:150px;height:96px;border-radius:8px;overflow:hidden;background:var(--green)}
+.p02 .th img{width:100%;height:100%;object-fit:cover;display:block}
+.p02 .th.disp{display:flex;justify-content:center;gap:4px;padding:6px}
+.p02 .th.disp img{width:auto;border-radius:4px}
+.p02 .hd{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.p02 .hd b{font:700 20px/1.2 "Space Grotesk",sans-serif}
+.p02 .pg{font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;color:#eef2ea;background:var(--green);padding:3px 7px;border-radius:20px}
+.p02 .ls{list-style:none;columns:2;column-gap:16px}
+.p02 .ls li{break-inside:avoid;font-size:12.5px;line-height:1.35;padding:3px 0;color:#2F4A3A;display:flex;gap:7px}
+.p02 .ls li i{font:700 11px "JetBrains Mono",monospace;font-style:normal;color:var(--sage-text);min-width:16px}
+.p02 .ls.one{columns:1}
+.p02 .grp{font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:2px 0 1px}
 </style>
 </head>
 <body>
@@ -579,15 +597,8 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page tight vp p02">
   <div class="top"><span>02 · INHALT</span><span class="brand">GROWBOX</span></div>
   <h1>Was in diesem<br><em>Booklet steckt.</em></h1>
-  <p class="v-lead">Erst für wen und was die Box können muss, dann wie sie entstanden ist und welche Technik drinsteckt, zuletzt wie man sie bedient. Jede Entscheidung steht mit dem Grund aus der Vorlesung und dem Nachteil, den wir dafür in Kauf nehmen.</p>
-  <div>
-    <div class="strip"><i class="b"></i><i class="b"></i><i class="c"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="c"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="d"></i></div>
-    <div class="strip-lab"><span>01–02</span><span>03</span><span>04–06 KONZEPT</span><span>07–10 CAD &amp; BAU</span><span>11</span><span>12–14 BF KONZEPT</span><span>15–17 BEDIENUNG</span><span>18</span></div>
-  </div>
-  <div class="toc">
-    <div><div class="kap"><span class="label">Kapitel 1 · 03</span><b>Einstieg · Zielgruppe</b></div><ol><li><span class="n">03</span><span><strong>Für jeden gemacht.</strong></span></li></ol><div class="kap"><span class="label">Kapitel 2 · 04–06</span><b>Konzeptweg Box</b><span class="who">Die Box: Form und Bedienteile</span></div><ol><li><span class="n">04</span><span><strong>Vom Aquarium zur Mikrowelle.</strong></span></li><li><span class="n">05</span><span><strong>Wie eine Mikrowelle. Nur ohne Knopfsalat.</strong></span></li><li><span class="n">06</span><span><strong>Ein Taster. Eine Bedeutung.</strong></span></li></ol><div class="kap"><span class="label">Kapitel 3 · 07–10</span><b>CAD &amp; Bau</b><span class="who">Konstruktion, Druck, 3D-Modell</span></div><ol><li><span class="n">07</span><span><strong>Vom Papier ins CAD.</strong></span></li><li><span class="n">08</span><span><strong>Vom Rohdruck zum Prototyp.</strong></span></li><li><span class="n">09</span><span><strong>Jedes Detail hat einen Zweck.</strong></span></li><li><span class="n">10</span><span><strong>Klein für die Küche. Groß für mehr Ernte.</strong></span></li></ol></div>
-    <div><div class="kap"><span class="label">Kapitel 4 · 11</span><b>Technik</b></div><ol><li><span class="n">11</span><span><strong>Ein Zustand. Zwei Ansichten.</strong></span></li></ol><div class="kap"><span class="label">Kapitel 5 · 12–18</span><b>Bedienfeld</b></div><div class="sub"><span>Konzept</span><span>12–14</span></div><ol><li><span class="n">12</span><span><strong>Drei Ideen. Eine gewählt.</strong></span></li><li><span class="n">13</span><span><strong>Vom Entwurf zum Bedienfeld.</strong></span></li><li><span class="n">14</span><span><strong>Warum Blau statt Schwarz?</strong></span></li></ol><div class="sub"><span>Bedienung</span><span>15–17</span></div><ol><li><span class="n">15</span><span><strong>Ein Blick. Eine Aussage.</strong></span></li><li><span class="n">16</span><span><strong>Eine Warnung. Ein Knopf.</strong></span></li><li><span class="n">17</span><span><strong>Die Hürde passt zum Risiko.</strong></span></li></ol><div class="sub"><span>Weggelassen &amp; offen</span><span>18</span></div><ol><li><span class="n">18</span><span><strong>Bewusst weggelassen.</strong></span></li></ol></div>
-  </div>
+  <p class="v-lead">Fünf Kapitel: für wen, wie die Box entstanden ist, was drinsteckt und wie man sie bedient. Jede Entscheidung steht mit Grund aus der Vorlesung und dem Nachteil, den wir dafür in Kauf nehmen.</p>
+  <div class="kr"><div class="kz"><span class="rn">I</span><div class="th"><img src="bilder/design-bau/skizze.jpg" alt=""></div><div><div class="hd"><b>Einstieg · Zielgruppe</b><span class="pg">S. 03</span></div><ul class="ls one"><li><i>03</i>Für jeden gemacht.</li></ul></div></div><div class="kz"><span class="rn">II</span><div class="th"><img src="bilder/design-bau/skizze-v3-ohne-text.svg" alt=""></div><div><div class="hd"><b>Konzeptweg Box</b><span class="pg">S. 04–06</span></div><ul class="ls one"><li><i>04</i>Vom Aquarium zur Mikrowelle.</li><li><i>05</i>Wie eine Mikrowelle. Nur ohne Knopfsalat.</li><li><i>06</i>Ein Taster. Eine Bedeutung.</li></ul></div></div><div class="kz"><span class="rn">III</span><div class="th"><img src="bilder/design-bau/prototyp-schraeg.jpg" alt=""></div><div><div class="hd"><b>CAD &amp; Bau</b><span class="pg">S. 07–10</span></div><ul class="ls one"><li><i>07</i>Vom Papier ins CAD.</li><li><i>08</i>Vom Rohdruck zum Prototyp.</li><li><i>09</i>Jedes Detail hat einen Zweck.</li><li><i>10</i>Klein für die Küche. Groß für mehr Ernte.</li></ul></div></div><div class="kz"><span class="rn">IV</span><div class="th"><img src="bilder/design-bau/cad-technikraum.jpg" alt=""></div><div><div class="hd"><b>Technik</b><span class="pg">S. 11</span></div><ul class="ls one"><li><i>11</i>Ein Zustand. Zwei Ansichten.</li></ul></div></div><div class="kz"><span class="rn">V</span><div class="th disp"><img src="bilder/booklet/01-gut.jpg" alt=""><img src="bilder/booklet/03-warnung.jpg" alt=""></div><div><div class="hd"><b>Bedienfeld</b><span class="pg">S. 12–18</span></div><div class="grp">Konzept</div><ul class="ls one"><li><i>12</i>Drei Ideen. Eine gewählt.</li><li><i>13</i>Vom Entwurf zum Bedienfeld.</li><li><i>14</i>Warum Blau statt Schwarz?</li></ul><div class="grp">Bedienung · Ausblick</div><ul class="ls "><li><i>15</i>Ein Blick. Eine Aussage.</li><li><i>16</i>Eine Warnung. Ein Knopf.</li><li><i>17</i>Die Hürde passt zum Risiko.</li><li><i>18</i>Bewusst weggelassen.</li></ul></div></div></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>02</span></div>
 </section>
 
