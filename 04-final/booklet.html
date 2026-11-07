@@ -389,6 +389,12 @@ h1 em{font-style:normal;color:var(--accent)}
 .p06 .crop6{height:48mm;overflow:hidden;position:relative;padding:0}
 .p06 .crop6 img{position:absolute;width:118%;max-width:none;left:-34%;top:-46%}
 .p06 .photo.pt{height:48mm}
+/* Textfarben wie S. 03: Fett/Titel #EEF2EA · Fließtext #D5DED6 · Kleines #B4C2B6 (hell: Tinte · #2F4A3A · gedämpft) */
+.page.vp.dark .tab td,.page.vp.dark .legend li>span:last-child{color:#D5DED6}
+.page.vp.dark .tab td:first-child,.page.vp.dark .legend strong{color:#EEF2EA}
+.page.vp:not(.dark) .tab td,.page.vp:not(.dark) .legend li>span:last-child{color:#2F4A3A}
+.page.vp:not(.dark) .tab td:first-child,.page.vp:not(.dark) .legend strong{color:var(--ink)}
+.page.vp .tab .nb{color:var(--muted)}
 /* ── Seiten des Kollegen, eingebettet ── */
 .page.ext{padding:0;background:#fff}
 .page.ext iframe{width:210mm;height:297mm;border:0;display:block}
