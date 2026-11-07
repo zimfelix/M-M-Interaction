@@ -7,7 +7,7 @@
 ## ✅ Final
 
 - **Bewertet** (Folie 5): Theoriebezug · HCI-Grundprinzipien · beschriebene Technik; Booklet 50 %, Prototyp 50 %
-- **Booklet:** ein gemeinsames Booklet im Grünton, [`booklet.html`](booklet.html): S. 01 Cover, S. 02 Inhalt, S. 03–07 Design & Bau (Kollege), S. 08–14 Box + Bedienfeld (Felix); Ziel 15–18 Seiten, finale Fassung am 07.11.
+- **Booklet:** ein gemeinsames Booklet im Grünton, [`booklet.html`](booklet.html): **16 Seiten**: 01 Cover · 02 Inhalt · 03 Zielgruppe · 04–09 Konzept & Aufbau · 10–16 Box + Bedienfeld
 - **Teil Felix:** Box + Bedienfeld an Ingrid, Schwerpunkt **Fortschritt** und **Entscheidungen mit Folienbegriffen**
 - **Grundlage:** Bedienfeld **v7** (`bedienfeld-v7/`), v6 als Vorher-Stand
 - **Feedback Präsentation:** oranger Punkt ✓ · Fortschritt ✓ · Folienbegriffe ✓ · Rückfrage „Blau statt Schwarz?“ → Schwarz = Standby, Blau = läuft
@@ -21,13 +21,13 @@
                                                                        v7 eingefroren, 3D-Modell
 ```
 
-Booklet-Stand 07.11.: 14 Seiten inkl. Inhaltsverzeichnis ✅ · Plan für 17 Seiten in [`booklet-plan.md`](booklet-plan.md)
+Booklet-Stand 07.11.: 16 Seiten ✅ (Übersicht 4×4 mit Zoom) · Plan für 17 Seiten in [`booklet-plan.md`](booklet-plan.md)
 
 ## Dateien
 
 | Datei | Wofür |
 |---|---|
-| [`booklet.html`](booklet.html) | **das Booklet** (Doppelseiten, „Übersicht“ in drei Spalten, PDF/Drucken) |
+| [`booklet.html`](booklet.html) | **das Booklet** (Doppelseiten, „Übersicht 4×4“ mit Zoom, PDF/Drucken) |
 | [`booklet-plan.md`](booklet-plan.md) | Plan für das Treffen am 07.11.: Abgleich, Konzeptweg V1–V3, 17 Seiten |
 | [`booklet-felix.md`](booklet-felix.md) | Arbeitsstand zu Felix' Seiten: umgesetzt, neu, offen |
 | [`booklet-design-bau/`](booklet-design-bau/) | Original „Design & Bau“ des Kollegen (6 Seiten + Bilder) |
