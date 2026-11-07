@@ -28,6 +28,7 @@ Booklet-Stand 07.11.: 18 Seiten ✅ (Übersicht genau 6×3 mit Zoom) · Seite �
 | Datei | Wofür |
 |---|---|
 | [`booklet.html`](booklet.html) | **das Booklet** (Doppelseiten, „Übersicht 6×3“ mit Zoom, PDF/Drucken) |
+| [`vorlage-seite.html`](vorlage-seite.html) | **Vorlage** für Booklet-Seiten: Struktur, Schriftgrößen, Farben, Beispielseite grün + hell |
 | [`booklet-plan.md`](booklet-plan.md) | Plan für das Treffen am 07.11.: Abgleich, Konzeptweg V1–V3, 17 Seiten |
 | [`booklet-felix.md`](booklet-felix.md) | Arbeitsstand zu Felix' Seiten: umgesetzt, neu, offen |
 | [`booklet-design-bau/`](booklet-design-bau/) | „Design & Bau“ des Kollegen: Original (6 Seiten + Bilder) und `seiten/` = seine Seiten vom 07.11. abends, im Booklet eingebettet |

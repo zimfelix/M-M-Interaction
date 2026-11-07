@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booklet-Vorlage</title>
+<!--
+  Vorlage für Booklet-Seiten (Stand 07.11.2026), abgeleitet aus S. 03 „Zielgruppe“ und den Seiten des Kollegen (07–10).
+  Gilt als Maßstab: Größenanordnung, Struktur, Schriftgrößen, Bilder, dezente Leiste „Aus der Vorlesung“ unten.
+  Neue oder überarbeitete Seiten in booklet.html daran ausrichten. Klassen mit Präfix v- sind zum Übernehmen gedacht.
+
+  Seitenaufbau (794 × 1123 px = A4 bei 96 dpi):
+    Fortschrittsbalken   28 px von oben, 3 px hoch, Breite = Seite / 18
+    Kopf                 56 px von oben: „03 · ZIELGRUPPE“ links, „GROWBOX“ rechts
+      ↕ 28 px
+    Titel                Space Grotesk 52 px (Sonderfall mit viel Inhalt: 40 px), 2. Zeile in Akzentfarbe
+    Einleitung           höchstens 2–3 Zeilen
+    Inhalt               Karten, Bilder, Zeitstrahl, Kennzahlen
+      ↕ frei (margin-top: auto)
+    Aus der Vorlesung    eine Zeile, nur Begriffe, die auf der Seite sichtbar vorkommen, mit „·“ getrennt
+    Fuß                  Namen links, Seitenzahl rechts
+  Ränder: 56 px oben · 64 px seitlich · 40 px unten.
+  Aufzählungen in Labels, Unterzeilen und Leisten immer mit „ · “ trennen; in Sätzen bleibt das Komma.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+/* ── Farben (Tokens) ── */
+:root{
+  --v-bg:#F3F1E7; --v-ink:#1D3B2A; --v-muted:#5D6A60; --v-line:#C8CCBE; --v-card:#FBFAF5; --v-accent:#4A7339; --v-lead:#2F4A3A;
+  --v-dark-bg:#1D3B2A; --v-dark-card:#27493A; --v-dark-line:#3D5E4C;
+}
+.v-page.dark{--v-bg:#1D3B2A; --v-ink:#EEF2EA; --v-muted:#B4C2B6; --v-line:#3D5E4C; --v-card:#27493A; --v-accent:#7FA86C; --v-lead:#D5DED6}
+
+/* ── Typografie-Skala ── */
+/* Titel          Space Grotesk 700 · 52 px · Zeilenhöhe 1.02 · −0.02em
+   Kartentitel    Space Grotesk 700 · 19–22 px
+   Kennzahl       Space Grotesk 700 · 22–28 px · Akzent (Blickfang bis 72 px)
+   Einleitung     Inter 400 · 17 px · 1.6 (Sonderfall 15 px)
+   Fließtext      Inter 400 · 13 px · 1.5
+   Klein          Inter 400 · 12 px · gedämpft
+   Label          Inter 700 · 11 px · 0.1em · Versalien · gedämpft
+   Unterzeile     Inter 700 · 9.5 px · 0.08em · Versalien · Akzent
+   Kopf           Inter 600 · 13 px · 0.14em · Versalien · Akzent; GROWBOX Space Grotesk 700 · 14 px
+   Fuß            Inter 400 · 13 px · gedämpft; Seitenzahl Space Grotesk */
+
+body{margin:0;background:#D5DAD0;font-family:Inter,sans-serif;display:flex;flex-wrap:wrap;gap:24px;justify-content:center;padding:24px}
+.v-page{width:794px;height:1123px;box-sizing:border-box;position:relative;overflow:hidden;background:var(--v-bg);color:var(--v-ink);
+  padding:56px 64px 40px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 40px rgba(29,59,42,.18)}
+.v-prog{position:absolute;top:28px;left:64px;right:64px;height:3px;border-radius:2px;background:var(--v-line)}
+.v-prog i{display:block;height:3px;border-radius:2px;background:var(--v-accent)}
+.v-top{display:flex;justify-content:space-between;align-items:center}
+.v-top span:first-child{font:600 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--v-accent)}
+.v-top span:last-child{font:700 14px "Space Grotesk",sans-serif;letter-spacing:.04em}
+.v-title{margin:12px 0 0;font:700 52px/1.02 "Space Grotesk",sans-serif;letter-spacing:-.02em}   /* 16 px Gap + 12 px = 28 px */
+.v-title em{font-style:normal;color:var(--v-accent)}
+.v-lead{margin:0;max-width:640px;font-size:17px;line-height:1.6;color:var(--v-lead)}
+.v-lead b{color:var(--v-ink)}
+.v-label{font:700 11px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--v-muted)}
+.v-card{background:var(--v-card);border:1px solid var(--v-line);border-radius:14px;overflow:hidden}
+.v-page.dark .v-card{border-color:transparent}
+.v-card .v-in{padding:14px 20px;display:flex;flex-direction:column;gap:6px}
+.v-card img,.v-card .v-img{display:block;width:100%;height:124px;object-fit:cover;background:var(--v-line)}
+.v-card h3{margin:0;font:700 20px/1.2 "Space Grotesk",sans-serif}
+.v-text{font-size:13px;line-height:1.5}
+.v-small{font-size:12px;line-height:1.4;color:var(--v-muted)}
+.v-grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.v-grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.v-num{font:700 22px/1.1 "Space Grotesk",sans-serif;color:var(--v-accent)}
+.v-sub{font:700 9.5px/1.4 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--v-accent)}
+/* Zeitstrahl mit Nummernkreisen (nach flowscalesolutions.de, in Booklet-Farben) */
+.v-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.v-step{position:relative;display:flex;flex-direction:column;gap:5px}
+.v-step:not(:last-child)::before{content:"";position:absolute;top:16px;left:34px;right:-14px;height:1px;background:var(--v-line)}
+.v-step i{position:relative;width:32px;height:32px;box-sizing:border-box;border:1.5px solid var(--v-accent);border-radius:50%;background:var(--v-bg);
+  display:flex;align-items:center;justify-content:center;font:600 11.5px "Space Grotesk",sans-serif;font-style:normal}
+.v-step b{font:700 15px/1.15 "Space Grotesk",sans-serif}.v-step b::after{content:".";color:var(--v-accent)}
+/* Aus der Vorlesung: eine Zeile, unten über dem Fuß */
+.v-lecture{margin-top:auto;display:flex;gap:8px;align-items:baseline;white-space:nowrap;overflow:hidden;
+  border-top:1px solid var(--v-accent);border-bottom:1px solid var(--v-accent);padding:8px 0;font-size:11.5px}
+.v-lecture span:first-child{font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--v-accent);margin-right:6px}
+.v-lecture span+span:not(:nth-child(2))::before{content:"·";color:var(--v-accent);font-weight:700;margin-right:8px}
+.v-foot{display:flex;justify-content:space-between;font-size:13px;color:var(--v-muted)}
+.v-foot span:last-child{font-family:"Space Grotesk",sans-serif}
+</style>
+</head>
+<body>
+
+<!-- Beispiel grün -->
+<section class="v-page dark">
+  <div class="v-prog" aria-hidden="true"><i style="width:16.7%"></i></div>
+  <div class="v-top"><span>03 · Seitentitel</span><span>GROWBOX</span></div>
+  <h1 class="v-title">Überschrift in einer Zeile.<br><em>Zweite Zeile in Akzent.</em></h1>
+  <p class="v-lead">Einleitung in höchstens zwei bis drei Zeilen: worum es auf der Seite geht und was der Leser mitnimmt. <b>Schlüsselwörter</b> fett.</p>
+  <div class="v-grid2">
+    <div class="v-card"><div class="v-img"></div><div class="v-in"><span class="v-label">Label · Kontext</span><h3>Kartentitel</h3><p class="v-text" style="margin:0">Fließtext in 13 px. Kurz halten, lieber eine Karte mehr als ein langer Absatz.</p></div></div>
+    <div class="v-card"><div class="v-img"></div><div class="v-in"><span class="v-label">Label · Kontext</span><h3>Kartentitel</h3><p class="v-text" style="margin:0">Bilder oben in der Karte, 124 px hoch, Ecken 14 px.</p></div></div>
+  </div>
+  <div class="v-card"><div class="v-in" style="gap:8px"><span class="v-label">Vier Schritte · Anforderungen</span>
+    <div class="v-steps">
+      <div class="v-step"><i>01</i><b>Erster Punkt</b><span class="v-sub">Unterzeile · kurz</span></div>
+      <div class="v-step"><i>02</i><b>Zweiter Punkt</b><span class="v-sub">Unterzeile · kurz</span></div>
+      <div class="v-step"><i>03</i><b>Dritter Punkt</b><span class="v-sub">Unterzeile · kurz</span></div>
+      <div class="v-step"><i>04</i><b>Vierter Punkt</b><span class="v-sub">Unterzeile · kurz</span></div>
+    </div></div></div>
+  <div><span class="v-label">Kennzahlen</span>
+    <div class="v-grid4" style="margin-top:8px">
+      <div><div class="v-num">2–3 m</div><div class="v-small">Erklärung in einer Zeile</div></div>
+      <div><div class="v-num">1× / Woche</div><div class="v-small">Erklärung in einer Zeile</div></div>
+      <div><div class="v-num">44 pt</div><div class="v-small">Erklärung in einer Zeile</div></div>
+      <div><div class="v-num">4,5 : 1</div><div class="v-small">Erklärung in einer Zeile</div></div>
+    </div></div>
+  <div class="v-lecture"><span>Aus der Vorlesung</span><span>Begriff</span><span>Begriff</span><span>Begriff</span><span>Begriff</span></div>
+  <div class="v-foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>03</span></div>
+</section>
+
+<!-- Beispiel hell -->
+<section class="v-page">
+  <div class="v-prog" aria-hidden="true"><i style="width:22.2%"></i></div>
+  <div class="v-top"><span>04 · Seitentitel</span><span>GROWBOX</span></div>
+  <h1 class="v-title">Helle Seite.<br><em>Gleiche Struktur.</em></h1>
+  <p class="v-lead">Auf Creme sind Akzent und Linien dunkler, damit der Kontrast stimmt (Akzent #4A7339, 4,9 : 1).</p>
+  <div class="v-grid2">
+    <div class="v-card"><div class="v-img"></div><div class="v-in"><span class="v-label">Label</span><h3>Kartentitel</h3><p class="v-text" style="margin:0">Karte mit feiner Linie statt Fläche.</p></div></div>
+    <div class="v-card"><div class="v-img"></div><div class="v-in"><span class="v-label">Label</span><h3>Kartentitel</h3><p class="v-text" style="margin:0">Fließtext 13 px.</p></div></div>
+  </div>
+  <div class="v-lecture"><span>Aus der Vorlesung</span><span>Begriff</span><span>Begriff</span><span>Begriff</span></div>
+  <div class="v-foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>04</span></div>
+</section>
+
+</body>
+</html>
