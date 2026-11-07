@@ -307,9 +307,13 @@ h1 em{font-style:normal;color:var(--accent)}
 /* ── Kopf, Titel, Fuß wie die Seiten des Kollegen (07.11.) ── */
 .page:not(.cv):not(.ext){padding:56px 64px 40px}
 .page.tight{gap:3.2mm}
+/* Einheitliche Struktur: Kopf → 28 px → Titel … Inhalt … (frei) → Aus der Vorlesung → Fuß */
+.page:not(.cv) .folien{margin-top:auto}
+.page:not(.cv) .folien+.foot{margin-top:0}
 .page:not(.cv) .top{border-top:0;padding-top:0;font:600 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 .page:not(.cv) .top .brand{font:700 14px "Space Grotesk",sans-serif;letter-spacing:.04em;color:var(--ink)}
-.page:not(.cv) h1{font:700 52px/1.02 "Space Grotesk",sans-serif;letter-spacing:-.02em;margin:0}
+.page:not(.cv) h1{font:700 52px/1.02 "Space Grotesk",sans-serif;letter-spacing:-.02em;margin:9px 0 0}
+.page.tight:not(.cv) h1{margin-top:16px}
 .page:not(.cv) .foot{font:400 13px Inter,sans-serif;letter-spacing:0;color:var(--muted);padding-top:0}
 .page:not(.cv) .foot span:last-child{font-family:"Space Grotesk",sans-serif}
 .prog{position:absolute;top:28px;left:64px;right:64px;height:3px;border-radius:2px;background:var(--line)}
