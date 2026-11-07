@@ -1,0 +1,68 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inhalt Varianten</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f3f1e7;--green:#1d3b2a;--green-2:#27493a;--sage:#7fa86c;--st:#4a7339;--line:#c8ccbe;--muted:#5d6a60}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d4d9d1;font-family:Inter,sans-serif;color:var(--green);padding:24px;display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
+.wrap>h2{font:700 13px "JetBrains Mono";letter-spacing:.12em;margin-bottom:8px}
+.page{width:794px;height:1123px;background:var(--cream);padding:56px 64px 40px;display:flex;flex-direction:column;box-shadow:0 10px 40px rgba(29,59,42,.18)}
+.top{display:flex;justify-content:space-between;font:600 13px Inter;letter-spacing:.14em;color:var(--st)}.top b{font:700 14px "Space Grotesk";color:var(--green)}
+h1{font:700 40px/1.05 "Space Grotesk";letter-spacing:-.02em;margin:28px 0 8px}h1 em{font-style:normal;color:var(--st)}
+.lead{font-size:15px;color:#2F4A3A;margin-bottom:22px}
+.foot{margin-top:auto;display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding-top:12px}
+.k{font:600 9.6px "JetBrains Mono";letter-spacing:.14em;color:var(--st);text-transform:uppercase}
+.t{font:700 19px/1.2 "Space Grotesk"}
+.pl{list-style:none;font-size:12.5px;line-height:1.35;color:#2F4A3A}
+.pl li{display:flex;gap:8px;padding:2px 0}.pl i{font:700 11px "JetBrains Mono";font-style:normal;color:var(--st);min-width:18px}
+.img{border-radius:8px;overflow:hidden;background:var(--green)}.img img{width:100%;height:100%;object-fit:cover;display:block}
+.img.d{display:flex;gap:5px;justify-content:center;padding:7px}.img.d img{width:auto;border-radius:4px}
+.img.soon{background:transparent;outline:1.5px dashed var(--sage);outline-offset:-1.5px;display:grid;place-items:center}
+
+/* A · Zeitstrahl links mit Seitenbereich */
+.A .row{display:grid;grid-template-columns:70px 170px 1fr;gap:0 20px;position:relative;padding-bottom:18px}
+.A .row:before{content:"";position:absolute;left:58px;top:6px;bottom:-6px;border-left:2px solid var(--sage)}
+.A .row:last-child:before{display:none}
+.A .rg{font:700 13px "JetBrains Mono";color:var(--st);text-align:right;padding-right:22px;position:relative;padding-top:1px}
+.A .rg:after{content:"";position:absolute;right:-17px;top:2px;width:14px;height:14px;border-radius:50%;background:var(--cream);border:3px solid var(--st);box-sizing:border-box}
+.A .soon .rg:after{border-style:dashed;border-width:2px}
+.A .img{height:100px}.A .t{margin:4px 0 6px}
+
+/* B · Großes Bild, Strahl durch die Seiten */
+.B .row{display:grid;grid-template-columns:200px 1fr;gap:0 26px;padding:10px 0;border-top:1px solid var(--line)}
+.B .row:last-child{border-bottom:1px solid var(--line)}
+.B .img{height:96px;position:relative}
+.B .img .n{position:absolute;left:8px;top:8px;background:var(--cream);color:var(--green);font:700 10px "JetBrains Mono";padding:3px 7px;border-radius:20px;letter-spacing:.1em}
+.B .t{margin:2px 0 8px}
+.B .pl li{position:relative;padding:1px 0 1px 18px}
+.B .pl li:before{content:"";position:absolute;left:0;top:6.5px;width:8px;height:8px;border-radius:50%;background:var(--st)}
+.B .pl li:not(:last-child):after{content:"";position:absolute;left:3.5px;top:14.5px;bottom:-6.5px;border-left:1.5px solid var(--sage)}
+
+/* C · Strahl in der Mitte, Bilder abwechselnd */
+.C .list{position:relative;flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:4px 0 10px}
+.C .list:before{content:"";position:absolute;left:50%;top:10px;bottom:30px;border-left:2px solid var(--sage)}
+.C .row{display:grid;grid-template-columns:1fr 40px 1fr;align-items:center;position:relative}
+.C .dot{justify-self:center;width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--cream);display:grid;place-items:center;font:700 10px "JetBrains Mono";z-index:1}
+.C .soon .dot{background:var(--cream);color:var(--st);border:2px dashed var(--sage)}
+.C .img{height:112px}
+.C .tx{padding:0 4px}.C .row:nth-child(even) .tx{text-align:right}
+.C .row:nth-child(even) .pl li{justify-content:flex-end}
+.C .dot{order:2}.C .row:nth-child(odd) .img{order:1}.C .row:nth-child(odd) .tx{order:3}.C .row:nth-child(even) .img{order:3}.C .row:nth-child(even) .tx{order:1}
+.C .t{margin:2px 0 4px}
+</style></head><body>
+<script>
+const K=[
+ {k:"Einstieg",t:"Zielgruppe",r:"03",img:"bilder/design-bau/skizze.jpg",p:[["03","Für jeden gemacht."]]},
+ {k:"Konzept",t:"Konzeptweg Box",r:"04–06",img:"bilder/design-bau/skizze-v3-ohne-text.svg",p:[["04","Vom Aquarium zur Mikrowelle."],["05","Wie eine Mikrowelle. Nur ohne Knopfsalat."],["06","Ein Taster. Eine Bedeutung."]]},
+ {k:"Bau",t:"CAD &amp; Bau",r:"07–10",img:"bilder/design-bau/prototyp-schraeg.jpg",p:[["07","Vom Papier ins CAD."],["08","Vom Rohdruck zum Prototyp."],["09","Jedes Detail hat einen Zweck."],["10","Klein für die Küche. Groß für mehr Ernte."]]},
+ {k:"Technik",t:"Technik",r:"11",img:"bilder/design-bau/cad-technikraum.jpg",p:[["11","Ein Zustand. Zwei Ansichten."]]},
+ {k:"Bedienfeld",t:"Bedienfeld",r:"12–18",d:1,p:[["12","Drei Ideen. Eine gewählt."],["13","Vom Entwurf zum Bedienfeld."],["14","Warum Blau statt Schwarz?"],["15","Ein Blick. Eine Aussage."],["16","Eine Warnung. Ein Knopf."],["17","Die Hürde passt zum Risiko."],["18","Bewusst weggelassen."]]},
+ {k:"Folgt",t:"App",r:"19–24",soon:1,p:[["··","Fünf bis sechs Seiten, folgen."]]}];
+const img=c=>c.soon?`<div class="img soon"><span class="k">folgt</span></div>`:c.d?`<div class="img d"><img src="bilder/booklet/01-gut.jpg"><img src="bilder/booklet/03-warnung.jpg"></div>`:`<div class="img"><img src="${c.img}"></div>`;
+const pl=(c,n)=>`<ul class="pl">${(n?c.p.slice(0,n):c.p).map(([a,b])=>`<li><i>${a}</i>${b}</li>`).join("")}${n&&c.p.length>n?`<li><i>…</i>bis ${c.p.at(-1)[0]}</li>`:""}</ul>`;
+const page=(cls,name,body)=>`<div class="wrap"><h2>${name}</h2><section class="page ${cls}"><div class="top"><span>02 · INHALT</span><b>GROWBOX</b></div><h1>Was im <em>Booklet steckt.</em></h1><p class="lead">Sechs Kapitel · das letzte, die App, folgt.</p>${body}<div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>02</span></div></section></div>`;
+const A=K.map(c=>`<div class="row ${c.soon?"soon":""}"><div class="rg">${c.r}</div>${img(c)}<div><div class="k">${c.k}</div><div class="t">${c.t}</div>${pl(c,c.d?4:0)}</div></div>`).join("");
+const B=K.map((c,i)=>`<div class="row">${img(c).replace('</div>',`${c.soon?"":""}</div>`).replace(/^<div class="img([^"]*)">/,`<div class="img$1"><span class="n">${c.r}</span>`)}<div><div class="t">${c.t}</div>${pl(c)}</div></div>`).join("");
+const C=K.map(c=>`<div class="row ${c.soon?"soon":""}">${img(c)}<span class="dot">${c.r.split("–")[0]}</span><div class="tx"><div class="k">S. ${c.r}</div><div class="t">${c.t}</div>${pl(c,c.d?3:2)}</div></div>`).join("");
+document.body.innerHTML=page("A","A · ZEITSTRAHL LINKS",A)+page("B","B · GROSSE BILDER, STRAHL DURCH DIE SEITEN",B)+page("C","C · STRAHL IN DER MITTE",`<div class="list">${C}</div>`);
+</script></body></html>
