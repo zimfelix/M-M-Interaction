@@ -407,18 +407,24 @@ h1 em{font-style:normal;color:var(--accent)}
 .page.vp .legend li>span:last-child{font-size:12.5px;line-height:1.45}
 .page.vp .vs3 figcaption,.page.vp .cap,.page.vp .v-small,.page.vp .tab .nb{font-size:11.5px;line-height:1.4}
 .page.vp .kw figcaption b,.page.vp .legend strong,.page.vp .v-card h3{font:700 19px/1.2 "Space Grotesk",sans-serif}
-/* S. 15: Startbild mit Legende, darunter ein Alltagsfall als Bildfolge; keine Leiste (zeigt Bedienung, kein Konzept) */
-.p15 .start{grid-template-columns:62mm 1fr;gap:28px}
-.p15 .legend li{padding:7px 0}
-.p15 .legend li:first-child{padding-top:0}
-.p15 .legend strong{margin-bottom:2px}
-.f15l{margin-bottom:8px}
-.f15{display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr;align-items:start}
-.f15 figure{margin:0;display:flex;flex-direction:column;gap:6px;align-items:center}
-.f15 .disp{width:auto;height:250px;border-width:3px;border-radius:12px}
-.f15 figcaption{font-size:11.5px;line-height:1.4;color:var(--muted);text-align:center;max-width:180px}
-.f15 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
-.f15 .ar{color:var(--accent);font-weight:800;font-size:20px;text-align:center;margin-top:115px}
+/* S. 15: Startbild mittig, Erklärungen links/rechts mit geschwungenen Linien (keine Nummern, anders als S. 13); Alltag als grünes Band mit Bogenpfeilen; keine Leiste */
+.call15{position:relative;height:372px}
+.c15img{position:absolute;left:50%;top:0;height:372px;transform:translateX(-50%);border-radius:14px}
+.c15svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.c15svg path{fill:none;stroke:var(--sage);stroke-width:1.6}
+.c15svg circle{fill:var(--sage);stroke:#F3F1E7;stroke-width:2}
+.c15{position:absolute;width:190px;font-size:12.5px;line-height:1.45;color:#2F4A3A}
+.c15.l{left:0;text-align:right}.c15.r{right:0}
+.c15 strong{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
+.f15{background:var(--green);border-radius:14px;padding:16px 22px 18px;display:flex;flex-direction:column;gap:10px}
+.f15 .v-label{color:var(--sage)}
+.f15row{display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;align-items:start}
+.f15 figure{margin:0;display:flex;flex-direction:column;gap:8px;align-items:center}
+.f15 .disp{width:auto;height:220px;border-width:3px;border-radius:12px}
+.f15 figcaption{font-size:11.5px;line-height:1.4;color:#B4C2B6;text-align:center;max-width:170px}
+.f15 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA;margin-bottom:2px}
+.f15 .arc{width:60px;margin-top:70px;overflow:visible}
+.f15 .arc path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 /* S. 12–13: Skizzen und Displays im Hochformat, gewählte Version rechts */
 .page.p12 h1,.page.p13 h1{font-size:40px}
 .ideas,.steps13{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;position:relative}
@@ -800,31 +806,23 @@ body.grid .bar .nav{visibility:hidden}
   <h1>Ein Blick.<br><em>Eine Aussage.</em></h1>
   <p class="v-lead">So sieht Ingrid das Bedienfeld im Alltag. Aus der Ferne sieht sie, <b>ob</b> etwas zu tun ist, aus der Nähe, <b>was</b>. Muss sie handeln, gibt es <b>genau einen Knopf.</b></p>
 
-  <div class="start">
-    <div class="shot">
-      <img src="../01-konzept/bedienfeld/bilder/vorschau-aktuell.png" alt="Startbild Bedienfeld v7">
-      <span class="pin" style="left:4%;top:9%">1</span>
-      <span class="pin" style="left:4%;top:33%">2</span>
-      <span class="pin" style="left:4%;top:61%">3</span>
-      <span class="pin" style="left:4%;top:70.5%">4</span>
-      <span class="pin" style="left:4%;top:87%">5</span>
-    </div>
-    <ol class="legend">
-      <li><span class="k">1</span><span><strong>Warnpunkt</strong>Leuchtet orange, sobald etwas zu tun ist. Warum Orange, steht bei „Warum Blau statt Schwarz?“.</span></li>
-      <li><span class="k">2</span><span><strong>Ring</strong>Tage bis zur Ernte. Der Pilz im Ring wächst in drei Stufen mit.</span></li>
-      <li><span class="k">3</span><span><strong>Status</strong>Form, Farbe und Text sagen dasselbe. Auch wer Farben schlecht unterscheidet, liest ihn sicher.</span></li>
-      <li><span class="k">4</span><span><strong>Drei Werte</strong>Immer Zahl, Balken und Name. Der Tank zeigt seinen Füllstand.</span></li>
-      <li><span class="k">5</span><span><strong>Drei Kacheln</strong>Große Felder, mit dem Finger leicht zu treffen. Ein Rahmen heißt: drückbar.</span></li>
-    </ol>
+  <div class="call15">
+    <img class="c15img" src="../01-konzept/bedienfeld/bilder/vorschau-aktuell.png" alt="Startbild Bedienfeld v7">
+    <svg class="c15svg" aria-hidden="true"></svg>
+    <div class="c15 l" style="top:0" data-to="50,9"><strong>Warnpunkt</strong>Leuchtet orange, sobald etwas zu tun ist. Warum Orange, steht bei „Warum Blau statt Schwarz?“.</div>
+    <div class="c15 r" style="top:62px" data-to="80,30"><strong>Ring</strong>Tage bis zur Ernte. Der Pilz im Ring wächst in drei Stufen mit.</div>
+    <div class="c15 l" style="top:176px" data-to="29,61"><strong>Status</strong>Form, Farbe und Text sagen dasselbe. Auch wer Farben schlecht unterscheidet, liest ihn sicher.</div>
+    <div class="c15 r" style="top:214px" data-to="76,70.5"><strong>Drei Werte</strong>Immer Zahl, Balken und Name. Der Tank zeigt seinen Füllstand.</div>
+    <div class="c15 l" style="top:292px" data-to="24,87"><strong>Drei Kacheln</strong>Große Felder, leicht zu treffen. Ein Rahmen heißt: drückbar.</div>
   </div>
 
-  <div>
-    <div class="v-label f15l">Alltag · Tank leer</div>
-    <div class="f15">
+  <div class="f15">
+    <div class="v-label">Alltag · Tank leer</div>
+    <div class="f15row">
       <figure><img class="disp" src="bilder/booklet/03-warnung.jpg" alt="Warnung Wasser leer"><figcaption><b>Meldung</b>Was fehlt, steht da. Darunter genau ein Knopf: „Aufgefüllt“.</figcaption></figure>
-      <span class="ar">→</span>
+      <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
       <figure><img class="disp" src="bilder/booklet/04-aufgefuellt.jpg" alt="Tank voll"><figcaption><b>Rückmeldung</b>Sofort: „Tank voll · Nebler läuft wieder“.</figcaption></figure>
-      <span class="ar">→</span>
+      <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
       <figure><img class="disp" src="bilder/booklet/01-gut.jpg" alt="Alles gut"><figcaption><b>Alles gut</b>Grüner Haken. Mehr muss Ingrid nicht tun.</figcaption></figure>
     </div>
   </div>
@@ -978,6 +976,15 @@ body.grid .bar .nav{visibility:hidden}
   addEventListener("resize",()=>{show();if(z>=0)openZoom(z)});
   show();
 })();
+
+// S. 15: geschwungene Linien von den Erklärungen zum Startbild (Koordinaten ohne Skalierung, per offset*)
+function lines15(){document.querySelectorAll('.call15').forEach(c=>{const img=c.querySelector('.c15img'),svg=c.querySelector('.c15svg');let h='';
+  c.querySelectorAll('.c15').forEach(l=>{const [px,py]=l.dataset.to.split(',').map(Number);
+    const x2=img.offsetLeft-img.offsetWidth/2+img.offsetWidth*px/100,y2=img.offsetHeight*py/100;
+    const left=l.classList.contains('l'),x1=left?l.offsetLeft+l.offsetWidth+8:l.offsetLeft-8,y1=l.offsetTop+12;
+    const m=(x1+x2)/2;h+=`<path d="M${x1} ${y1} C${m} ${y1} ${m} ${y2} ${x2} ${y2}"/><circle cx="${x2}" cy="${y2}" r="4"/>`});
+  svg.innerHTML=h})}
+addEventListener('load',lines15);
 </script>
 </body>
 </html>
