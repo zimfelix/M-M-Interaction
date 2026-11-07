@@ -320,6 +320,26 @@ h1 em{font-style:normal;color:var(--accent)}
 .rq .rw{font-size:8.6pt;color:var(--muted);line-height:1.35}
 .rq .rf{margin-top:auto;padding-top:1.6mm;border-top:1px solid var(--line);display:flex;justify-content:space-between;font:500 7pt "JetBrains Mono";color:var(--muted)}
 .rq .rf i{font-style:normal;font-weight:700;color:var(--accent)}
+/* S. 04 neu: Anforderung → Lösung mit Bild */
+.anf2{gap:3.6mm}
+.dd4{display:grid;grid-template-columns:auto repeat(4,1fr);align-items:center;gap:1.5mm;font:600 7pt "JetBrains Mono";letter-spacing:.12em;text-transform:uppercase}
+.dd4 span{padding:1.8mm 2.5mm;border:1px solid var(--line);border-radius:5mm;color:var(--muted);text-align:center}
+.dd4 .lab{border:0;padding:0 2mm 0 0;color:var(--accent);text-align:left}
+.dd4 span.on{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.ctx2{display:grid;grid-template-columns:1.55fr 1fr;gap:6mm}
+.ctx2 .row{display:flex;gap:5mm;flex-wrap:wrap}
+.ctx2 b{display:block;font-size:17pt;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--accent)}
+.ctx2 .row span{display:block;font-size:8.2pt;color:var(--muted);margin-top:.8mm;line-height:1.3;max-width:34mm}
+.req6b{display:grid;grid-template-columns:repeat(3,1fr);gap:3.5mm}
+.rl{background:var(--card);border:1px solid var(--line);border-radius:3mm;overflow:hidden;display:flex;flex-direction:column}
+.rl .im{height:23mm;background:#1f2a23;display:flex;justify-content:center}
+.rl .im img{height:100%;width:100%;object-fit:cover}.rl .im img.ph{width:auto;object-fit:contain}
+.rl .tx{padding:2.6mm 4mm 2.8mm;display:flex;flex-direction:column;gap:1mm;flex:1}
+.rl .rn{font:700 7.6pt "JetBrains Mono";color:var(--accent)}.rl b{font-size:11.5pt;line-height:1.2}
+.rl .rw{font-size:8.2pt;color:var(--muted);line-height:1.3}
+.rl .lo{font-size:8.6pt;line-height:1.35;margin-top:.6mm}.rl .lo em{font-style:normal;font-weight:800;color:var(--accent)}
+.rl .rf{margin-top:auto;padding-top:1.5mm;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:2mm;font:500 6.8pt "JetBrains Mono";color:var(--muted)}
+.rl .rf i{font-style:normal;font-weight:700;color:var(--accent);text-align:right}
 
 /* ── Seiten des Kollegen, eingebettet ── */
 .page.ext{padding:0;background:#fff}
@@ -433,11 +453,39 @@ body.grid .bar .nav{visibility:hidden}
   <div class="foot" style="margin-top:0"><span>EINSTIEG · PILZ GROWBOX</span><span>04</span></div>
 </section>
 
+<!-- ═══ S. 04 NEU (Entwurf 07.11.): Anforderung → Lösung; alte S. 04 bleibt zum Vergleich davor ═══ -->
+<section class="page anf2">
+  <div class="top"><span>04 NEU / ANFORDERUNGEN</span><span class="brand">GROWBOX</span></div>
+  <h1>Was die Box<br><em>können muss.</em></h1>
+  <p class="lead">Bevor wir gezeichnet haben, haben wir aus Zielgruppe und Nutzungskontext sechs Anforderungen abgeleitet. An ihnen messen wir jede Entscheidung im Booklet.</p>
+  <div class="dd4"><span class="lab">Double Diamond</span><span>Entdecken</span><span class="on">Definieren</span><span>Entwickeln</span><span>Liefern</span></div>
+  <div class="ctx2">
+    <div><div class="sl"><span>Nutzungskontext</span><span>wo und wie oft</span></div>
+      <div class="row"><div><b>2–3 m</b><span>Blick im Vorbeigehen</span></div><div><b>1× / Woche</b><span>ein Handgriff, dazwischen vergisst man</span></div><div><b>Küche</b><span>Wasser neben Strom, nasse Hände</span></div></div></div>
+    <div><div class="sl"><span>Nutzermerkmale</span><span>wer</span></div>
+      <div class="row"><div><b>9–72 J.</b><span>vom Kind bis Ingrid: Lesebrille, zitternde Hände</span></div></div></div>
+  </div>
+  <div>
+    <div class="sl"><span>Anforderung → Lösung</span><span>A1–A6</span></div>
+    <div class="req6b">
+      <div class="rl"><div class="im"><img class="ph" src="bilder/booklet/01-gut.jpg" alt="Startbild: grüner Kreis mit Haken, Alles gut"></div><div class="tx"><span class="rn">A1</span><b>Auf einen Blick lesbar</b><span class="rw">weil man aus 2–3 m hinschaut</span><span class="lo"><em>→</em> Ein Zustand aus Form, Farbe und einem Satz</span><span class="rf">Präattentive Wahrnehmung<i>Startbild</i></span></div></div>
+      <div class="rl"><div class="im"><img src="bilder/design-bau/sensor-schalter.jpg" alt="Sensorleiste und Schiebeschalter unter dem Display"></div><div class="tx"><span class="rn">A2</span><b>Ohne App, mit einem Griff</b><span class="rw">weil man nur 1× pro Woche ran muss</span><span class="lo"><em>→</em> Licht per Schalter, alles andere sichtbar am Display; die App ist Zusatz</span><span class="rf">Vergessen<i>Bedienteile</i></span></div></div>
+      <div class="rl"><div class="im"><img class="ph" src="bilder/booklet/11-kontrast.jpg" alt="Bedienfeld in der Darstellung Hoher Kontrast"></div><div class="tx"><span class="rn">A3</span><b>Groß und kontrastreich</b><span class="rw">weil Lesebrille und zitternde Hände</span><span class="lo"><em>→</em> Ziele ≥ 44 pt, Kontrast ≥ 4,5 : 1, Option „Hoher Kontrast“</span><span class="rf">Fitts' Law · Sichtabstand<i>Farbe</i></span></div></div>
+      <div class="rl"><div class="im"><img class="ph" src="bilder/booklet/09-halten.jpg" alt="Neu ansetzen: 2 Sekunden halten"></div><div class="tx"><span class="rn">A4</span><b>Fehler verzeihen</b><span class="rw">weil man zwischendurch vergisst</span><span class="lo"><em>→</em> Neu ansetzen nur mit 2 s Halten, nach der Ernte nur „Sicher?“</span><span class="rf">Murphy's Law<i>Fehler vermeiden</i></span></div></div>
+      <div class="rl"><div class="im"><img src="bilder/design-bau/wassertank.jpg" alt="Wassertank im Technikraum, oben mit Schieber"></div><div class="tx"><span class="rn">A5</span><b>Wasser weg vom Strom</b><span class="rw">weil beides in der Küche zusammenkommt</span><span class="lo"><em>→</em> Eigenes Fach für den Tank, Elektronik getrennt davon</span><span class="rf">Murphy's Law<i>Konzeptweg</i></span></div></div>
+      <div class="rl"><div class="im"><img src="bilder/booklet/zielgruppe-app.jpg" alt="Power-User mit App vor der Box"></div><div class="tx"><span class="rn">A6</span><b>Box und App zeigen dasselbe</b><span class="rw">weil der Power-User beides nutzt</span><span class="lo"><em>→</em> Ein Zustand im Raspberry Pi, Box und App sind nur Ansichten</span><span class="rf">MVC<i>Technik</i></span></div></div>
+    </div>
+  </div>
+  <p class="cap">Noch nicht durch Interviews erhoben. Rechts unten auf jeder Karte: die Seite mit der Lösung.</p>
+  <div class="folien" style="margin-top:auto"><span class="label">Aus der Vorlesung</span><span>Double Diamond</span><span>Nutzungskontext</span><span>Nutzermerkmale</span><span>Anforderungen</span><span>Präattentive Wahrnehmung</span><span>Fitts' Law</span><span>Murphy's Law</span><span>MVC</span></div>
+  <div class="foot" style="margin-top:0"><span>EINSTIEG · PILZ GROWBOX</span><span>04</span></div>
+</section>
+
 <!-- ═══ Konzeptweg Box ═══ -->
 <section class="page dark">
   <div class="top"><span>05 / KONZEPTWEG BOX</span><span class="brand">GROWBOX</span></div>
   <h1>Vom Aquarium<br><em>zur Mikrowelle.</em></h1>
-  <p class="lead">Die Box sollte nicht nach Labor aussehen, sondern nach Küche. Deshalb haben wir uns die Front einer Mikrowelle geliehen: links das Fenster, rechts das Bedienfeld, dahinter verschwindet die Technik. Bis dahin waren es drei Schritte.</p>
+  <p class="lead">Die Box sollte nicht nach Labor aussehen, sondern nach Küche. Deshalb haben wir uns die Front einer Mikrowelle geliehen: links das Fenster, rechts das Bedienfeld, dahinter verschwindet die Technik. Bis dahin waren es drei Schritte; im CAD wurde die Box danach noch kompakter (siehe „Vom Papier ins CAD“).</p>
   <div class="vs3 kw">
     <figure><span class="tag">V1 · 26.10. · Idee</span><div class="card light"><svg viewBox="0 0 220 140" class="skv1" aria-label="V1 schematisch: Plexi-Kasten und separates Bedienteil mit Kabel">
   <g fill="none" stroke="#1d3b2a" stroke-width="2" stroke-linejoin="round">
@@ -454,12 +502,12 @@ body.grid .bar .nav{visibility:hidden}
     <figure><span class="tag">V3 · bis 02.11. · final</span><div class="card light"><img src="../02-box-bau/bilder/skizze-box-v3.svg" alt="Skizze V3: 33,5 × 25 × 20 cm mit Tank und Sichtfenster"></div><figcaption><b>Mikrowelle groß</b>33,5 × 25 × 20 cm, Gestell aus Profilen, LED im Rahmen, Tank mit Sichtfenster.</figcaption></figure>
   </div>
   <table class="tab">
-    <thead><tr><th>Entscheidung</th><th>Grund (Folie)</th><th>Nachteil, den wir in Kauf nehmen</th></tr></thead>
+    <thead><tr><th>Entscheidung</th><th>Grund (Vorlesung)</th><th>Nachteil, den wir in Kauf nehmen</th></tr></thead>
     <tbody>
-      <tr><td>V1 → V2: ein Gerät statt zwei</td><td>Das Display hat einen festen Platz, kein Kabel liegt dazwischen. Die Form einer Mikrowelle kennt jeder (mentales Modell 56, Mikrowelle 8).</td><td>Der Technikraum kostet Breite.</td></tr>
-      <tr><td>iPhone statt 5″-Touchdisplay</td><td>Scharfes Display, die Web-Oberfläche lässt sich am Laptop testen und direkt zeigen (Prototypen 119–125).</td><td>Das iPhone ist nur Platzhalter für ein festes Display.</td></tr>
-      <tr><td>V2 → V3: größer, Tank mit Sichtfenster</td><td>Wasser unten, Elektronik oben, dazwischen eine Trennwand (Murphy 61). Die Linie im Fenster entspricht dem Balken auf dem Display (Mapping 77–79).</td><td>Mehr Stellfläche in der Küche.</td></tr>
-      <tr><td>Kamera fest, bewusst nicht beweglich</td><td>Nichts zu verstellen, immer derselbe Blick, die Bilder in der App bleiben vergleichbar (Konsistenz 80). Keine Mechanik, die ausfällt (Murphy 61).</td><td>Nur ein Blickwinkel, verdeckte Pilze sieht man nicht.</td></tr>
+      <tr><td>V1 → V2: ein Gerät statt zwei</td><td>Das Display hat einen festen Platz, kein Kabel liegt dazwischen. Die Form einer Mikrowelle kennt jeder (mentales Modell).</td><td>Der Technikraum kostet Breite.</td></tr>
+      <tr><td>iPhone statt 5″-Touchdisplay</td><td>Scharfes Display, die Web-Oberfläche lässt sich am Laptop testen und direkt zeigen (Prototyping).</td><td>Das iPhone ist nur Platzhalter für ein festes Display.</td></tr>
+      <tr><td>V2 → V3: größer, Tank mit Sichtfenster</td><td>Wasser unten, Elektronik oben, dazwischen eine Trennwand (Murphy's Law). Die Linie im Fenster entspricht dem Balken auf dem Display (Mapping).</td><td>Mehr Stellfläche in der Küche.</td></tr>
+      <tr><td>Kamera fest, bewusst nicht beweglich</td><td>Nichts zu verstellen, immer derselbe Blick, die Bilder in der App bleiben vergleichbar (Konsistenz). Keine Mechanik, die ausfällt (Murphy's Law).</td><td>Nur ein Blickwinkel, verdeckte Pilze sieht man nicht.</td></tr>
       <tr><td>LED im Rahmen statt im Deckel</td><td>Der Deckel bleibt kabelfrei und abnehmbar. Alle Teile ≤ 250 mm passen aufs Druckbett.</td><td>Ein LED-Kanal in vier Profilen.</td></tr>
     </tbody>
   </table>
@@ -470,7 +518,7 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page">
   <div class="top"><span>06 / DIE BOX</span><span class="brand">GROWBOX</span></div>
   <h1>Wie eine Mikrowelle.<br><em>Nur ohne Knopfsalat.</em></h1>
-  <p class="lead">Folie 8 zeigt eine Mikrowelle, die niemand bedienen kann. V3 hat dieselbe Grundform, aber auf 33,5 × 25 × 20 cm nur drei Dinge zum Bedienen: <b>ein Display, einen Taster, eine Einfüllöffnung.</b></p>
+  <p class="lead">Die Vorlesung beginnt mit einer Mikrowelle, die niemand bedienen kann. Konzept V3 hat dieselbe Grundform, aber auf 33,5 × 25 × 20 cm nur drei Dinge zum Bedienen: <b>ein Display, einen Taster, eine Einfüllöffnung.</b></p>
 
   <figure class="card sk">
     <img src="../02-box-bau/bilder/skizze-box-v3.svg" alt="Skizze v3 der Box: links Pilzkammer, rechts Technikraum mit Display, Taster und Tank-Sichtfenster">
@@ -483,13 +531,13 @@ body.grid .bar .nav{visibility:hidden}
 
   <div class="sk2">
     <ol class="legend">
-      <li><span class="k">1</span><span><strong>Pilzkammer</strong>Plexiglas, Tür links angeschlagen. Man sieht die Pilze, ohne zu öffnen. <span class="f">Mikrowelle · 8</span></span></li>
-      <li><span class="k">2</span><span><strong>Display</strong>Ein fest eingebautes iPhone zeigt den Zustand auf einen Blick. <span class="f">Systemstatus sichtbar · 130</span></span></li>
-      <li><span class="k">3</span><span><strong>Taster</strong>Beige, Ø 3 cm, Licht-Symbol. Schaltet nur das Licht. <span class="f">Affordance · 72–74</span></span></li>
+      <li><span class="k">1</span><span><strong>Pilzkammer</strong>Plexiglas, Tür links angeschlagen. Man sieht die Pilze, ohne zu öffnen. <span class="f">Mikrowelle</span></span></li>
+      <li><span class="k">2</span><span><strong>Display</strong>Ein fest eingebautes iPhone zeigt den Zustand auf einen Blick. <span class="f">Sichtbarkeit des Systemstatus</span></span></li>
+      <li><span class="k">3</span><span><strong>Taster</strong>Beige, Ø 3 cm, Licht-Symbol. Schaltet nur das Licht. <span class="f">Affordance</span></span></li>
     </ol>
     <ol class="legend" start="4">
-      <li><span class="k">4</span><span><strong>Tank-Sichtfenster</strong>Die Linie zeigt dasselbe wie der Balken „Wassertank“ auf dem Display. <span class="f">Mapping · 77–79</span></span></li>
-      <li><span class="k">5</span><span><strong>Einfüllöffnung</strong>Oben hinten, Ø 4 cm: eingießen wie bei einer Kaffeemaschine, weit weg vom Display. Wasser unten, Elektronik oben. <span class="f">Murphy · 61</span></span></li>
+      <li><span class="k">4</span><span><strong>Tank-Sichtfenster</strong>Die Linie zeigt dasselbe wie der Balken „Wassertank“ auf dem Display. <span class="f">Mapping</span></span></li>
+      <li><span class="k">5</span><span><strong>Einfüllöffnung</strong>Oben hinten, Ø 4 cm: eingießen wie bei einer Kaffeemaschine, weit weg vom Display. Wasser unten, Elektronik oben. <span class="f">Murphy's Law</span></span></li>
     </ol>
   </div>
 
@@ -498,7 +546,7 @@ body.grid .bar .nav{visibility:hidden}
     <span class="n">Taster</span><i>→</i>
     <span class="n hub">Raspberry Pi · ein Zustand</span><i>↔</i>
     <span class="n">Display: iPhone 13 mini</span><span class="n">App</span><span class="n">LED</span>
-    <span class="f">MVC · 99–100</span>
+    <span class="f">MVC</span>
   </div>
 
   <div class="foot"><span>KONZEPT · PILZ GROWBOX</span><span>06</span></div>
@@ -516,17 +564,18 @@ body.grid .bar .nav{visibility:hidden}
   </div>
 
   <table class="tab">
-    <tr><th>Entscheidung</th><th>Grund (Folie)</th><th>Nachteil, den wir in Kauf nehmen</th></tr>
-    <tr><td>Taster schaltet nur das Licht</td><td>Druckpunkt spürt der Finger (Homunculus 33), großes Ziel trifft die zitternde Hand (Speed-Accuracy 49), Knopf zeigt „drück mich“ (Affordance 72–74)</td><td>Alles andere läuft über das Display.</td></tr>
-    <tr><td>Taster weckt nicht auch das Display</td><td>Eine Handlung mit zwei Wirkungen würde beim Licht-Ausschalten das Display mit ausschalten (Modusfehler 60).</td><td>Kein Knopf, der „alles“ macht.</td></tr>
-    <tr><td>Taster und Griffe beige statt orange</td><td>Orange heißt auf dem Display „Warnung“. Eine Farbe, eine Bedeutung (Konsistenz 80).</td><td>Ein oranger Taster wäre auffälliger.</td></tr>
+    <tr><th>Entscheidung</th><th>Grund (Vorlesung)</th><th>Nachteil, den wir in Kauf nehmen</th></tr>
+    <tr><td>Taster schaltet nur das Licht</td><td>Druckpunkt spürt der Finger (Homunculus), großes Ziel trifft die zitternde Hand (Speed-Accuracy-Tradeoff), Knopf zeigt „drück mich“ (Affordance)</td><td>Alles andere läuft über das Display.</td></tr>
+    <tr><td>Taster weckt nicht auch das Display</td><td>Eine Handlung mit zwei Wirkungen würde beim Licht-Ausschalten das Display mit ausschalten (Modusfehler).</td><td>Kein Knopf, der „alles“ macht.</td></tr>
+    <tr><td>Taster und Griffe beige statt orange</td><td>Orange heißt auf dem Display „Warnung“. Eine Farbe, eine Bedeutung (Konsistenz).</td><td>Ein oranger Taster wäre auffälliger.</td></tr>
     <tr><td>Kein Warnlicht an der Box</td><td>Die Warnung zeigt der orange Punkt auf dem Display, kein zweiter Kanal mit eigener Logik.</td><td>Fällt das Display aus, gibt es keine Warnung.</td></tr>
-    <tr><td>Tank vorn mit Sichtfenster (v2)</td><td>Füllstandslinie entspricht dem Balken auf dem Display (Mapping 77–79).</td><td>Der Technikraum braucht eine Trennwand.</td></tr>
+    <tr><td>Tank vorn mit Sichtfenster</td><td>Füllstandslinie entspricht dem Balken auf dem Display (Mapping).</td><td>Der Technikraum braucht eine Trennwand.</td></tr>
   </table>
+  <p class="cap"><b>Im Bau</b> wurde aus dem Taster ein Schiebeschalter fürs Licht, das Display weckt eine Sensorleiste, und der Tank sitzt oben (siehe „Alle Features“). Die Regel blieb: ein Bedienteil, eine Bedeutung.</p>
 
   <div class="folien">
     <span class="label">Aus der Vorlesung</span>
-    <span><b>33</b>Homunculus</span><span><b>49</b>Speed-Accuracy</span><span><b>60</b>Modusfehler</span><span><b>72–74</b>Affordance</span><span><b>77–79</b>Mapping</span><span><b>80</b>Konsistenz</span>
+    <span>Homunculus</span><span>Speed-Accuracy-Tradeoff</span><span>Modusfehler</span><span>Affordance</span><span>Mapping</span><span>Konsistenz</span>
   </div>
   <div class="foot"><span>KONZEPT · PILZ GROWBOX</span><span>07</span></div>
 </section>

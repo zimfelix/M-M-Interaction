@@ -7,7 +7,7 @@
 ## ✅ Final
 
 - **Bewertet** (Folie 5): Theoriebezug · HCI-Grundprinzipien · beschriebene Technik; Booklet 50 %, Prototyp 50 %
-- **Booklet:** ein gemeinsames Booklet im Grünton, [`booklet.html`](booklet.html): **19 Seiten**: 01 Cover · 02 Inhalt · 03–04 Einstieg · 05–07 Konzept (Box) · 08–11 CAD & Bau (Kollege, eingebettet) · 12 Technik · 13–19 Bedienfeld (Konzept 13–15 · Bedienung 16–18 · Weggelassen & offen 19)
+- **Booklet:** ein gemeinsames Booklet im Grünton, [`booklet.html`](booklet.html): **19 Seiten**: 01 Cover · 02 Inhalt · 03–04 Einstieg · 05–07 Konzept (Box) · 08–11 CAD & Bau (Kollege, eingebettet) · 12 Technik (Kollege) · 13–19 Bedienfeld (Konzept 13–15 · Bedienung 16–18 · Weggelassen & offen 19)
 - **Teil Felix:** Box + Bedienfeld an Ingrid, Schwerpunkt **Fortschritt** und **Entscheidungen mit Folienbegriffen**
 - **Grundlage:** Bedienfeld **v7** (`bedienfeld-v7/`), v6 als Vorher-Stand
 - **Feedback Präsentation:** oranger Punkt ✓ · Fortschritt ✓ · Folienbegriffe ✓ · Rückfrage „Blau statt Schwarz?“ → Schwarz = Standby, Blau = läuft
@@ -21,7 +21,7 @@
                                                                        v7 eingefroren, 3D-Modell
 ```
 
-Booklet-Stand 07.11.: 19 Seiten ✅ (Übersicht 6×3 mit Zoom) · Plan für 17 Seiten in [`booklet-plan.md`](booklet-plan.md)
+Booklet-Stand 07.11.: 19 Seiten ✅ (Übersicht 6×3 mit Zoom) · S. 04 neu als Entwurf „Anforderung → Lösung“ hinter der alten (vorerst 20 Seiten) · S. 04–07 ohne Folien-/Seitennummern · Plan für 17 Seiten in [`booklet-plan.md`](booklet-plan.md)
 
 ## Dateien
 
