@@ -381,6 +381,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .page.tight{--pgap:3.2mm}.page.vp{--pgap:16px}
 /* S. 06: Tabelle mit Zwischenüberschriften je Bedienteil, Maße nach Vorlage */
 .page.p06 h1{font-size:40px}
+.page.p06 h1,.page.p06 h1+.v-lead{text-align:right;align-self:flex-end}   /* Abwechslung: Titel rechts */
 .p06 .tab{font:400 12px/1.42 Inter,sans-serif}
 .p06 .tab th{font:700 11px Inter,sans-serif;letter-spacing:.1em;color:var(--muted)}
 .p06 .tab td:first-child{font-weight:700}
@@ -388,9 +389,9 @@ h1 em{font-style:normal;color:var(--accent)}
 .p06 .tab tr:last-child td{border-bottom:0}
 .p06 .tag{font:700 9.5px Inter,sans-serif;letter-spacing:.08em}
 .p06 .cap{font-size:12px}
-.p06 .crop6{height:40mm;overflow:hidden;position:relative;padding:0}
-.p06 .crop6 img{position:absolute;width:118%;max-width:none;left:-34%;top:-58%}
-.p06 .photo.pt{height:40mm}
+.p06 .crop6{height:54mm;overflow:hidden;position:relative;padding:0}
+.p06 .crop6 img{position:absolute;width:118%;max-width:none;left:-34%;top:-42%}
+.p06 .photo.pt{height:54mm}
 /* Textfarben wie S. 03: Fett/Titel #EEF2EA · Fließtext #D5DED6 · Kleines #B4C2B6 (hell: Tinte · #2F4A3A · gedämpft) */
 .page.vp.dark .tab td,.page.vp.dark .legend li>span:last-child{color:#D5DED6}
 .page.vp.dark .tab td:first-child,.page.vp.dark .legend strong{color:#EEF2EA}
@@ -551,7 +552,7 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page dark vp p06">
   <div class="top"><span>06 · BEDIENTEILE AN DER BOX</span><span class="brand">GROWBOX</span></div>
   <h1>Ein Taster.<br><em>Eine Bedeutung.</em></h1>
-  <p class="v-lead">Außer dem Display gibt es drei Teile zum Anfassen: <b>Taster, Türgriff und Deckelgriff.</b> Jedes hat genau eine Bedeutung.</p>
+  <p class="v-lead">Außer dem Display gibt es <b>drei haptische Elemente.</b></p>
 
   <div class="vs">
     <figure><span class="tag">Skizze V3 · Bedienfeld</span><div class="card light crop6"><img src="bilder/design-bau/skizze-v3-ohne-text.svg" alt="Ausschnitt Skizze V3: Display, beiger Taster, Tank-Sichtfenster, grauer Griff"></div></figure>
@@ -560,13 +561,10 @@ body.grid .bar .nav{visibility:hidden}
 
   <table class="tab">
     <tr><th>Entscheidung</th><th>Grund (Vorlesung)</th><th>Nachteil</th></tr>
-    <tr class="grp"><td colspan="3">Taster</td></tr>
     <tr><td>Taster schaltet nur das Licht</td><td>Ein großes Ziel trifft auch die zitternde Hand (Speed-Accuracy-Tradeoff), der Knopf zeigt „drück mich“ (Affordance).</td><td>Alles andere läuft über das Display.</td></tr>
     <tr><td>Taster weckt nicht auch das Display</td><td>Eine Handlung mit zwei Wirkungen würde beim Licht-Ausschalten das Display mit ausschalten (Modusfehler).</td><td>Kein Knopf, der „alles“ macht.</td></tr>
-    <tr class="grp"><td colspan="3">Farbe</td></tr>
     <tr><td>Taster beige, Griffe grau, nichts orange</td><td>Orange heißt auf dem Display „Warnung“. Eine Farbe, eine Bedeutung (Konsistenz).</td><td>Ein oranger Taster wäre auffälliger.</td></tr>
     <tr><td>Kein Warnlicht an der Box</td><td>Die Warnung zeigt der orange Punkt auf dem Display, kein zweiter Kanal mit eigener Logik.</td><td>Fällt das Display aus, gibt es keine Warnung.</td></tr>
-    <tr class="grp"><td colspan="3">Tank</td></tr>
     <tr><td>Tank vorn mit Sichtfenster</td><td>Die Füllstandslinie entspricht dem Balken „Wassertank“ auf dem Display (Mapping).</td><td>Der Technikraum braucht eine Trennwand.</td></tr>
   </table>
   <p class="v-small"><b>Im Bau</b> wurde aus dem Taster ein Schiebeschalter fürs Licht, das Display weckt eine Sensorleiste, und der Tank sitzt oben (siehe „Alle Features“). Die Regel blieb: ein Bedienteil, eine Bedeutung.</p>
