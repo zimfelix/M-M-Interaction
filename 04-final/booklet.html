@@ -564,6 +564,16 @@ body.grid .bar .nav{visibility:hidden}
 .p02 .ls li i{font:700 11px "JetBrains Mono",monospace;font-style:normal;color:var(--sage-text);min-width:16px}
 .p02 .ls.one{columns:1}
 .p02 .grp{font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:2px 0 1px}
+
+.p02 .intro{display:grid;grid-template-columns:180px 1fr;gap:24px;align-items:center}
+.p02 .intro .v-lead{margin:0}
+.p02 .ray{position:relative;display:flex;justify-content:space-between;padding-top:2px}
+.p02 .ray:before{content:"";position:absolute;left:8px;right:8px;top:10px;border-top:1.5px solid var(--line)}
+.p02 .ray span{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px;font:600 8.5px "JetBrains Mono",monospace;color:var(--muted)}
+.p02 .ray span:before{content:"";width:9px;height:9px;border-radius:50%;margin-top:6px;background:var(--cream);border:1.5px solid var(--line)}
+.p02 .ray span.k:before{background:var(--sage-text);border-color:var(--sage-text)}
+.p02 .ray span.k em{position:absolute;top:-14px;font:700 11px "Space Grotesk",sans-serif;font-style:normal;color:var(--sage-text)}
+.p02 .ray{margin-top:12px}
 </style>
 </head>
 <body>
@@ -596,8 +606,8 @@ body.grid .bar .nav{visibility:hidden}
 <!-- ═══ Inhalt ═══ -->
 <section class="page tight vp p02">
   <div class="top"><span>02 · INHALT</span><span class="brand">GROWBOX</span></div>
-  <h1>Was in diesem<br><em>Booklet steckt.</em></h1>
-  <p class="v-lead">Fünf Kapitel: für wen, wie die Box entstanden ist, was drinsteckt und wie man sie bedient. Jede Entscheidung steht mit Grund aus der Vorlesung und dem Nachteil, den wir dafür in Kauf nehmen.</p>
+  <h1>Was im <em>Booklet steckt.</em></h1>
+  <div class="intro"><p class="v-lead">Fünf Kapitel · 18 Seiten.</p><div class="ray" aria-label="Seiten 01 bis 18"><span>01</span><span>02</span><span class="k"><em>I</em>03</span><span class="k"><em>II</em>04</span><span>05</span><span>06</span><span class="k"><em>III</em>07</span><span>08</span><span>09</span><span>10</span><span class="k"><em>IV</em>11</span><span class="k"><em>V</em>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span></div></div>
   <div class="kr"><div class="kz"><span class="rn">I</span><div class="th"><img src="bilder/design-bau/skizze.jpg" alt=""></div><div><div class="hd"><b>Einstieg · Zielgruppe</b><span class="pg">S. 03</span></div><ul class="ls one"><li><i>03</i>Für jeden gemacht.</li></ul></div></div><div class="kz"><span class="rn">II</span><div class="th"><img src="bilder/design-bau/skizze-v3-ohne-text.svg" alt=""></div><div><div class="hd"><b>Konzeptweg Box</b><span class="pg">S. 04–06</span></div><ul class="ls one"><li><i>04</i>Vom Aquarium zur Mikrowelle.</li><li><i>05</i>Wie eine Mikrowelle. Nur ohne Knopfsalat.</li><li><i>06</i>Ein Taster. Eine Bedeutung.</li></ul></div></div><div class="kz"><span class="rn">III</span><div class="th"><img src="bilder/design-bau/prototyp-schraeg.jpg" alt=""></div><div><div class="hd"><b>CAD &amp; Bau</b><span class="pg">S. 07–10</span></div><ul class="ls one"><li><i>07</i>Vom Papier ins CAD.</li><li><i>08</i>Vom Rohdruck zum Prototyp.</li><li><i>09</i>Jedes Detail hat einen Zweck.</li><li><i>10</i>Klein für die Küche. Groß für mehr Ernte.</li></ul></div></div><div class="kz"><span class="rn">IV</span><div class="th"><img src="bilder/design-bau/cad-technikraum.jpg" alt=""></div><div><div class="hd"><b>Technik</b><span class="pg">S. 11</span></div><ul class="ls one"><li><i>11</i>Ein Zustand. Zwei Ansichten.</li></ul></div></div><div class="kz"><span class="rn">V</span><div class="th disp"><img src="bilder/booklet/01-gut.jpg" alt=""><img src="bilder/booklet/03-warnung.jpg" alt=""></div><div><div class="hd"><b>Bedienfeld</b><span class="pg">S. 12–18</span></div><div class="grp">Konzept</div><ul class="ls one"><li><i>12</i>Drei Ideen. Eine gewählt.</li><li><i>13</i>Vom Entwurf zum Bedienfeld.</li><li><i>14</i>Warum Blau statt Schwarz?</li></ul><div class="grp">Bedienung · Ausblick</div><ul class="ls "><li><i>15</i>Ein Blick. Eine Aussage.</li><li><i>16</i>Eine Warnung. Ein Knopf.</li><li><i>17</i>Die Hürde passt zum Risiko.</li><li><i>18</i>Bewusst weggelassen.</li></ul></div></div></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>02</span></div>
 </section>
