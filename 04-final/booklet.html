@@ -615,7 +615,11 @@ body.grid .bar .nav{visibility:hidden}
 
 /* S. 02 · senkrechter Strahl durch die Kapitelzahlen */
 .p02 .kr{position:relative;flex:none}
-.p02 .kz:not(:last-child):after{content:"";position:absolute;left:27px;top:66px;bottom:-10px;border-left:2px solid var(--sage)}
+.p02 .ls{columns:1!important}
+.p02 .ls li{position:relative;padding:2px 0 2px 16px}
+.p02 .ls li:before{content:"";position:absolute;left:0;top:6.5px;width:8px;height:8px;border-radius:50%;background:var(--sage-text)}
+.p02 .ls li:not(:last-child):after{content:"";position:absolute;left:3.5px;top:14.5px;bottom:-6.5px;border-left:1.5px solid var(--sage)}
+.p02 .kz.soon .ls li:before{background:transparent;border:1.5px dashed var(--sage)}
 .p02 .kz.soon .rn{background:var(--cream);color:var(--sage-text);border:2px dashed var(--sage)}
 .p02 .th.soon{background:transparent;outline:1.5px dashed var(--sage);outline-offset:-1.5px;height:70px;display:grid;place-items:center;font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;color:var(--sage-text)}
 .p02 .kz.soon .pg{background:transparent;color:var(--sage-text);border:1.5px dashed var(--sage)}
