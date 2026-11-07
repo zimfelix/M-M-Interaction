@@ -229,7 +229,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .strip{display:grid;grid-template-columns:repeat(18,1fr);gap:1.2mm;align-items:end}
 .strip i{height:2.2mm;background:var(--line);border-radius:.6mm}
 .strip i.a{background:var(--sage)}.strip i.c{background:#b9c9ae}.strip i.d{background:#a7b0a2}.strip i.b{background:var(--green)}
-.strip-lab{display:grid;grid-template-columns:2fr 2fr 3fr 3fr 1fr 6fr 1fr;gap:1.2mm;font:600 6.8pt "JetBrains Mono";letter-spacing:.12em;color:var(--muted);margin-top:1.4mm}
+.strip-lab{display:grid;grid-template-columns:2fr 2fr 3fr 3fr 1fr 3fr 3fr 1fr;gap:1.2mm;font:600 6.8pt "JetBrains Mono";letter-spacing:.12em;color:var(--muted);margin-top:1.4mm}
 
 /* ── Cover ── */
 .cv{padding-bottom:10mm}
@@ -299,6 +299,11 @@ h1 em{font-style:normal;color:var(--accent)}
 .crop2 img{position:absolute;width:230%;max-width:none;left:-42%;top:-60%}
 .photo.pt{height:58mm}
 
+.toc .sub{display:flex;justify-content:space-between;font:600 7pt "JetBrains Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--line);padding:2.4mm 0 1.2mm;margin-top:1.5mm}
+.flow{padding:0 8mm}.flow .ar{margin-top:24mm}
+.case3{display:flex;flex-wrap:wrap;gap:1mm 4mm;align-items:baseline;border-top:1px solid var(--line);padding-top:2.4mm;font-size:8.8pt}
+.case3 .label{color:var(--accent)}
+
 /* ── Zoom-Ansicht aus der Übersicht ── */
 #zoom{position:fixed;inset:0;z-index:20;background:rgba(20,32,25,.88);display:none;align-items:center;justify-content:center}
 #zoom.on{display:flex}
@@ -360,12 +365,12 @@ body.grid .bar .nav{visibility:hidden}
   <h1>Was in diesem<br><em>Booklet steckt.</em></h1>
   <p class="lead">Erst für wen und was die Box können muss, dann wie sie entstanden ist und welche Technik drinsteckt, zuletzt wie man sie bedient. Jede Entscheidung steht mit dem Grund aus der Vorlesung und dem Nachteil, den wir dafür in Kauf nehmen.</p>
   <div>
-    <div class="strip"><i class="b"></i><i class="b"></i><i class="c"></i><i class="c"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="c"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="a"></i></div>
-    <div class="strip-lab"><span>01–02</span><span>03–04</span><span>05–07 KONZEPT</span><span>08–10 CAD</span><span>11</span><span>12–17 BEDIENFELD</span><span>18</span></div>
+    <div class="strip"><i class="b"></i><i class="b"></i><i class="c"></i><i class="c"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="c"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="d"></i></div>
+    <div class="strip-lab"><span>01–02</span><span>03–04</span><span>05–07 KONZEPT</span><span>08–10 CAD</span><span>11</span><span>12–14 BF KONZEPT</span><span>15–17 BEDIENUNG</span><span>18</span></div>
   </div>
   <div class="toc">
     <div><div class="kap"><span class="label">Kapitel 1 · 03–04</span><b>Einstieg</b></div><ol><li><span class="n">03</span><span><strong>Für jeden gemacht.</strong><span class="s">Zielgruppe · Ingrid und App-Nutzer</span></span></li><li><span class="n">04</span><span><strong>Was die Box können muss.</strong><span class="s">Nutzungskontext · Anforderungen</span></span></li></ol><div class="kap"><span class="label">Kapitel 2 · 05–07</span><b>Konzept</b><span class="who">Die Box: Form und Bedienteile</span></div><ol><li><span class="n">05</span><span><strong>Vom Aquarium zur Mikrowelle.</strong><span class="s">Konzeptweg Box V1 → V3 · Abwägung</span></span></li><li><span class="n">06</span><span><strong>Wie eine Mikrowelle. Nur ohne Knopfsalat.</strong><span class="s">Die Box V3 annotiert</span></span></li><li><span class="n">07</span><span><strong>Ein Taster. Eine Bedeutung.</strong><span class="s">Bedienteile an der Box · Abwägung</span></span></li></ol><div class="kap"><span class="label">Kapitel 3 · 08–10</span><b>CAD &amp; Bau</b><span class="who">Konstruktion, Druck, 3D-Modell</span></div><ol><li><span class="n">08</span><span><strong>Vom Papier ins CAD.</strong><span class="s">Konstruktion · zwei Module</span></span></li><li><span class="n">09</span><span><strong>Vom Rohdruck zum Prototyp.</strong><span class="s">Prototyp · FabLab</span></span></li><li><span class="n">10</span><span><strong>Jedes Detail hat einen Zweck.</strong><span class="s">3D-Modell · alle Features</span></span></li></ol></div>
-    <div><div class="kap"><span class="label">Kapitel 4 · 11</span><b>Technik</b></div><ol><li><span class="n">11</span><span><strong>Ein Zustand. Zwei Ansichten.</strong><span class="s">Pi, Display, App · echt und simuliert</span></span></li></ol><div class="kap"><span class="label">Kapitel 5 · 12–17</span><b>Bedienfeld</b><span class="who">Entstehung 12–13 · Nutzung 14–17</span></div><ol><li><span class="n">12</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Leitideen, v1 → v3 · Abwägung</span></span></li><li><span class="n">13</span><span><strong>Sieben Stände. Immer schlanker.</strong><span class="s">v4 → v7 · Abwägung</span></span></li><li><span class="n">14</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild</span></span></li><li><span class="n">15</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li><li><span class="n">16</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Ingrid handelt</span></span></li><li><span class="n">17</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Fehler vermeiden</span></span></li></ol><div class="kap"><span class="label">Kapitel 6 · 18</span><b>Abschluss</b></div><ol><li><span class="n">18</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
+    <div><div class="kap"><span class="label">Kapitel 4 · 11</span><b>Technik</b></div><ol><li><span class="n">11</span><span><strong>Ein Zustand. Zwei Ansichten.</strong><span class="s">Pi, Display, App · echt und simuliert</span></span></li></ol><div class="kap"><span class="label">Kapitel 5 · 12–18</span><b>Bedienfeld</b></div><div class="sub"><span>Konzept</span><span>12–14</span></div><ol><li><span class="n">12</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Leitideen, v1 → v3 · Abwägung</span></span></li><li><span class="n">13</span><span><strong>Sieben Stände. Immer schlanker.</strong><span class="s">v4 → v7 · Abwägung</span></span></li><li><span class="n">14</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li></ol><div class="sub"><span>Bedienung</span><span>15–17</span></div><ol><li><span class="n">15</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild lesen</span></span></li><li><span class="n">16</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Fall 1 Tank leer · Fall 2 Ernte · Fall 3 Handy</span></span></li><li><span class="n">17</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Neu ansetzen ohne Fehler</span></span></li></ol><div class="sub"><span>Weggelassen &amp; offen</span><span>18</span></div><ol><li><span class="n">18</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
   </div>
   <div class="foot"><span>INHALT</span><span>02</span></div>
 </section>
@@ -612,7 +617,7 @@ body.grid .bar .nav{visibility:hidden}
   </div>
   <div class="thumbs row "><figure><img src="bilder/booklet/bedienfeld-v1.jpg" alt="Bedienfeld v1"><figcaption><b>v1 · 27.10.</b>hell, großes Zeichen, noch ohne Pilz</figcaption></figure><figure><img src="bilder/booklet/bedienfeld-v2.jpg" alt="Bedienfeld v2"><figcaption><b>v2 · 29.10.</b>Panel des Kollegen: Pilz im Feuchte-Ring</figcaption></figure><figure><img src="bilder/booklet/bedienfeld-v3.jpg" alt="Bedienfeld v3"><figcaption><b>v3 · 29.10.</b>Ring = Tage bis zur Ernte</figcaption></figure></div>
   <table class="tab"><thead><tr><th>Entscheidung</th><th>Grund (Folie)</th><th>Nachteil, den wir in Kauf nehmen</th></tr></thead><tbody><tr><td><span class="vt">v1</span>Status als großes Zeichen mit einem Wort</td><td>Eine Aussage pro Blick (Model Human Processor 16–17)</td><td>Noch kein Bild für das Wachstum, Zahlen ohne Ziel.</td></tr><tr><td><span class="vt">v1 → v2</span>Blauer Grund aus dem Panel des Kollegen</td><td>Blau nur als Fläche, Statusfarben springen heraus (präattentiv 26, Farbsehen 22)</td><td>Gerade dieses Blau ist Gestaltung, nicht aus den Folien.</td></tr><tr><td><span class="vt">v2 → v3</span>Ring zeigt Tage bis zur Ernte statt Feuchte</td><td>Klares Ziel und Fortschritt (Progression G 10, Flow G 12)</td><td>Die Feuchte wandert in eine kleine Zeile darunter.</td></tr><tr><td><span class="vt">v3</span>Status immer Symbol + Farbe + Wort</td><td>Rot-Grün-Schwäche (Farbsehschwäche 23)</td><td>Mehr Platz pro Zustand.</td></tr></tbody></table>
-  <div class="foot"><span>BEDIENFELD · ENTSTEHUNG · PILZ GROWBOX</span><span>12</span></div>
+  <div class="foot"><span>BEDIENFELD · KONZEPT · PILZ GROWBOX</span><span>12</span></div>
 </section>
 
 <section class="page dark">
@@ -622,12 +627,38 @@ body.grid .bar .nav{visibility:hidden}
   <div class="thumbs row four"><figure><img src="bilder/booklet/bedienfeld-v4.jpg" alt="Bedienfeld v4"><figcaption><b>v4 · 29.10.</b>Automatik sichtbar</figcaption></figure><figure><img src="bilder/booklet/bedienfeld-v5.jpg" alt="Bedienfeld v5"><figcaption><b>v5 · 02.11.</b>Folien-Review: 3 Kacheln</figcaption></figure><figure><img src="bilder/booklet/bedienfeld-v6.jpg" alt="Bedienfeld v6"><figcaption><b>v6 · 02.11.</b>44 pt, Warnpunkt</figcaption></figure><figure><img src="bilder/booklet/01-gut.jpg" alt="Bedienfeld v7"><figcaption><b>v7 · 05.11.</b>Pilz wächst, Erntebereit</figcaption></figure></div>
   <table class="tab"><thead><tr><th>Entscheidung</th><th>Grund (Folie)</th><th>Nachteil, den wir in Kauf nehmen</th></tr></thead><tbody><tr><td><span class="vt">v4</span>Automatik sichtbar: Kachel Klima zeigt AUTO</td><td>Man sieht, was das System tut (Gulf of Evaluation 59, mentales Modell 56)</td><td>Dazu kam ein Ruhemodus, den wir in v7 wieder gestrichen haben.</td></tr><tr><td><span class="vt">v5</span>5 → 3 Kacheln, „1 Min lüften“ nur in der App</td><td>Wenige große Ziele statt Knopfsalat (8, Fitts 50, minimalist design 130)</td><td>Wer eingreifen will, muss in die App.</td></tr><tr><td><span class="vt">v5</span>Licht ohne Kachel, nur am Taster</td><td>Eine Funktion, ein Ort (Mapping 77–79)</td><td>Am Display lässt sich das Licht nicht schalten.</td></tr><tr><td><span class="vt">v6</span>Ziele ≥ 44 pt, Warntext 6,4 : 1 statt 2,8 : 1</td><td>Zitternde Hände, Lesebrille (Fitts 50, Sichtabstand 63, Kontrast 66)</td><td>Weniger Inhalt pro Bildschirm.</td></tr><tr><td><span class="vt">v7</span>Pilz wächst in drei Stufen, „Erntebereit“ beige</td><td>Fortschritt ohne Spielfigur (Progression G 10); nichts ist kaputt, also kein Orange (80)</td><td>Keine Punkte, keine Belohnung.</td></tr><tr><td><span class="vt">v7</span>Rahmen = drückbar, Linien = Information</td><td>Man sieht, wo man tippen kann (Affordance 72–73)</td><td>Infozeilen wirken schlichter.</td></tr></tbody></table>
   <div class="folien"><span class="label">Aus der Vorlesung</span><span><b>105</b>Evaluieren ↔ Designen</span><span><b>126</b>formative Evaluation</span><span><b>119–125</b>Prototypen</span><span><b>130</b>Nielsen</span></div>
-  <div class="foot"><span>BEDIENFELD · ENTSTEHUNG · PILZ GROWBOX</span><span>13</span></div>
+  <div class="foot"><span>BEDIENFELD · KONZEPT · PILZ GROWBOX</span><span>13</span></div>
+</section>
+
+<!-- ═══ 05 (alt 6) · E Vorher/Nachher (Blau/Schwarz), dunkel ═══ -->
+<section class="page">
+  <div class="top"><span>14 / FARBE</span><span class="brand">GROWBOX</span></div>
+  <h1>Warum Blau<br><em>statt Schwarz?</em></h1>
+  <p class="lead">Das wurde in der Präsentation gefragt. Die Antwort: Schwarz hat schon eine Bedeutung. Schwarz heißt <b>Standby</b>, Blau heißt <b>die Box läuft</b>.</p>
+
+  <div class="vs3">
+    <figure><span class="tag">Blau · läuft</span><img class="disp" src="bilder/booklet/01-gut.jpg" alt="Blaues Startbild"><figcaption>Blau nur als Fläche, Schrift weiß.</figcaption></figure>
+    <figure><span class="tag">Schwarz · Standby</span><img class="disp" src="bilder/booklet/02-standby.jpg" alt="Schwarzes Display mit orangem Punkt"><figcaption>Nur der orange Punkt blinkt, sichtbar aus 3 m.</figcaption></figure>
+    <figure><span class="tag">Option · Hoher Kontrast</span><img class="disp" src="bilder/booklet/11-kontrast.jpg" alt="Startbild mit schwarzem Hintergrund"><figcaption>Schwarz als Dauerzustand für schwache Augen, in den Einstellungen.</figcaption></figure>
+  </div>
+
+  <table class="tab">
+    <tr><th>Entscheidung</th><th>Grund (Folie)</th><th>Nachteil, den wir in Kauf nehmen</th></tr>
+    <tr><td>Blau im Betrieb</td><td>Schwarz ist für Standby reserviert. Blau als Fläche, nicht als Schrift (Blau-Zapfen 20, 22).</td><td>Wer Schwarz lieber mag, muss es einstellen (Hoher Kontrast, 66).</td></tr>
+    <tr><td>Nur der Warnpunkt blinkt, nur im Standby</td><td>Bewegung fällt sofort auf, ohne Suchen (präattentiv 26–27).</td><td>Eine Warnung im laufenden Betrieb blinkt nicht.</td></tr>
+    <tr><td>Bewusst minimalistisch</td><td>Keine Uhr, drei Kacheln statt sechs, Seltenes hinter dem Zahnrad (Nielsen: minimalist design 130).</td><td>Urlaub, Sprache und Hilfe liegen einen Tipp tiefer.</td></tr>
+  </table>
+
+  <div class="folien">
+    <span class="label">Aus der Vorlesung</span>
+    <span><b>20, 22</b>Farbsehen, Blau-Zapfen</span><span><b>26–27</b>präattentive Wahrnehmung</span><span><b>66</b>Kontrast</span><span><b>130</b>Nielsen</span>
+  </div>
+  <div class="foot"><span>BEDIENFELD · KONZEPT · PILZ GROWBOX</span><span>14</span></div>
 </section>
 
 <!-- ═══ 04 (alt 5) · C Startbild annotiert, hell ═══ -->
-<section class="page">
-  <div class="top"><span>14 / DAS STARTBILD</span><span class="brand">GROWBOX</span></div>
+<section class="page dark">
+  <div class="top"><span>15 / DAS STARTBILD</span><span class="brand">GROWBOX</span></div>
   <h1>Ein Blick.<br><em>Eine Aussage.</em></h1>
   <p class="lead">Aus der Ferne sieht Ingrid, <b>ob</b> etwas zu tun ist. Aus der Nähe sieht sie, <b>was</b>. Jede Information steht genau einmal da.</p>
 
@@ -664,33 +695,7 @@ body.grid .bar .nav{visibility:hidden}
     <div><b>6,4 : 1</b><span>Kontrast Warntext (vorher 2,8)</span></div>
     <div><b>0×</b><span>Blinken im Normalbetrieb</span></div>
   </div>
-  <div class="foot"><span>BEDIENFELD · NUTZUNG · PILZ GROWBOX</span><span>14</span></div>
-</section>
-
-<!-- ═══ 05 (alt 6) · E Vorher/Nachher (Blau/Schwarz), dunkel ═══ -->
-<section class="page dark">
-  <div class="top"><span>15 / FARBE</span><span class="brand">GROWBOX</span></div>
-  <h1>Warum Blau<br><em>statt Schwarz?</em></h1>
-  <p class="lead">Das wurde in der Präsentation gefragt. Die Antwort: Schwarz hat schon eine Bedeutung. Schwarz heißt <b>Standby</b>, Blau heißt <b>die Box läuft</b>.</p>
-
-  <div class="vs3">
-    <figure><span class="tag">Blau · läuft</span><img class="disp" src="bilder/booklet/01-gut.jpg" alt="Blaues Startbild"><figcaption>Blau nur als Fläche, Schrift weiß.</figcaption></figure>
-    <figure><span class="tag">Schwarz · Standby</span><img class="disp" src="bilder/booklet/02-standby.jpg" alt="Schwarzes Display mit orangem Punkt"><figcaption>Nur der orange Punkt blinkt, sichtbar aus 3 m.</figcaption></figure>
-    <figure><span class="tag">Option · Hoher Kontrast</span><img class="disp" src="bilder/booklet/11-kontrast.jpg" alt="Startbild mit schwarzem Hintergrund"><figcaption>Schwarz als Dauerzustand für schwache Augen, in den Einstellungen.</figcaption></figure>
-  </div>
-
-  <table class="tab">
-    <tr><th>Entscheidung</th><th>Grund (Folie)</th><th>Nachteil, den wir in Kauf nehmen</th></tr>
-    <tr><td>Blau im Betrieb</td><td>Schwarz ist für Standby reserviert. Blau als Fläche, nicht als Schrift (Blau-Zapfen 20, 22).</td><td>Wer Schwarz lieber mag, muss es einstellen (Hoher Kontrast, 66).</td></tr>
-    <tr><td>Nur der Warnpunkt blinkt, nur im Standby</td><td>Bewegung fällt sofort auf, ohne Suchen (präattentiv 26–27).</td><td>Eine Warnung im laufenden Betrieb blinkt nicht.</td></tr>
-    <tr><td>Bewusst minimalistisch</td><td>Keine Uhr, drei Kacheln statt sechs, Seltenes hinter dem Zahnrad (Nielsen: minimalist design 130).</td><td>Urlaub, Sprache und Hilfe liegen einen Tipp tiefer.</td></tr>
-  </table>
-
-  <div class="folien">
-    <span class="label">Aus der Vorlesung</span>
-    <span><b>20, 22</b>Farbsehen, Blau-Zapfen</span><span><b>26–27</b>präattentive Wahrnehmung</span><span><b>66</b>Kontrast</span><span><b>130</b>Nielsen</span>
-  </div>
-  <div class="foot"><span>BEDIENFELD · NUTZUNG · PILZ GROWBOX</span><span>15</span></div>
+  <div class="foot"><span>BEDIENFELD · BEDIENUNG · PILZ GROWBOX</span><span>15</span></div>
 </section>
 
 <!-- ═══ 06 (alt 7) · D Ablauf, hell ═══ -->
@@ -700,7 +705,7 @@ body.grid .bar .nav{visibility:hidden}
   <p class="lead">Ingrid muss nichts einstellen. Sie handelt nur, wenn die Box sie braucht, und bekommt auf jede Handlung sofort eine Rückmeldung.</p>
 
   <div class="flow">
-    <div class="lab"><span class="tag">Case 1</span><b>Tank leer</b></div>
+    <div class="lab"><span class="tag">Fall 1</span><b>Tank leer</b></div>
     <figure><img class="disp" src="bilder/booklet/02-standby.jpg" alt="Standby"><figcaption><b>Standby</b>Nur der Punkt blinkt.</figcaption></figure>
     <span class="ar">→</span>
     <figure><img class="disp" src="bilder/booklet/03-warnung.jpg" alt="Wasser leer"><figcaption><b>Meldung + ein Knopf</b>AUFGEFÜLLT drücken.</figcaption></figure>
@@ -711,7 +716,7 @@ body.grid .bar .nav{visibility:hidden}
   </div>
 
   <div class="flow">
-    <div class="lab"><span class="tag">Case 2</span><b>Ernte und neue Sorte</b></div>
+    <div class="lab"><span class="tag">Fall 2</span><b>Ernte und neue Sorte</b></div>
     <figure><img class="disp" src="bilder/booklet/05-erntebereit.jpg" alt="Erntebereit"><figcaption><b>Erntebereit</b>Ein Hinweis, keine Warnung.</figcaption></figure>
     <span class="ar">→</span>
     <figure><img class="disp" src="bilder/booklet/06-sortenwahl.jpg" alt="Sorte wählen"><figcaption><b>Neue Sorte</b>Sorte wählen, eigene Sorte oder Pause.</figcaption></figure>
@@ -721,11 +726,12 @@ body.grid .bar .nav{visibility:hidden}
     <figure><img class="disp" src="bilder/booklet/08-tag1.jpg" alt="Shiitake Tag 1"><figcaption><b>Tag 1</b>Der Ring beginnt von vorn.</figcaption></figure>
   </div>
 
+  <div class="case3"><span class="label">Fall 3 · Handy verbinden</span><span>Handy-Symbol antippen → Code in der App → <b>VERBUNDEN</b> → Symbol verschwindet (minimalist design 130).</span></div>
   <div class="folien">
     <span class="label">Aus der Vorlesung</span>
     <span><b>59</b>Gulf of Evaluation</span><span><b>82</b>Feedback</span><span><b>83–85</b>eine Handlung, ein Knopf</span><span><b>26–27</b>präattentiv</span>
   </div>
-  <div class="foot"><span>BEDIENFELD · NUTZUNG · PILZ GROWBOX</span><span>16</span></div>
+  <div class="foot"><span>BEDIENFELD · BEDIENUNG · PILZ GROWBOX</span><span>16</span></div>
 </section>
 
 <!-- ═══ 07 (alt 8) · B Bild + zwei Kästen, dunkel ═══ -->
@@ -751,7 +757,7 @@ body.grid .bar .nav{visibility:hidden}
   </div>
   <div class="same"><span class="label">Überall gleich</span><span class="kn">Knopf</span><span>Rahmen = drückbar</span><span class="in">Info</span><span>zwischen zwei Linien = Information</span></div>
   <p class="ref">72–73 Affordance · 80 Konsistenz</p>
-  <div class="foot"><span>BEDIENFELD · NUTZUNG · PILZ GROWBOX</span><span>17</span></div>
+  <div class="foot"><span>BEDIENFELD · BEDIENUNG · PILZ GROWBOX</span><span>17</span></div>
 </section>
 
 <!-- ═══ Abwägungen und Grenzen ═══ -->
@@ -780,7 +786,7 @@ body.grid .bar .nav{visibility:hidden}
       <li><span class="s">–</span>Noch kein Test mit echten Nutzern.</li></ul></div>
   </div>
   <div class="folien"><span class="label">Nächster Schritt</span><span><b>129</b>Cognitive Walkthrough mit einer Person in Ingrids Alter</span><span><b>141–142</b>AttrakDiff danach</span></div>
-  <div class="foot"><span>ABSCHLUSS · PILZ GROWBOX</span><span>18</span></div>
+  <div class="foot"><span>BEDIENFELD · WEGGELASSEN &amp; OFFEN · PILZ GROWBOX</span><span>18</span></div>
 </section>
 
 </main>
