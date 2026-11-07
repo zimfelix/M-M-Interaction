@@ -408,8 +408,8 @@ h1 em{font-style:normal;color:var(--accent)}
 .page.vp .vs3 figcaption,.page.vp .cap,.page.vp .v-small,.page.vp .tab .nb{font-size:11.5px;line-height:1.4}
 .page.vp .kw figcaption b,.page.vp .legend strong,.page.vp .v-card h3{font:700 19px/1.2 "Space Grotesk",sans-serif}
 /* S. 15: Startbild mittig, Erklärungen links/rechts mit geschwungenen Linien (keine Nummern, anders als S. 13); Alltag als grünes Band mit Bogenpfeilen; keine Leiste */
-.call15{position:relative;height:372px}
-.c15img{position:absolute;left:50%;top:0;height:372px;transform:translateX(-50%);border-radius:14px}
+.call15{position:relative;height:350px}
+.c15img{position:absolute;left:50%;top:0;height:350px;transform:translateX(-50%);border-radius:14px}
 .c15svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .c15svg path{fill:none;stroke:var(--sage);stroke-width:1.6}
 .c15svg circle{fill:var(--sage);stroke:#F3F1E7;stroke-width:2}
@@ -418,13 +418,51 @@ h1 em{font-style:normal;color:var(--accent)}
 .c15 strong{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
 .f15{background:var(--green);border-radius:14px;padding:16px 22px 18px;display:flex;flex-direction:column;gap:10px}
 .f15 .v-label{color:var(--sage)}
-.f15row{display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;align-items:start}
+.f15row{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr 40px 1fr;align-items:start}
 .f15 figure{margin:0;display:flex;flex-direction:column;gap:8px;align-items:center}
-.f15 .disp{width:auto;height:220px;border-width:3px;border-radius:12px}
+.f15 .disp{width:auto;height:196px;border-width:3px;border-radius:12px}
 .f15 figcaption{font-size:11.5px;line-height:1.4;color:#B4C2B6;text-align:center;max-width:170px}
 .f15 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA;margin-bottom:2px}
-.f15 .arc{width:60px;margin-top:70px;overflow:visible}
+.f15 .arc{width:40px;margin-top:70px;overflow:visible}
 .f15 .arc path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.c15up{position:absolute;left:0;top:0;width:1px;height:1px;overflow:visible;pointer-events:none}
+.c15up path{fill:none;stroke:var(--sage);stroke-width:1.6;stroke-dasharray:4 4}
+/* S. 16: Weiche nach der Sortenwahl, fertige Sorte oben, eigene Sorte unten */
+.fork16{display:grid;grid-template-columns:104px 30px 104px 44px 1fr;grid-template-rows:auto auto;gap:14px 0;align-items:center}
+.fork16 .c1,.fork16 .a1,.fork16 .c2,.fork16 .sw{grid-row:1/3}
+.fork16 .a1{grid-column:2}.fork16 .c2{grid-column:3}.fork16 .sw{grid-column:4;width:44px;height:100%}
+.fork16 .b1,.fork16 .b2{grid-column:5;display:flex;flex-direction:column;gap:6px;padding-left:4px}
+.fork16 .pair{display:grid;grid-template-columns:104px 30px 104px;align-items:start}
+.fork16 .pair .st{margin-top:80px}
+.fork16 figure{margin:0;display:flex;flex-direction:column;gap:6px}
+.fork16 .disp{width:104px;height:auto;border-width:3px;border-radius:12px}
+.fork16 figure.on .disp{box-shadow:0 0 0 3px var(--sage)}
+.fork16 figcaption,.hold16 p{font-size:11.5px;line-height:1.4;color:#B4C2B6}
+.fork16 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA;margin-bottom:2px}
+.fork16 .b1 figure{display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:center}
+.fork16 .v-label{color:var(--sage)}
+.fork16 svg path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fork16 .st{width:30px;height:15px}
+.fork16 .sw path{vector-effect:non-scaling-stroke}
+.hold16{display:grid;grid-template-columns:86px 1fr;gap:20px;align-items:center;background:var(--green-2);border-radius:14px;padding:14px 20px}
+.hold16 .disp{border-width:3px;border-radius:10px}
+.hold16 h3{font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA;margin:4px 0 4px}
+.hold16 p{font-size:12.5px;line-height:1.45;color:#D5DED6}.hold16 p b{color:#EEF2EA}
+.hold16 .v-label{color:var(--sage)}
+/* S. 17: Einstellungen als Baum mit rechten Winkeln */
+.tree17 .root{display:grid;grid-template-columns:222px 1fr;gap:28px;align-items:center}
+.tree17 .root .disp{width:180px;margin-left:21px;border-width:3px;border-radius:14px}
+.tree17 ul{list-style:none;margin:0;padding:0}
+.tree17 li{padding:8px 0;border-top:1px solid var(--line);font-size:12.5px;line-height:1.45;color:#2F4A3A}
+.tree17 li:first-child{border-top:0;padding-top:0}
+.tree17 li b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
+.tree17 .bus{display:block;width:100%;height:34px;margin-top:8px}
+.tree17 .bus path{fill:none;stroke:var(--sage);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.tree17 .kids{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.tree17 .kids figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.tree17 .kids .disp{width:128px;border-width:3px;border-radius:12px}
+.tree17 figcaption{font-size:11.5px;line-height:1.4;color:#5D6A60;text-align:center;max-width:170px}
+.tree17 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
 /* S. 12–13: Skizzen und Displays im Hochformat, gewählte Version rechts */
 .page.p12 h1,.page.p13 h1{font-size:40px}
 .ideas,.steps13{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;position:relative}
@@ -574,6 +612,22 @@ body.grid .bar .nav{visibility:hidden}
 .p02 .ray span.k:before{background:var(--sage-text);border-color:var(--sage-text)}
 .p02 .ray span.k em{position:absolute;top:-14px;font:700 11px "Space Grotesk",sans-serif;font-style:normal;color:var(--sage-text)}
 .p02 .ray{margin-top:12px}
+
+/* S. 02 · senkrechter Strahl durch die Kapitelzahlen */
+.p02 .kr{position:relative;flex:none}
+.p02 .kz:not(:last-child):after{content:"";position:absolute;left:27px;top:66px;bottom:-10px;border-left:2px solid var(--sage)}
+.p02 .kz.soon .rn{background:var(--cream);color:var(--sage-text);border:2px dashed var(--sage)}
+.p02 .th.soon{background:transparent;outline:1.5px dashed var(--sage);outline-offset:-1.5px;height:70px;display:grid;place-items:center;font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;color:var(--sage-text)}
+.p02 .kz.soon .pg{background:transparent;color:var(--sage-text);border:1.5px dashed var(--sage)}
+.p02 .kz{border-top:0!important;border-bottom:0!important;padding:0;grid-template-columns:56px 150px 1fr;gap:0 20px}
+.p02 .kz>*:not(.rn){border-top:1.5px solid var(--line);padding:14px 0}
+.p02 .kz:last-child>*:not(.rn){border-bottom:1.5px solid var(--line)}
+.p02 .kz>.th{border-top:0;padding:0;margin:14px 0}
+.p02 .kz{position:relative}
+.p02 .kz:before{content:"";position:absolute;left:76px;right:0;top:0;border-top:1.5px solid var(--line)}
+.p02 .kz:last-child:after{content:"";position:absolute;left:76px;right:0;bottom:0;border-top:1.5px solid var(--line)}
+.p02 .kz>*:not(.rn){border:0!important}
+.p02 .rn{position:relative;z-index:1;margin-top:10px;width:56px;height:56px;border-radius:50%;background:var(--green);color:var(--cream);display:grid;place-items:center;font-size:22px}
 </style>
 </head>
 <body>
@@ -607,8 +661,8 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page tight vp p02">
   <div class="top"><span>02 · INHALT</span><span class="brand">GROWBOX</span></div>
   <h1>Was im <em>Booklet steckt.</em></h1>
-  <div class="intro"><p class="v-lead">Fünf Kapitel · 18 Seiten.</p><div class="ray" aria-label="Seiten 01 bis 18"><span>01</span><span>02</span><span class="k"><em>I</em>03</span><span class="k"><em>II</em>04</span><span>05</span><span>06</span><span class="k"><em>III</em>07</span><span>08</span><span>09</span><span>10</span><span class="k"><em>IV</em>11</span><span class="k"><em>V</em>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span></div></div>
-  <div class="kr"><div class="kz"><span class="rn">I</span><div class="th"><img src="bilder/design-bau/skizze.jpg" alt=""></div><div><div class="hd"><b>Einstieg · Zielgruppe</b><span class="pg">S. 03</span></div><ul class="ls one"><li><i>03</i>Für jeden gemacht.</li></ul></div></div><div class="kz"><span class="rn">II</span><div class="th"><img src="bilder/design-bau/skizze-v3-ohne-text.svg" alt=""></div><div><div class="hd"><b>Konzeptweg Box</b><span class="pg">S. 04–06</span></div><ul class="ls one"><li><i>04</i>Vom Aquarium zur Mikrowelle.</li><li><i>05</i>Wie eine Mikrowelle. Nur ohne Knopfsalat.</li><li><i>06</i>Ein Taster. Eine Bedeutung.</li></ul></div></div><div class="kz"><span class="rn">III</span><div class="th"><img src="bilder/design-bau/prototyp-schraeg.jpg" alt=""></div><div><div class="hd"><b>CAD &amp; Bau</b><span class="pg">S. 07–10</span></div><ul class="ls one"><li><i>07</i>Vom Papier ins CAD.</li><li><i>08</i>Vom Rohdruck zum Prototyp.</li><li><i>09</i>Jedes Detail hat einen Zweck.</li><li><i>10</i>Klein für die Küche. Groß für mehr Ernte.</li></ul></div></div><div class="kz"><span class="rn">IV</span><div class="th"><img src="bilder/design-bau/cad-technikraum.jpg" alt=""></div><div><div class="hd"><b>Technik</b><span class="pg">S. 11</span></div><ul class="ls one"><li><i>11</i>Ein Zustand. Zwei Ansichten.</li></ul></div></div><div class="kz"><span class="rn">V</span><div class="th disp"><img src="bilder/booklet/01-gut.jpg" alt=""><img src="bilder/booklet/03-warnung.jpg" alt=""></div><div><div class="hd"><b>Bedienfeld</b><span class="pg">S. 12–18</span></div><div class="grp">Konzept</div><ul class="ls one"><li><i>12</i>Drei Ideen. Eine gewählt.</li><li><i>13</i>Vom Entwurf zum Bedienfeld.</li><li><i>14</i>Warum Blau statt Schwarz?</li></ul><div class="grp">Bedienung · Ausblick</div><ul class="ls "><li><i>15</i>Ein Blick. Eine Aussage.</li><li><i>16</i>Eine Warnung. Ein Knopf.</li><li><i>17</i>Die Hürde passt zum Risiko.</li><li><i>18</i>Bewusst weggelassen.</li></ul></div></div></div>
+  <p class="v-lead">Sechs Kapitel · das letzte, die App, folgt.</p>
+  <div class="kr"><div class="kz"><span class="rn">I</span><div class="th"><img src="bilder/design-bau/skizze.jpg" alt=""></div><div><div class="hd"><b>Einstieg · Zielgruppe</b><span class="pg">S. 03</span></div><ul class="ls one"><li><i>03</i>Für jeden gemacht.</li></ul></div></div><div class="kz"><span class="rn">II</span><div class="th"><img src="bilder/design-bau/skizze-v3-ohne-text.svg" alt=""></div><div><div class="hd"><b>Konzeptweg Box</b><span class="pg">S. 04–06</span></div><ul class="ls one"><li><i>04</i>Vom Aquarium zur Mikrowelle.</li><li><i>05</i>Wie eine Mikrowelle. Nur ohne Knopfsalat.</li><li><i>06</i>Ein Taster. Eine Bedeutung.</li></ul></div></div><div class="kz"><span class="rn">III</span><div class="th"><img src="bilder/design-bau/prototyp-schraeg.jpg" alt=""></div><div><div class="hd"><b>CAD &amp; Bau</b><span class="pg">S. 07–10</span></div><ul class="ls one"><li><i>07</i>Vom Papier ins CAD.</li><li><i>08</i>Vom Rohdruck zum Prototyp.</li><li><i>09</i>Jedes Detail hat einen Zweck.</li><li><i>10</i>Klein für die Küche. Groß für mehr Ernte.</li></ul></div></div><div class="kz"><span class="rn">IV</span><div class="th"><img src="bilder/design-bau/cad-technikraum.jpg" alt=""></div><div><div class="hd"><b>Technik</b><span class="pg">S. 11</span></div><ul class="ls one"><li><i>11</i>Ein Zustand. Zwei Ansichten.</li></ul></div></div><div class="kz"><span class="rn">V</span><div class="th disp"><img src="bilder/booklet/01-gut.jpg" alt=""><img src="bilder/booklet/03-warnung.jpg" alt=""></div><div><div class="hd"><b>Bedienfeld</b><span class="pg">S. 12–18</span></div><div class="grp">Konzept</div><ul class="ls one"><li><i>12</i>Drei Ideen. Eine gewählt.</li><li><i>13</i>Vom Entwurf zum Bedienfeld.</li><li><i>14</i>Warum Blau statt Schwarz?</li></ul><div class="grp">Bedienung · Ausblick</div><ul class="ls "><li><i>15</i>Ein Blick. Eine Aussage.</li><li><i>16</i>Eine Warnung. Ein Knopf.</li><li><i>17</i>Die Hürde passt zum Risiko.</li><li><i>18</i>Bewusst weggelassen.</li></ul></div></div><div class="kz soon"><span class="rn">VI</span><div class="th soon">FOLGT</div><div><div class="hd"><b>App</b><span class="pg">S. 19–24</span></div><ul class="ls one"><li>Fünf bis sechs Seiten, werden noch eingefügt.</li></ul></div></div></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>02</span></div>
 </section>
 
@@ -825,11 +879,11 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page vp p15">
   <div class="top"><span>15 · BEDIENFELD BEDIENUNG I</span><span class="brand">GROWBOX</span></div>
   <h1>Ein Blick.<br><em>Eine Aussage.</em></h1>
-  <p class="v-lead">So sieht Ingrid das Bedienfeld im Alltag. Aus der Ferne sieht sie, <b>ob</b> etwas zu tun ist, aus der Nähe, <b>was</b>. Muss sie handeln, gibt es <b>genau einen Knopf.</b></p>
+  <p class="v-lead">So sieht Ingrid das Bedienfeld im Alltag. Aus der Ferne sieht sie, <b>ob</b> etwas zu tun ist, aus der Nähe, <b>was</b>. Muss sie handeln, gibt es <b>genau einen Knopf.</b> Danach steht wieder das Startbild da.</p>
 
   <div class="call15">
     <img class="c15img" src="../01-konzept/bedienfeld/bilder/vorschau-aktuell.png" alt="Startbild Bedienfeld v7">
-    <svg class="c15svg" aria-hidden="true"></svg>
+    <svg class="c15svg" aria-hidden="true"></svg><svg class="c15up" aria-hidden="true"></svg>
     <div class="c15 l" style="top:0" data-to="50,9"><strong>Warnpunkt</strong>Leuchtet orange, sobald etwas zu tun ist. Warum Orange, steht bei „Warum Blau statt Schwarz?“.</div>
     <div class="c15 r" style="top:62px" data-to="80,30"><strong>Ring</strong>Tage bis zur Ernte. Der Pilz im Ring wächst in drei Stufen mit.</div>
     <div class="c15 l" style="top:176px" data-to="29,61"><strong>Status</strong>Form, Farbe und Text sagen dasselbe. Auch wer Farben schlecht unterscheidet, liest ihn sicher.</div>
@@ -840,77 +894,68 @@ body.grid .bar .nav{visibility:hidden}
   <div class="f15">
     <div class="v-label">Alltag · Tank leer</div>
     <div class="f15row">
-      <figure><img class="disp" src="bilder/booklet/03-warnung.jpg" alt="Warnung Wasser leer"><figcaption><b>Meldung</b>Was fehlt, steht da. Darunter genau ein Knopf: „Aufgefüllt“.</figcaption></figure>
+      <figure><img class="disp" src="bilder/booklet/02-standby.jpg" alt="Standby mit orangem Punkt"><figcaption><b>Standby</b>Display aus, nur der Punkt blinkt.</figcaption></figure>
       <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
-      <figure><img class="disp" src="bilder/booklet/04-aufgefuellt.jpg" alt="Tank voll"><figcaption><b>Rückmeldung</b>Sofort: „Tank voll · Nebler läuft wieder“.</figcaption></figure>
+      <figure><img class="disp" src="bilder/booklet/03-warnung.jpg" alt="Warnung Wasser leer"><figcaption><b>Meldung</b>Ingrid tippt. Was fehlt, steht da, darunter ein Knopf.</figcaption></figure>
       <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
-      <figure><img class="disp" src="bilder/booklet/01-gut.jpg" alt="Alles gut"><figcaption><b>Alles gut</b>Grüner Haken. Mehr muss Ingrid nicht tun.</figcaption></figure>
+      <figure class="up"><img class="disp" src="bilder/booklet/04-aufgefuellt.jpg" alt="Alles gut nach dem Auffüllen"><figcaption><b>Alles gut</b>Kurze Rückmeldung, dann das Startbild von oben.</figcaption></figure>
+      <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
+      <figure><img class="disp" src="bilder/booklet/12-meldungen.jpg" alt="Menü Meldungen mit Verlauf"><figcaption><b>Meldungen</b>Im Verlauf steht, was wann war.</figcaption></figure>
     </div>
   </div>
 
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>15</span></div>
 </section>
 
-<!-- ═══ 06 (alt 7) · D Ablauf, hell ═══ -->
-<section class="page dark">
+<!-- ═══ 16 · Bedienung II: Neue Pilze als Weiche (fertige oder eigene Sorte), grün ═══ -->
+<section class="page dark vp p16">
   <div class="top"><span>16 · BEDIENFELD BEDIENUNG II</span><span class="brand">GROWBOX</span></div>
-  <h1>Eine Warnung.<br><em>Ein Knopf.</em></h1>
-  <p class="lead">Ingrid muss nichts einstellen. Sie handelt nur, wenn die Box sie braucht, und bekommt auf jede Handlung sofort eine Rückmeldung.</p>
+  <h1>Neue Pilze.<br><em>Selbst eingestellt.</em></h1>
+  <p class="v-lead">Nach der Ernte setzt Ingrid neu an: <b>eine fertige Sorte, ein Tipp.</b> Wer mehr will, stellt eine <b>eigene Sorte</b> ein, mit Name, Vorlage und auf Wunsch eigenen Werten.</p>
 
-  <div class="flow">
-    <div class="lab"><span class="tag">Fall 1</span><b>Tank leer</b></div>
-    <figure><img class="disp" src="bilder/booklet/02-standby.jpg" alt="Standby"><figcaption><b>Standby</b>Nur der Punkt blinkt.</figcaption></figure>
-    <span class="ar">→</span>
-    <figure><img class="disp" src="bilder/booklet/03-warnung.jpg" alt="Wasser leer"><figcaption><b>Meldung + ein Knopf</b>AUFGEFÜLLT drücken.</figcaption></figure>
-    <span class="ar">→</span>
-    <figure><img class="disp" src="bilder/booklet/04-aufgefuellt.jpg" alt="Tank voll"><figcaption><b>Rückmeldung sofort</b>„Tank voll · Nebler läuft wieder“</figcaption></figure>
-    <span class="ar">→</span>
-    <figure><img class="disp" src="bilder/booklet/01-gut.jpg" alt="Alles gut"><figcaption><b>Alles gut</b>Grüner Haken, Tank wieder voll.</figcaption></figure>
+  <div class="fork16">
+    <div class="c1"><figure><img class="disp" src="bilder/booklet/05-erntebereit.jpg" alt="Erntebereit"><figcaption><b>Erntebereit</b>Ein Hinweis, keine Warnung.</figcaption></figure></div>
+    <div class="a1"><svg class="st" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10 H34"/><path d="M28 4 L35 10 L28 16"/></svg></div>
+    <div class="c2"><figure><img class="disp" src="bilder/booklet/06-sortenwahl.jpg" alt="Sorte wählen"><figcaption><b>Sorte wählen</b>Vier fertige Sorten oder eine eigene.</figcaption></figure></div>
+    <svg class="sw" viewBox="0 0 48 400" preserveAspectRatio="none" aria-hidden="true"><path d="M0 200 C24 200 20 95 44 95"/><path d="M0 200 C24 200 20 305 44 305"/></svg>
+    <div class="b1"><span class="v-label">Fertige Sorte</span><figure><img class="disp" src="bilder/booklet/08-tag1.jpg" alt="Shiitake Tag 1"><figcaption><b>Tag 1</b>Ein Tipp, der Ring beginnt von vorn. Die Box kennt die Werte.</figcaption></figure></div>
+    <div class="b2"><span class="v-label">Eigene Sorte</span><div class="pair"><figure><img class="disp" src="bilder/booklet/10-eigene.jpg" alt="Eigene Sorte mit Name und Vorlage"><figcaption><b>Name + Vorlage</b>Das reicht schon. Die Werte kommen von der Vorlage.</figcaption></figure><svg class="st" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10 H34"/><path d="M28 4 L35 10 L28 16"/></svg><figure class="on"><img class="disp" src="bilder/booklet/17-erweitert.jpg" alt="Erweitert aufgeklappt mit Temperatur, Luftfeuchte, Licht und Frischluft"><figcaption><b>Erweitert</b>Vier Werte mit − und +, in festen Schritten.</figcaption></figure></div></div>
   </div>
 
-  <div class="flow">
-    <div class="lab"><span class="tag">Fall 2</span><b>Ernte und neue Sorte</b></div>
-    <figure><img class="disp" src="bilder/booklet/05-erntebereit.jpg" alt="Erntebereit"><figcaption><b>Erntebereit</b>Ein Hinweis, keine Warnung.</figcaption></figure>
-    <span class="ar">→</span>
-    <figure><img class="disp" src="bilder/booklet/06-sortenwahl.jpg" alt="Sorte wählen"><figcaption><b>Neue Sorte</b>Sorte wählen, eigene Sorte oder Pause.</figcaption></figure>
-    <span class="ar">→</span>
-    <figure><img class="disp" src="bilder/booklet/07-sicher.jpg" alt="Sicher?"><figcaption><b>„Sicher?“</b>Die Kammer ist leer, das reicht.</figcaption></figure>
-    <span class="ar">→</span>
-    <figure><img class="disp" src="bilder/booklet/08-tag1.jpg" alt="Shiitake Tag 1"><figcaption><b>Tag 1</b>Der Ring beginnt von vorn.</figcaption></figure>
+  <div class="hold16">
+    <img class="disp" src="bilder/booklet/09-halten.jpg" alt="Neu ansetzen mitten im Wachstum: 2 Sekunden halten">
+    <div><span class="v-label">Und mitten im Wachstum?</span>
+      <h3>Erst halten, dann neu.</h3>
+      <p>Wer vor der Ernte neu ansetzt, verliert seine Pilze. Darum steht da, was verloren geht, und der Knopf muss <b>2 Sekunden gehalten</b> werden. Nach der Ernte ist die Kammer leer, da reicht ein „Sicher?“.</p></div>
   </div>
 
-  <div class="case3"><span class="label">Fall 3 · Handy verbinden</span><span>Handy-Symbol antippen → Code in der App → <b>VERBUNDEN</b> → Symbol verschwindet (minimalist design 130).</span></div>
-  <div class="folien">
-    <span class="label">Aus der Vorlesung</span>
-    <span><b>59</b>Gulf of Evaluation</span><span><b>82</b>Feedback</span><span><b>83–85</b>eine Handlung, ein Knopf</span><span><b>26–27</b>präattentiv</span>
-  </div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>16</span></div>
 </section>
 
-<!-- ═══ 07 (alt 8) · B Bild + zwei Kästen, dunkel ═══ -->
-<section class="page">
+<!-- ═══ 17 · Bedienung III: Einstellungen als Baum, hell ═══ -->
+<section class="page vp p17">
   <div class="top"><span>17 · BEDIENFELD BEDIENUNG III</span><span class="brand">GROWBOX</span></div>
-  <h1>Die Hürde passt<br><em>zum Risiko.</em></h1>
-  <p class="lead">Wer mitten im Wachstum neu ansetzt, verliert seine Pilze. Wer nach der Ernte neu ansetzt, verliert nichts. Deshalb fragt die Box <b>unterschiedlich streng.</b></p>
-  <div class="trio hr">
-    <figure><span class="tag warn">Mitten im Wachstum</span><img class="disp warn" src="bilder/booklet/09-halten.jpg" alt="Wirklich neu ansetzen? Gedrückt halten"><figcaption>Was verloren geht, steht da. Dann 2 s halten.</figcaption></figure>
-    <figure><span class="tag">Nach der Ernte</span><img class="disp" src="bilder/booklet/07-sicher.jpg" alt="Sicher?"><figcaption>Nur „Sicher?“, die Kammer ist schon leer.</figcaption></figure>
-    <figure><span class="tag mut">Eigene Sorte</span><img class="disp" src="bilder/booklet/10-eigene.jpg" alt="Eigene Sorte mit Erweitert"><figcaption>Name und Vorlage, Werte unter „Erweitert“.</figcaption></figure>
+  <h1>Einstellungen.<br><em>Hinter einem Zahnrad.</em></h1>
+  <p class="v-lead">Was man selten braucht, liegt hinter dem <b>Zahnrad</b> oben rechts. Fünf Zeilen, jede sagt in einem Satz, was sie tut. Das Startbild bleibt dadurch frei.</p>
+
+  <div class="tree17">
+    <div class="root">
+      <img class="disp" src="bilder/booklet/13-einstellungen.jpg" alt="Einstellungen: Handy verbinden, Urlaub, Sprache, Darstellung, Hilfe, Admin-Modus">
+      <ul>
+        <li><b>An oder aus steht in der Zeile.</b>Handy und Urlaub zeigen ihren Zustand, ohne dass man sie öffnet.</li>
+        <li><b>Handy verbinden</b>Code in der App eingeben, dann gehen Meldungen aufs Handy.</li>
+        <li><b>Sprache</b>Im Prototyp nur Deutsch. Andere Sprachen sind ausgegraut statt scheinbar wählbar.</li>
+        <li><b>Admin-Modus ganz unten</b>Abgesetzt für Service und Vorführung, Ingrid braucht ihn nicht.</li>
+      </ul>
+    </div>
+    <svg class="bus" viewBox="0 0 666 34" preserveAspectRatio="none" aria-hidden="true"><path d="M111 0 V14 H555 M111 14 V34 M333 14 V34 M555 14 V34"/></svg>
+    <div class="kids">
+      <figure><img class="disp" src="bilder/booklet/14-urlaub.jpg" alt="Urlaub starten"><figcaption><b>Urlaub</b>Vorher steht, was sich ändert. Die Box spart Wasser.</figcaption></figure>
+      <figure><img class="disp" src="bilder/booklet/15-darstellung.jpg" alt="Darstellung wählen"><figcaption><b>Darstellung</b>Blau, hoher Kontrast oder ein eigener Ton.</figcaption></figure>
+      <figure><img class="disp" src="bilder/booklet/16-hilfe.jpg" alt="Hilfe: Was funktioniert nicht?"><figcaption><b>Hilfe</b>Antippen, was nicht geht. Kein Formular.</figcaption></figure>
+    </div>
   </div>
-  <div class="duo hr2">
-    <div class="box"><h3>Hürde nach Risiko</h3>
-      <p class="sub">Mitten im Wachstum</p>
-      <div class="chipr"><span class="c">Hinweis</span><i>→</i><span class="c">2 s halten</span><i>→</i><span class="c on">14 Tage Rückweg</span></div>
-      <p class="sub">Nach der Ernte</p>
-      <div class="chipr"><span class="c">nur „Sicher?“</span></div>
-      <p class="ref">Murphy · 61 · Nielsen: Fehler vermeiden · 130</p></div>
-    <div class="box"><h3>Erst Übersicht, dann Detail</h3>
-      <p>Eigene Sorte an der Box nur nach der Ernte. Werte eingeklappt, feste Schritte mit Grenzen. Wer mehr will, zoomt in der App hinein.</p>
-      <p class="ref">Zoomable UI · 101–102</p></div>
-  </div>
-  <div class="same"><span class="label">Überall gleich</span><span class="kn">Knopf</span><span>Rahmen = drückbar</span><span class="in">Info</span><span>zwischen zwei Linien = Information</span></div>
-  <p class="ref">72–73 Affordance · 80 Konsistenz</p>
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Murphy's Law</span><span>Nielsen</span><span>Zoomable UI</span><span>Affordance</span><span>Konsistenz</span></div>
+
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>17</span></div>
 </section>
 
@@ -1004,7 +1049,12 @@ function lines15(){document.querySelectorAll('.call15').forEach(c=>{const img=c.
     const x2=img.offsetLeft-img.offsetWidth/2+img.offsetWidth*px/100,y2=img.offsetHeight*py/100;
     const left=l.classList.contains('l'),x1=left?l.offsetLeft+l.offsetWidth+8:l.offsetLeft-8,y1=l.offsetTop+12;
     const m=(x1+x2)/2;h+=`<path d="M${x1} ${y1} C${m} ${y1} ${m} ${y2} ${x2} ${y2}"/><circle cx="${x2}" cy="${y2}" r="4"/>`});
-  svg.innerHTML=h})}
+  svg.innerHTML=h;
+  const pg=c.closest('.page'),up=pg.querySelector('.f15 figure.up'),u=c.querySelector('.c15up');
+  if(up&&u){const off=e=>{let x=0,y=0;while(e&&e!==pg){x+=e.offsetLeft;y+=e.offsetTop;e=e.offsetParent}return[x,y]};
+    const [cx,cy]=off(c),[fx,fy]=off(up),x1=fx+up.offsetWidth/2-cx,y1=fy-cy-4,x2=img.offsetLeft+img.offsetWidth*.18,y2=img.offsetHeight-4;
+    u.innerHTML=`<path d="M${x1} ${y1} C${x1} ${y1-60} ${x2} ${y2+50} ${x2} ${y2}"/><circle cx="${x2}" cy="${y2}" r="4" fill="var(--sage)"/>`}
+})}
 addEventListener('load',lines15);
 </script>
 </body>
