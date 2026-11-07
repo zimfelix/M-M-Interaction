@@ -409,7 +409,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .page.vp .kw figcaption b,.page.vp .legend strong,.page.vp .v-card h3{font:700 19px/1.2 "Space Grotesk",sans-serif}
 /* S. 15: Startbild mittig, Erklärungen links/rechts mit geschwungenen Linien (keine Nummern, anders als S. 13); Alltag als grünes Band mit Bogenpfeilen; keine Leiste */
 .call15{position:relative;height:350px;margin-top:18px}
-.c15img{position:absolute;left:50%;top:0;height:350px;transform:translateX(-50%);border-radius:14px}
+.c15img{position:absolute;left:50%;top:0;height:350px;transform:translateX(-50%);border:3px solid #0b0c10;border-radius:12px;box-sizing:border-box}
 .c15svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .c15svg path{fill:none;stroke:var(--sage);stroke-width:1.6}
 .c15svg circle{fill:var(--sage);stroke:#F3F1E7;stroke-width:2}
@@ -656,11 +656,11 @@ body.grid .bar .nav{visibility:hidden}
 .p02 .tr .im.soon{background:transparent;outline:1.5px dashed var(--sage);outline-offset:-1.5px;display:grid;place-items:center;font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;color:var(--sage-text)}
 .p02 .tr .n{position:absolute;left:8px;top:8px;background:var(--cream);color:var(--green);font:700 10px "JetBrains Mono",monospace;padding:3px 7px;border-radius:20px;letter-spacing:.1em}
 .p02 .tr .t{font:700 19px/1.2 "Space Grotesk",sans-serif;margin:2px 0 8px;padding-left:18px}
-.p02 .tr ul{list-style:none;font-size:12.5px;line-height:1.35;color:#2F4A3A}
+.p02 .tr ul{list-style:none;font-size:15px;line-height:1.35;color:#2F4A3A}
 .p02 .tr li{position:relative;display:flex;gap:8px;padding:1px 0 1px 18px}
-.p02 .tr li:before{content:"";position:absolute;left:0;top:6.5px;width:8px;height:8px;border-radius:50%;background:var(--sage-text)}
+.p02 .tr li:before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--sage-text)}
 .p02 .tr.soon li:before{background:var(--cream);border:1.5px dashed var(--sage);box-sizing:border-box}
-.p02 .tr li i{font:700 11px "JetBrains Mono",monospace;font-style:normal;color:var(--sage-text);min-width:18px}
+.p02 .tr li i{font:700 12.5px/20px "JetBrains Mono",monospace;font-style:normal;color:var(--sage-text);min-width:18px}
 .p02 .tr .im>img.fit{object-fit:contain;background:#fbfaf5;padding:6px}
 .p02 .tr .im:has(img.fit){background:#fbfaf5}
 .p02 .tr .im.pair{display:flex;gap:4px;padding:8px 8px 6px;background:#fbfaf5}.p02 .tr .im.pair>img{width:50%;height:100%;object-fit:contain}
@@ -922,8 +922,8 @@ body.grid .bar .nav{visibility:hidden}
   <p class="v-lead">So sieht Ingrid das Bedienfeld im Alltag. Aus der Ferne sieht sie, <b>ob</b> etwas zu tun ist, aus der Nähe, <b>was</b>. Muss sie handeln, gibt es <b>genau einen Knopf.</b> Danach steht das Startbild da.</p>
 
   <div class="call15">
-    <img class="c15img" src="../01-konzept/bedienfeld/bilder/vorschau-aktuell.png" alt="Startbild Bedienfeld v7">
-    <svg class="c15svg" viewBox="0 0 666 350" aria-hidden="true"><path d="M198 -2 C266 -2 266 32 333 32"/><circle cx="333" cy="32" r="4"/><path d="M468 74 C436 74 436 105 403 105"/><circle cx="403" cy="105" r="4"/><path d="M198 152 C241 152 241 214 284 214"/><circle cx="284" cy="214" r="4"/><path d="M468 226 C431 226 431 247 394 247"/><circle cx="394" cy="247" r="4"/><path d="M198 304 C235 304 235 304 272 304"/><circle cx="272" cy="304" r="4"/></svg>
+    <img class="c15img" src="bilder/booklet/01-gut.jpg" alt="Startbild Bedienfeld v7">
+    <svg class="c15svg" viewBox="0 0 666 350" aria-hidden="true"><path d="M198 -2 C260 -2 260 17 321 17"/><circle cx="321" cy="17" r="4"/><path d="M468 74 C432 74 432 94 397 94"/><circle cx="397" cy="94" r="4"/><path d="M198 152 C244 152 244 212 289 212"/><circle cx="289" cy="212" r="4"/><path d="M468 226 C430 226 430 255 393 255"/><circle cx="393" cy="255" r="4"/><path d="M198 304 C226 304 226 312 253 312"/><circle cx="253" cy="312" r="4"/></svg>
     <div class="c15 l" style="top:-14px" data-to="50,9"><strong>Warnpunkt</strong>Leuchtet orange, sobald etwas zu tun ist. Warum Orange, steht bei „Warum Blau statt Schwarz?“.</div>
     <div class="c15 r" style="top:62px" data-to="80,30"><strong>Ring</strong>Tage bis zur Ernte. Der Pilz im Ring wächst in drei Stufen mit.</div>
     <div class="c15 l" style="top:140px" data-to="29,61"><strong>Status</strong>Bewusst bekannte Zeichen wie vom Handy: Haken, Warndreieck, Pilz zur Ernte. Form, Farbe und Text sagen dasselbe.<span class="sym15"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#3fcf7f" stroke="#fff" stroke-width="1.4"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L23 21.2H1z" fill="#f9a800" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8.6v6M12 17.6v.3" stroke="#111" stroke-width="2.6" stroke-linecap="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#efdcb8" stroke="#fff" stroke-width="1.4"/><path d="M5.6 12.6a6.4 5.4 0 0 1 12.8 0z" fill="#08106c"/><path d="M10.4 12.6v4.6h3.2v-4.6" fill="#08106c"/></svg></span></div>
