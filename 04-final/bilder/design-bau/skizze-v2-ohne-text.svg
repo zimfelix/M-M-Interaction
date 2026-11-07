@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="175 165 550 400" role="img" aria-label="Growbox wie eine Mikrowelle: links Pilzkammer mit Plexi-Tür, Scharnieren links und Stangengriff; rechts ein blickdichter Technikraum über die volle Tiefe, vorn das Bedienfeld mit iPhone 13 mini und Taster; die rechte Seitenwand ist aufgeschnitten und zeigt Lüfter mit Schlitzen zur Pilzkammer, Wassertank und Raspberry Pi">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="186 172 523 402" role="img" aria-label="Growbox wie eine Mikrowelle: links Pilzkammer mit Plexi-Tür, Scharnieren links und Stangengriff; rechts ein blickdichter Technikraum über die volle Tiefe, vorn das Bedienfeld mit iPhone 13 mini und Taster; die rechte Seitenwand ist aufgeschnitten und zeigt Lüfter mit Schlitzen zur Pilzkammer, Wassertank und Raspberry Pi">
 <defs>
 <filter id="w" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="5"></feTurbulence><feDisplacementMap in="SourceGraphic" scale="2.4"></feDisplacementMap></filter>
 <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#22211f" stroke-width="1.6"></path></marker>

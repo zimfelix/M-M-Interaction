@@ -41,14 +41,14 @@
 <rect x="516" y="535" width="50" height="15" rx="4" fill="#5b8db5" fill-opacity="0.55"></rect>
 <path d="M596 214 Q596 176 620 172 Q644 176 644 214 Z" fill="#c99a62"></path>
 <ellipse cx="620" cy="216" rx="26" ry="10" fill="#5b8db5" fill-opacity="0.6"></ellipse>
-<rect x="446" y="320" width="11" height="160" rx="5.5" fill="#e2c3a0" stroke="#22211f" stroke-width="1.5"></rect>
+<rect x="446" y="320" width="11" height="160" rx="5.5" fill="#b9bdb7" stroke="#22211f" stroke-width="1.5"></rect>
 
 <!-- Rahmen schwarz -->
 <g fill="none" stroke="#1f2124" stroke-linecap="round" stroke-linejoin="round">
 <path d="M262 204 L262 504 L562 504 M262 504 L190 560 M562 204 L562 504" stroke-width="7" stroke-opacity="0.3" stroke-dasharray="10 8"></path>
 <path d="M190 260 L190 560 M190 260 L592 260 M190 560 L592 560 M592 260 L592 560 M490 260 L490 560 M190 260 L262 204 L664 204 M592 260 L664 204 L664 504 L592 560 M490 260 L562 204" stroke-width="12"></path>
 <path d="M204 274 L476 274 L476 518 L204 518 Z" stroke-width="6" stroke="#5c6166"></path>
-<path d="M305 245 L385 245" stroke-width="8" stroke="#e2c3a0"></path>
+<path d="M305 245 L385 245" stroke-width="8" stroke="#b9bdb7"></path>
 <path d="M305 245 L305 253 M385 245 L385 253" stroke-width="4" stroke="#6b7076"></path>
 </g>
 <g fill="#3a3d40" stroke="#22211f" stroke-width="1.4">
@@ -136,7 +136,7 @@
 <text x="40" y="244" font-size="19" fill="#6b665d">beige · Deckel von vorn abheben</text>
 <text x="40" y="294" font-size="24">Scharniere</text>
 <text x="40" y="316" font-size="24">links</text>
-<text x="300" y="118" font-size="24">Griff: senkrechte Stange, beige</text>
+<text x="300" y="118" font-size="24">Griff: senkrechte Stange, grau</text>
 <text x="300" y="140" font-size="19" fill="#6b665d">auf 2 Griffhaltern am Türrahmen</text>
 <text x="726" y="148" font-size="24">iPhone 13 mini · Apple-Maße</text>
 <text x="726" y="172" font-size="20" fill="#6b665d">Breite 6,42 × Höhe 13,15 × Dicke 0,77 cm</text>
