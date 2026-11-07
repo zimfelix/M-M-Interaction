@@ -10,7 +10,7 @@
      Drucken: Brave → Drucken → Als PDF speichern, A4, Ränder „Keine“, Hintergrundgrafiken an. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;600;700&family=Caveat:wght@400;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --cream:#f3f1e7; --card:#fbfaf5;
@@ -407,6 +407,27 @@ h1 em{font-style:normal;color:var(--accent)}
 .page.vp .legend li>span:last-child{font-size:12.5px;line-height:1.45}
 .page.vp .vs3 figcaption,.page.vp .cap,.page.vp .v-small,.page.vp .tab .nb{font-size:11.5px;line-height:1.4}
 .page.vp .kw figcaption b,.page.vp .legend strong,.page.vp .v-card h3{font:700 19px/1.2 "Space Grotesk",sans-serif}
+/* S. 12–13: Skizzen und Displays im Hochformat, gewählte Version rechts */
+.page.p12 h1,.page.p13 h1{font-size:40px}
+.ideas,.steps13{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;position:relative}
+.steps13::before{content:"";position:absolute;left:6px;right:0;top:6px;height:1.5px;background:var(--sage);opacity:.7}
+.ideas figure,.steps13 figure{display:flex;flex-direction:column;gap:6px;margin:0}
+.steps13 .tag{position:relative;display:flex;align-items:center;gap:8px;width:max-content;padding-right:8px;background:var(--cream)}
+.steps13 .tag::before{content:"";width:13px;height:13px;border-radius:50%;background:var(--cream);border:2px solid var(--sage);box-sizing:border-box}
+.steps13 figure.on .tag::before{background:var(--sage)}
+.sk12{padding:6px;height:262px;display:flex;justify-content:center}
+.sk12 svg{height:100%;width:auto;display:block}
+.scr{height:262px;display:flex;justify-content:center}
+.scr .card{height:100%}
+.p12 .sk12{height:318px}
+.scr .shot{height:100%;width:auto;max-width:100%;object-fit:cover;object-position:100% 0;border-radius:14px;border:3px solid #0b0c10;background:#0b0c10;box-sizing:border-box;aspect-ratio:312/700}
+.scr .shot.full{aspect-ratio:700/1050;object-position:50% 0}
+.ideas figure.on .card,.steps13 figure.on .shot{box-shadow:0 0 0 3px var(--sage)}
+.ideas figcaption,.steps13 figcaption{font-size:11.5px;line-height:1.4;color:var(--muted)}
+.ideas figcaption b,.steps13 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
+.p13 .tab .st{display:block;font:700 11px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+.page.vp .tab tr:last-child td{border-bottom:0}
+.p12 .tab,.p13 .tab{font:400 12.5px/1.45 Inter,sans-serif}.p12 .tab th,.p13 .tab th{font:700 11px Inter,sans-serif;letter-spacing:.1em;color:var(--muted)}.p12 .tab td:first-child,.p13 .tab td:first-child{font-weight:700}
 /* ── Seiten des Kollegen, eingebettet ── */
 .page.ext{padding:0;background:#fff}
 .page.ext iframe{width:210mm;height:297mm;border:0;display:block}
@@ -478,7 +499,7 @@ body.grid .bar .nav{visibility:hidden}
   </div>
   <div class="toc">
     <div><div class="kap"><span class="label">Kapitel 1 · 03</span><b>Einstieg</b></div><ol><li><span class="n">03</span><span><strong>Für jeden gemacht.</strong><span class="s">Zielgruppe · Anforderungen · Nutzungskontext</span></span></li></ol><div class="kap"><span class="label">Kapitel 2 · 04–06</span><b>Konzept</b><span class="who">Die Box: Form und Bedienteile</span></div><ol><li><span class="n">04</span><span><strong>Vom Aquarium zur Mikrowelle.</strong><span class="s">Konzeptweg Box V1 → V3 · Abwägung</span></span></li><li><span class="n">05</span><span><strong>Wie eine Mikrowelle. Nur ohne Knopfsalat.</strong><span class="s">Die Box V3 annotiert</span></span></li><li><span class="n">06</span><span><strong>Ein Taster. Eine Bedeutung.</strong><span class="s">Bedienteile an der Box · Abwägung</span></span></li></ol><div class="kap"><span class="label">Kapitel 3 · 07–10</span><b>CAD &amp; Bau</b><span class="who">Konstruktion, Druck, 3D-Modell</span></div><ol><li><span class="n">07</span><span><strong>Vom Papier ins CAD.</strong><span class="s">Konstruktion · zwei Module</span></span></li><li><span class="n">08</span><span><strong>Vom Rohdruck zum Prototyp.</strong><span class="s">Prototyp · FabLab</span></span></li><li><span class="n">09</span><span><strong>Jedes Detail hat einen Zweck.</strong><span class="s">3D-Modell · alle Features</span></span></li><li><span class="n">10</span><span><strong>Klein für die Küche. Groß für mehr Ernte.</strong><span class="s">Zwei Größen</span></span></li></ol></div>
-    <div><div class="kap"><span class="label">Kapitel 4 · 11</span><b>Technik</b></div><ol><li><span class="n">11</span><span><strong>Ein Zustand. Zwei Ansichten.</strong><span class="s">Pi, Display, App · echt und simuliert</span></span></li></ol><div class="kap"><span class="label">Kapitel 5 · 12–18</span><b>Bedienfeld</b></div><div class="sub"><span>Konzept</span><span>12–14</span></div><ol><li><span class="n">12</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Leitideen, v1 → v3 · Abwägung</span></span></li><li><span class="n">13</span><span><strong>Sieben Stände. Immer schlanker.</strong><span class="s">v4 → v7 · Abwägung</span></span></li><li><span class="n">14</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li></ol><div class="sub"><span>Bedienung</span><span>15–17</span></div><ol><li><span class="n">15</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild lesen</span></span></li><li><span class="n">16</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Fall 1 Tank leer · Fall 2 Ernte · Fall 3 Handy</span></span></li><li><span class="n">17</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Neu ansetzen ohne Fehler</span></span></li></ol><div class="sub"><span>Weggelassen &amp; offen</span><span>18</span></div><ol><li><span class="n">18</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
+    <div><div class="kap"><span class="label">Kapitel 4 · 11</span><b>Technik</b></div><ol><li><span class="n">11</span><span><strong>Ein Zustand. Zwei Ansichten.</strong><span class="s">Pi, Display, App · echt und simuliert</span></span></li></ol><div class="kap"><span class="label">Kapitel 5 · 12–18</span><b>Bedienfeld</b></div><div class="sub"><span>Konzept</span><span>12–14</span></div><ol><li><span class="n">12</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Leitideen A · B · C als Skizzen</span></span></li><li><span class="n">13</span><span><strong>Vom Entwurf zum Bedienfeld.</strong><span class="s">Skizze → v1 → v7 · Abwägung</span></span></li><li><span class="n">14</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li></ol><div class="sub"><span>Bedienung</span><span>15–17</span></div><ol><li><span class="n">15</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild lesen</span></span></li><li><span class="n">16</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Fall 1 Tank leer · Fall 2 Ernte · Fall 3 Handy</span></span></li><li><span class="n">17</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Neu ansetzen ohne Fehler</span></span></li></ol><div class="sub"><span>Weggelassen &amp; offen</span><span>18</span></div><ol><li><span class="n">18</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
   </div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>02</span></div>
 </section>
@@ -607,28 +628,65 @@ body.grid .bar .nav{visibility:hidden}
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>11</span></div>
 </section>
 
-<section class="page tight dark">
+<!-- ═══ 12 · Drei Leitideen als Skizzen (Maße nach vorlage-seite.html) ═══ -->
+<section class="page dark vp p12">
   <div class="top"><span>12 · ENTSTEHUNG BEDIENFELD I</span><span class="brand">GROWBOX</span></div>
   <h1>Drei Ideen.<br><em>Eine gewählt.</em></h1>
-  <p class="lead">Vor dem ersten Bildschirm standen drei Leitideen. Gewählt haben wir B, weil Ingrid dabei am wenigsten lernen muss. In den ersten drei Ständen entstand daraus das Bild von heute: v1 hatte noch kein Pilz-Symbol und keine Gamification.</p>
+  <p class="v-lead">Bevor es einen Bildschirm gab, haben wir drei Richtungen skizziert. Gewählt haben wir die einfachste, weil <b>Ingrid dabei am wenigsten lernen muss.</b> Aus den beiden anderen ist je ein Teil geblieben.</p>
   <div class="ideas">
-    <div class="box"><span class="tag">A · verworfen</span><h3>Pilz-Begleiter</h3><p>Ein Pilz als Figur mit Stimmungen und Spielelementen.</p><p class="why">Lenkt vom Zustand ab. <b>Geblieben:</b> der Pilz im Ring.</p></div>
-    <div class="box solid"><span class="tag">B · gewählt</span><h3>Radikal einfach</h3><p>Ein Zustand aus Form, Farbe und Text, darunter wenige große Kacheln.</p><p class="why">Ein Blick genügt (Model Human Processor 16–17).</p></div>
-    <div class="box"><span class="tag">C · verworfen</span><h3>Physisch zuerst</h3><p>Taster, Drehknopf und LED-Ring statt Display.</p><p class="why">Wieder Knopfsalat (8). <b>Geblieben:</b> ein Taster fürs Licht.</p></div>
+    <figure class="idea"><span class="tag">A · verworfen</span><div class="card light sk12"><svg viewBox="0 0 200 340" role="img" aria-label="Skizze Idee A: Pilz als Figur mit Gesicht, Sprechblase, Level und Sternen"><defs><filter id="fa" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter></defs><g filter="url(#fa)" fill="none" stroke="#22211f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="8" width="164" height="324" rx="22"/><rect x="28" y="22" width="144" height="296" rx="10"/>
+<path d="M58 168 Q100 100 142 168 Z"/><path d="M84 168 L84 214 Q100 222 116 214 L116 168"/><circle cx="90" cy="186" r="3" fill="#22211f"/><circle cx="110" cy="186" r="3" fill="#22211f"/><path d="M92 200 Q100 194 108 200"/>
+<path d="M40 70 L160 70 L160 108 L112 108 L100 122 L96 108 L40 108 Z"/>
+<rect x="40" y="248" width="120" height="12" rx="6"/><path d="M42 254 L96 254" stroke-width="8" stroke="#e8a33d" stroke-opacity=".7"/>
+<path d="M48 284 l4 8 9 1 -7 6 2 9 -8 -5 -8 5 2 -9 -7 -6 9 -1z"/><path d="M86 284 l4 8 9 1 -7 6 2 9 -8 -5 -8 5 2 -9 -7 -6 9 -1z"/><path d="M124 284 l4 8 9 1 -7 6 2 9 -8 -5 -8 5 2 -9 -7 -6 9 -1z" stroke-dasharray="3 4"/></g>
+<g font-family="Caveat, cursive" fill="#22211f"><text x="100" y="95" font-size="17" text-anchor="middle">Mir ist zu trocken!</text><text x="40" y="44" font-size="15">Level 3 · 120 Punkte</text><text x="100" y="242" font-size="14" text-anchor="middle">Wachstum</text></g></svg></div><figcaption><b>Pilz-Begleiter</b>Der Pilz als Figur mit Stimmungen, Punkten und Level.</figcaption></figure>
+    <figure class="idea"><span class="tag">C · verworfen</span><div class="card light sk12"><svg viewBox="0 0 200 340" role="img" aria-label="Skizze Idee C: Box-Front ohne Display mit Drehknopf, LED-Ring und Taster"><defs><filter id="fc" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter></defs><g filter="url(#fc)" fill="none" stroke="#22211f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="8" width="164" height="324" rx="14"/>
+<circle cx="100" cy="130" r="42"/><circle cx="100" cy="130" r="28"/><path d="M100 130 L100 106" stroke-width="3"/>
+<g stroke-width="5"><path d="M100 70 l0 0"/><path d="M130 78 l0 0"/><path d="M152 100 l0 0"/><path d="M160 130 l0 0"/><path d="M152 160 l0 0"/><path d="M130 182 l0 0"/><path d="M100 190 l0 0"/><path d="M70 182 l0 0"/><path d="M48 160 l0 0"/><path d="M40 130 l0 0"/><path d="M48 100 l0 0"/><path d="M70 78 l0 0"/></g>
+<circle cx="100" cy="250" r="22"/><circle cx="100" cy="250" r="12"/>
+<path d="M30 300 L170 300" stroke-dasharray="4 6"/></g>
+<g fill="#e8a33d"><circle cx="100" cy="70" r="4.5"/><circle cx="130" cy="78" r="4.5"/><circle cx="152" cy="100" r="4.5"/></g>
+<g font-family="Caveat, cursive" fill="#22211f"><text x="100" y="40" font-size="16" text-anchor="middle">kein Display</text><text x="100" y="196" font-size="15" text-anchor="middle">Drehen: Licht · Klima · Wasser</text><text x="100" y="290" font-size="15" text-anchor="middle">Taster: an / aus</text><text x="100" y="322" font-size="13" text-anchor="middle">LED-Ring = Zustand</text></g></svg></div><figcaption><b>Physisch zuerst</b>Drehknopf, LED-Ring und Taster statt Display.</figcaption></figure>
+    <figure class="idea on"><span class="tag">B · gewählt</span><div class="card light sk12"><svg viewBox="0 0 200 340" role="img" aria-label="Skizze Idee B: großes Häkchen mit Alles gut und drei Kacheln"><defs><filter id="fb" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter></defs><g filter="url(#fb)" fill="none" stroke="#22211f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="8" width="164" height="324" rx="22"/><rect x="28" y="22" width="144" height="296" rx="10"/>
+<circle cx="100" cy="110" r="44" stroke-dasharray="5 7" stroke="#4a7339"/><circle cx="100" cy="110" r="28"/><path d="M86 111 L96 121 L115 99" stroke-width="3"/>
+<rect x="38" y="236" width="38" height="56" rx="6"/><rect x="81" y="236" width="38" height="56" rx="6"/><rect x="124" y="236" width="38" height="56" rx="6"/></g>
+<circle cx="100" cy="110" r="28" fill="#6aa57a" fill-opacity=".4"/>
+<g font-family="Caveat, cursive" fill="#22211f"><text x="100" y="186" font-size="24" font-weight="700" text-anchor="middle">Alles gut</text><text x="100" y="208" font-size="14" text-anchor="middle">1 Blick = 1 Aussage</text><text x="100" y="312" font-size="14" text-anchor="middle">nur 3 Kacheln</text><text x="100" y="56" font-size="14" fill="#4a7339" text-anchor="middle">später: Ring</text></g></svg></div><figcaption><b>Radikal einfach</b>Ein großer Zustand, darunter drei Kacheln.</figcaption></figure>
   </div>
-  <div class="thumbs row "><figure><img src="bilder/booklet/bedienfeld-v1.jpg" alt="Bedienfeld v1"><figcaption><b>v1 · 27.10.</b>hell, großes Zeichen, noch ohne Pilz</figcaption></figure><figure><img src="bilder/booklet/bedienfeld-v2.jpg" alt="Bedienfeld v2"><figcaption><b>v2 · 29.10.</b>Panel des Kollegen: Pilz im Feuchte-Ring</figcaption></figure><figure><img src="bilder/booklet/bedienfeld-v3.jpg" alt="Bedienfeld v3"><figcaption><b>v3 · 29.10.</b>Ring = Tage bis zur Ernte</figcaption></figure></div>
-  <table class="tab"><thead><tr><th>Entscheidung</th><th>Grund (Folie)</th><th>Nachteil, den wir in Kauf nehmen</th></tr></thead><tbody><tr><td><span class="vt">v1</span>Status als großes Zeichen mit einem Wort</td><td>Eine Aussage pro Blick (Model Human Processor 16–17)</td><td>Noch kein Bild für das Wachstum, Zahlen ohne Ziel.</td></tr><tr><td><span class="vt">v1 → v2</span>Blauer Grund aus dem Panel des Kollegen</td><td>Blau nur als Fläche, Statusfarben springen heraus (präattentiv 26, Farbsehen 22)</td><td>Gerade dieses Blau ist Gestaltung, nicht aus den Folien.</td></tr><tr><td><span class="vt">v2 → v3</span>Ring zeigt Tage bis zur Ernte statt Feuchte</td><td>Klares Ziel und Fortschritt (Progression G 10, Flow G 12)</td><td>Die Feuchte wandert in eine kleine Zeile darunter.</td></tr><tr><td><span class="vt">v3</span>Status immer Symbol + Farbe + Wort</td><td>Rot-Grün-Schwäche (Farbsehschwäche 23)</td><td>Mehr Platz pro Zustand.</td></tr></tbody></table>
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Model Human Processor</span><span>Präattentiv</span><span>Progression</span><span>Flow</span><span>Farbsehschwäche</span></div>
+  <table class="tab">
+    <tr><th>Entscheidung</th><th>Grund</th><th>Nachteil · was blieb</th></tr>
+    <tr><td>B gewählt: radikal einfach</td><td>Form, Farbe und ein Wort erfasst man mit einem Blick, ohne zu lesen oder zu lernen (Model Human Processor).</td><td>Wenig Persönlichkeit, die Box wirkt nüchtern.</td></tr>
+    <tr><td>A verworfen: Pilz-Begleiter</td><td>Stimmungen einer Figur muss man deuten, Punkte und Level lenken vom Zustand der Box ab.</td><td>Geblieben: Der Pilz wächst im Ring bis zur Ernte (Progression).</td></tr>
+    <tr><td>C verworfen: physisch zuerst</td><td>Was ein Drehknopf gerade schaltet und welche LED was bedeutet, muss man sich merken.</td><td>Geblieben: ein echter Taster fürs Licht.</td></tr>
+  </table>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Model Human Processor</span><span>Progression</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>12</span></div>
 </section>
 
-<section class="page">
+<!-- ═══ 13 · Vom Entwurf zum Bedienfeld (Maße nach vorlage-seite.html) ═══ -->
+<section class="page vp p13">
   <div class="top"><span>13 · ENTSTEHUNG BEDIENFELD II</span><span class="brand">GROWBOX</span></div>
-  <h1>Sieben Stände.<br><em>Immer schlanker.</em></h1>
-  <p class="lead">Ab v4 kam kaum noch etwas dazu. Jeden Stand haben wir an den Folien geprüft, und meist wurde dabei etwas weggenommen oder klarer gemacht. Bewerten und neu gestalten im Wechsel, wie im UCD-Kreislauf.</p>
-  <div class="thumbs row four"><figure><img src="bilder/booklet/bedienfeld-v4.jpg" alt="Bedienfeld v4"><figcaption><b>v4 · 29.10.</b>Automatik sichtbar</figcaption></figure><figure><img src="bilder/booklet/bedienfeld-v5.jpg" alt="Bedienfeld v5"><figcaption><b>v5 · 02.11.</b>Folien-Review: 3 Kacheln</figcaption></figure><figure><img src="bilder/booklet/bedienfeld-v6.jpg" alt="Bedienfeld v6"><figcaption><b>v6 · 02.11.</b>44 pt, Warnpunkt</figcaption></figure><figure><img src="bilder/booklet/01-gut.jpg" alt="Bedienfeld v7"><figcaption><b>v7 · 05.11.</b>Pilz wächst, Erntebereit</figcaption></figure></div>
-  <table class="tab"><thead><tr><th>Entscheidung</th><th>Grund (Folie)</th><th>Nachteil, den wir in Kauf nehmen</th></tr></thead><tbody><tr><td><span class="vt">v4</span>Automatik sichtbar: Kachel Klima zeigt AUTO</td><td>Man sieht, was das System tut (Gulf of Evaluation 59, mentales Modell 56)</td><td>Dazu kam ein Ruhemodus, den wir in v7 wieder gestrichen haben.</td></tr><tr><td><span class="vt">v5</span>5 → 3 Kacheln, „1 Min lüften“ nur in der App</td><td>Wenige große Ziele statt Knopfsalat (8, Fitts 50, minimalist design 130)</td><td>Wer eingreifen will, muss in die App.</td></tr><tr><td><span class="vt">v5</span>Licht ohne Kachel, nur am Taster</td><td>Eine Funktion, ein Ort (Mapping 77–79)</td><td>Am Display lässt sich das Licht nicht schalten.</td></tr><tr><td><span class="vt">v6</span>Ziele ≥ 44 pt, Warntext 6,4 : 1 statt 2,8 : 1</td><td>Zitternde Hände, Lesebrille (Fitts 50, Sichtabstand 63, Kontrast 66)</td><td>Weniger Inhalt pro Bildschirm.</td></tr><tr><td><span class="vt">v7</span>Pilz wächst in drei Stufen, „Erntebereit“ beige</td><td>Fortschritt ohne Spielfigur (Progression G 10); nichts ist kaputt, also kein Orange (80)</td><td>Keine Punkte, keine Belohnung.</td></tr><tr><td><span class="vt">v7</span>Rahmen = drückbar, Linien = Information</td><td>Man sieht, wo man tippen kann (Affordance 72–73)</td><td>Infozeilen wirken schlichter.</td></tr></tbody></table>
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span><b>105</b>Evaluieren ↔ Designen</span><span><b>126</b>formative Evaluation</span><span><b>119–125</b>Prototypen</span><span><b>130</b>Nielsen</span></div>
+  <h1>Vom Entwurf<br><em>zum Bedienfeld.</em></h1>
+  <p class="v-lead">Aus der Skizze wurde in sieben Ständen das Bedienfeld von heute. Jeden Stand haben wir an den Folien geprüft, <b>meist wurde dabei etwas weggenommen.</b></p>
+  <div class="steps13">
+    <figure class="step"><span class="tag">Skizze · 27.10.</span><div class="scr"><div class="card light sk12"><svg viewBox="0 0 200 340" role="img" aria-label="Handskizze Startbild: Häkchen, Alles gut, drei Kacheln Licht, Klima, Hinweise"><defs><filter id="fs" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter></defs><g filter="url(#fs)" fill="none" stroke="#22211f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="8" width="164" height="324" rx="22"/><rect x="28" y="22" width="144" height="296" rx="10"/>
+<circle cx="100" cy="92" r="38"/><path d="M82 93 L95 106 L120 78" stroke-width="3"/>
+<rect x="40" y="190" width="120" height="34" rx="7"/><rect x="40" y="230" width="120" height="34" rx="7"/><rect x="40" y="270" width="120" height="34" rx="7"/>
+<circle cx="58" cy="207" r="6"/><path d="M58 247 c-4 5-6 8-6 11a6 6 0 0 0 12 0c0-3-2-6-6-11z"/><path d="M58 280 c-6 0-7 7-8 14h16c-1-7-2-14-8-14z"/></g>
+<circle cx="100" cy="92" r="38" fill="#6aa57a" fill-opacity=".4"/>
+<g font-family="Caveat, cursive" fill="#22211f"><text x="100" y="158" font-size="26" font-weight="700" text-anchor="middle">Alles gut</text><text x="100" y="178" font-size="14" text-anchor="middle">Deine Pilze wachsen gut.</text><text x="74" y="212" font-size="16">Licht</text><text x="74" y="252" font-size="16">Klima</text><text x="74" y="292" font-size="16">Hinweise</text></g></svg></div></div><figcaption><b>Startbild als Skizze</b>Ein Zeichen, ein Satz, drei Kacheln.</figcaption></figure>
+    <figure class="step"><span class="tag">v1 · 27.10. · erster Prototyp</span><div class="scr"><img class="shot" src="bilder/booklet/bedienfeld-v1.jpg" alt="Bedienfeld v1: Creme, großes Häkchen, Kacheln Licht, Klima, Hinweise"></div><figcaption><b>Erster Prototyp</b>Hell, Kacheln als Liste, noch ohne Pilz.</figcaption></figure>
+    <figure class="step on"><span class="tag">v7 · 05.11. · final</span><div class="scr"><img class="shot full" src="../01-konzept/bedienfeld/bilder/vorschau-aktuell.png" alt="Bedienfeld v7: blau, Ring mit Pilz und Tagen bis zur Ernte, Alles gut, drei Kacheln"></div><figcaption><b>Bedienfeld v7</b>Blau, Pilz im Ring, drei Kacheln.</figcaption></figure>
+  </div>
+  <table class="tab">
+    <tr><th>Entscheidung</th><th>Grund</th><th>Nachteil</th></tr>
+    <tr><td><span class="st">v1 → v2</span>Blau als Fläche statt Creme</td><td>Grün, Orange und Weiß springen auf dem ruhigen Blau sofort heraus (Präattentiv).</td><td>Wer Schwarz lieber mag, muss es einstellen.</td></tr>
+    <tr><td><span class="st">v2 → v3</span>Ring zeigt Tage bis zur Ernte</td><td>Ein klares Ziel mit sichtbarem Fortschritt, der Pilz darin wächst mit (Progression).</td><td>Die Feuchte rückt in eine kleine Zeile darunter.</td></tr>
+    <tr><td><span class="st">v4 → v5</span>Drei Kacheln statt fünf</td><td>Wenige große Ziele statt Knopfsalat, Seltenes liegt in der App (Minimalist Design).</td><td>Wer selbst eingreifen will, braucht die App.</td></tr>
+    <tr><td><span class="st">v5 → v6</span>Ziele ≥ 44 pt, Warntext 6,4 : 1</td><td>Lesbar aus zwei bis drei Metern und mit Lesebrille (Kontrast).</td><td>Weniger Inhalt pro Bildschirm.</td></tr>
+    <tr><td><span class="st">v6 → v7</span>Rahmen heißt drückbar</td><td>Was einen Rahmen hat, kann man drücken, Informationen stehen zwischen Linien (Affordance).</td><td>Infozeilen wirken schlichter.</td></tr>
+  </table>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Präattentiv</span><span>Progression</span><span>Minimalist Design</span><span>Kontrast</span><span>Affordance</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>13</span></div>
 </section>
 
