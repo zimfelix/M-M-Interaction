@@ -433,34 +433,24 @@ h1 em{font-style:normal;color:var(--accent)}
 .f15 .arc path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .sym15{display:flex;justify-content:flex-end;gap:8px;margin-top:6px}
 .sym15 svg{width:22px;height:22px;flex:none}
-/* S. 16: zwei Reihen, oben fertige Sorte, unten eigene Sorte; Halten mit Fingerpunkt */
-.rows16{display:grid;grid-template-columns:1fr 50px 1fr 50px 1fr;grid-template-rows:auto auto auto;gap:8px 0;align-items:start}
-.rows16 .r1{grid-column:1/-1}
+/* S. 16: zwei Reihen in Startbild-Größe (S. 15): oben Pilzkatalog, unten selbst gestalten + Halten */
+.rows16{display:grid;grid-template-columns:1fr 33px 1fr 33px 1fr;gap:6px 0;align-items:start}
+.rows16 .lab{grid-column:1/-1;display:flex;gap:12px;align-items:baseline}
+.rows16 figure+.lab{margin-top:12px}
+.rows16 .lab .hl{margin-left:auto;width:200px;color:#F2C879!important}
+.rows16 .v-label{color:var(--sage)}.rows16 .v-sub{color:#B4C2B6}
 .rows16 figure{margin:0;display:flex;flex-direction:column;gap:6px;align-items:center}
-.rows16 .disp{width:96px;height:auto;border-width:3px;border-radius:12px}
-.rows16 figcaption{font-size:11.5px;line-height:1.4;color:#B4C2B6;text-align:center;max-width:170px}
-.rows16 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA;margin-bottom:2px}
-.rows16 .arc{width:50px;margin-top:70px;overflow:visible}
+.rows16 .iw{position:relative}
+.rows16 .disp{height:330px;width:auto;border-width:3px;border-radius:12px}
+.rows16 figure.on .disp{box-shadow:0 0 0 3px var(--sage)}
+.rows16 figcaption{font-size:11.5px;line-height:1.4;color:#B4C2B6;text-align:center}
+.rows16 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA}
+.rows16 .arc{width:33px;margin-top:150px;overflow:visible}
 .rows16 svg path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.rows16 .v-label{color:var(--sage)}
-.rows16 .alt{grid-column:1/4;grid-row:3;display:grid;grid-template-columns:1fr 50px 1fr;align-items:start;margin-top:-4px}
-.rows16 .alt .v-label{grid-column:1;padding-top:30px}
-.rows16 .alt p{grid-column:1;font-size:11.5px;line-height:1.4;color:#B4C2B6;margin:4px 0 0}
-.rows16 .alt .down{grid-column:3;grid-row:1/3;justify-self:center;width:20px;height:40px}
-.rows16 .r2,.rows16 .r2a,.rows16 .r2b{grid-row:4}
-.rows16 .r2{grid-column:3}.rows16 .r2a{grid-column:4}.rows16 .r2b{grid-column:5}
-.rows16 .alt{grid-column:1/4}
-.rows16 figure.r2b .disp{box-shadow:0 0 0 3px var(--sage)}
-.hold16{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center;background:var(--green-2);border-radius:14px;padding:14px 20px}
-.hcrop{position:relative;width:150px;height:140px;overflow:hidden;border-radius:10px;border:3px solid #0b0c10}
-.hcrop img{width:100%;display:block}
-.hcrop .finger{position:absolute;left:56%;top:84%;width:26px;height:26px;border-radius:50%;transform:translate(-50%,-50%);background:rgba(238,242,234,.55);box-shadow:0 0 0 5px rgba(127,168,108,.55),0 0 0 11px rgba(127,168,108,.22)}
-.hold16 h3{font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA;margin:4px 0 4px}
-.hold16 p{font-size:12.5px;line-height:1.45;color:#D5DED6;margin:0}.hold16 p b{color:#EEF2EA}
-.hold16 .v-label{color:var(--sage)}
-.tl16{display:grid;grid-template-columns:auto 1fr auto;gap:4px 0;margin-top:10px;font:700 9.5px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#B4C2B6}
-.tl16 .tlb{display:block;grid-column:1/-1;height:6px;border-radius:3px;background:#3d5e4c;overflow:hidden}.tl16 .tlb i{display:block;width:50%;height:100%;background:#F2C879}
-.tl16 .now{text-align:center;color:#F2C879}
+.rows16 .sep{width:1px;height:330px;background:#3d5e4c;justify-self:center}
+.rows16 .hold figcaption b{color:#F2C879}
+.rows16 .finger{position:absolute;left:58%;top:47.5%;width:30px;height:30px;border-radius:50%;transform:translate(-50%,-50%);background:rgba(238,242,234,.6);box-shadow:0 0 0 6px rgba(242,200,121,.5),0 0 0 13px rgba(242,200,121,.2)}
+.rows16 .tlb{position:absolute;left:12px;right:12px;bottom:14px;height:6px;border-radius:3px;background:#3d5e4c;overflow:hidden}.rows16 .tlb i{display:block;width:50%;height:100%;background:#F2C879}
 /* S. 17: Einstellungen als Baum mit rechten Winkeln */
 .tree17 .root{display:grid;grid-template-columns:222px 1fr;gap:28px;align-items:center}
 .tree17 .root .disp{width:180px;margin-left:21px;border-width:3px;border-radius:14px}
@@ -948,28 +938,22 @@ body.grid .bar .nav{visibility:hidden}
 <!-- ═══ 16 · Bedienung II: Neue Pilze als Weiche (fertige oder eigene Sorte), grün ═══ -->
 <section class="page dark vp p16">
   <div class="top"><span>16 · BEDIENFELD BEDIENUNG II</span><span class="brand">GROWBOX</span></div>
-  <h1>Neue Pilze.<br><em>Selbst eingestellt.</em></h1>
-  <p class="v-lead">Nach der Ernte setzt Ingrid neu an: <b>eine fertige Sorte, ein Tipp.</b> Wer mehr will, stellt eine <b>eigene Sorte</b> ein, mit Name, Vorlage und auf Wunsch eigenen Werten.</p>
+  <h1>Neue Pilze. <em>Selbst eingestellt.</em></h1>
+  <p class="v-lead">Zwei Wege, mit Absicht: Ingrid wählt nach der Ernte <b>aus dem Pilzkatalog</b>, ein Tipp genügt. Wer mehr will, <b>gestaltet selbst</b>, mit Name, Vorlage und eigenen Werten.</p>
 
   <div class="rows16">
-    <span class="v-label r1">Fertige Sorte</span>
-    <figure><img class="disp" src="bilder/booklet/05-erntebereit.jpg" alt="Erntebereit"><figcaption><b>Erntebereit</b>Ein Hinweis, keine Warnung.</figcaption></figure>
+    <div class="lab"><span class="v-label">Weg 1 · Pilzkatalog</span><span class="v-sub">Fertige Werte · ein Tipp</span></div>
+    <figure><div class="iw"><img class="disp" src="bilder/booklet/05-erntebereit.jpg" alt="Erntebereit"></div><figcaption><b>Erntebereit</b>Ein Hinweis, keine Warnung.</figcaption></figure>
     <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
-    <figure class="sel"><img class="disp" src="bilder/booklet/06-sortenwahl.jpg" alt="Sorte wählen"><figcaption><b>Neue Sorte wählen</b>Vier fertige Sorten oder eine eigene.</figcaption></figure>
+    <figure><div class="iw"><img class="disp" src="bilder/booklet/06-sortenwahl.jpg" alt="Sorte wählen"></div><figcaption><b>Sorte wählen</b>Katalog oder „Eigene Sorte“.</figcaption></figure>
     <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
-    <figure><img class="disp" src="bilder/booklet/08-tag1.jpg" alt="Shiitake Tag 1"><figcaption><b>Tag 1</b>Ein Tipp, fertig. Die Box kennt die Werte.</figcaption></figure>
-    <div class="alt"><span class="v-label">Oder eigene Sorte</span><p>Ganz unten in der Liste: „Eigene Sorte gestalten“.</p><svg class="down" viewBox="0 0 20 40" aria-hidden="true"><path d="M10 2 V34"/><path d="M4 28 L10 35 L16 28"/></svg></div>
-    <figure class="r2"><img class="disp" src="bilder/booklet/10-eigene.jpg" alt="Eigene Sorte mit Name und Vorlage"><figcaption><b>Name + Vorlage</b>Das reicht schon. Die Werte kommen von der Vorlage.</figcaption></figure>
-    <svg class="arc r2a" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
-    <figure class="r2b"><img class="disp" src="bilder/booklet/17-erweitert.jpg" alt="Erweitert aufgeklappt"><figcaption><b>Erweitert</b>Vier Werte mit − und +, in festen Schritten.</figcaption></figure>
-  </div>
-
-  <div class="hold16">
-    <div class="hcrop"><img src="bilder/booklet/18-halten-1s.jpg" alt="Neu ansetzen mitten im Wachstum, Knopf nach einer Sekunde gehalten"><span class="finger" aria-hidden="true"></span></div>
-    <div><span class="v-label">Und mitten im Wachstum?</span>
-      <h3>Erst halten, dann neu.</h3>
-      <p>Wer vor der Ernte neu ansetzt, verliert seine Pilze. Darum steht da, was verloren geht, und der Knopf muss <b>2 Sekunden gehalten</b> werden. Der Balken füllt sich, loslassen bricht ab. Nach der Ernte ist die Kammer leer, da reicht ein „Sicher?“.</p>
-      <div class="tl16"><span class="tlb"><i></i></span><span>0 s</span><span class="now">1 s · halb gefüllt</span><span>2 s · neu</span></div></div>
+    <figure><div class="iw"><img class="disp" src="bilder/booklet/08-tag1.jpg" alt="Shiitake Tag 1"></div><figcaption><b>Tag 1</b>Die Box kennt die Werte.</figcaption></figure>
+    <div class="lab"><span class="v-label">Weg 2 · Selbst gestalten</span><span class="v-sub">Aus „Sorte wählen“ · Eigene Sorte</span><span class="v-label hl">Mitten im Wachstum?</span></div>
+    <figure><div class="iw"><img class="disp" src="bilder/booklet/10-eigene.jpg" alt="Eigene Sorte mit Name und Vorlage"></div><figcaption><b>Name + Vorlage</b>Das reicht schon.</figcaption></figure>
+    <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
+    <figure class="on"><div class="iw"><img class="disp" src="bilder/booklet/17-erweitert.jpg" alt="Erweitert aufgeklappt"></div><figcaption><b>Erweitert</b>Vier Werte, feste Schritte.</figcaption></figure>
+    <span class="sep" aria-hidden="true"></span>
+    <figure class="hold"><div class="iw"><img class="disp" src="bilder/booklet/18-halten-1s.jpg" alt="Neu ansetzen mitten im Wachstum, nach einer Sekunde gehalten"><span class="finger" aria-hidden="true"></span><span class="tlb"><i></i></span></div><figcaption><b>Erst halten</b>2 s halten, loslassen bricht ab.</figcaption></figure>
   </div>
 
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>16</span></div>
