@@ -496,21 +496,11 @@ body.grid .bar .nav{visibility:hidden}
   #zoom{display:none!important}
 }
 
-/* ── Kapitel-Leiste (Test S. 1–5) ── */
-.kbar{position:absolute;top:24px;left:64px;right:64px;display:flex;gap:5px}
-.kseg{position:relative;height:3px;border-radius:2px;background:var(--line)}
-.kseg i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:2px}
-.kseg.cur i::after{content:"";position:absolute;right:-4px;top:-3px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
-.kseg span{position:absolute;top:9px;left:0;font:700 8.5px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-.kseg.cur span{color:var(--accent)}
-.krail{display:grid;grid-template-columns:repeat(5,1fr);position:relative;margin-top:2px}
-.krail::before{content:"";position:absolute;left:13px;right:0;top:13px;height:1.5px;background:var(--sage)}
-.krail div{position:relative;display:flex;flex-direction:column;gap:3px}
-.krail .c{width:26px;height:26px;border-radius:50%;background:var(--green);color:#eef2ea;border:2px solid var(--sage);box-sizing:border-box;display:grid;place-items:center;font:700 10px "JetBrains Mono",monospace;margin-bottom:5px}
-.krail strong{font:700 13px Inter,sans-serif;color:var(--ink)}
-.krail span{font:600 9.5px "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--muted)}
-.toc .kap[data-n]{position:relative;padding-left:36px}
-.toc .kap[data-n]::before{content:attr(data-n);position:absolute;left:0;top:calc(2.6mm + 2px);width:26px;height:26px;border-radius:50%;background:var(--green);color:#eef2ea;border:2px solid var(--sage);box-sizing:border-box;display:grid;place-items:center;font:700 10px "JetBrains Mono",monospace}
+/* ── Fortschritt mit Kapitelgrenzen (Test S. 1–5) ── */
+.kbar{position:absolute;top:28px;left:64px;right:64px;height:3px;border-radius:2px;background:var(--line)}
+.kbar>i{position:absolute;left:0;top:0;bottom:0;border-radius:2px;background:var(--accent)}
+.kbar b{position:absolute;top:-4px;width:2px;height:11px;margin-left:-1px;border-radius:1px;background:var(--line)}
+.kbar b.on{background:var(--accent)}
 </style>
 </head>
 <body>
@@ -546,11 +536,12 @@ body.grid .bar .nav{visibility:hidden}
   <h1>Was in diesem<br><em>Booklet steckt.</em></h1>
   <p class="v-lead">Erst für wen und was die Box können muss, dann wie sie entstanden ist und welche Technik drinsteckt, zuletzt wie man sie bedient. Jede Entscheidung steht mit dem Grund aus der Vorlesung und dem Nachteil, den wir dafür in Kauf nehmen.</p>
   <div>
-    <div class="krail"><div><b class="c">01</b><strong>Einstieg</strong><span>S. 03</span></div><div><b class="c">02</b><strong>Konzept</strong><span>S. 04–06</span></div><div><b class="c">03</b><strong>CAD &amp; Bau</strong><span>S. 07–10</span></div><div><b class="c">04</b><strong>Technik</strong><span>S. 11</span></div><div><b class="c">05</b><strong>Bedienfeld</strong><span>S. 12–18</span></div></div>
+    <div class="strip"><i class="b"></i><i class="b"></i><i class="c"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="c"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="d"></i></div>
+    <div class="strip-lab"><span>01–02</span><span>03</span><span>04–06 KONZEPT</span><span>07–10 CAD &amp; BAU</span><span>11</span><span>12–14 BF KONZEPT</span><span>15–17 BEDIENUNG</span><span>18</span></div>
   </div>
   <div class="toc">
-    <div><div class="kap" data-n="01"><span class="label">Kapitel 1 · 03</span><b>Einstieg</b></div><ol><li><span class="n">03</span><span><strong>Für jeden gemacht.</strong><span class="s">Zielgruppe · Anforderungen · Nutzungskontext</span></span></li></ol><div class="kap" data-n="02"><span class="label">Kapitel 2 · 04–06</span><b>Konzept</b><span class="who">Die Box: Form und Bedienteile</span></div><ol><li><span class="n">04</span><span><strong>Vom Aquarium zur Mikrowelle.</strong><span class="s">Konzeptweg Box V1 → V3 · Abwägung</span></span></li><li><span class="n">05</span><span><strong>Wie eine Mikrowelle. Nur ohne Knopfsalat.</strong><span class="s">Die Box V3 annotiert</span></span></li><li><span class="n">06</span><span><strong>Ein Taster. Eine Bedeutung.</strong><span class="s">Bedienteile an der Box · Abwägung</span></span></li></ol><div class="kap" data-n="03"><span class="label">Kapitel 3 · 07–10</span><b>CAD &amp; Bau</b><span class="who">Konstruktion, Druck, 3D-Modell</span></div><ol><li><span class="n">07</span><span><strong>Vom Papier ins CAD.</strong><span class="s">Konstruktion · zwei Module</span></span></li><li><span class="n">08</span><span><strong>Vom Rohdruck zum Prototyp.</strong><span class="s">Prototyp · FabLab</span></span></li><li><span class="n">09</span><span><strong>Jedes Detail hat einen Zweck.</strong><span class="s">3D-Modell · alle Features</span></span></li><li><span class="n">10</span><span><strong>Klein für die Küche. Groß für mehr Ernte.</strong><span class="s">Zwei Größen</span></span></li></ol></div>
-    <div><div class="kap" data-n="04"><span class="label">Kapitel 4 · 11</span><b>Technik</b></div><ol><li><span class="n">11</span><span><strong>Ein Zustand. Zwei Ansichten.</strong><span class="s">Pi, Display, App · echt und simuliert</span></span></li></ol><div class="kap" data-n="05"><span class="label">Kapitel 5 · 12–18</span><b>Bedienfeld</b></div><div class="sub"><span>Konzept</span><span>12–14</span></div><ol><li><span class="n">12</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Leitideen A · B · C als Skizzen</span></span></li><li><span class="n">13</span><span><strong>Vom Entwurf zum Bedienfeld.</strong><span class="s">V1 → Final · sieben Änderungen</span></span></li><li><span class="n">14</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li></ol><div class="sub"><span>Bedienung</span><span>15–17</span></div><ol><li><span class="n">15</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild lesen</span></span></li><li><span class="n">16</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Fall 1 Tank leer · Fall 2 Ernte · Fall 3 Handy</span></span></li><li><span class="n">17</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Neu ansetzen ohne Fehler</span></span></li></ol><div class="sub"><span>Weggelassen &amp; offen</span><span>18</span></div><ol><li><span class="n">18</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
+    <div><div class="kap"><span class="label">Kapitel 1 · 03</span><b>Einstieg</b></div><ol><li><span class="n">03</span><span><strong>Für jeden gemacht.</strong><span class="s">Zielgruppe · Anforderungen · Nutzungskontext</span></span></li></ol><div class="kap"><span class="label">Kapitel 2 · 04–06</span><b>Konzept</b><span class="who">Die Box: Form und Bedienteile</span></div><ol><li><span class="n">04</span><span><strong>Vom Aquarium zur Mikrowelle.</strong><span class="s">Konzeptweg Box V1 → V3 · Abwägung</span></span></li><li><span class="n">05</span><span><strong>Wie eine Mikrowelle. Nur ohne Knopfsalat.</strong><span class="s">Die Box V3 annotiert</span></span></li><li><span class="n">06</span><span><strong>Ein Taster. Eine Bedeutung.</strong><span class="s">Bedienteile an der Box · Abwägung</span></span></li></ol><div class="kap"><span class="label">Kapitel 3 · 07–10</span><b>CAD &amp; Bau</b><span class="who">Konstruktion, Druck, 3D-Modell</span></div><ol><li><span class="n">07</span><span><strong>Vom Papier ins CAD.</strong><span class="s">Konstruktion · zwei Module</span></span></li><li><span class="n">08</span><span><strong>Vom Rohdruck zum Prototyp.</strong><span class="s">Prototyp · FabLab</span></span></li><li><span class="n">09</span><span><strong>Jedes Detail hat einen Zweck.</strong><span class="s">3D-Modell · alle Features</span></span></li><li><span class="n">10</span><span><strong>Klein für die Küche. Groß für mehr Ernte.</strong><span class="s">Zwei Größen</span></span></li></ol></div>
+    <div><div class="kap"><span class="label">Kapitel 4 · 11</span><b>Technik</b></div><ol><li><span class="n">11</span><span><strong>Ein Zustand. Zwei Ansichten.</strong><span class="s">Pi, Display, App · echt und simuliert</span></span></li></ol><div class="kap"><span class="label">Kapitel 5 · 12–18</span><b>Bedienfeld</b></div><div class="sub"><span>Konzept</span><span>12–14</span></div><ol><li><span class="n">12</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Leitideen A · B · C als Skizzen</span></span></li><li><span class="n">13</span><span><strong>Vom Entwurf zum Bedienfeld.</strong><span class="s">V1 → Final · sieben Änderungen</span></span></li><li><span class="n">14</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li></ol><div class="sub"><span>Bedienung</span><span>15–17</span></div><ol><li><span class="n">15</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild lesen</span></span></li><li><span class="n">16</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Fall 1 Tank leer · Fall 2 Ernte · Fall 3 Handy</span></span></li><li><span class="n">17</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Neu ansetzen ohne Fehler</span></span></li></ol><div class="sub"><span>Weggelassen &amp; offen</span><span>18</span></div><ol><li><span class="n">18</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
   </div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>02</span></div>
 </section>
@@ -721,7 +712,7 @@ body.grid .bar .nav{visibility:hidden}
   <p class="v-lead">Von V1 zum finalen Bedienfeld kam einiges dazu, <b>und was die Box selbst regelt, fiel weg.</b></p>
   <div class="vs13">
     <figure><span class="tag">V1 · 29.10.</span><div class="pw"><img class="disp" src="bilder/booklet/v1-luftfeuchte.jpg" alt="Bedienfeld V1: Luftfeuchte im Ring, Werte als Zahlen, Kacheln Ein, Frischluft, Meldungen, Sorte">
-      <span class="pin o" style="left:0;top:31%">4</span><span class="pin o" style="left:0;top:69%">6</span><span class="pin o" style="left:0;top:91%">7</span></div></figure>
+      <span class="pin o" style="left:0;top:91%">7</span></div></figure>
     <div class="ar13" aria-hidden="true">→</div>
     <figure class="on"><span class="tag">Final · 05.11.</span><div class="pw"><img class="disp" src="bilder/booklet/01-gut.jpg" alt="Bedienfeld final: Warnpunkt und Handy-Symbol oben, Tage bis zur Ernte im Ring, grüner Kreis mit Haken, Werte als Balken, drei Kacheln">
       <span class="pin" style="left:0;top:31%">4</span><span class="pin" style="left:35%;top:4.5%">2</span><span class="pin" style="left:0;top:4.5%">1</span><span class="pin" style="left:67%;top:4.5%">3</span><span class="pin" style="left:0;top:56%">5</span><span class="pin" style="left:0;top:68%">6</span></div></figure>
@@ -735,7 +726,7 @@ body.grid .bar .nav{visibility:hidden}
     <tr><td><span class="k">4</span></td><td><span class="art">geändert</span></td><td>Ring: Tage bis zur Ernte statt Luftfeuchte</td><td>Ein klares Ziel mit sichtbarem Fortschritt (Progression).</td></tr>
     <tr><td><span class="k">5</span></td><td><span class="art">neu</span></td><td>Grüner Kreis mit Haken</td><td>Ein Zeichen, das jeder kennt (Mentales Modell).</td></tr>
     <tr><td><span class="k">6</span></td><td><span class="art">neu</span></td><td>Temperatur, Feuchte, Wassertank als Balken</td><td>Ob ein Wert passt, sieht man ohne Zahlen, der Tank zeigt, wie lange das Wasser reicht.</td></tr>
-    <tr><td><span class="k o">7</span></td><td><span class="art">weg</span></td><td>Ein-Knopf und Frischluft gestrichen</td><td>Die Box regelt Klima und Lüftung selbst, ein Aus aus Versehen würde die Pflege stoppen (Minimalist Design).</td></tr>
+    <tr><td><span class="k o">7</span></td><td><span class="art">entfernt</span></td><td>Ein-Knopf und Frischluft gestrichen</td><td>Die Box regelt Klima und Lüftung selbst, ein Aus aus Versehen würde die Pflege stoppen (Minimalist Design).</td></tr>
   </table>
   <div class="folien"><span class="label">Aus der Vorlesung</span><span>Kontrast</span><span>Präattentiv</span><span>Progression</span><span>Mentales Modell</span><span>Minimalist Design</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>13</span></div>
@@ -908,9 +899,9 @@ body.grid .bar .nav{visibility:hidden}
   const pages=[...document.querySelectorAll(".page")], book=document.getElementById("book");
   const pos=document.getElementById("pos"), prev=document.getElementById("prev"), next=document.getElementById("next"), gridBtn=document.getElementById("grid");
   // Fortschrittssegmente oben auf jeder Seite (wie beim Kollegen)
-  const KAP=[["",1,2],["01 · Einstieg",3,3],["02 · Konzept",4,6],["03 · CAD & Bau",7,10],["04 · Technik",11,11],["05 · Bedienfeld",12,18]];
-  pages.forEach((p,k)=>{if(k>4||p.classList.contains("cv")||p.classList.contains("ext"))return;const s=k+1,b=document.createElement("div");b.className="kbar";b.setAttribute("aria-hidden","true");
-    b.innerHTML=KAP.map(([n,a,e])=>{const len=e-a+1,st=s>e?"past":s>=a?"cur":"fut",w=st==="past"?100:st==="cur"?(s-a+1)/len*100:0;return `<div class="kseg ${st}" style="flex:${len}"><i style="width:${w}%"></i>${n?`<span>${st==="cur"?n:n.slice(0,2)}</span>`:""}</div>`}).join("");p.prepend(b)});
+  const GRENZEN=[2,3,6,10,11]; // Kapitelwechsel nach diesen Seiten: Einstieg · Konzept · CAD & Bau · Technik · Bedienfeld
+  pages.forEach((p,k)=>{if(k>4||p.classList.contains("cv")||p.classList.contains("ext"))return;const b=document.createElement("div");b.className="kbar";b.setAttribute("aria-hidden","true");
+    const N=pages.length;b.innerHTML=`<i style="width:${((k+1)/N*100).toFixed(1)}%"></i>`+GRENZEN.map(g=>`<b class="${g<=k?"on":""}" style="left:${(g/N*100).toFixed(1)}%"></b>`).join("");p.prepend(b)});
   pages.forEach((p,k)=>{if(p.classList.contains("cv")||p.classList.contains("ext"))return;if(k<=4)return;const b=document.createElement("div");b.className="prog";b.setAttribute("aria-hidden","true");b.innerHTML=`<i style="width:${((k+1)/pages.length*100).toFixed(1)}%"></i>`;p.prepend(b)});
   pages.forEach((p,k)=>{const s=p.querySelector(".segs");if(s)s.innerHTML=pages.map((_,j)=>`<i class="${j<=k?"on":""}"></i>`).join("")});
   const MM=96/25.4, PW=210*MM, PH=297*MM, GAP=6*MM, GGAP=8*MM;
