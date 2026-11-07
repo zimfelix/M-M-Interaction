@@ -229,7 +229,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .strip{display:grid;grid-template-columns:repeat(16,1fr);gap:1.2mm;align-items:end}
 .strip i{height:2.2mm;background:var(--line);border-radius:.6mm}
 .strip i.a{background:var(--sage)}.strip i.c{background:#b9c9ae}.strip i.d{background:#a7b0a2}.strip i.b{background:var(--green)}
-.strip-lab{display:grid;grid-template-columns:2fr 1fr 3fr 3fr 7fr;gap:1.2mm;font:600 6.8pt "JetBrains Mono";letter-spacing:.12em;color:var(--muted);margin-top:1.4mm}
+.strip-lab{display:grid;grid-template-columns:2fr 1fr 4fr 3fr 6fr;gap:1.2mm;font:600 6.8pt "JetBrains Mono";letter-spacing:.12em;color:var(--muted);margin-top:1.4mm}
 
 /* ── Cover ── */
 .cv{padding-bottom:10mm}
@@ -278,6 +278,9 @@ h1 em{font-style:normal;color:var(--accent)}
 .same{display:flex;gap:3mm;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:3mm;font-size:9pt}
 .same .kn{border:1px solid currentColor;border-radius:1.5mm;padding:.5mm 2.5mm}
 .same .in{border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:.4mm 2.5mm}
+
+.thumbs.row img{height:34mm;object-position:50% 35%}
+.vt{display:block;font:700 6.8pt "JetBrains Mono";letter-spacing:.1em;color:var(--accent);margin-bottom:.4mm}
 
 /* ── Zoom-Ansicht aus der Übersicht ── */
 #zoom{position:fixed;inset:0;z-index:20;background:rgba(20,32,25,.88);display:none;align-items:center;justify-content:center}
@@ -340,12 +343,12 @@ body.grid .bar .nav{visibility:hidden}
   <h1>Was in diesem<br><em>Booklet steckt.</em></h1>
   <p class="lead">Erst für wen, dann wie die Box entstanden ist, zuletzt wie man sie bedient. Jede Entscheidung steht mit dem Grund aus der Vorlesung und dem Nachteil, den wir dafür in Kauf nehmen.</p>
   <div>
-    <div class="strip"><i class="b"></i><i class="b"></i><i class="c"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i></div>
-    <div class="strip-lab"><span>01–02</span><span>03</span><span>04–06 KONZEPT</span><span>07–09 CAD</span><span>10–16 · BOX + BEDIENFELD</span></div>
+    <div class="strip"><i class="b"></i><i class="b"></i><i class="c"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i></div>
+    <div class="strip-lab"><span>01–02</span><span>03</span><span>04–07 KONZEPT</span><span>08–10 CAD</span><span>11–16 · BEDIENFELD</span></div>
   </div>
   <div class="toc">
-    <div><div class="kap"><span class="label">Kapitel 1 · 03</span><b>Einstieg</b></div><ol><li><span class="n">03</span><span><strong>Für jeden gemacht.</strong><span class="s">Zielgruppe · Ingrid und App-Nutzer</span></span></li></ol><div class="kap"><span class="label">Kapitel 2 · 04–06</span><b>Konzept</b><span class="who">Skizzen und die physische Box</span></div><ol><li><span class="n">04</span><span><strong>Alles begann mit einer Mikrowelle.</strong><span class="s">Die erste Skizze</span></span></li><li><span class="n">05</span><span><strong>Vom Aquarium zur Mikrowelle.</strong><span class="s">Konzeptweg Box V1 → V3 · Abwägung</span></span></li><li><span class="n">06</span><span><strong>Wie eine Mikrowelle. Nur ohne Knopfsalat.</strong><span class="s">Die Box V3 annotiert</span></span></li></ol><div class="kap"><span class="label">Kapitel 3 · 07–09</span><b>CAD &amp; Bau</b><span class="who">Konstruktion, Druck, 3D-Modell</span></div><ol><li><span class="n">07</span><span><strong>Vom Papier ins CAD.</strong><span class="s">Konstruktion · zwei Module</span></span></li><li><span class="n">08</span><span><strong>Vom Rohdruck zum Prototyp.</strong><span class="s">Prototyp · FabLab</span></span></li><li><span class="n">09</span><span><strong>Jedes Detail hat einen Zweck.</strong><span class="s">3D-Modell · alle Features</span></span></li></ol></div>
-    <div><div class="kap"><span class="label">Kapitel 4 · 10–16</span><b>Box + Bedienfeld</b></div><ol><li><span class="n">10</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Konzeptweg Bedienfeld v1 → v7</span></span></li><li><span class="n">11</span><span><strong>Ein Taster. Eine Bedeutung.</strong><span class="s">Entscheidungen an der Box · Skizzen V3</span></span></li><li><span class="n">12</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild</span></span></li><li><span class="n">13</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li><li><span class="n">14</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Ingrid handelt</span></span></li><li><span class="n">15</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Fehler vermeiden</span></span></li><li><span class="n">16</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
+    <div><div class="kap"><span class="label">Kapitel 1 · 03</span><b>Einstieg</b></div><ol><li><span class="n">03</span><span><strong>Für jeden gemacht.</strong><span class="s">Zielgruppe · Ingrid und App-Nutzer</span></span></li></ol><div class="kap"><span class="label">Kapitel 2 · 04–07</span><b>Konzept</b><span class="who">Die Box: Form und Bedienteile</span></div><ol><li><span class="n">04</span><span><strong>Alles begann mit einer Mikrowelle.</strong><span class="s">Die erste Skizze</span></span></li><li><span class="n">05</span><span><strong>Vom Aquarium zur Mikrowelle.</strong><span class="s">Konzeptweg Box V1 → V3 · Abwägung</span></span></li><li><span class="n">06</span><span><strong>Wie eine Mikrowelle. Nur ohne Knopfsalat.</strong><span class="s">Die Box V3 annotiert</span></span></li><li><span class="n">07</span><span><strong>Ein Taster. Eine Bedeutung.</strong><span class="s">Bedienteile an der Box · Abwägung</span></span></li></ol><div class="kap"><span class="label">Kapitel 3 · 08–10</span><b>CAD &amp; Bau</b><span class="who">Konstruktion, Druck, 3D-Modell</span></div><ol><li><span class="n">08</span><span><strong>Vom Papier ins CAD.</strong><span class="s">Konstruktion · zwei Module</span></span></li><li><span class="n">09</span><span><strong>Vom Rohdruck zum Prototyp.</strong><span class="s">Prototyp · FabLab</span></span></li><li><span class="n">10</span><span><strong>Jedes Detail hat einen Zweck.</strong><span class="s">3D-Modell · alle Features</span></span></li></ol></div>
+    <div><div class="kap"><span class="label">Kapitel 4 · 11–16</span><b>Box + Bedienfeld</b><span class="who">Das Display</span></div><ol><li><span class="n">11</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Konzeptweg Bedienfeld v1 → v7 · Abwägung</span></span></li><li><span class="n">12</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild</span></span></li><li><span class="n">13</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li><li><span class="n">14</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Ingrid handelt</span></span></li><li><span class="n">15</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Fehler vermeiden</span></span></li><li><span class="n">16</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
   </div>
   <div class="foot"><span>INHALT</span><span>02</span></div>
 </section>
@@ -472,102 +475,9 @@ body.grid .bar .nav{visibility:hidden}
   <div class="foot"><span>KONZEPT · PILZ GROWBOX</span><span>06</span></div>
 </section>
 
-<!-- ═══ K3 · CAD, dunkel ═══ -->
-<section class="page dark">
-  <div class="top"><span>07 / KONSTRUKTION</span><span class="brand">GROWBOX</span></div>
-  <h1>Vom Papier<br><em>ins CAD.</em></h1>
-  <p class="lead">In [CAD-Programm] habe ich die Skizze in zwei Module übersetzt, die nebeneinander stehen und sich einzeln drucken lassen. Jedes Maß musste passen, bevor der Drucker anläuft.</p>
-  <div class="vs">
-    <figure><span class="tag">CAD · Modul 1</span><div class="card cadc"><img class="photo cad" src="bilder/design-bau/cad-pilzkammer.jpg" alt="CAD-Modell der Pilzkammer mit Nuten für das Plexiglas"></div></figure>
-    <figure><span class="tag">CAD · Modul 2</span><div class="card cadc"><img class="photo cad" src="bilder/design-bau/cad-technikraum.jpg" alt="CAD-Modell des Technikraums mit Display-Tasche und zwei Fächern"></div></figure>
-  </div>
-  <div class="duo">
-    <div class="box"><h3>Modul 1 · Pilzkammer</h3><p>Ein Rahmen mit umlaufenden Nuten, in die das Plexiglas geschoben wird. Unten der geschlossene Sockel für die Erde.</p></div>
-    <div class="box"><h3>Modul 2 · Technikraum</h3><p>Eine geschlossene Säule mit eingelassener Display-Tasche und zwei Fächern oben, eins davon für den Wassertank.</p></div>
-  </div>
-  <div class="big">
-    <b>0,2 mm</b>
-    <p>Spiel pro Seite in der Display-Tasche. Das iPhone 13 mini misst 6,42 × 13,15 × 0,77 cm, die Tasche 6,46 × 13,19 × 0,8 cm. Es sitzt fest und lässt sich trotzdem herausnehmen.</p>
-  </div>
-  <div class="foot"><span>CAD &amp; BAU · PILZ GROWBOX</span><span>07</span></div>
-</section>
-
-<!-- ═══ K4 · Prototyp, hell ═══ -->
-<section class="page">
-  <div class="top"><span>08 / PROTOTYP</span><span class="brand">GROWBOX</span></div>
-  <h1>Vom Rohdruck<br><em>zum Prototyp.</em></h1>
-  <p class="lead">Beide Module habe ich im FabLab am Lucas-Cranach-Campus in schwarzem PLA gedruckt. Danach kamen Plexiglasscheiben, ein Türgriff im Mikrowellen-Stil und der Taster dazu.</p>
-  <div class="ptg">
-    <figure class="a"><img class="photo" src="bilder/design-bau/prototyp-fablab.jpg" alt="Fertiger Prototyp vor den 3D-Druckern im FabLab"><span class="ov">Nachher · mit Plexi, Griff, Taster</span></figure>
-    <figure class="b"><img class="photo" src="bilder/design-bau/rohdruck.jpg" alt="Rohdruck der beiden Module ohne Glas"><span class="ov">Vorher · Rohdruck</span></figure>
-    <figure class="c"><img class="photo" src="bilder/design-bau/prototyp-schraeg.jpg" alt="Fertiger Prototyp schräg von vorne mit Glasdeckel"></figure>
-  </div>
-  <div class="box">
-    <h3>Was der Prototyp gezeigt hat</h3>
-    <ul class="two">
-      <li><span class="s">✓</span>Kammer und Technikraum passen sauber nebeneinander.</li>
-      <li><span class="s">✓</span>Die Display-Tasche sitzt, das Handy lässt sich tauschen.</li>
-      <li><span class="s">→</span>Die Glasnuten brauchen etwas mehr Spiel.</li>
-      <li><span class="s">→</span>Überhänge in der Kammer brauchen Nacharbeit.</li>
-    </ul>
-  </div>
-  <div class="stats s3">
-    <div><b>[x] h</b><span>Druckzeit gesamt</span></div>
-    <div><b>[x] g</b><span>PLA-Filament</span></div>
-    <div><b>2</b><span>Module, einzeln gedruckt</span></div>
-  </div>
-  <div class="foot"><span>CAD &amp; BAU · PILZ GROWBOX</span><span>08</span></div>
-</section>
-
-<!-- ═══ 3D-Modell ═══ -->
-<section class="page dark">
-  <div class="top"><span>09 / ALLE FEATURES</span><span class="brand">GROWBOX</span></div>
-  <h1>Jedes Detail<br><em>hat einen Zweck.</em></h1>
-  <p class="lead">Im interaktiven 3D-Modell habe ich das Exterieur Schritt für Schritt entwickelt: Knopf wurde Schiebeschalter, Deckel wurde Schieber, der Sensor eine Leiste in Displaybreite.</p>
-  <figure class="hero"><img class="photo" src="bilder/design-bau/3d-modell.jpg" alt="3D-Modell der Growbox, Gesamtansicht"><span class="ov">3D-Modell · 27,5 × 20 × 20 cm</span></figure>
-  <div class="feat">
-    <figure><img class="photo" src="bilder/design-bau/handsensor.jpg" alt="Hand vor dem Sensor, Display geht an"><figcaption><b>Handsensor</b>Hand davorhalten, das Display wacht auf.</figcaption></figure>
-    <figure><img class="photo" src="bilder/design-bau/sensor-schalter.jpg" alt="Display im Ruhezustand mit Sensorleiste und Schiebeschalter"><figcaption><b>Sensor &amp; Schalter</b>Sensorleiste in Displaybreite, Licht per Schiebeschalter.</figcaption></figure>
-    <figure><img class="photo" src="bilder/design-bau/glastuer.jpg" alt="Geöffnete Glastür der Pilzkammer"><figcaption><b>Glastür mit Griff</b>Ernten, ohne die Pilze zu berühren.</figcaption></figure>
-    <figure><img class="photo" src="bilder/design-bau/wassertank.jpg" alt="Geöffneter Schieber über dem Wassertank"><figcaption><b>Wassertank</b>Schieber nach hinten raus, von oben nachfüllen.</figcaption></figure>
-    <figure><img class="photo" src="bilder/design-bau/kamera.jpg" alt="Kamerabild aus der Pilzkammer"><figcaption><b>Live-Kamera</b>Hinten rechts fest verbaut, bewusst nicht beweglich. Zeigt die Pilze in der App.</figcaption></figure>
-    <figure><img class="photo" src="bilder/design-bau/led-nut.jpg" alt="LED-Streifen verdeckt in der Nut des Rahmens"><figcaption><b>LED in der Nut</b>Vorne und hinten abgeschirmt, blendet nicht.</figcaption></figure>
-  </div>
-  <div class="foot"><span>CAD &amp; BAU · PILZ GROWBOX</span><span>09</span></div>
-</section>
-
-<!-- ═══ Konzeptweg Bedienfeld ═══ -->
-<section class="page">
-  <div class="top"><span>10 / KONZEPTWEG BEDIENFELD</span><span class="brand">GROWBOX</span></div>
-  <h1>Drei Ideen.<br><em>Eine gewählt.</em></h1>
-  <p class="lead">Vor dem ersten Bildschirm standen drei Leitideen. Gewählt haben wir die, bei der Ingrid am wenigsten lernen muss. Aus den beiden anderen blieb je ein Baustein.</p>
-  <div class="ideas">
-    <div class="box"><span class="tag">A · verworfen</span><h3>Pilz-Begleiter</h3><p>Ein Pilz als Figur mit Stimmungen und Spielelementen.</p><p class="why">Lenkt vom Zustand ab. <b>Geblieben:</b> der Pilz wächst im Ring (Progression, G 10).</p></div>
-    <div class="box solid"><span class="tag">B · gewählt</span><h3>Radikal einfach</h3><p>Ein Zustand aus Form, Farbe und Text, darunter wenige große Kacheln.</p><p class="why">Ein Blick genügt: wahrnehmen, verstehen, handeln (Model Human Processor 16–17).</p></div>
-    <div class="box"><span class="tag">C · verworfen</span><h3>Physisch zuerst</h3><p>Taster, Drehknopf und LED-Ring statt Display.</p><p class="why">Wieder Knopfsalat (Mikrowelle 8). <b>Geblieben:</b> ein Taster fürs Licht.</p></div>
-  </div>
-  <div class="bfw">
-    <div class="thumbs">
-      <figure><img src="bilder/booklet/bedienfeld-v1.jpg" alt="Bedienfeld v1: helle Liste mit Kacheln"><figcaption><b>v1 · 27.10.</b>helle Liste</figcaption></figure>
-      <figure><img src="bilder/booklet/bedienfeld-v3.jpg" alt="Bedienfeld v3: blauer Grund, Ring, fünf Kacheln"><figcaption><b>v3 · 29.10.</b>Ring, 5 Kacheln</figcaption></figure>
-      <figure><img src="bilder/booklet/01-gut.jpg" alt="Bedienfeld v7: Startbild Alles gut"><figcaption><b>v7 · 05.11.</b>3 Kacheln</figcaption></figure>
-    </div>
-    <ol class="tl">
-      <li><span class="v">v1</span><span class="d">27.10.</span><span>Helle Liste, Licht noch als Kachel</span></li>
-      <li><span class="v">v3</span><span class="d">29.10.</span><span>Ring bis zur Ernte, Status als Symbol</span></li>
-      <li><span class="v">v4</span><span class="d">29.10.</span><span>Automatik sichtbar: Box regelt, Mensch sieht es</span></li>
-      <li><span class="v">v5</span><span class="d">02.11.</span><span>Abgleich mit den Folien: 5 → 3 Kacheln, größere Schrift</span></li>
-      <li><span class="v">v6</span><span class="d">02.11.</span><span>Sorten, 44 pt, Kontrast 6,4 : 1</span></li>
-      <li class="now"><span class="v">v7</span><span class="d">05.11.</span><span>Erntebereit, Pilz wächst, Standby-Punkt</span></li>
-    </ol>
-  </div>
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span><b>104–107</b>UCD, iterativ</span><span><b>119–125</b>Skizze → Prototyp</span><span><b>130</b>Nielsen</span><span><b>G 10</b>Progression</span></div>
-  <div class="foot"><span>BOX + BEDIENFELD · PILZ GROWBOX</span><span>10</span></div>
-</section>
-
 <!-- ═══ 03 (alt 4) · E Vorher/Nachher, dunkel ═══ -->
 <section class="page dark">
-  <div class="top"><span>11 / ENTSCHEIDUNGEN AN DER BOX</span><span class="brand">GROWBOX</span></div>
+  <div class="top"><span>07 / ENTSCHEIDUNGEN AN DER BOX</span><span class="brand">GROWBOX</span></div>
   <h1>Ein Taster.<br><em>Eine Bedeutung.</em></h1>
   <p class="lead">Von der ersten zur letzten Zeichnung von V3 kam fast nichts dazu. Die Teile bekamen klare Bedeutungen: Was man anfassen soll, ist beige. Orange heißt überall Warnung.</p>
 
@@ -589,6 +499,99 @@ body.grid .bar .nav{visibility:hidden}
     <span class="label">Aus der Vorlesung</span>
     <span><b>33</b>Homunculus</span><span><b>49</b>Speed-Accuracy</span><span><b>60</b>Modusfehler</span><span><b>72–74</b>Affordance</span><span><b>77–79</b>Mapping</span><span><b>80</b>Konsistenz</span>
   </div>
+  <div class="foot"><span>KONZEPT · PILZ GROWBOX</span><span>07</span></div>
+</section>
+
+<!-- ═══ K3 · CAD, dunkel ═══ -->
+<section class="page">
+  <div class="top"><span>08 / KONSTRUKTION</span><span class="brand">GROWBOX</span></div>
+  <h1>Vom Papier<br><em>ins CAD.</em></h1>
+  <p class="lead">In [CAD-Programm] habe ich die Skizze in zwei Module übersetzt, die nebeneinander stehen und sich einzeln drucken lassen. Jedes Maß musste passen, bevor der Drucker anläuft.</p>
+  <div class="vs">
+    <figure><span class="tag">CAD · Modul 1</span><div class="card cadc"><img class="photo cad" src="bilder/design-bau/cad-pilzkammer.jpg" alt="CAD-Modell der Pilzkammer mit Nuten für das Plexiglas"></div></figure>
+    <figure><span class="tag">CAD · Modul 2</span><div class="card cadc"><img class="photo cad" src="bilder/design-bau/cad-technikraum.jpg" alt="CAD-Modell des Technikraums mit Display-Tasche und zwei Fächern"></div></figure>
+  </div>
+  <div class="duo">
+    <div class="box"><h3>Modul 1 · Pilzkammer</h3><p>Ein Rahmen mit umlaufenden Nuten, in die das Plexiglas geschoben wird. Unten der geschlossene Sockel für die Erde.</p></div>
+    <div class="box"><h3>Modul 2 · Technikraum</h3><p>Eine geschlossene Säule mit eingelassener Display-Tasche und zwei Fächern oben, eins davon für den Wassertank.</p></div>
+  </div>
+  <div class="big">
+    <b>0,2 mm</b>
+    <p>Spiel pro Seite in der Display-Tasche. Das iPhone 13 mini misst 6,42 × 13,15 × 0,77 cm, die Tasche 6,46 × 13,19 × 0,8 cm. Es sitzt fest und lässt sich trotzdem herausnehmen.</p>
+  </div>
+  <div class="foot"><span>CAD &amp; BAU · PILZ GROWBOX</span><span>08</span></div>
+</section>
+
+<!-- ═══ K4 · Prototyp, hell ═══ -->
+<section class="page dark">
+  <div class="top"><span>09 / PROTOTYP</span><span class="brand">GROWBOX</span></div>
+  <h1>Vom Rohdruck<br><em>zum Prototyp.</em></h1>
+  <p class="lead">Beide Module habe ich im FabLab am Lucas-Cranach-Campus in schwarzem PLA gedruckt. Danach kamen Plexiglasscheiben, ein Türgriff im Mikrowellen-Stil und der Taster dazu.</p>
+  <div class="ptg">
+    <figure class="a"><img class="photo" src="bilder/design-bau/prototyp-fablab.jpg" alt="Fertiger Prototyp vor den 3D-Druckern im FabLab"><span class="ov">Nachher · mit Plexi, Griff, Taster</span></figure>
+    <figure class="b"><img class="photo" src="bilder/design-bau/rohdruck.jpg" alt="Rohdruck der beiden Module ohne Glas"><span class="ov">Vorher · Rohdruck</span></figure>
+    <figure class="c"><img class="photo" src="bilder/design-bau/prototyp-schraeg.jpg" alt="Fertiger Prototyp schräg von vorne mit Glasdeckel"></figure>
+  </div>
+  <div class="box">
+    <h3>Was der Prototyp gezeigt hat</h3>
+    <ul class="two">
+      <li><span class="s">✓</span>Kammer und Technikraum passen sauber nebeneinander.</li>
+      <li><span class="s">✓</span>Die Display-Tasche sitzt, das Handy lässt sich tauschen.</li>
+      <li><span class="s">→</span>Die Glasnuten brauchen etwas mehr Spiel.</li>
+      <li><span class="s">→</span>Überhänge in der Kammer brauchen Nacharbeit.</li>
+    </ul>
+  </div>
+  <div class="stats s3">
+    <div><b>[x] h</b><span>Druckzeit gesamt</span></div>
+    <div><b>[x] g</b><span>PLA-Filament</span></div>
+    <div><b>2</b><span>Module, einzeln gedruckt</span></div>
+  </div>
+  <div class="foot"><span>CAD &amp; BAU · PILZ GROWBOX</span><span>09</span></div>
+</section>
+
+<!-- ═══ 3D-Modell ═══ -->
+<section class="page">
+  <div class="top"><span>10 / ALLE FEATURES</span><span class="brand">GROWBOX</span></div>
+  <h1>Jedes Detail<br><em>hat einen Zweck.</em></h1>
+  <p class="lead">Im interaktiven 3D-Modell habe ich das Exterieur Schritt für Schritt entwickelt: Knopf wurde Schiebeschalter, Deckel wurde Schieber, der Sensor eine Leiste in Displaybreite.</p>
+  <figure class="hero"><img class="photo" src="bilder/design-bau/3d-modell.jpg" alt="3D-Modell der Growbox, Gesamtansicht"><span class="ov">3D-Modell · 27,5 × 20 × 20 cm</span></figure>
+  <div class="feat">
+    <figure><img class="photo" src="bilder/design-bau/handsensor.jpg" alt="Hand vor dem Sensor, Display geht an"><figcaption><b>Handsensor</b>Hand davorhalten, das Display wacht auf.</figcaption></figure>
+    <figure><img class="photo" src="bilder/design-bau/sensor-schalter.jpg" alt="Display im Ruhezustand mit Sensorleiste und Schiebeschalter"><figcaption><b>Sensor &amp; Schalter</b>Sensorleiste in Displaybreite, Licht per Schiebeschalter.</figcaption></figure>
+    <figure><img class="photo" src="bilder/design-bau/glastuer.jpg" alt="Geöffnete Glastür der Pilzkammer"><figcaption><b>Glastür mit Griff</b>Ernten, ohne die Pilze zu berühren.</figcaption></figure>
+    <figure><img class="photo" src="bilder/design-bau/wassertank.jpg" alt="Geöffneter Schieber über dem Wassertank"><figcaption><b>Wassertank</b>Schieber nach hinten raus, von oben nachfüllen.</figcaption></figure>
+    <figure><img class="photo" src="bilder/design-bau/kamera.jpg" alt="Kamerabild aus der Pilzkammer"><figcaption><b>Live-Kamera</b>Hinten rechts fest verbaut, bewusst nicht beweglich. Zeigt die Pilze in der App.</figcaption></figure>
+    <figure><img class="photo" src="bilder/design-bau/led-nut.jpg" alt="LED-Streifen verdeckt in der Nut des Rahmens"><figcaption><b>LED in der Nut</b>Vorne und hinten abgeschirmt, blendet nicht.</figcaption></figure>
+  </div>
+  <div class="foot"><span>CAD &amp; BAU · PILZ GROWBOX</span><span>10</span></div>
+</section>
+
+<!-- ═══ Konzeptweg Bedienfeld ═══ -->
+<section class="page dark">
+  <div class="top"><span>11 / KONZEPTWEG BEDIENFELD</span><span class="brand">GROWBOX</span></div>
+  <h1>Drei Ideen.<br><em>Eine gewählt.</em></h1>
+  <p class="lead">Vor dem ersten Bildschirm standen drei Leitideen. Gewählt haben wir die, bei der Ingrid am wenigsten lernen muss. Danach wurde das Bedienfeld in sieben Ständen schlanker.</p>
+  <div class="ideas">
+    <div class="box"><span class="tag">A · verworfen</span><h3>Pilz-Begleiter</h3><p>Ein Pilz als Figur mit Stimmungen und Spielelementen.</p><p class="why">Lenkt vom Zustand ab. <b>Geblieben:</b> der Pilz wächst im Ring (Progression, G 10).</p></div>
+    <div class="box solid"><span class="tag">B · gewählt</span><h3>Radikal einfach</h3><p>Ein Zustand aus Form, Farbe und Text, darunter wenige große Kacheln.</p><p class="why">Ein Blick genügt: wahrnehmen, verstehen, handeln (Model Human Processor 16–17).</p></div>
+    <div class="box"><span class="tag">C · verworfen</span><h3>Physisch zuerst</h3><p>Taster, Drehknopf und LED-Ring statt Display.</p><p class="why">Wieder Knopfsalat (Mikrowelle 8). <b>Geblieben:</b> ein Taster fürs Licht.</p></div>
+  </div>
+  <div class="thumbs row">
+    <figure><img src="bilder/booklet/bedienfeld-v1.jpg" alt="Bedienfeld v1: helle Liste mit Kacheln"><figcaption><b>v1 · 27.10.</b>helle Liste, Licht als Kachel</figcaption></figure>
+    <figure><img src="bilder/booklet/bedienfeld-v3.jpg" alt="Bedienfeld v3: blauer Grund, Ring, fünf Kacheln"><figcaption><b>v3 · 29.10.</b>Ring bis zur Ernte, 5 Kacheln</figcaption></figure>
+    <figure><img src="bilder/booklet/01-gut.jpg" alt="Bedienfeld v7: Startbild Alles gut"><figcaption><b>v7 · 05.11.</b>3 Kacheln, Pilz wächst</figcaption></figure>
+  </div>
+  <table class="tab">
+    <thead><tr><th>Entscheidung</th><th>Grund (Folie)</th><th>Nachteil, den wir in Kauf nehmen</th></tr></thead>
+    <tbody>
+      <tr><td><span class="vt">v1 → v3</span>Ring bis zur Ernte statt Liste</td><td>Den Fortschritt sieht man ohne zu lesen (Progression G 10, Physikanalogie 86–87).</td><td>Der Ring braucht die Mitte des Displays.</td></tr>
+      <tr><td><span class="vt">v5</span>5 → 3 Kacheln</td><td>Wenige große Ziele statt Knopfsalat (Mikrowelle 8, Fitts 50, minimalist design 130).</td><td>Lüften und Befeuchten gibt es nur noch in der App.</td></tr>
+      <tr><td><span class="vt">v5</span>Licht ohne Kachel, nur am Taster</td><td>Eine Funktion, ein Ort. Das Klima-Fenster zeigt den Taster als Zeichen (Mapping 77–79).</td><td>Am Display lässt sich das Licht nicht schalten.</td></tr>
+      <tr><td><span class="vt">v6</span>Schrift ≥ 15 pt, Ziele ≥ 44 pt</td><td>Lesbar mit Lesebrille, treffbar mit zitternder Hand (Sichtabstand 63, Fitts 50).</td><td>Weniger Inhalt pro Bildschirm.</td></tr>
+      <tr><td><span class="vt">v7</span>„Erntebereit“ als Hinweis, nicht als Warnung</td><td>Nichts ist kaputt, also kein Orange. Der Pilz wächst in drei Stufen (Flow, Progression G 10–12).</td><td>Keine Belohnung mit Punkten oder Spielfigur.</td></tr>
+    </tbody>
+  </table>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span><b>104–107</b>UCD, iterativ</span><span><b>119–125</b>Skizze → Prototyp</span><span><b>130</b>Nielsen</span><span><b>G 10</b>Progression</span></div>
   <div class="foot"><span>BOX + BEDIENFELD · PILZ GROWBOX</span><span>11</span></div>
 </section>
 
