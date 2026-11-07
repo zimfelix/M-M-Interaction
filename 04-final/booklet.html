@@ -563,7 +563,7 @@ body.grid .bar .nav{visibility:hidden}
 
 /* S. 18 · Weggelassen & Ausblick */
 .p18 .h2{font:600 11px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin:16px 0 -4px}
-.p18 .cut{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.p18 .cut{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .p18 .cut div{border:1px solid var(--green-line);border-radius:10px;padding:13px 13px 12px;font-size:13.5px;line-height:1.4;color:#B4C2B6}
 .p18 .cut b{display:block;font-size:16px;color:#EEF2EA;margin:6px 0 4px}
 .p18 .cut .x{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--sage);color:var(--sage);font:700 11px Inter,sans-serif}
@@ -660,9 +660,8 @@ body.grid .bar .nav{visibility:hidden}
 .p02 .tr .t{font-size:22px!important}
 .p02 .tr .n{z-index:2}
 .p02 .tr ul.grp3 li i{min-width:44px}
-.p18 .folien span:not(.label){font-size:10px!important;letter-spacing:-.01em}
-.page.p18 .folien .label+span~span::before{margin-right:5px!important}
-.p18 .folien{column-gap:9px!important}
+.rows16 .iw{position:relative}
+.rows16 .tap{position:absolute;width:26px;height:26px;border-radius:50%;transform:translate(-50%,-50%);background:rgba(238,242,234,.6);box-shadow:0 0 0 6px rgba(242,200,121,.5),0 0 0 13px rgba(242,200,121,.2)}
 </style>
 </head>
 <body>
@@ -816,12 +815,12 @@ body.grid .bar .nav{visibility:hidden}
     <span></span><span></span><span class="mid">⇅ WLAN · HTTP + WebSocket</span><span></span><span class="n sim">Messwerte<small>simuliert</small></span>
     <span class="n">Bedienfeld<small>iPhone 13 mini im Vollbild</small></span><span></span><span class="mid2">zwei Ansichten desselben Zustands</span><span></span><span class="n">App<small>Teammitglied</small></span>
   </figure>
-  <table class="tab"><thead><tr><th>Baustein</th><th>Technik</th><th>Stand im Prototyp</th></tr></thead><tbody><tr><td>Steuerrechner</td><td>Raspberry Pi, Python + FastAPI, HTTP und WebSocket für Live-Updates</td><td>entworfen, ruht: das Interface ging vor</td></tr><tr><td>Bedienfeld</td><td>Web-Oberfläche ohne Framework (HTML, CSS, JavaScript), im Safari-Vollbild, gesperrt per Geführtem Zugriff</td><td>läuft (v7), am Laptop ohne Hardware testbar</td></tr><tr><td>Taster und LED</td><td>gpiozero am Pi; LED-Streifen adressierbar, 5 V</td><td>echt; Ansteuerung der Streifen folgt</td></tr><tr><td>Messwerte</td><td>Temperatur, Feuchte und Tank, im Admin-Modus umschaltbar</td><td>simuliert, für die Vorführung</td></tr><tr><td>App</td><td>eigene App, liest denselben Zustand</td><td>Live-Sync am Mac gezeigt, mit dem Pi geplant</td></tr><tr><td>Gehäuse</td><td>CAD, 3D-Druck in PLA, Plexiglas 3 mm</td><td>gebaut (siehe CAD und Prototyp)</td></tr></tbody></table>
+  <table class="tab"><thead><tr><th>Baustein</th><th>Technik</th><th>Stand im Prototyp</th></tr></thead><tbody><tr><td>Steuerrechner</td><td>Raspberry Pi, Python + FastAPI, HTTP und WebSocket für Live-Updates</td><td>Code geschrieben, läuft noch nicht auf dem Pi: das Bedienfeld hatte Vorrang</td></tr><tr><td>Bedienfeld</td><td>Web-Oberfläche ohne Framework (HTML, CSS, JavaScript), im Safari-Vollbild, gesperrt per Geführtem Zugriff</td><td>läuft (v7), am Laptop ohne Hardware testbar</td></tr><tr><td>Taster und LED</td><td>gpiozero am Pi; LED-Streifen adressierbar, 5 V</td><td>echt; Ansteuerung der Streifen folgt</td></tr><tr><td>Messwerte</td><td>Temperatur, Feuchte und Tank, im Admin-Modus umschaltbar</td><td>simuliert, für die Vorführung</td></tr><tr><td>App</td><td>eigene App, liest denselben Zustand</td><td>Live-Sync am Mac gezeigt, mit dem Pi geplant</td></tr><tr><td>Gehäuse</td><td>CAD, 3D-Druck in PLA, Plexiglas 3 mm</td><td>gebaut (siehe CAD und Prototyp)</td></tr></tbody></table>
   <div class="duo">
-    <div class="box"><h3>Warum ein Zustand?</h3><p>Model View Controller: ein Modell, mehrere Ansichten (99–100). Markiert der Power-User unterwegs eine Meldung als gesehen, zeigt die Box das sofort. Gleiche Wörter und Farben in beiden (Konsistenz 80–81).</p></div>
-    <div class="box"><h3>Warum simuliert?</h3><p>Im Prozess entstehen bewusst nur Prototypen, ihr Code ist nicht zum Weiterverwenden gedacht (Implementierung 109). Der Prototyp prüft Bedienung und Aussehen, nicht die Implementierung (Houde &amp; Hill 122).</p></div>
+    <div class="box"><h3>Warum ein Zustand?</h3><p>Model View Controller: ein Modell, mehrere Ansichten. Markiert der Power-User unterwegs eine Meldung als gesehen, zeigt die Box das sofort. Gleiche Wörter und Farben in beiden (Konsistenz).</p></div>
+    <div class="box"><h3>Warum simuliert?</h3><p>Im Prozess entstehen bewusst nur Prototypen, ihr Code ist nicht zum Weiterverwenden gedacht (Implementierung). Der Prototyp prüft Bedienung und Aussehen, nicht die Implementierung (Houde &amp; Hill).</p></div>
   </div>
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Technische Rahmenbedingungen</span><span>MVC</span><span>Implementierung</span><span>Auflösung vs. Detailgenauigkeit</span></div>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>MVC</span><span>Konsistenz</span><span>Implementierung</span><span>Houde &amp; Hill</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>11</span></div>
 </section>
 
@@ -875,15 +874,15 @@ body.grid .bar .nav{visibility:hidden}
   <div class="key13"><span><i class="pin o"></i>so war es in V1</span><span><i class="pin"></i>so ist es im Final</span></div>
   <table class="tab chg13">
     <tr><th>Nr.</th><th>Art</th><th>Änderung</th><th>Grund</th></tr>
-    <tr><td><span class="k">1</span></td><td><span class="art">größer</span></td><td>Größere Schrift, Ziele ≥ 44 pt</td><td>Lesbar mit Lesebrille, treffbar mit zitternder Hand (Kontrast).</td></tr>
-    <tr><td><span class="k">2</span></td><td><span class="art">neu</span></td><td>Warnpunkt oben im Kopf</td><td>Eine Warnung fällt sofort auf, auch im Vorbeigehen (Präattentiv).</td></tr>
+    <tr><td><span class="k">1</span></td><td><span class="art">größer</span></td><td>Größere Schrift, Ziele ≥ 44 pt</td><td>Lesbar mit Lesebrille, treffbar mit zitternder Hand (Speed-Accuracy-Tradeoff).</td></tr>
+    <tr><td><span class="k">2</span></td><td><span class="art">neu</span></td><td>Warnpunkt oben im Kopf</td><td>Eine Warnung fällt sofort auf, auch im Vorbeigehen (präattentiv).</td></tr>
     <tr><td><span class="k">3</span></td><td><span class="art">neu</span></td><td>Handy-Symbol zum Verbinden</td><td>Wer mehr will, holt sich die App, das Display bleibt schlicht.</td></tr>
     <tr><td><span class="k">4</span></td><td><span class="art">geändert</span></td><td>Ring: Tage bis zur Ernte statt Luftfeuchte</td><td>Ein klares Ziel mit sichtbarem Fortschritt (Progression).</td></tr>
     <tr><td><span class="k">5</span></td><td><span class="art">neu</span></td><td>Grüner Kreis mit Haken</td><td>Ein Zeichen, das jeder kennt (Mentales Modell).</td></tr>
     <tr><td><span class="k">6</span></td><td><span class="art">neu</span></td><td>Temperatur, Feuchte, Wassertank als Balken</td><td>Ob ein Wert passt, sieht man ohne Zahlen, der Tank zeigt, wie lange das Wasser reicht.</td></tr>
-    <tr><td><span class="k o">7</span></td><td><span class="art">entfernt</span></td><td>Ein-Knopf und Frischluft gestrichen</td><td>Die Box regelt Klima und Lüftung selbst, ein Aus aus Versehen würde die Pflege stoppen (Minimalist Design).</td></tr>
+    <tr><td><span class="k o">7</span></td><td><span class="art">entfernt</span></td><td>Ein-Knopf und Frischluft gestrichen</td><td>Die Box regelt Klima und Lüftung selbst, ein Aus aus Versehen würde die Pflege stoppen (Murphy's Law).</td></tr>
   </table>
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Kontrast</span><span>Präattentiv</span><span>Progression</span><span>Mentales Modell</span><span>Minimalist Design</span></div>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Speed-Accuracy-Tradeoff</span><span>präattentiv</span><span>Progression</span><span>Mentales Modell</span><span>Murphy's Law</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>13</span></div>
 </section>
 
@@ -902,11 +901,11 @@ body.grid .bar .nav{visibility:hidden}
   <table class="tab">
     <tr><th>Entscheidung</th><th>Grund</th><th>Nachteil</th></tr>
     <tr><td>Blau als Standard</td><td>Schwarz bleibt für Standby frei. Blau nur als Fläche, blaue Schrift ist unscharf (Farbsehen).</td><td>Wer Schwarz lieber mag, muss es einstellen.</td></tr>
-    <tr><td>Oranger Warnpunkt</td><td>Blinkendes Orange auf Schwarz fällt sofort auf, ohne Suchen (Präattentiv). <b>Kam in der Präsentation am besten an.</b></td><td>Eine Warnung im Betrieb blinkt nicht, sie steht als gelbes Dreieck mit Text da.</td></tr>
+    <tr><td>Oranger Warnpunkt</td><td>Blinkendes Orange auf Schwarz fällt sofort auf, ohne Suchen (präattentiv). <b>Kam in der Präsentation am besten an.</b></td><td>Eine Warnung im Betrieb blinkt nicht, sie steht als gelbes Dreieck mit Text da.</td></tr>
     <tr><td>Hoher Kontrast</td><td>Weiß auf Schwarz hebt sich am stärksten ab, gut bei schwachen Augen (Kontrast).</td><td>Betrieb und Standby unterscheiden sich dann nur noch dadurch, ob die Anzeige an ist.</td></tr>
   </table>
 
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Farbsehen</span><span>Präattentiv</span><span>Kontrast</span></div>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Farbsehen</span><span>präattentiv</span><span>Kontrast</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>14</span></div>
 </section>
 
@@ -948,9 +947,9 @@ body.grid .bar .nav{visibility:hidden}
 
   <div class="rows16">
     <div class="lab"><span class="v-label">Weg 1 · Pilzkatalog</span><span class="v-sub">Fertige Werte · ein Tipp</span></div>
-    <figure><div class="iw"><img class="disp" src="bilder/booklet/05-erntebereit.jpg" alt="Erntebereit"></div><figcaption><b>Erntebereit</b>Ein Hinweis, keine Warnung.</figcaption></figure>
+    <figure><div class="iw"><img class="disp" src="bilder/booklet/05-erntebereit.jpg" alt="Erntebereit"><span class="tap" style="left:50%;top:67%" aria-hidden="true"></span></div><figcaption><b>Erntebereit</b>Ein Hinweis, keine Warnung.</figcaption></figure>
     <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
-    <figure><div class="iw"><img class="disp" src="bilder/booklet/06-sortenwahl.jpg" alt="Sorte wählen"></div><figcaption><b>Sorte wählen</b>Katalog oder „Eigene Sorte“.</figcaption></figure>
+    <figure><div class="iw"><img class="disp" src="bilder/booklet/06-sortenwahl.jpg" alt="Sorte wählen"><span class="tap" style="left:42%;top:32%" aria-hidden="true"></span></div><figcaption><b>Sorte wählen</b>Katalog oder „Eigene Sorte“.</figcaption></figure>
     <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
     <figure><div class="iw"><img class="disp" src="bilder/booklet/08-tag1.jpg" alt="Shiitake Tag 1"></div><figcaption><b>Tag 1</b>Die Box kennt die Werte.</figcaption></figure>
     <div class="lab"><span class="v-label">Weg 2 · Selbst gestalten</span><span class="v-sub">Aus „Sorte wählen“ · Eigene Sorte</span><span class="v-label hl">Mitten im Wachstum?</span></div>
@@ -976,13 +975,14 @@ body.grid .bar .nav{visibility:hidden}
       <ul>
         <li><b>An oder aus steht in der Zeile.</b>Handy und Urlaub zeigen ihren Zustand, ohne dass man sie öffnet.</li>
         <li><b>Handy verbinden</b>Code in der App eingeben, dann gehen Meldungen aufs Handy.</li>
-        <li><b>Sprache</b>Im Prototyp nur Deutsch. Andere Sprachen sind ausgegraut statt scheinbar wählbar.</li>
+        <li><b>Urlaub</b>Vorher steht, was sich ändert: Die Box spart Wasser, Meldungen gehen aufs Handy. Starten braucht eine Bestätigung, damit kein Tipp ihn aus Versehen auslöst. Beenden geht mit einem Tipp.</li>
+        <li><b>Farbige Symbole</b>Sprache, Darstellung und Hilfe tragen Farbe: Flagge, Farbfeld, rote Fahne. Wenn etwas nicht stimmt, findet man sie am schnellsten.</li>
         <li><b>Admin-Modus ganz unten</b>Abgesetzt für Service und Vorführung, Ingrid braucht ihn nicht.</li>
       </ul>
     </div>
     <svg class="bus" viewBox="0 0 666 34" preserveAspectRatio="none" aria-hidden="true"><path d="M111 0 V14 H555 M111 14 V34 M333 14 V34 M555 14 V34"/></svg>
     <div class="kids">
-      <figure><img class="disp" src="bilder/booklet/14-urlaub.jpg" alt="Urlaub starten"><figcaption><b>Urlaub</b>Vorher steht, was sich ändert. Die Box spart Wasser.</figcaption></figure>
+      <figure><img class="disp" src="bilder/booklet/20-sprache.jpg" alt="Sprache: Deutsch aktiv, andere ausgegraut"><figcaption><b>Sprache</b>Im Prototyp nur Deutsch. Andere sind ausgegraut statt scheinbar wählbar.</figcaption></figure>
       <figure><img class="disp" src="bilder/booklet/15-darstellung.jpg" alt="Darstellung wählen"><figcaption><b>Darstellung</b>Blau, hoher Kontrast oder ein eigener Ton.</figcaption></figure>
       <figure><img class="disp" src="bilder/booklet/16-hilfe.jpg" alt="Hilfe: Was funktioniert nicht?"><figcaption><b>Hilfe</b>Antippen, was nicht geht. Kein Formular.</figcaption></figure>
     </div>
@@ -999,26 +999,25 @@ body.grid .bar .nav{visibility:hidden}
 
   <div class="h2">Weggelassen · und der Preis</div>
   <div class="cut">
-    <div><span class="x">✕</span><b>Uhr</b>Lenkt nur ab (Minimalist Design).<span class="pr">Zeit steht woanders.</span></div>
-    <div><span class="x">✕</span><b>Klima-Eingriff</b>Keine vergessenen Ausnahmen (Modusfehler).<span class="pr">„1 Min lüften“ nur in der App.</span></div>
-    <div><span class="x">✕</span><b>Ruhemodus</b>Warnpunkt aus 3 m sichtbar (präattentiv).<span class="pr">Display braucht Strom.</span></div>
-    <div><span class="x">✕</span><b>Warnlicht</b>Ein Kanal reicht (Konsistenz).<span class="pr">Display aus = keine Warnung.</span></div>
+    <div><span class="x">✕</span><b>Uhr</b>Für die Pilze egal, jede Angabe mehr lenkt ab.<span class="pr">Wer die Zeit sucht, schaut woanders hin.</span></div>
+    <div><span class="x">✕</span><b>Klima-Eingriff</b>Die Box regelt selbst, keine vergessene Ausnahme.<span class="pr">„1 Min lüften“ gibt es nur in der App.</span></div>
+    <div><span class="x">✕</span><b>Ruhemodus</b>Das Display bleibt an, der Warnpunkt ist immer zu sehen.<span class="pr">Das Display braucht dauerhaft Strom.</span></div>
   </div>
 
   <div class="h2">Ausblick</div>
   <div class="road">
     <div class="rs on"><span class="n">✓</span><div class="k">Heute</div><b>Prototyp</b><p>Taster und LED echt, Messwerte simuliert.</p></div>
-    <div class="rs"><span class="n">1</span><div class="k">Als Nächstes</div><b>Test mit Ingrid</b><p>Cognitive Walkthrough mit einer Person um 70, danach AttrakDiff.</p></div>
+    <div class="rs"><span class="n">1</span><div class="k">Als Nächstes</div><b>Nutzertest</b><p>Cognitive Walkthrough mit einer Person um 70, danach AttrakDiff.</p></div>
     <div class="rs"><span class="n">2</span><div class="k">Dann</div><b>Echte Sensoren</b><p>Feuchte, Temperatur und Tank messen, Nebler und Lüfter schalten.</p></div>
-    <div class="rs"><span class="n">3</span><div class="k">Später</div><b>Hilfe am Display</b><p>Die eine fehlende Nielsen-Heuristik: Help and Documentation.</p></div>
+    <div class="rs"><span class="n">3</span><div class="k">Später</div><b>Chronik</b><p>Ein Bild pro Tag, nach der Ernte ein Zeitraffer. Die Idee steht unten.</p></div>
   </div>
 
   <div class="chron">
-    <div><div class="k">Idee · Chronik</div><b>Jede Ernte erzählt eine Geschichte.</b><p>Die Kamera in der Kammer macht jeden Tag ein Bild. Nach der Ernte zeigt die App den Zeitraffer, Ingrid kann ihn teilen (Gamification).</p></div>
+    <div><div class="k">Schritt 3 · Chronik</div><b>Jede Ernte erzählt eine Geschichte.</b><p>Die feste Kamera in der Kammer macht jeden Tag ein Bild aus demselben Blick. Nach der Ernte zeigt die App den Zeitraffer, und der Power-User kann ihn teilen.</p></div>
     <div class="film"><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/></svg><figcaption>TAG 1</figcaption></figure><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="29.1" y="34" width="1.8" height="4" rx="1.5" fill="#efe6d2"/><path d="M26 34 a4 3.0 0 0 1 8 0z" fill="#c98a4b"/></svg><figcaption>TAG 4</figcaption></figure><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="28.2" y="30" width="3.5" height="8" rx="1.5" fill="#efe6d2"/><path d="M22 30 a8 6.0 0 0 1 16 0z" fill="#c98a4b"/></svg><figcaption>TAG 8</figcaption></figure><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="27.4" y="25" width="5.3" height="13" rx="1.5" fill="#efe6d2"/><path d="M18 25 a12 9.0 0 0 1 24 0z" fill="#c98a4b"/></svg><figcaption>TAG 12</figcaption></figure><figure class="h"><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="26.5" y="21" width="7.0" height="17" rx="1.5" fill="#efe6d2"/><path d="M14 21 a16 12.0 0 0 1 32 0z" fill="#c98a4b"/></svg><figcaption>TAG 15 · ERNTE</figcaption></figure></div>
   </div>
 
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Minimalist Design</span><span>Modusfehler</span><span>präattentiv</span><span>Konsistenz</span><span>Cognitive Walkthrough</span><span>AttrakDiff</span><span>Gamification</span></div>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Cognitive Walkthrough</span><span>AttrakDiff</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>18</span></div>
 </section>
 
