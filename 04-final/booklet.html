@@ -279,7 +279,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .same .kn{border:1px solid currentColor;border-radius:1.5mm;padding:.5mm 2.5mm}
 .same .in{border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:.4mm 2.5mm}
 
-.thumbs.row img{height:62mm;object-position:50% 0}.thumbs.four img{height:54mm}
+.thumbs.row img{height:54mm;object-position:50% 0}.thumbs.four img{height:54mm}
 .vt{display:block;font:700 6.8pt "JetBrains Mono";letter-spacing:.1em;color:var(--accent);margin-bottom:.4mm}
 
 /* ── 18 Seiten: Anforderungen, Technik, Entstehung ── */
@@ -308,7 +308,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .page:not(.cv):not(.ext){padding:56px 64px 40px}
 .page.tight{gap:3.2mm}
 /* Einheitliche Struktur: Kopf → 28 px → Titel … Inhalt … (frei) → Aus der Vorlesung → Fuß */
-.page:not(.cv) .folien{margin-top:auto}
+.page:not(.cv) .folien{margin-top:auto;flex-wrap:nowrap;white-space:nowrap;overflow:hidden}
 .page:not(.cv) .folien+.foot{margin-top:0}
 .page:not(.cv) .top{border-top:0;padding-top:0;font:600 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 .page:not(.cv) .top .brand{font:700 14px "Space Grotesk",sans-serif;letter-spacing:.04em;color:var(--ink)}
@@ -428,11 +428,12 @@ body.grid .bar .nav{visibility:hidden}
       <tr><td>LED im Rahmen statt im Deckel</td><td>Der Deckel bleibt kabelfrei und abnehmbar. Alle Teile ≤ 250 mm passen aufs Druckbett.</td><td>Ein LED-Kanal in vier Profilen.</td></tr>
     </tbody>
   </table>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Mentales Modell</span><span>Prototyping</span><span>Murphy's Law</span><span>Mapping</span><span>Konsistenz</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>04</span></div>
 </section>
 
 <!-- ═══ 02 (alt 3) · C Annotiertes Bild, hell ═══ -->
-<section class="page">
+<section class="page tight">
   <div class="top"><span>05 · DIE BOX</span><span class="brand">GROWBOX</span></div>
   <h1>Wie eine Mikrowelle.<br><em>Nur ohne Knopfsalat.</em></h1>
   <p class="lead">Die Vorlesung beginnt mit einer Mikrowelle, die niemand bedienen kann. Konzept V3 hat dieselbe Grundform, aber auf 33,5 × 25 × 20 cm nur drei Dinge zum Bedienen: <b>ein Display, einen Taster, eine Einfüllöffnung.</b></p>
@@ -466,6 +467,7 @@ body.grid .bar .nav{visibility:hidden}
     <span class="f">MVC</span>
   </div>
 
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Sichtbarkeit des Systemstatus</span><span>Affordance</span><span>Mapping</span><span>Murphy's Law</span><span>MVC</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>05</span></div>
 </section>
 
@@ -523,7 +525,7 @@ body.grid .bar .nav{visibility:hidden}
     <div class="box"><h3>Warum ein Zustand?</h3><p>Model View Controller: ein Modell, mehrere Ansichten (99–100). Markiert der Power-User unterwegs eine Meldung als gesehen, zeigt die Box das sofort. Gleiche Wörter und Farben in beiden (Konsistenz 80–81).</p></div>
     <div class="box"><h3>Warum simuliert?</h3><p>Im Prozess entstehen bewusst nur Prototypen, ihr Code ist nicht zum Weiterverwenden gedacht (Implementierung 109). Der Prototyp prüft Bedienung und Aussehen, nicht die Implementierung (Houde &amp; Hill 122).</p></div>
   </div>
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span><b>63</b>Technische Rahmenbedingungen</span><span><b>99–100</b>MVC</span><span><b>109</b>Implementierung</span><span><b>122</b>Auflösung vs. Detailgenauigkeit</span></div>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Technische Rahmenbedingungen</span><span>MVC</span><span>Implementierung</span><span>Auflösung vs. Detailgenauigkeit</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>11</span></div>
 </section>
 
@@ -538,6 +540,7 @@ body.grid .bar .nav{visibility:hidden}
   </div>
   <div class="thumbs row "><figure><img src="bilder/booklet/bedienfeld-v1.jpg" alt="Bedienfeld v1"><figcaption><b>v1 · 27.10.</b>hell, großes Zeichen, noch ohne Pilz</figcaption></figure><figure><img src="bilder/booklet/bedienfeld-v2.jpg" alt="Bedienfeld v2"><figcaption><b>v2 · 29.10.</b>Panel des Kollegen: Pilz im Feuchte-Ring</figcaption></figure><figure><img src="bilder/booklet/bedienfeld-v3.jpg" alt="Bedienfeld v3"><figcaption><b>v3 · 29.10.</b>Ring = Tage bis zur Ernte</figcaption></figure></div>
   <table class="tab"><thead><tr><th>Entscheidung</th><th>Grund (Folie)</th><th>Nachteil, den wir in Kauf nehmen</th></tr></thead><tbody><tr><td><span class="vt">v1</span>Status als großes Zeichen mit einem Wort</td><td>Eine Aussage pro Blick (Model Human Processor 16–17)</td><td>Noch kein Bild für das Wachstum, Zahlen ohne Ziel.</td></tr><tr><td><span class="vt">v1 → v2</span>Blauer Grund aus dem Panel des Kollegen</td><td>Blau nur als Fläche, Statusfarben springen heraus (präattentiv 26, Farbsehen 22)</td><td>Gerade dieses Blau ist Gestaltung, nicht aus den Folien.</td></tr><tr><td><span class="vt">v2 → v3</span>Ring zeigt Tage bis zur Ernte statt Feuchte</td><td>Klares Ziel und Fortschritt (Progression G 10, Flow G 12)</td><td>Die Feuchte wandert in eine kleine Zeile darunter.</td></tr><tr><td><span class="vt">v3</span>Status immer Symbol + Farbe + Wort</td><td>Rot-Grün-Schwäche (Farbsehschwäche 23)</td><td>Mehr Platz pro Zustand.</td></tr></tbody></table>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Model Human Processor</span><span>Präattentiv</span><span>Progression</span><span>Flow</span><span>Farbsehschwäche</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>12</span></div>
 </section>
 
@@ -616,6 +619,7 @@ body.grid .bar .nav{visibility:hidden}
     <div><b>6,4 : 1</b><span>Kontrast Warntext (vorher 2,8)</span></div>
     <div><b>0×</b><span>Blinken im Normalbetrieb</span></div>
   </div>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Präattentiv</span><span>Progression</span><span>Farbsehschwäche</span><span>Konsistenz</span><span>Fitts</span><span>Affordance</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>15</span></div>
 </section>
 
@@ -678,6 +682,7 @@ body.grid .bar .nav{visibility:hidden}
   </div>
   <div class="same"><span class="label">Überall gleich</span><span class="kn">Knopf</span><span>Rahmen = drückbar</span><span class="in">Info</span><span>zwischen zwei Linien = Information</span></div>
   <p class="ref">72–73 Affordance · 80 Konsistenz</p>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Murphy's Law</span><span>Nielsen</span><span>Zoomable UI</span><span>Affordance</span><span>Konsistenz</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>17</span></div>
 </section>
 
