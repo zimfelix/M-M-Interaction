@@ -416,39 +416,49 @@ h1 em{font-style:normal;color:var(--accent)}
 .c15{position:absolute;width:190px;font-size:12.5px;line-height:1.45;color:#2F4A3A}
 .c15.l{left:0;text-align:right}.c15.r{right:0}
 .c15 strong{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
-.f15{background:var(--green);border-radius:14px;padding:16px 22px 18px;display:flex;flex-direction:column;gap:10px}
+.f15{margin-top:30px;background:var(--green);border-radius:14px;padding:16px 22px 18px;display:flex;flex-direction:column;gap:10px}
 .f15 .v-label{color:var(--sage)}
-.f15row{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr 40px 1fr;align-items:start}
+.f15row{display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;align-items:start}
 .f15 figure{margin:0;display:flex;flex-direction:column;gap:8px;align-items:center}
-.f15 .disp{width:auto;height:196px;border-width:3px;border-radius:12px}
+.f15 .disp{width:auto;height:210px;border-width:3px;border-radius:12px}
 .f15 figcaption{font-size:11.5px;line-height:1.4;color:#B4C2B6;text-align:center;max-width:170px}
 .f15 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA;margin-bottom:2px}
-.f15 .arc{width:40px;margin-top:70px;overflow:visible}
+.f15 .arc{width:60px;margin-top:70px;overflow:visible}
+.f15 .opt{display:flex;flex-direction:column;align-items:center;margin-top:70px;gap:2px}.f15 .opt .arc{margin-top:0}.f15 .opt span{font:700 9.5px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--sage)}
+.f15 .arc.dash path:first-child{stroke-dasharray:4 5}
+.f15 .optf .disp{opacity:.75}
+.f15 figure.mid{position:relative}
+.f15 .upar{position:absolute;left:50%;top:-74px;width:120px;height:70px;transform:translateX(-50%);overflow:visible}.f15 .upar path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.f15 .uplab{position:absolute;left:calc(50% + 12px);top:-52px;font:700 9.5px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);white-space:nowrap}
 .f15 .arc path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.c15up{position:absolute;left:0;top:0;width:1px;height:1px;overflow:visible;pointer-events:none}
-.c15up path{fill:none;stroke:var(--sage);stroke-width:1.6;stroke-dasharray:4 4}
-/* S. 16: Weiche nach der Sortenwahl, fertige Sorte oben, eigene Sorte unten */
-.fork16{display:grid;grid-template-columns:104px 30px 104px 44px 1fr;grid-template-rows:auto auto;gap:14px 0;align-items:center}
-.fork16 .c1,.fork16 .a1,.fork16 .c2,.fork16 .sw{grid-row:1/3}
-.fork16 .a1{grid-column:2}.fork16 .c2{grid-column:3}.fork16 .sw{grid-column:4;width:44px;height:100%}
-.fork16 .b1,.fork16 .b2{grid-column:5;display:flex;flex-direction:column;gap:6px;padding-left:4px}
-.fork16 .pair{display:grid;grid-template-columns:104px 30px 104px;align-items:start}
-.fork16 .pair .st{margin-top:80px}
-.fork16 figure{margin:0;display:flex;flex-direction:column;gap:6px}
-.fork16 .disp{width:104px;height:auto;border-width:3px;border-radius:12px}
-.fork16 figure.on .disp{box-shadow:0 0 0 3px var(--sage)}
-.fork16 figcaption,.hold16 p{font-size:11.5px;line-height:1.4;color:#B4C2B6}
-.fork16 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA;margin-bottom:2px}
-.fork16 .b1 figure{display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:center}
-.fork16 .v-label{color:var(--sage)}
-.fork16 svg path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.fork16 .st{width:30px;height:15px}
-.fork16 .sw path{vector-effect:non-scaling-stroke}
-.hold16{display:grid;grid-template-columns:86px 1fr;gap:20px;align-items:center;background:var(--green-2);border-radius:14px;padding:14px 20px}
-.hold16 .disp{border-width:3px;border-radius:10px}
+/* S. 16: zwei Reihen, oben fertige Sorte, unten eigene Sorte; Halten mit Fingerpunkt */
+.rows16{display:grid;grid-template-columns:1fr 50px 1fr 50px 1fr;grid-template-rows:auto auto auto;gap:8px 0;align-items:start}
+.rows16 .r1{grid-column:1/-1}
+.rows16 figure{margin:0;display:flex;flex-direction:column;gap:6px;align-items:center}
+.rows16 .disp{width:96px;height:auto;border-width:3px;border-radius:12px}
+.rows16 figcaption{font-size:11.5px;line-height:1.4;color:#B4C2B6;text-align:center;max-width:170px}
+.rows16 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA;margin-bottom:2px}
+.rows16 .arc{width:50px;margin-top:70px;overflow:visible}
+.rows16 svg path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rows16 .v-label{color:var(--sage)}
+.rows16 .alt{grid-column:1/4;grid-row:3;display:grid;grid-template-columns:1fr 50px 1fr;align-items:start;margin-top:-4px}
+.rows16 .alt .v-label{grid-column:1;padding-top:30px}
+.rows16 .alt p{grid-column:1;font-size:11.5px;line-height:1.4;color:#B4C2B6;margin:4px 0 0}
+.rows16 .alt .down{grid-column:3;grid-row:1/3;justify-self:center;width:20px;height:40px}
+.rows16 .r2,.rows16 .r2a,.rows16 .r2b{grid-row:4}
+.rows16 .r2{grid-column:3}.rows16 .r2a{grid-column:4}.rows16 .r2b{grid-column:5}
+.rows16 .alt{grid-column:1/4}
+.rows16 figure.r2b .disp{box-shadow:0 0 0 3px var(--sage)}
+.hold16{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center;background:var(--green-2);border-radius:14px;padding:14px 20px}
+.hcrop{position:relative;width:150px;height:140px;overflow:hidden;border-radius:10px;border:3px solid #0b0c10}
+.hcrop img{width:100%;display:block}
+.hcrop .finger{position:absolute;left:56%;top:84%;width:26px;height:26px;border-radius:50%;transform:translate(-50%,-50%);background:rgba(238,242,234,.55);box-shadow:0 0 0 5px rgba(127,168,108,.55),0 0 0 11px rgba(127,168,108,.22)}
 .hold16 h3{font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA;margin:4px 0 4px}
-.hold16 p{font-size:12.5px;line-height:1.45;color:#D5DED6}.hold16 p b{color:#EEF2EA}
+.hold16 p{font-size:12.5px;line-height:1.45;color:#D5DED6;margin:0}.hold16 p b{color:#EEF2EA}
 .hold16 .v-label{color:var(--sage)}
+.tl16{display:grid;grid-template-columns:auto 1fr auto;gap:4px 0;margin-top:10px;font:700 9.5px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#B4C2B6}
+.tl16 .tlb{display:block;grid-column:1/-1;height:6px;border-radius:3px;background:#3d5e4c;overflow:hidden}.tl16 .tlb i{display:block;width:50%;height:100%;background:#F2C879}
+.tl16 .now{text-align:center;color:#F2C879}
 /* S. 17: Einstellungen als Baum mit rechten Winkeln */
 .tree17 .root{display:grid;grid-template-columns:222px 1fr;gap:28px;align-items:center}
 .tree17 .root .disp{width:180px;margin-left:21px;border-width:3px;border-radius:14px}
@@ -887,7 +897,7 @@ body.grid .bar .nav{visibility:hidden}
 
   <div class="call15">
     <img class="c15img" src="../01-konzept/bedienfeld/bilder/vorschau-aktuell.png" alt="Startbild Bedienfeld v7">
-    <svg class="c15svg" aria-hidden="true"></svg><svg class="c15up" aria-hidden="true"></svg>
+    <svg class="c15svg" viewBox="0 0 666 350" aria-hidden="true"><path d="M198 12 C266 12 266 32 333 32"/><circle cx="333" cy="32" r="4"/><path d="M468 74 C436 74 436 105 403 105"/><circle cx="403" cy="105" r="4"/><path d="M198 188 C241 188 241 214 284 214"/><circle cx="284" cy="214" r="4"/><path d="M468 226 C431 226 431 247 394 247"/><circle cx="394" cy="247" r="4"/><path d="M198 304 C235 304 235 304 272 304"/><circle cx="272" cy="304" r="4"/></svg>
     <div class="c15 l" style="top:0" data-to="50,9"><strong>Warnpunkt</strong>Leuchtet orange, sobald etwas zu tun ist. Warum Orange, steht bei „Warum Blau statt Schwarz?“.</div>
     <div class="c15 r" style="top:62px" data-to="80,30"><strong>Ring</strong>Tage bis zur Ernte. Der Pilz im Ring wächst in drei Stufen mit.</div>
     <div class="c15 l" style="top:176px" data-to="29,61"><strong>Status</strong>Form, Farbe und Text sagen dasselbe. Auch wer Farben schlecht unterscheidet, liest ihn sicher.</div>
@@ -900,11 +910,9 @@ body.grid .bar .nav{visibility:hidden}
     <div class="f15row">
       <figure><img class="disp" src="bilder/booklet/02-standby.jpg" alt="Standby mit orangem Punkt"><figcaption><b>Standby</b>Display aus, nur der Punkt blinkt.</figcaption></figure>
       <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
-      <figure><img class="disp" src="bilder/booklet/03-warnung.jpg" alt="Warnung Wasser leer"><figcaption><b>Meldung</b>Ingrid tippt. Was fehlt, steht da, darunter ein Knopf.</figcaption></figure>
-      <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
-      <figure class="up"><img class="disp" src="bilder/booklet/04-aufgefuellt.jpg" alt="Alles gut nach dem Auffüllen"><figcaption><b>Alles gut</b>Kurze Rückmeldung, dann das Startbild von oben.</figcaption></figure>
-      <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
-      <figure><img class="disp" src="bilder/booklet/12-meldungen.jpg" alt="Menü Meldungen mit Verlauf"><figcaption><b>Meldungen</b>Im Verlauf steht, was wann war.</figcaption></figure>
+      <figure class="mid"><svg class="upar" viewBox="0 0 120 70" aria-hidden="true"><path d="M60 68 V6"/><path d="M53 13 L60 5 L67 13"/></svg><span class="uplab">Aufgefüllt · wieder Startbild</span><img class="disp" src="bilder/booklet/03-warnung.jpg" alt="Warnung Wasser leer"><figcaption><b>Meldung</b>Ingrid tippt. Was fehlt, steht da, darunter ein Knopf: „Aufgefüllt“.</figcaption></figure>
+      <div class="opt"><svg class="arc dash" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg><span>optional</span></div>
+      <figure class="optf"><img class="disp" src="bilder/booklet/12-meldungen.jpg" alt="Menü Meldungen mit Verlauf"><figcaption><b>Meldungen</b>Wer will, sieht im Verlauf, was wann war.</figcaption></figure>
     </div>
   </div>
 
@@ -917,20 +925,25 @@ body.grid .bar .nav{visibility:hidden}
   <h1>Neue Pilze.<br><em>Selbst eingestellt.</em></h1>
   <p class="v-lead">Nach der Ernte setzt Ingrid neu an: <b>eine fertige Sorte, ein Tipp.</b> Wer mehr will, stellt eine <b>eigene Sorte</b> ein, mit Name, Vorlage und auf Wunsch eigenen Werten.</p>
 
-  <div class="fork16">
-    <div class="c1"><figure><img class="disp" src="bilder/booklet/05-erntebereit.jpg" alt="Erntebereit"><figcaption><b>Erntebereit</b>Ein Hinweis, keine Warnung.</figcaption></figure></div>
-    <div class="a1"><svg class="st" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10 H34"/><path d="M28 4 L35 10 L28 16"/></svg></div>
-    <div class="c2"><figure><img class="disp" src="bilder/booklet/06-sortenwahl.jpg" alt="Sorte wählen"><figcaption><b>Sorte wählen</b>Vier fertige Sorten oder eine eigene.</figcaption></figure></div>
-    <svg class="sw" viewBox="0 0 48 400" preserveAspectRatio="none" aria-hidden="true"><path d="M0 200 C24 200 20 95 44 95"/><path d="M0 200 C24 200 20 305 44 305"/></svg>
-    <div class="b1"><span class="v-label">Fertige Sorte</span><figure><img class="disp" src="bilder/booklet/08-tag1.jpg" alt="Shiitake Tag 1"><figcaption><b>Tag 1</b>Ein Tipp, der Ring beginnt von vorn. Die Box kennt die Werte.</figcaption></figure></div>
-    <div class="b2"><span class="v-label">Eigene Sorte</span><div class="pair"><figure><img class="disp" src="bilder/booklet/10-eigene.jpg" alt="Eigene Sorte mit Name und Vorlage"><figcaption><b>Name + Vorlage</b>Das reicht schon. Die Werte kommen von der Vorlage.</figcaption></figure><svg class="st" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10 H34"/><path d="M28 4 L35 10 L28 16"/></svg><figure class="on"><img class="disp" src="bilder/booklet/17-erweitert.jpg" alt="Erweitert aufgeklappt mit Temperatur, Luftfeuchte, Licht und Frischluft"><figcaption><b>Erweitert</b>Vier Werte mit − und +, in festen Schritten.</figcaption></figure></div></div>
+  <div class="rows16">
+    <span class="v-label r1">Fertige Sorte</span>
+    <figure><img class="disp" src="bilder/booklet/05-erntebereit.jpg" alt="Erntebereit"><figcaption><b>Erntebereit</b>Ein Hinweis, keine Warnung.</figcaption></figure>
+    <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
+    <figure class="sel"><img class="disp" src="bilder/booklet/06-sortenwahl.jpg" alt="Sorte wählen"><figcaption><b>Neue Sorte wählen</b>Vier fertige Sorten oder eine eigene.</figcaption></figure>
+    <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
+    <figure><img class="disp" src="bilder/booklet/08-tag1.jpg" alt="Shiitake Tag 1"><figcaption><b>Tag 1</b>Ein Tipp, fertig. Die Box kennt die Werte.</figcaption></figure>
+    <div class="alt"><span class="v-label">Oder eigene Sorte</span><p>Ganz unten in der Liste: „Eigene Sorte gestalten“.</p><svg class="down" viewBox="0 0 20 40" aria-hidden="true"><path d="M10 2 V34"/><path d="M4 28 L10 35 L16 28"/></svg></div>
+    <figure class="r2"><img class="disp" src="bilder/booklet/10-eigene.jpg" alt="Eigene Sorte mit Name und Vorlage"><figcaption><b>Name + Vorlage</b>Das reicht schon. Die Werte kommen von der Vorlage.</figcaption></figure>
+    <svg class="arc r2a" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
+    <figure class="r2b"><img class="disp" src="bilder/booklet/17-erweitert.jpg" alt="Erweitert aufgeklappt"><figcaption><b>Erweitert</b>Vier Werte mit − und +, in festen Schritten.</figcaption></figure>
   </div>
 
   <div class="hold16">
-    <img class="disp" src="bilder/booklet/09-halten.jpg" alt="Neu ansetzen mitten im Wachstum: 2 Sekunden halten">
+    <div class="hcrop"><img src="bilder/booklet/18-halten-1s.jpg" alt="Neu ansetzen mitten im Wachstum, Knopf nach einer Sekunde gehalten"><span class="finger" aria-hidden="true"></span></div>
     <div><span class="v-label">Und mitten im Wachstum?</span>
       <h3>Erst halten, dann neu.</h3>
-      <p>Wer vor der Ernte neu ansetzt, verliert seine Pilze. Darum steht da, was verloren geht, und der Knopf muss <b>2 Sekunden gehalten</b> werden. Nach der Ernte ist die Kammer leer, da reicht ein „Sicher?“.</p></div>
+      <p>Wer vor der Ernte neu ansetzt, verliert seine Pilze. Darum steht da, was verloren geht, und der Knopf muss <b>2 Sekunden gehalten</b> werden. Der Balken füllt sich, loslassen bricht ab. Nach der Ernte ist die Kammer leer, da reicht ein „Sicher?“.</p>
+      <div class="tl16"><span class="tlb"><i></i></span><span>0 s</span><span class="now">1 s · halb gefüllt</span><span>2 s · neu</span></div></div>
   </div>
 
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>16</span></div>
@@ -1047,19 +1060,6 @@ body.grid .bar .nav{visibility:hidden}
   show();
 })();
 
-// S. 15: geschwungene Linien von den Erklärungen zum Startbild (Koordinaten ohne Skalierung, per offset*)
-function lines15(){document.querySelectorAll('.call15').forEach(c=>{const img=c.querySelector('.c15img'),svg=c.querySelector('.c15svg');let h='';
-  c.querySelectorAll('.c15').forEach(l=>{const [px,py]=l.dataset.to.split(',').map(Number);
-    const x2=img.offsetLeft-img.offsetWidth/2+img.offsetWidth*px/100,y2=img.offsetHeight*py/100;
-    const left=l.classList.contains('l'),x1=left?l.offsetLeft+l.offsetWidth+8:l.offsetLeft-8,y1=l.offsetTop+12;
-    const m=(x1+x2)/2;h+=`<path d="M${x1} ${y1} C${m} ${y1} ${m} ${y2} ${x2} ${y2}"/><circle cx="${x2}" cy="${y2}" r="4"/>`});
-  svg.innerHTML=h;
-  const pg=c.closest('.page'),up=pg.querySelector('.f15 figure.up'),u=c.querySelector('.c15up');
-  if(up&&u){const off=e=>{let x=0,y=0;while(e&&e!==pg){x+=e.offsetLeft;y+=e.offsetTop;e=e.offsetParent}return[x,y]};
-    const [cx,cy]=off(c),[fx,fy]=off(up),x1=fx+up.offsetWidth/2-cx,y1=fy-cy-4,x2=img.offsetLeft+img.offsetWidth*.18,y2=img.offsetHeight-4;
-    u.innerHTML=`<path d="M${x1} ${y1} C${x1} ${y1-60} ${x2} ${y2+50} ${x2} ${y2}"/><circle cx="${x2}" cy="${y2}" r="4" fill="var(--sage)"/>`}
-})}
-addEventListener('load',lines15);
 </script>
 </body>
 </html>
