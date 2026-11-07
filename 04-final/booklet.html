@@ -513,6 +513,33 @@ body.grid .bar .nav{visibility:hidden}
 .kbar>i{position:absolute;left:0;top:0;bottom:0;border-radius:2px;background:var(--accent)}
 .kbar b{position:absolute;top:-4px;width:2px;height:11px;margin-left:-1px;border-radius:1px;background:var(--line)}
 .kbar b.on{background:var(--accent)}
+
+/* S. 18 · Weggelassen & Ausblick */
+.p18 .h2{font:600 11px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin:4px 0 -6px}
+.p18 .cut{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.p18 .cut div{border:1px solid var(--green-line);border-radius:10px;padding:12px 12px 11px;font-size:12px;line-height:1.4;color:#B4C2B6}
+.p18 .cut b{display:block;font-size:14px;color:#EEF2EA;margin:6px 0 4px}
+.p18 .cut .x{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--sage);color:var(--sage);font:700 11px Inter,sans-serif}
+.p18 .cut .pr{display:block;margin-top:6px;padding-top:6px;border-top:1px solid var(--green-line);color:#D5DED6}
+.p18 .road{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:4px}
+.p18 .road:before{content:"";position:absolute;left:14px;right:14px;top:18px;border-top:1.5px dashed var(--sage)}
+.p18 .rs{position:relative}
+.p18 .rs .n{position:relative;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--green);border:1.5px solid var(--sage);color:var(--sage);font:700 12px "Space Grotesk",sans-serif}
+.p18 .rs.on .n{background:var(--sage);color:var(--green)}
+.p18 .rs .k{font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#B4C2B6;margin:10px 0 3px}
+.p18 .rs b{display:block;font-size:15px;color:#EEF2EA;margin-bottom:4px}
+.p18 .rs p{font-size:12px;line-height:1.4;color:#D5DED6}
+.p18 .viz{height:74px;margin-top:10px;border-radius:8px;background:var(--green-2);display:flex;align-items:flex-end;justify-content:center;gap:5px;padding:8px}
+.p18 .viz svg{display:block}
+.p18 .chron{background:var(--cream);color:var(--green);border-radius:12px;padding:16px 18px;display:grid;grid-template-columns:1fr 1.5fr;gap:18px;align-items:center}
+.p18 .chron .k{font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-text)}
+.p18 .chron b{display:block;font:700 22px/1.15 "Space Grotesk",sans-serif;margin:4px 0 6px}
+.p18 .chron p{font-size:12.5px;line-height:1.45;color:#2F4A3A}
+.p18 .film{display:flex;gap:6px}
+.p18 .film figure{flex:1;background:#1d3b2a;border-radius:6px;padding:5px 5px 4px;text-align:center}
+.p18 .film svg{width:100%;height:auto;display:block;background:#27493a;border-radius:3px}
+.p18 .film figcaption{font:600 8.5px "JetBrains Mono",monospace;letter-spacing:.08em;color:#B4C2B6;margin-top:4px}
+.p18 .film figure.h figcaption{color:#e0a255}
 </style>
 </head>
 <body>
@@ -869,31 +896,33 @@ body.grid .bar .nav{visibility:hidden}
 </section>
 
 <!-- ═══ Abwägungen und Grenzen ═══ -->
-<section class="page dark">
+<section class="page dark vp p18">
   <div class="top"><span>18 · WEGGELASSEN &amp; OFFEN</span><span class="brand">GROWBOX</span></div>
-  <h1>Bewusst weggelassen.<br><em>Und was noch offen ist.</em></h1>
-  <p class="lead">Ein einfaches Bedienfeld entsteht vor allem durch das, was fehlt. Jede Lücke ist eine Entscheidung, und jede hat einen Preis.</p>
-  <table class="tab">
-    <thead><tr><th>Weggelassen</th><th>Grund (Folie)</th><th>Nachteil, den wir in Kauf nehmen</th></tr></thead>
-    <tbody>
-      <tr><td>Keine Uhr im Display</td><td>Für die Pilze unwichtig, jede Angabe mehr lenkt ab (minimalist design 130).</td><td>Wer die Zeit sucht, schaut woanders hin.</td></tr>
-      <tr><td>Kein Eingriff ins Klima an der Box</td><td>Jede Ausnahme ist ein Zustand, den man vergisst (Modusfehler 60, Murphy 61).</td><td>„1 Min lüften“ gibt es nur in der App.</td></tr>
-      <tr><td>Kein Ruhemodus, kein Handsensor</td><td>Das Display bleibt an, der Warnpunkt ist aus 3 m sichtbar (präattentiv 26–27).</td><td>Das Display braucht dauerhaft Strom.</td></tr>
-      <tr><td>Kein Warnlicht an der Box</td><td>Ein Kanal für Warnungen, der orange Punkt reicht (Konsistenz 80).</td><td>Fällt das Display aus, sieht Ingrid keine Warnung.</td></tr>
-      <tr><td>Verläufe nur in der App</td><td>Erst Übersicht, dann Detail (Zoomable UI 101–102).</td><td>Die Box zeigt nur das Jetzt.</td></tr>
-    </tbody>
-  </table>
-  <div class="duo">
-    <div class="box"><h3>Geprüft</h3><ul class="chk">
-      <li><span class="s">✓</span>Nielsen-Heuristiken: 9 von 10 erfüllt (130). Es fehlt „Help and documentation“.</li>
-      <li><span class="s">✓</span>Warntext-Kontrast 6,4 : 1, vorher 2,8 : 1 (66).</li>
-      <li><span class="s">✓</span>Farbsimulation Rot-Grün: Status nie nur über Farbe (23).</li></ul></div>
-    <div class="box solid"><h3>Grenzen</h3><ul class="chk">
-      <li><span class="s">–</span>Die Personas sind Annahmen, nicht befragt.</li>
-      <li><span class="s">–</span>Messwerte sind simuliert, echt sind Taster und LED.</li>
-      <li><span class="s">–</span>Noch kein Test mit echten Nutzern.</li></ul></div>
+  <h1>Bewusst weggelassen.<br><em>Und was als Nächstes kommt.</em></h1>
+  <p class="v-lead">Das Bedienfeld ist einfach, weil vieles fehlt. Jede Lücke hat einen Preis, und manche schließen wir als Nächstes.</p>
+
+  <div class="h2">Weggelassen · und der Preis</div>
+  <div class="cut">
+    <div><span class="x">✕</span><b>Uhr</b>Lenkt nur ab (Minimalist Design).<span class="pr">Zeit steht woanders.</span></div>
+    <div><span class="x">✕</span><b>Klima-Eingriff</b>Keine vergessenen Ausnahmen (Modusfehler).<span class="pr">„1 Min lüften“ nur in der App.</span></div>
+    <div><span class="x">✕</span><b>Ruhemodus</b>Warnpunkt aus 3 m sichtbar (präattentiv).<span class="pr">Display braucht Strom.</span></div>
+    <div><span class="x">✕</span><b>Warnlicht</b>Ein Kanal reicht (Konsistenz).<span class="pr">Display aus = keine Warnung.</span></div>
   </div>
-  <div class="folien"><span class="label">Nächster Schritt</span><span><b>129</b>Cognitive Walkthrough mit einer Person in Ingrids Alter</span><span><b>141–142</b>AttrakDiff danach</span></div>
+
+  <div class="h2">Ausblick</div>
+  <div class="road">
+    <div class="rs on"><span class="n">✓</span><div class="k">Heute</div><b>Prototyp</b><p>Taster und LED echt, Messwerte simuliert.</p></div>
+    <div class="rs"><span class="n">1</span><div class="k">Als Nächstes</div><b>Test mit Ingrid</b><p>Cognitive Walkthrough mit einer Person um 70, danach AttrakDiff.</p></div>
+    <div class="rs"><span class="n">2</span><div class="k">Dann</div><b>Echte Sensoren</b><p>Feuchte, Temperatur und Tank messen, Nebler und Lüfter schalten.</p></div>
+    <div class="rs"><span class="n">3</span><div class="k">Später</div><b>Hilfe am Display</b><p>Die eine fehlende Nielsen-Heuristik: Help and Documentation.</p></div>
+  </div>
+
+  <div class="chron">
+    <div><div class="k">Idee · Chronik</div><b>Jede Ernte erzählt eine Geschichte.</b><p>Die Kamera in der Kammer macht jeden Tag ein Bild. Nach der Ernte zeigt die App den Zeitraffer, Ingrid kann ihn teilen (Gamification).</p></div>
+    <div class="film"><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/></svg><figcaption>TAG 1</figcaption></figure><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="29.1" y="34" width="1.8" height="4" rx="1.5" fill="#efe6d2"/><path d="M26 34 a4 3.0 0 0 1 8 0z" fill="#c98a4b"/></svg><figcaption>TAG 4</figcaption></figure><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="28.2" y="30" width="3.5" height="8" rx="1.5" fill="#efe6d2"/><path d="M22 30 a8 6.0 0 0 1 16 0z" fill="#c98a4b"/></svg><figcaption>TAG 8</figcaption></figure><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="27.4" y="25" width="5.3" height="13" rx="1.5" fill="#efe6d2"/><path d="M18 25 a12 9.0 0 0 1 24 0z" fill="#c98a4b"/></svg><figcaption>TAG 12</figcaption></figure><figure class="h"><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="26.5" y="21" width="7.0" height="17" rx="1.5" fill="#efe6d2"/><path d="M14 21 a16 12.0 0 0 1 32 0z" fill="#c98a4b"/></svg><figcaption>TAG 15 · ERNTE</figcaption></figure></div>
+  </div>
+
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Minimalist Design</span><span>Modusfehler</span><span>Cognitive Walkthrough</span><span>AttrakDiff</span><span>Gamification</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>18</span></div>
 </section>
 
