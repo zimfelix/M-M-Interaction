@@ -408,7 +408,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .page.vp .vs3 figcaption,.page.vp .cap,.page.vp .v-small,.page.vp .tab .nb{font-size:11.5px;line-height:1.4}
 .page.vp .kw figcaption b,.page.vp .legend strong,.page.vp .v-card h3{font:700 19px/1.2 "Space Grotesk",sans-serif}
 /* S. 15: Startbild mittig, Erklärungen links/rechts mit geschwungenen Linien (keine Nummern, anders als S. 13); Alltag als grünes Band mit Bogenpfeilen; keine Leiste */
-.call15{position:relative;height:350px}
+.call15{position:relative;height:350px;margin-top:18px}
 .c15img{position:absolute;left:50%;top:0;height:350px;transform:translateX(-50%);border-radius:14px}
 .c15svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .c15svg path{fill:none;stroke:var(--sage);stroke-width:1.6}
@@ -418,13 +418,13 @@ h1 em{font-style:normal;color:var(--accent)}
 .c15 strong{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
 .f15{margin-top:30px;background:var(--green);border-radius:14px;padding:16px 22px 18px;display:flex;flex-direction:column;gap:10px}
 .f15 .v-label{color:var(--sage)}
-.f15row{display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;align-items:start}
+.f15row{display:grid;grid-template-columns:1fr 50px 1fr 50px 1fr;align-items:start}
 .f15 figure{margin:0;display:flex;flex-direction:column;gap:8px;align-items:center}
-.f15 .disp{width:auto;height:210px;border-width:3px;border-radius:12px}
+.f15 .disp{width:auto;height:276px;border-width:3px;border-radius:12px}
 .f15 figcaption{font-size:11.5px;line-height:1.4;color:#B4C2B6;text-align:center;max-width:170px}
 .f15 figcaption b{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:#EEF2EA;margin-bottom:2px}
-.f15 .arc{width:60px;margin-top:70px;overflow:visible}
-.f15 .opt{display:flex;flex-direction:column;align-items:center;margin-top:70px;gap:2px}.f15 .opt .arc{margin-top:0}.f15 .opt span{font:700 9.5px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--sage)}
+.f15 .arc{width:60px;margin-top:100px;overflow:visible}
+.f15 .opt{display:flex;flex-direction:column;align-items:center;margin-top:100px;gap:2px}.f15 .opt .arc{margin-top:0}.f15 .opt span{font:700 9.5px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--sage)}
 .f15 .arc.dash path:first-child{stroke-dasharray:4 5}
 .f15 .optf .disp{opacity:.75}
 .f15 figure.mid{position:relative}
@@ -892,13 +892,13 @@ body.grid .bar .nav{visibility:hidden}
 <!-- ═══ 15 · Bedienung I: Startbild + Alltag „Tank leer“, hell ═══ -->
 <section class="page vp p15">
   <div class="top"><span>15 · BEDIENFELD BEDIENUNG I</span><span class="brand">GROWBOX</span></div>
-  <h1>Ein Blick.<br><em>Eine Aussage.</em></h1>
-  <p class="v-lead">So sieht Ingrid das Bedienfeld im Alltag. Aus der Ferne sieht sie, <b>ob</b> etwas zu tun ist, aus der Nähe, <b>was</b>. Muss sie handeln, gibt es <b>genau einen Knopf.</b> Danach steht wieder das Startbild da.</p>
+  <h1>Ein Blick. <em>Eine Aussage.</em></h1>
+  <p class="v-lead">So sieht Ingrid das Bedienfeld im Alltag. Aus der Ferne sieht sie, <b>ob</b> etwas zu tun ist, aus der Nähe, <b>was</b>. Muss sie handeln, gibt es <b>genau einen Knopf.</b> Danach steht das Startbild da.</p>
 
   <div class="call15">
     <img class="c15img" src="../01-konzept/bedienfeld/bilder/vorschau-aktuell.png" alt="Startbild Bedienfeld v7">
-    <svg class="c15svg" viewBox="0 0 666 350" aria-hidden="true"><path d="M198 12 C266 12 266 32 333 32"/><circle cx="333" cy="32" r="4"/><path d="M468 74 C436 74 436 105 403 105"/><circle cx="403" cy="105" r="4"/><path d="M198 188 C241 188 241 214 284 214"/><circle cx="284" cy="214" r="4"/><path d="M468 226 C431 226 431 247 394 247"/><circle cx="394" cy="247" r="4"/><path d="M198 304 C235 304 235 304 272 304"/><circle cx="272" cy="304" r="4"/></svg>
-    <div class="c15 l" style="top:0" data-to="50,9"><strong>Warnpunkt</strong>Leuchtet orange, sobald etwas zu tun ist. Warum Orange, steht bei „Warum Blau statt Schwarz?“.</div>
+    <svg class="c15svg" viewBox="0 0 666 350" aria-hidden="true"><path d="M198 -2 C266 -2 266 32 333 32"/><circle cx="333" cy="32" r="4"/><path d="M468 74 C436 74 436 105 403 105"/><circle cx="403" cy="105" r="4"/><path d="M198 188 C241 188 241 214 284 214"/><circle cx="284" cy="214" r="4"/><path d="M468 226 C431 226 431 247 394 247"/><circle cx="394" cy="247" r="4"/><path d="M198 304 C235 304 235 304 272 304"/><circle cx="272" cy="304" r="4"/></svg>
+    <div class="c15 l" style="top:-14px" data-to="50,9"><strong>Warnpunkt</strong>Leuchtet orange, sobald etwas zu tun ist. Warum Orange, steht bei „Warum Blau statt Schwarz?“.</div>
     <div class="c15 r" style="top:62px" data-to="80,30"><strong>Ring</strong>Tage bis zur Ernte. Der Pilz im Ring wächst in drei Stufen mit.</div>
     <div class="c15 l" style="top:176px" data-to="29,61"><strong>Status</strong>Form, Farbe und Text sagen dasselbe. Auch wer Farben schlecht unterscheidet, liest ihn sicher.</div>
     <div class="c15 r" style="top:214px" data-to="76,70.5"><strong>Drei Werte</strong>Immer Zahl, Balken und Name. Der Tank zeigt seinen Füllstand.</div>
