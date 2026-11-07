@@ -29,14 +29,17 @@ h1{font:700 40px/1.05 "Space Grotesk";letter-spacing:-.02em;margin:28px 0 8px}h1
 .A .img{height:100px}.A .t{margin:4px 0 6px}
 
 /* B · Großes Bild, Strahl durch die Seiten */
-.B .row{display:grid;grid-template-columns:200px 1fr;gap:0 26px;padding:10px 0;border-top:1px solid var(--line)}
-.B .row:last-child{border-bottom:1px solid var(--line)}
+.B .list{position:relative}
+.B .list:before{content:"";position:absolute;left:229.5px;top:0;bottom:0;border-left:1.5px solid var(--sage)}
+.B .row{display:grid;grid-template-columns:200px 1fr;gap:0 26px;padding:10px 0;position:relative}
+.B .row:before,.B .list:after{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--line) 0 220px,transparent 220px 242px,var(--line) 242px)}
+.B .list:after{top:auto;bottom:0}
 .B .img{height:96px;position:relative}
 .B .img .n{position:absolute;left:8px;top:8px;background:var(--cream);color:var(--green);font:700 10px "JetBrains Mono";padding:3px 7px;border-radius:20px;letter-spacing:.1em}
-.B .t{margin:2px 0 8px}
-.B .pl li{position:relative;padding:1px 0 1px 18px}
+.B .t{margin:2px 0 8px;padding-left:18px}
+.B .pl li{position:relative;padding:1px 0 1px 18px;margin-left:0}
 .B .pl li:before{content:"";position:absolute;left:0;top:6.5px;width:8px;height:8px;border-radius:50%;background:var(--st)}
-.B .pl li:not(:last-child):after{content:"";position:absolute;left:3.5px;top:14.5px;bottom:-6.5px;border-left:1.5px solid var(--sage)}
+
 
 /* C · Strahl in der Mitte, Bilder abwechselnd */
 .C .list{position:relative;flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:4px 0 10px}
@@ -64,5 +67,5 @@ const page=(cls,name,body)=>`<div class="wrap"><h2>${name}</h2><section class="p
 const A=K.map(c=>`<div class="row ${c.soon?"soon":""}"><div class="rg">${c.r}</div>${img(c)}<div><div class="k">${c.k}</div><div class="t">${c.t}</div>${pl(c,c.d?4:0)}</div></div>`).join("");
 const B=K.map((c,i)=>`<div class="row">${img(c).replace('</div>',`${c.soon?"":""}</div>`).replace(/^<div class="img([^"]*)">/,`<div class="img$1"><span class="n">${c.r}</span>`)}<div><div class="t">${c.t}</div>${pl(c)}</div></div>`).join("");
 const C=K.map(c=>`<div class="row ${c.soon?"soon":""}">${img(c)}<span class="dot">${c.r.split("–")[0]}</span><div class="tx"><div class="k">S. ${c.r}</div><div class="t">${c.t}</div>${pl(c,c.d?3:2)}</div></div>`).join("");
-document.body.innerHTML=page("A","A · ZEITSTRAHL LINKS",A)+page("B","B · GROSSE BILDER, STRAHL DURCH DIE SEITEN",B)+page("C","C · STRAHL IN DER MITTE",`<div class="list">${C}</div>`);
+document.body.innerHTML=page("A","A · ZEITSTRAHL LINKS",A)+page("B","B · GROSSE BILDER, STRAHL DURCH DIE SEITEN",`<div class="list">${B}</div>`)+page("C","C · STRAHL IN DER MITTE",`<div class="list">${C}</div>`);
 </script></body></html>
