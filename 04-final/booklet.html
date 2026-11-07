@@ -217,7 +217,7 @@ h1 em{font-style:normal;color:var(--accent)}
 
 /* ── Inhaltsverzeichnis ── */
 .toc{display:grid;grid-template-columns:1fr 1fr;gap:0 9mm;flex:1;align-content:start}
-.toc .kap{border-top:1.5px solid var(--ink);padding-top:2.6mm;margin-bottom:1mm}.toc ol+.kap{margin-top:7mm}
+.toc .kap{border-top:1.5px solid var(--ink);padding-top:2.6mm;margin-bottom:1mm}.toc ol+.kap{margin-top:5mm}
 .toc .kap .label{color:var(--accent)}
 .toc .kap b{display:block;font-size:15pt;font-weight:800;letter-spacing:-.01em;margin-top:1mm}
 .toc .kap span.who{display:block;font-size:8.4pt;color:var(--muted);margin-top:.6mm}
@@ -228,8 +228,8 @@ h1 em{font-style:normal;color:var(--accent)}
 .toc li span.s{font-size:8.3pt;color:var(--muted)}
 .strip{display:grid;grid-template-columns:repeat(16,1fr);gap:1.2mm;align-items:end}
 .strip i{height:2.2mm;background:var(--line);border-radius:.6mm}
-.strip i.a{background:var(--sage)}.strip i.c{background:#b9c9ae}.strip i.b{background:var(--green)}
-.strip-lab{display:grid;grid-template-columns:2fr 1fr 6fr 7fr;gap:1.2mm;font:600 6.8pt "JetBrains Mono";letter-spacing:.12em;color:var(--muted);margin-top:1.4mm}
+.strip i.a{background:var(--sage)}.strip i.c{background:#b9c9ae}.strip i.d{background:#a7b0a2}.strip i.b{background:var(--green)}
+.strip-lab{display:grid;grid-template-columns:2fr 1fr 3fr 3fr 7fr;gap:1.2mm;font:600 6.8pt "JetBrains Mono";letter-spacing:.12em;color:var(--muted);margin-top:1.4mm}
 
 /* ── Cover ── */
 .cv{padding-bottom:10mm}
@@ -264,6 +264,20 @@ h1 em{font-style:normal;color:var(--accent)}
 .thumbs img{width:100%;height:62mm;object-fit:cover;object-position:top;border-radius:2mm;border:.8mm solid #0b0c10;background:#0b0c10;display:block}
 .thumbs figcaption{font-size:8pt;color:var(--muted);margin-top:1.5mm;line-height:1.3}.thumbs b{display:block;color:var(--ink);font-family:"JetBrains Mono";font-size:7.6pt}
 .bfw .tl li{grid-template-columns:9mm 13mm 1fr;padding:1.9mm 0;font-size:8.8pt}
+
+/* ── S15 im Layout der Kollegen-Version ── */
+.hr figure{gap:2mm}.hr .tag.warn{color:#e8a04a}.hr .tag.mut{color:var(--muted)}
+.hr .disp{border-radius:3mm;border:.5mm solid #3d5e4c}.hr .disp.warn{border:.8mm solid #e8a04a}
+.hr figcaption{font-size:9pt;line-height:1.4;color:var(--ink)}
+.hr2 .box{display:flex;flex-direction:column;gap:1.6mm}.hr2 .box h3{margin-bottom:1mm}
+.hr2 .sub{color:var(--muted);font-size:8.6pt}
+.chipr{display:flex;gap:1.6mm;align-items:center;flex-wrap:wrap}.chipr i{font-style:normal;color:var(--accent)}
+.chipr .c{border:1px solid var(--muted);border-radius:1.2mm;padding:.6mm 2.2mm;font-size:8.4pt}
+.chipr .c.on{background:var(--sage);border-color:var(--sage);color:var(--green)}
+.ref{margin-top:auto;font-size:7.8pt;color:var(--muted)}
+.same{display:flex;gap:3mm;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:3mm;font-size:9pt}
+.same .kn{border:1px solid currentColor;border-radius:1.5mm;padding:.5mm 2.5mm}
+.same .in{border-top:1px solid currentColor;border-bottom:1px solid currentColor;padding:.4mm 2.5mm}
 
 /* ── Zoom-Ansicht aus der Übersicht ── */
 #zoom{position:fixed;inset:0;z-index:20;background:rgba(20,32,25,.88);display:none;align-items:center;justify-content:center}
@@ -326,13 +340,12 @@ body.grid .bar .nav{visibility:hidden}
   <h1>Was in diesem<br><em>Booklet steckt.</em></h1>
   <p class="lead">Erst für wen, dann wie die Box entstanden ist, zuletzt wie man sie bedient. Jede Entscheidung steht mit dem Grund aus der Vorlesung und dem Nachteil, den wir dafür in Kauf nehmen.</p>
   <div>
-    <div class="strip"><i class="b"></i><i class="b"></i><i class="c"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i></div>
-    <div class="strip-lab"><span>01–02</span><span>03</span><span>04–09 · KONZEPT &amp; AUFBAU</span><span>10–16 · BOX + BEDIENFELD</span></div>
+    <div class="strip"><i class="b"></i><i class="b"></i><i class="c"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i><i class="b"></i></div>
+    <div class="strip-lab"><span>01–02</span><span>03</span><span>04–06 KONZEPT</span><span>07–09 CAD</span><span>10–16 · BOX + BEDIENFELD</span></div>
   </div>
   <div class="toc">
-    <div><div class="kap"><span class="label">Kapitel 1 · 03</span><b>Einstieg</b></div><ol><li><span class="n">03</span><span><strong>Für jeden gemacht.</strong><span class="s">Zielgruppe · Ingrid und App-Nutzer</span></span></li></ol>
-      <div class="kap"><span class="label">Kapitel 2 · 04–09</span><b>Konzept &amp; Aufbau</b></div><ol><li><span class="n">04</span><span><strong>Alles begann mit einer Mikrowelle.</strong><span class="s">Die erste Skizze</span></span></li><li><span class="n">05</span><span><strong>Vom Aquarium zur Mikrowelle.</strong><span class="s">Konzeptweg Box V1 → V3 · Abwägung</span></span></li><li><span class="n">06</span><span><strong>Wie eine Mikrowelle. Nur ohne Knopfsalat.</strong><span class="s">Aufbau V3 annotiert</span></span></li><li><span class="n">07</span><span><strong>Vom Papier ins CAD.</strong><span class="s">Konstruktion · zwei Module</span></span></li><li><span class="n">08</span><span><strong>Vom Rohdruck zum Prototyp.</strong><span class="s">Prototyp · FabLab</span></span></li><li><span class="n">09</span><span><strong>17 Stände. Nicht alles blieb.</strong><span class="s">3D-Modell · Ideen getestet</span></span></li></ol></div>
-    <div><div class="kap"><span class="label">Kapitel 3 · 10–16</span><b>Box + Bedienfeld</b></div><ol><li><span class="n">10</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Konzeptweg Bedienfeld v1 → v7</span></span></li><li><span class="n">11</span><span><strong>Ein Taster. Eine Bedeutung.</strong><span class="s">Entscheidungen an der Box · Abwägung</span></span></li><li><span class="n">12</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild</span></span></li><li><span class="n">13</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li><li><span class="n">14</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Ingrid handelt</span></span></li><li><span class="n">15</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Fehler vermeiden</span></span></li><li><span class="n">16</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
+    <div><div class="kap"><span class="label">Kapitel 1 · 03</span><b>Einstieg</b></div><ol><li><span class="n">03</span><span><strong>Für jeden gemacht.</strong><span class="s">Zielgruppe · Ingrid und App-Nutzer</span></span></li></ol><div class="kap"><span class="label">Kapitel 2 · 04–06</span><b>Konzept</b><span class="who">Skizzen und die physische Box</span></div><ol><li><span class="n">04</span><span><strong>Alles begann mit einer Mikrowelle.</strong><span class="s">Die erste Skizze</span></span></li><li><span class="n">05</span><span><strong>Vom Aquarium zur Mikrowelle.</strong><span class="s">Konzeptweg Box V1 → V3 · Abwägung</span></span></li><li><span class="n">06</span><span><strong>Wie eine Mikrowelle. Nur ohne Knopfsalat.</strong><span class="s">Die Box V3 annotiert</span></span></li></ol><div class="kap"><span class="label">Kapitel 3 · 07–09</span><b>CAD &amp; Bau</b><span class="who">Konstruktion, Druck, 3D-Modell</span></div><ol><li><span class="n">07</span><span><strong>Vom Papier ins CAD.</strong><span class="s">Konstruktion · zwei Module</span></span></li><li><span class="n">08</span><span><strong>Vom Rohdruck zum Prototyp.</strong><span class="s">Prototyp · FabLab</span></span></li><li><span class="n">09</span><span><strong>Jedes Detail hat einen Zweck.</strong><span class="s">3D-Modell · alle Features</span></span></li></ol></div>
+    <div><div class="kap"><span class="label">Kapitel 4 · 10–16</span><b>Box + Bedienfeld</b></div><ol><li><span class="n">10</span><span><strong>Drei Ideen. Eine gewählt.</strong><span class="s">Konzeptweg Bedienfeld v1 → v7</span></span></li><li><span class="n">11</span><span><strong>Ein Taster. Eine Bedeutung.</strong><span class="s">Entscheidungen an der Box · Skizzen V3</span></span></li><li><span class="n">12</span><span><strong>Ein Blick. Eine Aussage.</strong><span class="s">Das Startbild</span></span></li><li><span class="n">13</span><span><strong>Warum Blau statt Schwarz?</strong><span class="s">Farbe · Abwägung</span></span></li><li><span class="n">14</span><span><strong>Eine Warnung. Ein Knopf.</strong><span class="s">Ingrid handelt</span></span></li><li><span class="n">15</span><span><strong>Die Hürde passt zum Risiko.</strong><span class="s">Fehler vermeiden</span></span></li><li><span class="n">16</span><span><strong>Bewusst weggelassen.</strong><span class="s">Abwägungen und Grenzen</span></span></li></ol></div>
   </div>
   <div class="foot"><span>INHALT</span><span>02</span></div>
 </section>
@@ -385,7 +398,7 @@ body.grid .bar .nav{visibility:hidden}
     <div><b>20 cm</b><span>Tiefe</span></div>
     <div><b>5 cm</b><span>Sockel für die Erde</span></div>
   </div>
-  <div class="foot"><span>KONZEPT &amp; AUFBAU · PILZ GROWBOX</span><span>04</span></div>
+  <div class="foot"><span>KONZEPT · PILZ GROWBOX</span><span>04</span></div>
 </section>
 
 <!-- ═══ Konzeptweg Box ═══ -->
@@ -414,10 +427,11 @@ body.grid .bar .nav{visibility:hidden}
       <tr><td>V1 → V2: ein Gerät statt zwei</td><td>Das Display hat einen festen Platz, kein Kabel liegt dazwischen. Die Form einer Mikrowelle kennt jeder (mentales Modell 56, Mikrowelle 8).</td><td>Der Technikraum kostet Breite.</td></tr>
       <tr><td>iPhone statt 5″-Touchdisplay</td><td>Scharfes Display, die Web-Oberfläche lässt sich am Laptop testen und direkt zeigen (Prototypen 119–125).</td><td>Das iPhone ist nur Platzhalter für ein festes Display.</td></tr>
       <tr><td>V2 → V3: größer, Tank mit Sichtfenster</td><td>Wasser unten, Elektronik oben, dazwischen eine Trennwand (Murphy 61). Die Linie im Fenster entspricht dem Balken auf dem Display (Mapping 77–79).</td><td>Mehr Stellfläche in der Küche.</td></tr>
+      <tr><td>Kamera fest, bewusst nicht beweglich</td><td>Nichts zu verstellen, immer derselbe Blick, die Bilder in der App bleiben vergleichbar (Konsistenz 80). Keine Mechanik, die ausfällt (Murphy 61).</td><td>Nur ein Blickwinkel, verdeckte Pilze sieht man nicht.</td></tr>
       <tr><td>LED im Rahmen statt im Deckel</td><td>Der Deckel bleibt kabelfrei und abnehmbar. Alle Teile ≤ 250 mm passen aufs Druckbett.</td><td>Ein LED-Kanal in vier Profilen.</td></tr>
     </tbody>
   </table>
-  <div class="foot"><span>KONZEPT &amp; AUFBAU · PILZ GROWBOX</span><span>05</span></div>
+  <div class="foot"><span>KONZEPT · PILZ GROWBOX</span><span>05</span></div>
 </section>
 
 <!-- ═══ 02 (alt 3) · C Annotiertes Bild, hell ═══ -->
@@ -455,7 +469,7 @@ body.grid .bar .nav{visibility:hidden}
     <span class="f">MVC · 99–100</span>
   </div>
 
-  <div class="foot"><span>KONZEPT &amp; AUFBAU · PILZ GROWBOX</span><span>06</span></div>
+  <div class="foot"><span>KONZEPT · PILZ GROWBOX</span><span>06</span></div>
 </section>
 
 <!-- ═══ K3 · CAD, dunkel ═══ -->
@@ -475,7 +489,7 @@ body.grid .bar .nav{visibility:hidden}
     <b>0,2 mm</b>
     <p>Spiel pro Seite in der Display-Tasche. Das iPhone 13 mini misst 6,42 × 13,15 × 0,77 cm, die Tasche 6,46 × 13,19 × 0,8 cm. Es sitzt fest und lässt sich trotzdem herausnehmen.</p>
   </div>
-  <div class="foot"><span>KONZEPT &amp; AUFBAU · PILZ GROWBOX</span><span>07</span></div>
+  <div class="foot"><span>CAD &amp; BAU · PILZ GROWBOX</span><span>07</span></div>
 </section>
 
 <!-- ═══ K4 · Prototyp, hell ═══ -->
@@ -502,25 +516,24 @@ body.grid .bar .nav{visibility:hidden}
     <div><b>[x] g</b><span>PLA-Filament</span></div>
     <div><b>2</b><span>Module, einzeln gedruckt</span></div>
   </div>
-  <div class="foot"><span>KONZEPT &amp; AUFBAU · PILZ GROWBOX</span><span>08</span></div>
+  <div class="foot"><span>CAD &amp; BAU · PILZ GROWBOX</span><span>08</span></div>
 </section>
 
 <!-- ═══ 3D-Modell ═══ -->
 <section class="page dark">
-  <div class="top"><span>09 / 3D-MODELL</span><span class="brand">GROWBOX</span></div>
-  <h1>17 Stände.<br><em>Nicht alles blieb.</em></h1>
-  <p class="lead">Nach dem Druck entstand die Box als drehbares 3D-Modell. So ließen sich Ideen in Minuten testen statt in Druckstunden. Danach musste sich jede Idee an der Zielgruppe messen: Was Ingrid hilft, blieb.</p>
-  <figure class="hero"><img class="photo" src="bilder/design-bau/3d-modell.jpg" alt="3D-Modell der Growbox, Gesamtansicht"><span class="ov">3D-Modell · Stand 17 · Maße nur zum Anschauen</span></figure>
-  <div class="tech chips"><span class="n">v1 Glastür, LED, Taster</span><i>→</i><span class="n">v2–4 Tank, App</span><i>→</i><span class="n">v5–6 Kamera</span><i>→</i><span class="n">v7–11 Kammer</span><i>→</i><span class="n">v12–13 Schalter, Sensor</span><i>→</i><span class="n">v14–15 LED-Nut</span><i>→</i><span class="n">v16–17 Bedienfeld</span></div>
+  <div class="top"><span>09 / ALLE FEATURES</span><span class="brand">GROWBOX</span></div>
+  <h1>Jedes Detail<br><em>hat einen Zweck.</em></h1>
+  <p class="lead">Im interaktiven 3D-Modell habe ich das Exterieur Schritt für Schritt entwickelt: Knopf wurde Schiebeschalter, Deckel wurde Schieber, der Sensor eine Leiste in Displaybreite.</p>
+  <figure class="hero"><img class="photo" src="bilder/design-bau/3d-modell.jpg" alt="3D-Modell der Growbox, Gesamtansicht"><span class="ov">3D-Modell · 27,5 × 20 × 20 cm</span></figure>
   <div class="feat">
-    <figure><img class="photo" src="bilder/design-bau/glastuer.jpg" alt="Geöffnete Glastür der Pilzkammer"><figcaption><span class="st ok">Übernommen</span><b>Glastür mit Griff</b>Ernten, ohne die Pilze zu berühren.</figcaption></figure>
-    <figure><img class="photo" src="bilder/design-bau/led-nut.jpg" alt="LED-Streifen verdeckt in der Nut"><figcaption><span class="st ok">Übernommen</span><b>LED in der Nut</b>Abgeschirmt, blendet nicht. Wird die LED im Rahmen.</figcaption></figure>
-    <figure><img class="photo" src="bilder/design-bau/kamera.jpg" alt="Kamerabild aus der Pilzkammer"><figcaption><span class="st app">In der App</span><b>Live-Kamera</b>Nur für den Power-User, die Box zeigt kein Bild (Zoomable UI 101).</figcaption></figure>
-    <figure><img class="photo" src="bilder/design-bau/sensor-schalter.jpg" alt="Schiebeschalter unter dem Display"><figcaption><span class="st no">Ersetzt</span><b>Schiebeschalter → Taster</b>Ein Druckpunkt, eine Bedeutung: Licht (Affordance 72–74).</figcaption></figure>
-    <figure><img class="photo" src="bilder/design-bau/handsensor.jpg" alt="Hand vor dem Sensor"><figcaption><span class="st no">Verworfen</span><b>Handsensor</b>Das Display bleibt an, der Warnpunkt muss aus 3 m sichtbar sein (präattentiv 26–27).</figcaption></figure>
-    <figure><img class="photo" src="bilder/design-bau/wassertank.jpg" alt="Schieber über dem Wassertank"><figcaption><span class="st no">Ersetzt</span><b>Tank-Schieber → Einfüllöffnung</b>Oben eingießen, vorn ein Sichtfenster (Mapping 77–79).</figcaption></figure>
+    <figure><img class="photo" src="bilder/design-bau/handsensor.jpg" alt="Hand vor dem Sensor, Display geht an"><figcaption><b>Handsensor</b>Hand davorhalten, das Display wacht auf.</figcaption></figure>
+    <figure><img class="photo" src="bilder/design-bau/sensor-schalter.jpg" alt="Display im Ruhezustand mit Sensorleiste und Schiebeschalter"><figcaption><b>Sensor &amp; Schalter</b>Sensorleiste in Displaybreite, Licht per Schiebeschalter.</figcaption></figure>
+    <figure><img class="photo" src="bilder/design-bau/glastuer.jpg" alt="Geöffnete Glastür der Pilzkammer"><figcaption><b>Glastür mit Griff</b>Ernten, ohne die Pilze zu berühren.</figcaption></figure>
+    <figure><img class="photo" src="bilder/design-bau/wassertank.jpg" alt="Geöffneter Schieber über dem Wassertank"><figcaption><b>Wassertank</b>Schieber nach hinten raus, von oben nachfüllen.</figcaption></figure>
+    <figure><img class="photo" src="bilder/design-bau/kamera.jpg" alt="Kamerabild aus der Pilzkammer"><figcaption><b>Live-Kamera</b>Hinten rechts fest verbaut, bewusst nicht beweglich. Zeigt die Pilze in der App.</figcaption></figure>
+    <figure><img class="photo" src="bilder/design-bau/led-nut.jpg" alt="LED-Streifen verdeckt in der Nut des Rahmens"><figcaption><b>LED in der Nut</b>Vorne und hinten abgeschirmt, blendet nicht.</figcaption></figure>
   </div>
-  <div class="foot"><span>KONZEPT &amp; AUFBAU · PILZ GROWBOX</span><span>09</span></div>
+  <div class="foot"><span>CAD &amp; BAU · PILZ GROWBOX</span><span>09</span></div>
 </section>
 
 <!-- ═══ Konzeptweg Bedienfeld ═══ -->
@@ -686,39 +699,25 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page dark">
   <div class="top"><span>15 / FEHLER VERMEIDEN</span><span class="brand">GROWBOX</span></div>
   <h1>Die Hürde passt<br><em>zum Risiko.</em></h1>
-  <p class="lead">Wer mitten im Wachstum neu ansetzt, verliert seine Pilze. Wer nach der Ernte neu ansetzt, verliert nichts. Deshalb fragt die Box unterschiedlich streng.</p>
-
-  <figure class="card light">
-    <div class="trio">
-      <figure><span class="tag">Mitten im Wachstum</span><img class="disp" src="bilder/booklet/09-halten.jpg" alt="Wirklich neu ansetzen? Gedrückt halten"><figcaption>Was verloren geht, steht da. Dann <b>2 s halten</b>.</figcaption></figure>
-      <figure><span class="tag">Nach der Ernte</span><img class="disp" src="bilder/booklet/07-sicher.jpg" alt="Sicher?"><figcaption>Nur <b>„Sicher?“</b>, die Kammer ist schon leer.</figcaption></figure>
-      <figure><span class="tag">Eigene Sorte</span><img class="disp" src="bilder/booklet/10-eigene.jpg" alt="Eigene Sorte mit Erweitert"><figcaption>Name und Vorlage, Werte unter <b>„Erweitert“</b>.</figcaption></figure>
-    </div>
-  </figure>
-
-  <div class="duo">
-    <div class="box">
-      <h3>Hürde nach Risiko</h3>
-      <table class="risk">
-        <tr><td>mitten im Wachstum</td><td>Hinweis → 2 s halten → 14 Tage Rückweg</td></tr>
-        <tr><td>nach der Ernte</td><td>nur „Sicher?“</td></tr>
-      </table>
-      <p style="margin-top:2mm"><span class="f">Murphy · 61 · Nielsen: Fehler vermeiden · 130</span></p>
-    </div>
-    <div class="box solid">
-      <h3>Erst Übersicht, dann Detail</h3>
-      <ul>
-        <li>Eigene Sorte an der Box <b>nur nach der Ernte</b>.</li>
-        <li>Werte <b>eingeklappt</b>, feste Schritte mit Grenzen.</li>
-        <li>Wer mehr will, zoomt in der <b>App</b> hinein. <span class="f">Zoomable UI · 101–102</span></li>
-      </ul>
-    </div>
+  <p class="lead">Wer mitten im Wachstum neu ansetzt, verliert seine Pilze. Wer nach der Ernte neu ansetzt, verliert nichts. Deshalb fragt die Box <b>unterschiedlich streng.</b></p>
+  <div class="trio hr">
+    <figure><span class="tag warn">Mitten im Wachstum</span><img class="disp warn" src="bilder/booklet/09-halten.jpg" alt="Wirklich neu ansetzen? Gedrückt halten"><figcaption>Was verloren geht, steht da. Dann 2 s halten.</figcaption></figure>
+    <figure><span class="tag">Nach der Ernte</span><img class="disp" src="bilder/booklet/07-sicher.jpg" alt="Sicher?"><figcaption>Nur „Sicher?“, die Kammer ist schon leer.</figcaption></figure>
+    <figure><span class="tag mut">Eigene Sorte</span><img class="disp" src="bilder/booklet/10-eigene.jpg" alt="Eigene Sorte mit Erweitert"><figcaption>Name und Vorlage, Werte unter „Erweitert“.</figcaption></figure>
   </div>
-
-  <div class="folien">
-    <span class="label">Überall gleich</span>
-    <span><b>▢</b>Rahmen = drückbar</span><span><b>═</b>zwischen zwei Linien = Information</span><span><b>72–73</b>Affordance</span><span><b>80</b>Konsistenz</span>
+  <div class="duo hr2">
+    <div class="box"><h3>Hürde nach Risiko</h3>
+      <p class="sub">Mitten im Wachstum</p>
+      <div class="chipr"><span class="c">Hinweis</span><i>→</i><span class="c">2 s halten</span><i>→</i><span class="c on">14 Tage Rückweg</span></div>
+      <p class="sub">Nach der Ernte</p>
+      <div class="chipr"><span class="c">nur „Sicher?“</span></div>
+      <p class="ref">Murphy · 61 · Nielsen: Fehler vermeiden · 130</p></div>
+    <div class="box"><h3>Erst Übersicht, dann Detail</h3>
+      <p>Eigene Sorte an der Box nur nach der Ernte. Werte eingeklappt, feste Schritte mit Grenzen. Wer mehr will, zoomt in der App hinein.</p>
+      <p class="ref">Zoomable UI · 101–102</p></div>
   </div>
+  <div class="same"><span class="label">Überall gleich</span><span class="kn">Knopf</span><span>Rahmen = drückbar</span><span class="in">Info</span><span>zwischen zwei Linien = Information</span></div>
+  <p class="ref">72–73 Affordance · 80 Konsistenz</p>
   <div class="foot"><span>BOX + BEDIENFELD · PILZ GROWBOX</span><span>15</span></div>
 </section>
 
