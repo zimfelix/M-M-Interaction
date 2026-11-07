@@ -306,7 +306,7 @@ h1 em{font-style:normal;color:var(--accent)}
 
 /* ── Kopf, Titel, Fuß wie die Seiten des Kollegen (07.11.) ── */
 .page:not(.cv):not(.ext){padding:56px 64px 28px}   /* wie S. 03: Fuß 28 px über dem Seitenrand */
-.page.vp .folien+.foot,.page.vp .v-lecture+.foot{margin-top:-4px}   /* Leiste → Fuß 12 px wie S. 03 */
+
 .page.tight{gap:3.2mm}
 /* Einheitliche Struktur: Kopf → 28 px → Titel … Inhalt … (frei) → Aus der Vorlesung → Fuß */
 .page:not(.cv) .folien{margin-top:auto;flex-wrap:nowrap;white-space:nowrap;overflow:hidden}
@@ -341,6 +341,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .page.vp .v-lecture+.foot{margin-top:0}
 /* S. 04: altes Layout (drei Bilder, Tabelle), Maße nach Vorlage; Titel 40 px wie S. 03 (viel Inhalt) */
 .page.p04 h1{font-size:40px}
+.p04 .tab .nb{display:block;font-weight:400;font-size:11px;color:var(--muted);margin-top:4px}
 .p04 .tab{font:400 12px/1.42 Inter,sans-serif}
 /* S. 04: V1 klein als Idee, V2 und V3 groß; Zeitleiste mit Punkten verbindet die Versionen */
 .p04 .vs3{grid-template-columns:.62fr 1fr 1fr;gap:18px;position:relative;margin-top:4px}
@@ -366,6 +367,13 @@ h1 em{font-style:normal;color:var(--accent)}
 .p05 .legend{font:400 13px/1.5 Inter,sans-serif}
 .p05 .legend strong{font:700 17px/1.25 "Space Grotesk",sans-serif}
 .p05 .legend .k.o{background:transparent;border:1.5px solid var(--green);color:var(--green)}
+
+/* „Aus der Vorlesung“ und Fuß exakt wie S. 03 (Kollegen-Seite): Inter 11.5 px weiß, Label JetBrains Mono 9.6 px, 8 px Innenabstand, Leiste → Fuß 12 px */
+.page:not(.cv):not(.ext) .folien{font:400 11.5px/1.4 Inter,sans-serif;color:var(--ink);padding:8px 0;gap:5px 8px;border-color:var(--sage)}
+.page:not(.cv):not(.ext) .folien .label+span~span::before{content:"·";color:var(--accent);font-weight:700;margin-right:8px}
+.page:not(.cv):not(.ext) .folien .label{font:700 9.6px "JetBrains Mono",monospace;letter-spacing:.14em;color:var(--accent);margin-right:6px}
+.page:not(.cv):not(.ext) .folien+.foot{margin-top:calc(12px - var(--pgap,5mm))}
+.page.tight{--pgap:3.2mm}.page.vp{--pgap:16px}
 /* ── Seiten des Kollegen, eingebettet ── */
 .page.ext{padding:0;background:#fff}
 .page.ext iframe{width:210mm;height:297mm;border:0;display:block}
@@ -470,7 +478,8 @@ body.grid .bar .nav{visibility:hidden}
     <tbody>
       <tr><td>V1 → V2: ein Gerät statt zwei</td><td>Das Display hat einen festen Platz, kein Kabel liegt dazwischen. Die Form einer Mikrowelle kennt jeder (mentales Modell).</td><td>Der Technikraum kostet Breite.</td></tr>
       <tr><td>iPhone statt 5″-Touchdisplay</td><td>Scharfes Display, die Web-Oberfläche lässt sich am Laptop testen und direkt zeigen (Prototyping).</td><td>Das iPhone ist nur Platzhalter für ein festes Display.</td></tr>
-      <tr><td>V2 → V3: größer, Tank mit Sichtfenster</td><td>Wasser unten, Elektronik oben, dazwischen eine Trennwand (Murphy's Law). Die Linie im Fenster entspricht dem Balken auf dem Display (Mapping).</td><td>Mehr Stellfläche in der Küche.</td></tr>
+      <tr><td>V2 → V3: größer, Tank mit Sichtfenster<span class="nb">Im Prototyp sitzt der Tank noch oben (siehe „Alle Features“).</span></td><td>Wasser unten, Elektronik oben, dazwischen eine Trennwand (Murphy's Law). Die Linie im Fenster entspricht dem Balken auf dem Display (Mapping).</td><td>Mehr Stellfläche in der Küche.</td></tr>
+      <tr><td>LED im Rahmen hinter Blende statt im Deckel</td><td>Das Licht fällt nur auf die Pilze, wer davorsteht, wird nicht geblendet. Der Deckel bleibt kabelfrei und abnehmbar.</td><td>Ein LED-Kanal in vier Profilen.</td></tr>
     </tbody>
   </table>
   <div class="folien"><span class="label">Aus der Vorlesung</span><span>Mentales Modell</span><span>Prototyping</span><span>Murphy's Law</span><span>Mapping</span></div>
