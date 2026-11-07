@@ -562,10 +562,10 @@ body.grid .bar .nav{visibility:hidden}
 .kbar b.on{background:var(--accent)}
 
 /* S. 18 · Weggelassen & Ausblick */
-.p18 .h2{font:600 11px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin:4px 0 -6px}
+.p18 .h2{font:600 11px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin:16px 0 -4px}
 .p18 .cut{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.p18 .cut div{border:1px solid var(--green-line);border-radius:10px;padding:12px 12px 11px;font-size:12px;line-height:1.4;color:#B4C2B6}
-.p18 .cut b{display:block;font-size:14px;color:#EEF2EA;margin:6px 0 4px}
+.p18 .cut div{border:1px solid var(--green-line);border-radius:10px;padding:13px 13px 12px;font-size:13.5px;line-height:1.4;color:#B4C2B6}
+.p18 .cut b{display:block;font-size:16px;color:#EEF2EA;margin:6px 0 4px}
 .p18 .cut .x{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--sage);color:var(--sage);font:700 11px Inter,sans-serif}
 .p18 .cut .pr{display:block;margin-top:6px;padding-top:6px;border-top:1px solid var(--green-line);color:#D5DED6}
 .p18 .road{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:4px}
@@ -574,18 +574,18 @@ body.grid .bar .nav{visibility:hidden}
 .p18 .rs .n{position:relative;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--green);border:1.5px solid var(--sage);color:var(--sage);font:700 12px "Space Grotesk",sans-serif}
 .p18 .rs.on .n{background:var(--sage);color:var(--green)}
 .p18 .rs .k{font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#B4C2B6;margin:10px 0 3px}
-.p18 .rs b{display:block;font-size:15px;color:#EEF2EA;margin-bottom:4px}
-.p18 .rs p{font-size:12px;line-height:1.4;color:#D5DED6}
+.p18 .rs b{display:block;font-size:17px;color:#EEF2EA;margin-bottom:4px}
+.p18 .rs p{font-size:13.5px;line-height:1.4;color:#D5DED6}
 .p18 .viz{height:74px;margin-top:10px;border-radius:8px;background:var(--green-2);display:flex;align-items:flex-end;justify-content:center;gap:5px;padding:8px}
 .p18 .viz svg{display:block}
-.p18 .chron{background:var(--cream);color:var(--green);border-radius:12px;padding:16px 18px;display:grid;grid-template-columns:1fr 1.5fr;gap:18px;align-items:center}
+.p18 .chron{margin-top:14px;background:var(--cream);color:var(--green);border-radius:12px;padding:24px 22px;display:grid;grid-template-columns:1fr 1.35fr;gap:18px;align-items:center}
 .p18 .chron .k{font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-text)}
-.p18 .chron b{display:block;font:700 22px/1.15 "Space Grotesk",sans-serif;margin:4px 0 6px}
-.p18 .chron p{font-size:12.5px;line-height:1.45;color:#2F4A3A}
+.p18 .chron b{display:block;font:700 24px/1.15 "Space Grotesk",sans-serif;margin:4px 0 6px}
+.p18 .chron p{font-size:14px;line-height:1.45;color:#2F4A3A}
 .p18 .film{display:flex;gap:6px}
 .p18 .film figure{flex:1;background:#1d3b2a;border-radius:6px;padding:5px 5px 4px;text-align:center}
 .p18 .film svg{width:100%;height:auto;display:block;background:#27493a;border-radius:3px}
-.p18 .film figcaption{font:600 8.5px "JetBrains Mono",monospace;letter-spacing:.08em;color:#B4C2B6;margin-top:4px}
+.p18 .film figcaption{font:600 9.5px "JetBrains Mono",monospace;letter-spacing:.08em;color:#B4C2B6;margin-top:4px}
 .p18 .film figure.h figcaption{color:#e0a255}
 
 /* S. 02 · Inhalt als Kapitelreise */
@@ -660,6 +660,9 @@ body.grid .bar .nav{visibility:hidden}
 .p02 .tr .t{font-size:22px!important}
 .p02 .tr .n{z-index:2}
 .p02 .tr ul.grp3 li i{min-width:44px}
+.p18 .folien span:not(.label){font-size:10px!important;letter-spacing:-.01em}
+.page.p18 .folien .label+span~span::before{margin-right:5px!important}
+.p18 .folien{column-gap:9px!important}
 </style>
 </head>
 <body>
@@ -1015,7 +1018,7 @@ body.grid .bar .nav{visibility:hidden}
     <div class="film"><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/></svg><figcaption>TAG 1</figcaption></figure><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="29.1" y="34" width="1.8" height="4" rx="1.5" fill="#efe6d2"/><path d="M26 34 a4 3.0 0 0 1 8 0z" fill="#c98a4b"/></svg><figcaption>TAG 4</figcaption></figure><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="28.2" y="30" width="3.5" height="8" rx="1.5" fill="#efe6d2"/><path d="M22 30 a8 6.0 0 0 1 16 0z" fill="#c98a4b"/></svg><figcaption>TAG 8</figcaption></figure><figure class=""><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="27.4" y="25" width="5.3" height="13" rx="1.5" fill="#efe6d2"/><path d="M18 25 a12 9.0 0 0 1 24 0z" fill="#c98a4b"/></svg><figcaption>TAG 12</figcaption></figure><figure class="h"><svg viewBox="0 0 60 44"><ellipse cx="30" cy="38" rx="20" ry="3" fill="#8a6f4e"/><rect x="26.5" y="21" width="7.0" height="17" rx="1.5" fill="#efe6d2"/><path d="M14 21 a16 12.0 0 0 1 32 0z" fill="#c98a4b"/></svg><figcaption>TAG 15 · ERNTE</figcaption></figure></div>
   </div>
 
-  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Minimalist Design</span><span>Modusfehler</span><span>Cognitive Walkthrough</span><span>AttrakDiff</span><span>Gamification</span></div>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Minimalist Design</span><span>Modusfehler</span><span>präattentiv</span><span>Konsistenz</span><span>Cognitive Walkthrough</span><span>AttrakDiff</span><span>Gamification</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>18</span></div>
 </section>
 
