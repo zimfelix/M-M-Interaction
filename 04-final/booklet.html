@@ -351,9 +351,9 @@ h1 em{font-style:normal;color:var(--accent)}
 .p04 .vs3{grid-template-columns:.62fr 1fr 1fr;gap:18px;position:relative;margin-top:4px}
 .p04 .vs3::before{content:"";position:absolute;left:6px;right:0;top:6px;height:1.5px;background:var(--sage);opacity:.7}
 .p04 .vs3 .tag{position:relative;display:flex;align-items:center;gap:8px;font:700 9.5px Inter,sans-serif;letter-spacing:.08em}
-.p04 .vs3 .tag::before{content:"";width:13px;height:13px;flex:none;border-radius:50%;background:var(--green);border:2px solid var(--sage);box-sizing:border-box}
-.p04 .vs3 figure:nth-child(n+2) .tag::before{background:var(--sage)}
-.p04 .vs3 .tag{padding-right:8px;background:linear-gradient(90deg,var(--green) 90%,transparent)}
+.p04 .vs3 .tag::before{content:"";width:13px;height:13px;flex:none;border-radius:50%;background:var(--cream);border:2px solid var(--sage-text);box-sizing:border-box}
+.p04 .vs3 figure:nth-child(n+2) .tag::before{background:var(--sage-text)}
+.p04 .vs3 .tag{padding-right:8px;background:linear-gradient(90deg,var(--cream) 90%,transparent);color:var(--sage-text)}
 .p04 .vs3 figure .tag{width:max-content}
 .p04 .kw .card{height:190px;padding:8px}.p04 .kw .card img,.p04 .kw .card svg{max-height:174px;width:100%}
 .p04 .kw figure:nth-child(n+2) .card{height:190px;padding:8px}
@@ -666,6 +666,8 @@ body.grid .bar .nav{visibility:hidden}
 .baunote .bl{font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#e0b46a;white-space:nowrap}
 .baunote b{color:#EEF2EA}
 .p06 .tab td{padding-top:7px;padding-bottom:7px}
+.p04 .kw .card{background:var(--card);border:1px solid var(--line)}
+.p04 .vs3::before{background:var(--sage-text);opacity:.5}
 </style>
 </head>
 <body>
@@ -708,7 +710,7 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page ext"><iframe src="booklet-design-bau/seiten/zielgruppe.html" title="Zielgruppe" loading="eager"></iframe></section>
 
 <!-- ═══ Konzeptweg Box (Kopf, Titel, Schrift, Fuß nach vorlage-seite.html) ═══ -->
-<section class="page dark vp p04">
+<section class="page vp p04">
   <div class="top"><span>04 · KONZEPTWEG BOX I</span><span class="brand">GROWBOX</span></div>
   <h1>Vom Aquarium<br><em>zur Mikrowelle.</em></h1>
   <p class="v-lead">Eine Form, die jeder kennt: Aus dem <b>Aquarium (V1)</b> wurde <b>die Mikrowelle</b>, links das Fenster, rechts das Bedienfeld.</p>
