@@ -3,14 +3,14 @@
 Seitenanzeige auf "Zwei Seiten, Cover links" gesetzt (/PageLayout /TwoPageLeft),
 damit S. 01 und S. 02 nebeneinander stehen statt das Cover allein.
 
-Aufruf: python3 04-final/booklet-pdf.py  ->  04-final/booklet.pdf
+Aufruf: python3 04-final/Zimmermann_Felix_WS2627_Booklet.pdf.py  ->  04-final/booklet.pdf
 Nur Standardbibliothek; braucht Brave unter /Applications.
 """
 import pathlib, re, subprocess, sys
 
 HIER = pathlib.Path(__file__).resolve().parent
 HTML = HIER / "booklet.html"
-PDF = HIER / "booklet.pdf"
+PDF = HIER / "Zimmermann_Felix_WS2627_Booklet.pdf"
 BRAVE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 
 
