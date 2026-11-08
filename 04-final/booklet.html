@@ -431,8 +431,10 @@ h1 em{font-style:normal;color:var(--accent)}
 .f15 .upar{position:absolute;left:50%;top:-74px;width:120px;height:70px;transform:translateX(-50%);overflow:visible}.f15 .upar path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .f15 .uplab{position:absolute;left:calc(50% + 12px);top:-52px;font:700 9.5px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);white-space:nowrap}
 .f15 .arc path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.sym15{display:flex;justify-content:flex-end;gap:8px;margin-top:6px}
-.sym15 svg{width:22px;height:22px;flex:none}
+.sym15{display:flex;justify-content:flex-end;gap:10px;margin-top:8px}
+.sym15 i{display:flex;flex-direction:column;align-items:center;gap:3px;font-style:normal}
+.sym15 em{font:600 9.6px "JetBrains Mono",monospace;font-style:normal;letter-spacing:.06em;color:var(--sage-text);text-transform:uppercase}
+.sym15 svg{width:32px;height:32px;flex:none}
 /* S. 16: zwei Reihen in Startbild-Größe (S. 15): oben Pilzkatalog, unten selbst gestalten + Halten */
 .rows16{display:grid;grid-template-columns:1fr 33px 1fr 33px 1fr;gap:6px 0;align-items:start}
 .rows16 .lab{grid-column:1/-1;display:flex;gap:12px;align-items:baseline}
@@ -897,7 +899,7 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page dark vp p14">
   <div class="top"><span>14 · BEDIENFELD KONZEPT III</span><span class="brand">GROWBOX</span></div>
   <h1>Warum Blau<br><em>statt Schwarz?</em></h1>
-  <p class="v-lead">Das wurde in der Präsentation gefragt. Die Antwort: Schwarz ist schon belegt. <b>Schwarz heißt Standby, Blau heißt die Box läuft.</b></p>
+  <p class="v-lead">Das wurde in der Präsentation gefragt. Die Antwort: <b>Blau erkennt fast jeder sicher, auch mit Farbsehschwäche</b>, und weiße Schrift darauf bleibt gut lesbar.</p>
 
   <div class="vs3">
     <figure><span class="tag">Betrieb · Blau</span><img class="disp" src="bilder/booklet/05-erntebereit.jpg" alt="Blaues Startbild im Zustand Erntebereit"><figcaption><b>Box läuft</b>Blau nur als Fläche, Schrift und Symbole weiß.</figcaption></figure>
@@ -907,9 +909,9 @@ body.grid .bar .nav{visibility:hidden}
 
   <table class="tab">
     <tr><th>Entscheidung</th><th>Grund</th><th>Nachteil</th></tr>
-    <tr><td>Blau als Standard</td><td>Schwarz bleibt für Standby frei. Blau nur als Fläche, blaue Schrift ist unscharf (Farbsehen).</td><td>Wer Schwarz lieber mag, muss es einstellen.</td></tr>
+    <tr><td>Blau als Standard</td><td>Blau unterscheiden auch Menschen mit Rot-Grün-Schwäche sicher. Blau nur als Fläche, blaue Schrift wirkt unscharf (Farbsehen). Nebenbei: Schwarz ist schon für Standby belegt.</td><td>Wer Schwarz lieber mag, muss es einstellen.</td></tr>
     <tr><td>Oranger Warnpunkt</td><td>Blinkendes Orange auf Schwarz fällt sofort auf, ohne Suchen (präattentiv). <b>Kam in der Präsentation am besten an.</b></td><td>Eine Warnung im Betrieb blinkt nicht, sie steht als gelbes Dreieck mit Text da.</td></tr>
-    <tr><td>Hoher Kontrast</td><td>Weiß auf Schwarz hebt sich am stärksten ab, gut bei schwachen Augen (Kontrast).</td><td>Betrieb und Standby unterscheiden sich dann nur noch dadurch, ob die Anzeige an ist.</td></tr>
+    <tr><td>Hoher Kontrast</td><td>Weiß auf Schwarz hebt sich am stärksten ab, gut bei schwachen Augen (Kontrast).</td><td>Wirkt härter als Blau, deshalb nur als Option.</td></tr>
   </table>
 
   <div class="folien"><span class="label">Aus der Vorlesung</span><span>Farbsehen</span><span>präattentiv</span><span>Kontrast</span></div>
@@ -927,7 +929,7 @@ body.grid .bar .nav{visibility:hidden}
     <svg class="c15svg" viewBox="0 0 666 350" aria-hidden="true"><path d="M198 -2 C260 -2 260 17 321 17"/><circle cx="321" cy="17" r="4"/><path d="M468 74 C432 74 432 94 397 94"/><circle cx="397" cy="94" r="4"/><path d="M198 152 C244 152 244 212 289 212"/><circle cx="289" cy="212" r="4"/><path d="M468 226 C430 226 430 255 393 255"/><circle cx="393" cy="255" r="4"/><path d="M198 304 C226 304 226 312 253 312"/><circle cx="253" cy="312" r="4"/></svg>
     <div class="c15 l" style="top:-14px" data-to="50,9"><strong>Warnpunkt</strong>Leuchtet orange, sobald etwas zu tun ist. Warum Orange, steht bei „Warum Blau statt Schwarz?“.</div>
     <div class="c15 r" style="top:62px" data-to="80,30"><strong>Ring</strong>Tage bis zur Ernte. Der Pilz im Ring wächst in drei Stufen mit.</div>
-    <div class="c15 l" style="top:140px" data-to="29,61"><strong>Status</strong>Bewusst bekannte Zeichen wie vom Handy: Haken, Warndreieck, Pilz zur Ernte. Form, Farbe und Text sagen dasselbe.<span class="sym15"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#3fcf7f" stroke="#fff" stroke-width="1.4"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L23 21.2H1z" fill="#f9a800" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8.6v6M12 17.6v.3" stroke="#111" stroke-width="2.6" stroke-linecap="round"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#efdcb8" stroke="#fff" stroke-width="1.4"/><path d="M5.6 12.6a6.4 5.4 0 0 1 12.8 0z" fill="#08106c"/><path d="M10.4 12.6v4.6h3.2v-4.6" fill="#08106c"/></svg></span></div>
+    <div class="c15 l" style="top:140px" data-to="29,61"><strong>Status</strong>Drei Zeichen, bewusst wie vom Handy: Form, Farbe und Text sagen dasselbe.<span class="sym15"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#3fcf7f" stroke="#fff" stroke-width="1.4"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><em>Alles gut</em></i><i><svg viewBox="0 0 24 24"><path d="M12 2L23 21.2H1z" fill="#f9a800" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8.6v6M12 17.6v.3" stroke="#111" stroke-width="2.6" stroke-linecap="round"/></svg><em>Warnung</em></i><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#efdcb8" stroke="#fff" stroke-width="1.4"/><path d="M5.6 12.6a6.4 5.4 0 0 1 12.8 0z" fill="#08106c"/><path d="M10.4 12.6v4.6h3.2v-4.6" fill="#08106c"/></svg><em>Ernte</em></i></span></div>
     <div class="c15 r" style="top:214px" data-to="76,70.5"><strong>Drei Werte</strong>Immer Zahl, Balken und Name. Der Tank zeigt seinen Füllstand.</div>
     <div class="c15 l" style="top:292px" data-to="24,87"><strong>Drei Kacheln</strong>Große Felder, leicht zu treffen. Ein Rahmen heißt: drückbar.</div>
   </div>
