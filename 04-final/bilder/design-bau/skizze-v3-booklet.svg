@@ -128,7 +128,7 @@
 </g>
 
 <g font-family="Caveat, cursive" fill="#22211f">
-<text x="40" y="58" font-size="46" font-weight="700">Growbox · Front v3 · Bedienteile grau, Orange nur für Warnungen</text>
+<text x="40" y="58" font-size="46" font-weight="700">Growbox · Front v3 · Griffe grau, Orange nur für Warnungen</text>
 <text x="40" y="90" font-size="22" fill="#6b665d">links Pilzkammer aus Plexi · rechts Technikraum mit Bedienfeld · schwarz = Rahmen · beige = zum Anfassen · gelb = Licht · dunkelbraun = Sockel</text>
 <text x="40" y="164" font-size="24">4 LED-Streifen oben</text>
 <text x="40" y="186" font-size="19" fill="#6b665d">verdeckt hinter Blende</text>
@@ -160,7 +160,7 @@
 <text x="420" y="700" font-size="24">Taster: Licht an / aus, beige</text>
 <text x="420" y="722" font-size="20" fill="#6b665d">Ø 3 cm, Licht-Symbol eingeprägt · Mitte 5,4 cm über Boden</text>
 <text x="600" y="758" font-size="24">Sichtfenster: Wasserstand von vorn</text>
-<text x="600" y="778" font-size="20" fill="#6b665d">MAX/MIN-Linie, passt zu „Wasser · reicht ca. X Tage“</text>
+<text x="600" y="778" font-size="20" fill="#6b665d">MAX/MIN-Linie, passt zum Balken „Wassertank“ auf dem Display</text>
 <text x="340" y="632" font-size="22" text-anchor="middle">25 cm</text>
 <text x="541" y="632" font-size="22" text-anchor="middle">8,5 cm</text>
 <text x="112" y="416" font-size="22" text-anchor="end">25 cm</text>
