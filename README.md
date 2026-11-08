@@ -1,5 +1,9 @@
 # M-M Interaction
 
+**Booklet, aktueller Stand (18 Seiten, Kapitel App folgt):** `04-final/booklet.html` in Brave öffnen, „Übersicht 6×3“ zeigt alle Seiten.
+
+[![Booklet: alle Seiten im Überblick](04-final/bilder/booklet-uebersicht.jpg)](04-final/booklet.html)
+
 Growbox für Pilze mit Fokus auf **Mensch-Maschine-Interaktion** (HCI, Prof. Zagel, Option B). Bedienung **an der Box** über ein eingebautes iPhone und einen Taster, **aus der Ferne** über eine separate App.
 
 **Präsentation ✅ 05.11.2026 · Abgabe 08.11.2026, 23:59** (Booklet 5 Seiten pro Person + Prototyp)
