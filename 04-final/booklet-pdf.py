@@ -3,7 +3,7 @@
 Seitenanzeige auf "Zwei Seiten, Cover links" gesetzt (/PageLayout /TwoPageLeft),
 damit S. 01 und S. 02 nebeneinander stehen statt das Cover allein.
 
-Aufruf: python3 04-final/Zimmermann_Felix_WS2627_Booklet.pdf.py  ->  04-final/booklet.pdf
+Aufruf: python3 04-final/booklet-pdf.py  ->  04-final/Zimmermann_Felix_WS2627_Booklet.pdf
 Nur Standardbibliothek; braucht Brave unter /Applications.
 """
 import pathlib, re, subprocess, sys
