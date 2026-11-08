@@ -408,15 +408,15 @@ h1 em{font-style:normal;color:var(--accent)}
 .page.vp .vs3 figcaption,.page.vp .cap,.page.vp .v-small,.page.vp .tab .nb{font-size:11.5px;line-height:1.4}
 .page.vp .kw figcaption b,.page.vp .legend strong,.page.vp .v-card h3{font:700 19px/1.2 "Space Grotesk",sans-serif}
 /* S. 15: Startbild mittig, Erklärungen links/rechts mit geschwungenen Linien (keine Nummern, anders als S. 13); Alltag als grünes Band mit Bogenpfeilen; keine Leiste */
-.call15{position:relative;height:350px;margin-top:18px}
+.call15{position:relative;height:370px;margin-top:18px}
 .c15img{position:absolute;left:50%;top:0;height:350px;transform:translateX(-50%);border:3px solid #0b0c10;border-radius:12px;box-sizing:border-box}
 .c15svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .c15svg path{fill:none;stroke:var(--sage);stroke-width:1.6}
 .c15svg circle{fill:var(--sage);stroke:#F3F1E7;stroke-width:2}
 .c15{position:absolute;width:190px;font-size:12.5px;line-height:1.45;color:#2F4A3A}
-.c15.l{left:0;text-align:right}.c15.r{right:0}
+.c15.l{left:0;text-align:right;width:204px}.c15.r{right:0}
 .c15 strong{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
-.f15{margin-top:30px;background:var(--green);border-radius:14px;padding:16px 22px 18px;display:flex;flex-direction:column;gap:10px}
+.f15{margin-top:22px;background:var(--green);border-radius:14px;padding:16px 22px 18px;display:flex;flex-direction:column;gap:10px}
 .f15 .v-label{color:var(--sage)}
 .f15row{display:grid;grid-template-columns:1fr 50px 1fr 50px 1fr;align-items:start}
 .f15 figure{margin:0;display:flex;flex-direction:column;gap:8px;align-items:center}
@@ -431,10 +431,10 @@ h1 em{font-style:normal;color:var(--accent)}
 .f15 .upar{position:absolute;left:50%;top:-74px;width:120px;height:70px;transform:translateX(-50%);overflow:visible}.f15 .upar path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .f15 .uplab{position:absolute;left:calc(50% + 12px);top:-52px;font:700 9.5px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);white-space:nowrap}
 .f15 .arc path{fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.sym15{display:flex;justify-content:flex-end;gap:10px;margin-top:8px}
+.sym15{display:flex;justify-content:space-between;gap:10px;margin-top:10px}
 .sym15 i{display:flex;flex-direction:column;align-items:center;gap:3px;font-style:normal}
 .sym15 em{font:600 9.6px "JetBrains Mono",monospace;font-style:normal;letter-spacing:.06em;color:var(--sage-text);text-transform:uppercase}
-.sym15 svg{width:32px;height:32px;flex:none}
+.sym15 svg{width:38px;height:38px;flex:none}
 /* S. 16: zwei Reihen in Startbild-Größe (S. 15): oben Pilzkatalog, unten selbst gestalten + Halten */
 .rows16{display:grid;grid-template-columns:1fr 33px 1fr 33px 1fr;gap:6px 0;align-items:start}
 .rows16 .lab{grid-column:1/-1;display:flex;gap:12px;align-items:baseline}
@@ -922,16 +922,16 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page vp p15">
   <div class="top"><span>15 · BEDIENFELD BEDIENUNG I</span><span class="brand">GROWBOX</span></div>
   <h1>Bedienung. <em>Auf einen Blick.</em></h1>
-  <p class="v-lead">So sieht Ingrid das Bedienfeld im Alltag. Aus der Ferne sieht sie, <b>ob</b> etwas zu tun ist, aus der Nähe, <b>was</b>. Muss sie handeln, gibt es <b>genau einen Knopf.</b> Danach steht das Startbild da.</p>
+  <p class="v-lead">So sieht Ingrid das Bedienfeld im Alltag.<br>Aus der Ferne sieht sie, <b>ob</b> etwas zu tun ist, aus der Nähe, <b>was</b>.</p>
 
   <div class="call15">
     <img class="c15img" src="bilder/booklet/01-gut.jpg" alt="Startbild Bedienfeld v7">
-    <svg class="c15svg" viewBox="0 0 666 350" aria-hidden="true"><path d="M198 -2 C260 -2 260 17 321 17"/><circle cx="321" cy="17" r="4"/><path d="M468 74 C432 74 432 94 397 94"/><circle cx="397" cy="94" r="4"/><path d="M198 152 C244 152 244 212 289 212"/><circle cx="289" cy="212" r="4"/><path d="M468 226 C430 226 430 255 393 255"/><circle cx="393" cy="255" r="4"/><path d="M198 304 C226 304 226 312 253 312"/><circle cx="253" cy="312" r="4"/></svg>
-    <div class="c15 l" style="top:-14px" data-to="50,9"><strong>Warnpunkt</strong>Leuchtet orange, sobald etwas zu tun ist. Warum Orange, steht bei „Warum Blau statt Schwarz?“.</div>
-    <div class="c15 r" style="top:62px" data-to="80,30"><strong>Ring</strong>Tage bis zur Ernte. Der Pilz im Ring wächst in drei Stufen mit.</div>
-    <div class="c15 l" style="top:140px" data-to="29,61"><strong>Status</strong>Drei Zeichen, bewusst wie vom Handy: Form, Farbe und Text sagen dasselbe.<span class="sym15"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#3fcf7f" stroke="#fff" stroke-width="1.4"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><em>Alles gut</em></i><i><svg viewBox="0 0 24 24"><path d="M12 2L23 21.2H1z" fill="#f9a800" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8.6v6M12 17.6v.3" stroke="#111" stroke-width="2.6" stroke-linecap="round"/></svg><em>Warnung</em></i><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#efdcb8" stroke="#fff" stroke-width="1.4"/><path d="M5.6 12.6a6.4 5.4 0 0 1 12.8 0z" fill="#08106c"/><path d="M10.4 12.6v4.6h3.2v-4.6" fill="#08106c"/></svg><em>Ernte</em></i></span></div>
+    <svg class="c15svg" viewBox="0 0 666 350" aria-hidden="true"><path d="M212 7 C266 7 266 17 321 17"/><circle cx="321" cy="17" r="4"/><path d="M468 74 C432 74 432 94 397 94"/><circle cx="397" cy="94" r="4"/><path d="M212 152 C250 152 250 212 289 212"/><circle cx="289" cy="212" r="4"/><path d="M468 226 C430 226 430 255 393 255"/><circle cx="393" cy="255" r="4"/><path d="M212 316 C232 316 232 312 253 312"/><circle cx="253" cy="312" r="4"/></svg>
+    <div class="c15 l" style="top:-6px" data-to="50,9"><strong>Warnpunkt</strong>Leuchtet orange, sobald etwas zu tun ist.</div>
+    <div class="c15 r" style="top:62px" data-to="80,30"><strong>Ring</strong>Tage bis zur Ernte. Der Pilz wächst in drei Stufen mit (Gamification).</div>
+    <div class="c15 l" style="top:140px" data-to="29,61"><strong>Status</strong>Drei bekannte Zeichen: Form, Farbe und Text sagen dasselbe (Mentales Modell).<span class="sym15"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#3fcf7f" stroke="#fff" stroke-width="1.4"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><em>Alles gut</em></i><i><svg viewBox="0 0 24 24"><path d="M12 2L23 21.2H1z" fill="#f9a800" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8.6v6M12 17.6v.3" stroke="#111" stroke-width="2.6" stroke-linecap="round"/></svg><em>Warnung</em></i><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#efdcb8" stroke="#fff" stroke-width="1.4"/><path d="M5.6 12.6a6.4 5.4 0 0 1 12.8 0z" fill="#08106c"/><path d="M10.4 12.6v4.6h3.2v-4.6" fill="#08106c"/></svg><em>Ernte</em></i></span></div>
     <div class="c15 r" style="top:214px" data-to="76,70.5"><strong>Drei Werte</strong>Immer Zahl, Balken und Name. Der Tank zeigt seinen Füllstand.</div>
-    <div class="c15 l" style="top:292px" data-to="24,87"><strong>Drei Kacheln</strong>Große Felder, leicht zu treffen. Ein Rahmen heißt: drückbar.</div>
+    <div class="c15 l" style="top:304px" data-to="24,87"><strong>Drei Kacheln</strong>Kachel = drückbar (Affordance). Zwischen Strichen steht nur Info.</div>
   </div>
 
   <div class="f15">
@@ -945,6 +945,7 @@ body.grid .bar .nav{visibility:hidden}
     </div>
   </div>
 
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Gamification</span><span>Mentales Modell</span><span>Affordance</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>15</span></div>
 </section>
 
