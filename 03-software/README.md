@@ -1,6 +1,6 @@
 # Schritt 3 · Software
 
-**Status: ⏸ ruht** · erster Entwurf, zeigt noch die alte Oberfläche (v1); Interface ging vor
+**Status: ⏸ nicht weitergeführt** (Projekt abgeschlossen 08.11.) · erster Entwurf, zeigt noch die alte Oberfläche (v1); Interface ging vor
 
 ```
 Taster ──────► hardware/ ──┐

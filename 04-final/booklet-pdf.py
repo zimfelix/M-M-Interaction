@@ -45,6 +45,3 @@ if __name__ == "__main__":
     drucken()
     PDF.write_bytes(layout_setzen(PDF.read_bytes()))
     print(f"{PDF} (A4 einzeln, Zwei-Seiten-Ansicht, Cover links)", file=sys.stderr)
-    DOPPEL = HIER / "booklet-doppelseiten.pdf"
-    subprocess.run(["swift", str(HIER / "doppelseiten.swift"), str(PDF), str(DOPPEL)], check=True)
-    print(f"{DOPPEL} (Doppelseiten, A3 quer)", file=sys.stderr)

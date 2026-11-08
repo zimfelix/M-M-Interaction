@@ -126,7 +126,7 @@ Skizzen ─► v1 Kacheln ─► v2 Panel ─► v3 Ring ─► v4 Automatik ─
 | v3 (29.10.) | [`verlauf/v3/`](verlauf/v3/) | **Ring = Fortschritt** bis zur Ernte, Werte als Balken, 2 Status-Stufen, Admin-Modus |
 | v4 (29.10.) | [`verlauf/v4/`](verlauf/v4/) | **Automatik sichtbar** (Kachel Klima mit AUTO), Ruhemodus, simulierte Heizung |
 | v5 (02.11.) | [`verlauf/v5/`](verlauf/v5/) | **Review mit den Folien:** 3 größere Kacheln · „1 Min lüften“ nur in der App · Warntexte weiß (Kontrast 2,8 → 6,4) · Nebentexte heller (≥ 5,1 : 1) · Warndreieck bei Werten außerhalb · Kopfzeile 44 pt ohne Uhr |
-| v6 (02.11.) | [`../../04-final/bedienfeld-v6/`](../../04-final/bedienfeld-v6/) | Kachel SORTEN mit „Neu ansetzen …“ · Warnpunkt blinkt · Verlauf grün mit Haken · Einstellungen mit Sprache, Darstellung, Fehler melden · Schrift in Listen größer, Touch-Ziele ≥ 44 pt |
+| v6 (02.11.) | [`verlauf/v6/`](verlauf/v6/) | Kachel SORTEN mit „Neu ansetzen …“ · Warnpunkt blinkt · Verlauf grün mit Haken · Einstellungen mit Sprache, Darstellung, Fehler melden · Schrift in Listen größer, Touch-Ziele ≥ 44 pt |
 | **v7 (05.11.)** | [`../../04-final/bedienfeld-v7/`](../../04-final/bedienfeld-v7/) | **Ruhemodus gestrichen → Standby** nur bei Tank leer · **Rahmen = drückbar, Linien = Info** · Klima als Textzeilen mit Bedingungen · Meldung einzeilig · „Hilfe“ statt „Fehler melden“ · Erntebereit beige · Pilz wächst in 3 Stufen · Admin auf 2 Fälle + Zeitraffer · abgestufte Bestätigung + Kleine Pause · **Eigene Sorte gestalten** |
 
 Belege mit Folien zu v5/v6: [`../folien-recherche.md`](../folien-recherche.md)

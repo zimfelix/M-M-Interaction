@@ -1,6 +1,6 @@
 # Schritt 2 · Box-Bau
 
-**Status: 🔄** Zeichnungen fertig · Box bauen, Fotos fehlen
+**Status: ✅** Zeichnungen V1–V3 · Prototyp im FabLab gedruckt und gebaut; CAD und Fotos im Booklet S. 07–10 und in `04-final/bilder/design-bau/`
 
 <img src="bilder/skizze-box-v3.svg" width="420" alt="Front-Skizze v3"> <img src="../04-final/bilder/3d-modell.png" width="380" alt="3D-Modell">
 

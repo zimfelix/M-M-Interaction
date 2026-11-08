@@ -2,16 +2,18 @@
 
 Uni-Projekt (HCI, Prof. Zagel, Option B): Interaktionskonzept und Prototyp für eine Growbox mit eingebautem iPhone als Touch-Display, physischem Taster und App. Schwerpunkt ist die **Mensch-Maschine-Interaktion**, nicht die Technik.
 
+**Status: ✅ abgeschlossen** (Präsentation 05.11., Booklet abgegeben 08.11.2026). Bei Wiederaufnahme oder Rückblick zuerst `README.md` lesen (Gesamtzusammenfassung, bekannte Ungenauigkeiten), dann `BRIEF.md`. Wiederverwendbares für neue Projekte steht in `learnings.md` → „Baukasten“; die abgegebene PDF nicht überschreiben.
+
 ## Dateien
 
+- `README.md` – Gesamtzusammenfassung (Ergebnis, Booklet-Aufbau, Arbeitsweg, Grenzen) und Ordnerstruktur nach Projektschritten (`01-konzept/` … `04-final/`); Software-Aufbau in `03-software/README.md`.
 - `BRIEF.md` – Ausgangslage, offene Punkte und **alle bestätigten Entscheidungen** (Tabelle „Entscheidungen“). Zu Beginn jeder Arbeit lesen.
 - `01-konzept/HCI-KONZEPTE.md` – Vorlesungskonzepte mit Foliennummern und Bezug zur Growbox. Bei Konzept-, Design- und Evaluationsentscheidungen sowie beim Booklet lesen.
-- `learnings.md` – Learnings für **weitere Uni-Projekte** (nicht für Coding/Harness). Neue Erkenntnisse von Felix dort als „offen“ eintragen.
-- `README.md` – Ordnerstruktur nach Projektschritten (`01-konzept/` … `04-final/`); Software-Aufbau in `03-software/README.md`.
+- `learnings.md` – Learnings und **Baukasten** (Booklet- und Präsentationselemente) für **weitere Uni-Projekte** (nicht für Coding/Harness). Neue Erkenntnisse von Felix dort als „offen“ eintragen.
 
 ## Arbeitsabsprachen
 
-- **Modus:** Shipping. Erklärungen kurz und entscheidungsorientiert.
+- **Modus:** Shipping (bis zur Abgabe). Erklärungen kurz und entscheidungsorientiert.
 - **Rollen:** Felix baut Box, Hardware und Verkabelung selbst. Die App baut ein anderes Teammitglied. Der Agent liefert Konzept, Software und Anleitungen.
 - **Autonomie:** Innerhalb eines freigegebenen Schritts selbst schreiben, testen und lokal committen. **Rückfrage vor:** Push, neuen Dependencies, Architekturänderungen, Einkäufen.
 - **Kein Bau ohne Zustimmung:** Erst Konzept und Architektur vorschlagen, bauen erst nach Freigabe.
