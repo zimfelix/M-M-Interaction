@@ -1,6 +1,6 @@
 # M-M Interaction
 
-**Booklet, aktueller Stand (18 Seiten, Kapitel App folgt):** `04-final/booklet.html` in Brave öffnen, „Übersicht 6×3“ zeigt alle Seiten.
+**▶ Booklet online ansehen: https://claude.ai/artifact/WEzzz3VN8skiArjbCwa2i2** (aktueller Stand, 18 Seiten, Kapitel App folgt; „Übersicht 6×3“ zeigt alle Seiten) · lokal: `04-final/booklet.html`
 
 [![Booklet: alle Seiten im Überblick](04-final/bilder/booklet-uebersicht.jpg)](04-final/booklet.html)
 
