@@ -39,4 +39,4 @@ Aufgeräumt nach der Abgabe (08.11.): Planungsdateien, Doppelseiten-PDF, ungenut
 
 ## Links
 
-[Übersicht](../README.md) · [Learnings + Baukasten](../learnings.md) · [BRIEF](../BRIEF.md) · Bedienfeld live: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi · [01](../01-konzept/) · [02](../02-box-bau/) · [03](../03-software/)
+[Übersicht](../README.md) · [Baukasten](../BAUKASTEN.md) · [Learnings](../learnings.md) · [BRIEF](../BRIEF.md) · Bedienfeld live: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi · [01](../01-konzept/) · [02](../02-box-bau/) · [03](../03-software/)

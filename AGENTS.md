@@ -2,14 +2,15 @@
 
 Uni-Projekt (HCI, Prof. Zagel, Option B): Interaktionskonzept und Prototyp für eine Growbox mit eingebautem iPhone als Touch-Display, physischem Taster und App. Schwerpunkt ist die **Mensch-Maschine-Interaktion**, nicht die Technik.
 
-**Status: ✅ abgeschlossen** (Präsentation 05.11., Booklet abgegeben 08.11.2026). Bei Wiederaufnahme oder Rückblick zuerst `README.md` lesen (Gesamtzusammenfassung, bekannte Ungenauigkeiten), dann `BRIEF.md`. Wiederverwendbares für neue Projekte steht in `learnings.md` → „Baukasten“; die abgegebene PDF nicht überschreiben.
+**Status: ✅ abgeschlossen** (Präsentation 05.11., Booklet abgegeben 08.11.2026). Bei Wiederaufnahme oder Rückblick zuerst `README.md` lesen (Gesamtzusammenfassung, bekannte Ungenauigkeiten), dann `BRIEF.md`. Wiederverwendbare Gestaltung für neue Booklets und Präsentationen steht in `BAUKASTEN.md`; die abgegebene PDF nicht überschreiben.
 
 ## Dateien
 
 - `README.md` – Gesamtzusammenfassung (Ergebnis, Booklet-Aufbau, Arbeitsweg, Grenzen) und Ordnerstruktur nach Projektschritten (`01-konzept/` … `04-final/`); Software-Aufbau in `03-software/README.md`.
 - `BRIEF.md` – Ausgangslage, offene Punkte und **alle bestätigten Entscheidungen** (Tabelle „Entscheidungen“). Zu Beginn jeder Arbeit lesen.
 - `01-konzept/HCI-KONZEPTE.md` – Vorlesungskonzepte mit Foliennummern und Bezug zur Growbox. Bei Konzept-, Design- und Evaluationsentscheidungen sowie beim Booklet lesen.
-- `learnings.md` – Learnings und **Baukasten** (Booklet- und Präsentationselemente) für **weitere Uni-Projekte** (nicht für Coding/Harness). Neue Erkenntnisse von Felix dort als „offen“ eintragen.
+- `BAUKASTEN.md` – Gestaltung für künftige Booklets und Präsentationen (Anordnung, Schriftgrößen, Kopf/Fuß, Folienbezug, Grafik-Muster); für Agenten in neuen Projekten.
+- `learnings.md` – Learnings aus den Präsentationen für **weitere Uni-Projekte** (nicht für Coding/Harness). Neue Erkenntnisse von Felix dort als „offen“ eintragen.
 
 ## Arbeitsabsprachen
 

@@ -73,7 +73,8 @@ M-M-Interaction/
 ├── README.md        diese Zusammenfassung
 ├── BRIEF.md         alle Entscheidungen im Detail (Tabelle „Entscheidungen“)
 ├── AGENTS.md        Regeln für den KI-Agenten
-├── learnings.md     Learnings + Baukasten für weitere Uni-Projekte (Booklet, Präsentation)
+├── BAUKASTEN.md     Gestaltung für künftige Booklets: Anordnung, Schrift, Kopf/Fuß, Folienbezug, Grafik-Muster
+├── learnings.md     Learnings aus den Präsentationen für weitere Uni-Projekte
 ├── 01-konzept/      Personas, HCI-Konzepte mit Folien, Bedienfeld v7 + Verlauf v1–v6
 ├── 02-box-bau/      Skizzen und Zeichnungen der Box (V1–V3, Gestell, Farben)
 ├── 03-software/     erster Entwurf Pi-Software (FastAPI), ruht
@@ -85,8 +86,8 @@ M-M-Interaction/
 | Was gilt? | [`BRIEF.md`](BRIEF.md) |
 | Warum, mit welcher Folie? | [`04-final/entscheidungen-folien.md`](04-final/entscheidungen-folien.md) · [`01-konzept/HCI-KONZEPTE.md`](01-konzept/HCI-KONZEPTE.md) |
 | Wie sieht das Bedienfeld aus? | [`01-konzept/bedienfeld/README.md`](01-konzept/bedienfeld/README.md) |
-| Was nehme ich mit ins nächste Projekt? | [`learnings.md`](learnings.md) (Baukasten ganz unten) · [`04-final/vorlage-seite.html`](04-final/vorlage-seite.html) |
+| Was nehme ich mit ins nächste Projekt? | [`BAUKASTEN.md`](BAUKASTEN.md) (Gestaltung, für den Agenten) · [`learnings.md`](learnings.md) (Präsentation) |
 
 ## Links
 
-[Booklet-PDF](04-final/Zimmermann_Felix_WS2627_Booklet.pdf) · Bedienfeld live: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi · [3D-Modell](04-final/3d-modell/) · [Learnings](learnings.md) · [BRIEF](BRIEF.md) · [01](01-konzept/) · [02](02-box-bau/) · [03](03-software/) · [04](04-final/)
+[Booklet-PDF](04-final/Zimmermann_Felix_WS2627_Booklet.pdf) · Bedienfeld live: https://claude.ai/artifact/NHS2mr5kJKUXR1yPjPjrXi · [3D-Modell](04-final/3d-modell/) · [Baukasten](BAUKASTEN.md) · [Learnings](learnings.md) · [BRIEF](BRIEF.md) · [01](01-konzept/) · [02](02-box-bau/) · [03](03-software/) · [04](04-final/)
