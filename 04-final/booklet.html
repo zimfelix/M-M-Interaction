@@ -154,7 +154,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .ap .a-rd .a-what{font-weight: 600; font-size: 14.5px;}
 .ap .a-rd .a-how{font-size: 12px; line-height: 1.4; color: var(--txt);}
 .ap table.a-cut td:last-child{font-size: 11.5px; color: var(--mut); font-weight: 400;}
-.pv .tab{font-size:8.4pt}.pv .tab td:first-child{white-space:nowrap;font-weight:600}
+.pv .tab{font-size:8.4pt}.pv .tab td:first-child{white-space:nowrap;font-weight:600;width:20%}.pv .tab td:nth-child(2){width:auto}.pv .tab tr.sec td{font:600 7pt "JetBrains Mono";letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding-top:4mm;width:auto}
 .tab td{padding:2.2mm 3mm 2.2mm 0;border-bottom:1px solid var(--line);vertical-align:top}
 .tab td:first-child{font-weight:800;width:31%}
 .tab td:nth-child(2){width:36%}
@@ -470,7 +470,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .c15svg circle{fill:var(--sage);stroke:#F3F1E7;stroke-width:2}
 .c15{position:absolute;width:190px;font-size:12.5px;line-height:1.45;color:#2F4A3A}
 .c15.l{left:0;text-align:right;width:204px}.c15.r{right:0;width:214px}
-.code15{display:inline-block;vertical-align:2px;margin-left:4px;padding:1px 6px;border-radius:5px;background:#1b2fd6;color:#fff;font:600 10.5px "JetBrains Mono",monospace;letter-spacing:.08em}
+.code15{display:block;margin-top:5px;height:34px;border-radius:5px}
 .c15 strong{display:block;font:700 19px/1.2 "Space Grotesk",sans-serif;color:var(--ink);margin-bottom:2px}
 .f15{margin-top:22px;background:var(--green);border-radius:14px;padding:16px 22px 18px;display:flex;flex-direction:column;gap:10px}
 .f15 .v-label{color:var(--sage)}
@@ -984,12 +984,12 @@ body.grid .bar .nav{visibility:hidden}
 
   <div class="call15">
     <img class="c15img" src="bilder/booklet/01-gut.jpg" alt="Startbild Bedienfeld v7">
-    <svg class="c15svg" viewBox="0 0 666 350" aria-hidden="true"><path d="M212 7 C266 7 266 17 321 17"/><circle cx="321" cy="17" r="4"/><path d="M452 4 C422 4 422 18 393 18"/><circle cx="393" cy="18" r="4"/><path d="M452 146 C428 146 428 118 404 118"/><circle cx="404" cy="118" r="4"/><path d="M212 152 C250 152 250 212 289 212"/><circle cx="289" cy="212" r="4"/><path d="M452 248 C422 248 422 255 393 255"/><circle cx="393" cy="255" r="4"/><path d="M212 316 C232 316 232 312 253 312"/><circle cx="253" cy="312" r="4"/></svg>
+    <svg class="c15svg" viewBox="0 0 666 350" aria-hidden="true"><path d="M212 7 C266 7 266 17 321 17"/><circle cx="321" cy="17" r="4"/><path d="M452 4 C422 4 422 18 393 18"/><circle cx="393" cy="18" r="4"/><path d="M452 178 C428 178 428 118 404 118"/><circle cx="404" cy="118" r="4"/><path d="M212 152 C250 152 250 212 289 212"/><circle cx="289" cy="212" r="4"/><path d="M452 258 C422 258 422 255 393 255"/><circle cx="393" cy="255" r="4"/><path d="M212 316 C232 316 232 312 253 312"/><circle cx="253" cy="312" r="4"/></svg>
     <div class="c15 l" style="top:-6px" data-to="50,9"><strong>Warnpunkt</strong>Leuchtet orange, sobald etwas zu tun ist.</div>
-    <div class="c15 r" style="top:-10px"><strong style="white-space:nowrap">Handy koppeln <span class="code15">482 913</span></strong>Code vom Display am Handy eingeben. Danach ist das Symbol weg: ein cleanes Bedienfeld. Weitere Handys über die Einstellungen.</div>
-    <div class="c15 r" style="top:134px" data-to="80,34"><strong>Ring</strong>Tage bis zur Ernte. Der Pilz wächst in drei Stufen mit (Gamification).</div>
+    <div class="c15 r" style="top:-10px"><strong>Handy koppeln</strong>Code vom Display am Handy eingeben, danach ist das Symbol weg: ein cleanes Bedienfeld. Weitere Handys jederzeit über die Einstellungen dazukoppeln.<img class="code15" src="bilder/booklet/koppel-code.png" alt="Code im Fenster Handy verbinden"></div>
+    <div class="c15 r" style="top:166px" data-to="80,34"><strong>Ring</strong>Tage bis zur Ernte. Der Pilz wächst in drei Stufen mit (Gamification).</div>
     <div class="c15 l" style="top:140px" data-to="29,61"><strong>Status</strong>Drei bekannte Zeichen: Form, Farbe und Text sagen dasselbe (Mentales Modell).<span class="sym15"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#3fcf7f" stroke="#fff" stroke-width="1.4"/><path d="M6.6 12.4l3.7 3.7 7.1-7.4" fill="none" stroke="#08106c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><em>Alles gut</em></i><i><svg viewBox="0 0 24 24"><path d="M12 2L23 21.2H1z" fill="#f9a800" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8.6v6M12 17.6v.3" stroke="#111" stroke-width="2.6" stroke-linecap="round"/></svg><em>Warnung</em></i><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="#efdcb8" stroke="#fff" stroke-width="1.4"/><path d="M5.6 12.6a6.4 5.4 0 0 1 12.8 0z" fill="#08106c"/><path d="M10.4 12.6v4.6h3.2v-4.6" fill="#08106c"/></svg><em>Ernte</em></i></span></div>
-    <div class="c15 r" style="top:236px" data-to="76,70.5"><strong>Drei Werte</strong>Immer Zahl, Balken und Name. Der Tank zeigt seinen Füllstand.</div>
+    <div class="c15 r" style="top:246px" data-to="76,70.5"><strong>Drei Werte</strong>Immer Zahl, Balken und Name. Der Tank zeigt seinen Füllstand.</div>
     <div class="c15 l" style="top:304px" data-to="24,87"><strong>Drei Kacheln</strong>Kachel = drückbar (Affordance). Zwischen Strichen steht nur Info.</div>
   </div>
 
@@ -1293,44 +1293,66 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page tight pv">
   <div class="top"><span>ANHANG · PROMPTVERZEICHNIS</span><span class="brand">GROWBOX</span></div>
   <h1>Promptverzeichnis.<br><em>Wie das Booklet entstand.</em></h1>
-  <p class="lead">Eingesetzt wurde Claude Code (Anthropic) als Werkzeug für Recherche in den Folien, Textentwürfe und HTML-Satz. Ziele, Auswahl der Konzepte, Entscheidungen und Korrekturen kamen von uns; die Prompts zeigen deshalb jeweils, was vorgegeben wurde. Sie sind sinngemäß zusammengefasst, viele kleine Korrekturen stehen in einer Zeile. Box, Hardware und Verkabelung sind selbst gebaut, die Seiten Zielgruppe, CAD, Prototyp, Features und Zwei Größen stammen von Ardit Becolli.</p>
-  <table class="tab"><thead><tr><th>Schritt</th><th>Prompt (sinngemäß)</th><th>Eigene Leistung</th></tr></thead><tbody>
-  <tr><td>Vorarbeit · Konzepte</td><td>„Such in den Vorlesungsfolien gezielt diese Konzepte heraus: Affordance, Mapping, Feedback, Gestaltgesetze (Nähe, Ähnlichkeit), Farbe und Farbsehschwäche, Kontrast, mentales Modell, Kurzzeitgedächtnis, Nielsen-Heuristiken, Gamification. Notiere je Konzept die Foliennummer und, wo es an unserer Growbox greift: Display, Taster oder App.“</td><td>Konzepte vorab ausgewählt, Bezug zur Box selbst geprüft</td></tr>
-  <tr><td>Vorarbeit · Zielgruppe</td><td>„Unsere Zielgruppe ist Ingrid, die nur an der Box bedient, und ein Power-User, der die App als Zusatz nutzt. Leitregel: Die Box regelt selbst, der Mensch greift nur bei Meldungen ein. Formuliere daraus zwei Personas und ein Storyboard für einen typischen Tag.“</td><td>Zielgruppe und Leitregel festgelegt</td></tr>
-  <tr><td>Vorarbeit · Bedienfeld</td><td>„Setz Leitidee B ‚Radikal einfach‘ als klickbaren Prototyp um: höchstens drei Kacheln, Status mit bekannten Zeichen, ein Warnpunkt. Nach jeder Runde gebe ich dir unsere Änderungen; halte jede Version fest (v1 → v7).“</td><td>Leitidee gewählt, jede Iteration entschieden</td></tr>
-  <tr><td>Vorarbeit · Box-Bau</td><td>„Zeichne die Front nach meinem Aufbau: Kammer links, Technikraum rechts, Taster unter dem Display, Tank mit Sichtfenster. Die Maße übernimm aus meiner Skizze.“</td><td>Box gebaut, Maße am Bau angepasst</td></tr>
-  <tr><td>Vorarbeit · Software</td><td>„Skizziere die Architektur nach dem MVC-Prinzip aus der Vorlesung: ein Zustand auf dem Pi, Display und App nur als Ansichten. Die Oberfläche hat Vorrang vor der Technik.“</td><td>Entscheidung „Interface vor Technik“</td></tr>
+  <p class="lead">Eingesetzt wurde Claude Code (Anthropic) als Werkzeug für Recherche in den Folien, Textentwürfe und HTML-Satz. Die Prompts sind sinngemäß zusammengefasst, viele kleine Korrekturen stehen in einer Zeile. Box, Hardware, Verkabelung, CAD und Prototyp sind selbst gebaut.</p>
+  <table class="tab"><thead><tr><th>Schritt</th><th>Prompt (sinngemäß)</th></tr></thead><tbody>
+  <tr class="sec"><td colspan="2">Vorarbeit: Konzept, Box und Software</td></tr>
+  <tr><td>Konzepte</td><td>„Such in den Vorlesungsfolien gezielt diese Konzepte heraus: Affordance, Mapping, Feedback, Gestaltgesetze (Nähe, Ähnlichkeit), Farbe und Farbsehschwäche, Kontrast, mentales Modell, Kurzzeitgedächtnis, Nielsen-Heuristiken, Gamification. Notiere je Konzept die Foliennummer und, wo es an unserer Growbox greift: Display, Taster oder App.“</td></tr>
+  <tr><td>Zielgruppe</td><td>„Unsere Zielgruppe ist Ingrid, die nur an der Box bedient, und ein Power-User, der die App als Zusatz nutzt. Leitregel: Die Box regelt selbst, der Mensch greift nur bei Meldungen ein. Formuliere daraus zwei Personas und ein Storyboard für einen typischen Tag.“</td></tr>
+  <tr><td>Bedienfeld</td><td>„Setz Leitidee B ‚Radikal einfach‘ als klickbaren Prototyp um: höchstens drei Kacheln, Status mit bekannten Zeichen, ein Warnpunkt. Nach jeder Runde gebe ich dir unsere Änderungen; halte jede Version fest (v1 → v7).“</td></tr>
+  <tr><td>Box-Bau</td><td>„Zeichne die Front nach meinem Aufbau: Kammer links, Technikraum rechts, Taster unter dem Display, Tank mit Sichtfenster. Die Maße übernimm aus meiner Skizze.“</td></tr>
+  <tr><td>Software</td><td>„Skizziere die Architektur nach dem MVC-Prinzip aus der Vorlesung: ein Zustand auf dem Pi, Display und App nur als Ansichten. Die Oberfläche hat Vorrang vor der Technik.“</td></tr>
   </tbody></table>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>25</span></div>
 </section>
 
 <section class="page tight pv">
   <div class="top"><span>ANHANG · PROMPTVERZEICHNIS</span><span class="brand">GROWBOX</span></div>
-  <table class="tab"><thead><tr><th>Schritt</th><th>Prompt (sinngemäß)</th><th>Eigene Leistung</th></tr></thead><tbody>
-  <tr><td>Feedback</td><td>„Das sind meine Notizen zum Feedback aus der Präsentation. Trag sie ein, übernimm nur die markierten Punkte und friere danach das Bedienfeld als v7 ein.“</td><td>Feedback mitgeschrieben, Übernahme entschieden</td></tr>
-  <tr><td>Struktur</td><td>„Ein Leser soll erst die Anforderung verstehen, dann Konzept, Bau, Bedienung und zuletzt, was offen bleibt. Prüf, ob Box und Bedienfeld so als ein Weg lesbar sind, und zeig mir Stellen, an denen die Reihenfolge bricht.“</td><td>Erzählweg Anforderung → Konzept → Bau → Bedienung → Offen</td></tr>
-  <tr><td>Auswahl</td><td>„Ich habe in Konzept, Box-Bau und Software mit 📘 markiert, was ins Booklet gehört. Sammle nur diese Inhalte und sag mir, wo etwas fehlt, das ein Leser zum Verständnis braucht.“</td><td>Inhalte selbst ausgewählt</td></tr>
-  <tr><td>Vorlesung</td><td>„Prüf jede unserer Entscheidungen gegen die Folien: Ist Affordance, Mapping, Feedback oder ein Gestaltgesetz wirklich gemeint? Streich Zuordnungen, die nur dekorativ sind, und setz pro Seite eine Leiste ‚Aus der Vorlesung‘ mit Fachbegriffen statt Foliennummern.“</td><td>Zuordnungen geprüft, unpassende gestrichen</td></tr>
-  <tr><td>Teamtreffen</td><td>„Bereite das Treffen am 07.11. vor mit diesen Punkten: Abgleich der Stände, Konzeptweg V1–V3, Seitenplan, offene Fragen an Ardit.“</td><td>Treffen geführt, Ergebnisse eingebracht</td></tr>
-  <tr><td>Inhalt &amp; Umfang</td><td>„Sechs Kapitel auf 18 Seiten: Zeig mir drei Varianten der Inhaltsangabe. Konzept und Bedienfeld brauchen mehr Platz als Technik, die eigene Anforderungsseite fällt weg.“</td><td>Entwurf B gewählt, Umfang pro Thema entschieden</td></tr>
+  <table class="tab"><thead><tr><th>Schritt</th><th>Prompt (sinngemäß)</th></tr></thead><tbody>
+  <tr class="sec"><td colspan="2">Booklet: Struktur und Inhalt</td></tr>
+  <tr><td>Feedback</td><td>„Das sind meine Notizen zum Feedback aus der Präsentation. Trag sie ein, übernimm nur die markierten Punkte und friere danach das Bedienfeld als v7 ein.“</td></tr>
+  <tr><td>Struktur</td><td>„Ein Leser soll erst die Anforderung verstehen, dann Konzept, Bau, Bedienung und zuletzt, was offen bleibt. Prüf, ob Box und Bedienfeld so als ein Weg lesbar sind, und zeig mir Stellen, an denen die Reihenfolge bricht.“</td></tr>
+  <tr><td>Auswahl</td><td>„Ich habe in Konzept, Box-Bau und Software mit 📘 markiert, was ins Booklet gehört. Sammle nur diese Inhalte und sag mir, wo etwas fehlt, das ein Leser zum Verständnis braucht.“</td></tr>
+  <tr><td>Vorlesung</td><td>„Prüf jede unserer Entscheidungen gegen die Folien: Ist Affordance, Mapping, Feedback oder ein Gestaltgesetz wirklich gemeint? Streich Zuordnungen, die nur dekorativ sind, und setz pro Seite eine Leiste ‚Aus der Vorlesung‘ mit Fachbegriffen statt Foliennummern.“</td></tr>
+  <tr><td>Teamtreffen</td><td>„Bereite das Treffen am 07.11. vor mit diesen Punkten: Abgleich der Stände, Konzeptweg V1–V3, Seitenplan, offene Fragen an Ardit.“</td></tr>
+  <tr><td>Inhalt &amp; Umfang</td><td>„Sechs Kapitel auf 18 Seiten: Zeig mir drei Varianten der Inhaltsangabe. Konzept und Bedienfeld brauchen mehr Platz als Technik, die eigene Anforderungsseite fällt weg.“</td></tr>
   </tbody></table>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>26</span></div>
 </section>
 
 <section class="page tight pv">
   <div class="top"><span>ANHANG · PROMPTVERZEICHNIS</span><span class="brand">GROWBOX</span></div>
-  <table class="tab"><thead><tr><th>Schritt</th><th>Prompt (sinngemäß)</th><th>Eigene Leistung</th></tr></thead><tbody>
-  <tr><td>Zusammenführen</td><td>„Füg Ardits Seiten unverändert im Inhalt ein. Gleiche nur Kopf, Fuß, Schrift und Grünton an, eine gemeinsame Fassung.“</td><td>gemeinsame Fassung beschlossen</td></tr>
-  <tr><td>Vorlage</td><td>„S. 03 ist unsere Referenzseite. Leite daraus Maße, Schriftgrößen und Farben ab und wende sie auf alle Seiten an.“</td><td>Referenzseite ausgewählt</td></tr>
-  <tr><td>Bilder</td><td>„Hier sind meine Fotos, Skizzen und CAD-Ansichten. Setz sie so auf die Seiten, wie ich sie zuordne, und gleich die Höhen an.“</td><td>Fotos, Skizzen, Renderings geliefert und zugeordnet</td></tr>
-  <tr><td>Seiten 03–06</td><td>„Konzeptweg der Box V1 → V3 mit unseren Gründen als Tabelle. Bei Taster, Griffen und Schieber nenn die Nachteile, die ich beim Bau gefunden habe.“</td><td>Varianten und Nachteile aus dem Bau</td></tr>
-  <tr><td>Seiten 12–14</td><td>„Leitideen A · B · C als Skizzen. V1 → Final mit den Änderungen aus unseren Iterationen nummeriert. Die Farbwahl begründe mit Kontrast und Farbsehschwäche, Blau statt Rot-Grün.“</td><td>Ideen, Iterationen und Farbwahl aus der Konzeptphase</td></tr>
-  <tr><td>Seiten 15–18</td><td>„Alltag als Ablauf Standby → Meldung → Startbild, Status mit Haken, Warndreieck und Pilz als mentalem Modell. Zwei Wege für eine neue Sorte. Weggelassenes als Karten mit dem Preis, den es kostet.“</td><td>Zeichenwahl, Abläufe, was weggelassen wird</td></tr>
-  <tr><td>Gesamtreview</td><td>„Lies das Booklet als jemand, der die Box nicht kennt: Wo ist etwas unklar, doppelt oder zu lang? Liste die Stellen auf, ich entscheide.“</td><td>Punkte bestätigt oder abgelehnt</td></tr>
-  <tr><td>Feinschliff</td><td>Rund 50 Einzelkorrekturen, z. B. „S. 06: Der Lichtschalter weckt nicht das Display“, „S. 14: Blau mit Farbsehen begründen“, „S. 18: Karte Ruhemodus raus“.</td><td>Fehler selbst gefunden, Formulierungen vorgegeben</td></tr>
+  <table class="tab"><thead><tr><th>Schritt</th><th>Prompt (sinngemäß)</th></tr></thead><tbody>
+  <tr class="sec"><td colspan="2">Booklet: Seiten und Feinschliff</td></tr>
+  <tr><td>Zusammenführen</td><td>„Füg Ardits Seiten unverändert im Inhalt ein. Gleiche nur Kopf, Fuß, Schrift und Grünton an, eine gemeinsame Fassung.“</td></tr>
+  <tr><td>Vorlage</td><td>„S. 03 ist unsere Referenzseite. Leite daraus Maße, Schriftgrößen und Farben ab und wende sie auf alle Seiten an.“</td></tr>
+  <tr><td>Bilder</td><td>„Hier sind meine Fotos, Skizzen und CAD-Ansichten. Setz sie so auf die Seiten, wie ich sie zuordne, und gleich die Höhen an.“</td></tr>
+  <tr><td>Seiten 03–06</td><td>„Konzeptweg der Box V1 → V3 mit unseren Gründen als Tabelle. Bei Taster, Griffen und Schieber nenn die Nachteile, die ich beim Bau gefunden habe.“</td></tr>
+  <tr><td>Seiten 12–14</td><td>„Leitideen A · B · C als Skizzen. V1 → Final mit den Änderungen aus unseren Iterationen nummeriert. Die Farbwahl begründe mit Kontrast und Farbsehschwäche, Blau statt Rot-Grün.“</td></tr>
+  <tr><td>Seiten 15–18</td><td>„Alltag als Ablauf Standby → Meldung → Startbild, Status mit Haken, Warndreieck und Pilz als mentalem Modell. Zwei Wege für eine neue Sorte. Weggelassenes als Karten mit dem Preis, den es kostet.“</td></tr>
+  <tr><td>Gesamtreview</td><td>„Lies das Booklet als jemand, der die Box nicht kennt: Wo ist etwas unklar, doppelt oder zu lang? Liste die Stellen auf, ich entscheide.“</td></tr>
+  <tr><td>Feinschliff</td><td>Rund 50 Einzelkorrekturen, z. B. „S. 06: Der Lichtschalter weckt nicht das Display“, „S. 14: Blau mit Farbsehen begründen“, „S. 18: Karte Ruhemodus raus“.</td></tr>
   </tbody></table>
   <p class="lead" style="margin-top:auto">Alle Änderungen sind im Git-Verlauf des Projekts nachvollziehbar.</p>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>27</span></div>
+</section>
+
+<section class="page tight pv">
+  <div class="top"><span>ANHANG · PROMPTVERZEICHNIS</span><span class="brand">GROWBOX</span></div>
+  <table class="tab"><thead><tr><th>Schritt</th><th>Prompt (sinngemäß)</th></tr></thead><tbody>
+  <tr class="sec"><td colspan="2">Promptverzeichnis App (Adelin Dinicu)</td></tr>
+  <tr><td>Prompt 1</td><td>„Bau mir zwei Web App Prototypen Ideen für eine Pilz Growbox, einmal als Handy App und einmal fürs Touch Display in der Box. Soll so einfach sein das man keine Anleitung braucht“</td></tr>
+  <tr><td>Prompt 2</td><td>„Hilf mir und korrigier meinen Code, die Idee dahinter ist das ich mehrere Sprachen in die App reinbaue, 12 Sprachen: Englisch, Deutsch, Arabisch, Französisch, Italienisch, Polnisch, Portugiesisch, Rumänisch, Russisch, Spanisch, Türkisch und Ukrainisch“</td></tr>
+  <tr><td>Prompt 3</td><td>„Wie könnte ich einen Test Server simulieren damit wir das ohne die Box testen können?“</td></tr>
+  <tr><td>Prompt 4</td><td>„Ich hab eine Idee: Man soll die Box auch von unterwegs verwenden können. Verbunden wird über einen QR Code oder einen Code am Display und danach kann man die Funktionen schalten. Schau mal ob das so funktionieren würde und was ich noch beachten muss“</td></tr>
+  <tr><td>Prompt 5</td><td>„Ich will das die Startseite von der App genau so aussieht wie das Display von unserem Team, hier der Screenshot. Vergleich mal ob meine App schon ähnlich genug ist“</td></tr>
+  <tr><td>Prompt 6</td><td>„Mein Kollege meint wir sollten unten 5 Felder wie bei Instagram machen: Start, Kamera, Neu, Meldungen und Erweitert, und der Ruhemodus kommt raus. Hilf mir das umzubauen und check ob dann noch alles passt“</td></tr>
+  <tr><td>Prompt 7</td><td>„Unter Erweitert will ich zwei Sachen: a) eigene Einstellungen anpassen und b) Statistiken. Welche Einstellungen machen da Sinn und welche nicht?“</td></tr>
+  <tr><td>Prompt 8</td><td>„Findest du die Statistiken sinnvoll? Die Diagramme sollen auch wirklich Sinn ergeben, sag mir ehrlich was daran nicht passt“</td></tr>
+  <tr><td>Prompt 9</td><td>„Wir haben ein 3D Bild von der Box gemacht, wie kann ich das bei der Live Kamera einbauen damit es so aussieht wie in der echten Box?“</td></tr>
+  <tr><td>Prompt 10</td><td>„Das Maskottchen und die Auswahl Anfänger und Erweitert lenken eher ab, deshalb nehm ich das raus. Schau ob danach noch alles funktioniert“</td></tr>
+  <tr><td>Prompt 11</td><td>„Beim Hintergrund will ich nur Blau oder Schwarz und dazu eine eigene Farbe. Wie mach ich das damit die Schrift trotzdem gut lesbar bleibt?“</td></tr>
+  </tbody></table>
+  <div class="foot"><span>Adelin Dinicu</span><span>28</span></div>
 </section>
 
 </main>
