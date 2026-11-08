@@ -100,6 +100,7 @@ h1 em{font-style:normal;color:var(--accent)}
 /* Tabellen für Abwägungen */
 .tab{width:100%;border-collapse:collapse;font-size:8.8pt;line-height:1.4}
 .tab th{font:600 7pt "JetBrains Mono";letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:left;padding:0 3mm 1.6mm 0;border-bottom:1.5px solid var(--ink)}
+.pv .tab{font-size:8.4pt}.pv .tab td:first-child{white-space:nowrap;font-weight:600}
 .tab td{padding:2.2mm 3mm 2.2mm 0;border-bottom:1px solid var(--line);vertical-align:top}
 .tab td:first-child{font-weight:800;width:31%}
 .tab td:nth-child(2){width:36%}
@@ -1029,6 +1030,43 @@ body.grid .bar .nav{visibility:hidden}
 
   <div class="folien"><span class="label">Aus der Vorlesung</span><span>Cognitive Walkthrough</span><span>AttrakDiff</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>18</span></div>
+</section>
+
+<!-- ═══ Anhang · Promptverzeichnis (nicht im Inhaltsverzeichnis) ═══ -->
+<section class="page tight pv">
+  <div class="top"><span>ANHANG · PROMPTVERZEICHNIS</span><span class="brand">GROWBOX</span></div>
+  <h1>Promptverzeichnis.<br><em>Wie das Booklet entstand.</em></h1>
+  <p class="lead">Eingesetzt wurde Claude Code (Anthropic). Die Prompts sind sinngemäß zusammengefasst und nach Arbeitsschritten geordnet, viele kleine Korrekturen stehen in einer Zeile. Box, Hardware und Verkabelung sind selbst gebaut, die Seiten Zielgruppe, CAD, Prototyp, Features und Zwei Größen stammen von Ardit Becolli.</p>
+  <table class="tab"><thead><tr><th>Schritt</th><th>Prompt (sinngemäß)</th><th>Eigene Leistung</th></tr></thead><tbody>
+  <tr><td>Vorarbeit · Konzept</td><td>„Fasse die Vorlesungskonzepte mit Bezug zur Growbox zusammen.“ · „Entwickle mit mir zwei Personas und ein Storyboard.“</td><td>Konzepte ausgewählt, Zielgruppe Ingrid und Power-User, Regel „Box regelt selbst“</td></tr>
+  <tr><td>Vorarbeit · Bedienfeld</td><td>„Baue das Bedienfeld als klickbaren Prototyp und iteriere nach unseren Entscheidungen.“</td><td>Leitidee B „Radikal einfach“, alle Entscheidungen v1 → v7</td></tr>
+  <tr><td>Vorarbeit · Box-Bau</td><td>„Erstelle Front-Skizzen und Zeichnungen: Kammer links, Technikraum rechts, Taster, Tank mit Sichtfenster.“</td><td>Box gebaut, Maße am Bau angepasst</td></tr>
+  <tr><td>Vorarbeit · Software</td><td>„Skizziere die Architektur: ein Zustand im Pi, Display und App als Ansichten.“</td><td>Entscheidung „Interface vor Technik“</td></tr>
+  <tr><td>Feedback</td><td>„Halte das Feedback der Präsentation fest und friere das Bedienfeld als v7 ein.“</td><td>Feedback mitgeschrieben, Übernahme entschieden</td></tr>
+  <tr><td>Brainstorming</td><td>„Lass uns überlegen, wie wir das Booklet sinnvoll strukturieren: Was muss ein Leser verstehen, in welcher Reihenfolge? Box und Bedienfeld getrennt oder als ein Weg?“</td><td>Erzählweg Anforderung → Konzept → Bau → Bedienung → Offen</td></tr>
+  <tr><td>Brainstorming</td><td>„Welche Inhalte aus Konzept, Box-Bau und Software gehören ins Booklet, was bleibt weg?“</td><td>Inhalte mit 📘 ausgewählt</td></tr>
+  <tr><td>Vorlesung</td><td>„Gleiche unsere Entscheidungen mit den Vorlesungskonzepten ab (Affordance, Mapping, Feedback, Gestaltgesetze) und schlage pro Seite passende Begriffe vor.“</td><td>Zuordnungen geprüft, unpassende gestrichen</td></tr>
+  <tr><td>Teamtreffen</td><td>„Erstelle einen Plan fürs Treffen am 07.11.: Abgleich, Konzeptweg V1–V3, Seitenplan, offene Fragen.“</td><td>Treffen geführt, Ergebnisse zurückgegeben</td></tr>
+  </tbody></table>
+  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>19</span></div>
+</section>
+
+<section class="page tight pv">
+  <div class="top"><span>ANHANG · PROMPTVERZEICHNIS</span><span class="brand">GROWBOX</span></div>
+  <table class="tab"><thead><tr><th>Schritt</th><th>Prompt (sinngemäß)</th><th>Eigene Leistung</th></tr></thead><tbody>
+  <tr><td>Inhaltsangabe</td><td>„Entwirf ein Inhaltsverzeichnis in sechs Kapiteln, gib mir drei Varianten zum Vergleich.“</td><td>Kapitel festgelegt, Entwurf B gewählt</td></tr>
+  <tr><td>Seitenumfang</td><td>„Verteile die Themen auf 18 Seiten: Wie viele Seiten braucht Konzept, CAD &amp; Bau, Technik, Bedienfeld?“</td><td>Umfang pro Thema entschieden, Anforderungsseite gestrichen</td></tr>
+  <tr><td>Zusammenführen</td><td>„Füge die Seiten meines Kollegen ein und gleiche Stil, Kopf und Fuß an.“</td><td>eine gemeinsame Fassung beschlossen</td></tr>
+  <tr><td>Vorlage</td><td>„Leite aus S. 03 eine Vorlage für Maße, Schrift und Farben ab und wende sie auf alle Seiten an.“</td><td>Referenzseite ausgewählt</td></tr>
+  <tr><td>Bilder</td><td>„Ich lade dir Fotos, Skizzen und CAD-Ansichten hoch: schneide sie zu, setz sie auf die Seiten und gleich die Höhen an.“</td><td>Fotos, Skizzen, Renderings geliefert und ausgewählt</td></tr>
+  <tr><td>Seiten 03–06</td><td>„Konzeptweg der Box V1 → V3 mit Entscheidungstabelle; Bedienteile Taster, Griffe, Schieber; Nachteile ehrlich nennen.“</td><td>Varianten und Nachteile aus dem Bau</td></tr>
+  <tr><td>Seiten 12–14</td><td>„Leitideen A · B · C als Skizzen; V1 → Final mit nummerierten Änderungen; Farbwahl begründen.“</td><td>Ideen und Iterationen aus der Konzeptphase</td></tr>
+  <tr><td>Seiten 15–18</td><td>„Alltag als Ablauf Standby → Meldung → Startbild; zwei Wege für eine neue Sorte; Weggelassenes als Karten mit Preis.“</td><td>Zeichenwahl, Abläufe, was weggelassen wird</td></tr>
+  <tr><td>Gesamtreview</td><td>„Geh das Booklet als Leser durch: Wo ist etwas unklar, doppelt oder zu lang?“</td><td>Punkte bestätigt oder abgelehnt</td></tr>
+  <tr><td>Feinschliff</td><td>Rund 50 Einzelkorrekturen, z. B. „S. 06: Der Lichtschalter weckt nicht das Display“, „S. 14: Blau mit Farbsehen begründen“, „S. 18: Karte Ruhemodus raus“.</td><td>Fehler selbst gefunden, Formulierungen vorgegeben</td></tr>
+  </tbody></table>
+  <p class="lead" style="margin-top:auto">Alle Änderungen sind im Git-Verlauf des Projekts nachvollziehbar.</p>
+  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>20</span></div>
 </section>
 
 </main>
