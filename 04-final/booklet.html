@@ -100,6 +100,60 @@ h1 em{font-style:normal;color:var(--accent)}
 /* Tabellen für Abwägungen */
 .tab{width:100%;border-collapse:collapse;font-size:8.8pt;line-height:1.4}
 .tab th{font:600 7pt "JetBrains Mono";letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:left;padding:0 3mm 1.6mm 0;border-bottom:1.5px solid var(--ink)}
+
+/* ── App-Seiten 19–24 (Inhalt von Adelin, Rahmen wie die übrigen Seiten) ── */
+.ap{font-size:14px;line-height:1.4;--acc:var(--accent);--txt:#3f4a42;--mut:var(--muted);--card:#e8e6d9;--num-ink:#fff;--bg:var(--cream)}
+.ap.dark{--txt:#d5ded6;--card:#27493a;--num-ink:#1d3b2a;--bg:var(--green)}
+.ap .a-cap{font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--mut); text-transform: uppercase;}
+.ap .a-small{font-size: 12.5px; line-height: 1.45; color: var(--txt);}
+.ap .a-ref{font-size: 11px; color: var(--mut); margin-top: 2px;}
+.ap .a-stats{display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; border-top: 1px solid var(--ink); padding-top: 14px;}
+.ap.dark .a-stats{border-top-color: var(--line);}
+.ap .a-stats .a-v{font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 28px;}
+.ap.dark .a-stats .a-v{color: var(--acc);}
+.ap .a-stats .a-l{font-size: 12px; color: var(--mut);}
+.ap .a-shot{background: #101216; border-radius: 22px; padding: 6px; box-sizing: border-box; flex: none;}
+.ap .a-shot img{display: block; width: 100%; border-radius: 17px;}
+.ap .a-shot.a-flat{border-radius: 16px; padding: 0; background: none;}
+.ap .a-short img{height: 274px; object-fit: cover; object-position: top;}
+.ap .a-shot.a-flat img{border-radius: 14px;}
+.ap .a-tag{align-self: flex-start; display: inline-block; background: var(--acc); color: var(--num-ink); border-radius: 6px; padding: 3px 8px; font-size: 10.5px; font-weight: 700; letter-spacing: .08em;}
+.ap .a-tag.a-alt{background: var(--ink); color: var(--bg);}
+.ap .a-notes{display: flex; flex-direction: column; gap: 11px;}
+.ap .a-note{display: grid; grid-template-columns: 26px 1fr; gap: 10px; border-bottom: 1px solid var(--line); padding-bottom: 10px;}
+.ap .a-note:last-child{border-bottom: 0; padding-bottom: 0;}
+.ap .a-n{width: 24px; height: 24px; border-radius: 12px; background: var(--acc); color: var(--num-ink); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center;}
+.ap .a-note .a-t{font-weight: 600; font-size: 15px;}
+.ap .a-note .a-d{font-size: 13px; line-height: 1.45; color: var(--txt);}
+.ap table{width: 100%; border-collapse: collapse; font-size: 12.5px; line-height: 1.45;}
+.ap th{text-align: left; font-size: 11px; letter-spacing: .1em; color: var(--mut); font-weight: 700; padding: 0 10px 8px 0; border-bottom: 1px solid var(--ink); vertical-align: bottom;}
+.ap.dark th{border-bottom-color: var(--line);}
+.ap td{padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--txt);}
+.ap td:first-child{font-weight: 600; color: var(--ink);}
+.ap .a-card{background: var(--card); border-radius: 14px; padding: 14px 18px;}
+.ap .a-check{display: flex; gap: 8px; font-size: 12.5px; line-height: 1.4;}
+.ap .a-check i{font-style: normal; color: var(--acc); font-weight: 700; flex: none;}
+.ap .a-tabs5{display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px;}
+.ap .a-tab5{background: var(--card); border-radius: 12px; padding: 10px 10px 11px; display: flex; flex-direction: column; gap: 4px;}
+.ap .a-tab5 svg{width: 24px; height: 24px; stroke: var(--acc); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round;}
+.ap .a-tab5 .a-t{font-weight: 700; font-size: 13.5px;}
+.ap .a-tab5 .a-d{font-size: 11.5px; line-height: 1.35; color: var(--txt);}
+.ap .a-story{display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; position: relative;}
+.ap .a-st{display: flex; flex-direction: column; gap: 6px; padding-right: 12px;}
+.ap .a-st .a-when{font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--acc);}
+.ap .a-st .a-what{font-weight: 600; font-size: 13.5px; line-height: 1.3;}
+.ap .a-st .a-how{font-size: 12px; line-height: 1.4; color: var(--txt);}
+.ap .a-st .a-shot,.ap .a-st .a-shot.a-flat{width: 100%; height: 212px; box-sizing: border-box; padding: 4px; border-radius: 14px; background: #101216; overflow: hidden;}
+.ap .a-st .a-shot img,.ap .a-st .a-shot.a-flat img{width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 10px;}
+.ap .a-st .a-when{margin-top: 4px;}
+.ap .a-arrow{color: var(--acc); font-size: 18px;}
+.ap .a-rounds{display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 3px solid var(--acc);}
+.ap .a-rd{padding: 10px 14px 0 0; display: flex; flex-direction: column; gap: 3px; position: relative;}
+.ap .a-rd::before{content: ''; position: absolute; top: -8px; left: 0; width: 13px; height: 13px; border-radius: 50%; background: var(--acc);}
+.ap .a-rd .a-when{font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--acc); margin-top: 4px;}
+.ap .a-rd .a-what{font-weight: 600; font-size: 14.5px;}
+.ap .a-rd .a-how{font-size: 12px; line-height: 1.4; color: var(--txt);}
+.ap table.a-cut td:last-child{font-size: 11.5px; color: var(--mut); font-weight: 400;}
 .pv .tab{font-size:8.4pt}.pv .tab td:first-child{white-space:nowrap;font-weight:600}
 .tab td{padding:2.2mm 3mm 2.2mm 0;border-bottom:1px solid var(--line);vertical-align:top}
 .tab td:first-child{font-weight:800;width:31%}
@@ -706,7 +760,7 @@ body.grid .bar .nav{visibility:hidden}
   <div class="top"><span>02 · INHALT</span><span class="brand">GROWBOX</span></div>
   <h1>Was im <em>Booklet steckt.</em></h1>
   <p class="v-lead">Sechs Kapitel: für wen, wie die Box entstanden ist, was drinsteckt, wie man sie bedient und was die App kann. Jede Entscheidung steht mit Grund aus der Vorlesung und dem Nachteil, den wir dafür in Kauf nehmen.</p>
-  <div class="toc2"><div class="tr"><div class="im"><span class="n">03</span><img class="fit" src="bilder/design-bau/skizze-v2-ohne-text.svg" alt=""></div><div><div class="t">Zielgruppe</div><ul><li><i>03</i>Für jeden gemacht.</li></ul></div></div><div class="tr"><div class="im pair"><span class="n">04–06</span><img src="bilder/design-bau/skizze-v2-ohne-text.svg" alt=""><img src="bilder/design-bau/skizze-v3-ohne-text.svg" alt=""></div><div><div class="t">Konzeptweg Box</div><ul><li><i>04</i>Vom Aquarium zur Mikrowelle.</li><li><i>05</i>Wie eine Mikrowelle. Nur ohne Knopfsalat.</li><li><i>06</i>Ein Taster. Eine Bedeutung.</li></ul></div></div><div class="tr"><div class="im"><span class="n">07–10</span><img class="out" src="bilder/design-bau/prototyp-schraeg.jpg" alt=""></div><div><div class="t">CAD &amp; Bau</div><ul><li><i>07</i>Vom Papier ins CAD.</li><li><i>08</i>Vom Rohdruck zum Prototyp.</li><li><i>09</i>Jedes Detail hat einen Zweck.</li><li><i>10</i>Klein für die Küche. Groß für mehr Ernte.</li></ul></div></div><div class="tr"><div class="im"><span class="n">11</span><img src="bilder/design-bau/cad-technikraum.jpg" alt=""></div><div><div class="t">Technik</div><ul><li><i>11</i>Ein Zustand. Zwei Ansichten.</li></ul></div></div><div class="tr"><div class="im d"><span class="n">12–18</span><img src="bilder/booklet/01-gut.jpg" alt=""><img src="bilder/booklet/03-warnung.jpg" alt=""></div><div><div class="t">Bedienfeld</div><ul class="grp3"><li><i>12–14</i>Konzept</li><li><i>15–17</i>Bedienung</li><li><i>18</i>Weggelassen &amp; offen</li></ul></div></div><div class="tr soon"><div class="im soon"><span class="n">19–24</span>FOLGT</div><div><div class="t">App</div><ul><li><i>··</i>Fünf bis sechs Seiten, folgen.</li></ul></div></div></div>
+  <div class="toc2"><div class="tr"><div class="im"><span class="n">03</span><img class="fit" src="bilder/design-bau/skizze-v2-ohne-text.svg" alt=""></div><div><div class="t">Zielgruppe</div><ul><li><i>03</i>Für jeden gemacht.</li></ul></div></div><div class="tr"><div class="im pair"><span class="n">04–06</span><img src="bilder/design-bau/skizze-v2-ohne-text.svg" alt=""><img src="bilder/design-bau/skizze-v3-ohne-text.svg" alt=""></div><div><div class="t">Konzeptweg Box</div><ul><li><i>04</i>Vom Aquarium zur Mikrowelle.</li><li><i>05</i>Wie eine Mikrowelle. Nur ohne Knopfsalat.</li><li><i>06</i>Ein Taster. Eine Bedeutung.</li></ul></div></div><div class="tr"><div class="im"><span class="n">07–10</span><img class="out" src="bilder/design-bau/prototyp-schraeg.jpg" alt=""></div><div><div class="t">CAD &amp; Bau</div><ul><li><i>07</i>Vom Papier ins CAD.</li><li><i>08</i>Vom Rohdruck zum Prototyp.</li><li><i>09</i>Jedes Detail hat einen Zweck.</li><li><i>10</i>Klein für die Küche. Groß für mehr Ernte.</li></ul></div></div><div class="tr"><div class="im"><span class="n">11</span><img src="bilder/design-bau/cad-technikraum.jpg" alt=""></div><div><div class="t">Technik</div><ul><li><i>11</i>Ein Zustand. Zwei Ansichten.</li></ul></div></div><div class="tr"><div class="im d"><span class="n">12–18</span><img src="bilder/booklet/01-gut.jpg" alt=""><img src="bilder/booklet/03-warnung.jpg" alt=""></div><div><div class="t">Bedienfeld</div><ul class="grp3"><li><i>12–14</i>Konzept</li><li><i>15–17</i>Bedienung</li><li><i>18</i>Weggelassen &amp; offen</li></ul></div></div><div class="tr"><div class="im d"><span class="n">19–24</span><img src="bilder/app/s19-1.jpg" alt=""><img src="bilder/app/s19-2.jpg" alt=""></div><div><div class="t">App</div><ul class="grp3"><li><i>19–20</i>Die App · Zwei Wege</li><li><i>21–22</i>Erweitert</li><li><i>23–24</i>Gestrichen · Unterwegs</li></ul></div></div></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>02</span></div>
 </section>
 
@@ -1032,6 +1086,205 @@ body.grid .bar .nav{visibility:hidden}
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>18</span></div>
 </section>
 
+<!-- ═══ 19 · App (Inhalt: Adelin Dinicu) ═══ -->
+<section class="page vp ap dark">
+  <div class="top"><span>19 · APP</span><span class="brand">GROWBOX</span></div>
+  <h1>Das Bedienfeld,<br><em>zum Mitnehmen.</em></h1>
+  <p class="v-lead">Die Startseite der App ist eine Kopie des Displays: gleicher Ring, gleicher Status, gleiche drei Werte, gleiche Farben. Wer die Box bedienen kann, kann auch die App bedienen. <b>Nichts muss neu gelernt werden.</b></p>
+
+  <div style="display: grid; grid-template-columns: 196px 40px 196px 1fr; gap: 14px; align-items: start">
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 8px"><span class="a-tag">AN DER BOX</span><div class="a-shot"><img src="bilder/app/s19-1.jpg" alt="Display der Box: Ring mit 6 Tagen bis zur Ernte, Alles gut, drei Werte und drei Kacheln"></div></figure>
+    <div aria-hidden="true" style="align-self: center; text-align: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 26px; color: var(--acc)">=</div>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 8px"><span class="a-tag a-alt">IN DER APP</span><div class="a-shot"><img src="bilder/app/s19-2.jpg" alt="Startseite der App: derselbe Ring, derselbe Status, dieselben Werte, unten eine Leiste mit fünf Feldern"></div></figure>
+    <div class="a-notes" style="padding-top: 30px">
+      <div class="a-note"><div class="a-n">1</div><div><div class="a-t">Gleich</div><div class="a-d">Ring, Status „Alles gut“, Temperatur, Luftfeuchtigkeit, Wassertank.</div><div class="a-ref">Konsistenz</div></div></div>
+      <div class="a-note"><div class="a-n">2</div><div><div class="a-t">Anders: unten</div><div class="a-d">Statt drei Kacheln eine Leiste mit fünf Feldern, wie man sie von Instagram kennt.</div><div class="a-ref">Mapping</div></div></div>
+      <div class="a-note"><div class="a-n">3</div><div><div class="a-t">Anders: oben</div><div class="a-d">Statt Handy-Knopf zeigt ein Symbol die Verbindung: Haus = zu Hause, Weltkugel = unterwegs.</div><div class="a-ref">Systemstatus sichtbar</div></div></div>
+    </div>
+  </div>
+
+  <div class="a-cap" style="margin-top: 2px">Die Leiste: fünf Felder, immer an derselben Stelle</div>
+  <div class="a-tabs5">
+    <div class="a-tab5"><svg viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/></svg><div class="a-t">Start</div><div class="a-d">Das Bild vom Display.</div></div>
+    <div class="a-tab5"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><div class="a-t">Kamera</div><div class="a-d">Live in die Kammer schauen.</div></div>
+    <div class="a-tab5"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg><div class="a-t">Neu</div><div class="a-d">Sorte wählen, neu ansetzen.</div></div>
+    <div class="a-tab5"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5h4"/></svg><div class="a-t">Meldungen</div><div class="a-d">Was ist zu tun, was war los.</div></div>
+    <div class="a-tab5"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg><div class="a-t">Erweitert</div><div class="a-d">Eigene Werte und Statistiken.</div></div>
+  </div>
+
+  <div class="a-stats">
+    <div><div class="a-v">1</div><div class="a-l">Zustand im Pi, App und Display zeigen ihn</div></div>
+    <div><div class="a-v">5</div><div class="a-l">Felder in der Leiste</div></div>
+    <div><div class="a-v">0</div><div class="a-l">neue Begriffe gegenüber der Box</div></div>
+    <div><div class="a-v">12</div><div class="a-l">Sprachen, Start auf Englisch</div></div>
+  </div>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Mapping</span><span>Konsistenz</span><span>MVC</span><span>Nielsen</span></div>
+  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann · Adelin Dinicu</span><span>19</span></div>
+</section>
+
+<!-- ═══ 20 · App (Inhalt: Adelin Dinicu) ═══ -->
+<section class="page vp ap">
+  <div class="top"><span>20 · APP ZWEI WEGE</span><span class="brand">GROWBOX</span></div>
+  <h1>Ingrid bleibt auf Start.<br><em>Der Power-User geht tiefer.</em></h1>
+  <p class="v-lead">Dieselbe App, zwei Wege. Ingrid schaut nur, ob alles gut ist, und handelt, wenn die App sie ruft. Der Power-User öffnet <b>Erweitert</b>, sieht in den Daten ein Problem und löst es selbst.</p>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <div style="display: flex; align-items: baseline; gap: 10px"><span class="a-cap" style="color: var(--acc)">Persona 1 · Ingrid, 72</span><span class="a-small">Ingrid benutzt nur die leichten Funktionen</span></div>
+    <div class="a-story">
+      <div class="a-st"><div class="a-shot"><img src="bilder/app/s20-1.jpg" alt="Startseite: Alles gut"></div><div class="a-when">1 · BLICK</div><div class="a-what">Kurzer Blick: „Alles gut“</div><div class="a-how">Mehr muss sie nicht tun.</div></div>
+      <div class="a-st"><div class="a-shot"><img src="bilder/app/s20-2.jpg" alt="Startseite mit Warnung Wasser fehlt und Knopf Jetzt beheben"></div><div class="a-when">2 · MELDUNG</div><div class="a-what">„Wasser fehlt“ + ein Knopf</div><div class="a-how">Gelbes Dreieck, Text und „Jetzt beheben“.</div></div>
+      <div class="a-st"><div class="a-shot"><img src="bilder/app/s20-3.jpg" alt="Meldung mit drei Schritten zum Nachfüllen und Knopf Erledigt"></div><div class="a-when">3 · BEHEBEN</div><div class="a-what">Drei Schritte, dann „Erledigt“</div><div class="a-how">Füllt an der Box nach, die App bestätigt sofort.</div></div>
+      <div class="a-st"><div class="a-shot"><img src="bilder/app/s20-4.jpg" alt="Startseite: wieder Alles gut"></div><div class="a-when">4 · FERTIG</div><div class="a-what">Wieder „Alles gut“</div><div class="a-how">Erweitert hat sie nie geöffnet.</div></div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--line); padding-top: 14px">
+    <div style="display: flex; align-items: baseline; gap: 10px"><span class="a-cap" style="color: var(--acc)">Persona 2 · Power-User</span><span class="a-small">arbeitet aktiv mit der App</span></div>
+    <div class="a-story">
+      <div class="a-st"><div class="a-shot a-flat"><img src="bilder/app/s20-5.jpg" alt="Statistik: Zu trocken, meist zwischen 02 und 06 Uhr"></div><div class="a-when">1 · SEHEN</div><div class="a-what">„Zu trocken, nachts“</div><div class="a-how">Die Statistik sagt es in einem Satz.</div></div>
+      <div class="a-st"><div class="a-shot"><img src="bilder/app/s20-6.jpg" alt="Meine Einstellungen: untere Luftfeuchtigkeit auf 88 Prozent erhöht"></div><div class="a-when">2 · ÄNDERN</div><div class="a-what">Untergrenze 85&nbsp;→&nbsp;88&nbsp;%</div><div class="a-how">Mit + und −, gilt sofort auch am Display.</div></div>
+      <div class="a-st"><div class="a-shot a-flat"><img src="bilder/app/s20-7.jpg" alt="Statistik über 7 Tage: Ziel geändert, vorher 76 Prozent, nachher 100 Prozent im Idealbereich"></div><div class="a-when">3 · PRÜFEN</div><div class="a-what">Vorher 76&nbsp;% → nachher 100&nbsp;%</div><div class="a-how">Die gelbe Linie zeigt die Änderung.</div></div>
+      <div class="a-st"><div class="a-card" style="height: 212px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 6px"><div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.2">Geht es schief?</div><div class="a-small">Ein Knopf: „Auf Standard zurücksetzen“. Dann regelt die Box wieder mit den Werten der Sorte.</div><div class="a-ref">Murphy</div></div></div>
+    </div>
+  </div>
+
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Zoomable UI: erst Übersicht, dann Detail</span><span>Persona</span><span>Feedback</span><span>Murphy</span></div>
+  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann · Adelin Dinicu</span><span>20</span></div>
+</section>
+
+<!-- ═══ 21 · App (Inhalt: Adelin Dinicu) ═══ -->
+<section class="page vp ap">
+  <div class="top"><span>21 · APP MEINE EINSTELLUNGEN</span><span class="brand">GROWBOX</span></div>
+  <h1>Selbst einstellen.<br><em>Mit Geländer.</em></h1>
+  <p class="v-lead">Unter <b>Erweitert</b> stellt der Power-User die Box nach seinen eigenen Werten ein. Jede Änderung gilt sofort für die ganze Box, auch am Display. Feste Schritte und Grenzen verhindern, dass man sich verstellt.</p>
+
+  <div style="display: grid; grid-template-columns: 212px 1fr; gap: 24px; align-items: start">
+    <div class="a-shot"><img src="bilder/app/s21-1.jpg" alt="Erweitert, Meine Einstellungen: Zielwerte für Temperatur und Luftfeuchtigkeit mit Plus und Minus, Knopf Auf Standard zurücksetzen"></div>
+    <div class="a-notes">
+      <div class="a-note"><div class="a-n">1</div><div><div class="a-t">Zwei Reiter</div><div class="a-d">„Meine Einstellungen“ und „Statistiken“. Mehr gibt es unter Erweitert nicht.</div><div class="a-ref">Nielsen: minimalist design</div></div></div>
+      <div class="a-note"><div class="a-n">2</div><div><div class="a-t">Zielwerte mit + und −</div><div class="a-d">Temperatur in,5-°C-Schritten, Luftfeuchtigkeit in 1-%-Schritten. Unten kann nie über oben liegen.</div><div class="a-ref">Fitts · Fehler vermeiden</div></div></div>
+      <div class="a-note"><div class="a-n">3</div><div><div class="a-t">Auf Standard zurücksetzen</div><div class="a-d">Ein Knopf, und die Werte der Sorte gelten wieder. Darunter steht, was Standard ist.</div><div class="a-ref">Murphy</div></div></div>
+      <div class="a-note"><div class="a-n">4</div><div><div class="a-t">Automatik, Licht, Bewässerung</div><div class="a-d">Klima-Automatik an/aus, Licht-Zeiten (z. B. 07–19 Uhr), Gießen alle,, 4 oder 6 Stunden.</div><div class="a-ref">eine Handlung, ein Knopf</div></div></div>
+      <div class="a-note"><div class="a-n">5</div><div><div class="a-t">Sofort am Display</div><div class="a-d">Das Display zeigt die neuen Werte sofort, ohne Speichern-Knopf. Unter den Werten steht: „Gilt für Box und App“.</div><div class="a-ref">Feedback · MVC</div></div></div>
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th style="width: 30%">ENTSCHEIDUNG</th><th style="width: 40%">GRUND</th><th>NACHTEIL, DEN WIR IN KAUF NEHMEN</th></tr></thead>
+    <tbody>
+      <tr><td>Plus und Minus statt Zahl eintippen</td><td>Große Ziele, keine Tastatur, keine Tippfehler (Fitts, Fehler vermeiden).</td><td>Große Sprünge brauchen mehrere Tipps.</td></tr>
+      <tr><td>Eigene Werte nur in der App</td><td>Die Box bleibt radikal einfach. Wer mehr will, zoomt in der App hinein (Zoomable UI).</td><td>Ohne Handy kein Feintuning.</td></tr>
+      <tr><td>Ein Knopf zurück auf Standard</td><td>Wer sich verstellt, kommt mit einer Handlung zurück (Murphy).</td><td>Die eigenen Werte sind dann weg.</td></tr>
+      <tr><td>Licht und Gießen in festen Stufen</td><td>Wenige sichere Möglichkeiten statt freier Eingabe (Fehler vermeiden).</td><td>Keine minutengenauen Zeiten.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann · Adelin Dinicu</span><span>21</span></div>
+</section>
+
+<!-- ═══ 22 · App (Inhalt: Adelin Dinicu) ═══ -->
+<section class="page vp ap dark">
+  <div class="top"><span>22 · APP STATISTIKEN</span><span class="brand">GROWBOX</span></div>
+  <h1>Jedes Diagramm<br><em>beantwortet eine Frage.</em></h1>
+  <p class="v-lead">Ein Diagramm allein sagt nichts. Deshalb steht über jedem Verlauf ein Satz: <b>Passt es, und wenn nicht, wann nicht?</b> Darunter ein Knopf, der direkt zur passenden Einstellung führt.</p>
+
+  <div style="display: grid; grid-template-columns: 262px 1fr; gap: 24px; align-items: start">
+    <div class="a-shot a-flat" style="width: 262px"><img src="bilder/app/s22-1.jpg" alt="Statistik Luftfeuchtigkeit über 24 Stunden mit Erkenntnis, Diagramm, Idealbereich, Bewässerung und Tipp-Knopf"></div>
+    <div class="a-notes">
+      <div class="a-note"><div class="a-n">1</div><div><div class="a-t">Erkenntnis als Satz</div><div class="a-d">„Zu trocken, meist zwischen 02 und 06 Uhr“. Immer Symbol + Text, nie Farbe allein.</div><div class="a-ref">Gulf of Evaluation · Farbsehschwäche</div></div></div>
+      <div class="a-note"><div class="a-n">2</div><div><div class="a-t">Idealbereich als Band</div><div class="a-d">Man sieht ohne Rechnen, wann die Linie das Band verlässt. Das Band folgt den eigenen Zielwerten.</div><div class="a-ref">präattentiv</div></div></div>
+      <div class="a-note"><div class="a-n">3</div><div><div class="a-t">Uhrzeiten und Tropfen</div><div class="a-d">Die Achse zeigt Uhrzeiten (24 h) oder Wochentage (7 Tage). Tropfen markieren das Gießen: Danach steigt die Feuchtigkeit.</div><div class="a-ref">Mapping</div></div></div>
+      <div class="a-note"><div class="a-n">4</div><div><div class="a-t">Tipp-Knopf</div><div class="a-d">„Untere Luftfeuchtigkeit erhöhen“ springt direkt in Meine Einstellungen.</div><div class="a-ref">eine Handlung, ein Knopf</div></div></div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 262px 1fr; gap: 24px; align-items: center">
+    <div class="a-shot a-flat" style="width: 262px"><img src="bilder/app/s22-2.jpg" alt="Statistik über 7 Tage mit gelber Linie Ziel geändert und Vergleich vorher 76 Prozent, nachher 100 Prozent"></div>
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <div class="a-note" style="border: 0; padding: 0"><div class="a-n">5</div><div><div class="a-t">Hat es geholfen?</div><div class="a-d">Nach einer Änderung zeigt eine gelbe Linie „Ziel geändert“. Darunter steht der Vergleich: <b style="color: var(--ink)">vorher 76 % → nachher 100 %</b> im Idealbereich.</div><div class="a-ref">Feedback</div></div></div>
+      <div class="a-card" style="display: flex; flex-direction: column; gap: 6px">
+        <div class="a-cap" style="color: var(--mut)">Bewusst so gelöst</div>
+        <div class="a-check"><i>→</i><span><b>Nur zwei Zeiträume</b>: 24 Stunden für heute, 7 Tage für „Hat es geholfen?“.</span></div>
+        <div class="a-check"><i>×</i><span><b>Immer 100 %</b>: Eine Statistik, die nie etwas zeigt, hilft niemandem.</span></div>
+        <div class="a-check"><i>→</i><span><b>Taupunkt und VPD</b> bleiben, aber nur mit Erklärung zum Aufklappen.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Farbsehschwäche</span><span>präattentiv</span><span>Gulf of Evaluation</span><span>Mapping</span><span>Feedback</span></div>
+  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann · Adelin Dinicu</span><span>22</span></div>
+</section>
+
+<!-- ═══ 23 · App (Inhalt: Adelin Dinicu) ═══ -->
+<section class="page vp ap">
+  <div class="top"><span>23 · APP GESTRICHEN</span><span class="brand">GROWBOX</span></div>
+  <h1>Gebaut, geprüft,<br><em>wieder gestrichen.</em></h1>
+  <p class="v-lead">Die App ist in vier Runden entstanden. Jede Idee musste eine Frage bestehen: <b>Macht sie die Bedienung für Ingrid einfacher?</b> Wenn nicht, flog sie raus, auch wenn sie schon fertig gebaut war.</p>
+
+  <div class="a-rounds">
+    <div class="a-rd"><div class="a-when">RUNDE 1</div><div class="a-what">Alles rein</div><div class="a-how">Viele Ideen, eigener App-Look, Maskottchen, Hilfe-Kästen.</div></div>
+    <div class="a-rd"><div class="a-when">RUNDE 2</div><div class="a-what">Wie das Display</div><div class="a-how">Startseite 1 : 1 vom Bedienfeld übernommen.</div></div>
+    <div class="a-rd"><div class="a-when">RUNDE 3</div><div class="a-what">Team-Feedback</div><div class="a-how">Leiste mit 5 Feldern, „Erweitert“ statt Stufen.</div></div>
+    <div class="a-rd"><div class="a-when">RUNDE 4</div><div class="a-what">Feinschliff</div><div class="a-how">Statistik mit Satz, Begriffe, Knöpfe entrümpelt.</div></div>
+  </div>
+
+  <table class="a-cut">
+    <thead><tr><th style="width: 24%">GESTRICHEN</th><th style="width: 27%">WARUM GEBAUT</th><th style="width: 33%">WARUM RAUS</th><th>VORLESUNG</th></tr></thead>
+    <tbody>
+      <tr><td>Maskottchen mit Sprechblasen</td><td>Spaß und Motivation beim Pflegen.</td><td>Lenkt vom Status ab und spricht bei jedem Öffnen.</td><td>Nielsen</td></tr>
+      <tr><td>Hilfe-Kasten auf jeder Seite</td><td>Anfänger anleiten.</td><td>Text, den keiner liest. Die Bedienung muss sich selbst erklären.</td><td>Affordance</td></tr>
+      <tr><td>Stufen „Anfänger / Erweitert“</td><td>Anfänger nicht überfordern.</td><td>Ein Modus mehr: Man muss wissen, in welcher Stufe man ist. Ersetzt durch das Feld „Erweitert“.</td><td>Modusfehler</td></tr>
+      <tr><td>Ruhemodus</td><td>Nachts weniger Licht vom Display.</td><td>Noch ein Knopf, der Licht-Zeitplan erledigt das schon.</td><td>Eine Handlung, ein Knopf</td></tr>
+      <tr><td>Drei Farbwelten</td><td>Persönliche Note.</td><td>Blau ist die Farbe der Box. Geblieben: Blau, Schwarz oder eine eigene Farbe.</td><td>Konsistenz</td></tr>
+      <tr><td>Licht-Knopf oben</td><td>Schnell Licht an.</td><td>Gehört zum Klima, und an der Box gibt es den Taster.</td><td>Mapping</td></tr>
+      <tr><td>„Licht aus“ im Diagramm</td><td>Nachtzeiten zeigen.</td><td>Im Team kam die Frage: „Was interessiert mich das?“ Uhrzeiten zeigen dasselbe.</td><td>präattentiv</td></tr>
+    </tbody>
+  </table>
+
+  <div class="a-card" style="display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center">
+    <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 40px; line-height: 1; color: var(--acc)">7</div>
+    <div class="a-small" style="font-size: 13.5px"><b style="color: var(--ink)">Funktionen gebaut und wieder gelöscht.</b> Der Prototyp wurde mit KI-Unterstützung gebaut. Was bleibt, haben wir entschieden: durchgeklickt, mit dem Bedienfeld abgeglichen, im Team besprochen.</div>
+  </div>
+
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Modusfehler</span><span>Affordance</span><span>Konsistenz</span><span>Double Diamond</span><span>Nielsen</span></div>
+  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann · Adelin Dinicu</span><span>23</span></div>
+</section>
+
+<!-- ═══ 24 · App (Inhalt: Adelin Dinicu) ═══ -->
+<section class="page vp ap dark">
+  <div class="top"><span>24 · APP UNTERWEGS</span><span class="brand">GROWBOX</span></div>
+  <h1>Weg von der Box.<br><em>Trotzdem im Bild.</em></h1>
+  <p class="v-lead">Die App braucht kein Konto und kein Passwort. Sie wird einmal mit der Box gekoppelt und funktioniert dann zu Hause und unterwegs. Fällt die Verbindung aus, regelt die Box einfach weiter.</p>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px">
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 8px"><div class="a-shot a-short"><img src="bilder/app/s24-1.jpg" alt="Koppeln: Code am Display zeigen oder QR-Code scannen"></div><div style="font-weight: 600; font-size: 14px">Koppeln</div><div class="a-small">Code am Display zeigen, mit dem Handy scannen oder 6 Ziffern eintippen. Nur wer vor der Box steht, kommt rein.</div></figure>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 8px"><div class="a-shot a-short"><img src="bilder/app/s24-2.jpg" alt="Live-Kamera mit Blick in die Pilzkammer und Zeitraffer-Regler"></div><div style="font-weight: 600; font-size: 14px">Live-Kamera</div><div class="a-small">Blick in die Kammer, ohne die Tür zu öffnen. Mit Zeitraffer über den ganzen Durchgang.</div></figure>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 8px"><div class="a-shot a-short"><img src="bilder/app/s24-3.jpg" alt="Meldung Wasser fehlt mit drei Schritten und Knopf Erledigt"></div><div style="font-weight: 600; font-size: 14px">Meldungen</div><div class="a-small">Was los ist, was zu tun ist, in nummerierten Schritten. Danach ein Knopf: „Erledigt“.</div></figure>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px">
+    <div class="a-card" style="display: flex; flex-direction: column; gap: 6px">
+      <div class="a-cap">Für alle lesbar</div>
+      <div class="a-check"><i>✓</i><span><b>12 Sprachen</b>, als Liste mit Suche statt vieler Knöpfe</span></div>
+      <div class="a-check"><i>✓</i><span><b>Farbenblind-Modus</b>, große Schrift, °C&nbsp;oder&nbsp;°F</span></div>
+      <div class="a-check"><i>✓</i><span><b>Hintergrund</b> Blau, Schwarz oder eigene Farbe. Zu helle Farben werden abgedunkelt, damit Weiß lesbar bleibt.</span></div>
+    </div>
+    <div class="a-card" style="display: flex; flex-direction: column; gap: 6px">
+      <div class="a-cap">Technik</div>
+      <div class="a-check"><i>→</i><span><b>Raspberry Pi</b> hält den einen Zustand, App und Display zeigen ihn nur an.</span></div>
+      <div class="a-check"><i>→</i><span><b>Web-App</b>: kein App Store, läuft auf iPhone und Android.</span></div>
+      <div class="a-check"><i>→</i><span><b>Offline</b>: klare Meldung „Box nicht erreichbar“, die Box regelt weiter.</span></div>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; font-size: 12.5px; line-height: 1.45; color: var(--txt); border-top: 1px solid var(--line); padding-top: 12px">
+    <span class="a-cap" style="color: var(--ink)">Nächste Schritte</span>
+    <span>Test mit echten Nutzern (Ingrid und Power-User) · echte Kamera und Verläufe vom Pi · Push-Nachrichten · Pilzerkennung per Foto.</span>
+  </div>
+  <div class="folien"><span class="label">Aus der Vorlesung</span><span>Farbsehschwäche</span><span>Kontrast</span><span>MVC</span><span>Nielsen</span></div>
+  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann · Adelin Dinicu</span><span>24</span></div>
+</section>
+
 <!-- ═══ Anhang · Promptverzeichnis (nicht im Inhaltsverzeichnis) ═══ -->
 <section class="page tight pv">
   <div class="top"><span>ANHANG · PROMPTVERZEICHNIS</span><span class="brand">GROWBOX</span></div>
@@ -1048,7 +1301,7 @@ body.grid .bar .nav{visibility:hidden}
   <tr><td>Vorlesung</td><td>„Gleiche unsere Entscheidungen mit den Vorlesungskonzepten ab (Affordance, Mapping, Feedback, Gestaltgesetze) und schlage pro Seite passende Begriffe vor.“</td><td>Zuordnungen geprüft, unpassende gestrichen</td></tr>
   <tr><td>Teamtreffen</td><td>„Erstelle einen Plan fürs Treffen am 07.11.: Abgleich, Konzeptweg V1–V3, Seitenplan, offene Fragen.“</td><td>Treffen geführt, Ergebnisse zurückgegeben</td></tr>
   </tbody></table>
-  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>19</span></div>
+  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>25</span></div>
 </section>
 
 <section class="page tight pv">
@@ -1066,7 +1319,7 @@ body.grid .bar .nav{visibility:hidden}
   <tr><td>Feinschliff</td><td>Rund 50 Einzelkorrekturen, z. B. „S. 06: Der Lichtschalter weckt nicht das Display“, „S. 14: Blau mit Farbsehen begründen“, „S. 18: Karte Ruhemodus raus“.</td><td>Fehler selbst gefunden, Formulierungen vorgegeben</td></tr>
   </tbody></table>
   <p class="lead" style="margin-top:auto">Alle Änderungen sind im Git-Verlauf des Projekts nachvollziehbar.</p>
-  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>20</span></div>
+  <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>26</span></div>
 </section>
 
 </main>
@@ -1078,7 +1331,7 @@ body.grid .bar .nav{visibility:hidden}
   const pages=[...document.querySelectorAll(".page")], book=document.getElementById("book");
   const pos=document.getElementById("pos"), prev=document.getElementById("prev"), next=document.getElementById("next"), gridBtn=document.getElementById("grid");
   // Fortschrittssegmente oben auf jeder Seite (wie beim Kollegen)
-  const GRENZEN=[2,3,6,10,11]; // Kapitelwechsel nach diesen Seiten: Einstieg · Konzept · CAD & Bau · Technik · Bedienfeld
+  const GRENZEN=[2,3,6,10,11,18]; // Kapitelwechsel nach diesen Seiten: Einstieg · Konzept · CAD & Bau · Technik · Bedienfeld
   pages.forEach((p,k)=>{if(p.classList.contains("cv")||p.classList.contains("ext"))return;const b=document.createElement("div");b.className="kbar";b.setAttribute("aria-hidden","true");
     const N=pages.length;b.innerHTML=`<i style="width:${((k+1)/N*100).toFixed(1)}%"></i>`+GRENZEN.map(g=>`<b class="${g<=k?"on":""}" style="left:${(g/N*100).toFixed(1)}%"></b>`).join("");p.prepend(b)});
   pages.forEach((p,k)=>{const s=p.querySelector(".segs");if(s)s.innerHTML=pages.map((_,j)=>`<i class="${j<=k?"on":""}"></i>`).join("")});
