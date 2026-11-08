@@ -662,6 +662,9 @@ body.grid .bar .nav{visibility:hidden}
 .p02 .tr ul.grp3 li i{min-width:44px}
 .rows16 .iw{position:relative}
 .rows16 .tap{position:absolute;width:26px;height:26px;border-radius:50%;transform:translate(-50%,-50%);background:rgba(238,242,234,.6);box-shadow:0 0 0 6px rgba(242,200,121,.5),0 0 0 13px rgba(242,200,121,.2)}
+.baunote{display:flex;gap:12px;align-items:baseline;border-left:3px solid #e0b46a;padding:6px 12px;white-space:nowrap;background:rgba(224,180,106,.1);border-radius:0 6px 6px 0;font-size:13px;line-height:1.45;color:#D5DED6}
+.baunote .bl{font:600 9.6px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#e0b46a;white-space:nowrap}
+.baunote b{color:#EEF2EA}
 </style>
 </head>
 <body>
@@ -707,7 +710,7 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page dark vp p04">
   <div class="top"><span>04 · KONZEPTWEG BOX I</span><span class="brand">GROWBOX</span></div>
   <h1>Vom Aquarium<br><em>zur Mikrowelle.</em></h1>
-  <p class="v-lead">Wir haben uns bewusst eine Form ausgesucht, die jeder schon kennt. Am Anfang stand <b>V1, ein Aquarium</b> mit Bedienteil, daraus wurde <b>die Mikrowelle</b>: links das Fenster, rechts das Bedienfeld.</p>
+  <p class="v-lead">Eine Form, die jeder kennt: Aus dem <b>Aquarium (V1)</b> wurde <b>die Mikrowelle</b>, links das Fenster, rechts das Bedienfeld.</p>
   <div class="vs3 kw">
     <figure><span class="tag">V1 · 26.10. · Idee</span><div class="card light"><svg viewBox="8 18 206 124" class="skv1" aria-label="V1 schematisch: Plexi-Kasten und separates Bedienteil mit Kabel">
   <g fill="none" stroke="#1d3b2a" stroke-width="2" stroke-linejoin="round">
@@ -788,7 +791,7 @@ body.grid .bar .nav{visibility:hidden}
     <tr><td>Kein Warnlicht an der Box</td><td>Warnungen erscheinen nur als oranger Punkt auf dem Display, nicht zusätzlich an einer zweiten Stelle.</td><td>Fällt das Display aus, gibt es keine Warnung.</td></tr>
     <tr><td>Tank vorn mit Sichtfenster</td><td>Die Linie im Sichtfenster zeigt denselben Füllstand wie der Balken „Wassertank“ auf dem Display (Mapping).</td><td>Der Technikraum braucht eine Trennwand.</td></tr>
   </table>
-  <p class="v-small"><b>Im Bau</b> wurde aus dem Taster ein Schiebeschalter fürs Licht, eine Sensorleiste weckt das Display, und der Tank sitzt oben (siehe „Alle Features“). Die Regel blieb: ein Bedienteil, eine Bedeutung.</p>
+  <div class="baunote"><span class="bl">Im Bau geändert</span><span>Schiebeschalter statt Taster · Sensorleiste weckt das Display. <b>Die Regel blieb: ein Bedienteil, eine Bedeutung.</b></span></div>
 
   <div class="folien"><span class="label">Aus der Vorlesung</span><span>Speed-Accuracy-Tradeoff</span><span>Affordance</span><span>Modusfehler</span><span>Mapping</span></div>
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>06</span></div>
@@ -815,7 +818,7 @@ body.grid .bar .nav{visibility:hidden}
     <span></span><span></span><span class="mid">⇅ WLAN · HTTP + WebSocket</span><span></span><span class="n sim">Messwerte<small>simuliert</small></span>
     <span class="n">Bedienfeld<small>iPhone 13 mini im Vollbild</small></span><span></span><span class="mid2">zwei Ansichten desselben Zustands</span><span></span><span class="n">App<small>Teammitglied</small></span>
   </figure>
-  <table class="tab"><thead><tr><th>Baustein</th><th>Technik</th><th>Stand im Prototyp</th></tr></thead><tbody><tr><td>Steuerrechner</td><td>Raspberry Pi, Python + FastAPI, HTTP und WebSocket für Live-Updates</td><td>Code geschrieben, läuft noch nicht auf dem Pi: das Bedienfeld hatte Vorrang</td></tr><tr><td>Bedienfeld</td><td>Web-Oberfläche ohne Framework (HTML, CSS, JavaScript), im Safari-Vollbild, gesperrt per Geführtem Zugriff</td><td>läuft (v7), am Laptop ohne Hardware testbar</td></tr><tr><td>Taster und LED</td><td>gpiozero am Pi; LED-Streifen adressierbar, 5 V</td><td>echt; Ansteuerung der Streifen folgt</td></tr><tr><td>Messwerte</td><td>Temperatur, Feuchte und Tank, im Admin-Modus umschaltbar</td><td>simuliert, für die Vorführung</td></tr><tr><td>App</td><td>eigene App, liest denselben Zustand</td><td>Live-Sync am Mac gezeigt, mit dem Pi geplant</td></tr><tr><td>Gehäuse</td><td>CAD, 3D-Druck in PLA, Plexiglas 3 mm</td><td>gebaut (siehe CAD und Prototyp)</td></tr></tbody></table>
+  <table class="tab"><thead><tr><th>Baustein</th><th>Technik</th><th>Stand im Prototyp</th></tr></thead><tbody><tr><td>Steuerrechner</td><td>Raspberry Pi, Python, Live-Updates per WLAN</td><td>Code geschrieben, läuft noch nicht auf dem Pi: das Bedienfeld hatte Vorrang</td></tr><tr><td>Bedienfeld</td><td>Webseite im Vollbild, gesperrt gegen Verlassen</td><td>läuft (v7), am Laptop ohne Hardware testbar</td></tr><tr><td>Taster und LED</td><td>direkt am Pi angeschlossen</td><td>echt; Ansteuerung der Streifen folgt</td></tr><tr><td>Messwerte</td><td>Temperatur, Feuchte, Tank</td><td>simuliert, für die Vorführung</td></tr><tr><td>App</td><td>liest denselben Zustand</td><td>Live-Sync am Mac gezeigt, mit dem Pi geplant</td></tr><tr><td>Gehäuse</td><td>3D-Druck, Plexiglas</td><td>gebaut (siehe CAD und Prototyp)</td></tr></tbody></table>
   <div class="duo">
     <div class="box"><h3>Warum ein Zustand?</h3><p>Model View Controller: ein Modell, mehrere Ansichten. Markiert der Power-User unterwegs eine Meldung als gesehen, zeigt die Box das sofort. Gleiche Wörter und Farben in beiden (Konsistenz).</p></div>
     <div class="box"><h3>Warum simuliert?</h3><p>Im Prozess entstehen bewusst nur Prototypen, ihr Code ist nicht zum Weiterverwenden gedacht (Implementierung). Der Prototyp prüft Bedienung und Aussehen, nicht die Implementierung (Houde &amp; Hill).</p></div>
@@ -863,7 +866,7 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page vp p13">
   <div class="top"><span>13 · BEDIENFELD KONZEPT II</span><span class="brand">GROWBOX</span></div>
   <h1>Vom Entwurf<br><em>zum Bedienfeld.</em></h1>
-  <p class="v-lead">Von V1 zum finalen Bedienfeld kam einiges dazu, <b>und was die Box selbst regelt, fiel weg.</b></p>
+  <p class="v-lead">Sieben Änderungen von V1 zum Final: <b>vier neu, eine größer, eine geändert, eine gestrichen.</b></p>
   <div class="vs13">
     <figure><span class="tag">V1 · 29.10.</span><div class="pw"><img class="disp" src="bilder/booklet/v1-luftfeuchte.jpg" alt="Bedienfeld V1: Luftfeuchte im Ring, Werte als Zahlen, Kacheln Ein, Frischluft, Meldungen, Sorte">
       <span class="pin o" style="left:0;top:91%">7</span></div></figure>
@@ -957,7 +960,7 @@ body.grid .bar .nav{visibility:hidden}
     <svg class="arc" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 32 Q30 -6 54 28"/><path d="M47 25 L54 28 L54 20"/></svg>
     <figure class="on"><div class="iw"><img class="disp" src="bilder/booklet/17-erweitert.jpg" alt="Erweitert aufgeklappt"></div><figcaption><b>Erweitert</b>Vier Werte, feste Schritte.</figcaption></figure>
     <span class="sep" aria-hidden="true"></span>
-    <figure class="hold"><div class="iw"><img class="disp" src="bilder/booklet/18-halten-1s.jpg" alt="Neu ansetzen mitten im Wachstum, nach einer Sekunde gehalten"><span class="finger" aria-hidden="true"></span><span class="tlb"><i></i></span></div><figcaption><b>Erst halten</b>Nur mitten im Wachstum: Neu ansetzen verwirft die laufende Ernte. Darum 2 s gedrückt halten statt tippen, so löst kein Versehen das aus. Loslassen bricht ab, nach der Ernte reicht ein „Sicher?“.</figcaption></figure>
+    <figure class="hold"><div class="iw"><img class="disp" src="bilder/booklet/18-halten-1s.jpg" alt="Neu ansetzen mitten im Wachstum, nach einer Sekunde gehalten"><span class="finger" aria-hidden="true"></span><span class="tlb"><i></i></span></div><figcaption><b>Erst halten</b>Nur mitten im Wachstum: Neu ansetzen verwirft die Pilze. Deshalb 2 s halten statt tippen, Loslassen bricht ab. Nach der Ernte reicht „Sicher?“.</figcaption></figure>
   </div>
 
   <div class="foot"><span>Felix Schnapp · Ardit Becolli · Felix Zimmermann</span><span>16</span></div>
@@ -975,7 +978,7 @@ body.grid .bar .nav{visibility:hidden}
       <ul>
         <li><b>An oder aus steht in der Zeile.</b>Handy und Urlaub zeigen ihren Zustand, ohne dass man sie öffnet.</li>
         <li><b>Handy verbinden</b>Code in der App eingeben, dann gehen Meldungen aufs Handy.</li>
-        <li><b>Urlaub</b>Vorher steht, was sich ändert: Die Box spart Wasser, Meldungen gehen aufs Handy. Starten braucht eine Bestätigung, damit kein Tipp ihn aus Versehen auslöst. Beenden geht mit einem Tipp.</li>
+        <li><b>Urlaub</b>Vorher steht, was sich ändert: weniger Wasser, Meldungen aufs Handy. Starten mit Bestätigung, damit es nicht aus Versehen passiert, beenden mit einem Tipp.</li>
         <li><b>Farbige Symbole</b>Sprache, Darstellung und Hilfe tragen Farbe: Flagge, Farbfeld, rote Fahne. Wenn etwas nicht stimmt, findet man sie am schnellsten.</li>
         <li><b>Admin-Modus ganz unten</b>Abgesetzt für Service und Vorführung, Ingrid braucht ihn nicht.</li>
       </ul>
@@ -995,7 +998,7 @@ body.grid .bar .nav{visibility:hidden}
 <section class="page dark vp p18">
   <div class="top"><span>18 · WEGGELASSEN &amp; OFFEN</span><span class="brand">GROWBOX</span></div>
   <h1>Bewusst weggelassen.<br><em>Und was als Nächstes kommt.</em></h1>
-  <p class="v-lead">Das Bedienfeld ist einfach, weil vieles fehlt. Jede Lücke hat einen Preis, und manche schließen wir als Nächstes.</p>
+  <p class="v-lead">Das Bedienfeld ist einfach, weil vieles fehlt. Jede Lücke hat einen Preis. Darunter: was als Nächstes kommt.</p>
 
   <div class="h2">Weggelassen · und der Preis</div>
   <div class="cut">
